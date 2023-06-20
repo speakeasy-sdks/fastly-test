@@ -11,4 +11,4 @@ typescript:
   version: 0.0.1
   author: doramatadora
   maxMethodParams: 0
-  packageName: FastlyTest
+  packageName: FastlyTestJS
