@@ -1,0 +1,11 @@
+# RelationshipsForTlsActivationInput
+
+The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
+
+
+## Fields
+
+| Field                                                                                                                       | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `tlsCertificate`                                                                                                            | [RelationshipsForTlsActivationTlsCertificateInput](../../models/shared/relationshipsfortlsactivationtlscertificateinput.md) | :heavy_minus_sign:                                                                                                          | N/A                                                                                                                         |
+| `tlsDomain`                                                                                                                 | [RelationshipsForTlsActivationTlsDomainInput](../../models/shared/relationshipsfortlsactivationtlsdomaininput.md)           | :heavy_minus_sign:                                                                                                          | N/A                                                                                                                         |

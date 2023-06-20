@@ -1,0 +1,12 @@
+# BillingAddressVerificationErrorResponseErrors
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `candidates`                                                                  | [BillingAddressAttributes](../../models/shared/billingaddressattributes.md)[] | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `detail`                                                                      | *string*                                                                      | :heavy_check_mark:                                                            | N/A                                                                           |
+| `status`                                                                      | *number*                                                                      | :heavy_check_mark:                                                            | N/A                                                                           |
+| `title`                                                                       | *string*                                                                      | :heavy_check_mark:                                                            | N/A                                                                           |
+| `type`                                                                        | *string*                                                                      | :heavy_check_mark:                                                            | The error type.                                                               |

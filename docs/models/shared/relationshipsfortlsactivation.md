@@ -1,0 +1,11 @@
+# RelationshipsForTlsActivation
+
+The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `tlsCertificate`                                                                                                  | [RelationshipsForTlsActivationTlsCertificate](../../models/shared/relationshipsfortlsactivationtlscertificate.md) | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `tlsDomain`                                                                                                       | [RelationshipsForTlsActivationTlsDomain](../../models/shared/relationshipsfortlsactivationtlsdomain.md)           | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |

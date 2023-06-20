@@ -1,0 +1,9 @@
+# UpdateBulkTlsCertRequest
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `certificateId`                                                                  | *string*                                                                         | :heavy_check_mark:                                                               | Alphanumeric string identifying a TLS bulk certificate.                          | cRTguUGZzb2W9Euo4moOr                                                            |
+| `tlsBulkCertificateInput`                                                        | [shared.TlsBulkCertificateInput](../../models/shared/tlsbulkcertificateinput.md) | :heavy_minus_sign:                                                               | N/A                                                                              |                                                                                  |

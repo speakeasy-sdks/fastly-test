@@ -1,0 +1,9 @@
+# UpdateTlsConfigRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `tlsConfigurationInput`                                                      | [shared.TlsConfigurationInput](../../models/shared/tlsconfigurationinput.md) | :heavy_minus_sign:                                                           | N/A                                                                          |                                                                              |
+| `tlsConfigurationId`                                                         | *string*                                                                     | :heavy_check_mark:                                                           | Alphanumeric string identifying a TLS configuration.                         | t7CguUGZzb2W9Euo5FoKa                                                        |

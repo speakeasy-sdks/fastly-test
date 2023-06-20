@@ -1,0 +1,11 @@
+# CreateDirectorResponse
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `contentType`                                                      | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `statusCode`                                                       | *number*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `rawResponse`                                                      | [AxiosResponse>](https://axios-http.com/docs/res_schema)           | :heavy_minus_sign:                                                 | N/A                                                                |
+| `directorResponse`                                                 | [shared.DirectorResponse](../../models/shared/directorresponse.md) | :heavy_minus_sign:                                                 | OK                                                                 |

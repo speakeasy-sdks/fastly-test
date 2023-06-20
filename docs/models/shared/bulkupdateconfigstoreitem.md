@@ -1,0 +1,10 @@
+# BulkUpdateConfigStoreItem
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `itemKey`                                                                         | *string*                                                                          | :heavy_minus_sign:                                                                | Item key, maximum 256 characters.                                                 | test-key                                                                          |
+| `itemValue`                                                                       | *string*                                                                          | :heavy_minus_sign:                                                                | Item value, maximum 8000 characters.                                              | test-value                                                                        |
+| `op`                                                                              | [BulkUpdateConfigStoreItemOp](../../models/shared/bulkupdateconfigstoreitemop.md) | :heavy_minus_sign:                                                                | N/A                                                                               |                                                                                   |
