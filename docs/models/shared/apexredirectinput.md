@@ -1,0 +1,10 @@
+# ApexRedirectInput
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `domains`                                                                                          | *string*[]                                                                                         | :heavy_minus_sign:                                                                                 | Array of apex domains that should redirect to their WWW subdomain.                                 |
+| `featureRevision`                                                                                  | *number*                                                                                           | :heavy_minus_sign:                                                                                 | Revision number of the apex redirect feature implementation. Defaults to the most recent revision. |
+| `statusCode`                                                                                       | [ApexRedirectStatusCode](../../models/shared/apexredirectstatuscode.md)                            | :heavy_minus_sign:                                                                                 | HTTP status code used to redirect the client.                                                      |

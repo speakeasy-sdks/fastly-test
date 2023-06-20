@@ -1,0 +1,10 @@
+# BulkUpdateWafActiveRulesRequest
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `bulkWafActiveRuleInput`                                                       | [shared.BulkWafActiveRuleInput](../../models/shared/bulkwafactiveruleinput.md) | :heavy_minus_sign:                                                             | N/A                                                                            |                                                                                |
+| `firewallId`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | Alphanumeric string identifying a WAF Firewall.                                | fW7g2uUGZzb2W9Euo4Mo0r                                                         |
+| `versionId`                                                                    | *number*                                                                       | :heavy_check_mark:                                                             | Integer identifying a service version.                                         | 1                                                                              |

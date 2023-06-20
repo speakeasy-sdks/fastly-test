@@ -1,0 +1,9 @@
+# TlsPrivateKeyDataAttributes
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `key`                                                                                                  | *string*                                                                                               | :heavy_minus_sign:                                                                                     | The contents of the private key. Must be a PEM-formatted key. Not returned in response body. Required. |
+| `name`                                                                                                 | *string*                                                                                               | :heavy_minus_sign:                                                                                     | A customizable name for your private key. Optional.                                                    |

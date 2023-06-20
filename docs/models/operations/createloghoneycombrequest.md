@@ -1,0 +1,10 @@
+# CreateLogHoneycombRequest
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `loggingHoneycomb2`                                                  | [shared.LoggingHoneycomb2](../../models/shared/logginghoneycomb2.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `serviceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | Alphanumeric string identifying the service.                         | SU1Z0isxPaozGVKXdv0eY                                                |
+| `versionId`                                                          | *number*                                                             | :heavy_check_mark:                                                   | Integer identifying a service version.                               | 1                                                                    |

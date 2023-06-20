@@ -1,0 +1,10 @@
+# BillingEstimateResponseTotalExtras
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `name`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | The name of this extra cost.                                                                  |
+| `recurring`                                                                                   | *number*                                                                                      | :heavy_minus_sign:                                                                            | Recurring monthly cost in USD. Not present if $0.0.                                           |
+| `setup`                                                                                       | *number*                                                                                      | :heavy_minus_sign:                                                                            | Initial set up cost in USD. Not present if $0.0 or this is not the month the extra was added. |

@@ -1,0 +1,11 @@
+# CreateLogAwsS3Response
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `contentType`                                                        | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `statusCode`                                                         | *number*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `rawResponse`                                                        | [AxiosResponse>](https://axios-http.com/docs/res_schema)             | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `loggingS3Response`                                                  | [shared.LoggingS3Response](../../models/shared/loggings3response.md) | :heavy_minus_sign:                                                   | OK                                                                   |
