@@ -16,8 +16,8 @@ Retrieve headers and MD5 hash of the content for a particular URL from each Fast
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ContentCheckResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ContentCheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

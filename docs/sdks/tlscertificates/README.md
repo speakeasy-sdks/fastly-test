@@ -20,9 +20,9 @@ Create a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -82,8 +82,8 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -119,9 +119,9 @@ Show a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -157,9 +157,9 @@ List all TLS certificates.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsCertsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Sort, TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Sort, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -201,9 +201,9 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

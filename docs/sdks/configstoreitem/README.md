@@ -22,9 +22,9 @@ Add multiple key-value pairs to an individual config store, specified by ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { BulkUpdateConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BulkUpdateConfigStoreItemOp } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { BulkUpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -79,8 +79,8 @@ Add a single key-value pair to an individual config store, specified by ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -120,8 +120,8 @@ Delete an entry in a config store given a config store ID, and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -158,8 +158,8 @@ Retrieve a config store entry given a config store ID and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -196,8 +196,8 @@ List the key-value pairs associated with a given config store ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListConfigStoreItemsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListConfigStoreItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -233,8 +233,8 @@ Update an entry in a config store given a config store ID, item key, and item va
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -275,8 +275,8 @@ Insert or update an entry in a config store given a config store ID, item key, a
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpsertConfigStoreItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpsertConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

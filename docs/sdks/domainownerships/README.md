@@ -16,8 +16,8 @@ List all domain-ownerships.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListDomainOwnershipsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListDomainOwnershipsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

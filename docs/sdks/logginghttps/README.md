@@ -20,8 +20,8 @@ Create an HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -32,7 +32,7 @@ import {
   LoggingHttpsResponseMethod,
   LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -89,8 +89,8 @@ Delete the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -128,15 +128,15 @@ Get the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsResponseFormatVersion,
   LoggingHttpsResponseJsonFormat,
   LoggingHttpsResponseMethod,
   LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -174,15 +174,15 @@ List all of the HTTPS objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsResponseFormatVersion,
   LoggingHttpsResponseJsonFormat,
   LoggingHttpsResponseMethod,
   LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -219,8 +219,8 @@ Update the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -231,7 +231,7 @@ import {
   LoggingHttpsResponseMethod,
   LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

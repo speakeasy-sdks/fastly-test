@@ -19,9 +19,9 @@ Create a director for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateDirectorResponse } from "FastlyTest/dist/sdk/models/operations";
-import { DirectorResponseType, DirectorType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DirectorResponseType, DirectorType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -165,8 +165,8 @@ Delete the director for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteDirectorResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -204,9 +204,9 @@ Get the director for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetDirectorResponse } from "FastlyTest/dist/sdk/models/operations";
-import { DirectorResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DirectorResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -244,9 +244,9 @@ List the directors for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListDirectorsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { DirectorResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListDirectorsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DirectorResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

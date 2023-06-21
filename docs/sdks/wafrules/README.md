@@ -19,13 +19,13 @@ Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fas
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetWafRuleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetWafRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafRule,
   WafRuleResponseDataAttributesPublisher,
   WafRuleResponseDataAttributesType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -64,13 +64,13 @@ List all available WAF rules.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListWafRulesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListWafRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafRule,
   WafRuleResponseDataAttributesPublisher,
   WafRuleResponseDataAttributesType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

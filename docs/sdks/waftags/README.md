@@ -18,15 +18,15 @@ List all tags.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListWafTagsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListWafTagsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafRule,
   TypeWafTag,
   WafRuleAttributesPublisher,
   WafRuleAttributesType,
   WafTagInclude,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

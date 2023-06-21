@@ -19,9 +19,9 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -69,8 +69,8 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -108,9 +108,9 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -148,9 +148,9 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

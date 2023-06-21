@@ -20,15 +20,15 @@ Create a Splunk logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogSplunkResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSplunkFormatVersion,
   LoggingSplunkPlacement,
   LoggingSplunkResponseFormatVersion,
   LoggingSplunkResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -81,8 +81,8 @@ Delete the Splunk logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogSplunkResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -120,13 +120,13 @@ Get the details for a Splunk logging object for a particular service and version
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogSplunkResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSplunkResponseFormatVersion,
   LoggingSplunkResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -164,13 +164,13 @@ List all of the Splunk logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogSplunkResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSplunkResponseFormatVersion,
   LoggingSplunkResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -207,15 +207,15 @@ Update the Splunk logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogSplunkResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSplunkFormatVersion,
   LoggingSplunkPlacement,
   LoggingSplunkResponseFormatVersion,
   LoggingSplunkResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -20,8 +20,8 @@ Create a SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
@@ -31,7 +31,7 @@ import {
   LoggingSftpResponseFormatVersion,
   LoggingSftpResponseMessageType,
   LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -90,8 +90,8 @@ Delete the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -129,14 +129,14 @@ Get the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpResponseCompressionCodec,
   LoggingSftpResponseFormatVersion,
   LoggingSftpResponseMessageType,
   LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -174,14 +174,14 @@ List all of the SFTPs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpResponseCompressionCodec,
   LoggingSftpResponseFormatVersion,
   LoggingSftpResponseMessageType,
   LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -218,8 +218,8 @@ Update the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
@@ -229,7 +229,7 @@ import {
   LoggingSftpResponseFormatVersion,
   LoggingSftpResponseMessageType,
   LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

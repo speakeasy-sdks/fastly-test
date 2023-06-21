@@ -16,9 +16,9 @@ Get diff between two versions.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DiffServiceVersionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { QueryFormat } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { DiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -20,8 +20,8 @@ Create a Scalyr for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogScalyrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingScalyrFormatVersion,
   LoggingScalyrPlacement,
@@ -29,7 +29,7 @@ import {
   LoggingScalyrResponseFormatVersion,
   LoggingScalyrResponsePlacement,
   LoggingScalyrResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -76,8 +76,8 @@ Delete the Scalyr for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogScalyrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -115,13 +115,13 @@ Get the Scalyr for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogScalyrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingScalyrResponseFormatVersion,
   LoggingScalyrResponsePlacement,
   LoggingScalyrResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -159,13 +159,13 @@ List all of the Scalyrs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogScalyrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingScalyrResponseFormatVersion,
   LoggingScalyrResponsePlacement,
   LoggingScalyrResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -202,8 +202,8 @@ Update the Scalyr for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogScalyrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingScalyrFormatVersion,
   LoggingScalyrPlacement,
@@ -211,7 +211,7 @@ import {
   LoggingScalyrResponseFormatVersion,
   LoggingScalyrResponsePlacement,
   LoggingScalyrResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

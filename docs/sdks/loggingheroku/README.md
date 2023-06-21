@@ -20,14 +20,14 @@ Create a Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHerokuFormatVersion,
   LoggingHerokuPlacement,
   LoggingHerokuResponseFormatVersion,
   LoggingHerokuResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -73,8 +73,8 @@ Delete the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -112,9 +112,9 @@ Get the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -152,9 +152,9 @@ List all of the Herokus for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -191,14 +191,14 @@ Update the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHerokuFormatVersion,
   LoggingHerokuPlacement,
   LoggingHerokuResponseFormatVersion,
   LoggingHerokuResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

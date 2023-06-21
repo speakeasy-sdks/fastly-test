@@ -21,8 +21,8 @@ Delete a user group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteAUserGroupResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -58,8 +58,8 @@ Get a user group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetAUserGroupResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -95,8 +95,8 @@ List members of a user group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListUserGroupMembersResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListUserGroupMembersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -134,8 +134,8 @@ List roles in a user group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListUserGroupRolesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListUserGroupRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -173,8 +173,8 @@ List service groups in a user group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListUserGroupServiceGroupsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListUserGroupServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -212,8 +212,8 @@ List all user groups.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListUserGroupsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListUserGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

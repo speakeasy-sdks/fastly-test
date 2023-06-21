@@ -20,9 +20,9 @@ Create a mutual authentication using a bundle of certificates to enable client-t
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateMutualTlsAuthenticationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateMutualTlsAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -74,8 +74,8 @@ Remove a Mutual TLS authentication
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteMutualTlsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteMutualTlsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -111,9 +111,9 @@ Show a Mutual Authentication.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetMutualAuthenticationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeMutualAuthentication } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -150,9 +150,9 @@ List all mutual authentications.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListMutualAuthenticationsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeMutualAuthentication } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListMutualAuthenticationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -190,9 +190,9 @@ Update a Mutual Authentication.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PatchMutualAuthenticationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { PatchMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

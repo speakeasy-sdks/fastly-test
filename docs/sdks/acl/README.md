@@ -20,8 +20,8 @@ Create a new ACL attached to the specified service version. A new, empty ACL mus
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateAclResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -61,8 +61,8 @@ Delete an ACL from the specified service version. To remove an ACL from use, the
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteAclResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -100,8 +100,8 @@ Retrieve a single ACL by name for the version and service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetAclResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -139,8 +139,8 @@ List ACLs.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListAclsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListAclsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -177,8 +177,8 @@ Update an ACL for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateAclResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

@@ -21,9 +21,9 @@ Create a snippet for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateSnippetResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SnippetDynamic, SnippetResponseDynamic, SnippetResponseType, SnippetType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SnippetDynamic, SnippetResponseDynamic, SnippetResponseType, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -67,8 +67,8 @@ Delete a specific snippet for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteSnippetResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -106,9 +106,9 @@ Get a single snippet for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetSnippetResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -146,9 +146,9 @@ Get a single dynamic snippet for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetSnippetDynamicResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -185,9 +185,9 @@ List all snippets for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListSnippetsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListSnippetsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SnippetResponseDynamic, SnippetResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -224,9 +224,9 @@ Update a dynamic snippet for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateSnippetDynamicResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SnippetDynamic, SnippetResponseDynamic, SnippetResponseType, SnippetType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SnippetDynamic, SnippetResponseDynamic, SnippetResponseType, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

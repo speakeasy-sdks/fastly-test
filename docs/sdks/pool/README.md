@@ -20,9 +20,9 @@ Creates a pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServerPoolResponse } from "FastlyTest/dist/sdk/models/operations";
-import { PoolResponseType, PoolResponseUseTls, PoolType, PoolUseTls } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PoolResponseType, PoolResponseUseTls, PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -82,8 +82,8 @@ Deletes a specific pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteServerPoolResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -121,9 +121,9 @@ Gets a single pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServerPoolResponse } from "FastlyTest/dist/sdk/models/operations";
-import { PoolResponseType, PoolResponseUseTls } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PoolResponseType, PoolResponseUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -161,9 +161,9 @@ Lists all pools for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServerPoolsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { PoolResponseType, PoolResponseUseTls } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListServerPoolsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PoolResponseType, PoolResponseUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -200,9 +200,9 @@ Updates a specific pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServerPoolResponse } from "FastlyTest/dist/sdk/models/operations";
-import { PoolResponseType, PoolResponseUseTls, PoolType, PoolUseTls } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PoolResponseType, PoolResponseUseTls, PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

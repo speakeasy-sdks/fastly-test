@@ -20,14 +20,14 @@ Create a Elasticsearch logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogElasticsearchResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingElasticsearchFormatVersion,
   LoggingElasticsearchPlacement,
   LoggingElasticsearchResponseFormatVersion,
   LoggingElasticsearchResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -82,8 +82,8 @@ Delete the Elasticsearch logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogElasticsearchResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -121,9 +121,9 @@ Get the Elasticsearch logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogElasticsearchResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -161,9 +161,9 @@ List all of the Elasticsearch logging endpoints for a particular service and ver
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogElasticsearchResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -200,14 +200,14 @@ Update the Elasticsearch logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogElasticsearchResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingElasticsearchFormatVersion,
   LoggingElasticsearchPlacement,
   LoggingElasticsearchResponseFormatVersion,
   LoggingElasticsearchResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

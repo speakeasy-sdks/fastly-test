@@ -19,9 +19,9 @@ Create a TLS private key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateTlsKeyResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -81,8 +81,8 @@ Destroy a TLS private key. Only private keys not already matched to any certific
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteTlsKeyResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -118,9 +118,9 @@ Show a TLS private key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsKeyResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsPrivateKey } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -156,9 +156,9 @@ List all TLS private keys.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsKeysResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsPrivateKey } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

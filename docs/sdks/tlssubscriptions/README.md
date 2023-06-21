@@ -23,8 +23,8 @@ Creates an email challenge for a domain on a GlobalSign subscription. An email c
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateGlobalsignEmailChallengeResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -67,8 +67,8 @@ Create a new TLS subscription. This response includes a list of possible challen
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateTlsSubResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TlsSubscriptionResponseAttributesState,
@@ -76,7 +76,7 @@ import {
   TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -127,8 +127,8 @@ Deletes a GlobalSign email challenge. After a GlobalSign email challenge is dele
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteGlobalsignEmailChallengeResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -166,8 +166,8 @@ Destroy a TLS subscription. A subscription cannot be destroyed if there are doma
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteTlsSubResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -203,9 +203,9 @@ Show a TLS subscription.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsSubResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TlsSubscriptionResponseAttributesState } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TlsSubscriptionResponseAttributesState } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -242,9 +242,9 @@ List all TLS subscriptions.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsSubsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Sort, TlsSubscriptionResponseAttributesState } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsSubsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Sort, TlsSubscriptionResponseAttributesState } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -286,8 +286,8 @@ Change the TLS domains or common name associated with this subscription, update 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PatchTlsSubResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PatchTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TlsSubscriptionResponseAttributesState,
@@ -295,7 +295,7 @@ import {
   TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

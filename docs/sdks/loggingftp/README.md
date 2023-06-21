@@ -20,8 +20,8 @@ Create a FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -31,7 +31,7 @@ import {
   LoggingFtpResponseFormatVersion,
   LoggingFtpResponseMessageType,
   LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -90,8 +90,8 @@ Delete the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -129,14 +129,14 @@ Get the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpResponseCompressionCodec,
   LoggingFtpResponseFormatVersion,
   LoggingFtpResponseMessageType,
   LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -174,14 +174,14 @@ List all of the FTPs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpResponseCompressionCodec,
   LoggingFtpResponseFormatVersion,
   LoggingFtpResponseMessageType,
   LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -218,8 +218,8 @@ Update the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -229,7 +229,7 @@ import {
   LoggingFtpResponseFormatVersion,
   LoggingFtpResponseMessageType,
   LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

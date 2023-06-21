@@ -24,9 +24,9 @@ Fetches historical stats for each of your Fastly services and groups the results
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHistStatsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { By, Region } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHistStatsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -65,9 +65,9 @@ Fetches historical stats information aggregated across all of your Fastly servic
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHistStatsAggregatedResponse } from "FastlyTest/dist/sdk/models/operations";
-import { By, Region } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHistStatsAggregatedResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -106,9 +106,9 @@ Fetches the specified field from the historical stats for each of your services 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHistStatsFieldResponse } from "FastlyTest/dist/sdk/models/operations";
-import { By, Region } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHistStatsFieldResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -148,9 +148,9 @@ Fetches historical stats for a given service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHistStatsServiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { By, Region } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHistStatsServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -190,9 +190,9 @@ Fetches the specified field from the historical stats for a given service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHistStatsServiceFieldResponse } from "FastlyTest/dist/sdk/models/operations";
-import { By, Region } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHistStatsServiceFieldResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -233,8 +233,8 @@ Fetches the list of codes for regions that are covered by the Fastly CDN service
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetRegionsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetRegionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -267,8 +267,8 @@ Returns usage information aggregated across all Fastly services and grouped by r
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetUsageResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetUsageResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -305,8 +305,8 @@ Returns month-to-date usage details for a given month and year. Usage details ar
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetUsageMonthResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetUsageMonthResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -344,8 +344,8 @@ Returns usage information aggregated by service and grouped by service and regio
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetUsageServiceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetUsageServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

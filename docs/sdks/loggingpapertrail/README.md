@@ -20,14 +20,14 @@ Create a Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogPapertrailResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingPapertrailFormatVersion,
   LoggingPapertrailPlacement,
   LoggingPapertrailResponseFormatVersion,
   LoggingPapertrailResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -73,8 +73,8 @@ Delete the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogPapertrailResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -112,9 +112,9 @@ Get the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogPapertrailResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -152,9 +152,9 @@ List all of the Papertrails for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogPapertrailResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -191,14 +191,14 @@ Update the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogPapertrailResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingPapertrailFormatVersion,
   LoggingPapertrailPlacement,
   LoggingPapertrailResponseFormatVersion,
   LoggingPapertrailResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

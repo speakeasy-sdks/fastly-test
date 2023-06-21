@@ -16,9 +16,9 @@ Get a list of all Fastly POPs.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListPopsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { PopBillingRegion, PopRegion, PopStatsRegion } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListPopsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PopBillingRegion, PopRegion, PopStatsRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

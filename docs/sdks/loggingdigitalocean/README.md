@@ -20,8 +20,8 @@ Create a DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -31,7 +31,7 @@ import {
   LoggingDigitaloceanResponseFormatVersion,
   LoggingDigitaloceanResponseMessageType,
   LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -88,8 +88,8 @@ Delete the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -127,14 +127,14 @@ Get the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanResponseCompressionCodec,
   LoggingDigitaloceanResponseFormatVersion,
   LoggingDigitaloceanResponseMessageType,
   LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -172,14 +172,14 @@ List all of the DigitalOcean Spaces for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanResponseCompressionCodec,
   LoggingDigitaloceanResponseFormatVersion,
   LoggingDigitaloceanResponseMessageType,
   LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -216,8 +216,8 @@ Update the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -227,7 +227,7 @@ import {
   LoggingDigitaloceanResponseFormatVersion,
   LoggingDigitaloceanResponseMessageType,
   LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

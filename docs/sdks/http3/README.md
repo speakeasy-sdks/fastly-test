@@ -18,8 +18,8 @@ Enable HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -59,8 +59,8 @@ Disable HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -97,8 +97,8 @@ Get the status of HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

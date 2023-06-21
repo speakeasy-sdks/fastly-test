@@ -18,9 +18,9 @@ Get a specific event.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetEventResponse } from "FastlyTest/dist/sdk/models/operations";
-import { EventAttributesEventType, TypeEvent } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetEventResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { EventAttributesEventType, TypeEvent } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -56,9 +56,9 @@ List all events for a particular customer. Events can be filtered by user, custo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListEventsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { EventAttributesEventType, Sort, TypeEvent } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListEventsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { EventAttributesEventType, Sort, TypeEvent } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

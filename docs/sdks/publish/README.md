@@ -18,8 +18,8 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PublishResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PublishResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

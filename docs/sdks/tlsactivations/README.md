@@ -20,9 +20,9 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateTlsActivationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -72,8 +72,8 @@ Disable TLS on the domain associated with this TLS activation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteTlsActivationResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -109,9 +109,9 @@ Show a TLS activation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsActivationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -148,9 +148,9 @@ List all TLS activations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsActivationsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsActivationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -191,9 +191,9 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateTlsActivationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

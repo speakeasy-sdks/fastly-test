@@ -23,9 +23,9 @@ Create a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ServiceCreateType, ServiceResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ServiceCreateType, ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -64,8 +64,8 @@ Delete a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteServiceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -101,9 +101,9 @@ Get a specific service by id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -139,8 +139,8 @@ List detailed information on a specified service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceDetailResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetServiceDetailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   CacheSettingResponseAction,
   ConditionResponseType,
@@ -152,7 +152,7 @@ import {
   SchemasSnippetResponseDynamic,
   SchemasSnippetResponseType,
   ServiceDetailType,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -189,8 +189,8 @@ List the domains within a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceDomainsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListServiceDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -226,9 +226,9 @@ List services.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServicesResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Direction, ServiceListResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Direction, ServiceListResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -267,9 +267,9 @@ Get a specific service by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { SearchServiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { SearchServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -305,9 +305,9 @@ Update a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

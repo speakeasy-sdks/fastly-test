@@ -20,8 +20,8 @@ Create a Syslog for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogSyslogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
@@ -29,7 +29,7 @@ import {
   LoggingSyslogResponseFormatVersion,
   LoggingSyslogResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -84,8 +84,8 @@ Delete the Syslog for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogSyslogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -123,14 +123,14 @@ Get the Syslog for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogSyslogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogResponseFormatVersion,
   LoggingSyslogResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -168,14 +168,14 @@ List all of the Syslogs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogSyslogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogResponseFormatVersion,
   LoggingSyslogResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -212,8 +212,8 @@ Update the Syslog for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogSyslogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
@@ -221,7 +221,7 @@ import {
   LoggingSyslogResponseFormatVersion,
   LoggingSyslogResponsePlacement,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

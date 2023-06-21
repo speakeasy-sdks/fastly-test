@@ -18,9 +18,9 @@ Get the invoice for a given year and month. Can be any month from when the Custo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetInvoiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BillingResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -57,9 +57,9 @@ Get the invoice for the given invoice_id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceByIdResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetInvoiceByIdResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BillingResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -96,9 +96,9 @@ Get the current month-to-date estimate. This endpoint has two different response
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceMtdResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingEstimateResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetInvoiceMtdResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BillingEstimateResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

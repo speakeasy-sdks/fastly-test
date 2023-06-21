@@ -16,9 +16,9 @@ Get a comparison of the VCL changes between two service versions.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { VclDiffServiceVersionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { QueryFormat, VclDiffFormat } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { VclDiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { QueryFormat, VclDiffFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

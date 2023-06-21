@@ -20,8 +20,8 @@ Creates a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreatePoolServerResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -67,8 +67,8 @@ Deletes a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeletePoolServerResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeletePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -106,8 +106,8 @@ Gets a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetPoolServerResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetPoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -145,8 +145,8 @@ Lists all servers for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListPoolServersResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListPoolServersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -183,8 +183,8 @@ Updates a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdatePoolServerResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
