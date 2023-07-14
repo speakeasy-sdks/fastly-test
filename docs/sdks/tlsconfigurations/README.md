@@ -20,7 +20,6 @@ Show a TLS configuration.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -59,7 +58,6 @@ List all TLS configurations.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -105,7 +105,6 @@ Get the logged in user.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetCurrentUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -140,7 +139,6 @@ Get a specific user.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -262,7 +260,6 @@ Update the user's password to a new one.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateUserPasswordResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

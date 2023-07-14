@@ -22,12 +22,7 @@ Create a Elasticsearch logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingElasticsearchFormatVersion,
-  LoggingElasticsearchPlacement,
-  LoggingElasticsearchResponseFormatVersion,
-  LoggingElasticsearchResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -123,7 +118,6 @@ Get the Elasticsearch logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -163,7 +157,6 @@ List all of the Elasticsearch logging endpoints for a particular service and ver
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingElasticsearchResponseFormatVersion, LoggingElasticsearchResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -202,12 +195,7 @@ Update the Elasticsearch logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingElasticsearchFormatVersion,
-  LoggingElasticsearchPlacement,
-  LoggingElasticsearchResponseFormatVersion,
-  LoggingElasticsearchResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -28,11 +28,6 @@ import {
   LoggingCloudfilesMessageType,
   LoggingCloudfilesPlacement,
   LoggingCloudfilesRegion,
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -131,13 +126,6 @@ Get the Cloud Files log endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -177,13 +165,6 @@ List all of the Cloud Files log endpoints for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -228,11 +209,6 @@ import {
   LoggingCloudfilesMessageType,
   LoggingCloudfilesPlacement,
   LoggingCloudfilesRegion,
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();

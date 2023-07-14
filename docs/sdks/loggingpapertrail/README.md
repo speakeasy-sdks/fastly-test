@@ -22,12 +22,7 @@ Create a Papertrail for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingPapertrailFormatVersion,
-  LoggingPapertrailPlacement,
-  LoggingPapertrailResponseFormatVersion,
-  LoggingPapertrailResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -114,7 +109,6 @@ Get the Papertrail for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -154,7 +148,6 @@ List all of the Papertrails for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingPapertrailResponseFormatVersion, LoggingPapertrailResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -193,12 +186,7 @@ Update the Papertrail for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingPapertrailFormatVersion,
-  LoggingPapertrailPlacement,
-  LoggingPapertrailResponseFormatVersion,
-  LoggingPapertrailResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

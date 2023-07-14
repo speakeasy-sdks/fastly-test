@@ -27,10 +27,6 @@ import {
   LoggingHttpsJsonFormat,
   LoggingHttpsMethod,
   LoggingHttpsPlacement,
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
   LoggingMessageType,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
@@ -130,13 +126,6 @@ Get the HTTPS object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
-  LoggingMessageType,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -176,13 +165,6 @@ List all of the HTTPS objects for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
-  LoggingMessageType,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -226,10 +208,6 @@ import {
   LoggingHttpsJsonFormat,
   LoggingHttpsMethod,
   LoggingHttpsPlacement,
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
   LoggingMessageType,
 } from "FastlyTestJS/dist/sdk/models/shared";
 

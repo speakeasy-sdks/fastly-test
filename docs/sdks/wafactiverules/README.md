@@ -272,7 +272,6 @@ Get a specific active rule object. Includes details of the rule revision associa
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -315,7 +314,6 @@ List all active rules for a particular firewall version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

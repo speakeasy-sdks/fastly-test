@@ -22,7 +22,6 @@ Create a link between a resource and a service version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -104,7 +103,6 @@ Display a resource link by its identifier.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -144,7 +142,6 @@ List links between resources and services
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListResourcesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -183,7 +180,6 @@ Update a link between a resource and a service version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

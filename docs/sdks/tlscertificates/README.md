@@ -121,7 +121,6 @@ Show a TLS certificate.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -159,7 +158,7 @@ List all TLS certificates.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { Sort, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

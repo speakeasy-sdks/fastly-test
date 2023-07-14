@@ -22,7 +22,6 @@ Get a single token based on the access_token used in the request.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -57,7 +56,6 @@ List all tokens belonging to a specific customer.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTokensCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -95,7 +93,6 @@ List all tokens belonging to the authenticated user.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTokensUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

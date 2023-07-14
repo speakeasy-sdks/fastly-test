@@ -22,14 +22,7 @@ Create a Datadog logging object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingDatadogFormatVersion,
-  LoggingDatadogPlacement,
-  LoggingDatadogRegion,
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -116,11 +109,6 @@ Get the details for a Datadog logging object for a particular service and versio
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -160,11 +148,6 @@ List all of the Datadog logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -203,14 +186,7 @@ Update the Datadog logging object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingDatadogFormatVersion,
-  LoggingDatadogPlacement,
-  LoggingDatadogRegion,
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

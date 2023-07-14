@@ -22,13 +22,7 @@ Create a Sumologic for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicFormatVersion,
-  LoggingSumologicPlacement,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -115,11 +109,6 @@ Get the Sumologic for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -159,11 +148,6 @@ List all of the Sumologics for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -202,13 +186,7 @@ Update the Sumologic for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicFormatVersion,
-  LoggingSumologicPlacement,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

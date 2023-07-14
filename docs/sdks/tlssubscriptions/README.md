@@ -71,7 +71,6 @@ import { Fastly } from "FastlyTestJS";
 import { CreateTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
-  TlsSubscriptionResponseAttributesState,
   TypeTlsCertificate,
   TypeTlsConfiguration,
   TypeTlsDomain,
@@ -205,7 +204,6 @@ Show a TLS subscription.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TlsSubscriptionResponseAttributesState } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -244,7 +242,7 @@ List all TLS subscriptions.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsSubsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { Sort, TlsSubscriptionResponseAttributesState } from "FastlyTestJS/dist/sdk/models/shared";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -290,7 +288,6 @@ import { Fastly } from "FastlyTestJS";
 import { PatchTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
-  TlsSubscriptionResponseAttributesState,
   TypeTlsCertificate,
   TypeTlsConfiguration,
   TypeTlsDomain,

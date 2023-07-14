@@ -59,7 +59,6 @@ Retrieve a single certificate.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -97,7 +96,7 @@ List all certificates.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsBulkCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { Sort, TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

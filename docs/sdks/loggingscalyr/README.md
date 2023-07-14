@@ -22,14 +22,7 @@ Create a Scalyr for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingScalyrFormatVersion,
-  LoggingScalyrPlacement,
-  LoggingScalyrRegion,
-  LoggingScalyrResponseFormatVersion,
-  LoggingScalyrResponsePlacement,
-  LoggingScalyrResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -117,11 +110,6 @@ Get the Scalyr for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingScalyrResponseFormatVersion,
-  LoggingScalyrResponsePlacement,
-  LoggingScalyrResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -161,11 +149,6 @@ List all of the Scalyrs for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingScalyrResponseFormatVersion,
-  LoggingScalyrResponsePlacement,
-  LoggingScalyrResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -204,14 +187,7 @@ Update the Scalyr for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingScalyrFormatVersion,
-  LoggingScalyrPlacement,
-  LoggingScalyrRegion,
-  LoggingScalyrResponseFormatVersion,
-  LoggingScalyrResponsePlacement,
-  LoggingScalyrResponseRegion,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

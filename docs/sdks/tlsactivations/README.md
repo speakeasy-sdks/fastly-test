@@ -111,7 +111,6 @@ Show a TLS activation.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -150,7 +149,6 @@ List all TLS activations.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsActivationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

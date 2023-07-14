@@ -58,7 +58,6 @@ Get an apex redirect by its ID.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -96,7 +95,6 @@ List all apex redirects for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListApexRedirectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

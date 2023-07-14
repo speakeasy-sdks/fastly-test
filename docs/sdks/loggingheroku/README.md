@@ -22,12 +22,7 @@ Create a Heroku for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingHerokuFormatVersion,
-  LoggingHerokuPlacement,
-  LoggingHerokuResponseFormatVersion,
-  LoggingHerokuResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -114,7 +109,6 @@ Get the Heroku for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -154,7 +148,6 @@ List all of the Herokus for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -193,12 +186,7 @@ Update the Heroku for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingHerokuFormatVersion,
-  LoggingHerokuPlacement,
-  LoggingHerokuResponseFormatVersion,
-  LoggingHerokuResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

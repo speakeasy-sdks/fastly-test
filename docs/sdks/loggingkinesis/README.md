@@ -110,7 +110,6 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -150,7 +149,6 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

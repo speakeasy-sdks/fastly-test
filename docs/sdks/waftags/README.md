@@ -20,13 +20,7 @@ List all tags.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListWafTagsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafRule,
-  TypeWafTag,
-  WafRuleAttributesPublisher,
-  WafRuleAttributesType,
-  WafTagInclude,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { WafTagInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

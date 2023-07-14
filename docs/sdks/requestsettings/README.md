@@ -60,7 +60,6 @@ Gets the specified Request Settings object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RequestSettingsResponseAction, RequestSettingsResponseXff } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -100,7 +99,6 @@ Returns a list of all Request Settings objects for the given service and version
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RequestSettingsResponseAction, RequestSettingsResponseXff } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -139,12 +137,7 @@ Updates the specified Request Settings object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  RequestSettingsAction,
-  RequestSettingsResponseAction,
-  RequestSettingsResponseXff,
-  RequestSettingsXff,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -59,7 +59,6 @@ Get a specific customer.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CustomerResponseBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -97,7 +96,6 @@ Get the logged in customer.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLoggedInCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CustomerResponseBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -132,7 +130,6 @@ List all users from a specified customer id.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListUsersResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -170,7 +167,7 @@ Update a customer.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CustomerBillingNetworkType, CustomerResponseBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
+import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

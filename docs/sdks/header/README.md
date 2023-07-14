@@ -22,7 +22,7 @@ Creates a new Header object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { HeaderAction, HeaderResponseAction, HeaderResponseType, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
+import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -114,7 +114,6 @@ Retrieves a Header object by name.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { HeaderResponseAction, HeaderResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -154,7 +153,6 @@ Retrieves all Header objects for a particular Version of a Service.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListHeaderObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { HeaderResponseAction, HeaderResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -193,7 +191,7 @@ Modifies an existing Header object by name.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { HeaderAction, HeaderResponseAction, HeaderResponseType, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
+import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

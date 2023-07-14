@@ -27,10 +27,6 @@ import {
   LoggingOpenstackFormatVersion,
   LoggingOpenstackMessageType,
   LoggingOpenstackPlacement,
-  LoggingOpenstackResponseCompressionCodec,
-  LoggingOpenstackResponseFormatVersion,
-  LoggingOpenstackResponseMessageType,
-  LoggingOpenstackResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -129,12 +125,6 @@ Get the openstack for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingOpenstackResponseCompressionCodec,
-  LoggingOpenstackResponseFormatVersion,
-  LoggingOpenstackResponseMessageType,
-  LoggingOpenstackResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -174,12 +164,6 @@ List all of the openstacks for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingOpenstackResponseCompressionCodec,
-  LoggingOpenstackResponseFormatVersion,
-  LoggingOpenstackResponseMessageType,
-  LoggingOpenstackResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -223,10 +207,6 @@ import {
   LoggingOpenstackFormatVersion,
   LoggingOpenstackMessageType,
   LoggingOpenstackPlacement,
-  LoggingOpenstackResponseCompressionCodec,
-  LoggingOpenstackResponseFormatVersion,
-  LoggingOpenstackResponseMessageType,
-  LoggingOpenstackResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();

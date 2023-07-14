@@ -20,7 +20,6 @@ Get the invoice for a given year and month. Can be any month from when the Custo
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetInvoiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -59,7 +58,6 @@ Get the invoice for the given invoice_id.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetInvoiceByIdResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -98,7 +96,6 @@ Get the current month-to-date estimate. This endpoint has two different response
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetInvoiceMtdResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { BillingEstimateResponseStatusStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

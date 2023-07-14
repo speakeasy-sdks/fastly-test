@@ -21,7 +21,7 @@ Create a director for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { DirectorResponseType, DirectorType } from "FastlyTestJS/dist/sdk/models/shared";
+import { DirectorType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -206,7 +206,6 @@ Get the director for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { DirectorResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -246,7 +245,6 @@ List the directors for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListDirectorsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { DirectorResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

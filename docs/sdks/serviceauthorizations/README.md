@@ -112,7 +112,6 @@ List service authorizations.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -151,7 +150,6 @@ Show service authorization.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ShowServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

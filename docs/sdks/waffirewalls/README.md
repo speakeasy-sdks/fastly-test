@@ -25,7 +25,7 @@ Create a firewall object for a particular service and service version using a de
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeWafFirewall, TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -123,7 +123,7 @@ Get a specific firewall object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { FirewallInclude, TypeWafFirewall, TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -165,7 +165,7 @@ List all firewall objects.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListWafFirewallsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { FirewallInclude, TypeWafFirewall, TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -210,7 +210,7 @@ Update a firewall object for a particular service and service version. Specifyin
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeWafFirewall, TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

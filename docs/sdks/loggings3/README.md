@@ -27,10 +27,6 @@ import {
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -134,12 +130,6 @@ Get the S3 for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -179,12 +169,6 @@ List all of the S3s for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -228,10 +212,6 @@ import {
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();

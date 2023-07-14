@@ -113,7 +113,6 @@ Show a Mutual Authentication.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -152,7 +151,6 @@ List all mutual authentications.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListMutualAuthenticationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

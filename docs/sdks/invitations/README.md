@@ -129,7 +129,6 @@ List all invitations.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListInvitationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeInvitation } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

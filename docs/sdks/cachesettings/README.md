@@ -22,7 +22,7 @@ Create a cache settings object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CacheSettingAction, CacheSettingResponseAction } from "FastlyTestJS/dist/sdk/models/shared";
+import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -107,7 +107,6 @@ Get a specific cache settings object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CacheSettingResponseAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -147,7 +146,6 @@ Get a list of all cache settings for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CacheSettingResponseAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -186,7 +184,7 @@ Update a specific cache settings object.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { CacheSettingAction, CacheSettingResponseAction } from "FastlyTestJS/dist/sdk/models/shared";
+import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -25,10 +25,6 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CloneWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafFirewallVersion,
-  WafFirewallVersionResponseDataAttributesLastDeploymentStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -69,10 +65,7 @@ Create a new, draft firewall version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafFirewallVersion,
-  WafFirewallVersionResponseDataAttributesLastDeploymentStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -189,10 +182,6 @@ Get details about a specific firewall version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafFirewallVersion,
-  WafFirewallVersionResponseDataAttributesLastDeploymentStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -234,10 +223,6 @@ Get a list of firewall versions associated with a specific firewall.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListWafFirewallVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafFirewallVersion,
-  WafFirewallVersionResponseDataAttributesLastDeploymentStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -280,10 +265,7 @@ Update a specific firewall version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafFirewallVersion,
-  WafFirewallVersionResponseDataAttributesLastDeploymentStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

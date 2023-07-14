@@ -27,10 +27,6 @@ import {
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -131,12 +127,6 @@ Get the SFTP for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -176,12 +166,6 @@ List all of the SFTPs for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -225,10 +209,6 @@ import {
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();

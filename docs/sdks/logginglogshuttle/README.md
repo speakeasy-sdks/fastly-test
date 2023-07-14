@@ -22,12 +22,7 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -114,7 +109,6 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -154,7 +148,6 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -193,12 +186,7 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -22,7 +22,7 @@ Creates a new condition.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -108,7 +108,6 @@ Gets the specified condition.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -148,7 +147,6 @@ Gets all conditions for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListConditionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -187,7 +185,7 @@ Updates the specified condition.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

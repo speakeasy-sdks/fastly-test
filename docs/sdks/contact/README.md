@@ -57,7 +57,6 @@ List all contacts from a specified customer ID.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListContactsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { SchemasContactResponseContactType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

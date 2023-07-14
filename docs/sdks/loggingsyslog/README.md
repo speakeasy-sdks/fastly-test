@@ -26,8 +26,6 @@ import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
   LoggingSyslogPlacement,
-  LoggingSyslogResponseFormatVersion,
-  LoggingSyslogResponsePlacement,
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
@@ -125,12 +123,6 @@ Get the Syslog for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSyslogResponseFormatVersion,
-  LoggingSyslogResponsePlacement,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -170,12 +162,6 @@ List all of the Syslogs for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSyslogResponseFormatVersion,
-  LoggingSyslogResponsePlacement,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -218,8 +204,6 @@ import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
   LoggingSyslogPlacement,
-  LoggingSyslogResponseFormatVersion,
-  LoggingSyslogResponsePlacement,
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 

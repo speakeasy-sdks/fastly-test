@@ -21,13 +21,6 @@ Get a specific rule revision.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetWafRuleRevisionResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafRule,
-  TypeWafRuleRevision,
-  WafRuleAttributesPublisher,
-  WafRuleAttributesType,
-  WafRuleRevisionResponseDataAttributesState,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -69,14 +62,7 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListWafRuleRevisionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafRule,
-  TypeWafRuleRevision,
-  WafRuleAttributesPublisher,
-  WafRuleAttributesType,
-  WafRuleRevisionInclude,
-  WafRuleRevisionResponseDataAttributesState,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

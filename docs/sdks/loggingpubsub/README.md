@@ -22,12 +22,7 @@ Create a Pub/Sub logging object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingGooglePubsubFormatVersion,
-  LoggingGooglePubsubPlacement,
-  LoggingGooglePubsubResponseFormatVersion,
-  LoggingGooglePubsubResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -120,7 +115,6 @@ Get the details for a Pub/Sub logging object for a particular service and versio
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingGooglePubsubResponseFormatVersion, LoggingGooglePubsubResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -160,7 +154,6 @@ List all of the Pub/Sub logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { LoggingGooglePubsubResponseFormatVersion, LoggingGooglePubsubResponsePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -199,12 +192,7 @@ Update a Pub/Sub logging object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingGooglePubsubFormatVersion,
-  LoggingGooglePubsubPlacement,
-  LoggingGooglePubsubResponseFormatVersion,
-  LoggingGooglePubsubResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

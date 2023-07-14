@@ -145,7 +145,6 @@ List stars.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListServiceStarsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeService, TypeStar, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -28,9 +28,6 @@ import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
@@ -125,12 +122,6 @@ Get the Logentry for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -172,12 +163,6 @@ List all of the Logentries for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -222,9 +207,6 @@ import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 

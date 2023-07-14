@@ -57,12 +57,6 @@ Get a rate limiter by its ID.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  RateLimiterResponseAction,
-  RateLimiterResponseHttpMethods,
-  RateLimiterResponseLoggerType,
-  RateLimiterResponseWindowSize,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -100,12 +94,6 @@ List all rate limiters for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListRateLimitersResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  RateLimiterResponseAction,
-  RateLimiterResponseHttpMethods,
-  RateLimiterResponseLoggerType,
-  RateLimiterResponseWindowSize,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

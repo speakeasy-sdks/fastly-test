@@ -25,7 +25,7 @@ Create a service.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ServiceCreateType, ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
+import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -103,7 +103,6 @@ Get a specific service by id.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -141,18 +140,6 @@ List detailed information on a specified service.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetServiceDetailResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  CacheSettingResponseAction,
-  ConditionResponseType,
-  DirectorType,
-  HeaderResponseAction,
-  HeaderResponseType,
-  RequestSettingsResponseAction,
-  RequestSettingsResponseXff,
-  SchemasSnippetResponseDynamic,
-  SchemasSnippetResponseType,
-  ServiceDetailType,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -228,7 +215,7 @@ List services.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { Direction, ServiceListResponseType } from "FastlyTestJS/dist/sdk/models/shared";
+import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -269,7 +256,6 @@ Get a specific service by name.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { SearchServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -307,7 +293,6 @@ Update a service.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { ServiceResponseType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -120,7 +120,6 @@ Show a TLS private key.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -158,7 +157,6 @@ List all TLS private keys.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListTlsKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

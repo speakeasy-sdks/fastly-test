@@ -27,11 +27,6 @@ import {
   LoggingKafkaFormatVersion,
   LoggingKafkaPlacement,
   LoggingKafkaRequiredAcks,
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
@@ -132,14 +127,6 @@ Get the Kafka logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -179,14 +166,6 @@ List all of the Kafka logging endpoints for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
-  LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

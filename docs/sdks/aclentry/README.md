@@ -88,7 +88,7 @@ Add an ACL entry to an ACL.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AclEntryNegated, AclEntryResponseNegated } from "FastlyTestJS/dist/sdk/models/shared";
+import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -172,7 +172,6 @@ Retrieve a single ACL entry.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AclEntryResponseNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -212,7 +211,7 @@ List ACL entries for a specified ACL.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AclEntryResponseNegated, Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -255,7 +254,7 @@ Update an ACL entry for a specified ACL.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { AclEntryNegated, AclEntryResponseNegated } from "FastlyTestJS/dist/sdk/models/shared";
+import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

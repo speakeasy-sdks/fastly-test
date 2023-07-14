@@ -27,10 +27,6 @@ import {
   LoggingGcsFormatVersion,
   LoggingGcsMessageType,
   LoggingGcsPlacement,
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -133,12 +129,6 @@ Get the GCS Logging for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -178,12 +168,6 @@ List all of the GCS log endpoints for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -227,10 +211,6 @@ import {
   LoggingGcsFormatVersion,
   LoggingGcsMessageType,
   LoggingGcsPlacement,
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();

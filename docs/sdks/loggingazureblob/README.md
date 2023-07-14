@@ -27,10 +27,6 @@ import {
   LoggingAzureblobFormatVersion,
   LoggingAzureblobMessageType,
   LoggingAzureblobPlacement,
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
@@ -129,12 +125,6 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { GetLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -174,12 +164,6 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { ListLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -223,10 +207,6 @@ import {
   LoggingAzureblobFormatVersion,
   LoggingAzureblobMessageType,
   LoggingAzureblobPlacement,
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
