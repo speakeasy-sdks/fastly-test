@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -94,6 +95,13 @@ export class TlsActivations {
                     res.tlsActivationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsActivationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -230,6 +238,13 @@ export class TlsActivations {
                         JSON.parse(decodedRes),
                         shared.TlsActivationResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -301,6 +316,13 @@ export class TlsActivations {
                     res.tlsActivationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsActivationsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -387,6 +409,13 @@ export class TlsActivations {
                     res.tlsActivationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsActivationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

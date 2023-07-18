@@ -20,18 +20,14 @@ Create GCS logging for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogGcsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
   LoggingGcsMessageType,
   LoggingGcsPlacement,
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -92,8 +88,8 @@ Delete the GCS Logging for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogGcsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -131,14 +127,8 @@ Get the GCS Logging for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogGcsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -176,14 +166,8 @@ List all of the GCS log endpoints for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogGcsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -220,18 +204,14 @@ Update the GCS for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogGcsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
   LoggingGcsMessageType,
   LoggingGcsPlacement,
-  LoggingGcsResponseCompressionCodec,
-  LoggingGcsResponseFormatVersion,
-  LoggingGcsResponseMessageType,
-  LoggingGcsResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

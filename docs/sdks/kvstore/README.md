@@ -19,8 +19,8 @@ Create a new kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -59,8 +59,8 @@ An kv store must be empty before it can be deleted.  Deleting an kv store that s
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -97,8 +97,8 @@ Get an kv store by ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -134,8 +134,8 @@ Get all stores for a given customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetStoresResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetStoresResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

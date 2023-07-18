@@ -22,9 +22,9 @@ Update multiple items in the same dictionary. For faster updates to your service
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { BulkUpdateDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BulkUpdateDictionaryItemOp } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { BulkUpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -75,8 +75,8 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -117,8 +117,8 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -156,8 +156,8 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -195,9 +195,9 @@ List of DictionaryItems given service and dictionary ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListDictionaryItemsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Direction } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListDictionaryItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -238,8 +238,8 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -281,8 +281,8 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpsertDictionaryItemResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpsertDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

@@ -19,8 +19,8 @@ Delete an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteApexRedirectResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -56,9 +56,8 @@ Get an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetApexRedirectResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ApexRedirectStatusCode } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -94,9 +93,8 @@ List all apex redirects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListApexRedirectsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ApexRedirectStatusCode } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListApexRedirectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -133,9 +131,9 @@ Update an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateApexRedirectResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ApexRedirectStatusCode } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

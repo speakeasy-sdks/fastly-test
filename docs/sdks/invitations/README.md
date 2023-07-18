@@ -18,8 +18,8 @@ Create an invitation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateInvitationResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   InvitationDataAttributesStatusCode,
   RoleUser,
@@ -27,7 +27,7 @@ import {
   TypeInvitation,
   TypeService,
   TypeServiceInvitation,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -90,8 +90,8 @@ Delete an invitation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteInvitationResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -127,9 +127,8 @@ List all invitations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListInvitationsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeInvitation } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListInvitationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

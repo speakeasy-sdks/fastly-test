@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -93,6 +94,13 @@ export class TlsCertificates {
                     res.createTlsCert201ApplicationVndApiPlusJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateTlsCert201ApplicationVndApiPlusJson
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -235,6 +243,13 @@ export class TlsCertificates {
                         JSON.parse(decodedRes),
                         shared.TlsCertificateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -305,6 +320,13 @@ export class TlsCertificates {
                     res.tlsCertificatesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsCertificatesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -394,6 +416,13 @@ export class TlsCertificates {
                     res.tlsCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsCertificateResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

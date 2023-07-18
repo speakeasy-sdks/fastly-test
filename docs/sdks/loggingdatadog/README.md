@@ -20,16 +20,9 @@ Create a Datadog logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogDatadogResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDatadogFormatVersion,
-  LoggingDatadogPlacement,
-  LoggingDatadogRegion,
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -75,8 +68,8 @@ Delete the Datadog logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogDatadogResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -114,13 +107,8 @@ Get the details for a Datadog logging object for a particular service and versio
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogDatadogResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -158,13 +146,8 @@ List all of the Datadog logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogDatadogResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -201,16 +184,9 @@ Update the Datadog logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogDatadogResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDatadogFormatVersion,
-  LoggingDatadogPlacement,
-  LoggingDatadogRegion,
-  LoggingDatadogResponseFormatVersion,
-  LoggingDatadogResponsePlacement,
-  LoggingDatadogResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

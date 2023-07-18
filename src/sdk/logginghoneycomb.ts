@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -103,6 +104,13 @@ export class LoggingHoneycomb {
                         JSON.parse(decodedRes),
                         shared.LoggingHoneycomb2
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -178,6 +186,13 @@ export class LoggingHoneycomb {
                         JSON.parse(decodedRes),
                         operations.DeleteLogHoneycomb200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -251,6 +266,13 @@ export class LoggingHoneycomb {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingHoneycomb2
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -328,6 +350,13 @@ export class LoggingHoneycomb {
                         JSON.parse(decodedRes),
                         shared.LoggingHoneycombResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -418,6 +447,13 @@ export class LoggingHoneycomb {
                     res.loggingHoneycombResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingHoneycombResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

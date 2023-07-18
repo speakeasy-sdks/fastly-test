@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -87,12 +88,17 @@ export class Billing {
                         JSON.parse(decodedRes),
                         shared.BillingResponse
                     );
-                }
-                if (utils.matchContentType(contentType, `application/pdf`)) {
+                } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.getInvoice200ApplicationPdfBinaryString = httpRes?.data;
-                }
-                if (utils.matchContentType(contentType, `text/csv`)) {
+                } else if (utils.matchContentType(contentType, `text/csv`)) {
                     res.getInvoice200TextCsvCsvString = decodedRes;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -167,12 +173,17 @@ export class Billing {
                         JSON.parse(decodedRes),
                         shared.BillingResponse
                     );
-                }
-                if (utils.matchContentType(contentType, `application/pdf`)) {
+                } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.getInvoiceById200ApplicationPdfBinaryString = httpRes?.data;
-                }
-                if (utils.matchContentType(contentType, `text/csv`)) {
+                } else if (utils.matchContentType(contentType, `text/csv`)) {
                     res.getInvoiceById200TextCsvCsvString = decodedRes;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -247,6 +258,13 @@ export class Billing {
                     res.billingEstimateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingEstimateResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

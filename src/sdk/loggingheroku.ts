@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -98,6 +99,13 @@ export class LoggingHeroku {
                         JSON.parse(decodedRes),
                         shared.LoggingHerokuResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -172,6 +180,13 @@ export class LoggingHeroku {
                         JSON.parse(decodedRes),
                         operations.DeleteLogHeroku200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -245,6 +260,13 @@ export class LoggingHeroku {
                     res.loggingHerokuResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingHerokuResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -322,6 +344,13 @@ export class LoggingHeroku {
                         JSON.parse(decodedRes),
                         shared.LoggingHerokuResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -407,6 +436,13 @@ export class LoggingHeroku {
                     res.loggingHerokuResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingHerokuResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

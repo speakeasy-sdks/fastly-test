@@ -18,8 +18,8 @@ List detailed information about the Compute@Edge package for the specified servi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetPackageResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -56,8 +56,8 @@ Upload a Compute@Edge package associated with the specified service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PutPackageResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PutPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

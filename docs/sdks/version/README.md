@@ -24,8 +24,8 @@ Activate the current version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ActivateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ActivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -62,8 +62,8 @@ Clone the current configuration into a new version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CloneServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CloneServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -100,8 +100,8 @@ Create a version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -137,8 +137,8 @@ Deactivate the current version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeactivateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeactivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -175,8 +175,8 @@ Get the version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -213,8 +213,8 @@ List the versions for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceVersionsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -250,8 +250,8 @@ Locks the specified version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { LockServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { LockServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -288,8 +288,8 @@ Update a particular version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -334,8 +334,8 @@ Validate the version for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ValidateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ValidateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

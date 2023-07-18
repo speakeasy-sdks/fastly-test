@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -106,6 +107,13 @@ export class AclEntry {
                         JSON.parse(decodedRes),
                         operations.BulkUpdateAclEntries200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -191,6 +199,13 @@ export class AclEntry {
                         JSON.parse(decodedRes),
                         shared.AclEntryResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -265,6 +280,13 @@ export class AclEntry {
                         JSON.parse(decodedRes),
                         operations.DeleteAclEntry200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -338,6 +360,13 @@ export class AclEntry {
                     res.aclEntryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.AclEntryResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -417,6 +446,13 @@ export class AclEntry {
                         JSON.parse(decodedRes),
                         shared.AclEntryResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -502,6 +538,13 @@ export class AclEntry {
                     res.aclEntryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.AclEntryResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

@@ -19,21 +19,16 @@ Create a Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogKafkaResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingKafkaAuthMethod,
   LoggingKafkaCompressionCodec,
   LoggingKafkaFormatVersion,
   LoggingKafkaPlacement,
   LoggingKafkaRequiredAcks,
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -91,8 +86,8 @@ Delete the Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogKafkaResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -130,16 +125,8 @@ Get the Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogKafkaResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
-  LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -177,16 +164,8 @@ List all of the Kafka logging endpoints for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogKafkaResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingKafkaResponseAuthMethod,
-  LoggingKafkaResponseCompressionCodec,
-  LoggingKafkaResponseFormatVersion,
-  LoggingKafkaResponsePlacement,
-  LoggingKafkaResponseRequiredAcks,
-  LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

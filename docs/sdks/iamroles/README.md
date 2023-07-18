@@ -19,8 +19,8 @@ Delete a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteARoleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -56,8 +56,8 @@ Get a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetARoleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -93,8 +93,8 @@ List all permissions in a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListRolePermissionsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListRolePermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -130,8 +130,8 @@ List all roles.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListRolesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

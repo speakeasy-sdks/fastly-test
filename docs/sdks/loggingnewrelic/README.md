@@ -20,16 +20,9 @@ Create a New Relic Logs logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogNewrelicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingNewrelicFormatVersion,
-  LoggingNewrelicPlacement,
-  LoggingNewrelicRegion,
-  LoggingNewrelicResponseFormatVersion,
-  LoggingNewrelicResponsePlacement,
-  LoggingNewrelicResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -75,8 +68,8 @@ Delete the New Relic Logs logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogNewrelicResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -114,13 +107,8 @@ Get the details of a New Relic Logs logging object for a particular service and 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogNewrelicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingNewrelicResponseFormatVersion,
-  LoggingNewrelicResponsePlacement,
-  LoggingNewrelicResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -158,13 +146,8 @@ List all of the New Relic Logs logging objects for a particular service and vers
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogNewrelicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingNewrelicResponseFormatVersion,
-  LoggingNewrelicResponsePlacement,
-  LoggingNewrelicResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -201,16 +184,9 @@ Update a New Relic Logs logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogNewrelicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingNewrelicFormatVersion,
-  LoggingNewrelicPlacement,
-  LoggingNewrelicRegion,
-  LoggingNewrelicResponseFormatVersion,
-  LoggingNewrelicResponsePlacement,
-  LoggingNewrelicResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

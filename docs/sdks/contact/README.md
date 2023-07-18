@@ -17,8 +17,8 @@ Delete a contact.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteContactResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteContactResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -55,9 +55,8 @@ List all contacts from a specified customer ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListContactsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { SchemasContactResponseContactType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListContactsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

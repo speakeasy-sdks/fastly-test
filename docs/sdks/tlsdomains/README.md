@@ -16,9 +16,9 @@ List all TLS domains.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsDomainsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Sort, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

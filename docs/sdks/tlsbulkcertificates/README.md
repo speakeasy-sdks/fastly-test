@@ -20,8 +20,8 @@ Destroy a certificate. This disables TLS for all domains listed as SAN entries.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteBulkTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -57,9 +57,8 @@ Retrieve a single certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsBulkCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -95,9 +94,9 @@ List all certificates.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsBulkCertsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Sort, TypeTlsBulkCertificate } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsBulkCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -136,9 +135,9 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateBulkTlsCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -202,9 +201,9 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UploadTlsBulkCertResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UploadTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

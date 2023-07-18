@@ -21,8 +21,8 @@ Purge-all requests cannot be done in soft mode and will always immediately inval
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeAllResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PurgeAllResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -58,8 +58,8 @@ Instant Purge an individual URL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeSingleUrlResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PurgeSingleUrlResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -96,8 +96,8 @@ Instant Purge a particular service of items tagged with a Surrogate Key. Only on
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeTagResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { PurgeTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

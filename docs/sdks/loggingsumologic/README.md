@@ -20,15 +20,9 @@ Create a Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogSumologicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicFormatVersion,
-  LoggingSumologicPlacement,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -74,8 +68,8 @@ Delete the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogSumologicResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -113,13 +107,8 @@ Get the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogSumologicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -157,13 +146,8 @@ List all of the Sumologics for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogSumologicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -200,15 +184,9 @@ Update the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogSumologicResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingMessageType,
-  LoggingSumologicFormatVersion,
-  LoggingSumologicPlacement,
-  LoggingSumologicResponseFormatVersion,
-  LoggingSumologicResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

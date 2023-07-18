@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -84,6 +85,13 @@ export class Historical {
                         JSON.parse(decodedRes),
                         shared.HistoricalResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -156,6 +164,13 @@ export class Historical {
                         JSON.parse(decodedRes),
                         shared.HistoricalAggregateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -226,6 +241,13 @@ export class Historical {
                     res.historicalFieldResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.HistoricalFieldResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -298,6 +320,13 @@ export class Historical {
                     res.historicalAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.HistoricalAggregateResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -375,6 +404,13 @@ export class Historical {
                         JSON.parse(decodedRes),
                         shared.HistoricalFieldAggregateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -439,6 +475,13 @@ export class Historical {
                     res.historicalRegionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.HistoricalRegionsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -511,6 +554,13 @@ export class Historical {
                         JSON.parse(decodedRes),
                         shared.HistoricalUsageAggregateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -582,6 +632,13 @@ export class Historical {
                         JSON.parse(decodedRes),
                         shared.HistoricalUsageMonthResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -652,6 +709,13 @@ export class Historical {
                     res.historicalUsageServiceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.HistoricalUsageServiceResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

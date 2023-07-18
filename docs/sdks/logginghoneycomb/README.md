@@ -20,9 +20,9 @@ Create a Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -68,8 +68,8 @@ Delete the Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -107,9 +107,8 @@ Get the details of a Honeycomb logging object for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -147,9 +146,8 @@ List all of the Honeycomb logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombResponseFormatVersion, LoggingHoneycombResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -186,14 +184,9 @@ Update a Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHoneycombFormatVersion,
-  LoggingHoneycombPlacement,
-  LoggingHoneycombResponseFormatVersion,
-  LoggingHoneycombResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -22,9 +22,9 @@ Create a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -66,8 +66,8 @@ Delete a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteUserResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -103,9 +103,8 @@ Get the logged in user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetCurrentUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetCurrentUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -138,9 +137,8 @@ Get a specific user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -176,8 +174,8 @@ Requests a password reset for the specified user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { RequestPasswordResetResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { RequestPasswordResetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -213,9 +211,9 @@ Update a user. Only users with the role of `superuser` can make changes to other
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -260,9 +258,8 @@ Update the user's password to a new one.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateUserPasswordResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateUserPasswordResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

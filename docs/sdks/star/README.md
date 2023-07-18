@@ -19,9 +19,9 @@ Create star.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServiceStarResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeService, TypeStar, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeService, TypeStar, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -69,8 +69,8 @@ Delete star.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteServiceStarResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -106,8 +106,8 @@ Show star.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceStarResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -143,9 +143,8 @@ List stars.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceStarsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeService, TypeStar, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListServiceStarsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

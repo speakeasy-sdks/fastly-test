@@ -22,8 +22,8 @@ Create a config store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateConfigStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -59,8 +59,8 @@ Delete a config store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteConfigStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -96,8 +96,8 @@ Describe a config store by its identifier.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetConfigStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -133,8 +133,8 @@ Retrieve metadata for a single config store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetConfigStoreInfoResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetConfigStoreInfoResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -170,8 +170,8 @@ List services linked to a config store
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListConfigStoreServicesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListConfigStoreServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -207,8 +207,8 @@ List config stores.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListConfigStoresResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListConfigStoresResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -241,8 +241,8 @@ Update a config store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateConfigStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

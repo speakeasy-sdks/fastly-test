@@ -18,9 +18,11 @@ yarn add https://github.com/speakeasy-sdks/fastly-test
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateAclResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -102,6 +103,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -109,6 +117,13 @@ export class BillingAddress {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingAddressVerificationErrorResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -251,6 +266,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -340,6 +362,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -347,6 +376,13 @@ export class BillingAddress {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingAddressVerificationErrorResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

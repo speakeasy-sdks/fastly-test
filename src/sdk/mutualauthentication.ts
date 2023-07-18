@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -94,6 +95,13 @@ export class MutualAuthentication {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -238,6 +246,13 @@ export class MutualAuthentication {
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -309,6 +324,13 @@ export class MutualAuthentication {
                     res.mutualAuthenticationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -399,6 +421,13 @@ export class MutualAuthentication {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

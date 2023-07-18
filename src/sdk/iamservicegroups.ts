@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -146,6 +147,13 @@ export class IamServiceGroups {
                         JSON.parse(decodedRes),
                         operations.GetAServiceGroup200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -222,6 +230,13 @@ export class IamServiceGroups {
                         JSON.parse(decodedRes),
                         operations.ListServiceGroupServices200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -292,6 +307,13 @@ export class IamServiceGroups {
                     res.listServiceGroups200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListServiceGroups200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

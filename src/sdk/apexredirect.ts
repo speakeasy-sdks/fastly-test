@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -84,6 +85,13 @@ export class ApexRedirect {
                         JSON.parse(decodedRes),
                         operations.DeleteApexRedirect200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -153,6 +161,13 @@ export class ApexRedirect {
                     res.apexRedirect = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ApexRedirect
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -230,6 +245,13 @@ export class ApexRedirect {
                         JSON.parse(decodedRes),
                         shared.ApexRedirect,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -316,6 +338,13 @@ export class ApexRedirect {
                     res.apexRedirect = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ApexRedirect
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

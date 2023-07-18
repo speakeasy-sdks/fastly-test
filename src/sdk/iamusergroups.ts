@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -145,6 +146,13 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.GetAUserGroup200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -217,6 +225,13 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.ListUserGroupMembers200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -288,6 +303,13 @@ export class IamUserGroups {
                     res.listUserGroupRoles200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListUserGroupRoles200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -365,6 +387,13 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.ListUserGroupServiceGroups200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -435,6 +464,13 @@ export class IamUserGroups {
                     res.listUserGroups200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListUserGroups200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

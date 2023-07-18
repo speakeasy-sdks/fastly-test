@@ -20,18 +20,14 @@ Create a S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -93,8 +89,8 @@ Delete the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -132,14 +128,8 @@ Get the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -177,14 +167,8 @@ List all of the S3s for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -221,18 +205,14 @@ Update the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

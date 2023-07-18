@@ -17,8 +17,8 @@ Get the settings for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -56,8 +56,8 @@ Update the settings for a particular service and version. NOTE: If you override 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServiceSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

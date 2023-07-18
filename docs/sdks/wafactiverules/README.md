@@ -24,14 +24,14 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { BulkUpdateWafActiveRulesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { BulkUpdateWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   BulkWafActiveRuleAttributesStatus,
   TypeWafActiveRule,
   TypeWafFirewallVersion,
   TypeWafRuleRevision,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -90,14 +90,14 @@ Create an active rule for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateWafActiveRuleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
   TypeWafRuleRevision,
   WafActiveRuleDataAttributesStatus,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -160,14 +160,14 @@ Create active rules by tag. This endpoint will create active rules using the lat
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateWafActiveRulesTagResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateWafActiveRulesTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
   TypeWafRuleRevision,
   WafActiveRuleDataAttributesStatus,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -229,8 +229,8 @@ Delete an active rule for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteWafActiveRuleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -270,9 +270,8 @@ Get a specific active rule object. Includes details of the rule revision associa
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetWafActiveRuleResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeWafActiveRule } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -313,9 +312,8 @@ List all active rules for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListWafActiveRulesResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeWafActiveRule } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -361,14 +359,14 @@ Update an active rule's status for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateWafActiveRuleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
   TypeWafRuleRevision,
   WafActiveRuleDataAttributesStatus,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

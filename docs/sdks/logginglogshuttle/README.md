@@ -20,14 +20,9 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -73,8 +68,8 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -112,9 +107,8 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -152,9 +146,8 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -191,14 +184,9 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

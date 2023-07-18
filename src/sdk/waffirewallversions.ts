@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -89,6 +90,13 @@ export class WafFirewallVersions {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallVersionResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -182,6 +190,13 @@ export class WafFirewallVersions {
                         JSON.parse(decodedRes),
                         shared.WafFirewallVersionResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -260,6 +275,13 @@ export class WafFirewallVersions {
                             JSON.parse(decodedRes),
                             operations.DeployActivateWafFirewallVersion202ApplicationVndApiPlusJson
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -338,6 +360,13 @@ export class WafFirewallVersions {
                         JSON.parse(decodedRes),
                         shared.WafFirewallVersionResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -415,6 +444,13 @@ export class WafFirewallVersions {
                     res.wafFirewallVersionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallVersionsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -507,6 +543,13 @@ export class WafFirewallVersions {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallVersionResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

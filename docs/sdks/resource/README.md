@@ -20,9 +20,8 @@ Create a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateResourceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -63,8 +62,8 @@ Delete a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteResourceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -102,9 +101,8 @@ Display a resource link by its identifier.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetResourceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -142,9 +140,8 @@ List links between resources and services
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListResourcesResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListResourcesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -181,9 +178,8 @@ Update a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateResourceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

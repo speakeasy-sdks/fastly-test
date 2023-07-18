@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -103,6 +104,13 @@ export class ConfigStoreItem {
                         JSON.parse(decodedRes),
                         operations.BulkUpdateConfigStoreItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -189,6 +197,13 @@ export class ConfigStoreItem {
                         JSON.parse(decodedRes),
                         shared.ConfigStoreItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -264,6 +279,13 @@ export class ConfigStoreItem {
                         JSON.parse(decodedRes),
                         operations.DeleteConfigStoreItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -338,6 +360,13 @@ export class ConfigStoreItem {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ConfigStoreItemResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -416,6 +445,13 @@ export class ConfigStoreItem {
                         JSON.parse(decodedRes),
                         shared.ConfigStoreItemResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -503,6 +539,13 @@ export class ConfigStoreItem {
                         JSON.parse(decodedRes),
                         shared.ConfigStoreItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -588,6 +631,13 @@ export class ConfigStoreItem {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ConfigStoreItemResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

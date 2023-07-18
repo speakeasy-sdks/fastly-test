@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -103,6 +104,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         operations.BulkUpdateDictionaryItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -189,6 +197,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -264,6 +279,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         operations.DeleteDictionaryItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -337,6 +359,13 @@ export class DictionaryItem {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -417,6 +446,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -504,6 +540,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -589,6 +632,13 @@ export class DictionaryItem {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

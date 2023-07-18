@@ -16,8 +16,8 @@ List the public IP addresses for the Fastly network.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListFastlyIpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListFastlyIpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

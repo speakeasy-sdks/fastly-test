@@ -19,9 +19,9 @@ Add a billing address to a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { AddBillingAddrResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeBillingAddress, TypeCustomer } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { AddBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -72,8 +72,8 @@ Delete a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteBillingAddrResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -109,9 +109,8 @@ Get a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetBillingAddrResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeBillingAddress, TypeCustomer } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -147,9 +146,9 @@ Update a customer's billing address. You may update only part of the customer's 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateBillingAddrResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeBillingAddress, TypeCustomer } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

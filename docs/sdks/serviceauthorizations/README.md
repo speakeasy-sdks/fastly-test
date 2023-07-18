@@ -20,9 +20,9 @@ Create service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServiceAuthorizationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -73,8 +73,8 @@ Delete service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteServiceAuthorizationResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -110,9 +110,8 @@ List service authorizations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceAuthorizationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -149,9 +148,8 @@ Show service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ShowServiceAuthorizationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ShowServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -187,9 +185,9 @@ Update service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServiceAuthorizationResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

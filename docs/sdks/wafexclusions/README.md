@@ -23,17 +23,15 @@ Create a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateWafRuleExclusionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
   TypeWafRuleRevision,
   WafExclusionDataAttributesExclusionType,
   WafExclusionDataAttributesVariable,
-  WafExclusionResponseDataAttributesExclusionType,
-  WafExclusionResponseDataAttributesVariable,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -97,8 +95,8 @@ Delete a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteWafRuleExclusionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -138,13 +136,8 @@ Get a specific WAF exclusion object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetWafRuleExclusionResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  TypeWafExclusion,
-  WafExclusionResponseDataAttributesExclusionType,
-  WafExclusionResponseDataAttributesVariable,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -184,13 +177,8 @@ List all exclusions for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListWafRuleExclusionsFilterExclusionType, ListWafRuleExclusionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  TypeWafExclusion,
-  WafExclusionResponseDataAttributesExclusionType,
-  WafExclusionResponseDataAttributesVariable,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListWafRuleExclusionsFilterExclusionType, ListWafRuleExclusionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -235,17 +223,15 @@ Update a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateWafRuleExclusionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
   TypeWafRuleRevision,
   WafExclusionDataAttributesExclusionType,
   WafExclusionDataAttributesVariable,
-  WafExclusionResponseDataAttributesExclusionType,
-  WafExclusionResponseDataAttributesVariable,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

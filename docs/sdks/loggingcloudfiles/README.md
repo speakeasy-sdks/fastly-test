@@ -20,20 +20,15 @@ Create a Cloud Files log endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogCloudfilesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
   LoggingCloudfilesMessageType,
   LoggingCloudfilesPlacement,
   LoggingCloudfilesRegion,
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -90,8 +85,8 @@ Delete the Cloud Files log endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogCloudfilesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -129,15 +124,8 @@ Get the Cloud Files log endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogCloudfilesResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -175,15 +163,8 @@ List all of the Cloud Files log endpoints for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogCloudfilesResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -220,20 +201,15 @@ Update the Cloud Files log endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogCloudfilesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
   LoggingCloudfilesMessageType,
   LoggingCloudfilesPlacement,
   LoggingCloudfilesRegion,
-  LoggingCloudfilesResponseCompressionCodec,
-  LoggingCloudfilesResponseFormatVersion,
-  LoggingCloudfilesResponseMessageType,
-  LoggingCloudfilesResponsePlacement,
-  LoggingCloudfilesResponseRegion,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

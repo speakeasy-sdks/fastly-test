@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -94,6 +95,13 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -164,6 +172,13 @@ export class User {
                         JSON.parse(decodedRes),
                         operations.DeleteUser200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -228,6 +243,13 @@ export class User {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.UserResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -298,6 +320,13 @@ export class User {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.UserResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -373,6 +402,13 @@ export class User {
                     res.requestPasswordReset200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.RequestPasswordReset200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -455,6 +491,13 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -536,6 +579,13 @@ export class User {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.UserResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

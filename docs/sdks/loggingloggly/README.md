@@ -20,14 +20,9 @@ Create a Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogLogglyResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogglyFormatVersion,
-  LoggingLogglyPlacement,
-  LoggingLogglyResponseFormatVersion,
-  LoggingLogglyResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -72,8 +67,8 @@ Delete the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogLogglyResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -111,9 +106,8 @@ Get the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogLogglyResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogglyResponseFormatVersion, LoggingLogglyResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -151,9 +145,8 @@ List all Loggly logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogLogglyResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogglyResponseFormatVersion, LoggingLogglyResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -190,14 +183,9 @@ Update the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogLogglyResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogglyFormatVersion,
-  LoggingLogglyPlacement,
-  LoggingLogglyResponseFormatVersion,
-  LoggingLogglyResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

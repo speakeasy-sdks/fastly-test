@@ -18,9 +18,8 @@ Show a TLS configuration.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTlsConfigResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsConfiguration } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -57,9 +56,8 @@ List all TLS configurations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsConfigsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeTlsConfiguration } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTlsConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -98,9 +96,9 @@ Update a TLS configuration.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateTlsConfigResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TypeService, TypeTlsConfiguration, TypeTlsDnsRecord } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeService, TypeTlsConfiguration, TypeTlsDnsRecord } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

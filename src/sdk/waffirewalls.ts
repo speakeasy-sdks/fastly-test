@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -96,6 +97,13 @@ export class WafFirewalls {
                     res.wafFirewallResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -247,6 +255,13 @@ export class WafFirewalls {
                         JSON.parse(decodedRes),
                         shared.WafFirewallResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -319,6 +334,13 @@ export class WafFirewalls {
                     res.wafFirewallsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -403,6 +425,13 @@ export class WafFirewalls {
                     res.wafFirewallResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafFirewallResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

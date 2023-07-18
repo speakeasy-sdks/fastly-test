@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -93,6 +94,13 @@ export class Star {
                     res.starResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.StarResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -227,6 +235,13 @@ export class Star {
                         JSON.parse(decodedRes),
                         shared.StarResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -291,6 +306,13 @@ export class Star {
                     res.listServiceStars200ApplicationVndApiPlusJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListServiceStars200ApplicationVndApiPlusJson
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

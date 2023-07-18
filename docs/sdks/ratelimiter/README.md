@@ -18,8 +18,8 @@ Delete a rate limiter by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteRateLimiterResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -55,14 +55,8 @@ Get a rate limiter by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetRateLimiterResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  RateLimiterResponseAction,
-  RateLimiterResponseHttpMethods,
-  RateLimiterResponseLoggerType,
-  RateLimiterResponseWindowSize,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -98,14 +92,8 @@ List all rate limiters for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListRateLimitersResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  RateLimiterResponseAction,
-  RateLimiterResponseHttpMethods,
-  RateLimiterResponseLoggerType,
-  RateLimiterResponseWindowSize,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListRateLimitersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

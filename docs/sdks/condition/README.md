@@ -20,9 +20,9 @@ Creates a new condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -67,8 +67,8 @@ Deletes the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteConditionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -106,9 +106,8 @@ Gets the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -146,9 +145,8 @@ Gets all conditions for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListConditionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListConditionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -185,9 +183,9 @@ Updates the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

@@ -16,8 +16,8 @@ List all permissions.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListPermissionsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { ListPermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

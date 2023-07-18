@@ -20,9 +20,9 @@ Creates a new Header object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateHeaderObjectResponse } from "FastlyTest/dist/sdk/models/operations";
-import { HeaderAction, HeaderResponseAction, HeaderResponseType, HeaderType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CreateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -73,8 +73,8 @@ Deletes a Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteHeaderObjectResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -112,9 +112,8 @@ Retrieves a Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHeaderObjectResponse } from "FastlyTest/dist/sdk/models/operations";
-import { HeaderResponseAction, HeaderResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -152,9 +151,8 @@ Retrieves all Header objects for a particular Version of a Service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListHeaderObjectsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { HeaderResponseAction, HeaderResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListHeaderObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -191,9 +189,9 @@ Modifies an existing Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateHeaderObjectResponse } from "FastlyTest/dist/sdk/models/operations";
-import { HeaderAction, HeaderResponseAction, HeaderResponseType, HeaderType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

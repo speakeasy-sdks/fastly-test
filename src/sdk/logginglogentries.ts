@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -105,6 +106,13 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -182,6 +190,13 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         operations.DeleteLogLogentries200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -257,6 +272,13 @@ export class LoggingLogentries {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -336,6 +358,13 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -428,6 +457,13 @@ export class LoggingLogentries {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

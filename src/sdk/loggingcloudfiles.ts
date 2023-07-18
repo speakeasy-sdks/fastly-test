@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -103,6 +104,13 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -178,6 +186,13 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         operations.DeleteLogCloudfiles200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -251,6 +266,13 @@ export class LoggingCloudfiles {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -328,6 +350,13 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -418,6 +447,13 @@ export class LoggingCloudfiles {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

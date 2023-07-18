@@ -20,9 +20,8 @@ Get a single token based on the access_token used in the request.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetTokenCurrentResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -55,9 +54,8 @@ List all tokens belonging to a specific customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTokensCustomerResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTokensCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -93,9 +91,8 @@ List all tokens belonging to the authenticated user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTokensUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { TokenResponseScope } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListTokensUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -128,8 +125,8 @@ Revoke a specific token by its id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { RevokeTokenResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { RevokeTokenResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -165,8 +162,8 @@ Revoke a token that is used to authenticate the request.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { RevokeTokenCurrentResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { RevokeTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

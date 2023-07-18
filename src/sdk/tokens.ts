@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -78,6 +79,13 @@ export class Tokens {
                         JSON.parse(decodedRes),
                         shared.TokenResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [401, 403].includes(httpRes?.status):
@@ -85,6 +93,13 @@ export class Tokens {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.GenericTokenError
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -160,6 +175,13 @@ export class Tokens {
                         shared.TokenResponse,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -228,6 +250,13 @@ export class Tokens {
                         shared.TokenResponse,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [401, 403].includes(httpRes?.status):
@@ -235,6 +264,13 @@ export class Tokens {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.GenericTokenError
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -308,6 +344,13 @@ export class Tokens {
                         JSON.parse(decodedRes),
                         shared.GenericTokenError
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -375,6 +418,13 @@ export class Tokens {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.GenericTokenError
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

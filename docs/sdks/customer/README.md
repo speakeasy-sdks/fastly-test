@@ -20,8 +20,8 @@ Delete a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteCustomerResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -57,9 +57,8 @@ Get a specific customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetCustomerResponse } from "FastlyTest/dist/sdk/models/operations";
-import { CustomerResponseBillingNetworkType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -95,9 +94,8 @@ Get the logged in customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLoggedInCustomerResponse } from "FastlyTest/dist/sdk/models/operations";
-import { CustomerResponseBillingNetworkType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLoggedInCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -130,9 +128,8 @@ List all users from a specified customer id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListUsersResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListUsersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -168,9 +165,9 @@ Update a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateCustomerResponse } from "FastlyTest/dist/sdk/models/operations";
-import { CustomerBillingNetworkType, CustomerResponseBillingNetworkType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

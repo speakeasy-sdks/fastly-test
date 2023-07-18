@@ -19,8 +19,8 @@ Removes the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteRequestSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -58,9 +58,8 @@ Gets the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetRequestSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RequestSettingsResponseAction, RequestSettingsResponseXff } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -98,9 +97,8 @@ Returns a list of all Request Settings objects for the given service and version
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListRequestSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RequestSettingsResponseAction, RequestSettingsResponseXff } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -137,14 +135,9 @@ Updates the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateRequestSettingsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  RequestSettingsAction,
-  RequestSettingsResponseAction,
-  RequestSettingsResponseXff,
-  RequestSettingsXff,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

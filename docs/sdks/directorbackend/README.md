@@ -18,8 +18,8 @@ Establishes a relationship between a Backend and a Director. The Backend is then
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateDirectorBackendResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -58,8 +58,8 @@ Deletes the relationship between a Backend and a Director. The Backend is no lon
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteDirectorBackendResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -98,8 +98,8 @@ Returns the relationship between a Backend and a Director. If the Backend has be
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetDirectorBackendResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

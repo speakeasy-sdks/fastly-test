@@ -16,8 +16,8 @@ Retrieve metadata for a single dictionary by ID for a version and service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetDictionaryInfoResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetDictionaryInfoResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 

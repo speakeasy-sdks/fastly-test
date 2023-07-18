@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -187,6 +188,13 @@ export class WafActiveRules {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafActiveRuleCreationResponse = JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -419,6 +427,13 @@ export class WafActiveRules {
                         JSON.parse(decodedRes),
                         shared.WafActiveRuleResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -496,6 +511,13 @@ export class WafActiveRules {
                     res.wafActiveRulesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafActiveRulesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -588,6 +610,13 @@ export class WafActiveRules {
                     res.wafActiveRuleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafActiveRuleResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

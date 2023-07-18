@@ -22,17 +22,14 @@ Create a Logentry for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { CreateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 
@@ -82,8 +79,8 @@ Delete the Logentry for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -123,14 +120,8 @@ Get the Logentry for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
-  LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { GetLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -170,14 +161,8 @@ List all of the Logentries for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
-  LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ListLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -216,17 +201,14 @@ Update the Logentry for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { UpdateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
-  LoggingLogentriesResponseFormatVersion,
-  LoggingLogentriesResponsePlacement,
-  LoggingLogentriesResponseRegion,
   LoggingUseTls,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
 

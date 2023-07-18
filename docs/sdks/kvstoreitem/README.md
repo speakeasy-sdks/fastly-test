@@ -19,8 +19,8 @@ Delete an item from an kv store
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteKeyFromStoreResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { DeleteKeyFromStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -58,8 +58,8 @@ List the keys of all items within an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetKeysResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -98,8 +98,8 @@ Get the value associated with a key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetValueForKeyResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { GetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
@@ -136,8 +136,8 @@ Set a new value for a new or existing key in an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { SetValueForKeyResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
+import { SetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
 
