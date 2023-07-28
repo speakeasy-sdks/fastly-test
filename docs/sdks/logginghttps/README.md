@@ -21,7 +21,7 @@ Create an HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogHttpsResponse, CreateLogHttpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -31,6 +31,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogHttpsSecurity = {
+  token: "",
+};
 
 sdk.loggingHttps.createLogHttps({
   loggingHttps4: {
@@ -55,9 +58,7 @@ sdk.loggingHttps.createLogHttps({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHttpsResponse) => {
+}, operationSecurity).then((res: CreateLogHttpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,17 +87,18 @@ Delete the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogHttpsResponse, DeleteLogHttpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogHttpsSecurity = {
+  token: "",
+};
 
 sdk.loggingHttps.deleteLogHttps({
   loggingHttpsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHttpsResponse) => {
+}, operationSecurity).then((res: DeleteLogHttpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,17 +127,18 @@ Get the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogHttpsResponse, GetLogHttpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogHttpsSecurity = {
+  token: "",
+};
 
 sdk.loggingHttps.getLogHttps({
   loggingHttpsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHttpsResponse) => {
+}, operationSecurity).then((res: GetLogHttpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -164,16 +167,17 @@ List all of the HTTPS objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogHttpsResponse, ListLogHttpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogHttpsSecurity = {
+  token: "",
+};
 
 sdk.loggingHttps.listLogHttps({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHttpsResponse) => {
+}, operationSecurity).then((res: ListLogHttpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,7 +206,7 @@ Update the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogHttpsResponse, UpdateLogHttpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -212,6 +216,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogHttpsSecurity = {
+  token: "",
+};
 
 sdk.loggingHttps.updateLogHttps({
   loggingHttps4: {
@@ -237,9 +244,7 @@ sdk.loggingHttps.updateLogHttps({
   loggingHttpsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHttpsResponse) => {
+}, operationSecurity).then((res: UpdateLogHttpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

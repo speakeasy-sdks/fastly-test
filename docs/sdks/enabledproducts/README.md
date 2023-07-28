@@ -19,16 +19,17 @@ Disable a product on a service. Supported product IDs: `brotli_compression`,`dom
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DisableProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DisableProductResponse, DisableProductSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DisableProductSecurity = {
+  token: "",
+};
 
 sdk.enabledProducts.disableProduct({
   productId: "origin_inspector",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: DisableProductResponse) => {
+}, operationSecurity).then((res: DisableProductResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,16 +58,17 @@ Enable a product on a service. Supported product IDs: `brotli_compression`,`doma
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { EnableProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { EnableProductResponse, EnableProductSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: EnableProductSecurity = {
+  token: "",
+};
 
 sdk.enabledProducts.enableProduct({
   productId: "origin_inspector",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: EnableProductResponse) => {
+}, operationSecurity).then((res: EnableProductResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,16 +97,17 @@ Get enabled product on a service. Supported product IDs: `brotli_compression`,`d
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetEnabledProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetEnabledProductResponse, GetEnabledProductSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetEnabledProductSecurity = {
+  token: "",
+};
 
 sdk.enabledProducts.getEnabledProduct({
   productId: "origin_inspector",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetEnabledProductResponse) => {
+}, operationSecurity).then((res: GetEnabledProductResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

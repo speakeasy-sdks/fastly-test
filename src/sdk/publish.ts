@@ -13,6 +13,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  *
  * @see {@link https://developer.fastly.com/reference/api/services/service}
  */
+
 export class Publish {
     private sdkConfiguration: SDKConfiguration;
 
@@ -63,6 +64,7 @@ export class Publish {
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "text/plain";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;

@@ -24,7 +24,7 @@ Create a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafRuleExclusionResponse, CreateWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
@@ -34,6 +34,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateWafRuleExclusionSecurity = {
+  token: "",
+};
 
 sdk.wafExclusions.createWafRuleExclusion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -63,9 +66,7 @@ sdk.wafExclusions.createWafRuleExclusion({
       type: TypeWafExclusion.WafExclusion,
     },
   },
-}, {
-  token: "",
-}).then((res: CreateWafRuleExclusionResponse) => {
+}, operationSecurity).then((res: CreateWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -96,17 +97,18 @@ Delete a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteWafRuleExclusionResponse, DeleteWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteWafRuleExclusionSecurity = {
+  token: "",
+};
 
 sdk.wafExclusions.deleteWafRuleExclusion({
   exclusionNumber: 1,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, {
-  token: "",
-}).then((res: DeleteWafRuleExclusionResponse) => {
+}, operationSecurity).then((res: DeleteWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -137,17 +139,18 @@ Get a specific WAF exclusion object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafRuleExclusionResponse, GetWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafRuleExclusionSecurity = {
+  token: "",
+};
 
 sdk.wafExclusions.getWafRuleExclusion({
   exclusionNumber: 1,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, {
-  token: "",
-}).then((res: GetWafRuleExclusionResponse) => {
+}, operationSecurity).then((res: GetWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -178,9 +181,16 @@ List all exclusions for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRuleExclusionsFilterExclusionType, ListWafRuleExclusionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import {
+  ListWafRuleExclusionsFilterExclusionType,
+  ListWafRuleExclusionsResponse,
+  ListWafRuleExclusionsSecurity,
+} from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafRuleExclusionsSecurity = {
+  token: "",
+};
 
 sdk.wafExclusions.listWafRuleExclusions({
   filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Waf,
@@ -191,9 +201,7 @@ sdk.wafExclusions.listWafRuleExclusions({
   include: "waf_rules",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListWafRuleExclusionsResponse) => {
+}, operationSecurity).then((res: ListWafRuleExclusionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -224,7 +232,7 @@ Update a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafRuleExclusionResponse, UpdateWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
@@ -234,6 +242,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateWafRuleExclusionSecurity = {
+  token: "",
+};
 
 sdk.wafExclusions.updateWafRuleExclusion({
   exclusionNumber: 1,
@@ -267,9 +278,7 @@ sdk.wafExclusions.updateWafRuleExclusion({
       type: TypeWafExclusion.WafExclusion,
     },
   },
-}, {
-  token: "",
-}).then((res: UpdateWafRuleExclusionResponse) => {
+}, operationSecurity).then((res: UpdateWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

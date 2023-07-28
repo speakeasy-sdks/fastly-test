@@ -21,9 +21,12 @@ Create a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateGzipConfigResponse, CreateGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateGzipConfigSecurity = {
+  token: "",
+};
 
 sdk.gzip.createGzipConfig({
   gzip: {
@@ -34,9 +37,7 @@ sdk.gzip.createGzipConfig({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateGzipConfigResponse) => {
+}, operationSecurity).then((res: CreateGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -65,17 +66,18 @@ Delete a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteGzipConfigResponse, DeleteGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteGzipConfigSecurity = {
+  token: "",
+};
 
 sdk.gzip.deleteGzipConfig({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteGzipConfigResponse) => {
+}, operationSecurity).then((res: DeleteGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -104,17 +106,18 @@ Get the gzip configuration for a particular service, version, and name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetGzipConfigsResponse, GetGzipConfigsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetGzipConfigsSecurity = {
+  token: "",
+};
 
 sdk.gzip.getGzipConfigs({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetGzipConfigsResponse) => {
+}, operationSecurity).then((res: GetGzipConfigsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -143,16 +146,17 @@ List all gzip configurations for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListGzipConfigsResponse, ListGzipConfigsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListGzipConfigsSecurity = {
+  token: "",
+};
 
 sdk.gzip.listGzipConfigs({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListGzipConfigsResponse) => {
+}, operationSecurity).then((res: ListGzipConfigsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -181,9 +185,12 @@ Update a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateGzipConfigResponse, UpdateGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateGzipConfigSecurity = {
+  token: "",
+};
 
 sdk.gzip.updateGzipConfig({
   gzip: {
@@ -195,9 +202,7 @@ sdk.gzip.updateGzipConfig({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateGzipConfigResponse) => {
+}, operationSecurity).then((res: UpdateGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

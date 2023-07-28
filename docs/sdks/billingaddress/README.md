@@ -20,10 +20,13 @@ Add a billing address to a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { AddBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { AddBillingAddrResponse, AddBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: AddBillingAddrSecurity = {
+  token: "",
+};
 
 sdk.billingAddress.addBillingAddr({
   billingAddressRequestInput: {
@@ -42,9 +45,7 @@ sdk.billingAddress.addBillingAddr({
     skipVerification: false,
   },
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: AddBillingAddrResponse) => {
+}, operationSecurity).then((res: AddBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,15 +74,16 @@ Delete a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteBillingAddrResponse, DeleteBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteBillingAddrSecurity = {
+  token: "",
+};
 
 sdk.billingAddress.deleteBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: DeleteBillingAddrResponse) => {
+}, operationSecurity).then((res: DeleteBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,15 +112,16 @@ Get a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetBillingAddrResponse, GetBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetBillingAddrSecurity = {
+  token: "",
+};
 
 sdk.billingAddress.getBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: GetBillingAddrResponse) => {
+}, operationSecurity).then((res: GetBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,10 +150,13 @@ Update a customer's billing address. You may update only part of the customer's 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateBillingAddrResponse, UpdateBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateBillingAddrSecurity = {
+  token: "",
+};
 
 sdk.billingAddress.updateBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
@@ -169,9 +175,7 @@ sdk.billingAddress.updateBillingAddr({
     },
     skipVerification: false,
   },
-}, {
-  token: "",
-}).then((res: UpdateBillingAddrResponse) => {
+}, operationSecurity).then((res: UpdateBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

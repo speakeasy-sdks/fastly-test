@@ -21,10 +21,13 @@ Create a Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogSplunkResponse, CreateLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogSplunkSecurity = {
+  token: "",
+};
 
 sdk.loggingSplunk.createLogSplunk({
   loggingSplunk2: {
@@ -45,9 +48,7 @@ sdk.loggingSplunk.createLogSplunk({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogSplunkResponse) => {
+}, operationSecurity).then((res: CreateLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,17 +77,18 @@ Delete the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogSplunkResponse, DeleteLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogSplunkSecurity = {
+  token: "",
+};
 
 sdk.loggingSplunk.deleteLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogSplunkResponse) => {
+}, operationSecurity).then((res: DeleteLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -115,17 +117,18 @@ Get the details for a Splunk logging object for a particular service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogSplunkResponse, GetLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogSplunkSecurity = {
+  token: "",
+};
 
 sdk.loggingSplunk.getLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogSplunkResponse) => {
+}, operationSecurity).then((res: GetLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -154,16 +157,17 @@ List all of the Splunk logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogSplunkResponse, ListLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogSplunkSecurity = {
+  token: "",
+};
 
 sdk.loggingSplunk.listLogSplunk({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogSplunkResponse) => {
+}, operationSecurity).then((res: ListLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -192,10 +196,13 @@ Update the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogSplunkResponse, UpdateLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogSplunkSecurity = {
+  token: "",
+};
 
 sdk.loggingSplunk.updateLogSplunk({
   loggingSplunk2: {
@@ -217,9 +224,7 @@ sdk.loggingSplunk.updateLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogSplunkResponse) => {
+}, operationSecurity).then((res: UpdateLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

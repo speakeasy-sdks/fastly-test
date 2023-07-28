@@ -17,15 +17,16 @@ Retrieve headers and MD5 hash of the content for a particular URL from each Fast
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ContentCheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ContentCheckResponse, ContentCheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ContentCheckSecurity = {
+  token: "",
+};
 
 sdk.content.contentCheck({
   url: "https://www.example.com/foo/bar",
-}, {
-  token: "",
-}).then((res: ContentCheckResponse) => {
+}, operationSecurity).then((res: ContentCheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

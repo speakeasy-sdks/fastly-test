@@ -21,10 +21,13 @@ Create a mutual authentication using a bundle of certificates to enable client-t
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateMutualTlsAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateMutualTlsAuthenticationResponse, CreateMutualTlsAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateMutualTlsAuthenticationSecurity = {
+  token: "",
+};
 
 sdk.mutualAuthentication.createMutualTlsAuthentication({
   data: {
@@ -44,9 +47,7 @@ sdk.mutualAuthentication.createMutualTlsAuthentication({
     },
     type: TypeMutualAuthentication.MutualAuthentication,
   },
-}, {
-  token: "",
-}).then((res: CreateMutualTlsAuthenticationResponse) => {
+}, operationSecurity).then((res: CreateMutualTlsAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,15 +76,16 @@ Remove a Mutual TLS authentication
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteMutualTlsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteMutualTlsResponse, DeleteMutualTlsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteMutualTlsSecurity = {
+  token: "",
+};
 
 sdk.mutualAuthentication.deleteMutualTls({
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, {
-  token: "",
-}).then((res: DeleteMutualTlsResponse) => {
+}, operationSecurity).then((res: DeleteMutualTlsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -112,16 +114,17 @@ Show a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetMutualAuthenticationResponse, GetMutualAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetMutualAuthenticationSecurity = {
+  token: "",
+};
 
 sdk.mutualAuthentication.getMutualAuthentication({
   include: "cum",
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, {
-  token: "",
-}).then((res: GetMutualAuthenticationResponse) => {
+}, operationSecurity).then((res: GetMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -150,17 +153,18 @@ List all mutual authentications.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListMutualAuthenticationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListMutualAuthenticationsResponse, ListMutualAuthenticationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListMutualAuthenticationsSecurity = {
+  token: "",
+};
 
 sdk.mutualAuthentication.listMutualAuthentications({
   include: "blanditiis",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListMutualAuthenticationsResponse) => {
+}, operationSecurity).then((res: ListMutualAuthenticationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -189,10 +193,13 @@ Update a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PatchMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PatchMutualAuthenticationResponse, PatchMutualAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: PatchMutualAuthenticationSecurity = {
+  token: "",
+};
 
 sdk.mutualAuthentication.patchMutualAuthentication({
   mutualAuthenticationInput: {
@@ -221,9 +228,7 @@ sdk.mutualAuthentication.patchMutualAuthentication({
     },
   },
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, {
-  token: "",
-}).then((res: PatchMutualAuthenticationResponse) => {
+}, operationSecurity).then((res: PatchMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

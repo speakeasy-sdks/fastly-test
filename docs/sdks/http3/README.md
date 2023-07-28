@@ -19,9 +19,12 @@ Enable HTTP/3 (QUIC) support for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateHttp3Response, CreateHttp3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateHttp3Security = {
+  token: "",
+};
 
 sdk.http3.createHttp3({
   http3Input: {
@@ -29,9 +32,7 @@ sdk.http3.createHttp3({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateHttp3Response) => {
+}, operationSecurity).then((res: CreateHttp3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -60,16 +61,17 @@ Disable HTTP/3 (QUIC) support for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteHttp3Response, DeleteHttp3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteHttp3Security = {
+  token: "",
+};
 
 sdk.http3.deleteHttp3({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteHttp3Response) => {
+}, operationSecurity).then((res: DeleteHttp3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -98,16 +100,17 @@ Get the status of HTTP/3 (QUIC) support for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHttp3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHttp3Response, GetHttp3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetHttp3Security = {
+  token: "",
+};
 
 sdk.http3.getHttp3({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetHttp3Response) => {
+}, operationSecurity).then((res: GetHttp3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }

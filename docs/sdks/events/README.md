@@ -19,15 +19,16 @@ Get a specific event.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetEventResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetEventResponse, GetEventSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetEventSecurity = {
+  token: "",
+};
 
 sdk.events.getEvent({
   eventId: "1PTzLK8g1NRKMGu5kUb8SC",
-}, {
-  token: "",
-}).then((res: GetEventResponse) => {
+}, operationSecurity).then((res: GetEventResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,10 +57,13 @@ List all events for a particular customer. Events can be filtered by user, custo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListEventsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListEventsResponse, ListEventsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListEventsSecurity = {
+  token: "",
+};
 
 sdk.events.listEvents({
   filterCreatedAt: "necessitatibus",
@@ -71,9 +75,7 @@ sdk.events.listEvents({
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
-}, {
-  token: "",
-}).then((res: ListEventsResponse) => {
+}, operationSecurity).then((res: ListEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

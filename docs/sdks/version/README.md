@@ -25,16 +25,17 @@ Activate the current version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ActivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ActivateServiceVersionResponse, ActivateServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ActivateServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.activateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ActivateServiceVersionResponse) => {
+}, operationSecurity).then((res: ActivateServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -63,16 +64,17 @@ Clone the current configuration into a new version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CloneServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CloneServiceVersionResponse, CloneServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CloneServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.cloneServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CloneServiceVersionResponse) => {
+}, operationSecurity).then((res: CloneServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -101,15 +103,16 @@ Create a version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServiceVersionResponse, CreateServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.createServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: CreateServiceVersionResponse) => {
+}, operationSecurity).then((res: CreateServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -138,16 +141,17 @@ Deactivate the current version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeactivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeactivateServiceVersionResponse, DeactivateServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeactivateServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.deactivateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeactivateServiceVersionResponse) => {
+}, operationSecurity).then((res: DeactivateServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -176,16 +180,17 @@ Get the version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceVersionResponse, GetServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.getServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetServiceVersionResponse) => {
+}, operationSecurity).then((res: GetServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -214,15 +219,16 @@ List the versions for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceVersionsResponse, ListServiceVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServiceVersionsSecurity = {
+  token: "",
+};
 
 sdk.version.listServiceVersions({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: ListServiceVersionsResponse) => {
+}, operationSecurity).then((res: ListServiceVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -251,16 +257,17 @@ Locks the specified version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { LockServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { LockServiceVersionResponse, LockServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: LockServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.lockServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: LockServiceVersionResponse) => {
+}, operationSecurity).then((res: LockServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -289,9 +296,12 @@ Update a particular version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServiceVersionResponse, UpdateServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.updateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -304,9 +314,7 @@ sdk.version.updateServiceVersion({
     testing: false,
   },
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateServiceVersionResponse) => {
+}, operationSecurity).then((res: UpdateServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -335,16 +343,17 @@ Validate the version for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ValidateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ValidateServiceVersionResponse, ValidateServiceVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ValidateServiceVersionSecurity = {
+  token: "",
+};
 
 sdk.version.validateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ValidateServiceVersionResponse) => {
+}, operationSecurity).then((res: ValidateServiceVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

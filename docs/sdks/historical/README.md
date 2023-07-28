@@ -25,19 +25,20 @@ Fetches historical stats for each of your Fastly services and groups the results
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHistStatsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHistStatsResponse, GetHistStatsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetHistStatsSecurity = {
+  token: "",
+};
 
 sdk.historical.getHistStats({
   by: By.Day,
   from: "incidunt",
   region: Region.Usa,
   to: "qui",
-}, {
-  token: "",
-}).then((res: GetHistStatsResponse) => {
+}, operationSecurity).then((res: GetHistStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -66,19 +67,20 @@ Fetches historical stats information aggregated across all of your Fastly servic
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHistStatsAggregatedResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHistStatsAggregatedResponse, GetHistStatsAggregatedSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetHistStatsAggregatedSecurity = {
+  token: "",
+};
 
 sdk.historical.getHistStatsAggregated({
   by: By.Day,
   from: "cupiditate",
   region: Region.Usa,
   to: "maxime",
-}, {
-  token: "",
-}).then((res: GetHistStatsAggregatedResponse) => {
+}, operationSecurity).then((res: GetHistStatsAggregatedResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,10 +109,13 @@ Fetches the specified field from the historical stats for each of your services 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHistStatsFieldResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHistStatsFieldResponse, GetHistStatsFieldSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetHistStatsFieldSecurity = {
+  token: "",
+};
 
 sdk.historical.getHistStatsField({
   by: By.Day,
@@ -118,9 +123,7 @@ sdk.historical.getHistStatsField({
   from: "pariatur",
   region: Region.Usa,
   to: "soluta",
-}, {
-  token: "",
-}).then((res: GetHistStatsFieldResponse) => {
+}, operationSecurity).then((res: GetHistStatsFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -149,10 +152,13 @@ Fetches historical stats for a given service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHistStatsServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHistStatsServiceResponse, GetHistStatsServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetHistStatsServiceSecurity = {
+  token: "",
+};
 
 sdk.historical.getHistStatsService({
   by: By.Day,
@@ -160,9 +166,7 @@ sdk.historical.getHistStatsService({
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   to: "laborum",
-}, {
-  token: "",
-}).then((res: GetHistStatsServiceResponse) => {
+}, operationSecurity).then((res: GetHistStatsServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -191,10 +195,13 @@ Fetches the specified field from the historical stats for a given service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHistStatsServiceFieldResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHistStatsServiceFieldResponse, GetHistStatsServiceFieldSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetHistStatsServiceFieldSecurity = {
+  token: "",
+};
 
 sdk.historical.getHistStatsServiceField({
   by: By.Day,
@@ -203,9 +210,7 @@ sdk.historical.getHistStatsServiceField({
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   to: "incidunt",
-}, {
-  token: "",
-}).then((res: GetHistStatsServiceFieldResponse) => {
+}, operationSecurity).then((res: GetHistStatsServiceFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -234,13 +239,14 @@ Fetches the list of codes for regions that are covered by the Fastly CDN service
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRegionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetRegionsResponse, GetRegionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.historical.getRegions({
+const operationSecurity: GetRegionsSecurity = {
   token: "",
-}).then((res: GetRegionsResponse) => {
+};
+
+sdk.historical.getRegions(operationSecurity).then((res: GetRegionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -268,16 +274,17 @@ Returns usage information aggregated across all Fastly services and grouped by r
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetUsageResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetUsageResponse, GetUsageSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetUsageSecurity = {
+  token: "",
+};
 
 sdk.historical.getUsage({
   from: "aspernatur",
   to: "dolores",
-}, {
-  token: "",
-}).then((res: GetUsageResponse) => {
+}, operationSecurity).then((res: GetUsageResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -306,17 +313,18 @@ Returns month-to-date usage details for a given month and year. Usage details ar
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetUsageMonthResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetUsageMonthResponse, GetUsageMonthSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetUsageMonthSecurity = {
+  token: "",
+};
 
 sdk.historical.getUsageMonth({
   billableUnits: true,
   month: "05",
   year: "2020",
-}, {
-  token: "",
-}).then((res: GetUsageMonthResponse) => {
+}, operationSecurity).then((res: GetUsageMonthResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -345,16 +353,17 @@ Returns usage information aggregated by service and grouped by service and regio
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetUsageServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetUsageServiceResponse, GetUsageServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetUsageServiceSecurity = {
+  token: "",
+};
 
 sdk.historical.getUsageService({
   from: "distinctio",
   to: "facilis",
-}, {
-  token: "",
-}).then((res: GetUsageServiceResponse) => {
+}, operationSecurity).then((res: GetUsageServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

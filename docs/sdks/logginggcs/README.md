@@ -21,7 +21,7 @@ Create GCS logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogGcsResponse, CreateLogGcsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogGcsSecurity = {
+  token: "",
+};
 
 sdk.loggingGcs.createLogGcs({
   loggingGcsInput: {
@@ -58,9 +61,7 @@ sdk.loggingGcs.createLogGcs({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogGcsResponse) => {
+}, operationSecurity).then((res: CreateLogGcsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -89,17 +90,18 @@ Delete the GCS Logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogGcsResponse, DeleteLogGcsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogGcsSecurity = {
+  token: "",
+};
 
 sdk.loggingGcs.deleteLogGcs({
   loggingGcsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogGcsResponse) => {
+}, operationSecurity).then((res: DeleteLogGcsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -128,17 +130,18 @@ Get the GCS Logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogGcsResponse, GetLogGcsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogGcsSecurity = {
+  token: "",
+};
 
 sdk.loggingGcs.getLogGcs({
   loggingGcsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogGcsResponse) => {
+}, operationSecurity).then((res: GetLogGcsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -167,16 +170,17 @@ List all of the GCS log endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogGcsResponse, ListLogGcsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogGcsSecurity = {
+  token: "",
+};
 
 sdk.loggingGcs.listLogGcs({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogGcsResponse) => {
+}, operationSecurity).then((res: ListLogGcsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -205,7 +209,7 @@ Update the GCS for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogGcsResponse, UpdateLogGcsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
@@ -214,6 +218,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogGcsSecurity = {
+  token: "",
+};
 
 sdk.loggingGcs.updateLogGcs({
   loggingGcsInput: {
@@ -243,9 +250,7 @@ sdk.loggingGcs.updateLogGcs({
   loggingGcsName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogGcsResponse) => {
+}, operationSecurity).then((res: UpdateLogGcsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

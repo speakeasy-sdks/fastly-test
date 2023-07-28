@@ -21,7 +21,7 @@ Create a DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogDigoceanResponse, CreateLogDigoceanSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogDigoceanSecurity = {
+  token: "",
+};
 
 sdk.loggingDigitalocean.createLogDigocean({
   loggingDigitaloceanInput: {
@@ -54,9 +57,7 @@ sdk.loggingDigitalocean.createLogDigocean({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogDigoceanResponse) => {
+}, operationSecurity).then((res: CreateLogDigoceanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,17 +86,18 @@ Delete the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogDigoceanResponse, DeleteLogDigoceanSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogDigoceanSecurity = {
+  token: "",
+};
 
 sdk.loggingDigitalocean.deleteLogDigocean({
   loggingDigitaloceanName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogDigoceanResponse) => {
+}, operationSecurity).then((res: DeleteLogDigoceanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,17 +126,18 @@ Get the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogDigoceanResponse, GetLogDigoceanSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogDigoceanSecurity = {
+  token: "",
+};
 
 sdk.loggingDigitalocean.getLogDigocean({
   loggingDigitaloceanName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogDigoceanResponse) => {
+}, operationSecurity).then((res: GetLogDigoceanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -163,16 +166,17 @@ List all of the DigitalOcean Spaces for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogDigoceanResponse, ListLogDigoceanSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogDigoceanSecurity = {
+  token: "",
+};
 
 sdk.loggingDigitalocean.listLogDigocean({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogDigoceanResponse) => {
+}, operationSecurity).then((res: ListLogDigoceanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -201,7 +205,7 @@ Update the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogDigoceanResponse, UpdateLogDigoceanSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -210,6 +214,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogDigoceanSecurity = {
+  token: "",
+};
 
 sdk.loggingDigitalocean.updateLogDigocean({
   loggingDigitaloceanInput: {
@@ -235,9 +242,7 @@ sdk.loggingDigitalocean.updateLogDigocean({
   loggingDigitaloceanName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogDigoceanResponse) => {
+}, operationSecurity).then((res: UpdateLogDigoceanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

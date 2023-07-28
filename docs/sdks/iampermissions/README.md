@@ -17,13 +17,14 @@ List all permissions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListPermissionsResponse, ListPermissionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.iamPermissions.listPermissions({
+const operationSecurity: ListPermissionsSecurity = {
   token: "",
-}).then((res: ListPermissionsResponse) => {
+};
+
+sdk.iamPermissions.listPermissions(operationSecurity).then((res: ListPermissionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

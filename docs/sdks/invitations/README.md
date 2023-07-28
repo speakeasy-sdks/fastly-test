@@ -19,7 +19,7 @@ Create an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateInvitationResponse, CreateInvitationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   InvitationDataAttributesStatusCode,
   RoleUser,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateInvitationSecurity = {
+  token: "",
+};
 
 sdk.invitations.createInvitation({
   data: {
@@ -60,9 +63,7 @@ sdk.invitations.createInvitation({
     },
     type: TypeInvitation.Invitation,
   },
-}, {
-  token: "",
-}).then((res: CreateInvitationResponse) => {
+}, operationSecurity).then((res: CreateInvitationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -91,15 +92,16 @@ Delete an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteInvitationResponse, DeleteInvitationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteInvitationSecurity = {
+  token: "",
+};
 
 sdk.invitations.deleteInvitation({
   invitationId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: DeleteInvitationResponse) => {
+}, operationSecurity).then((res: DeleteInvitationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -128,16 +130,17 @@ List all invitations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListInvitationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListInvitationsResponse, ListInvitationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListInvitationsSecurity = {
+  token: "",
+};
 
 sdk.invitations.listInvitations({
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListInvitationsResponse) => {
+}, operationSecurity).then((res: ListInvitationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

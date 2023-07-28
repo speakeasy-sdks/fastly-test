@@ -20,15 +20,16 @@ Delete an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteApexRedirectResponse, DeleteApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteApexRedirectSecurity = {
+  token: "",
+};
 
 sdk.apexRedirect.deleteApexRedirect({
   apexRedirectId: "debitis",
-}, {
-  token: "",
-}).then((res: DeleteApexRedirectResponse) => {
+}, operationSecurity).then((res: DeleteApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,15 +58,16 @@ Get an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetApexRedirectResponse, GetApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetApexRedirectSecurity = {
+  token: "",
+};
 
 sdk.apexRedirect.getApexRedirect({
   apexRedirectId: "ipsa",
-}, {
-  token: "",
-}).then((res: GetApexRedirectResponse) => {
+}, operationSecurity).then((res: GetApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,16 +96,17 @@ List all apex redirects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListApexRedirectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListApexRedirectsResponse, ListApexRedirectsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListApexRedirectsSecurity = {
+  token: "",
+};
 
 sdk.apexRedirect.listApexRedirects({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListApexRedirectsResponse) => {
+}, operationSecurity).then((res: ListApexRedirectsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -132,10 +135,13 @@ Update an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateApexRedirectResponse, UpdateApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateApexRedirectSecurity = {
+  token: "",
+};
 
 sdk.apexRedirect.updateApexRedirect({
   apexRedirectInput: {
@@ -149,9 +155,7 @@ sdk.apexRedirect.updateApexRedirect({
     statusCode: ApexRedirectStatusCode.ThreeHundredAndSeven,
   },
   apexRedirectId: "iusto",
-}, {
-  token: "",
-}).then((res: UpdateApexRedirectResponse) => {
+}, operationSecurity).then((res: UpdateApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

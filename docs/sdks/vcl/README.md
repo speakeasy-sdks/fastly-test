@@ -25,9 +25,12 @@ Upload a VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateCustomVclResponse, CreateCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateCustomVclSecurity = {
+  token: "",
+};
 
 sdk.vcl.createCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -37,9 +40,7 @@ sdk.vcl.createCustomVcl({
     name: "test-vcl",
   },
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateCustomVclResponse) => {
+}, operationSecurity).then((res: CreateCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -68,17 +69,18 @@ Delete the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCustomVclResponse, DeleteCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteCustomVclSecurity = {
+  token: "",
+};
 
 sdk.vcl.deleteCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteCustomVclResponse) => {
+}, operationSecurity).then((res: DeleteCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,18 +109,19 @@ Get the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclResponse, GetCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCustomVclSecurity = {
+  token: "",
+};
 
 sdk.vcl.getCustomVcl({
   noContent: "vel",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetCustomVclResponse) => {
+}, operationSecurity).then((res: GetCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ Return boilerplate VCL with the service's TTL from the [settings](/reference/api
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclBoilerplateResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclBoilerplateResponse, GetCustomVclBoilerplateSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCustomVclBoilerplateSecurity = {
+  token: "",
+};
 
 sdk.vcl.getCustomVclBoilerplate({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetCustomVclBoilerplateResponse) => {
+}, operationSecurity).then((res: GetCustomVclBoilerplateResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,16 +189,17 @@ Display the generated VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclGeneratedResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclGeneratedResponse, GetCustomVclGeneratedSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCustomVclGeneratedSecurity = {
+  token: "",
+};
 
 sdk.vcl.getCustomVclGenerated({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetCustomVclGeneratedResponse) => {
+}, operationSecurity).then((res: GetCustomVclGeneratedResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -223,17 +228,18 @@ Download the specified VCL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclRawResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclRawResponse, GetCustomVclRawSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCustomVclRawSecurity = {
+  token: "",
+};
 
 sdk.vcl.getCustomVclRaw({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetCustomVclRawResponse) => {
+}, operationSecurity).then((res: GetCustomVclRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -262,16 +268,17 @@ List the uploaded VCLs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListCustomVclResponse, ListCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListCustomVclSecurity = {
+  token: "",
+};
 
 sdk.vcl.listCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListCustomVclResponse) => {
+}, operationSecurity).then((res: ListCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -300,17 +307,18 @@ Set the specified VCL as the main.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SetCustomVclMainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SetCustomVclMainResponse, SetCustomVclMainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: SetCustomVclMainSecurity = {
+  token: "",
+};
 
 sdk.vcl.setCustomVclMain({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: SetCustomVclMainResponse) => {
+}, operationSecurity).then((res: SetCustomVclMainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -339,9 +347,12 @@ Update the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCustomVclResponse, UpdateCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateCustomVclSecurity = {
+  token: "",
+};
 
 sdk.vcl.updateCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -352,9 +363,7 @@ sdk.vcl.updateCustomVcl({
   },
   vclName: "test-vcl",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateCustomVclResponse) => {
+}, operationSecurity).then((res: UpdateCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

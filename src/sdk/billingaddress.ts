@@ -14,6 +14,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  *
  * @see {@link https://developer.fastly.com/reference/api/account/billing-address}
  */
+
 export class BillingAddress {
     private sdkConfiguration: SDKConfiguration;
 
@@ -69,7 +70,8 @@ export class BillingAddress {
         );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/vnd.api+json;q=1, application/vnd.api+json;q=0";
+        headers["Accept"] = "application/vnd.api+json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -167,6 +169,7 @@ export class BillingAddress {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "*/*";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -234,6 +237,7 @@ export class BillingAddress {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/vnd.api+json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -328,7 +332,8 @@ export class BillingAddress {
         );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/vnd.api+json;q=1, application/vnd.api+json;q=0";
+        headers["Accept"] = "application/vnd.api+json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;

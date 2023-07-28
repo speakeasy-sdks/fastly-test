@@ -14,6 +14,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  *
  * @see {@link https://developer.fastly.com/reference/api/vcl-services/diff}
  */
+
 export class VclDiff {
     private sdkConfiguration: SDKConfiguration;
 
@@ -57,6 +58,7 @@ export class VclDiff {
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;

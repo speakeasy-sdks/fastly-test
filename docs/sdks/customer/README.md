@@ -21,15 +21,16 @@ Delete a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCustomerResponse, DeleteCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteCustomerSecurity = {
+  token: "",
+};
 
 sdk.customer.deleteCustomer({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: DeleteCustomerResponse) => {
+}, operationSecurity).then((res: DeleteCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -58,15 +59,16 @@ Get a specific customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomerResponse, GetCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCustomerSecurity = {
+  token: "",
+};
 
 sdk.customer.getCustomer({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: GetCustomerResponse) => {
+}, operationSecurity).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,13 +97,14 @@ Get the logged in customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLoggedInCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLoggedInCustomerResponse, GetLoggedInCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.customer.getLoggedInCustomer({
+const operationSecurity: GetLoggedInCustomerSecurity = {
   token: "",
-}).then((res: GetLoggedInCustomerResponse) => {
+};
+
+sdk.customer.getLoggedInCustomer(operationSecurity).then((res: GetLoggedInCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -129,15 +132,16 @@ List all users from a specified customer id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUsersResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUsersResponse, ListUsersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListUsersSecurity = {
+  token: "",
+};
 
 sdk.customer.listUsers({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: ListUsersResponse) => {
+}, operationSecurity).then((res: ListUsersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -166,10 +170,13 @@ Update a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCustomerResponse, UpdateCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateCustomerSecurity = {
+  token: "",
+};
 
 sdk.customer.updateCustomer({
   customerInput: {
@@ -194,9 +201,7 @@ sdk.customer.updateCustomer({
     technicalContactId: "assumenda",
   },
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: UpdateCustomerResponse) => {
+}, operationSecurity).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

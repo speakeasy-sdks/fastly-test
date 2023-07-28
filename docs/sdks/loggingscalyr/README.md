@@ -21,10 +21,13 @@ Create a Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogScalyrResponse, CreateLogScalyrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogScalyrSecurity = {
+  token: "",
+};
 
 sdk.loggingScalyr.createLogScalyr({
   loggingScalyr3: {
@@ -39,9 +42,7 @@ sdk.loggingScalyr.createLogScalyr({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogScalyrResponse) => {
+}, operationSecurity).then((res: CreateLogScalyrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -70,17 +71,18 @@ Delete the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogScalyrResponse, DeleteLogScalyrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogScalyrSecurity = {
+  token: "",
+};
 
 sdk.loggingScalyr.deleteLogScalyr({
   loggingScalyrName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogScalyrResponse) => {
+}, operationSecurity).then((res: DeleteLogScalyrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -109,17 +111,18 @@ Get the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogScalyrResponse, GetLogScalyrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogScalyrSecurity = {
+  token: "",
+};
 
 sdk.loggingScalyr.getLogScalyr({
   loggingScalyrName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogScalyrResponse) => {
+}, operationSecurity).then((res: GetLogScalyrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -148,16 +151,17 @@ List all of the Scalyrs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogScalyrResponse, ListLogScalyrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogScalyrSecurity = {
+  token: "",
+};
 
 sdk.loggingScalyr.listLogScalyr({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogScalyrResponse) => {
+}, operationSecurity).then((res: ListLogScalyrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -186,10 +190,13 @@ Update the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogScalyrResponse, UpdateLogScalyrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogScalyrSecurity = {
+  token: "",
+};
 
 sdk.loggingScalyr.updateLogScalyr({
   loggingScalyr3: {
@@ -205,9 +212,7 @@ sdk.loggingScalyr.updateLogScalyr({
   loggingScalyrName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogScalyrResponse) => {
+}, operationSecurity).then((res: UpdateLogScalyrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

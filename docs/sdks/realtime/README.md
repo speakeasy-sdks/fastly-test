@@ -19,15 +19,16 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLast120SecondsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetStatsLast120SecondsResponse, GetStatsLast120SecondsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetStatsLast120SecondsSecurity = {
+  token: "",
+};
 
 sdk.realtime.getStatsLast120Seconds({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetStatsLast120SecondsResponse) => {
+}, operationSecurity).then((res: GetStatsLast120SecondsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,16 +57,20 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLast120SecondsLimitEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import {
+  GetStatsLast120SecondsLimitEntriesResponse,
+  GetStatsLast120SecondsLimitEntriesSecurity,
+} from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetStatsLast120SecondsLimitEntriesSecurity = {
+  token: "",
+};
 
 sdk.realtime.getStatsLast120SecondsLimitEntries({
   maxEntries: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetStatsLast120SecondsLimitEntriesResponse) => {
+}, operationSecurity).then((res: GetStatsLast120SecondsLimitEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,16 +99,17 @@ Get real-time data for the specified reporting period. Specify `0` to get a sing
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLastSecondResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetStatsLastSecondResponse, GetStatsLastSecondSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetStatsLastSecondSecurity = {
+  token: "",
+};
 
 sdk.realtime.getStatsLastSecond({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   timestampInSeconds: 1608560817,
-}, {
-  token: "",
-}).then((res: GetStatsLastSecondResponse) => {
+}, operationSecurity).then((res: GetStatsLastSecondResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

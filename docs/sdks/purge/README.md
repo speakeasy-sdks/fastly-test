@@ -22,15 +22,16 @@ Purge-all requests cannot be done in soft mode and will always immediately inval
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeAllResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PurgeAllResponse, PurgeAllSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: PurgeAllSecurity = {
+  token: "",
+};
 
 sdk.purge.purgeAll({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: PurgeAllResponse) => {
+}, operationSecurity).then((res: PurgeAllResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -59,16 +60,17 @@ Instant Purge an individual URL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeSingleUrlResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PurgeSingleUrlResponse, PurgeSingleUrlSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: PurgeSingleUrlSecurity = {
+  token: "",
+};
 
 sdk.purge.purgeSingleUrl({
   cachedUrl: "www.example.com/path/to/object-to-purge",
   fastlySoftPurge: 1,
-}, {
-  token: "",
-}).then((res: PurgeSingleUrlResponse) => {
+}, operationSecurity).then((res: PurgeSingleUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,17 +99,18 @@ Instant Purge a particular service of items tagged with a Surrogate Key. Only on
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PurgeTagResponse, PurgeTagSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: PurgeTagSecurity = {
+  token: "",
+};
 
 sdk.purge.purgeTag({
   fastlySoftPurge: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   surrogateKey: "key_1",
-}, {
-  token: "",
-}).then((res: PurgeTagResponse) => {
+}, operationSecurity).then((res: PurgeTagResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

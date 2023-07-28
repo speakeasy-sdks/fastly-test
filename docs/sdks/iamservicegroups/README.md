@@ -20,15 +20,16 @@ Delete a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAServiceGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAServiceGroupResponse, DeleteAServiceGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteAServiceGroupSecurity = {
+  token: "",
+};
 
 sdk.iamServiceGroups.deleteAServiceGroup({
   serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: DeleteAServiceGroupResponse) => {
+}, operationSecurity).then((res: DeleteAServiceGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,15 +58,16 @@ Get a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAServiceGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAServiceGroupResponse, GetAServiceGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetAServiceGroupSecurity = {
+  token: "",
+};
 
 sdk.iamServiceGroups.getAServiceGroup({
   serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: GetAServiceGroupResponse) => {
+}, operationSecurity).then((res: GetAServiceGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,17 +96,18 @@ List services to a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceGroupServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceGroupServicesResponse, ListServiceGroupServicesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServiceGroupServicesSecurity = {
+  token: "",
+};
 
 sdk.iamServiceGroups.listServiceGroupServices({
   page: 1,
   perPage: 20,
   serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListServiceGroupServicesResponse) => {
+}, operationSecurity).then((res: ListServiceGroupServicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -133,16 +136,17 @@ List all service groups.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceGroupsResponse, ListServiceGroupsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServiceGroupsSecurity = {
+  token: "",
+};
 
 sdk.iamServiceGroups.listServiceGroups({
   page: 1,
   perPage: 20,
-}, {
-  token: "",
-}).then((res: ListServiceGroupsResponse) => {
+}, operationSecurity).then((res: ListServiceGroupsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

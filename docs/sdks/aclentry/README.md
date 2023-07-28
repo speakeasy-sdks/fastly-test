@@ -23,10 +23,13 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateAclEntriesResponse, BulkUpdateAclEntriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateAclEntryNegated, BulkUpdateAclEntryOp } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: BulkUpdateAclEntriesSecurity = {
+  token: "",
+};
 
 sdk.aclEntry.bulkUpdateAclEntries({
   aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -56,9 +59,7 @@ sdk.aclEntry.bulkUpdateAclEntries({
     ],
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: BulkUpdateAclEntriesResponse) => {
+}, operationSecurity).then((res: BulkUpdateAclEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -87,10 +88,13 @@ Add an ACL entry to an ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclEntryResponse, CreateAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateAclEntrySecurity = {
+  token: "",
+};
 
 sdk.aclEntry.createAclEntry({
   aclEntry: {
@@ -101,9 +105,7 @@ sdk.aclEntry.createAclEntry({
   },
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: CreateAclEntryResponse) => {
+}, operationSecurity).then((res: CreateAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -132,17 +134,18 @@ Delete an ACL entry from a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAclEntryResponse, DeleteAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteAclEntrySecurity = {
+  token: "",
+};
 
 sdk.aclEntry.deleteAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: DeleteAclEntryResponse) => {
+}, operationSecurity).then((res: DeleteAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -171,17 +174,18 @@ Retrieve a single ACL entry.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAclEntryResponse, GetAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetAclEntrySecurity = {
+  token: "",
+};
 
 sdk.aclEntry.getAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetAclEntryResponse) => {
+}, operationSecurity).then((res: GetAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -210,10 +214,13 @@ List ACL entries for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListAclEntriesResponse, ListAclEntriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListAclEntriesSecurity = {
+  token: "",
+};
 
 sdk.aclEntry.listAclEntries({
   aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -222,9 +229,7 @@ sdk.aclEntry.listAclEntries({
   perPage: 20,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   sort: "created",
-}, {
-  token: "",
-}).then((res: ListAclEntriesResponse) => {
+}, operationSecurity).then((res: ListAclEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -253,10 +258,13 @@ Update an ACL entry for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateAclEntryResponse, UpdateAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateAclEntrySecurity = {
+  token: "",
+};
 
 sdk.aclEntry.updateAclEntry({
   aclEntry: {
@@ -268,9 +276,7 @@ sdk.aclEntry.updateAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: UpdateAclEntryResponse) => {
+}, operationSecurity).then((res: UpdateAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

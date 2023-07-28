@@ -23,15 +23,16 @@ Create a config store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateConfigStoreResponse, CreateConfigStoreSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateConfigStoreSecurity = {
+  token: "",
+};
 
 sdk.configStore.createConfigStore({
   name: "test-config-store",
-}, {
-  token: "",
-}).then((res: CreateConfigStoreResponse) => {
+}, operationSecurity).then((res: CreateConfigStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -60,15 +61,16 @@ Delete a config store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteConfigStoreResponse, DeleteConfigStoreSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteConfigStoreSecurity = {
+  token: "",
+};
 
 sdk.configStore.deleteConfigStore({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: DeleteConfigStoreResponse) => {
+}, operationSecurity).then((res: DeleteConfigStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,15 +99,16 @@ Describe a config store by its identifier.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetConfigStoreResponse, GetConfigStoreSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetConfigStoreSecurity = {
+  token: "",
+};
 
 sdk.configStore.getConfigStore({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: GetConfigStoreResponse) => {
+}, operationSecurity).then((res: GetConfigStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -134,15 +137,16 @@ Retrieve metadata for a single config store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConfigStoreInfoResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetConfigStoreInfoResponse, GetConfigStoreInfoSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetConfigStoreInfoSecurity = {
+  token: "",
+};
 
 sdk.configStore.getConfigStoreInfo({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: GetConfigStoreInfoResponse) => {
+}, operationSecurity).then((res: GetConfigStoreInfoResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -171,15 +175,16 @@ List services linked to a config store
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConfigStoreServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListConfigStoreServicesResponse, ListConfigStoreServicesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListConfigStoreServicesSecurity = {
+  token: "",
+};
 
 sdk.configStore.listConfigStoreServices({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: ListConfigStoreServicesResponse) => {
+}, operationSecurity).then((res: ListConfigStoreServicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -208,13 +213,14 @@ List config stores.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConfigStoresResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListConfigStoresResponse, ListConfigStoresSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.configStore.listConfigStores({
+const operationSecurity: ListConfigStoresSecurity = {
   token: "",
-}).then((res: ListConfigStoresResponse) => {
+};
+
+sdk.configStore.listConfigStores(operationSecurity).then((res: ListConfigStoresResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -242,18 +248,19 @@ Update a config store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConfigStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateConfigStoreResponse, UpdateConfigStoreSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateConfigStoreSecurity = {
+  token: "",
+};
 
 sdk.configStore.updateConfigStore({
   configStore: {
     name: "test-config-store",
   },
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: UpdateConfigStoreResponse) => {
+}, operationSecurity).then((res: UpdateConfigStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

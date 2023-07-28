@@ -20,7 +20,7 @@ Create a Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogKafkaResponse, CreateLogKafkaSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingKafkaAuthMethod,
   LoggingKafkaCompressionCodec,
@@ -31,6 +31,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogKafkaSecurity = {
+  token: "",
+};
 
 sdk.loggingKafka.createLogKafka({
   loggingKafka5: {
@@ -56,9 +59,7 @@ sdk.loggingKafka.createLogKafka({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogKafkaResponse) => {
+}, operationSecurity).then((res: CreateLogKafkaResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -87,17 +88,18 @@ Delete the Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogKafkaResponse, DeleteLogKafkaSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogKafkaSecurity = {
+  token: "",
+};
 
 sdk.loggingKafka.deleteLogKafka({
   loggingKafkaName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogKafkaResponse) => {
+}, operationSecurity).then((res: DeleteLogKafkaResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -126,17 +128,18 @@ Get the Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogKafkaResponse, GetLogKafkaSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogKafkaSecurity = {
+  token: "",
+};
 
 sdk.loggingKafka.getLogKafka({
   loggingKafkaName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogKafkaResponse) => {
+}, operationSecurity).then((res: GetLogKafkaResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -165,16 +168,17 @@ List all of the Kafka logging endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogKafkaResponse, ListLogKafkaSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogKafkaSecurity = {
+  token: "",
+};
 
 sdk.loggingKafka.listLogKafka({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogKafkaResponse) => {
+}, operationSecurity).then((res: ListLogKafkaResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

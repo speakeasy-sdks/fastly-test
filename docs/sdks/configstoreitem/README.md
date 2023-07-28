@@ -23,10 +23,13 @@ Add multiple key-value pairs to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateConfigStoreItemResponse, BulkUpdateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: BulkUpdateConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.bulkUpdateConfigStoreItem({
   bulkUpdateConfigStoreListRequest: {
@@ -49,9 +52,7 @@ sdk.configStoreItem.bulkUpdateConfigStoreItem({
     ],
   },
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: BulkUpdateConfigStoreItemResponse) => {
+}, operationSecurity).then((res: BulkUpdateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -80,9 +81,12 @@ Add a single key-value pair to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateConfigStoreItemResponse, CreateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.createConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -90,9 +94,7 @@ sdk.configStoreItem.createConfigStoreItem({
     itemKey: "test-key",
     itemValue: "test-value",
   },
-}, {
-  token: "",
-}).then((res: CreateConfigStoreItemResponse) => {
+}, operationSecurity).then((res: CreateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -121,16 +123,17 @@ Delete an entry in a config store given a config store ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteConfigStoreItemResponse, DeleteConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.deleteConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
   configStoreItemKey: "test-key",
-}, {
-  token: "",
-}).then((res: DeleteConfigStoreItemResponse) => {
+}, operationSecurity).then((res: DeleteConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -159,16 +162,17 @@ Retrieve a config store entry given a config store ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetConfigStoreItemResponse, GetConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.getConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
   configStoreItemKey: "test-key",
-}, {
-  token: "",
-}).then((res: GetConfigStoreItemResponse) => {
+}, operationSecurity).then((res: GetConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -197,15 +201,16 @@ List the key-value pairs associated with a given config store ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConfigStoreItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListConfigStoreItemsResponse, ListConfigStoreItemsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListConfigStoreItemsSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.listConfigStoreItems({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, {
-  token: "",
-}).then((res: ListConfigStoreItemsResponse) => {
+}, operationSecurity).then((res: ListConfigStoreItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -234,9 +239,12 @@ Update an entry in a config store given a config store ID, item key, and item va
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateConfigStoreItemResponse, UpdateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.updateConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -245,9 +253,7 @@ sdk.configStoreItem.updateConfigStoreItem({
     itemValue: "test-value",
   },
   configStoreItemKey: "test-key",
-}, {
-  token: "",
-}).then((res: UpdateConfigStoreItemResponse) => {
+}, operationSecurity).then((res: UpdateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -276,9 +282,12 @@ Insert or update an entry in a config store given a config store ID, item key, a
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpsertConfigStoreItemResponse, UpsertConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpsertConfigStoreItemSecurity = {
+  token: "",
+};
 
 sdk.configStoreItem.upsertConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -287,9 +296,7 @@ sdk.configStoreItem.upsertConfigStoreItem({
     itemValue: "test-value",
   },
   configStoreItemKey: "test-key",
-}, {
-  token: "",
-}).then((res: UpsertConfigStoreItemResponse) => {
+}, operationSecurity).then((res: UpsertConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

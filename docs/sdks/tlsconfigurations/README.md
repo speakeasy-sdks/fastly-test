@@ -19,16 +19,17 @@ Show a TLS configuration.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsConfigResponse, GetTlsConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetTlsConfigSecurity = {
+  token: "",
+};
 
 sdk.tlsConfigurations.getTlsConfig({
   include: "dns_records",
   tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-}, {
-  token: "",
-}).then((res: GetTlsConfigResponse) => {
+}, operationSecurity).then((res: GetTlsConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,18 +58,19 @@ List all TLS configurations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsConfigsResponse, ListTlsConfigsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsConfigsSecurity = {
+  token: "",
+};
 
 sdk.tlsConfigurations.listTlsConfigs({
   filterBulk: "eum",
   include: "dns_records",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListTlsConfigsResponse) => {
+}, operationSecurity).then((res: ListTlsConfigsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,10 +99,13 @@ Update a TLS configuration.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateTlsConfigResponse, UpdateTlsConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeService, TypeTlsConfiguration, TypeTlsDnsRecord } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateTlsConfigSecurity = {
+  token: "",
+};
 
 sdk.tlsConfigurations.updateTlsConfig({
   tlsConfigurationInput: {
@@ -124,9 +129,7 @@ sdk.tlsConfigurations.updateTlsConfig({
     },
   },
   tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-}, {
-  token: "",
-}).then((res: UpdateTlsConfigResponse) => {
+}, operationSecurity).then((res: UpdateTlsConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

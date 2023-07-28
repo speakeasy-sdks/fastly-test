@@ -21,10 +21,13 @@ Create a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogGcpPubsubResponse, CreateLogGcpPubsubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogGcpPubsubSecurity = {
+  token: "",
+};
 
 sdk.loggingPubsub.createLogGcpPubsub({
   loggingGooglePubsub2: {
@@ -44,9 +47,7 @@ sdk.loggingPubsub.createLogGcpPubsub({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogGcpPubsubResponse) => {
+}, operationSecurity).then((res: CreateLogGcpPubsubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,17 +76,18 @@ Delete a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogGcpPubsubResponse, DeleteLogGcpPubsubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogGcpPubsubSecurity = {
+  token: "",
+};
 
 sdk.loggingPubsub.deleteLogGcpPubsub({
   loggingGooglePubsubName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogGcpPubsubResponse) => {
+}, operationSecurity).then((res: DeleteLogGcpPubsubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -114,17 +116,18 @@ Get the details for a Pub/Sub logging object for a particular service and versio
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogGcpPubsubResponse, GetLogGcpPubsubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogGcpPubsubSecurity = {
+  token: "",
+};
 
 sdk.loggingPubsub.getLogGcpPubsub({
   loggingGooglePubsubName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogGcpPubsubResponse) => {
+}, operationSecurity).then((res: GetLogGcpPubsubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -153,16 +156,17 @@ List all of the Pub/Sub logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogGcpPubsubResponse, ListLogGcpPubsubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogGcpPubsubSecurity = {
+  token: "",
+};
 
 sdk.loggingPubsub.listLogGcpPubsub({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogGcpPubsubResponse) => {
+}, operationSecurity).then((res: ListLogGcpPubsubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -191,10 +195,13 @@ Update a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogGcpPubsubResponse, UpdateLogGcpPubsubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogGcpPubsubSecurity = {
+  token: "",
+};
 
 sdk.loggingPubsub.updateLogGcpPubsub({
   loggingGooglePubsub2: {
@@ -215,9 +222,7 @@ sdk.loggingPubsub.updateLogGcpPubsub({
   loggingGooglePubsubName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogGcpPubsubResponse) => {
+}, operationSecurity).then((res: UpdateLogGcpPubsubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

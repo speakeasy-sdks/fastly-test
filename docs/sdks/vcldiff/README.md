@@ -17,19 +17,20 @@ Get a comparison of the VCL changes between two service versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { VclDiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { VclDiffServiceVersionsResponse, VclDiffServiceVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: VclDiffServiceVersionsSecurity = {
+  token: "",
+};
 
 sdk.vclDiff.vclDiffServiceVersions({
   format: QueryFormat.HtmlSimple,
   fromVersionId: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   toVersionId: 2,
-}, {
-  token: "",
-}).then((res: VclDiffServiceVersionsResponse) => {
+}, operationSecurity).then((res: VclDiffServiceVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

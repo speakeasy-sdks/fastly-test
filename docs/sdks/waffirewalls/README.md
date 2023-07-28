@@ -24,10 +24,13 @@ Create a firewall object for a particular service and service version using a de
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafFirewallResponse, CreateWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateWafFirewallSecurity = {
+  token: "",
+};
 
 sdk.wafFirewalls.createWafFirewall({
   data: {
@@ -38,9 +41,7 @@ sdk.wafFirewalls.createWafFirewall({
     },
     type: TypeWafFirewall.WafFirewall,
   },
-}, {
-  token: "",
-}).then((res: CreateWafFirewallResponse) => {
+}, operationSecurity).then((res: CreateWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -72,10 +73,13 @@ Delete the firewall object for a particular service and service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteWafFirewallResponse, DeleteWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteWafFirewallSecurity = {
+  token: "",
+};
 
 sdk.wafFirewalls.deleteWafFirewall({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -89,9 +93,7 @@ sdk.wafFirewalls.deleteWafFirewall({
       type: TypeWafFirewall.WafFirewall,
     },
   },
-}, {
-  token: "",
-}).then((res: DeleteWafFirewallResponse) => {
+}, operationSecurity).then((res: DeleteWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,18 +124,19 @@ Get a specific firewall object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafFirewallResponse, GetWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafFirewallSecurity = {
+  token: "",
+};
 
 sdk.wafFirewalls.getWafFirewall({
   filterServiceVersionNumber: "vel",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: FirewallInclude.WafFirewallVersions,
-}, {
-  token: "",
-}).then((res: GetWafFirewallResponse) => {
+}, operationSecurity).then((res: GetWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -164,10 +167,13 @@ List all firewall objects.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafFirewallsResponse, ListWafFirewallsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafFirewallsSecurity = {
+  token: "",
+};
 
 sdk.wafFirewalls.listWafFirewalls({
   filterServiceId: "voluptatum",
@@ -175,9 +181,7 @@ sdk.wafFirewalls.listWafFirewalls({
   include: FirewallInclude.WafFirewallVersions,
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListWafFirewallsResponse) => {
+}, operationSecurity).then((res: ListWafFirewallsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -209,10 +213,13 @@ Update a firewall object for a particular service and service version. Specifyin
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafFirewallResponse, UpdateWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateWafFirewallSecurity = {
+  token: "",
+};
 
 sdk.wafFirewalls.updateWafFirewall({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -226,9 +233,7 @@ sdk.wafFirewalls.updateWafFirewall({
       type: TypeWafFirewall.WafFirewall,
     },
   },
-}, {
-  token: "",
-}).then((res: UpdateWafFirewallResponse) => {
+}, operationSecurity).then((res: UpdateWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

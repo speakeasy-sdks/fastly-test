@@ -19,18 +19,19 @@ Establishes a relationship between a Backend and a Director. The Backend is then
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDirectorBackendResponse, CreateDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateDirectorBackendSecurity = {
+  token: "",
+};
 
 sdk.directorBackend.createDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateDirectorBackendResponse) => {
+}, operationSecurity).then((res: CreateDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -59,18 +60,19 @@ Deletes the relationship between a Backend and a Director. The Backend is no lon
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDirectorBackendResponse, DeleteDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteDirectorBackendSecurity = {
+  token: "",
+};
 
 sdk.directorBackend.deleteDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteDirectorBackendResponse) => {
+}, operationSecurity).then((res: DeleteDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -99,18 +101,19 @@ Returns the relationship between a Backend and a Director. If the Backend has be
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDirectorBackendResponse, GetDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDirectorBackendSecurity = {
+  token: "",
+};
 
 sdk.directorBackend.getDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetDirectorBackendResponse) => {
+}, operationSecurity).then((res: GetDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

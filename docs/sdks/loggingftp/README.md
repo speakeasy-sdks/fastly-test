@@ -21,7 +21,7 @@ Create a FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogFtpResponse, CreateLogFtpSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogFtpSecurity = {
+  token: "",
+};
 
 sdk.loggingFtp.createLogFtp({
   loggingFtpInput: {
@@ -56,9 +59,7 @@ sdk.loggingFtp.createLogFtp({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogFtpResponse) => {
+}, operationSecurity).then((res: CreateLogFtpResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -87,17 +88,18 @@ Delete the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogFtpResponse, DeleteLogFtpSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogFtpSecurity = {
+  token: "",
+};
 
 sdk.loggingFtp.deleteLogFtp({
   loggingFtpName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogFtpResponse) => {
+}, operationSecurity).then((res: DeleteLogFtpResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -126,17 +128,18 @@ Get the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogFtpResponse, GetLogFtpSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogFtpSecurity = {
+  token: "",
+};
 
 sdk.loggingFtp.getLogFtp({
   loggingFtpName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogFtpResponse) => {
+}, operationSecurity).then((res: GetLogFtpResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -165,16 +168,17 @@ List all of the FTPs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogFtpResponse, ListLogFtpSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogFtpSecurity = {
+  token: "",
+};
 
 sdk.loggingFtp.listLogFtp({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogFtpResponse) => {
+}, operationSecurity).then((res: ListLogFtpResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -203,7 +207,7 @@ Update the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogFtpResponse, UpdateLogFtpSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -212,6 +216,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogFtpSecurity = {
+  token: "",
+};
 
 sdk.loggingFtp.updateLogFtp({
   loggingFtpInput: {
@@ -239,9 +246,7 @@ sdk.loggingFtp.updateLogFtp({
   loggingFtpName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogFtpResponse) => {
+}, operationSecurity).then((res: UpdateLogFtpResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -22,15 +22,16 @@ Delete a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAUserGroupResponse, DeleteAUserGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteAUserGroupSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.deleteAUserGroup({
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: DeleteAUserGroupResponse) => {
+}, operationSecurity).then((res: DeleteAUserGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -59,15 +60,16 @@ Get a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAUserGroupResponse, GetAUserGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetAUserGroupSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.getAUserGroup({
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: GetAUserGroupResponse) => {
+}, operationSecurity).then((res: GetAUserGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -96,17 +98,18 @@ List members of a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupMembersResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupMembersResponse, ListUserGroupMembersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListUserGroupMembersSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.listUserGroupMembers({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListUserGroupMembersResponse) => {
+}, operationSecurity).then((res: ListUserGroupMembersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -135,17 +138,18 @@ List roles in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupRolesResponse, ListUserGroupRolesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListUserGroupRolesSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.listUserGroupRoles({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListUserGroupRolesResponse) => {
+}, operationSecurity).then((res: ListUserGroupRolesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -174,17 +178,18 @@ List service groups in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupServiceGroupsResponse, ListUserGroupServiceGroupsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListUserGroupServiceGroupsSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.listUserGroupServiceGroups({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListUserGroupServiceGroupsResponse) => {
+}, operationSecurity).then((res: ListUserGroupServiceGroupsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -213,16 +218,17 @@ List all user groups.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupsResponse, ListUserGroupsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListUserGroupsSecurity = {
+  token: "",
+};
 
 sdk.iamUserGroups.listUserGroups({
   page: 1,
   perPage: 20,
-}, {
-  token: "",
-}).then((res: ListUserGroupsResponse) => {
+}, operationSecurity).then((res: ListUserGroupsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

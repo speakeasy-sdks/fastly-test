@@ -19,9 +19,12 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PublishResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PublishResponse, PublishSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: PublishSecurity = {
+  token: "",
+};
 
 sdk.publish.publish({
   publishRequest: {
@@ -134,9 +137,7 @@ sdk.publish.publish({
     ],
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: PublishResponse) => {
+}, operationSecurity).then((res: PublishResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

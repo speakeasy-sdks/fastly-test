@@ -21,10 +21,13 @@ Creates a new Header object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateHeaderObjectResponse, CreateHeaderObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateHeaderObjectSecurity = {
+  token: "",
+};
 
 sdk.header.createHeaderObject({
   header2: {
@@ -43,9 +46,7 @@ sdk.header.createHeaderObject({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateHeaderObjectResponse) => {
+}, operationSecurity).then((res: CreateHeaderObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -74,17 +75,18 @@ Deletes a Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteHeaderObjectResponse, DeleteHeaderObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteHeaderObjectSecurity = {
+  token: "",
+};
 
 sdk.header.deleteHeaderObject({
   headerName: "test-header",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteHeaderObjectResponse) => {
+}, operationSecurity).then((res: DeleteHeaderObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -113,17 +115,18 @@ Retrieves a Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHeaderObjectResponse, GetHeaderObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetHeaderObjectSecurity = {
+  token: "",
+};
 
 sdk.header.getHeaderObject({
   headerName: "test-header",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetHeaderObjectResponse) => {
+}, operationSecurity).then((res: GetHeaderObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -152,16 +155,17 @@ Retrieves all Header objects for a particular Version of a Service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListHeaderObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListHeaderObjectsResponse, ListHeaderObjectsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListHeaderObjectsSecurity = {
+  token: "",
+};
 
 sdk.header.listHeaderObjects({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListHeaderObjectsResponse) => {
+}, operationSecurity).then((res: ListHeaderObjectsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -190,10 +194,13 @@ Modifies an existing Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateHeaderObjectResponse, UpdateHeaderObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateHeaderObjectSecurity = {
+  token: "",
+};
 
 sdk.header.updateHeaderObject({
   header2: {
@@ -213,9 +220,7 @@ sdk.header.updateHeaderObject({
   headerName: "test-header",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateHeaderObjectResponse) => {
+}, operationSecurity).then((res: UpdateHeaderObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

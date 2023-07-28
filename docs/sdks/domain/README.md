@@ -23,17 +23,18 @@ Checks the status of a specific domain's DNS record for a Service Version. Retur
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CheckDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CheckDomainResponse, CheckDomainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CheckDomainSecurity = {
+  token: "",
+};
 
 sdk.domain.checkDomain({
   domainName: "www.example.com",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CheckDomainResponse) => {
+}, operationSecurity).then((res: CheckDomainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -62,16 +63,17 @@ Checks the status of all domains' DNS records for a Service Version. Returns an 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CheckDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CheckDomainsResponse, CheckDomainsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CheckDomainsSecurity = {
+  token: "",
+};
 
 sdk.domain.checkDomains({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CheckDomainsResponse) => {
+}, operationSecurity).then((res: CheckDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -100,9 +102,12 @@ Create a domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDomainResponse, CreateDomainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateDomainSecurity = {
+  token: "",
+};
 
 sdk.domain.createDomain({
   domain: {
@@ -111,9 +116,7 @@ sdk.domain.createDomain({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateDomainResponse) => {
+}, operationSecurity).then((res: CreateDomainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -142,17 +145,18 @@ Delete the domain for a particular service and versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDomainResponse, DeleteDomainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteDomainSecurity = {
+  token: "",
+};
 
 sdk.domain.deleteDomain({
   domainName: "www.example.com",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteDomainResponse) => {
+}, operationSecurity).then((res: DeleteDomainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -181,17 +185,18 @@ Get the domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDomainResponse, GetDomainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDomainSecurity = {
+  token: "",
+};
 
 sdk.domain.getDomain({
   domainName: "www.example.com",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetDomainResponse) => {
+}, operationSecurity).then((res: GetDomainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -220,16 +225,17 @@ List all the domains for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDomainsResponse, ListDomainsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListDomainsSecurity = {
+  token: "",
+};
 
 sdk.domain.listDomains({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListDomainsResponse) => {
+}, operationSecurity).then((res: ListDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -258,9 +264,12 @@ Update the domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateDomainResponse, UpdateDomainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateDomainSecurity = {
+  token: "",
+};
 
 sdk.domain.updateDomain({
   domain: {
@@ -270,9 +279,7 @@ sdk.domain.updateDomain({
   domainName: "www.example.com",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateDomainResponse) => {
+}, operationSecurity).then((res: UpdateDomainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

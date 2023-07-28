@@ -21,9 +21,12 @@ Create a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateResourceResponse, CreateResourceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateResourceSecurity = {
+  token: "",
+};
 
 sdk.resource.createResource({
   resource: {
@@ -32,9 +35,7 @@ sdk.resource.createResource({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateResourceResponse) => {
+}, operationSecurity).then((res: CreateResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -63,17 +64,18 @@ Delete a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteResourceResponse, DeleteResourceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteResourceSecurity = {
+  token: "",
+};
 
 sdk.resource.deleteResource({
   id: "7Lsb7Y76rChV9hSrv3KgFl",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteResourceResponse) => {
+}, operationSecurity).then((res: DeleteResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,17 +104,18 @@ Display a resource link by its identifier.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetResourceResponse, GetResourceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetResourceSecurity = {
+  token: "",
+};
 
 sdk.resource.getResource({
   id: "7Lsb7Y76rChV9hSrv3KgFl",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetResourceResponse) => {
+}, operationSecurity).then((res: GetResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -141,16 +144,17 @@ List links between resources and services
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListResourcesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListResourcesResponse, ListResourcesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListResourcesSecurity = {
+  token: "",
+};
 
 sdk.resource.listResources({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListResourcesResponse) => {
+}, operationSecurity).then((res: ListResourcesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -179,9 +183,12 @@ Update a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateResourceResponse, UpdateResourceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateResourceSecurity = {
+  token: "",
+};
 
 sdk.resource.updateResource({
   id: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -191,9 +198,7 @@ sdk.resource.updateResource({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateResourceResponse) => {
+}, operationSecurity).then((res: UpdateResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -20,15 +20,16 @@ Delete a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteARoleResponse, DeleteARoleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteARoleSecurity = {
+  token: "",
+};
 
 sdk.iamRoles.deleteARole({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: DeleteARoleResponse) => {
+}, operationSecurity).then((res: DeleteARoleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,15 +58,16 @@ Get a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetARoleResponse, GetARoleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetARoleSecurity = {
+  token: "",
+};
 
 sdk.iamRoles.getARole({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: GetARoleResponse) => {
+}, operationSecurity).then((res: GetARoleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,15 +96,16 @@ List all permissions in a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolePermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRolePermissionsResponse, ListRolePermissionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListRolePermissionsSecurity = {
+  token: "",
+};
 
 sdk.iamRoles.listRolePermissions({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListRolePermissionsResponse) => {
+}, operationSecurity).then((res: ListRolePermissionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -131,16 +134,17 @@ List all roles.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRolesResponse, ListRolesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListRolesSecurity = {
+  token: "",
+};
 
 sdk.iamRoles.listRoles({
   page: 1,
   perPage: 20,
-}, {
-  token: "",
-}).then((res: ListRolesResponse) => {
+}, operationSecurity).then((res: ListRolesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

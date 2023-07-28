@@ -21,7 +21,7 @@ Create a Syslog for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogSyslogResponse, CreateLogSyslogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogSyslogSecurity = {
+  token: "",
+};
 
 sdk.loggingSyslog.createLogSyslog({
   loggingSyslog2: {
@@ -52,9 +55,7 @@ sdk.loggingSyslog.createLogSyslog({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogSyslogResponse) => {
+}, operationSecurity).then((res: CreateLogSyslogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,17 +84,18 @@ Delete the Syslog for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogSyslogResponse, DeleteLogSyslogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogSyslogSecurity = {
+  token: "",
+};
 
 sdk.loggingSyslog.deleteLogSyslog({
   loggingSyslogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogSyslogResponse) => {
+}, operationSecurity).then((res: DeleteLogSyslogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,17 +124,18 @@ Get the Syslog for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogSyslogResponse, GetLogSyslogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogSyslogSecurity = {
+  token: "",
+};
 
 sdk.loggingSyslog.getLogSyslog({
   loggingSyslogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogSyslogResponse) => {
+}, operationSecurity).then((res: GetLogSyslogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,16 +164,17 @@ List all of the Syslogs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogSyslogResponse, ListLogSyslogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogSyslogSecurity = {
+  token: "",
+};
 
 sdk.loggingSyslog.listLogSyslog({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogSyslogResponse) => {
+}, operationSecurity).then((res: ListLogSyslogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -199,7 +203,7 @@ Update the Syslog for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSyslogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogSyslogResponse, UpdateLogSyslogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingMessageType,
   LoggingSyslogFormatVersion,
@@ -208,6 +212,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogSyslogSecurity = {
+  token: "",
+};
 
 sdk.loggingSyslog.updateLogSyslog({
   loggingSyslog2: {
@@ -231,9 +238,7 @@ sdk.loggingSyslog.updateLogSyslog({
   loggingSyslogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogSyslogResponse) => {
+}, operationSecurity).then((res: UpdateLogSyslogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

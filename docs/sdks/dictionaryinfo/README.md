@@ -17,17 +17,18 @@ Retrieve metadata for a single dictionary by ID for a version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryInfoResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDictionaryInfoResponse, GetDictionaryInfoSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDictionaryInfoSecurity = {
+  token: "",
+};
 
 sdk.dictionaryInfo.getDictionaryInfo({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetDictionaryInfoResponse) => {
+}, operationSecurity).then((res: GetDictionaryInfoResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

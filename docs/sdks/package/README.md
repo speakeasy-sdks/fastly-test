@@ -19,16 +19,17 @@ List detailed information about the Compute@Edge package for the specified servi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetPackageResponse, GetPackageSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetPackageSecurity = {
+  token: "",
+};
 
 sdk.package.getPackage({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetPackageResponse) => {
+}, operationSecurity).then((res: GetPackageResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,9 +58,12 @@ Upload a Compute@Edge package associated with the specified service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PutPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { PutPackageResponse, PutPackageSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: PutPackageSecurity = {
+  token: "",
+};
 
 sdk.package.putPackage({
   expect: "hic",
@@ -71,9 +75,7 @@ sdk.package.putPackage({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: PutPackageResponse) => {
+}, operationSecurity).then((res: PutPackageResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

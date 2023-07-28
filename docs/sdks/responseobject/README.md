@@ -19,17 +19,18 @@ Deletes the specified Response Object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteResponseObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteResponseObjectResponse, DeleteResponseObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteResponseObjectSecurity = {
+  token: "",
+};
 
 sdk.responseObject.deleteResponseObject({
   responseObjectName: "test-response",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteResponseObjectResponse) => {
+}, operationSecurity).then((res: DeleteResponseObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -58,17 +59,18 @@ Gets the specified Response Object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetResponseObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetResponseObjectResponse, GetResponseObjectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetResponseObjectSecurity = {
+  token: "",
+};
 
 sdk.responseObject.getResponseObject({
   responseObjectName: "test-response",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetResponseObjectResponse) => {
+}, operationSecurity).then((res: GetResponseObjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,16 +99,17 @@ Returns all Response Objects for the specified service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListResponseObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListResponseObjectsResponse, ListResponseObjectsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListResponseObjectsSecurity = {
+  token: "",
+};
 
 sdk.responseObject.listResponseObjects({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListResponseObjectsResponse) => {
+}, operationSecurity).then((res: ListResponseObjectsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

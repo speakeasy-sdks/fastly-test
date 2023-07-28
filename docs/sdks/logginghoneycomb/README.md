@@ -21,10 +21,13 @@ Create a Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogHoneycombResponse, CreateLogHoneycombSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogHoneycombSecurity = {
+  token: "",
+};
 
 sdk.loggingHoneycomb.createLogHoneycomb({
   loggingHoneycomb2: {
@@ -38,9 +41,7 @@ sdk.loggingHoneycomb.createLogHoneycomb({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHoneycombResponse) => {
+}, operationSecurity).then((res: CreateLogHoneycombResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogHoneycombResponse, DeleteLogHoneycombSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogHoneycombSecurity = {
+  token: "",
+};
 
 sdk.loggingHoneycomb.deleteLogHoneycomb({
   loggingHoneycombName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHoneycombResponse) => {
+}, operationSecurity).then((res: DeleteLogHoneycombResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the details of a Honeycomb logging object for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogHoneycombResponse, GetLogHoneycombSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogHoneycombSecurity = {
+  token: "",
+};
 
 sdk.loggingHoneycomb.getLogHoneycomb({
   loggingHoneycombName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHoneycombResponse) => {
+}, operationSecurity).then((res: GetLogHoneycombResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Honeycomb logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogHoneycombResponse, ListLogHoneycombSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogHoneycombSecurity = {
+  token: "",
+};
 
 sdk.loggingHoneycomb.listLogHoneycomb({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHoneycombResponse) => {
+}, operationSecurity).then((res: ListLogHoneycombResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update a Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogHoneycombResponse, UpdateLogHoneycombSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogHoneycombSecurity = {
+  token: "",
+};
 
 sdk.loggingHoneycomb.updateLogHoneycomb({
   loggingHoneycomb2: {
@@ -203,9 +210,7 @@ sdk.loggingHoneycomb.updateLogHoneycomb({
   loggingHoneycombName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHoneycombResponse) => {
+}, operationSecurity).then((res: UpdateLogHoneycombResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

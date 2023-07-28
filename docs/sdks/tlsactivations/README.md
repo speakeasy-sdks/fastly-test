@@ -21,10 +21,13 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateTlsActivationResponse, CreateTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateTlsActivationSecurity = {
+  token: "",
+};
 
 sdk.tlsActivations.createTlsActivation({
   data: {
@@ -42,9 +45,7 @@ sdk.tlsActivations.createTlsActivation({
     },
     type: TypeTlsActivation.TlsActivation,
   },
-}, {
-  token: "",
-}).then((res: CreateTlsActivationResponse) => {
+}, operationSecurity).then((res: CreateTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,15 +74,16 @@ Disable TLS on the domain associated with this TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsActivationResponse, DeleteTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteTlsActivationSecurity = {
+  token: "",
+};
 
 sdk.tlsActivations.deleteTlsActivation({
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: DeleteTlsActivationResponse) => {
+}, operationSecurity).then((res: DeleteTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,16 +112,17 @@ Show a TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsActivationResponse, GetTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetTlsActivationSecurity = {
+  token: "",
+};
 
 sdk.tlsActivations.getTlsActivation({
   include: "tls_certificate,tls_configuration,tls_domain",
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: GetTlsActivationResponse) => {
+}, operationSecurity).then((res: GetTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -148,9 +151,12 @@ List all TLS activations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsActivationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsActivationsResponse, ListTlsActivationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsActivationsSecurity = {
+  token: "",
+};
 
 sdk.tlsActivations.listTlsActivations({
   filterTlsCertificateId: "mollitia",
@@ -159,9 +165,7 @@ sdk.tlsActivations.listTlsActivations({
   include: "tls_certificate,tls_configuration,tls_domain",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListTlsActivationsResponse) => {
+}, operationSecurity).then((res: ListTlsActivationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -190,10 +194,13 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateTlsActivationResponse, UpdateTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateTlsActivationSecurity = {
+  token: "",
+};
 
 sdk.tlsActivations.updateTlsActivation({
   tlsActivationInput: {
@@ -214,9 +221,7 @@ sdk.tlsActivations.updateTlsActivation({
     },
   },
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: UpdateTlsActivationResponse) => {
+}, operationSecurity).then((res: UpdateTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

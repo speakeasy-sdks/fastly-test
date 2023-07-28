@@ -17,13 +17,14 @@ List the public IP addresses for the Fastly network.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListFastlyIpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListFastlyIpsResponse, ListFastlyIpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.publicIpList.listFastlyIps({
+const operationSecurity: ListFastlyIpsSecurity = {
   token: "",
-}).then((res: ListFastlyIpsResponse) => {
+};
+
+sdk.publicIpList.listFastlyIps(operationSecurity).then((res: ListFastlyIpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

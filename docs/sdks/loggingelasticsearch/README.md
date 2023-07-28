@@ -21,10 +21,13 @@ Create a Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogElasticsearchResponse, CreateLogElasticsearchSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogElasticsearchSecurity = {
+  token: "",
+};
 
 sdk.loggingElasticsearch.createLogElasticsearch({
   loggingElasticsearch2: {
@@ -47,9 +50,7 @@ sdk.loggingElasticsearch.createLogElasticsearch({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogElasticsearchResponse) => {
+}, operationSecurity).then((res: CreateLogElasticsearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -78,17 +79,18 @@ Delete the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogElasticsearchResponse, DeleteLogElasticsearchSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogElasticsearchSecurity = {
+  token: "",
+};
 
 sdk.loggingElasticsearch.deleteLogElasticsearch({
   loggingElasticsearchName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogElasticsearchResponse) => {
+}, operationSecurity).then((res: DeleteLogElasticsearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,17 +119,18 @@ Get the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogElasticsearchResponse, GetLogElasticsearchSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogElasticsearchSecurity = {
+  token: "",
+};
 
 sdk.loggingElasticsearch.getLogElasticsearch({
   loggingElasticsearchName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogElasticsearchResponse) => {
+}, operationSecurity).then((res: GetLogElasticsearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -156,16 +159,17 @@ List all of the Elasticsearch logging endpoints for a particular service and ver
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogElasticsearchResponse, ListLogElasticsearchSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogElasticsearchSecurity = {
+  token: "",
+};
 
 sdk.loggingElasticsearch.listLogElasticsearch({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogElasticsearchResponse) => {
+}, operationSecurity).then((res: ListLogElasticsearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -194,10 +198,13 @@ Update the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogElasticsearchResponse, UpdateLogElasticsearchSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogElasticsearchSecurity = {
+  token: "",
+};
 
 sdk.loggingElasticsearch.updateLogElasticsearch({
   loggingElasticsearch2: {
@@ -221,9 +228,7 @@ sdk.loggingElasticsearch.updateLogElasticsearch({
   loggingElasticsearchName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogElasticsearchResponse) => {
+}, operationSecurity).then((res: UpdateLogElasticsearchResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

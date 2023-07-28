@@ -21,10 +21,13 @@ Create a Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogLogglyResponse, CreateLogLogglySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogLogglySecurity = {
+  token: "",
+};
 
 sdk.loggingLoggly.createLogLoggly({
   loggingLoggly2: {
@@ -37,9 +40,7 @@ sdk.loggingLoggly.createLogLoggly({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogLogglyResponse) => {
+}, operationSecurity).then((res: CreateLogLogglyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -68,17 +69,18 @@ Delete the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogLogglyResponse, DeleteLogLogglySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogLogglySecurity = {
+  token: "",
+};
 
 sdk.loggingLoggly.deleteLogLoggly({
   loggingLogglyName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogLogglyResponse) => {
+}, operationSecurity).then((res: DeleteLogLogglyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,17 +109,18 @@ Get the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogLogglyResponse, GetLogLogglySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogLogglySecurity = {
+  token: "",
+};
 
 sdk.loggingLoggly.getLogLoggly({
   loggingLogglyName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogLogglyResponse) => {
+}, operationSecurity).then((res: GetLogLogglyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -146,16 +149,17 @@ List all Loggly logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogLogglyResponse, ListLogLogglySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogLogglySecurity = {
+  token: "",
+};
 
 sdk.loggingLoggly.listLogLoggly({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogLogglyResponse) => {
+}, operationSecurity).then((res: ListLogLogglyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,10 +188,13 @@ Update the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogLogglyResponse, UpdateLogLogglySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogLogglySecurity = {
+  token: "",
+};
 
 sdk.loggingLoggly.updateLogLoggly({
   loggingLoggly2: {
@@ -201,9 +208,7 @@ sdk.loggingLoggly.updateLogLoggly({
   loggingLogglyName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogLogglyResponse) => {
+}, operationSecurity).then((res: UpdateLogLogglyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

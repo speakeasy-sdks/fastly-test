@@ -17,13 +17,14 @@ Get a list of all Fastly POPs.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPopsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListPopsResponse, ListPopsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.pop.listPops({
+const operationSecurity: ListPopsSecurity = {
   token: "",
-}).then((res: ListPopsResponse) => {
+};
+
+sdk.pop.listPops(operationSecurity).then((res: ListPopsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -22,10 +22,13 @@ Create a snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateSnippetResponse, CreateSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateSnippetSecurity = {
+  token: "",
+};
 
 sdk.snippet.createSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -37,9 +40,7 @@ sdk.snippet.createSnippet({
     type: SnippetType.Hit,
   },
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateSnippetResponse) => {
+}, operationSecurity).then((res: CreateSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -68,17 +69,18 @@ Delete a specific snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteSnippetResponse, DeleteSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteSnippetSecurity = {
+  token: "",
+};
 
 sdk.snippet.deleteSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetName: "test-snippet",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteSnippetResponse) => {
+}, operationSecurity).then((res: DeleteSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,17 +109,18 @@ Get a single snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetSnippetResponse, GetSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetSnippetSecurity = {
+  token: "",
+};
 
 sdk.snippet.getSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetName: "test-snippet",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetSnippetResponse) => {
+}, operationSecurity).then((res: GetSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -146,16 +149,17 @@ Get a single dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetSnippetDynamicResponse, GetSnippetDynamicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetSnippetDynamicSecurity = {
+  token: "",
+};
 
 sdk.snippet.getSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}, {
-  token: "",
-}).then((res: GetSnippetDynamicResponse) => {
+}, operationSecurity).then((res: GetSnippetDynamicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,16 +188,17 @@ List all snippets for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListSnippetsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListSnippetsResponse, ListSnippetsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListSnippetsSecurity = {
+  token: "",
+};
 
 sdk.snippet.listSnippets({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListSnippetsResponse) => {
+}, operationSecurity).then((res: ListSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -222,10 +227,13 @@ Update a dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateSnippetDynamicResponse, UpdateSnippetDynamicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateSnippetDynamicSecurity = {
+  token: "",
+};
 
 sdk.snippet.updateSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -237,9 +245,7 @@ sdk.snippet.updateSnippetDynamic({
     type: SnippetType.Hit,
   },
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}, {
-  token: "",
-}).then((res: UpdateSnippetDynamicResponse) => {
+}, operationSecurity).then((res: UpdateSnippetDynamicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

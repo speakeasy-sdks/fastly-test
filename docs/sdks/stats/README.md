@@ -17,9 +17,12 @@ Get the stats from a service for a block of time. This lists all stats by PoP lo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceStatsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceStatsResponse, GetServiceStatsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServiceStatsSecurity = {
+  token: "",
+};
 
 sdk.stats.getServiceStats({
   endTime: 1608560817,
@@ -27,9 +30,7 @@ sdk.stats.getServiceStats({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   startTime: 1608560817,
   year: "2020",
-}, {
-  token: "",
-}).then((res: GetServiceStatsResponse) => {
+}, operationSecurity).then((res: GetServiceStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

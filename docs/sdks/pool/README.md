@@ -21,10 +21,13 @@ Creates a pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServerPoolResponse, CreateServerPoolSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateServerPoolSecurity = {
+  token: "",
+};
 
 sdk.pool.createServerPool({
   pool2: {
@@ -52,9 +55,7 @@ sdk.pool.createServerPool({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateServerPoolResponse) => {
+}, operationSecurity).then((res: CreateServerPoolResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,17 +84,18 @@ Deletes a specific pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteServerPoolResponse, DeleteServerPoolSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteServerPoolSecurity = {
+  token: "",
+};
 
 sdk.pool.deleteServerPool({
   poolName: "my-pool",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteServerPoolResponse) => {
+}, operationSecurity).then((res: DeleteServerPoolResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,17 +124,18 @@ Gets a single pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServerPoolResponse, GetServerPoolSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServerPoolSecurity = {
+  token: "",
+};
 
 sdk.pool.getServerPool({
   poolName: "my-pool",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetServerPoolResponse) => {
+}, operationSecurity).then((res: GetServerPoolResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,16 +164,17 @@ Lists all pools for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServerPoolsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServerPoolsResponse, ListServerPoolsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServerPoolsSecurity = {
+  token: "",
+};
 
 sdk.pool.listServerPools({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListServerPoolsResponse) => {
+}, operationSecurity).then((res: ListServerPoolsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -199,10 +203,13 @@ Updates a specific pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServerPoolResponse, UpdateServerPoolSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateServerPoolSecurity = {
+  token: "",
+};
 
 sdk.pool.updateServerPool({
   pool2: {
@@ -231,9 +238,7 @@ sdk.pool.updateServerPool({
   poolName: "my-pool",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateServerPoolResponse) => {
+}, operationSecurity).then((res: UpdateServerPoolResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

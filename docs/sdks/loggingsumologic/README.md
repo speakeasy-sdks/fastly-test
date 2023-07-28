@@ -21,10 +21,13 @@ Create a Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogSumologicResponse, CreateLogSumologicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogSumologicSecurity = {
+  token: "",
+};
 
 sdk.loggingSumologic.createLogSumologic({
   loggingSumologic2: {
@@ -38,9 +41,7 @@ sdk.loggingSumologic.createLogSumologic({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogSumologicResponse) => {
+}, operationSecurity).then((res: CreateLogSumologicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogSumologicResponse, DeleteLogSumologicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogSumologicSecurity = {
+  token: "",
+};
 
 sdk.loggingSumologic.deleteLogSumologic({
   loggingSumologicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogSumologicResponse) => {
+}, operationSecurity).then((res: DeleteLogSumologicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogSumologicResponse, GetLogSumologicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogSumologicSecurity = {
+  token: "",
+};
 
 sdk.loggingSumologic.getLogSumologic({
   loggingSumologicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogSumologicResponse) => {
+}, operationSecurity).then((res: GetLogSumologicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Sumologics for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogSumologicResponse, ListLogSumologicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogSumologicSecurity = {
+  token: "",
+};
 
 sdk.loggingSumologic.listLogSumologic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogSumologicResponse) => {
+}, operationSecurity).then((res: ListLogSumologicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogSumologicResponse, UpdateLogSumologicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogSumologicSecurity = {
+  token: "",
+};
 
 sdk.loggingSumologic.updateLogSumologic({
   loggingSumologic2: {
@@ -203,9 +210,7 @@ sdk.loggingSumologic.updateLogSumologic({
   loggingSumologicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogSumologicResponse) => {
+}, operationSecurity).then((res: UpdateLogSumologicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

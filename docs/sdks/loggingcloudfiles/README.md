@@ -21,7 +21,7 @@ Create a Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogCloudfilesResponse, CreateLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -31,6 +31,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogCloudfilesSecurity = {
+  token: "",
+};
 
 sdk.loggingCloudfiles.createLogCloudfiles({
   loggingCloudfilesInput: {
@@ -55,9 +58,7 @@ sdk.loggingCloudfiles.createLogCloudfiles({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogCloudfilesResponse) => {
+}, operationSecurity).then((res: CreateLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,17 +87,18 @@ Delete the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogCloudfilesResponse, DeleteLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogCloudfilesSecurity = {
+  token: "",
+};
 
 sdk.loggingCloudfiles.deleteLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogCloudfilesResponse) => {
+}, operationSecurity).then((res: DeleteLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,17 +127,18 @@ Get the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogCloudfilesResponse, GetLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogCloudfilesSecurity = {
+  token: "",
+};
 
 sdk.loggingCloudfiles.getLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogCloudfilesResponse) => {
+}, operationSecurity).then((res: GetLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -164,16 +167,17 @@ List all of the Cloud Files log endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogCloudfilesResponse, ListLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogCloudfilesSecurity = {
+  token: "",
+};
 
 sdk.loggingCloudfiles.listLogCloudfiles({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogCloudfilesResponse) => {
+}, operationSecurity).then((res: ListLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,7 +206,7 @@ Update the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogCloudfilesResponse, UpdateLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -212,6 +216,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogCloudfilesSecurity = {
+  token: "",
+};
 
 sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesInput: {
@@ -237,9 +244,7 @@ sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogCloudfilesResponse) => {
+}, operationSecurity).then((res: UpdateLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

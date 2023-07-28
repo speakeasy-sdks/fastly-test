@@ -21,10 +21,13 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogLogshuttleResponse, CreateLogLogshuttleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogLogshuttleSecurity = {
+  token: "",
+};
 
 sdk.loggingLogshuttle.createLogLogshuttle({
   loggingLogshuttle2: {
@@ -38,9 +41,7 @@ sdk.loggingLogshuttle.createLogLogshuttle({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogLogshuttleResponse) => {
+}, operationSecurity).then((res: CreateLogLogshuttleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogLogshuttleResponse, DeleteLogLogshuttleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogLogshuttleSecurity = {
+  token: "",
+};
 
 sdk.loggingLogshuttle.deleteLogLogshuttle({
   loggingLogshuttleName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogLogshuttleResponse) => {
+}, operationSecurity).then((res: DeleteLogLogshuttleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogLogshuttleResponse, GetLogLogshuttleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogLogshuttleSecurity = {
+  token: "",
+};
 
 sdk.loggingLogshuttle.getLogLogshuttle({
   loggingLogshuttleName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogLogshuttleResponse) => {
+}, operationSecurity).then((res: GetLogLogshuttleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogLogshuttleResponse, ListLogLogshuttleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogLogshuttleSecurity = {
+  token: "",
+};
 
 sdk.loggingLogshuttle.listLogLogshuttle({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogLogshuttleResponse) => {
+}, operationSecurity).then((res: ListLogLogshuttleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogLogshuttleResponse, UpdateLogLogshuttleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogLogshuttleSecurity = {
+  token: "",
+};
 
 sdk.loggingLogshuttle.updateLogLogshuttle({
   loggingLogshuttle2: {
@@ -203,9 +210,7 @@ sdk.loggingLogshuttle.updateLogLogshuttle({
   loggingLogshuttleName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogLogshuttleResponse) => {
+}, operationSecurity).then((res: UpdateLogLogshuttleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

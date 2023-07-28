@@ -25,7 +25,7 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateWafActiveRulesResponse, BulkUpdateWafActiveRulesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   BulkWafActiveRuleAttributesStatus,
   TypeWafActiveRule,
@@ -34,6 +34,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: BulkUpdateWafActiveRulesSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.bulkUpdateWafActiveRules({
   bulkWafActiveRuleInput: {
@@ -58,9 +61,7 @@ sdk.wafActiveRules.bulkUpdateWafActiveRules({
   },
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: BulkUpdateWafActiveRulesResponse) => {
+}, operationSecurity).then((res: BulkUpdateWafActiveRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -91,7 +92,7 @@ Create an active rule for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafActiveRuleResponse, CreateWafActiveRuleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
@@ -100,6 +101,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateWafActiveRuleSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.createWafActiveRule({
   bulkWafActiveRulesInput: {
@@ -128,9 +132,7 @@ sdk.wafActiveRules.createWafActiveRule({
   },
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateWafActiveRuleResponse) => {
+}, operationSecurity).then((res: CreateWafActiveRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,7 +163,7 @@ Create active rules by tag. This endpoint will create active rules using the lat
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafActiveRulesTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafActiveRulesTagResponse, CreateWafActiveRulesTagSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
@@ -170,6 +172,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateWafActiveRulesTagSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.createWafActiveRulesTag({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -197,9 +202,7 @@ sdk.wafActiveRules.createWafActiveRulesTag({
     },
   },
   wafTagName: "test-waf-tag",
-}, {
-  token: "",
-}).then((res: CreateWafActiveRulesTagResponse) => {
+}, operationSecurity).then((res: CreateWafActiveRulesTagResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -230,17 +233,18 @@ Delete an active rule for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteWafActiveRuleResponse, DeleteWafActiveRuleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteWafActiveRuleSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.deleteWafActiveRule({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   versionId: 1,
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: DeleteWafActiveRuleResponse) => {
+}, operationSecurity).then((res: DeleteWafActiveRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -271,18 +275,19 @@ Get a specific active rule object. Includes details of the rule revision associa
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafActiveRuleResponse, GetWafActiveRuleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafActiveRuleSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.getWafActiveRule({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: "waf_rule_revision,waf_firewall_version",
   versionId: 1,
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: GetWafActiveRuleResponse) => {
+}, operationSecurity).then((res: GetWafActiveRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -313,9 +318,12 @@ List all active rules for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafActiveRulesResponse, ListWafActiveRulesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafActiveRulesSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.listWafActiveRules({
   filterOutdated: "aliquid",
@@ -327,9 +335,7 @@ sdk.wafActiveRules.listWafActiveRules({
   pageNumber: 1,
   pageSize: 20,
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListWafActiveRulesResponse) => {
+}, operationSecurity).then((res: ListWafActiveRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -360,7 +366,7 @@ Update an active rule's status for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafActiveRuleResponse, UpdateWafActiveRuleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafActiveRule,
   TypeWafFirewallVersion,
@@ -369,6 +375,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateWafActiveRuleSecurity = {
+  token: "",
+};
 
 sdk.wafActiveRules.updateWafActiveRule({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -402,9 +411,7 @@ sdk.wafActiveRules.updateWafActiveRule({
     },
   },
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: UpdateWafActiveRuleResponse) => {
+}, operationSecurity).then((res: UpdateWafActiveRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

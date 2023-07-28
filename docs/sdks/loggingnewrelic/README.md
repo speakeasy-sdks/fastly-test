@@ -21,10 +21,13 @@ Create a New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogNewrelicResponse, CreateLogNewrelicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogNewrelicSecurity = {
+  token: "",
+};
 
 sdk.loggingNewrelic.createLogNewrelic({
   loggingNewrelic3: {
@@ -38,9 +41,7 @@ sdk.loggingNewrelic.createLogNewrelic({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogNewrelicResponse) => {
+}, operationSecurity).then((res: CreateLogNewrelicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogNewrelicResponse, DeleteLogNewrelicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogNewrelicSecurity = {
+  token: "",
+};
 
 sdk.loggingNewrelic.deleteLogNewrelic({
   loggingNewrelicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogNewrelicResponse) => {
+}, operationSecurity).then((res: DeleteLogNewrelicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the details of a New Relic Logs logging object for a particular service and 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogNewrelicResponse, GetLogNewrelicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogNewrelicSecurity = {
+  token: "",
+};
 
 sdk.loggingNewrelic.getLogNewrelic({
   loggingNewrelicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogNewrelicResponse) => {
+}, operationSecurity).then((res: GetLogNewrelicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the New Relic Logs logging objects for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogNewrelicResponse, ListLogNewrelicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogNewrelicSecurity = {
+  token: "",
+};
 
 sdk.loggingNewrelic.listLogNewrelic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogNewrelicResponse) => {
+}, operationSecurity).then((res: ListLogNewrelicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update a New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogNewrelicResponse, UpdateLogNewrelicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogNewrelicSecurity = {
+  token: "",
+};
 
 sdk.loggingNewrelic.updateLogNewrelic({
   loggingNewrelic3: {
@@ -203,9 +210,7 @@ sdk.loggingNewrelic.updateLogNewrelic({
   loggingNewrelicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogNewrelicResponse) => {
+}, operationSecurity).then((res: UpdateLogNewrelicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

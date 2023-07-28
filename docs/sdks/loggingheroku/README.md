@@ -21,10 +21,13 @@ Create a Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogHerokuResponse, CreateLogHerokuSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogHerokuSecurity = {
+  token: "",
+};
 
 sdk.loggingHeroku.createLogHeroku({
   loggingHeroku2: {
@@ -38,9 +41,7 @@ sdk.loggingHeroku.createLogHeroku({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHerokuResponse) => {
+}, operationSecurity).then((res: CreateLogHerokuResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogHerokuResponse, DeleteLogHerokuSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogHerokuSecurity = {
+  token: "",
+};
 
 sdk.loggingHeroku.deleteLogHeroku({
   loggingHerokuName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHerokuResponse) => {
+}, operationSecurity).then((res: DeleteLogHerokuResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogHerokuResponse, GetLogHerokuSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogHerokuSecurity = {
+  token: "",
+};
 
 sdk.loggingHeroku.getLogHeroku({
   loggingHerokuName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHerokuResponse) => {
+}, operationSecurity).then((res: GetLogHerokuResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Herokus for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogHerokuResponse, ListLogHerokuSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogHerokuSecurity = {
+  token: "",
+};
 
 sdk.loggingHeroku.listLogHeroku({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHerokuResponse) => {
+}, operationSecurity).then((res: ListLogHerokuResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogHerokuResponse, UpdateLogHerokuSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogHerokuSecurity = {
+  token: "",
+};
 
 sdk.loggingHeroku.updateLogHeroku({
   loggingHeroku2: {
@@ -203,9 +210,7 @@ sdk.loggingHeroku.updateLogHeroku({
   loggingHerokuName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHerokuResponse) => {
+}, operationSecurity).then((res: UpdateLogHerokuResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -20,17 +20,18 @@ Delete an item from an kv store
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteKeyFromStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteKeyFromStoreResponse, DeleteKeyFromStoreSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteKeyFromStoreSecurity = {
+  token: "",
+};
 
 sdk.kvStoreItem.deleteKeyFromStore({
   force: false,
   keyName: "veritatis",
   storeId: "nobis",
-}, {
-  token: "",
-}).then((res: DeleteKeyFromStoreResponse) => {
+}, operationSecurity).then((res: DeleteKeyFromStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -59,18 +60,19 @@ List the keys of all items within an kv store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetKeysResponse, GetKeysSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetKeysSecurity = {
+  token: "",
+};
 
 sdk.kvStoreItem.getKeys({
   cursor: "quos",
   limit: 731694,
   prefix: "cupiditate",
   storeId: "aperiam",
-}, {
-  token: "",
-}).then((res: GetKeysResponse) => {
+}, operationSecurity).then((res: GetKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -99,16 +101,17 @@ Get the value associated with a key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetValueForKeyResponse, GetValueForKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetValueForKeySecurity = {
+  token: "",
+};
 
 sdk.kvStoreItem.getValueForKey({
   keyName: "delectus",
   storeId: "dolorem",
-}, {
-  token: "",
-}).then((res: GetValueForKeyResponse) => {
+}, operationSecurity).then((res: GetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -137,9 +140,12 @@ Set a new value for a new or existing key in an kv store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SetValueForKeyResponse, SetValueForKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: SetValueForKeySecurity = {
+  token: "",
+};
 
 sdk.kvStoreItem.setValueForKey({
   requestBody: "dolore",
@@ -152,9 +158,7 @@ sdk.kvStoreItem.setValueForKey({
   prepend: false,
   storeId: "architecto",
   timeToLiveSec: 63038,
-}, {
-  token: "",
-}).then((res: SetValueForKeyResponse) => {
+}, operationSecurity).then((res: SetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

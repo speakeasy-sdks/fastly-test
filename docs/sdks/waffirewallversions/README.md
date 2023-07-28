@@ -24,16 +24,17 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CloneWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CloneWafFirewallVersionResponse, CloneWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CloneWafFirewallVersionSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.cloneWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, {
-  token: "",
-}).then((res: CloneWafFirewallVersionResponse) => {
+}, operationSecurity).then((res: CloneWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -64,10 +65,13 @@ Create a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafFirewallVersionResponse, CreateWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateWafFirewallVersionSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.createWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -108,9 +112,7 @@ sdk.wafFirewallVersions.createWafFirewallVersion({
       type: TypeWafFirewallVersion.WafFirewallVersion,
     },
   },
-}, {
-  token: "",
-}).then((res: CreateWafFirewallVersionResponse) => {
+}, operationSecurity).then((res: CreateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -141,16 +143,20 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeployActivateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import {
+  DeployActivateWafFirewallVersionResponse,
+  DeployActivateWafFirewallVersionSecurity,
+} from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeployActivateWafFirewallVersionSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, {
-  token: "",
-}).then((res: DeployActivateWafFirewallVersionResponse) => {
+}, operationSecurity).then((res: DeployActivateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -181,17 +187,18 @@ Get details about a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafFirewallVersionResponse, GetWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafFirewallVersionSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.getWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
   include: "waf_firewall,waf_active_rules",
-}, {
-  token: "",
-}).then((res: GetWafFirewallVersionResponse) => {
+}, operationSecurity).then((res: GetWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -222,18 +229,19 @@ Get a list of firewall versions associated with a specific firewall.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafFirewallVersionsResponse, ListWafFirewallVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafFirewallVersionsSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.listWafFirewallVersions({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: "waf_firewall",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListWafFirewallVersionsResponse) => {
+}, operationSecurity).then((res: ListWafFirewallVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -264,10 +272,13 @@ Update a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafFirewallVersionResponse, UpdateWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateWafFirewallVersionSecurity = {
+  token: "",
+};
 
 sdk.wafFirewallVersions.updateWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -309,9 +320,7 @@ sdk.wafFirewallVersions.updateWafFirewallVersion({
       type: TypeWafFirewallVersion.WafFirewallVersion,
     },
   },
-}, {
-  token: "",
-}).then((res: UpdateWafFirewallVersionResponse) => {
+}, operationSecurity).then((res: UpdateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

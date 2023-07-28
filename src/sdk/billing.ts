@@ -14,6 +14,18 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  *
  * @see {@link https://developer.fastly.com/reference/api/account/billing}
  */
+export enum GetInvoiceAcceptEnum {
+    applicationJson = "application/json",
+    textCsv = "text/csv",
+    applicationPdf = "application/pdf",
+}
+
+export enum GetInvoiceByIdAcceptEnum {
+    applicationJson = "application/json",
+    textCsv = "text/csv",
+    applicationPdf = "application/pdf",
+}
+
 export class Billing {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,7 +42,8 @@ export class Billing {
     async getInvoice(
         req: operations.GetInvoiceRequest,
         security: operations.GetInvoiceSecurity,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: GetInvoiceAcceptEnum
     ): Promise<operations.GetInvoiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.GetInvoiceRequest(req);
@@ -55,7 +68,12 @@ export class Billing {
         );
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        }
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -115,7 +133,8 @@ export class Billing {
     async getInvoiceById(
         req: operations.GetInvoiceByIdRequest,
         security: operations.GetInvoiceByIdSecurity,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: GetInvoiceByIdAcceptEnum
     ): Promise<operations.GetInvoiceByIdResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.GetInvoiceByIdRequest(req);
@@ -140,7 +159,12 @@ export class Billing {
         );
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        }
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -227,6 +251,7 @@ export class Billing {
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;

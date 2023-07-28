@@ -17,19 +17,20 @@ Get diff between two versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DiffServiceVersionsResponse, DiffServiceVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: DiffServiceVersionsSecurity = {
+  token: "",
+};
 
 sdk.diff.diffServiceVersions({
   format: QueryFormat.HtmlSimple,
   fromVersionId: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   toVersionId: 2,
-}, {
-  token: "",
-}).then((res: DiffServiceVersionsResponse) => {
+}, operationSecurity).then((res: DiffServiceVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

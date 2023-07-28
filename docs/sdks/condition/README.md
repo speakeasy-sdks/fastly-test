@@ -21,10 +21,13 @@ Creates a new condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateConditionResponse, CreateConditionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateConditionSecurity = {
+  token: "",
+};
 
 sdk.condition.createCondition({
   conditionInput: {
@@ -37,9 +40,7 @@ sdk.condition.createCondition({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateConditionResponse) => {
+}, operationSecurity).then((res: CreateConditionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -68,17 +69,18 @@ Deletes the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteConditionResponse, DeleteConditionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteConditionSecurity = {
+  token: "",
+};
 
 sdk.condition.deleteCondition({
   conditionName: "test-condition",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteConditionResponse) => {
+}, operationSecurity).then((res: DeleteConditionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,17 +109,18 @@ Gets the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetConditionResponse, GetConditionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetConditionSecurity = {
+  token: "",
+};
 
 sdk.condition.getCondition({
   conditionName: "test-condition",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetConditionResponse) => {
+}, operationSecurity).then((res: GetConditionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -146,16 +149,17 @@ Gets all conditions for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConditionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListConditionsResponse, ListConditionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListConditionsSecurity = {
+  token: "",
+};
 
 sdk.condition.listConditions({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListConditionsResponse) => {
+}, operationSecurity).then((res: ListConditionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,10 +188,13 @@ Updates the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateConditionResponse, UpdateConditionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateConditionSecurity = {
+  token: "",
+};
 
 sdk.condition.updateCondition({
   conditionInput: {
@@ -201,9 +208,7 @@ sdk.condition.updateCondition({
   conditionName: "test-condition",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateConditionResponse) => {
+}, operationSecurity).then((res: UpdateConditionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

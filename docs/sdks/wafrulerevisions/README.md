@@ -20,17 +20,18 @@ Get a specific rule revision.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleRevisionResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafRuleRevisionResponse, GetWafRuleRevisionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafRuleRevisionSecurity = {
+  token: "",
+};
 
 sdk.wafRuleRevisions.getWafRuleRevision({
   include: "source,vcl,waf_rule",
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
   wafRuleRevisionNumber: 2,
-}, {
-  token: "",
-}).then((res: GetWafRuleRevisionResponse) => {
+}, operationSecurity).then((res: GetWafRuleRevisionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -61,19 +62,20 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRuleRevisionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafRuleRevisionsResponse, ListWafRuleRevisionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafRuleRevisionsSecurity = {
+  token: "",
+};
 
 sdk.wafRuleRevisions.listWafRuleRevisions({
   include: WafRuleRevisionInclude.WafRule,
   pageNumber: 1,
   pageSize: 20,
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: ListWafRuleRevisionsResponse) => {
+}, operationSecurity).then((res: ListWafRuleRevisionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

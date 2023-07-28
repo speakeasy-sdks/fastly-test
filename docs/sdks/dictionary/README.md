@@ -21,9 +21,12 @@ Create named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDictionaryResponse, CreateDictionarySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateDictionarySecurity = {
+  token: "",
+};
 
 sdk.dictionary.createDictionary({
   dictionary: {
@@ -32,9 +35,7 @@ sdk.dictionary.createDictionary({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateDictionaryResponse) => {
+}, operationSecurity).then((res: CreateDictionaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -63,17 +64,18 @@ Delete named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDictionaryResponse, DeleteDictionarySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteDictionarySecurity = {
+  token: "",
+};
 
 sdk.dictionary.deleteDictionary({
   dictionaryName: "test_dictionary",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteDictionaryResponse) => {
+}, operationSecurity).then((res: DeleteDictionaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,17 +104,18 @@ Retrieve a single dictionary by name for the version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDictionaryResponse, GetDictionarySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDictionarySecurity = {
+  token: "",
+};
 
 sdk.dictionary.getDictionary({
   dictionaryName: "test_dictionary",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetDictionaryResponse) => {
+}, operationSecurity).then((res: GetDictionaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -141,16 +144,17 @@ List all dictionaries for the version of the service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDictionariesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDictionariesResponse, ListDictionariesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListDictionariesSecurity = {
+  token: "",
+};
 
 sdk.dictionary.listDictionaries({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListDictionariesResponse) => {
+}, operationSecurity).then((res: ListDictionariesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -179,9 +183,12 @@ Update named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateDictionaryResponse, UpdateDictionarySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateDictionarySecurity = {
+  token: "",
+};
 
 sdk.dictionary.updateDictionary({
   dictionary: {
@@ -191,9 +198,7 @@ sdk.dictionary.updateDictionary({
   dictionaryName: "test_dictionary",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateDictionaryResponse) => {
+}, operationSecurity).then((res: UpdateDictionaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

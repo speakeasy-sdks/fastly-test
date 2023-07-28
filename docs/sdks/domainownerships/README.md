@@ -17,13 +17,14 @@ List all domain-ownerships.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDomainOwnershipsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDomainOwnershipsResponse, ListDomainOwnershipsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.domainOwnerships.listDomainOwnerships({
+const operationSecurity: ListDomainOwnershipsSecurity = {
   token: "",
-}).then((res: ListDomainOwnershipsResponse) => {
+};
+
+sdk.domainOwnerships.listDomainOwnerships(operationSecurity).then((res: ListDomainOwnershipsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

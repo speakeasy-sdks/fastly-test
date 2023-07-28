@@ -21,9 +21,12 @@ Create a new ACL attached to the specified service version. A new, empty ACL mus
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclResponse, CreateAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateAclSecurity = {
+  token: "",
+};
 
 sdk.acl.createAcl({
   acl: {
@@ -31,9 +34,7 @@ sdk.acl.createAcl({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateAclResponse) => {
+}, operationSecurity).then((res: CreateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -62,17 +63,18 @@ Delete an ACL from the specified service version. To remove an ACL from use, the
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAclResponse, DeleteAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteAclSecurity = {
+  token: "",
+};
 
 sdk.acl.deleteAcl({
   aclName: "test-acl",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteAclResponse) => {
+}, operationSecurity).then((res: DeleteAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -101,17 +103,18 @@ Retrieve a single ACL by name for the version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAclResponse, GetAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetAclSecurity = {
+  token: "",
+};
 
 sdk.acl.getAcl({
   aclName: "test-acl",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetAclResponse) => {
+}, operationSecurity).then((res: GetAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -140,16 +143,17 @@ List ACLs.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListAclsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListAclsResponse, ListAclsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListAclsSecurity = {
+  token: "",
+};
 
 sdk.acl.listAcls({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListAclsResponse) => {
+}, operationSecurity).then((res: ListAclsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -178,9 +182,12 @@ Update an ACL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateAclResponse, UpdateAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateAclSecurity = {
+  token: "",
+};
 
 sdk.acl.updateAcl({
   acl: {
@@ -189,9 +196,7 @@ sdk.acl.updateAcl({
   aclName: "test-acl",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateAclResponse) => {
+}, operationSecurity).then((res: UpdateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

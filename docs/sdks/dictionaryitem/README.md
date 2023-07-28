@@ -23,10 +23,13 @@ Update multiple items in the same dictionary. For faster updates to your service
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateDictionaryItemResponse, BulkUpdateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: BulkUpdateDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.bulkUpdateDictionaryItem({
   bulkUpdateDictionaryListRequest: {
@@ -45,9 +48,7 @@ sdk.dictionaryItem.bulkUpdateDictionaryItem({
   },
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: BulkUpdateDictionaryItemResponse) => {
+}, operationSecurity).then((res: BulkUpdateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,9 +77,12 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDictionaryItemResponse, CreateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.createDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -87,9 +91,7 @@ sdk.dictionaryItem.createDictionaryItem({
     itemValue: "test-value",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: CreateDictionaryItemResponse) => {
+}, operationSecurity).then((res: CreateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -118,17 +120,18 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDictionaryItemResponse, DeleteDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.deleteDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: DeleteDictionaryItemResponse) => {
+}, operationSecurity).then((res: DeleteDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -157,17 +160,18 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDictionaryItemResponse, GetDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.getDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetDictionaryItemResponse) => {
+}, operationSecurity).then((res: GetDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -196,10 +200,13 @@ List of DictionaryItems given service and dictionary ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDictionaryItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDictionaryItemsResponse, ListDictionaryItemsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListDictionaryItemsSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.listDictionaryItems({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -208,9 +215,7 @@ sdk.dictionaryItem.listDictionaryItems({
   perPage: 20,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   sort: "created",
-}, {
-  token: "",
-}).then((res: ListDictionaryItemsResponse) => {
+}, operationSecurity).then((res: ListDictionaryItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -239,9 +244,12 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateDictionaryItemResponse, UpdateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.updateDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -251,9 +259,7 @@ sdk.dictionaryItem.updateDictionaryItem({
   },
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: UpdateDictionaryItemResponse) => {
+}, operationSecurity).then((res: UpdateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -282,9 +288,12 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpsertDictionaryItemResponse, UpsertDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpsertDictionaryItemSecurity = {
+  token: "",
+};
 
 sdk.dictionaryItem.upsertDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -294,9 +303,7 @@ sdk.dictionaryItem.upsertDictionaryItem({
   },
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: UpsertDictionaryItemResponse) => {
+}, operationSecurity).then((res: UpsertDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

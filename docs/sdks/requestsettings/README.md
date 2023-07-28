@@ -20,17 +20,18 @@ Removes the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteRequestSettingsResponse, DeleteRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteRequestSettingsSecurity = {
+  token: "",
+};
 
 sdk.requestSettings.deleteRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteRequestSettingsResponse) => {
+}, operationSecurity).then((res: DeleteRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -59,17 +60,18 @@ Gets the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetRequestSettingsResponse, GetRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetRequestSettingsSecurity = {
+  token: "",
+};
 
 sdk.requestSettings.getRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetRequestSettingsResponse) => {
+}, operationSecurity).then((res: GetRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -98,16 +100,17 @@ Returns a list of all Request Settings objects for the given service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRequestSettingsResponse, ListRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListRequestSettingsSecurity = {
+  token: "",
+};
 
 sdk.requestSettings.listRequestSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListRequestSettingsResponse) => {
+}, operationSecurity).then((res: ListRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -136,10 +139,13 @@ Updates the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateRequestSettingsResponse, UpdateRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateRequestSettingsSecurity = {
+  token: "",
+};
 
 sdk.requestSettings.updateRequestSettings({
   requestSettings2: {
@@ -159,9 +165,7 @@ sdk.requestSettings.updateRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateRequestSettingsResponse) => {
+}, operationSecurity).then((res: UpdateRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

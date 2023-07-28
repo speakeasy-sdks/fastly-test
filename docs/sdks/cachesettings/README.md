@@ -21,10 +21,13 @@ Create a cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateCacheSettingsResponse, CreateCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateCacheSettingsSecurity = {
+  token: "",
+};
 
 sdk.cacheSettings.createCacheSettings({
   cacheSetting1: {
@@ -36,9 +39,7 @@ sdk.cacheSettings.createCacheSettings({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateCacheSettingsResponse) => {
+}, operationSecurity).then((res: CreateCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -67,17 +68,18 @@ Delete a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCacheSettingsResponse, DeleteCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteCacheSettingsSecurity = {
+  token: "",
+};
 
 sdk.cacheSettings.deleteCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteCacheSettingsResponse) => {
+}, operationSecurity).then((res: DeleteCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -106,17 +108,18 @@ Get a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCacheSettingsResponse, GetCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetCacheSettingsSecurity = {
+  token: "",
+};
 
 sdk.cacheSettings.getCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetCacheSettingsResponse) => {
+}, operationSecurity).then((res: GetCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,16 +148,17 @@ Get a list of all cache settings for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListCacheSettingsResponse, ListCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListCacheSettingsSecurity = {
+  token: "",
+};
 
 sdk.cacheSettings.listCacheSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListCacheSettingsResponse) => {
+}, operationSecurity).then((res: ListCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -183,10 +187,13 @@ Update a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCacheSettingsResponse, UpdateCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateCacheSettingsSecurity = {
+  token: "",
+};
 
 sdk.cacheSettings.updateCacheSettings({
   cacheSetting1: {
@@ -199,9 +206,7 @@ sdk.cacheSettings.updateCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateCacheSettingsResponse) => {
+}, operationSecurity).then((res: UpdateCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

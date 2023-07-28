@@ -23,10 +23,13 @@ Create a user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateUserResponse, CreateUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateUserSecurity = {
+  token: "",
+};
 
 sdk.user.createUser({
   limitServices: false,
@@ -36,9 +39,7 @@ sdk.user.createUser({
   role: RoleUser.User,
   twoFactorAuthEnabled: false,
   twoFactorSetupRequired: false,
-}, {
-  token: "",
-}).then((res: CreateUserResponse) => {
+}, operationSecurity).then((res: CreateUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -67,15 +68,16 @@ Delete a user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteUserResponse, DeleteUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteUserSecurity = {
+  token: "",
+};
 
 sdk.user.deleteUser({
   userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: DeleteUserResponse) => {
+}, operationSecurity).then((res: DeleteUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -104,13 +106,14 @@ Get the logged in user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCurrentUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCurrentUserResponse, GetCurrentUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.user.getCurrentUser({
+const operationSecurity: GetCurrentUserSecurity = {
   token: "",
-}).then((res: GetCurrentUserResponse) => {
+};
+
+sdk.user.getCurrentUser(operationSecurity).then((res: GetCurrentUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -138,15 +141,16 @@ Get a specific user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetUserResponse, GetUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetUserSecurity = {
+  token: "",
+};
 
 sdk.user.getUser({
   userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: GetUserResponse) => {
+}, operationSecurity).then((res: GetUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -175,15 +179,16 @@ Requests a password reset for the specified user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RequestPasswordResetResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { RequestPasswordResetResponse, RequestPasswordResetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: RequestPasswordResetSecurity = {
+  token: "",
+};
 
 sdk.user.requestPasswordReset({
   userLogin: "krisowner@example.com",
-}, {
-  token: "",
-}).then((res: RequestPasswordResetResponse) => {
+}, operationSecurity).then((res: RequestPasswordResetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -212,10 +217,13 @@ Update a user. Only users with the role of `superuser` can make changes to other
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateUserResponse, UpdateUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateUserSecurity = {
+  token: "",
+};
 
 sdk.user.updateUser({
   userInput: {
@@ -228,9 +236,7 @@ sdk.user.updateUser({
     twoFactorSetupRequired: false,
   },
   userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: UpdateUserResponse) => {
+}, operationSecurity).then((res: UpdateUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -259,17 +265,18 @@ Update the user's password to a new one.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateUserPasswordResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateUserPasswordResponse, UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateUserPasswordSecurity = {
+  password: "",
+  username: "",
+};
 
 sdk.user.updateUserPassword({
   newPassword: "praesentium",
   oldPassword: "maiores",
-}, {
-  password: "",
-  username: "",
-}).then((res: UpdateUserPasswordResponse) => {
+}, operationSecurity).then((res: UpdateUserPasswordResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

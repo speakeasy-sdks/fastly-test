@@ -20,10 +20,13 @@ Create a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateTlsKeyResponse, CreateTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateTlsKeySecurity = {
+  token: "",
+};
 
 sdk.tlsPrivateKeys.createTlsKey({
   data: {
@@ -51,9 +54,7 @@ sdk.tlsPrivateKeys.createTlsKey({
     },
     type: TypeTlsPrivateKey.TlsPrivateKey,
   },
-}, {
-  token: "",
-}).then((res: CreateTlsKeyResponse) => {
+}, operationSecurity).then((res: CreateTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -82,15 +83,16 @@ Destroy a TLS private key. Only private keys not already matched to any certific
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsKeyResponse, DeleteTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteTlsKeySecurity = {
+  token: "",
+};
 
 sdk.tlsPrivateKeys.deleteTlsKey({
   tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: DeleteTlsKeyResponse) => {
+}, operationSecurity).then((res: DeleteTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,15 +121,16 @@ Show a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsKeyResponse, GetTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetTlsKeySecurity = {
+  token: "",
+};
 
 sdk.tlsPrivateKeys.getTlsKey({
   tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: GetTlsKeyResponse) => {
+}, operationSecurity).then((res: GetTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -156,17 +159,18 @@ List all TLS private keys.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsKeysResponse, ListTlsKeysSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsKeysSecurity = {
+  token: "",
+};
 
 sdk.tlsPrivateKeys.listTlsKeys({
   filterInUse: "aliquid",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListTlsKeysResponse) => {
+}, operationSecurity).then((res: ListTlsKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

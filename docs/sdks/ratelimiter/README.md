@@ -19,15 +19,16 @@ Delete a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteRateLimiterResponse, DeleteRateLimiterSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteRateLimiterSecurity = {
+  token: "",
+};
 
 sdk.rateLimiter.deleteRateLimiter({
   rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}, {
-  token: "",
-}).then((res: DeleteRateLimiterResponse) => {
+}, operationSecurity).then((res: DeleteRateLimiterResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,15 +57,16 @@ Get a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetRateLimiterResponse, GetRateLimiterSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetRateLimiterSecurity = {
+  token: "",
+};
 
 sdk.rateLimiter.getRateLimiter({
   rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}, {
-  token: "",
-}).then((res: GetRateLimiterResponse) => {
+}, operationSecurity).then((res: GetRateLimiterResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -93,16 +95,17 @@ List all rate limiters for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRateLimitersResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRateLimitersResponse, ListRateLimitersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListRateLimitersSecurity = {
+  token: "",
+};
 
 sdk.rateLimiter.listRateLimiters({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListRateLimitersResponse) => {
+}, operationSecurity).then((res: ListRateLimitersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

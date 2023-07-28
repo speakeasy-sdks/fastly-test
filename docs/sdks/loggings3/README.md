@@ -21,7 +21,7 @@ Create a S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogAwsS3Response, CreateLogAwsS3Security } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogAwsS3Security = {
+  token: "",
+};
 
 sdk.loggingS3.createLogAwsS3({
   loggingS3Input: {
@@ -59,9 +62,7 @@ sdk.loggingS3.createLogAwsS3({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogAwsS3Response) => {
+}, operationSecurity).then((res: CreateLogAwsS3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -90,17 +91,18 @@ Delete the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogAwsS3Response, DeleteLogAwsS3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogAwsS3Security = {
+  token: "",
+};
 
 sdk.loggingS3.deleteLogAwsS3({
   loggingS3Name: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogAwsS3Response) => {
+}, operationSecurity).then((res: DeleteLogAwsS3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -129,17 +131,18 @@ Get the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogAwsS3Response, GetLogAwsS3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogAwsS3Security = {
+  token: "",
+};
 
 sdk.loggingS3.getLogAwsS3({
   loggingS3Name: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogAwsS3Response) => {
+}, operationSecurity).then((res: GetLogAwsS3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -168,16 +171,17 @@ List all of the S3s for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogAwsS3Response, ListLogAwsS3Security } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogAwsS3Security = {
+  token: "",
+};
 
 sdk.loggingS3.listLogAwsS3({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogAwsS3Response) => {
+}, operationSecurity).then((res: ListLogAwsS3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -206,7 +210,7 @@ Update the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogAwsS3Response, UpdateLogAwsS3Security } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
@@ -215,6 +219,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogAwsS3Security = {
+  token: "",
+};
 
 sdk.loggingS3.updateLogAwsS3({
   loggingS3Input: {
@@ -245,9 +252,7 @@ sdk.loggingS3.updateLogAwsS3({
   loggingS3Name: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogAwsS3Response) => {
+}, operationSecurity).then((res: UpdateLogAwsS3Response) => {
   if (res.statusCode == 200) {
     // handle response
   }

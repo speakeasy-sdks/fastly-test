@@ -19,19 +19,20 @@ List all tags.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafTagsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafTagsResponse, ListWafTagsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { WafTagInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafTagsSecurity = {
+  token: "",
+};
 
 sdk.wafTags.listWafTags({
   filterName: "recusandae",
   include: WafTagInclude.WafRules,
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListWafTagsResponse) => {
+}, operationSecurity).then((res: ListWafTagsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -22,9 +22,12 @@ yarn add https://github.com/speakeasy-sdks/fastly-test
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclResponse, CreateAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateAclSecurity = {
+  token: "",
+};
 
 sdk.acl.createAcl({
   acl: {
@@ -32,9 +35,7 @@ sdk.acl.createAcl({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateAclResponse) => {
+}, operationSecurity).then((res: CreateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

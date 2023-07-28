@@ -17,10 +17,13 @@ List all TLS domains.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsDomainsResponse, ListTlsDomainsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsDomainsSecurity = {
+  token: "",
+};
 
 sdk.tlsDomains.listTlsDomains({
   filterInUse: "dicta",
@@ -30,9 +33,7 @@ sdk.tlsDomains.listTlsDomains({
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.MinusCreatedAt,
-}, {
-  token: "",
-}).then((res: ListTlsDomainsResponse) => {
+}, operationSecurity).then((res: ListTlsDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

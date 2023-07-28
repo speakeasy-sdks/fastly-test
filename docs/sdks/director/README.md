@@ -20,10 +20,13 @@ Create a director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDirectorResponse, CreateDirectorSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { DirectorType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateDirectorSecurity = {
+  token: "",
+};
 
 sdk.director.createDirector({
   director: {
@@ -135,9 +138,7 @@ sdk.director.createDirector({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateDirectorResponse) => {
+}, operationSecurity).then((res: CreateDirectorResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -166,17 +167,18 @@ Delete the director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDirectorResponse, DeleteDirectorSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteDirectorSecurity = {
+  token: "",
+};
 
 sdk.director.deleteDirector({
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteDirectorResponse) => {
+}, operationSecurity).then((res: DeleteDirectorResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -205,17 +207,18 @@ Get the director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDirectorResponse, GetDirectorSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetDirectorSecurity = {
+  token: "",
+};
 
 sdk.director.getDirector({
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetDirectorResponse) => {
+}, operationSecurity).then((res: GetDirectorResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -244,16 +247,17 @@ List the directors for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDirectorsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDirectorsResponse, ListDirectorsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListDirectorsSecurity = {
+  token: "",
+};
 
 sdk.director.listDirectors({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListDirectorsResponse) => {
+}, operationSecurity).then((res: ListDirectorsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

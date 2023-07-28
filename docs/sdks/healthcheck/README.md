@@ -21,9 +21,12 @@ Create a health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateHealthcheckResponse, CreateHealthcheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateHealthcheckSecurity = {
+  token: "",
+};
 
 sdk.healthcheck.createHealthcheck({
   healthcheck: {
@@ -47,9 +50,7 @@ sdk.healthcheck.createHealthcheck({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateHealthcheckResponse) => {
+}, operationSecurity).then((res: CreateHealthcheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -78,17 +79,18 @@ Delete the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteHealthcheckResponse, DeleteHealthcheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteHealthcheckSecurity = {
+  token: "",
+};
 
 sdk.healthcheck.deleteHealthcheck({
   healthcheckName: "test-healthcheck",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteHealthcheckResponse) => {
+}, operationSecurity).then((res: DeleteHealthcheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,17 +119,18 @@ Get the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetHealthcheckResponse, GetHealthcheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetHealthcheckSecurity = {
+  token: "",
+};
 
 sdk.healthcheck.getHealthcheck({
   healthcheckName: "test-healthcheck",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetHealthcheckResponse) => {
+}, operationSecurity).then((res: GetHealthcheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -156,16 +159,17 @@ List all of the health checks for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListHealthchecksResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListHealthchecksResponse, ListHealthchecksSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListHealthchecksSecurity = {
+  token: "",
+};
 
 sdk.healthcheck.listHealthchecks({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListHealthchecksResponse) => {
+}, operationSecurity).then((res: ListHealthchecksResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -194,9 +198,12 @@ Update the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateHealthcheckResponse, UpdateHealthcheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateHealthcheckSecurity = {
+  token: "",
+};
 
 sdk.healthcheck.updateHealthcheck({
   healthcheck: {
@@ -221,9 +228,7 @@ sdk.healthcheck.updateHealthcheck({
   healthcheckName: "test-healthcheck",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateHealthcheckResponse) => {
+}, operationSecurity).then((res: UpdateHealthcheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

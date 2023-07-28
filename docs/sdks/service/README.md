@@ -24,19 +24,20 @@ Create a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServiceResponse, CreateServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateServiceSecurity = {
+  token: "",
+};
 
 sdk.service.createService({
   comment: "recusandae",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
   name: "test-service",
   type: ServiceCreateType.Vcl,
-}, {
-  token: "",
-}).then((res: CreateServiceResponse) => {
+}, operationSecurity).then((res: CreateServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -65,15 +66,16 @@ Delete a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteServiceResponse, DeleteServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteServiceSecurity = {
+  token: "",
+};
 
 sdk.service.deleteService({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: DeleteServiceResponse) => {
+}, operationSecurity).then((res: DeleteServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,15 +104,16 @@ Get a specific service by id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceResponse, GetServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServiceSecurity = {
+  token: "",
+};
 
 sdk.service.getService({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetServiceResponse) => {
+}, operationSecurity).then((res: GetServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -139,16 +142,17 @@ List detailed information on a specified service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceDetailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceDetailResponse, GetServiceDetailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServiceDetailSecurity = {
+  token: "",
+};
 
 sdk.service.getServiceDetail({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   version: 1,
-}, {
-  token: "",
-}).then((res: GetServiceDetailResponse) => {
+}, operationSecurity).then((res: GetServiceDetailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -177,15 +181,16 @@ List the domains within a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceDomainsResponse, ListServiceDomainsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServiceDomainsSecurity = {
+  token: "",
+};
 
 sdk.service.listServiceDomains({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: ListServiceDomainsResponse) => {
+}, operationSecurity).then((res: ListServiceDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -214,19 +219,20 @@ List services.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServicesResponse, ListServicesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListServicesSecurity = {
+  token: "",
+};
 
 sdk.service.listServices({
   direction: Direction.Ascend,
   page: 1,
   perPage: 20,
   sort: "created",
-}, {
-  token: "",
-}).then((res: ListServicesResponse) => {
+}, operationSecurity).then((res: ListServicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -255,15 +261,16 @@ Get a specific service by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SearchServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { SearchServiceResponse, SearchServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: SearchServiceSecurity = {
+  token: "",
+};
 
 sdk.service.searchService({
   name: "test-service",
-}, {
-  token: "",
-}).then((res: SearchServiceResponse) => {
+}, operationSecurity).then((res: SearchServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -292,9 +299,12 @@ Update a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServiceResponse, UpdateServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateServiceSecurity = {
+  token: "",
+};
 
 sdk.service.updateService({
   service: {
@@ -303,9 +313,7 @@ sdk.service.updateService({
     name: "test-service",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: UpdateServiceResponse) => {
+}, operationSecurity).then((res: UpdateServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

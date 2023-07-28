@@ -21,10 +21,13 @@ Create a Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogDatadogResponse, CreateLogDatadogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogDatadogSecurity = {
+  token: "",
+};
 
 sdk.loggingDatadog.createLogDatadog({
   loggingDatadog3: {
@@ -38,9 +41,7 @@ sdk.loggingDatadog.createLogDatadog({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogDatadogResponse) => {
+}, operationSecurity).then((res: CreateLogDatadogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogDatadogResponse, DeleteLogDatadogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogDatadogSecurity = {
+  token: "",
+};
 
 sdk.loggingDatadog.deleteLogDatadog({
   loggingDatadogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogDatadogResponse) => {
+}, operationSecurity).then((res: DeleteLogDatadogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the details for a Datadog logging object for a particular service and versio
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogDatadogResponse, GetLogDatadogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogDatadogSecurity = {
+  token: "",
+};
 
 sdk.loggingDatadog.getLogDatadog({
   loggingDatadogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogDatadogResponse) => {
+}, operationSecurity).then((res: GetLogDatadogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Datadog logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogDatadogResponse, ListLogDatadogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogDatadogSecurity = {
+  token: "",
+};
 
 sdk.loggingDatadog.listLogDatadog({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogDatadogResponse) => {
+}, operationSecurity).then((res: ListLogDatadogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update the Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogDatadogResponse, UpdateLogDatadogSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogDatadogSecurity = {
+  token: "",
+};
 
 sdk.loggingDatadog.updateLogDatadog({
   loggingDatadog3: {
@@ -203,9 +210,7 @@ sdk.loggingDatadog.updateLogDatadog({
   loggingDatadogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogDatadogResponse) => {
+}, operationSecurity).then((res: UpdateLogDatadogResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

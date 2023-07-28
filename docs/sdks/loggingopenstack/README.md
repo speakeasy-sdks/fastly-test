@@ -21,7 +21,7 @@ Create a openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogOpenstackResponse, CreateLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogOpenstackSecurity = {
+  token: "",
+};
 
 sdk.loggingOpenstack.createLogOpenstack({
   loggingOpenstackInput: {
@@ -54,9 +57,7 @@ sdk.loggingOpenstack.createLogOpenstack({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogOpenstackResponse) => {
+}, operationSecurity).then((res: CreateLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,17 +86,18 @@ Delete the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogOpenstackResponse, DeleteLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogOpenstackSecurity = {
+  token: "",
+};
 
 sdk.loggingOpenstack.deleteLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogOpenstackResponse) => {
+}, operationSecurity).then((res: DeleteLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,17 +126,18 @@ Get the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogOpenstackResponse, GetLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogOpenstackSecurity = {
+  token: "",
+};
 
 sdk.loggingOpenstack.getLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogOpenstackResponse) => {
+}, operationSecurity).then((res: GetLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -163,16 +166,17 @@ List all of the openstacks for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogOpenstackResponse, ListLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogOpenstackSecurity = {
+  token: "",
+};
 
 sdk.loggingOpenstack.listLogOpenstack({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogOpenstackResponse) => {
+}, operationSecurity).then((res: ListLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -201,7 +205,7 @@ Update the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogOpenstackResponse, UpdateLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -210,6 +214,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogOpenstackSecurity = {
+  token: "",
+};
 
 sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackInput: {
@@ -235,9 +242,7 @@ sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogOpenstackResponse) => {
+}, operationSecurity).then((res: UpdateLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -20,10 +20,13 @@ Create star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServiceStarResponse, CreateServiceStarSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeService, TypeStar, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateServiceStarSecurity = {
+  token: "",
+};
 
 sdk.star.createServiceStar({
   data: {
@@ -39,9 +42,7 @@ sdk.star.createServiceStar({
     },
     type: TypeStar.Star,
   },
-}, {
-  token: "",
-}).then((res: CreateServiceStarResponse) => {
+}, operationSecurity).then((res: CreateServiceStarResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -70,15 +71,16 @@ Delete star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteServiceStarResponse, DeleteServiceStarSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteServiceStarSecurity = {
+  token: "",
+};
 
 sdk.star.deleteServiceStar({
   starId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: DeleteServiceStarResponse) => {
+}, operationSecurity).then((res: DeleteServiceStarResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,15 +109,16 @@ Show star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceStarResponse, GetServiceStarSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetServiceStarSecurity = {
+  token: "",
+};
 
 sdk.star.getServiceStar({
   starId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: GetServiceStarResponse) => {
+}, operationSecurity).then((res: GetServiceStarResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -144,13 +147,14 @@ List stars.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceStarsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceStarsResponse, ListServiceStarsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
-
-sdk.star.listServiceStars({
+const operationSecurity: ListServiceStarsSecurity = {
   token: "",
-}).then((res: ListServiceStarsResponse) => {
+};
+
+sdk.star.listServiceStars(operationSecurity).then((res: ListServiceStarsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

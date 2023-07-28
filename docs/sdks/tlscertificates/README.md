@@ -21,10 +21,13 @@ Create a TLS certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateTlsCertResponse, CreateTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsCertificates.createTlsCert({
   data: {
@@ -52,9 +55,7 @@ sdk.tlsCertificates.createTlsCert({
     },
     type: TypeTlsCertificate.TlsCertificate,
   },
-}, {
-  token: "",
-}).then((res: CreateTlsCertResponse) => {
+}, operationSecurity).then((res: CreateTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,15 +84,16 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsCertResponse, DeleteTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsCertificates.deleteTlsCert({
   tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}, {
-  token: "",
-}).then((res: DeleteTlsCertResponse) => {
+}, operationSecurity).then((res: DeleteTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -120,15 +122,16 @@ Show a TLS certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsCertResponse, GetTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsCertificates.getTlsCert({
   tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}, {
-  token: "",
-}).then((res: GetTlsCertResponse) => {
+}, operationSecurity).then((res: GetTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -157,10 +160,13 @@ List all TLS certificates.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsCertsResponse, ListTlsCertsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsCertsSecurity = {
+  token: "",
+};
 
 sdk.tlsCertificates.listTlsCerts({
   filterInUse: "sapiente",
@@ -170,9 +176,7 @@ sdk.tlsCertificates.listTlsCerts({
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
-}, {
-  token: "",
-}).then((res: ListTlsCertsResponse) => {
+}, operationSecurity).then((res: ListTlsCertsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -201,10 +205,13 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateTlsCertResponse, UpdateTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsCertificates.updateTlsCert({
   tlsCertificateInput: {
@@ -226,9 +233,7 @@ sdk.tlsCertificates.updateTlsCert({
     },
   },
   tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}, {
-  token: "",
-}).then((res: UpdateTlsCertResponse) => {
+}, operationSecurity).then((res: UpdateTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

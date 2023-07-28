@@ -21,15 +21,16 @@ Destroy a certificate. This disables TLS for all domains listed as SAN entries.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteBulkTlsCertResponse, DeleteBulkTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteBulkTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsBulkCertificates.deleteBulkTlsCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
-}, {
-  token: "",
-}).then((res: DeleteBulkTlsCertResponse) => {
+}, operationSecurity).then((res: DeleteBulkTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -58,15 +59,16 @@ Retrieve a single certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsBulkCertResponse, GetTlsBulkCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetTlsBulkCertSecurity = {
+  token: "",
+};
 
 sdk.tlsBulkCertificates.getTlsBulkCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
-}, {
-  token: "",
-}).then((res: GetTlsBulkCertResponse) => {
+}, operationSecurity).then((res: GetTlsBulkCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,19 +97,20 @@ List all certificates.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsBulkCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsBulkCertsResponse, ListTlsBulkCertsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: ListTlsBulkCertsSecurity = {
+  token: "",
+};
 
 sdk.tlsBulkCertificates.listTlsBulkCerts({
   filterTlsDomainId: "animi",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
-}, {
-  token: "",
-}).then((res: ListTlsBulkCertsResponse) => {
+}, operationSecurity).then((res: ListTlsBulkCertsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -136,10 +139,13 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateBulkTlsCertResponse, UpdateBulkTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateBulkTlsCertSecurity = {
+  token: "",
+};
 
 sdk.tlsBulkCertificates.updateBulkTlsCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
@@ -171,9 +177,7 @@ sdk.tlsBulkCertificates.updateBulkTlsCert({
       type: TypeTlsBulkCertificate.TlsBulkCertificate,
     },
   },
-}, {
-  token: "",
-}).then((res: UpdateBulkTlsCertResponse) => {
+}, operationSecurity).then((res: UpdateBulkTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,10 +206,13 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UploadTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UploadTlsBulkCertResponse, UploadTlsBulkCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UploadTlsBulkCertSecurity = {
+  token: "",
+};
 
 sdk.tlsBulkCertificates.uploadTlsBulkCert({
   attributes: {
@@ -232,9 +239,7 @@ sdk.tlsBulkCertificates.uploadTlsBulkCert({
     },
   },
   type: TypeTlsBulkCertificate.TlsBulkCertificate,
-}, {
-  token: "",
-}).then((res: UploadTlsBulkCertResponse) => {
+}, operationSecurity).then((res: UploadTlsBulkCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

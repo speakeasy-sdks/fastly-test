@@ -21,10 +21,13 @@ Create a Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogPapertrailResponse, CreateLogPapertrailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogPapertrailSecurity = {
+  token: "",
+};
 
 sdk.loggingPapertrail.createLogPapertrail({
   loggingPapertrail2: {
@@ -38,9 +41,7 @@ sdk.loggingPapertrail.createLogPapertrail({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogPapertrailResponse) => {
+}, operationSecurity).then((res: CreateLogPapertrailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,17 +70,18 @@ Delete the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogPapertrailResponse, DeleteLogPapertrailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogPapertrailSecurity = {
+  token: "",
+};
 
 sdk.loggingPapertrail.deleteLogPapertrail({
   loggingPapertrailName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogPapertrailResponse) => {
+}, operationSecurity).then((res: DeleteLogPapertrailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -108,17 +110,18 @@ Get the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogPapertrailResponse, GetLogPapertrailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogPapertrailSecurity = {
+  token: "",
+};
 
 sdk.loggingPapertrail.getLogPapertrail({
   loggingPapertrailName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogPapertrailResponse) => {
+}, operationSecurity).then((res: GetLogPapertrailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,16 +150,17 @@ List all of the Papertrails for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogPapertrailResponse, ListLogPapertrailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogPapertrailSecurity = {
+  token: "",
+};
 
 sdk.loggingPapertrail.listLogPapertrail({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogPapertrailResponse) => {
+}, operationSecurity).then((res: ListLogPapertrailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,10 +189,13 @@ Update the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogPapertrailResponse, UpdateLogPapertrailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogPapertrailSecurity = {
+  token: "",
+};
 
 sdk.loggingPapertrail.updateLogPapertrail({
   loggingPapertrail2: {
@@ -203,9 +210,7 @@ sdk.loggingPapertrail.updateLogPapertrail({
   loggingPapertrailName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogPapertrailResponse) => {
+}, operationSecurity).then((res: UpdateLogPapertrailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

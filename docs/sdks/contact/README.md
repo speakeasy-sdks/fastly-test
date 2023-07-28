@@ -18,16 +18,17 @@ Delete a contact.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteContactResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteContactResponse, DeleteContactSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteContactSecurity = {
+  token: "",
+};
 
 sdk.contact.deleteContact({
   contactId: "x4xCwxxJxGCx123Rx5xTx",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: DeleteContactResponse) => {
+}, operationSecurity).then((res: DeleteContactResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,15 +57,16 @@ List all contacts from a specified customer ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListContactsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListContactsResponse, ListContactsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListContactsSecurity = {
+  token: "",
+};
 
 sdk.contact.listContacts({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, {
-  token: "",
-}).then((res: ListContactsResponse) => {
+}, operationSecurity).then((res: ListContactsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

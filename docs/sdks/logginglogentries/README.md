@@ -23,7 +23,7 @@ Create a Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogLogentriesResponse, CreateLogLogentriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
@@ -32,6 +32,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogLogentriesSecurity = {
+  token: "",
+};
 
 sdk.loggingLogentries.createLogLogentries({
   loggingLogentries3: {
@@ -47,9 +50,7 @@ sdk.loggingLogentries.createLogLogentries({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogLogentriesResponse) => {
+}, operationSecurity).then((res: CreateLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -80,17 +81,18 @@ Delete the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogLogentriesResponse, DeleteLogLogentriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogLogentriesSecurity = {
+  token: "",
+};
 
 sdk.loggingLogentries.deleteLogLogentries({
   loggingLogentriesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogLogentriesResponse) => {
+}, operationSecurity).then((res: DeleteLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -121,17 +123,18 @@ Get the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogLogentriesResponse, GetLogLogentriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogLogentriesSecurity = {
+  token: "",
+};
 
 sdk.loggingLogentries.getLogLogentries({
   loggingLogentriesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogLogentriesResponse) => {
+}, operationSecurity).then((res: GetLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -162,16 +165,17 @@ List all of the Logentries for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogLogentriesResponse, ListLogLogentriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogLogentriesSecurity = {
+  token: "",
+};
 
 sdk.loggingLogentries.listLogLogentries({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogLogentriesResponse) => {
+}, operationSecurity).then((res: ListLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,7 +206,7 @@ Update the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogLogentriesResponse, UpdateLogLogentriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
@@ -211,6 +215,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogLogentriesSecurity = {
+  token: "",
+};
 
 sdk.loggingLogentries.updateLogLogentries({
   loggingLogentries3: {
@@ -227,9 +234,7 @@ sdk.loggingLogentries.updateLogLogentries({
   loggingLogentriesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogLogentriesResponse) => {
+}, operationSecurity).then((res: UpdateLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

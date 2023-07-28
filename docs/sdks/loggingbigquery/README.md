@@ -21,10 +21,13 @@ Create a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogBigqueryResponse, CreateLogBigquerySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogBigquerySecurity = {
+  token: "",
+};
 
 sdk.loggingBigquery.createLogBigquery({
   loggingBigquery2: {
@@ -46,9 +49,7 @@ sdk.loggingBigquery.createLogBigquery({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogBigqueryResponse) => {
+}, operationSecurity).then((res: CreateLogBigqueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -77,17 +78,18 @@ Delete a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogBigqueryResponse, DeleteLogBigquerySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogBigquerySecurity = {
+  token: "",
+};
 
 sdk.loggingBigquery.deleteLogBigquery({
   loggingBigqueryName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogBigqueryResponse) => {
+}, operationSecurity).then((res: DeleteLogBigqueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -116,17 +118,18 @@ Get the details for a BigQuery logging object for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogBigqueryResponse, GetLogBigquerySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogBigquerySecurity = {
+  token: "",
+};
 
 sdk.loggingBigquery.getLogBigquery({
   loggingBigqueryName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogBigqueryResponse) => {
+}, operationSecurity).then((res: GetLogBigqueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -155,16 +158,17 @@ List all of the BigQuery logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogBigqueryResponse, ListLogBigquerySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogBigquerySecurity = {
+  token: "",
+};
 
 sdk.loggingBigquery.listLogBigquery({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogBigqueryResponse) => {
+}, operationSecurity).then((res: ListLogBigqueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -193,10 +197,13 @@ Update a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogBigqueryResponse, UpdateLogBigquerySecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogBigquerySecurity = {
+  token: "",
+};
 
 sdk.loggingBigquery.updateLogBigquery({
   loggingBigquery2: {
@@ -219,9 +226,7 @@ sdk.loggingBigquery.updateLogBigquery({
   loggingBigqueryName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogBigqueryResponse) => {
+}, operationSecurity).then((res: UpdateLogBigqueryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

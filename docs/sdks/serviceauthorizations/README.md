@@ -21,10 +21,13 @@ Create service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServiceAuthorizationResponse, CreateServiceAuthorizationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateServiceAuthorizationSecurity = {
+  token: "",
+};
 
 sdk.serviceAuthorizations.createServiceAuthorization({
   data: {
@@ -43,9 +46,7 @@ sdk.serviceAuthorizations.createServiceAuthorization({
     },
     type: TypeServiceAuthorization.ServiceAuthorization,
   },
-}, {
-  token: "",
-}).then((res: CreateServiceAuthorizationResponse) => {
+}, operationSecurity).then((res: CreateServiceAuthorizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -74,15 +75,16 @@ Delete service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteServiceAuthorizationResponse, DeleteServiceAuthorizationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteServiceAuthorizationSecurity = {
+  token: "",
+};
 
 sdk.serviceAuthorizations.deleteServiceAuthorization({
   serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: DeleteServiceAuthorizationResponse) => {
+}, operationSecurity).then((res: DeleteServiceAuthorizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -111,16 +113,17 @@ List service authorizations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceAuthorizationResponse, ListServiceAuthorizationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListServiceAuthorizationSecurity = {
+  token: "",
+};
 
 sdk.serviceAuthorizations.listServiceAuthorization({
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListServiceAuthorizationResponse) => {
+}, operationSecurity).then((res: ListServiceAuthorizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -149,15 +152,16 @@ Show service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ShowServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ShowServiceAuthorizationResponse, ShowServiceAuthorizationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ShowServiceAuthorizationSecurity = {
+  token: "",
+};
 
 sdk.serviceAuthorizations.showServiceAuthorization({
   serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: ShowServiceAuthorizationResponse) => {
+}, operationSecurity).then((res: ShowServiceAuthorizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -186,10 +190,13 @@ Update service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServiceAuthorizationResponse, UpdateServiceAuthorizationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateServiceAuthorizationSecurity = {
+  token: "",
+};
 
 sdk.serviceAuthorizations.updateServiceAuthorization({
   serviceAuthorizationInput: {
@@ -211,9 +218,7 @@ sdk.serviceAuthorizations.updateServiceAuthorization({
     },
   },
   serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}, {
-  token: "",
-}).then((res: UpdateServiceAuthorizationResponse) => {
+}, operationSecurity).then((res: UpdateServiceAuthorizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -21,7 +21,7 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogAzureResponse, CreateLogAzureSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingAzureblobCompressionCodec,
   LoggingAzureblobFormatVersion,
@@ -30,6 +30,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: CreateLogAzureSecurity = {
+  token: "",
+};
 
 sdk.loggingAzureblob.createLogAzure({
   loggingAzureblobInput: {
@@ -54,9 +57,7 @@ sdk.loggingAzureblob.createLogAzure({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogAzureResponse) => {
+}, operationSecurity).then((res: CreateLogAzureResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,17 +86,18 @@ Delete the Azure Blob Storage logging endpoint for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogAzureResponse, DeleteLogAzureSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteLogAzureSecurity = {
+  token: "",
+};
 
 sdk.loggingAzureblob.deleteLogAzure({
   loggingAzureblobName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogAzureResponse) => {
+}, operationSecurity).then((res: DeleteLogAzureResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,17 +126,18 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogAzureResponse, GetLogAzureSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetLogAzureSecurity = {
+  token: "",
+};
 
 sdk.loggingAzureblob.getLogAzure({
   loggingAzureblobName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogAzureResponse) => {
+}, operationSecurity).then((res: GetLogAzureResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -163,16 +166,17 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogAzureResponse, ListLogAzureSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListLogAzureSecurity = {
+  token: "",
+};
 
 sdk.loggingAzureblob.listLogAzure({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogAzureResponse) => {
+}, operationSecurity).then((res: ListLogAzureResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -201,7 +205,7 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogAzureResponse, UpdateLogAzureSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingAzureblobCompressionCodec,
   LoggingAzureblobFormatVersion,
@@ -210,6 +214,9 @@ import {
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateLogAzureSecurity = {
+  token: "",
+};
 
 sdk.loggingAzureblob.updateLogAzure({
   loggingAzureblobInput: {
@@ -235,9 +242,7 @@ sdk.loggingAzureblob.updateLogAzure({
   loggingAzureblobName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogAzureResponse) => {
+}, operationSecurity).then((res: UpdateLogAzureResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

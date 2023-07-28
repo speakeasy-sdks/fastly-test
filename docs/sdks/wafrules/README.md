@@ -20,16 +20,17 @@ Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fas
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafRuleResponse, GetWafRuleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetWafRuleSecurity = {
+  token: "",
+};
 
 sdk.wafRules.getWafRule({
   include: "waf_tags,waf_rule_revisions",
   wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: GetWafRuleResponse) => {
+}, operationSecurity).then((res: GetWafRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -60,9 +61,12 @@ List all available WAF rules.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafRulesResponse, ListWafRulesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListWafRulesSecurity = {
+  token: "",
+};
 
 sdk.wafRules.listWafRules({
   filterModsecRuleId: "porro",
@@ -72,9 +76,7 @@ sdk.wafRules.listWafRules({
   include: "waf_tags,waf_rule_revisions",
   pageNumber: 1,
   pageSize: 20,
-}, {
-  token: "",
-}).then((res: ListWafRulesResponse) => {
+}, operationSecurity).then((res: ListWafRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

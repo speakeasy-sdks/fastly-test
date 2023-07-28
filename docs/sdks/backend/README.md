@@ -21,9 +21,12 @@ Create a backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateBackendResponse, CreateBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: CreateBackendSecurity = {
+  token: "",
+};
 
 sdk.backend.createBackend({
   backend: {
@@ -60,9 +63,7 @@ sdk.backend.createBackend({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateBackendResponse) => {
+}, operationSecurity).then((res: CreateBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -91,17 +92,18 @@ Delete the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteBackendResponse, DeleteBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: DeleteBackendSecurity = {
+  token: "",
+};
 
 sdk.backend.deleteBackend({
   backendName: "test-backend",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteBackendResponse) => {
+}, operationSecurity).then((res: DeleteBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,17 +132,18 @@ Get the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetBackendResponse, GetBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: GetBackendSecurity = {
+  token: "",
+};
 
 sdk.backend.getBackend({
   backendName: "test-backend",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: GetBackendResponse) => {
+}, operationSecurity).then((res: GetBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -169,16 +172,17 @@ List all backends for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListBackendsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListBackendsResponse, ListBackendsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: ListBackendsSecurity = {
+  token: "",
+};
 
 sdk.backend.listBackends({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: ListBackendsResponse) => {
+}, operationSecurity).then((res: ListBackendsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -207,9 +211,12 @@ Update the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateBackendResponse, UpdateBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
 const sdk = new Fastly();
+const operationSecurity: UpdateBackendSecurity = {
+  token: "",
+};
 
 sdk.backend.updateBackend({
   backend: {
@@ -247,9 +254,7 @@ sdk.backend.updateBackend({
   backendName: "test-backend",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateBackendResponse) => {
+}, operationSecurity).then((res: UpdateBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
