@@ -28,7 +28,7 @@ export class WafRuleRevisions {
      * @remarks
      * Get a specific rule revision.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRuleRevision(
         req: operations.GetWafRuleRevisionRequest,
@@ -114,7 +114,7 @@ export class WafRuleRevisions {
      * @remarks
      * List all revisions for a specific rule. The `rule_id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafRuleRevisions(
         req: operations.ListWafRuleRevisionsRequest,

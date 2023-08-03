@@ -28,7 +28,7 @@ export class LoggingLogentries {
      * @remarks
      * Create a Logentry for a particular service and version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createLogLogentries(
         req: operations.CreateLogLogentriesRequest,
@@ -128,7 +128,7 @@ export class LoggingLogentries {
      * @remarks
      * Delete the Logentry for a particular service and version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteLogLogentries(
         req: operations.DeleteLogLogentriesRequest,
@@ -213,7 +213,7 @@ export class LoggingLogentries {
      * @remarks
      * Get the Logentry for a particular service and version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getLogLogentries(
         req: operations.GetLogLogentriesRequest,
@@ -297,7 +297,7 @@ export class LoggingLogentries {
      * @remarks
      * List all of the Logentries for a particular service and version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listLogLogentries(
         req: operations.ListLogLogentriesRequest,
@@ -384,7 +384,7 @@ export class LoggingLogentries {
      * @remarks
      * Update the Logentry for a particular service and version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateLogLogentries(
         req: operations.UpdateLogLogentriesRequest,

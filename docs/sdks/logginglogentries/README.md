@@ -17,7 +17,7 @@ The Logentries integration has been discontinued.  No new Logentries endpoints c
 
 Create a Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -75,7 +75,7 @@ sdk.loggingLogentries.createLogLogentries({
 
 Delete the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -117,7 +117,7 @@ sdk.loggingLogentries.deleteLogLogentries({
 
 Get the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -159,7 +159,7 @@ sdk.loggingLogentries.getLogLogentries({
 
 List all of the Logentries for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -200,7 +200,7 @@ sdk.loggingLogentries.listLogLogentries({
 
 Update the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

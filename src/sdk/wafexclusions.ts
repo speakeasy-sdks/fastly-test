@@ -31,7 +31,7 @@ export class WafExclusions {
      * @remarks
      * Create a WAF exclusion for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafRuleExclusion(
         req: operations.CreateWafRuleExclusionRequest,
@@ -131,7 +131,7 @@ export class WafExclusions {
      * @remarks
      * Delete a WAF exclusion for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteWafRuleExclusion(
         req: operations.DeleteWafRuleExclusionRequest,
@@ -202,7 +202,7 @@ export class WafExclusions {
      * @remarks
      * Get a specific WAF exclusion object.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRuleExclusion(
         req: operations.GetWafRuleExclusionRequest,
@@ -287,7 +287,7 @@ export class WafExclusions {
      * @remarks
      * List all exclusions for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafRuleExclusions(
         req: operations.ListWafRuleExclusionsRequest,
@@ -373,7 +373,7 @@ export class WafExclusions {
      * @remarks
      * Update a WAF exclusion for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafRuleExclusion(
         req: operations.UpdateWafRuleExclusionRequest,

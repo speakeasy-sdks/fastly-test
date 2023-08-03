@@ -28,7 +28,7 @@ export class WafRules {
      * @remarks
      * Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRule(
         req: operations.GetWafRuleRequest,
@@ -109,7 +109,7 @@ export class WafRules {
      * @remarks
      * List all available WAF rules.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafRules(
         req: operations.ListWafRulesRequest,

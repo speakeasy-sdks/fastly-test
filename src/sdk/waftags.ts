@@ -28,7 +28,7 @@ export class WafTags {
      * @remarks
      * List all tags.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafTags(
         req: operations.ListWafTagsRequest,

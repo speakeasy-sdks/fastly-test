@@ -18,7 +18,7 @@ WAF rule exclusions provide a flexible way to handle false positives, allowing s
 
 Create a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -91,7 +91,7 @@ sdk.wafExclusions.createWafRuleExclusion({
 
 Delete a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -133,7 +133,7 @@ sdk.wafExclusions.deleteWafRuleExclusion({
 
 Get a specific WAF exclusion object.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -175,7 +175,7 @@ sdk.wafExclusions.getWafRuleExclusion({
 
 List all exclusions for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -226,7 +226,7 @@ sdk.wafExclusions.listWafRuleExclusions({
 
 Update a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

@@ -29,7 +29,7 @@ export class WafFirewalls {
      * Create a firewall object for a particular service and service version using a defined `prefetch_condition` and `response`. If the `prefetch_condition` or the `response` is missing from the request body, Fastly will generate a default object on your service.
      *
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafFirewall(
         req: shared.WafFirewallInput,
@@ -121,7 +121,7 @@ export class WafFirewalls {
      * Delete the firewall object for a particular service and service version.
      *
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteWafFirewall(
         req: operations.DeleteWafFirewallRequest,
@@ -198,7 +198,7 @@ export class WafFirewalls {
      * @remarks
      * Get a specific firewall object.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafFirewall(
         req: operations.GetWafFirewallRequest,
@@ -279,7 +279,7 @@ export class WafFirewalls {
      * @remarks
      * List all firewall objects.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafFirewalls(
         req: operations.ListWafFirewallsRequest,
@@ -361,7 +361,7 @@ export class WafFirewalls {
      * Update a firewall object for a particular service and service version. Specifying a `service_version_number` is required.
      *
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafFirewall(
         req: operations.UpdateWafFirewallRequest,

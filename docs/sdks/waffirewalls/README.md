@@ -18,7 +18,7 @@ A firewall represents a configuration of a Web Application Firewall (WAF) on a s
 Create a firewall object for a particular service and service version using a defined `prefetch_condition` and `response`. If the `prefetch_condition` or the `response` is missing from the request body, Fastly will generate a default object on your service.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -67,7 +67,7 @@ sdk.wafFirewalls.createWafFirewall({
 Delete the firewall object for a particular service and service version.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -118,7 +118,7 @@ sdk.wafFirewalls.deleteWafFirewall({
 
 Get a specific firewall object.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -161,7 +161,7 @@ sdk.wafFirewalls.getWafFirewall({
 
 List all firewall objects.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -207,7 +207,7 @@ sdk.wafFirewalls.listWafFirewalls({
 Update a firewall object for a particular service and service version. Specifying a `service_version_number` is required.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

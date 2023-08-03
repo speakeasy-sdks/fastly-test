@@ -28,7 +28,7 @@ export class WafActiveRules {
      * @remarks
      * Bulk update all active rules on a [firewall version](https://developer.fastly.com/reference/api/waf/firewall-version/). This endpoint will not add new active rules, only update existing active rules.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async bulkUpdateWafActiveRules(
         req: operations.BulkUpdateWafActiveRulesRequest,
@@ -114,7 +114,7 @@ export class WafActiveRules {
      * @remarks
      * Create an active rule for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafActiveRule(
         req: operations.CreateWafActiveRuleRequest,
@@ -211,7 +211,7 @@ export class WafActiveRules {
      * @remarks
      * Create active rules by tag. This endpoint will create active rules using the latest revision available for each rule.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafActiveRulesTag(
         req: operations.CreateWafActiveRulesTagRequest,
@@ -297,7 +297,7 @@ export class WafActiveRules {
      * @remarks
      * Delete an active rule for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteWafActiveRule(
         req: operations.DeleteWafActiveRuleRequest,
@@ -368,7 +368,7 @@ export class WafActiveRules {
      * @remarks
      * Get a specific active rule object. Includes details of the rule revision associated with the active rule object by default.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafActiveRule(
         req: operations.GetWafActiveRuleRequest,
@@ -453,7 +453,7 @@ export class WafActiveRules {
      * @remarks
      * List all active rules for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafActiveRules(
         req: operations.ListWafActiveRulesRequest,
@@ -539,7 +539,7 @@ export class WafActiveRules {
      * @remarks
      * Update an active rule's status for a particular firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafActiveRule(
         req: operations.UpdateWafActiveRuleRequest,

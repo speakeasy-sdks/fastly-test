@@ -823,7 +823,7 @@ export class RealtimeMeasurements extends SpeakeasyBase {
     /**
      * Use object_store_class_b_operations.
      *
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object_store_read_requests" })
@@ -832,7 +832,7 @@ export class RealtimeMeasurements extends SpeakeasyBase {
     /**
      * Use object_store_class_a_operations.
      *
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object_store_write_requests" })

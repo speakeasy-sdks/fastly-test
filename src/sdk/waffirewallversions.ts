@@ -28,7 +28,7 @@ export class WafFirewallVersions {
      * @remarks
      * Clone a specific, existing firewall version into a new, draft firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async cloneWafFirewallVersion(
         req: operations.CloneWafFirewallVersionRequest,
@@ -113,7 +113,7 @@ export class WafFirewallVersions {
      * @remarks
      * Create a new, draft firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafFirewallVersion(
         req: operations.CreateWafFirewallVersionRequest,
@@ -213,7 +213,7 @@ export class WafFirewallVersions {
      * @remarks
      * Deploy or activate a specific firewall version. If a firewall has been disabled, deploying a firewall version will automatically enable the firewall again.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deployActivateWafFirewallVersion(
         req: operations.DeployActivateWafFirewallVersionRequest,
@@ -299,7 +299,7 @@ export class WafFirewallVersions {
      * @remarks
      * Get details about a specific firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafFirewallVersion(
         req: operations.GetWafFirewallVersionRequest,
@@ -385,7 +385,7 @@ export class WafFirewallVersions {
      * @remarks
      * Get a list of firewall versions associated with a specific firewall.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafFirewallVersions(
         req: operations.ListWafFirewallVersionsRequest,
@@ -471,7 +471,7 @@ export class WafFirewallVersions {
      * @remarks
      * Update a specific firewall version.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafFirewallVersion(
         req: operations.UpdateWafFirewallVersionRequest,
