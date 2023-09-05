@@ -55,16 +55,12 @@ export class WafFirewalls {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateWafFirewallSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const properties = utils.parseSecurityProperties(security);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
         headers[
@@ -147,16 +143,12 @@ export class WafFirewalls {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.DeleteWafFirewallSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const properties = utils.parseSecurityProperties(security);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
         headers[
@@ -214,16 +206,12 @@ export class WafFirewalls {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/waf/firewalls/{firewall_id}", req);
-
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetWafFirewallSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        const properties = utils.parseSecurityProperties(security);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
 
@@ -295,16 +283,12 @@ export class WafFirewalls {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/waf/firewalls";
-
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.ListWafFirewallsSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        const properties = utils.parseSecurityProperties(security);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
 
@@ -387,16 +371,12 @@ export class WafFirewalls {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.UpdateWafFirewallSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const properties = utils.parseSecurityProperties(security);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
         headers[
