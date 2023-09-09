@@ -32,12 +32,12 @@ const operationSecurity: CreateLogLogshuttleSecurity = {
 sdk.loggingLogshuttle.createLogLogshuttle({
   loggingLogshuttle2: {
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.Two,
+    formatVersion: LoggingLogshuttleFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.None,
+    placement: LoggingLogshuttlePlacement.LessThanNilGreaterThan,
     responseCondition: "null",
-    token: "consequuntur",
-    url: "quasi",
+    token: "aspernatur",
+    url: "minima",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,12 +200,12 @@ const operationSecurity: UpdateLogLogshuttleSecurity = {
 sdk.loggingLogshuttle.updateLogLogshuttle({
   loggingLogshuttle2: {
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.Two,
+    formatVersion: LoggingLogshuttleFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.WafDebug,
+    placement: LoggingLogshuttlePlacement.LessThanNilGreaterThan,
     responseCondition: "null",
-    token: "aliquid",
-    url: "tenetur",
+    token: "libero",
+    url: "aut",
   },
   loggingLogshuttleName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

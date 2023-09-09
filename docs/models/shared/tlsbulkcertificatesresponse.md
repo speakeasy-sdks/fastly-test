@@ -1,7 +1,5 @@
 # TlsBulkCertificatesResponse
 
-OK
-
 
 ## Fields
 

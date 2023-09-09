@@ -32,21 +32,12 @@ const operationSecurity: CreateTlsCertSecurity = {
 sdk.tlsCertificates.createTlsCert({
   data: {
     attributes: {
-      certBlob: "officia",
-      name: "Irving Gleichner",
+      certBlob: "dolorum",
+      name: "Bethany D'Amore",
     },
     relationships: {
       tlsDomains: {
         data: [
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
           {
             type: TypeTlsDomain.TlsDomain,
           },
@@ -169,10 +160,10 @@ const operationSecurity: ListTlsCertsSecurity = {
 };
 
 sdk.tlsCertificates.listTlsCerts({
-  filterInUse: "sapiente",
-  filterNotAfter: "cumque",
-  filterTlsDomainsId: "vitae",
-  include: "rerum",
+  filterInUse: "dolore",
+  filterNotAfter: "aliquam",
+  filterTlsDomainsId: "officiis",
+  include: "temporibus",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
@@ -217,8 +208,8 @@ sdk.tlsCertificates.updateTlsCert({
   tlsCertificateInput: {
     data: {
       attributes: {
-        certBlob: "quis",
-        name: "Mr. Denise Runolfsdottir",
+        certBlob: "adipisci",
+        name: "Guy Luettgen",
       },
       relationships: {
         tlsDomains: {

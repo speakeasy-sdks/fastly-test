@@ -34,7 +34,7 @@ const operationSecurity: CreateUserSecurity = {
 sdk.user.createUser({
   limitServices: false,
   locked: false,
-  name: "Melba Stokes I",
+  name: "Naomi Wuckert",
   requireNewPassword: false,
   role: RoleUser.User,
   twoFactorAuthEnabled: false,
@@ -229,7 +229,7 @@ sdk.user.updateUser({
   userInput: {
     limitServices: false,
     locked: false,
-    name: "Tanya Buckridge",
+    name: "Herbert Treutel",
     requireNewPassword: false,
     role: RoleUser.User,
     twoFactorAuthEnabled: false,
@@ -274,8 +274,8 @@ const operationSecurity: UpdateUserPasswordSecurity = {
 };
 
 sdk.user.updateUserPassword({
-  newPassword: "praesentium",
-  oldPassword: "maiores",
+  newPassword: "occaecati",
+  oldPassword: "quos",
 }, operationSecurity).then((res: UpdateUserPasswordResponse) => {
   if (res.statusCode == 200) {
     // handle response

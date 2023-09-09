@@ -36,24 +36,24 @@ const operationSecurity: CreateLogAzureSecurity = {
 
 sdk.loggingAzureblob.createLogAzure({
   loggingAzureblobInput: {
-    accountName: "aut",
+    accountName: "consequuntur",
     compressionCodec: LoggingAzureblobCompressionCodec.Snappy,
-    container: "itaque",
-    fileMaxBytes: 9240,
+    container: "error",
+    fileMaxBytes: 50370,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingAzureblobFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingAzureblobMessageType.Classic,
     name: "test-log-endpoint",
-    path: "repellendus",
+    path: "rerum",
     period: 3600,
-    placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
+    placement: LoggingAzureblobPlacement.None,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    sasToken: "doloribus",
+    sasToken: "asperiores",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -220,16 +220,16 @@ const operationSecurity: UpdateLogAzureSecurity = {
 
 sdk.loggingAzureblob.updateLogAzure({
   loggingAzureblobInput: {
-    accountName: "ut",
-    compressionCodec: LoggingAzureblobCompressionCodec.Gzip,
-    container: "cupiditate",
-    fileMaxBytes: 181631,
+    accountName: "earum",
+    compressionCodec: LoggingAzureblobCompressionCodec.Zstd,
+    container: "iste",
+    fileMaxBytes: 679091,
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingAzureblobFormatVersion.One,
+    formatVersion: LoggingAzureblobFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingAzureblobMessageType.Classic,
     name: "test-log-endpoint",
-    path: "laudantium",
+    path: "pariatur",
     period: 3600,
     placement: LoggingAzureblobPlacement.WafDebug,
     publicKey: "-----BEGIN PRIVATE KEY-----
@@ -237,7 +237,7 @@ sdk.loggingAzureblob.updateLogAzure({
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    sasToken: "occaecati",
+    sasToken: "nobis",
   },
   loggingAzureblobName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

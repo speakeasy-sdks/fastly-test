@@ -41,18 +41,15 @@ const operationSecurity: BulkUpdateWafActiveRulesSecurity = {
 sdk.wafActiveRules.bulkUpdateWafActiveRules({
   bulkWafActiveRuleInput: {
     attributes: {
-      modsecRuleId: 117315,
+      modsecRuleId: 401713,
       revision: 2,
       status: BulkWafActiveRuleAttributesStatus.Log,
     },
     relationships: {
-      wafFirewallVersion: {
+      wafRuleRevisions: {
         data: [
           {
-            type: TypeWafFirewallVersion.WafFirewallVersion,
-          },
-          {
-            type: TypeWafFirewallVersion.WafFirewallVersion,
+            type: TypeWafRuleRevision.WafRuleRevision,
           },
         ],
       },
@@ -110,16 +107,13 @@ sdk.wafActiveRules.createWafActiveRule({
     data: [
       {
         attributes: {
-          modsecRuleId: 399812,
-          revision: 2,
-          status: WafActiveRuleDataAttributesStatus.Score,
+          modsecRuleId: 505866,
+          revision: "latest",
+          status: WafActiveRuleDataAttributesStatus.Log,
         },
         relationships: {
           wafFirewallVersion: {
             data: [
-              {
-                type: TypeWafFirewallVersion.WafFirewallVersion,
-              },
               {
                 type: TypeWafFirewallVersion.WafFirewallVersion,
               },
@@ -182,18 +176,15 @@ sdk.wafActiveRules.createWafActiveRulesTag({
   wafActiveRuleInput: {
     data: {
       attributes: {
-        modsecRuleId: 856756,
+        modsecRuleId: 373035,
         revision: "latest",
         status: WafActiveRuleDataAttributesStatus.Block,
       },
       relationships: {
-        wafRuleRevisions: {
+        wafFirewallVersion: {
           data: [
             {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
+              type: TypeWafFirewallVersion.WafFirewallVersion,
             },
           ],
         },
@@ -326,10 +317,10 @@ const operationSecurity: ListWafActiveRulesSecurity = {
 };
 
 sdk.wafActiveRules.listWafActiveRules({
-  filterOutdated: "aliquid",
-  filterStatus: "perferendis",
-  filterWafRuleRevisionMessage: "eum",
-  filterWafRuleRevisionModsecRuleId: "voluptas",
+  filterOutdated: "nobis",
+  filterStatus: "error",
+  filterWafRuleRevisionMessage: "veniam",
+  filterWafRuleRevisionModsecRuleId: "minima",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: "waf_rule_revision,waf_firewall_version",
   pageNumber: 1,
@@ -385,24 +376,15 @@ sdk.wafActiveRules.updateWafActiveRule({
   wafActiveRuleInput: {
     data: {
       attributes: {
-        modsecRuleId: 614528,
+        modsecRuleId: 924159,
         revision: "latest",
-        status: WafActiveRuleDataAttributesStatus.Log,
+        status: WafActiveRuleDataAttributesStatus.Score,
       },
       relationships: {
-        wafRuleRevisions: {
+        wafFirewallVersion: {
           data: [
             {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
+              type: TypeWafFirewallVersion.WafFirewallVersion,
             },
           ],
         },

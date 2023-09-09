@@ -36,24 +36,10 @@ sdk.aclEntry.bulkUpdateAclEntries({
   bulkUpdateAclEntriesRequestInput: {
     entries: [
       {
-        comment: "provident",
+        comment: "corrupti",
         ip: "127.0.0.1",
         negated: BulkUpdateAclEntryNegated.One,
         op: BulkUpdateAclEntryOp.Delete,
-        subnet: 8,
-      },
-      {
-        comment: "unde",
-        ip: "127.0.0.1",
-        negated: BulkUpdateAclEntryNegated.One,
-        op: BulkUpdateAclEntryOp.Update,
-        subnet: 8,
-      },
-      {
-        comment: "illum",
-        ip: "127.0.0.1",
-        negated: BulkUpdateAclEntryNegated.Zero,
-        op: BulkUpdateAclEntryOp.Update,
         subnet: 8,
       },
     ],
@@ -98,9 +84,9 @@ const operationSecurity: CreateAclEntrySecurity = {
 
 sdk.aclEntry.createAclEntry({
   aclEntry: {
-    comment: "deserunt",
+    comment: "quibusdam",
     ip: "127.0.0.1",
-    negated: AclEntryNegated.Zero,
+    negated: AclEntryNegated.One,
     subnet: 8,
   },
   aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -268,9 +254,9 @@ const operationSecurity: UpdateAclEntrySecurity = {
 
 sdk.aclEntry.updateAclEntry({
   aclEntry: {
-    comment: "iure",
+    comment: "nulla",
     ip: "127.0.0.1",
-    negated: AclEntryNegated.Zero,
+    negated: AclEntryNegated.One,
     subnet: 8,
   },
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",

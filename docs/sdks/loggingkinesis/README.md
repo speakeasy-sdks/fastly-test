@@ -30,15 +30,15 @@ const operationSecurity: CreateLogKinesisSecurity = {
 
 sdk.loggingKinesis.createLogKinesis({
   loggingKinesis: {
-    accessKey: "culpa",
-    format: "tempore",
+    accessKey: "possimus",
+    format: "magnam",
     formatVersion: LoggingFormatVersion.One,
-    iamRole: "cumque",
+    iamRole: "ex",
     name: "test-log-endpoint",
-    placement: LoggingPlacement.None,
-    region: AwsRegion.UsEast1,
-    secretKey: "minus",
-    topic: "quaerat",
+    placement: LoggingPlacement.WafDebug,
+    region: AwsRegion.UsWest1,
+    secretKey: "dolor",
+    topic: "maiores",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,

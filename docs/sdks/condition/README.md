@@ -31,12 +31,12 @@ const operationSecurity: CreateConditionSecurity = {
 
 sdk.condition.createCondition({
   conditionInput: {
-    comment: "excepturi",
+    comment: "iusto",
     name: "test-condition",
     priority: "10",
-    statement: "pariatur",
-    type: ConditionType.Cache,
-    version: "praesentium",
+    statement: "dicta",
+    type: ConditionType.Response,
+    version: "enim",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -198,12 +198,12 @@ const operationSecurity: UpdateConditionSecurity = {
 
 sdk.condition.updateCondition({
   conditionInput: {
-    comment: "rem",
+    comment: "accusamus",
     name: "test-condition",
     priority: "10",
-    statement: "voluptates",
-    type: ConditionType.Request,
-    version: "repudiandae",
+    statement: "commodi",
+    type: ConditionType.Prefetch,
+    version: "quae",
   },
   conditionName: "test-condition",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

@@ -31,13 +31,13 @@ const operationSecurity: CreateLogHoneycombSecurity = {
 
 sdk.loggingHoneycomb.createLogHoneycomb({
   loggingHoneycomb2: {
-    dataset: "accusamus",
-    format: "aliquam",
-    formatVersion: LoggingHoneycombFormatVersion.One,
+    dataset: "doloribus",
+    format: "ut",
+    formatVersion: LoggingHoneycombFormatVersion.Two,
     name: "test-log-endpoint",
     placement: LoggingHoneycombPlacement.WafDebug,
     responseCondition: "null",
-    token: "commodi",
+    token: "qui",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -199,13 +199,13 @@ const operationSecurity: UpdateLogHoneycombSecurity = {
 
 sdk.loggingHoneycomb.updateLogHoneycomb({
   loggingHoneycomb2: {
-    dataset: "sapiente",
-    format: "dolores",
-    formatVersion: LoggingHoneycombFormatVersion.Two,
+    dataset: "quae",
+    format: "laudantium",
+    formatVersion: LoggingHoneycombFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingHoneycombPlacement.WafDebug,
     responseCondition: "null",
-    token: "accusantium",
+    token: "voluptatibus",
   },
   loggingHoneycombName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

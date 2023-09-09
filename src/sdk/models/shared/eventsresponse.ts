@@ -66,9 +66,6 @@ export class EventsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
-/**
- * OK
- */
 export class EventsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: Event })
     @Expose({ name: "data" })

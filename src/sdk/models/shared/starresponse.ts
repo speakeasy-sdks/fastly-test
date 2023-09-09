@@ -17,9 +17,6 @@ export class StarResponseData extends SpeakeasyBase {
     id?: string;
 }
 
-/**
- * OK
- */
 export class StarResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

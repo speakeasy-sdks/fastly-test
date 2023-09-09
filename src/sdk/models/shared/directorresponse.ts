@@ -15,9 +15,6 @@ export enum DirectorResponseType {
     Four = 4,
 }
 
-/**
- * OK
- */
 export class DirectorResponse extends SpeakeasyBase {
     /**
      * List of backends associated to a director.

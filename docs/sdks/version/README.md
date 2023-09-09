@@ -307,7 +307,7 @@ sdk.version.updateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionInput: {
     active: false,
-    comment: "doloremque",
+    comment: "reiciendis",
     deployed: false,
     locked: false,
     staging: false,

@@ -36,8 +36,8 @@ sdk.wafFirewalls.createWafFirewall({
   data: {
     attributes: {
       disabled: false,
-      prefetchCondition: "veniam",
-      response: "nesciunt",
+      prefetchCondition: "quidem",
+      response: "reprehenderit",
     },
     type: TypeWafFirewall.WafFirewall,
   },
@@ -87,8 +87,8 @@ sdk.wafFirewalls.deleteWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "expedita",
-        response: "eum",
+        prefetchCondition: "facere",
+        response: "fuga",
       },
       type: TypeWafFirewall.WafFirewall,
     },
@@ -133,7 +133,7 @@ const operationSecurity: GetWafFirewallSecurity = {
 };
 
 sdk.wafFirewalls.getWafFirewall({
-  filterServiceVersionNumber: "vel",
+  filterServiceVersionNumber: "praesentium",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: FirewallInclude.WafFirewallVersions,
 }, operationSecurity).then((res: GetWafFirewallResponse) => {
@@ -176,8 +176,8 @@ const operationSecurity: ListWafFirewallsSecurity = {
 };
 
 sdk.wafFirewalls.listWafFirewalls({
-  filterServiceId: "voluptatum",
-  filterServiceVersionNumber: "magnam",
+  filterServiceId: "mollitia",
+  filterServiceVersionNumber: "veniam",
   include: FirewallInclude.WafFirewallVersions,
   pageNumber: 1,
   pageSize: 20,
@@ -227,8 +227,8 @@ sdk.wafFirewalls.updateWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "exercitationem",
-        response: "ab",
+        prefetchCondition: "voluptatem",
+        response: "quisquam",
       },
       type: TypeWafFirewall.WafFirewall,
     },

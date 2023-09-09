@@ -35,7 +35,7 @@ const operationSecurity: CreateCustomVclSecurity = {
 sdk.vcl.createCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "reiciendis",
+    content: "voluptatibus",
     main: false,
     name: "test-vcl",
   },
@@ -117,7 +117,7 @@ const operationSecurity: GetCustomVclSecurity = {
 };
 
 sdk.vcl.getCustomVcl({
-  noContent: "vel",
+  noContent: "tempora",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
@@ -357,7 +357,7 @@ const operationSecurity: UpdateCustomVclSecurity = {
 sdk.vcl.updateCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "architecto",
+    content: "tempora",
     main: false,
     name: "test-vcl",
   },

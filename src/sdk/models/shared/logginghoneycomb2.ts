@@ -28,9 +28,6 @@ export enum LoggingHoneycombPlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingHoneycomb2 extends SpeakeasyBase {
     /**
      * The Honeycomb Dataset you want to log to.

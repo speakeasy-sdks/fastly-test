@@ -66,11 +66,11 @@ const operationSecurity: PutPackageSecurity = {
 };
 
 sdk.package.putPackage({
-  expect: "hic",
+  expect: "libero",
   packageUpload: {
     package: {
-      content: "exercitationem".encode(),
-      package: "nobis",
+      content: "illum".encode(),
+      package: "soluta",
     },
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

@@ -37,7 +37,7 @@ const operationSecurity: CreateInvitationSecurity = {
 sdk.invitations.createInvitation({
   data: {
     attributes: {
-      email: "Kennedy20@yahoo.com",
+      email: "Russ76@gmail.com",
       limitServices: false,
       role: RoleUser.User,
       statusCode: InvitationDataAttributesStatusCode.Zero,
@@ -48,7 +48,7 @@ sdk.invitations.createInvitation({
           {
             data: {
               attributes: {
-                permission: ServiceInvitationDataAttributesPermission.ReadOnly,
+                permission: ServiceInvitationDataAttributesPermission.PurgeAll,
               },
               relationships: {
                 service: {

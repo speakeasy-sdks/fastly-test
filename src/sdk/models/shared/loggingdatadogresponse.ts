@@ -36,9 +36,6 @@ export enum LoggingDatadogResponseRegion {
     Eu = "EU",
 }
 
-/**
- * OK
- */
 export class LoggingDatadogResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

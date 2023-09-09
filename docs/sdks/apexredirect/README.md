@@ -28,7 +28,7 @@ const operationSecurity: DeleteApexRedirectSecurity = {
 };
 
 sdk.apexRedirect.deleteApexRedirect({
-  apexRedirectId: "debitis",
+  apexRedirectId: "illum",
 }, operationSecurity).then((res: DeleteApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -66,7 +66,7 @@ const operationSecurity: GetApexRedirectSecurity = {
 };
 
 sdk.apexRedirect.getApexRedirect({
-  apexRedirectId: "ipsa",
+  apexRedirectId: "vel",
 }, operationSecurity).then((res: GetApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,15 +146,12 @@ const operationSecurity: UpdateApexRedirectSecurity = {
 sdk.apexRedirect.updateApexRedirect({
   apexRedirectInput: {
     domains: [
-      "tempora",
-      "suscipit",
-      "molestiae",
-      "minus",
+      "error",
     ],
-    featureRevision: 812169,
-    statusCode: ApexRedirectStatusCode.ThreeHundredAndSeven,
+    featureRevision: 645894,
+    statusCode: ApexRedirectStatusCode.ThreeHundredAndTwo,
   },
-  apexRedirectId: "iusto",
+  apexRedirectId: "iure",
 }, operationSecurity).then((res: UpdateApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response

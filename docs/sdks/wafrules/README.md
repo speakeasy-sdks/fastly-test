@@ -69,10 +69,10 @@ const operationSecurity: ListWafRulesSecurity = {
 };
 
 sdk.wafRules.listWafRules({
-  filterModsecRuleId: "porro",
-  filterWafFirewallIdNotMatch: "autem",
-  filterWafRuleRevisionsSource: "nobis",
-  filterWafTagsName: "laboriosam",
+  filterModsecRuleId: "repudiandae",
+  filterWafFirewallIdNotMatch: "quasi",
+  filterWafRuleRevisionsSource: "atque",
+  filterWafTagsName: "reprehenderit",
   include: "waf_tags,waf_rule_revisions",
   pageNumber: 1,
   pageSize: 20,

@@ -1,7 +1,5 @@
 # TlsSubscriptionResponse
 
-Created
-
 
 ## Fields
 

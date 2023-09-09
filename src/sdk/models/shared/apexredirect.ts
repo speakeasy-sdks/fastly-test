@@ -35,9 +35,6 @@ export class ApexRedirectInput extends SpeakeasyBase {
     statusCode?: ApexRedirectStatusCode;
 }
 
-/**
- * OK
- */
 export class ApexRedirect extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

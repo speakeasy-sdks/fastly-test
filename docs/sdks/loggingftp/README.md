@@ -36,26 +36,26 @@ const operationSecurity: CreateLogFtpSecurity = {
 
 sdk.loggingFtp.createLogFtp({
   loggingFtpInput: {
-    address: "7588 Mona Cliffs",
+    address: "14736 Cristobal Forge",
     compressionCodec: LoggingFtpCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.One,
+    formatVersion: LoggingFtpFormatVersion.Two,
     gzipLevel: 0,
-    hostname: "compassionate-network.com",
-    ipv4: "121.77.124.67",
+    hostname: "steel-subconscious.net",
+    ipv4: "30.172.132.70",
     messageType: LoggingFtpMessageType.Classic,
     name: "test-log-endpoint",
-    password: "esse",
-    path: "esse",
+    password: "aspernatur",
+    path: "dolores",
     period: 3600,
-    placement: LoggingFtpPlacement.WafDebug,
-    port: 683282,
+    placement: LoggingFtpPlacement.LessThanNilGreaterThan,
+    port: 704474,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    user: "reprehenderit",
+    user: "aliquid",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -222,26 +222,26 @@ const operationSecurity: UpdateLogFtpSecurity = {
 
 sdk.loggingFtp.updateLogFtp({
   loggingFtpInput: {
-    address: "824 Reyna Dam",
-    compressionCodec: LoggingFtpCompressionCodec.Snappy,
+    address: "5812 Casimir Lock",
+    compressionCodec: LoggingFtpCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.Two,
+    formatVersion: LoggingFtpFormatVersion.One,
     gzipLevel: 0,
-    hostname: "bouncy-babushka.name",
-    ipv4: "178.52.199.216",
+    hostname: "scared-underpass.com",
+    ipv4: "195.191.191.23",
     messageType: LoggingFtpMessageType.Classic,
     name: "test-log-endpoint",
-    password: "quo",
-    path: "fuga",
+    password: "saepe",
+    path: "ipsum",
     period: 3600,
     placement: LoggingFtpPlacement.None,
-    port: 178367,
+    port: 749255,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    user: "voluptas",
+    user: "quos",
   },
   loggingFtpName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

@@ -31,13 +31,13 @@ const operationSecurity: CreateLogNewrelicSecurity = {
 
 sdk.loggingNewrelic.createLogNewrelic({
   loggingNewrelic3: {
-    format: "quae",
+    format: "aut",
     formatVersion: LoggingNewrelicFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingNewrelicPlacement.WafDebug,
+    placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
     region: LoggingNewrelicRegion.Us,
     responseCondition: "null",
-    token: "eius",
+    token: "fugit",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -199,13 +199,13 @@ const operationSecurity: UpdateLogNewrelicSecurity = {
 
 sdk.loggingNewrelic.updateLogNewrelic({
   loggingNewrelic3: {
-    format: "libero",
-    formatVersion: LoggingNewrelicFormatVersion.Two,
+    format: "accusamus",
+    formatVersion: LoggingNewrelicFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
+    placement: LoggingNewrelicPlacement.None,
     region: LoggingNewrelicRegion.Us,
     responseCondition: "null",
-    token: "aliquam",
+    token: "dolorum",
   },
   loggingNewrelicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

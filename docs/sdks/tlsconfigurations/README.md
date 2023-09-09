@@ -66,7 +66,7 @@ const operationSecurity: ListTlsConfigsSecurity = {
 };
 
 sdk.tlsConfigurations.listTlsConfigs({
-  filterBulk: "eum",
+  filterBulk: "culpa",
   include: "dns_records",
   pageNumber: 1,
   pageSize: 20,
@@ -111,14 +111,11 @@ sdk.tlsConfigurations.updateTlsConfig({
   tlsConfigurationInput: {
     data: {
       attributes: {
-        name: "Deanna Swaniawski",
+        name: "Dewey Leannon",
       },
       relationships: {
         dnsRecords: {
           data: [
-            {
-              type: TypeTlsDnsRecord.DnsRecord,
-            },
             {
               type: TypeTlsDnsRecord.DnsRecord,
             },

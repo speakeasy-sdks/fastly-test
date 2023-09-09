@@ -30,109 +30,28 @@ sdk.publish.publish({
   publishRequest: {
     items: [
       {
-        channel: "tempora",
+        channel: "non",
         formats: {
           httpResponse: {
-            body: "tempora",
-            bodyBin: "voluptate",
-            code: 970076,
+            body: "voluptatem",
+            bodyBin: "dolor",
+            code: 580152,
             headers: {
-              "sit": "non",
-              "officiis": "praesentium",
+              "numquam": "impedit",
             },
-            reason: "facilis",
+            reason: "explicabo",
           },
           httpStream: {
-            content: "quaerat",
-            contentBin: "incidunt",
+            content: "voluptas",
+            contentBin: "aut",
           },
           wsMessage: {
-            content: "ipsam",
-            contentBin: "debitis",
+            content: "dignissimos",
+            contentBin: "dicta",
           },
         },
-        id: "80ca55ef-d20e-4457-a185-8b6a89fbe3a5",
-        prevId: "officia",
-      },
-      {
-        channel: "dolorum",
-        formats: {
-          httpResponse: {
-            body: "corrupti",
-            bodyBin: "accusamus",
-            code: 272683,
-            headers: {
-              "fugit": "ut",
-              "fugiat": "voluptatem",
-              "culpa": "expedita",
-            },
-            reason: "magnam",
-          },
-          httpStream: {
-            content: "consequatur",
-            contentBin: "esse",
-          },
-          wsMessage: {
-            content: "ipsam",
-            contentBin: "sit",
-          },
-        },
-        id: "88e51862-065e-4904-b3b1-194b8abf603a",
-        prevId: "voluptate",
-      },
-      {
-        channel: "unde",
-        formats: {
-          httpResponse: {
-            body: "reiciendis",
-            bodyBin: "provident",
-            code: 833819,
-            headers: {
-              "voluptates": "perferendis",
-              "est": "quidem",
-              "reprehenderit": "facere",
-              "fuga": "praesentium",
-            },
-            reason: "mollitia",
-          },
-          httpStream: {
-            content: "veniam",
-            contentBin: "voluptatem",
-          },
-          wsMessage: {
-            content: "quisquam",
-            contentBin: "repudiandae",
-          },
-        },
-        id: "187f86bc-173d-4689-aee9-526f8d986e88",
-        prevId: "sunt",
-      },
-      {
-        channel: "recusandae",
-        formats: {
-          httpResponse: {
-            body: "dolorum",
-            bodyBin: "repellendus",
-            code: 287119,
-            headers: {
-              "doloremque": "repudiandae",
-              "dicta": "accusantium",
-              "beatae": "dolores",
-              "enim": "laboriosam",
-            },
-            reason: "velit",
-          },
-          httpStream: {
-            content: "a",
-            contentBin: "molestias",
-          },
-          wsMessage: {
-            content: "magnam",
-            contentBin: "saepe",
-          },
-        },
-        id: "29e973e9-22a5-47a1-9be3-e060807e2b6e",
-        prevId: "ratione",
+        id: "f93f5f06-42da-4c7a-b515-cc413aa63aae",
+        prevId: "totam",
       },
     ],
   },

@@ -28,7 +28,7 @@ const operationSecurity: CreateHttp3Security = {
 
 sdk.http3.createHttp3({
   http3Input: {
-    featureRevision: 396060,
+    featureRevision: 975522,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,

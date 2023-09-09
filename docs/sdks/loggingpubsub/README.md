@@ -35,14 +35,14 @@ sdk.loggingPubsub.createLogGcpPubsub({
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingGooglePubsubFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingGooglePubsubPlacement.None,
+    placement: LoggingGooglePubsubPlacement.WafDebug,
     projectId: "test-project-id",
     responseCondition: "null",
     secretKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    topic: "consectetur",
+    topic: "fuga",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -209,14 +209,14 @@ sdk.loggingPubsub.updateLogGcpPubsub({
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingGooglePubsubFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingGooglePubsubPlacement.WafDebug,
+    placement: LoggingGooglePubsubPlacement.LessThanNilGreaterThan,
     projectId: "test-project-id",
     responseCondition: "null",
     secretKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    topic: "temporibus",
+    topic: "fugiat",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   loggingGooglePubsubName: "test-log-endpoint",

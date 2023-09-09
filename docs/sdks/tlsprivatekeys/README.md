@@ -31,21 +31,12 @@ const operationSecurity: CreateTlsKeySecurity = {
 sdk.tlsPrivateKeys.createTlsKey({
   data: {
     attributes: {
-      key: "earum",
-      name: "Dr. Terrell Stanton",
+      key: "asperiores",
+      name: "Miss Jared Quitzon",
     },
     relationships: {
       tlsDomains: {
         data: [
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
           {
             type: TypeTlsDomain.TlsDomain,
           },
@@ -167,7 +158,7 @@ const operationSecurity: ListTlsKeysSecurity = {
 };
 
 sdk.tlsPrivateKeys.listTlsKeys({
-  filterInUse: "aliquid",
+  filterInUse: "sed",
   pageNumber: 1,
   pageSize: 20,
 }, operationSecurity).then((res: ListTlsKeysResponse) => {

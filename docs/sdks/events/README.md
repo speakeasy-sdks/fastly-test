@@ -66,12 +66,12 @@ const operationSecurity: ListEventsSecurity = {
 };
 
 sdk.events.listEvents({
-  filterCreatedAt: "necessitatibus",
+  filterCreatedAt: "eum",
   filterCustomerId: "x4xCwxxJxGCx123Rx5xTx",
-  filterEventType: "distinctio",
-  filterServiceId: "asperiores",
-  filterTokenId: "nihil",
-  filterUserId: "ipsum",
+  filterEventType: "vero",
+  filterServiceId: "aspernatur",
+  filterTokenId: "architecto",
+  filterUserId: "magnam",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,

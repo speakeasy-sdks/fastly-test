@@ -36,16 +36,16 @@ const operationSecurity: CreateLogDigoceanSecurity = {
 
 sdk.loggingDigitalocean.createLogDigocean({
   loggingDigitaloceanInput: {
-    accessKey: "laudantium",
-    bucketName: "dicta",
+    accessKey: "id",
+    bucketName: "saepe",
     compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
-    domain: "maiores",
+    domain: "aspernatur",
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingDigitaloceanFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingDigitaloceanMessageType.Classic,
     name: "test-log-endpoint",
-    path: "ex",
+    path: "amet",
     period: 3600,
     placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
@@ -53,7 +53,7 @@ sdk.loggingDigitalocean.createLogDigocean({
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    secretKey: "excepturi",
+    secretKey: "accusamus",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -220,16 +220,16 @@ const operationSecurity: UpdateLogDigoceanSecurity = {
 
 sdk.loggingDigitalocean.updateLogDigocean({
   loggingDigitaloceanInput: {
-    accessKey: "voluptatibus",
-    bucketName: "nostrum",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Gzip,
-    domain: "quisquam",
+    accessKey: "ad",
+    bucketName: "saepe",
+    compressionCodec: LoggingDigitaloceanCompressionCodec.Snappy,
+    domain: "deserunt",
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingDigitaloceanFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingDigitaloceanMessageType.Classic,
     name: "test-log-endpoint",
-    path: "ea",
+    path: "minima",
     period: 3600,
     placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
@@ -237,7 +237,7 @@ sdk.loggingDigitalocean.updateLogDigocean({
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    secretKey: "corporis",
+    secretKey: "totam",
   },
   loggingDigitaloceanName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

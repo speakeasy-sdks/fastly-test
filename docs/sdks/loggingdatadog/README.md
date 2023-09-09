@@ -31,13 +31,13 @@ const operationSecurity: CreateLogDatadogSecurity = {
 
 sdk.loggingDatadog.createLogDatadog({
   loggingDatadog3: {
-    format: "officia",
-    formatVersion: LoggingDatadogFormatVersion.One,
+    format: "voluptate",
+    formatVersion: LoggingDatadogFormatVersion.Two,
     name: "test-log-endpoint",
     placement: LoggingDatadogPlacement.WafDebug,
-    region: LoggingDatadogRegion.Us,
+    region: LoggingDatadogRegion.Eu,
     responseCondition: "null",
-    token: "aspernatur",
+    token: "necessitatibus",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -199,13 +199,13 @@ const operationSecurity: UpdateLogDatadogSecurity = {
 
 sdk.loggingDatadog.updateLogDatadog({
   loggingDatadog3: {
-    format: "vel",
+    format: "distinctio",
     formatVersion: LoggingDatadogFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingDatadogPlacement.None,
+    placement: LoggingDatadogPlacement.WafDebug,
     region: LoggingDatadogRegion.Us,
     responseCondition: "null",
-    token: "ex",
+    token: "voluptate",
   },
   loggingDatadogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

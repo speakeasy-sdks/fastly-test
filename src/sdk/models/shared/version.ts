@@ -43,9 +43,6 @@ export class VersionInput extends SpeakeasyBase {
     testing?: boolean;
 }
 
-/**
- * OK
- */
 export class Version extends SpeakeasyBase {
     /**
      * Whether this is the active version or not.

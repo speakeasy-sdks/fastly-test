@@ -39,11 +39,6 @@ sdk.dictionaryItem.bulkUpdateDictionaryItem({
         itemValue: "test-value",
         op: BulkUpdateDictionaryItemOp.Create,
       },
-      {
-        itemKey: "test-key",
-        itemValue: "test-value",
-        op: BulkUpdateDictionaryItemOp.Create,
-      },
     ],
   },
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",

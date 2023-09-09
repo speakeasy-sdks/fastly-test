@@ -44,19 +44,16 @@ sdk.wafExclusions.createWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "voluptates",
-        exclusionType: WafExclusionDataAttributesExclusionType.Variable,
+        condition: "aperiam",
+        exclusionType: WafExclusionDataAttributesExclusionType.Waf,
         logging: false,
-        name: "Wm Hane",
+        name: "Lorraine King IV",
         number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqCookies,
+        variable: WafExclusionDataAttributesVariable.ReqPost,
       },
       relationships: {
         wafRuleRevisions: {
           data: [
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
             {
               type: TypeWafRuleRevision.WafRuleRevision,
             },
@@ -194,8 +191,8 @@ const operationSecurity: ListWafRuleExclusionsSecurity = {
 
 sdk.wafExclusions.listWafRuleExclusions({
   filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Waf,
-  filterName: "ex",
-  filterWafRulesModsecRuleId: 281153,
+  filterName: "laboriosam",
+  filterWafRulesModsecRuleId: 680515,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
   include: "waf_rules",
@@ -253,24 +250,18 @@ sdk.wafExclusions.updateWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "ad",
-        exclusionType: WafExclusionDataAttributesExclusionType.Waf,
+        condition: "voluptatum",
+        exclusionType: WafExclusionDataAttributesExclusionType.Variable,
         logging: false,
-        name: "Leona Rippin IV",
+        name: "Rudolph Trantow",
         number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqPostFilename,
+        variable: WafExclusionDataAttributesVariable.ReqPost,
       },
       relationships: {
-        wafRules: {
+        wafRuleRevisions: {
           data: [
             {
-              type: TypeWafRule.WafRule,
-            },
-            {
-              type: TypeWafRule.WafRule,
-            },
-            {
-              type: TypeWafRule.WafRule,
+              type: TypeWafRuleRevision.WafRuleRevision,
             },
           ],
         },

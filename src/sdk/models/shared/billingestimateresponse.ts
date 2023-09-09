@@ -247,9 +247,6 @@ export class BillingEstimateResponseTotal extends SpeakeasyBase {
     terms?: string;
 }
 
-/**
- * OK
- */
 export class BillingEstimateResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "customer_id" })

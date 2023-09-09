@@ -28,9 +28,9 @@ const operationSecurity: CreateStoreSecurity = {
 };
 
 sdk.kvStore.createStore({
-  location: "sunt",
+  location: "libero",
   store: {
-    name: "Miss Candice Weimann",
+    name: "Ernest Hayes",
   },
 }, operationSecurity).then((res: CreateStoreResponse) => {
   if (res.statusCode == 200) {
@@ -70,7 +70,7 @@ const operationSecurity: DeleteStoreSecurity = {
 
 sdk.kvStore.deleteStore({
   force: false,
-  storeId: "nobis",
+  storeId: "eaque",
 }, operationSecurity).then((res: DeleteStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -108,7 +108,7 @@ const operationSecurity: GetStoreSecurity = {
 };
 
 sdk.kvStore.getStore({
-  storeId: "et",
+  storeId: "quis",
 }, operationSecurity).then((res: GetStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,8 +146,8 @@ const operationSecurity: GetStoresSecurity = {
 };
 
 sdk.kvStore.getStores({
-  cursor: "saepe",
-  limit: 217450,
+  cursor: "nesciunt",
+  limit: 179490,
 }, operationSecurity).then((res: GetStoresResponse) => {
   if (res.statusCode == 200) {
     // handle response

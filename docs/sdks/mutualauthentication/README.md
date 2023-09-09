@@ -32,9 +32,9 @@ const operationSecurity: CreateMutualTlsAuthenticationSecurity = {
 sdk.mutualAuthentication.createMutualTlsAuthentication({
   data: {
     attributes: {
-      certBundle: "in",
+      certBundle: "eveniet",
       enforced: false,
-      name: "Suzanne Torphy",
+      name: "Carroll Bogan V",
     },
     relationships: {
       tlsActivations: {
@@ -122,7 +122,7 @@ const operationSecurity: GetMutualAuthenticationSecurity = {
 };
 
 sdk.mutualAuthentication.getMutualAuthentication({
-  include: "cum",
+  include: "culpa",
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
 }, operationSecurity).then((res: GetMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
@@ -161,7 +161,7 @@ const operationSecurity: ListMutualAuthenticationsSecurity = {
 };
 
 sdk.mutualAuthentication.listMutualAuthentications({
-  include: "blanditiis",
+  include: "aliquid",
   pageNumber: 1,
   pageSize: 20,
 }, operationSecurity).then((res: ListMutualAuthenticationsResponse) => {
@@ -205,19 +205,13 @@ sdk.mutualAuthentication.patchMutualAuthentication({
   mutualAuthenticationInput: {
     data: {
       attributes: {
-        certBundle: "quas",
+        certBundle: "tenetur",
         enforced: false,
-        name: "Danny Nader",
+        name: "Lila Kassulke",
       },
       relationships: {
         tlsActivations: {
           data: [
-            {
-              type: TypeTlsActivation.TlsActivation,
-            },
-            {
-              type: TypeTlsActivation.TlsActivation,
-            },
             {
               type: TypeTlsActivation.TlsActivation,
             },

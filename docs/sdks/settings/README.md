@@ -68,10 +68,10 @@ const operationSecurity: UpdateServiceSettingsSecurity = {
 sdk.settings.updateServiceSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   settings: {
-    generalDefaultHost: "quis",
-    generalDefaultTtl: 431785,
+    generalDefaultHost: "dignissimos",
+    generalDefaultTtl: 950953,
     generalStaleIfError: false,
-    generalStaleIfErrorTtl: 970494,
+    generalStaleIfErrorTtl: 891523,
   },
   versionId: 1,
 }, operationSecurity).then((res: UpdateServiceSettingsResponse) => {

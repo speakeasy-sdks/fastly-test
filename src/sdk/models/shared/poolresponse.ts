@@ -22,9 +22,6 @@ export enum PoolResponseUseTls {
     One = 1,
 }
 
-/**
- * OK
- */
 export class PoolResponse extends SpeakeasyBase {
     /**
      * A freeform descriptive note.

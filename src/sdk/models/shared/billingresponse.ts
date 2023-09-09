@@ -203,9 +203,6 @@ export class BillingResponseTotal extends SpeakeasyBase {
     terms?: string;
 }
 
-/**
- * OK
- */
 export class BillingResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "customer_id" })

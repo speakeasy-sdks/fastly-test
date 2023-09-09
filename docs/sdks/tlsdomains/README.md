@@ -26,13 +26,13 @@ const operationSecurity: ListTlsDomainsSecurity = {
 };
 
 sdk.tlsDomains.listTlsDomains({
-  filterInUse: "dicta",
-  filterTlsCertificatesId: "minima",
-  filterTlsSubscriptionsId: "beatae",
-  include: "cupiditate",
+  filterInUse: "sit",
+  filterTlsCertificatesId: "rerum",
+  filterTlsSubscriptionsId: "sed",
+  include: "reiciendis",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.MinusCreatedAt,
+  sort: Sort.CreatedAt,
 }, operationSecurity).then((res: ListTlsDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response

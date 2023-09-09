@@ -31,8 +31,8 @@ const operationSecurity: CreateGzipConfigSecurity = {
 sdk.gzip.createGzipConfig({
   gzip: {
     cacheCondition: "null",
-    contentTypes: "id",
-    extensions: "saepe",
+    contentTypes: "excepturi",
+    extensions: "ullam",
     name: "test-gzip",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -195,8 +195,8 @@ const operationSecurity: UpdateGzipConfigSecurity = {
 sdk.gzip.updateGzipConfig({
   gzip: {
     cacheCondition: "null",
-    contentTypes: "eius",
-    extensions: "aspernatur",
+    contentTypes: "provident",
+    extensions: "quos",
     name: "test-gzip",
   },
   gzipName: "test-gzip",

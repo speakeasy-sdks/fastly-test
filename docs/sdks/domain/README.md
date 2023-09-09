@@ -111,7 +111,7 @@ const operationSecurity: CreateDomainSecurity = {
 
 sdk.domain.createDomain({
   domain: {
-    comment: "deleniti",
+    comment: "natus",
     name: "www.example.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -273,7 +273,7 @@ const operationSecurity: UpdateDomainSecurity = {
 
 sdk.domain.updateDomain({
   domain: {
-    comment: "omnis",
+    comment: "nobis",
     name: "www.example.com",
   },
   domainName: "www.example.com",

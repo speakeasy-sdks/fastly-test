@@ -37,16 +37,16 @@ const operationSecurity: CreateLogGcsSecurity = {
 sdk.loggingGcs.createLogGcs({
   loggingGcsInput: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "ab",
+    bucketName: "tempore",
     compressionCodec: LoggingGcsCompressionCodec.Snappy,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingGcsFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingGcsMessageType.Classic,
     name: "test-log-endpoint",
-    path: "tempora",
+    path: "delectus",
     period: 3600,
-    placement: LoggingGcsPlacement.LessThanNilGreaterThan,
+    placement: LoggingGcsPlacement.None,
     projectId: "test-project-id",
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
@@ -225,16 +225,16 @@ const operationSecurity: UpdateLogGcsSecurity = {
 sdk.loggingGcs.updateLogGcs({
   loggingGcsInput: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "ipsam",
+    bucketName: "dolore",
     compressionCodec: LoggingGcsCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingGcsFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingGcsMessageType.Classic,
     name: "test-log-endpoint",
-    path: "quo",
+    path: "dolorum",
     period: 3600,
-    placement: LoggingGcsPlacement.WafDebug,
+    placement: LoggingGcsPlacement.None,
     projectId: "test-project-id",
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...

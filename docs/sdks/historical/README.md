@@ -35,9 +35,9 @@ const operationSecurity: GetHistStatsSecurity = {
 
 sdk.historical.getHistStats({
   by: By.Day,
-  from: "incidunt",
+  from: "excepturi",
   region: Region.Usa,
-  to: "qui",
+  to: "odit",
 }, operationSecurity).then((res: GetHistStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,9 +77,9 @@ const operationSecurity: GetHistStatsAggregatedSecurity = {
 
 sdk.historical.getHistStatsAggregated({
   by: By.Day,
-  from: "cupiditate",
+  from: "ea",
   region: Region.Usa,
-  to: "maxime",
+  to: "accusantium",
 }, operationSecurity).then((res: GetHistStatsAggregatedResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -120,9 +120,9 @@ const operationSecurity: GetHistStatsFieldSecurity = {
 sdk.historical.getHistStatsField({
   by: By.Day,
   field: "hit_ratio",
-  from: "pariatur",
+  from: "ab",
   region: Region.Usa,
-  to: "soluta",
+  to: "maiores",
 }, operationSecurity).then((res: GetHistStatsFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -162,10 +162,10 @@ const operationSecurity: GetHistStatsServiceSecurity = {
 
 sdk.historical.getHistStatsService({
   by: By.Day,
-  from: "dicta",
+  from: "quidem",
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  to: "laborum",
+  to: "ipsam",
 }, operationSecurity).then((res: GetHistStatsServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -206,10 +206,10 @@ const operationSecurity: GetHistStatsServiceFieldSecurity = {
 sdk.historical.getHistStatsServiceField({
   by: By.Day,
   field: "hit_ratio",
-  from: "totam",
+  from: "voluptate",
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  to: "incidunt",
+  to: "autem",
 }, operationSecurity).then((res: GetHistStatsServiceFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -282,8 +282,8 @@ const operationSecurity: GetUsageSecurity = {
 };
 
 sdk.historical.getUsage({
-  from: "aspernatur",
-  to: "dolores",
+  from: "nam",
+  to: "eaque",
 }, operationSecurity).then((res: GetUsageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -361,8 +361,8 @@ const operationSecurity: GetUsageServiceSecurity = {
 };
 
 sdk.historical.getUsageService({
-  from: "distinctio",
-  to: "facilis",
+  from: "pariatur",
+  to: "nemo",
 }, operationSecurity).then((res: GetUsageServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response

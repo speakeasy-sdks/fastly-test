@@ -36,9 +36,6 @@ export enum LoggingNewrelicResponseRegion {
     Eu = "EU",
 }
 
-/**
- * OK
- */
 export class LoggingNewrelicResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

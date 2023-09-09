@@ -33,10 +33,7 @@ const operationSecurity: CreateGlobalsignEmailChallengeSecurity = {
 
 sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
   requestBody: {
-    "suscipit": "dolorem",
-    "fugit": "cumque",
-    "fuga": "ratione",
-    "animi": "necessitatibus",
+    "in": "commodi",
   },
   tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
@@ -137,9 +134,9 @@ const operationSecurity: DeleteGlobalsignEmailChallengeSecurity = {
 };
 
 sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-  globalsignEmailChallengeId: "quasi",
-  tlsAuthorizationId: "et",
-  tlsSubscriptionId: "ducimus",
+  globalsignEmailChallengeId: "voluptas",
+  tlsAuthorizationId: "unde",
+  tlsSubscriptionId: "architecto",
 }, operationSecurity).then((res: DeleteGlobalsignEmailChallengeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,12 +253,12 @@ const operationSecurity: ListTlsSubsSecurity = {
 
 sdk.tlsSubscriptions.listTlsSubs({
   filterHasActiveOrder: false,
-  filterState: "natus",
-  filterTlsDomainsId: "occaecati",
+  filterState: "suscipit",
+  filterTlsDomainsId: "sapiente",
   include: "tls_authorizations",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.CreatedAt,
+  sort: Sort.MinusCreatedAt,
 }, operationSecurity).then((res: ListTlsSubsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -313,10 +310,12 @@ sdk.tlsSubscriptions.patchTlsSub({
         certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
       },
       relationships: {
-        tlsConfiguration: {
-          data: {
-            type: TypeTlsConfiguration.TlsConfiguration,
-          },
+        tlsCertificates: {
+          data: [
+            {
+              type: TypeTlsCertificate.TlsCertificate,
+            },
+          ],
         },
       },
       type: TypeTlsSubscription.TlsSubscription,

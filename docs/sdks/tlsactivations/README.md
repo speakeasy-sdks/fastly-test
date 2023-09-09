@@ -159,9 +159,9 @@ const operationSecurity: ListTlsActivationsSecurity = {
 };
 
 sdk.tlsActivations.listTlsActivations({
-  filterTlsCertificateId: "mollitia",
-  filterTlsConfigurationId: "provident",
-  filterTlsDomainId: "possimus",
+  filterTlsCertificateId: "libero",
+  filterTlsConfigurationId: "vitae",
+  filterTlsDomainId: "accusamus",
   include: "tls_certificate,tls_configuration,tls_domain",
   pageNumber: 1,
   pageSize: 20,

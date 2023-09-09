@@ -32,10 +32,10 @@ const operationSecurity: CreateLogBigquerySecurity = {
 sdk.loggingBigquery.createLogBigquery({
   loggingBigquery2: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "voluptatibus",
-    format: "quisquam",
-    formatVersion: LoggingBigqueryFormatVersion.Two,
-    name: "Tim Erdman",
+    dataset: "libero",
+    format: "delectus",
+    formatVersion: LoggingBigqueryFormatVersion.One,
+    name: "Gene Effertz",
     placement: LoggingBigqueryPlacement.None,
     projectId: "test-project-id",
     responseCondition: "null",
@@ -43,8 +43,8 @@ sdk.loggingBigquery.createLogBigquery({
   ...
   -----END PRIVATE KEY-----
   ",
-    table: "vero",
-    templateSuffix: "tenetur",
+    table: "ipsum",
+    templateSuffix: "hic",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -208,19 +208,19 @@ const operationSecurity: UpdateLogBigquerySecurity = {
 sdk.loggingBigquery.updateLogBigquery({
   loggingBigquery2: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "dignissimos",
-    format: "hic",
-    formatVersion: LoggingBigqueryFormatVersion.Two,
-    name: "Lonnie Murray",
-    placement: LoggingBigqueryPlacement.WafDebug,
+    dataset: "excepturi",
+    format: "cum",
+    formatVersion: LoggingBigqueryFormatVersion.One,
+    name: "Johanna Farrell",
+    placement: LoggingBigqueryPlacement.None,
     projectId: "test-project-id",
     responseCondition: "null",
     secretKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    table: "dolore",
-    templateSuffix: "quibusdam",
+    table: "ipsa",
+    templateSuffix: "ipsa",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   loggingBigqueryName: "test-log-endpoint",

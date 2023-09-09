@@ -33,7 +33,7 @@ const operationSecurity: CreateServiceSecurity = {
 };
 
 sdk.service.createService({
-  comment: "recusandae",
+  comment: "non",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
   name: "test-service",
   type: ServiceCreateType.Vcl,
@@ -308,7 +308,7 @@ const operationSecurity: UpdateServiceSecurity = {
 
 sdk.service.updateService({
   service: {
-    comment: "provident",
+    comment: "beatae",
     customerId: "x4xCwxxJxGCx123Rx5xTx",
     name: "test-service",
   },

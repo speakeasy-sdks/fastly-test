@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * OK
- */
 export class BackendResponse extends SpeakeasyBase {
     /**
      * A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend.

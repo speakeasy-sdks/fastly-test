@@ -33,11 +33,11 @@ const operationSecurity: CreateSnippetSecurity = {
 sdk.snippet.createSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippet2: {
-    content: "provident",
+    content: "consectetur",
     dynamic: SnippetDynamic.Zero,
     name: "test-snippet",
     priority: "10",
-    type: SnippetType.Hit,
+    type: SnippetType.Error,
   },
   versionId: 1,
 }, operationSecurity).then((res: CreateSnippetResponse) => {
@@ -238,11 +238,11 @@ const operationSecurity: UpdateSnippetDynamicSecurity = {
 sdk.snippet.updateSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippet2: {
-    content: "quasi",
-    dynamic: SnippetDynamic.One,
+    content: "laboriosam",
+    dynamic: SnippetDynamic.Zero,
     name: "test-snippet",
     priority: "10",
-    type: SnippetType.Hit,
+    type: SnippetType.None,
   },
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
 }, operationSecurity).then((res: UpdateSnippetDynamicResponse) => {

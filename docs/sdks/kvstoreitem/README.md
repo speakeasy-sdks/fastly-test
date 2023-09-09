@@ -29,8 +29,8 @@ const operationSecurity: DeleteKeyFromStoreSecurity = {
 
 sdk.kvStoreItem.deleteKeyFromStore({
   force: false,
-  keyName: "veritatis",
-  storeId: "nobis",
+  keyName: "perferendis",
+  storeId: "dolores",
 }, operationSecurity).then((res: DeleteKeyFromStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,10 +68,10 @@ const operationSecurity: GetKeysSecurity = {
 };
 
 sdk.kvStoreItem.getKeys({
-  cursor: "quos",
-  limit: 731694,
-  prefix: "cupiditate",
-  storeId: "aperiam",
+  cursor: "minus",
+  limit: 463451,
+  prefix: "dolor",
+  storeId: "vero",
 }, operationSecurity).then((res: GetKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -109,8 +109,8 @@ const operationSecurity: GetValueForKeySecurity = {
 };
 
 sdk.kvStoreItem.getValueForKey({
-  keyName: "delectus",
-  storeId: "dolorem",
+  keyName: "nostrum",
+  storeId: "hic",
 }, operationSecurity).then((res: GetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,16 +148,16 @@ const operationSecurity: SetValueForKeySecurity = {
 };
 
 sdk.kvStoreItem.setValueForKey({
-  requestBody: "dolore",
+  requestBody: "recusandae",
   add: false,
   append: false,
   backgroundFetch: false,
-  ifGenerationMatch: 286915,
-  keyName: "adipisci",
-  metadata: "dolorum",
+  ifGenerationMatch: 608253,
+  keyName: "facilis",
+  metadata: "perspiciatis",
   prepend: false,
-  storeId: "architecto",
-  timeToLiveSec: 63038,
+  storeId: "voluptatem",
+  timeToLiveSec: 783645,
 }, operationSecurity).then((res: SetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response

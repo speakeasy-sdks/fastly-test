@@ -37,15 +37,15 @@ const operationSecurity: CreateLogCloudfilesSecurity = {
 
 sdk.loggingCloudfiles.createLogCloudfiles({
   loggingCloudfilesInput: {
-    accessKey: "illum",
-    bucketName: "sequi",
-    compressionCodec: LoggingCloudfilesCompressionCodec.Snappy,
+    accessKey: "iure",
+    bucketName: "odio",
+    compressionCodec: LoggingCloudfilesCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingCloudfilesFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingCloudfilesMessageType.Classic,
     name: "test-log-endpoint",
-    path: "aut",
+    path: "quidem",
     period: 3600,
     placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
@@ -54,7 +54,7 @@ sdk.loggingCloudfiles.createLogCloudfiles({
   ",
     region: LoggingCloudfilesRegion.Iad,
     responseCondition: "null",
-    user: "nulla",
+    user: "natus",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -222,24 +222,24 @@ const operationSecurity: UpdateLogCloudfilesSecurity = {
 
 sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesInput: {
-    accessKey: "fugit",
-    bucketName: "porro",
-    compressionCodec: LoggingCloudfilesCompressionCodec.Gzip,
+    accessKey: "eos",
+    bucketName: "atque",
+    compressionCodec: LoggingCloudfilesCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingCloudfilesFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingCloudfilesMessageType.Classic,
     name: "test-log-endpoint",
-    path: "iusto",
+    path: "ab",
     period: 3600,
     placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    region: LoggingCloudfilesRegion.Lon,
+    region: LoggingCloudfilesRegion.Syd,
     responseCondition: "null",
-    user: "alias",
+    user: "iusto",
   },
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

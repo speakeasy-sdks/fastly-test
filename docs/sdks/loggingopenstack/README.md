@@ -36,24 +36,24 @@ const operationSecurity: CreateLogOpenstackSecurity = {
 
 sdk.loggingOpenstack.createLogOpenstack({
   loggingOpenstackInput: {
-    accessKey: "sapiente",
-    bucketName: "dicta",
-    compressionCodec: LoggingOpenstackCompressionCodec.Snappy,
+    accessKey: "laborum",
+    bucketName: "placeat",
+    compressionCodec: LoggingOpenstackCompressionCodec.Zstd,
     format: "%h %l %u %t "%r" %&gt;s %b",
     formatVersion: LoggingOpenstackFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingOpenstackMessageType.Classic,
     name: "test-log-endpoint",
-    path: "ullam",
+    path: "autem",
     period: 3600,
-    placement: LoggingOpenstackPlacement.WafDebug,
+    placement: LoggingOpenstackPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    url: "aut",
-    user: "voluptatum",
+    url: "quas",
+    user: "assumenda",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -220,24 +220,24 @@ const operationSecurity: UpdateLogOpenstackSecurity = {
 
 sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackInput: {
-    accessKey: "qui",
-    bucketName: "quibusdam",
-    compressionCodec: LoggingOpenstackCompressionCodec.Snappy,
+    accessKey: "nulla",
+    bucketName: "voluptas",
+    compressionCodec: LoggingOpenstackCompressionCodec.Gzip,
     format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingOpenstackFormatVersion.Two,
+    formatVersion: LoggingOpenstackFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingOpenstackMessageType.Classic,
     name: "test-log-endpoint",
-    path: "itaque",
+    path: "tempora",
     period: 3600,
-    placement: LoggingOpenstackPlacement.LessThanNilGreaterThan,
+    placement: LoggingOpenstackPlacement.None,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    url: "architecto",
-    user: "omnis",
+    url: "explicabo",
+    user: "provident",
   },
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

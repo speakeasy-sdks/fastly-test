@@ -26,7 +26,7 @@ const operationSecurity: DiffServiceVersionsSecurity = {
 };
 
 sdk.diff.diffServiceVersions({
-  format: QueryFormat.HtmlSimple,
+  format: QueryFormat.Html,
   fromVersionId: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   toVersionId: 2,

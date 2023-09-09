@@ -28,7 +28,7 @@ const operationSecurity: ListWafTagsSecurity = {
 };
 
 sdk.wafTags.listWafTags({
-  filterName: "recusandae",
+  filterName: "asperiores",
   include: WafTagInclude.WafRules,
   pageNumber: 1,
   pageSize: 20,

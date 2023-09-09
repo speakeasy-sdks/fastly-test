@@ -106,7 +106,7 @@ const operationSecurity: ListTlsBulkCertsSecurity = {
 };
 
 sdk.tlsBulkCertificates.listTlsBulkCerts({
-  filterTlsDomainId: "animi",
+  filterTlsDomainId: "similique",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
@@ -153,23 +153,14 @@ sdk.tlsBulkCertificates.updateBulkTlsCert({
     data: {
       attributes: {
         allowUntrustedRoot: false,
-        certBlob: "aliquid",
-        intermediatesBlob: "accusantium",
+        certBlob: "aspernatur",
+        intermediatesBlob: "voluptas",
       },
       relationships: {
-        tlsDomains: {
+        tlsConfigurations: {
           data: [
             {
-              type: TypeTlsDomain.TlsDomain,
-            },
-            {
-              type: TypeTlsDomain.TlsDomain,
-            },
-            {
-              type: TypeTlsDomain.TlsDomain,
-            },
-            {
-              type: TypeTlsDomain.TlsDomain,
+              type: TypeTlsConfiguration.TlsConfiguration,
             },
           ],
         },
@@ -217,21 +208,12 @@ const operationSecurity: UploadTlsBulkCertSecurity = {
 sdk.tlsBulkCertificates.uploadTlsBulkCert({
   attributes: {
     allowUntrustedRoot: false,
-    certBlob: "ullam",
-    intermediatesBlob: "in",
+    certBlob: "voluptas",
+    intermediatesBlob: "minima",
   },
   relationships: {
     tlsDomains: {
       data: [
-        {
-          type: TypeTlsDomain.TlsDomain,
-        },
-        {
-          type: TypeTlsDomain.TlsDomain,
-        },
-        {
-          type: TypeTlsDomain.TlsDomain,
-        },
         {
           type: TypeTlsDomain.TlsDomain,
         },
