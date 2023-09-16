@@ -1,4 +1,4 @@
-# healthcheck
+# Healthcheck
 
 ## Overview
 

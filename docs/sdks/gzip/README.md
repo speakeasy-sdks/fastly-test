@@ -1,4 +1,4 @@
-# gzip
+# Gzip
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# serviceAuthorizations
+# ServiceAuthorizations
 
 ## Overview
 

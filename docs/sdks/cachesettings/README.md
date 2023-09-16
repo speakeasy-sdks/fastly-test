@@ -1,4 +1,4 @@
-# cacheSettings
+# CacheSettings
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# dictionaryInfo
+# DictionaryInfo
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# loggingLoggly
+# LoggingLoggly
 
 ## Overview
 

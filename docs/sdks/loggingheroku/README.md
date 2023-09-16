@@ -1,4 +1,4 @@
-# loggingHeroku
+# LoggingHeroku
 
 ## Overview
 

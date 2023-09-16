@@ -1,4 +1,4 @@
-# wafFirewallVersions
+# WafFirewallVersions
 
 ## Overview
 

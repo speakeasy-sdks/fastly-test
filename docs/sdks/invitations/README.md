@@ -1,4 +1,4 @@
-# invitations
+# Invitations
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# loggingSumologic
+# LoggingSumologic
 
 ## Overview
 

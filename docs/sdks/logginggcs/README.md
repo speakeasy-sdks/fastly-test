@@ -1,4 +1,4 @@
-# loggingGcs
+# LoggingGcs
 
 ## Overview
 

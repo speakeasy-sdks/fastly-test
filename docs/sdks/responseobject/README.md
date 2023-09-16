@@ -1,4 +1,4 @@
-# responseObject
+# ResponseObject
 
 ## Overview
 

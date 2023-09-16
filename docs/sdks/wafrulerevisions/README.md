@@ -1,4 +1,4 @@
-# wafRuleRevisions
+# WafRuleRevisions
 
 ## Overview
 

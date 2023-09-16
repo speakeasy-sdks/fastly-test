@@ -1,4 +1,4 @@
-# domain
+# Domain
 
 ## Overview
 

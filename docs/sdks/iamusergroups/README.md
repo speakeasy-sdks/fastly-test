@@ -1,4 +1,4 @@
-# iamUserGroups
+# IamUserGroups
 
 ## Overview
 

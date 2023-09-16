@@ -1,4 +1,4 @@
-# iamPermissions
+# IamPermissions
 
 ## Overview
 

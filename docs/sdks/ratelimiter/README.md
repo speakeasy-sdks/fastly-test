@@ -1,4 +1,4 @@
-# rateLimiter
+# RateLimiter
 
 ## Overview
 

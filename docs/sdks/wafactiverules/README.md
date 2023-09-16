@@ -1,4 +1,4 @@
-# wafActiveRules
+# WafActiveRules
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# iamServiceGroups
+# IamServiceGroups
 
 ## Overview
 

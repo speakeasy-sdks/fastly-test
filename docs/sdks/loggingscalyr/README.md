@@ -1,4 +1,4 @@
-# loggingScalyr
+# LoggingScalyr
 
 ## Overview
 

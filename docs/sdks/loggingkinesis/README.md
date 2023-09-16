@@ -1,4 +1,4 @@
-# loggingKinesis
+# LoggingKinesis
 
 ## Overview
 

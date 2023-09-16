@@ -1,4 +1,4 @@
-# loggingBigquery
+# LoggingBigquery
 
 ## Overview
 

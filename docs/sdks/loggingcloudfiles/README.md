@@ -1,4 +1,4 @@
-# loggingCloudfiles
+# LoggingCloudfiles
 
 ## Overview
 

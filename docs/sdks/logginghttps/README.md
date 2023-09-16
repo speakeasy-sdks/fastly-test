@@ -1,4 +1,4 @@
-# loggingHttps
+# LoggingHttps
 
 ## Overview
 

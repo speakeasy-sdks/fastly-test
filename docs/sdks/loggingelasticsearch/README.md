@@ -1,4 +1,4 @@
-# loggingElasticsearch
+# LoggingElasticsearch
 
 ## Overview
 

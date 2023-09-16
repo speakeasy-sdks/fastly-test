@@ -1,4 +1,4 @@
-# purge
+# Purge
 
 ## Overview
 

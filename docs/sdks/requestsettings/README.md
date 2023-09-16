@@ -1,4 +1,4 @@
-# requestSettings
+# RequestSettings
 
 ## Overview
 

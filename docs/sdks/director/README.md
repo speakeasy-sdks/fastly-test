@@ -1,4 +1,4 @@
-# director
+# Director
 
 ## Overview
 

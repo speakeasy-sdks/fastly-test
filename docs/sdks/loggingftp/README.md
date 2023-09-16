@@ -1,4 +1,4 @@
-# loggingFtp
+# LoggingFtp
 
 ## Overview
 

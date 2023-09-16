@@ -1,4 +1,4 @@
-# loggingPubsub
+# LoggingPubsub
 
 ## Overview
 

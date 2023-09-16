@@ -1,4 +1,4 @@
-# wafRules
+# WafRules
 
 ## Overview
 

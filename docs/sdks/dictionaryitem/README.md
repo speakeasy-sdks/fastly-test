@@ -1,4 +1,4 @@
-# dictionaryItem
+# DictionaryItem
 
 ## Overview
 

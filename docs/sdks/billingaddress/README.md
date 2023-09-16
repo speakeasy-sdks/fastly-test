@@ -1,4 +1,4 @@
-# billingAddress
+# BillingAddress
 
 ## Overview
 

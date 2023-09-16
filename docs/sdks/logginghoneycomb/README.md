@@ -1,4 +1,4 @@
-# loggingHoneycomb
+# LoggingHoneycomb
 
 ## Overview
 

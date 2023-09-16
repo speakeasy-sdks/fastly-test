@@ -1,4 +1,4 @@
-# domainOwnerships
+# DomainOwnerships
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# wafFirewalls
+# WafFirewalls
 
 ## Overview
 

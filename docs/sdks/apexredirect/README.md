@@ -1,4 +1,4 @@
-# apexRedirect
+# ApexRedirect
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# loggingS3
+# LoggingS3
 
 ## Overview
 

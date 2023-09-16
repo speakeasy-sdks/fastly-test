@@ -1,4 +1,4 @@
-# loggingLogentries
+# LoggingLogentries
 
 ## Overview
 

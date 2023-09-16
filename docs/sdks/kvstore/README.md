@@ -1,4 +1,4 @@
-# kvStore
+# KvStore
 
 ## Overview
 

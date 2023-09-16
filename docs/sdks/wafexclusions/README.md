@@ -1,4 +1,4 @@
-# wafExclusions
+# WafExclusions
 
 ## Overview
 

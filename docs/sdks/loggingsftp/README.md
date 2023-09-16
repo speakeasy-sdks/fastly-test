@@ -1,4 +1,4 @@
-# loggingSftp
+# LoggingSftp
 
 ## Overview
 

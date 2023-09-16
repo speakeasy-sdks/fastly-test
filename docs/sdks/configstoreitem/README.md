@@ -1,4 +1,4 @@
-# configStoreItem
+# ConfigStoreItem
 
 ## Overview
 

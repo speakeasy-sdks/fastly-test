@@ -1,4 +1,4 @@
-# enabledProducts
+# EnabledProducts
 
 ## Overview
 

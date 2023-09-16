@@ -1,4 +1,4 @@
-# loggingSplunk
+# LoggingSplunk
 
 ## Overview
 
