@@ -43,7 +43,7 @@ export class Service {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/service";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "form");
@@ -583,7 +583,7 @@ export class Service {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "service", "form");

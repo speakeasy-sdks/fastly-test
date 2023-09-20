@@ -43,7 +43,7 @@ export class TlsPrivateKeys {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");

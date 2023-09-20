@@ -44,7 +44,7 @@ export class Publish {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/publish/", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "publishRequest", "json");

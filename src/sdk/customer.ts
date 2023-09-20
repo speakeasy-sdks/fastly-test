@@ -338,7 +338,7 @@ export class Customer {
         );
         const url: string = utils.generateURL(baseURL, "/customer/{customer_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "customerInput", "form");

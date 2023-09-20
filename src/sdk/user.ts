@@ -43,7 +43,7 @@ export class User {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/user";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "form");
@@ -424,7 +424,7 @@ export class User {
         );
         const url: string = utils.generateURL(baseURL, "/user/{user_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "userInput", "form");
@@ -509,7 +509,7 @@ export class User {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/current_user/password";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "form");

@@ -46,7 +46,7 @@ export class WafFirewalls {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/waf/firewalls";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -134,7 +134,7 @@ export class WafFirewalls {
         );
         const url: string = utils.generateURL(baseURL, "/waf/firewalls/{firewall_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewallInput", "json");
@@ -362,7 +362,7 @@ export class WafFirewalls {
         );
         const url: string = utils.generateURL(baseURL, "/waf/firewalls/{firewall_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewallInput", "json");

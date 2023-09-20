@@ -273,7 +273,7 @@ export class ApexRedirect {
         );
         const url: string = utils.generateURL(baseURL, "/apex-redirects/{apex_redirect_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(

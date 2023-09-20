@@ -43,7 +43,7 @@ export class TlsActivations {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/activations";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -341,7 +341,7 @@ export class TlsActivations {
         );
         const url: string = utils.generateURL(baseURL, "/tls/activations/{tls_activation_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(

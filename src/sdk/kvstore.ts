@@ -43,7 +43,7 @@ export class KvStore {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/resources/stores/kv";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "store", "json");
