@@ -1,6 +1,6 @@
 {
   "name": "FastlyTestJS",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "author": "doramatadora",
   "scripts": {
     "prepare": "tsc --build"
