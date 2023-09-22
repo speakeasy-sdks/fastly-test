@@ -30,7 +30,6 @@ export class BillingAddress {
      */
     async addBillingAddr(
         req: operations.AddBillingAddrRequest,
-        security: operations.AddBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.AddBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class BillingAddress {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.AddBillingAddrSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -142,7 +145,6 @@ export class BillingAddress {
      */
     async deleteBillingAddr(
         req: operations.DeleteBillingAddrRequest,
-        security: operations.DeleteBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -159,10 +161,14 @@ export class BillingAddress {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteBillingAddrSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -206,7 +212,6 @@ export class BillingAddress {
      */
     async getBillingAddr(
         req: operations.GetBillingAddrRequest,
-        security: operations.GetBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -223,10 +228,14 @@ export class BillingAddress {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetBillingAddrSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -284,7 +293,6 @@ export class BillingAddress {
      */
     async updateBillingAddr(
         req: operations.UpdateBillingAddrRequest,
-        security: operations.UpdateBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -315,10 +323,14 @@ export class BillingAddress {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateBillingAddrSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

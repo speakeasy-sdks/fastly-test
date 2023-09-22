@@ -21,16 +21,17 @@ Delete a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomerResponse, DeleteCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteCustomerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.customer.deleteCustomer({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: DeleteCustomerResponse) => {
+}).then((res: DeleteCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,11 +40,10 @@ sdk.customer.deleteCustomer({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteCustomerRequest](../../models/operations/deletecustomerrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteCustomerSecurity](../../models/operations/deletecustomersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.DeleteCustomerRequest](../../models/operations/deletecustomerrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -59,16 +59,17 @@ Get a specific customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomerResponse, GetCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCustomerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.customer.getCustomer({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: GetCustomerResponse) => {
+}).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -77,11 +78,10 @@ sdk.customer.getCustomer({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetCustomerRequest](../../models/operations/getcustomerrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetCustomerSecurity](../../models/operations/getcustomersecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetCustomerRequest](../../models/operations/getcustomerrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -97,14 +97,15 @@ Get the logged in customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLoggedInCustomerResponse, GetLoggedInCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLoggedInCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetLoggedInCustomerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.customer.getLoggedInCustomer(operationSecurity).then((res: GetLoggedInCustomerResponse) => {
+sdk.customer.getLoggedInCustomer().then((res: GetLoggedInCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -113,10 +114,9 @@ sdk.customer.getLoggedInCustomer(operationSecurity).then((res: GetLoggedInCustom
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `security`                                                                                       | [operations.GetLoggedInCustomerSecurity](../../models/operations/getloggedincustomersecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -132,16 +132,17 @@ List all users from a specified customer id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUsersResponse, ListUsersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUsersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListUsersSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.customer.listUsers({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: ListUsersResponse) => {
+}).then((res: ListUsersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -150,11 +151,10 @@ sdk.customer.listUsers({
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.ListUsersRequest](../../models/operations/listusersrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.ListUsersSecurity](../../models/operations/listuserssecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListUsersRequest](../../models/operations/listusersrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -170,13 +170,14 @@ Update a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomerResponse, UpdateCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateCustomerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.customer.updateCustomer({
   customerInput: {
@@ -201,7 +202,7 @@ sdk.customer.updateCustomer({
     technicalContactId: "quibusdam",
   },
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: UpdateCustomerResponse) => {
+}).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -210,11 +211,10 @@ sdk.customer.updateCustomer({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateCustomerRequest](../../models/operations/updatecustomerrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateCustomerSecurity](../../models/operations/updatecustomersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.UpdateCustomerRequest](../../models/operations/updatecustomerrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

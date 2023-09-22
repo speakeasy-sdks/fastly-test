@@ -30,7 +30,6 @@ export class TlsBulkCertificates {
      */
     async deleteBulkTlsCert(
         req: operations.DeleteBulkTlsCertRequest,
-        security: operations.DeleteBulkTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBulkTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class TlsBulkCertificates {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteBulkTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -94,7 +97,6 @@ export class TlsBulkCertificates {
      */
     async getTlsBulkCert(
         req: operations.GetTlsBulkCertRequest,
-        security: operations.GetTlsBulkCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -111,10 +113,14 @@ export class TlsBulkCertificates {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTlsBulkCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -172,7 +178,6 @@ export class TlsBulkCertificates {
      */
     async listTlsBulkCerts(
         req: operations.ListTlsBulkCertsRequest,
-        security: operations.ListTlsBulkCertsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsBulkCertsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -185,10 +190,14 @@ export class TlsBulkCertificates {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/bulk/certificates";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTlsBulkCertsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -247,7 +256,6 @@ export class TlsBulkCertificates {
      */
     async updateBulkTlsCert(
         req: operations.UpdateBulkTlsCertRequest,
-        security: operations.UpdateBulkTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBulkTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -278,10 +286,14 @@ export class TlsBulkCertificates {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateBulkTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -344,7 +356,6 @@ export class TlsBulkCertificates {
      */
     async uploadTlsBulkCert(
         req: shared.TlsBulkCertificateDataInput,
-        security: operations.UploadTlsBulkCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UploadTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -367,10 +378,14 @@ export class TlsBulkCertificates {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UploadTlsBulkCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

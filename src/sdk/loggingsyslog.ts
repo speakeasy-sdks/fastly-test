@@ -30,7 +30,6 @@ export class LoggingSyslog {
      */
     async createLogSyslog(
         req: operations.CreateLogSyslogRequest,
-        security: operations.CreateLogSyslogSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSyslogResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class LoggingSyslog {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogSyslogSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -123,7 +126,6 @@ export class LoggingSyslog {
      */
     async deleteLogSyslog(
         req: operations.DeleteLogSyslogRequest,
-        security: operations.DeleteLogSyslogSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSyslogResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -140,10 +142,14 @@ export class LoggingSyslog {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogSyslogSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -201,7 +207,6 @@ export class LoggingSyslog {
      */
     async getLogSyslog(
         req: operations.GetLogSyslogRequest,
-        security: operations.GetLogSyslogSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSyslogResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,10 +223,14 @@ export class LoggingSyslog {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogSyslogSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -279,7 +288,6 @@ export class LoggingSyslog {
      */
     async listLogSyslog(
         req: operations.ListLogSyslogRequest,
-        security: operations.ListLogSyslogSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSyslogResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -296,10 +304,14 @@ export class LoggingSyslog {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogSyslogSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -360,7 +372,6 @@ export class LoggingSyslog {
      */
     async updateLogSyslog(
         req: operations.UpdateLogSyslogRequest,
-        security: operations.UpdateLogSyslogSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSyslogResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -387,10 +398,14 @@ export class LoggingSyslog {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogSyslogSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

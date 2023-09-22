@@ -21,13 +21,14 @@ Create a Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSplunkResponse, CreateLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateLogSplunkSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingSplunk.createLogSplunk({
   loggingSplunk2: {
@@ -48,7 +49,7 @@ sdk.loggingSplunk.createLogSplunk({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateLogSplunkResponse) => {
+}).then((res: CreateLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,11 +58,10 @@ sdk.loggingSplunk.createLogSplunk({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreateLogSplunkRequest](../../models/operations/createlogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateLogSplunkSecurity](../../models/operations/createlogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateLogSplunkRequest](../../models/operations/createlogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -77,18 +77,19 @@ Delete the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSplunkResponse, DeleteLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteLogSplunkSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingSplunk.deleteLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteLogSplunkResponse) => {
+}).then((res: DeleteLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,11 +98,10 @@ sdk.loggingSplunk.deleteLogSplunk({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeleteLogSplunkRequest](../../models/operations/deletelogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteLogSplunkSecurity](../../models/operations/deletelogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteLogSplunkRequest](../../models/operations/deletelogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -117,18 +117,19 @@ Get the details for a Splunk logging object for a particular service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSplunkResponse, GetLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetLogSplunkSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingSplunk.getLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetLogSplunkResponse) => {
+}).then((res: GetLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -137,11 +138,10 @@ sdk.loggingSplunk.getLogSplunk({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetLogSplunkRequest](../../models/operations/getlogsplunkrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetLogSplunkSecurity](../../models/operations/getlogsplunksecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetLogSplunkRequest](../../models/operations/getlogsplunkrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -157,17 +157,18 @@ List all of the Splunk logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSplunkResponse, ListLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListLogSplunkSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingSplunk.listLogSplunk({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListLogSplunkResponse) => {
+}).then((res: ListLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -176,11 +177,10 @@ sdk.loggingSplunk.listLogSplunk({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListLogSplunkRequest](../../models/operations/listlogsplunkrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListLogSplunkSecurity](../../models/operations/listlogsplunksecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.ListLogSplunkRequest](../../models/operations/listlogsplunkrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -196,13 +196,14 @@ Update the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSplunkResponse, UpdateLogSplunkSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateLogSplunkSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingSplunk.updateLogSplunk({
   loggingSplunk2: {
@@ -224,7 +225,7 @@ sdk.loggingSplunk.updateLogSplunk({
   loggingSplunkName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateLogSplunkResponse) => {
+}).then((res: UpdateLogSplunkResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -233,11 +234,10 @@ sdk.loggingSplunk.updateLogSplunk({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdateLogSplunkRequest](../../models/operations/updatelogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateLogSplunkSecurity](../../models/operations/updatelogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateLogSplunkRequest](../../models/operations/updatelogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

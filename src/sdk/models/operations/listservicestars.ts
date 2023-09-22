@@ -7,11 +7,6 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class ListServiceStarsSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class ListServiceStars200ApplicationVndApiPlusJsonDataData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })

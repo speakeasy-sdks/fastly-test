@@ -21,7 +21,7 @@ Create a openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogOpenstackResponse, CreateLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -29,10 +29,11 @@ import {
   LoggingOpenstackPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateLogOpenstackSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingOpenstack.createLogOpenstack({
   loggingOpenstackInput: {
@@ -57,7 +58,7 @@ sdk.loggingOpenstack.createLogOpenstack({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateLogOpenstackResponse) => {
+}).then((res: CreateLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -66,11 +67,10 @@ sdk.loggingOpenstack.createLogOpenstack({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateLogOpenstackRequest](../../models/operations/createlogopenstackrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.CreateLogOpenstackSecurity](../../models/operations/createlogopenstacksecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.CreateLogOpenstackRequest](../../models/operations/createlogopenstackrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -86,18 +86,19 @@ Delete the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogOpenstackResponse, DeleteLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteLogOpenstackSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingOpenstack.deleteLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteLogOpenstackResponse) => {
+}).then((res: DeleteLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -106,11 +107,10 @@ sdk.loggingOpenstack.deleteLogOpenstack({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteLogOpenstackRequest](../../models/operations/deletelogopenstackrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteLogOpenstackSecurity](../../models/operations/deletelogopenstacksecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.DeleteLogOpenstackRequest](../../models/operations/deletelogopenstackrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -126,18 +126,19 @@ Get the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogOpenstackResponse, GetLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetLogOpenstackSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingOpenstack.getLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetLogOpenstackResponse) => {
+}).then((res: GetLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -146,11 +147,10 @@ sdk.loggingOpenstack.getLogOpenstack({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetLogOpenstackRequest](../../models/operations/getlogopenstackrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetLogOpenstackSecurity](../../models/operations/getlogopenstacksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetLogOpenstackRequest](../../models/operations/getlogopenstackrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -166,17 +166,18 @@ List all of the openstacks for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogOpenstackResponse, ListLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListLogOpenstackSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingOpenstack.listLogOpenstack({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListLogOpenstackResponse) => {
+}).then((res: ListLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -185,11 +186,10 @@ sdk.loggingOpenstack.listLogOpenstack({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListLogOpenstackRequest](../../models/operations/listlogopenstackrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListLogOpenstackSecurity](../../models/operations/listlogopenstacksecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListLogOpenstackRequest](../../models/operations/listlogopenstackrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -205,7 +205,7 @@ Update the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogOpenstackResponse, UpdateLogOpenstackSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -213,10 +213,11 @@ import {
   LoggingOpenstackPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateLogOpenstackSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackInput: {
@@ -242,7 +243,7 @@ sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateLogOpenstackResponse) => {
+}).then((res: UpdateLogOpenstackResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -251,11 +252,10 @@ sdk.loggingOpenstack.updateLogOpenstack({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateLogOpenstackRequest](../../models/operations/updatelogopenstackrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateLogOpenstackSecurity](../../models/operations/updatelogopenstacksecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.UpdateLogOpenstackRequest](../../models/operations/updatelogopenstackrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

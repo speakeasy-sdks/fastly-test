@@ -18,16 +18,15 @@ yarn add https://github.com/speakeasy-sdks/fastly-test
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclResponse, CreateAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateAclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.acl.createAcl({
   acl: {
@@ -35,7 +34,7 @@ sdk.acl.createAcl({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateAclResponse) => {
+}).then((res: CreateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -774,6 +773,32 @@ sdk.acl.createAcl({
 
 * [~~listWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

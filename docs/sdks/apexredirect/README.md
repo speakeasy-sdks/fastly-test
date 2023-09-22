@@ -20,16 +20,17 @@ Delete an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteApexRedirectResponse, DeleteApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteApexRedirectSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.apexRedirect.deleteApexRedirect({
   apexRedirectId: "illum",
-}, operationSecurity).then((res: DeleteApexRedirectResponse) => {
+}).then((res: DeleteApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -38,11 +39,10 @@ sdk.apexRedirect.deleteApexRedirect({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteApexRedirectRequest](../../models/operations/deleteapexredirectrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteApexRedirectSecurity](../../models/operations/deleteapexredirectsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.DeleteApexRedirectRequest](../../models/operations/deleteapexredirectrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -58,16 +58,17 @@ Get an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetApexRedirectResponse, GetApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetApexRedirectSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.apexRedirect.getApexRedirect({
   apexRedirectId: "vel",
-}, operationSecurity).then((res: GetApexRedirectResponse) => {
+}).then((res: GetApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,11 +77,10 @@ sdk.apexRedirect.getApexRedirect({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetApexRedirectRequest](../../models/operations/getapexredirectrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetApexRedirectSecurity](../../models/operations/getapexredirectsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetApexRedirectRequest](../../models/operations/getapexredirectrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -96,17 +96,18 @@ List all apex redirects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListApexRedirectsResponse, ListApexRedirectsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListApexRedirectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListApexRedirectsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.apexRedirect.listApexRedirects({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListApexRedirectsResponse) => {
+}).then((res: ListApexRedirectsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -115,11 +116,10 @@ sdk.apexRedirect.listApexRedirects({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListApexRedirectsRequest](../../models/operations/listapexredirectsrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListApexRedirectsSecurity](../../models/operations/listapexredirectssecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListApexRedirectsRequest](../../models/operations/listapexredirectsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -135,13 +135,14 @@ Update an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateApexRedirectResponse, UpdateApexRedirectSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateApexRedirectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateApexRedirectSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.apexRedirect.updateApexRedirect({
   apexRedirectInput: {
@@ -152,7 +153,7 @@ sdk.apexRedirect.updateApexRedirect({
     statusCode: ApexRedirectStatusCode.ThreeHundredAndTwo,
   },
   apexRedirectId: "iure",
-}, operationSecurity).then((res: UpdateApexRedirectResponse) => {
+}).then((res: UpdateApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,11 +162,10 @@ sdk.apexRedirect.updateApexRedirect({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateApexRedirectRequest](../../models/operations/updateapexredirectrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateApexRedirectSecurity](../../models/operations/updateapexredirectsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.UpdateApexRedirectRequest](../../models/operations/updateapexredirectrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

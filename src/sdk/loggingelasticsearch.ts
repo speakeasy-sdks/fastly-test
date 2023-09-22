@@ -30,7 +30,6 @@ export class LoggingElasticsearch {
      */
     async createLogElasticsearch(
         req: operations.CreateLogElasticsearchRequest,
-        security: operations.CreateLogElasticsearchSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogElasticsearchResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingElasticsearch {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogElasticsearchSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -128,7 +131,6 @@ export class LoggingElasticsearch {
      */
     async deleteLogElasticsearch(
         req: operations.DeleteLogElasticsearchRequest,
-        security: operations.DeleteLogElasticsearchSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogElasticsearchResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -145,10 +147,14 @@ export class LoggingElasticsearch {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogElasticsearchSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -207,7 +213,6 @@ export class LoggingElasticsearch {
      */
     async getLogElasticsearch(
         req: operations.GetLogElasticsearchRequest,
-        security: operations.GetLogElasticsearchSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogElasticsearchResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,10 +229,14 @@ export class LoggingElasticsearch {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogElasticsearchSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -286,7 +295,6 @@ export class LoggingElasticsearch {
      */
     async listLogElasticsearch(
         req: operations.ListLogElasticsearchRequest,
-        security: operations.ListLogElasticsearchSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogElasticsearchResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -303,10 +311,14 @@ export class LoggingElasticsearch {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogElasticsearchSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -368,7 +380,6 @@ export class LoggingElasticsearch {
      */
     async updateLogElasticsearch(
         req: operations.UpdateLogElasticsearchRequest,
-        security: operations.UpdateLogElasticsearchSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogElasticsearchResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -399,10 +410,14 @@ export class LoggingElasticsearch {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogElasticsearchSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

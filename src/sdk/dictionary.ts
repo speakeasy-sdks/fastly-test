@@ -30,7 +30,6 @@ export class Dictionary {
      */
     async createDictionary(
         req: operations.CreateDictionaryRequest,
-        security: operations.CreateDictionarySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDictionaryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class Dictionary {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateDictionarySecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -123,7 +126,6 @@ export class Dictionary {
      */
     async deleteDictionary(
         req: operations.DeleteDictionaryRequest,
-        security: operations.DeleteDictionarySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDictionaryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -140,10 +142,14 @@ export class Dictionary {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteDictionarySecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -201,7 +207,6 @@ export class Dictionary {
      */
     async getDictionary(
         req: operations.GetDictionaryRequest,
-        security: operations.GetDictionarySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,10 +223,14 @@ export class Dictionary {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetDictionarySecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -279,7 +288,6 @@ export class Dictionary {
      */
     async listDictionaries(
         req: operations.ListDictionariesRequest,
-        security: operations.ListDictionariesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDictionariesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -296,10 +304,14 @@ export class Dictionary {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListDictionariesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -360,7 +372,6 @@ export class Dictionary {
      */
     async updateDictionary(
         req: operations.UpdateDictionaryRequest,
-        security: operations.UpdateDictionarySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDictionaryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -387,10 +398,14 @@ export class Dictionary {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateDictionarySecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

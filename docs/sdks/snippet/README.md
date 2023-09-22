@@ -22,13 +22,14 @@ Create a snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateSnippetResponse, CreateSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateSnippetSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.createSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -40,7 +41,7 @@ sdk.snippet.createSnippet({
     type: SnippetType.Error,
   },
   versionId: 1,
-}, operationSecurity).then((res: CreateSnippetResponse) => {
+}).then((res: CreateSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -49,11 +50,10 @@ sdk.snippet.createSnippet({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateSnippetRequest](../../models/operations/createsnippetrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.CreateSnippetSecurity](../../models/operations/createsnippetsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.CreateSnippetRequest](../../models/operations/createsnippetrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -69,18 +69,19 @@ Delete a specific snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteSnippetResponse, DeleteSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteSnippetSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.deleteSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetName: "test-snippet",
   versionId: 1,
-}, operationSecurity).then((res: DeleteSnippetResponse) => {
+}).then((res: DeleteSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -89,11 +90,10 @@ sdk.snippet.deleteSnippet({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteSnippetRequest](../../models/operations/deletesnippetrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.DeleteSnippetSecurity](../../models/operations/deletesnippetsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.DeleteSnippetRequest](../../models/operations/deletesnippetrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -109,18 +109,19 @@ Get a single snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetResponse, GetSnippetSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetSnippetSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.getSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetName: "test-snippet",
   versionId: 1,
-}, operationSecurity).then((res: GetSnippetResponse) => {
+}).then((res: GetSnippetResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -129,11 +130,10 @@ sdk.snippet.getSnippet({
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetSnippetRequest](../../models/operations/getsnippetrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetSnippetSecurity](../../models/operations/getsnippetsecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetSnippetRequest](../../models/operations/getsnippetrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -149,17 +149,18 @@ Get a single dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetDynamicResponse, GetSnippetDynamicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetSnippetDynamicSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.getSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}, operationSecurity).then((res: GetSnippetDynamicResponse) => {
+}).then((res: GetSnippetDynamicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -168,11 +169,10 @@ sdk.snippet.getSnippetDynamic({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetSnippetDynamicRequest](../../models/operations/getsnippetdynamicrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetSnippetDynamicSecurity](../../models/operations/getsnippetdynamicsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetSnippetDynamicRequest](../../models/operations/getsnippetdynamicrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -188,17 +188,18 @@ List all snippets for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListSnippetsResponse, ListSnippetsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListSnippetsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListSnippetsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.listSnippets({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListSnippetsResponse) => {
+}).then((res: ListSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -207,11 +208,10 @@ sdk.snippet.listSnippets({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListSnippetsRequest](../../models/operations/listsnippetsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListSnippetsSecurity](../../models/operations/listsnippetssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListSnippetsRequest](../../models/operations/listsnippetsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -227,13 +227,14 @@ Update a dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateSnippetDynamicResponse, UpdateSnippetDynamicSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateSnippetDynamicSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.snippet.updateSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -245,7 +246,7 @@ sdk.snippet.updateSnippetDynamic({
     type: SnippetType.None,
   },
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}, operationSecurity).then((res: UpdateSnippetDynamicResponse) => {
+}).then((res: UpdateSnippetDynamicResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -254,11 +255,10 @@ sdk.snippet.updateSnippetDynamic({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpdateSnippetDynamicRequest](../../models/operations/updatesnippetdynamicrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpdateSnippetDynamicSecurity](../../models/operations/updatesnippetdynamicsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpdateSnippetDynamicRequest](../../models/operations/updatesnippetdynamicrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response

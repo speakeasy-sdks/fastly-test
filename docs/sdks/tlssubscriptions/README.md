@@ -24,20 +24,21 @@ Creates an email challenge for a domain on a GlobalSign subscription. An email c
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateGlobalsignEmailChallengeResponse, CreateGlobalsignEmailChallengeSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateGlobalsignEmailChallengeSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
   requestBody: {
-    "in": "commodi",
+    "iste": "dolore",
   },
   tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}, operationSecurity).then((res: CreateGlobalsignEmailChallengeResponse) => {
+}).then((res: CreateGlobalsignEmailChallengeResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,11 +47,10 @@ sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.CreateGlobalsignEmailChallengeRequest](../../models/operations/createglobalsignemailchallengerequest.md)   | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `security`                                                                                                             | [operations.CreateGlobalsignEmailChallengeSecurity](../../models/operations/createglobalsignemailchallengesecurity.md) | :heavy_check_mark:                                                                                                     | The security requirements to use for the request.                                                                      |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                            | [operations.CreateGlobalsignEmailChallengeRequest](../../models/operations/createglobalsignemailchallengerequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
+| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
 
 
 ### Response
@@ -66,19 +66,19 @@ Create a new TLS subscription. This response includes a list of possible challen
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsSubResponse, CreateTlsSubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TypeTlsCertificate,
-  TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateTlsSubSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.createTlsSub({
   force: true,
@@ -88,16 +88,18 @@ sdk.tlsSubscriptions.createTlsSub({
         certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.Globalsign,
       },
       relationships: {
-        tlsConfiguration: {
-          data: {
-            type: TypeTlsConfiguration.TlsConfiguration,
-          },
+        tlsDomains: {
+          data: [
+            {
+              type: TypeTlsDomain.TlsDomain,
+            },
+          ],
         },
       },
       type: TypeTlsSubscription.TlsSubscription,
     },
   },
-}, operationSecurity).then((res: CreateTlsSubResponse) => {
+}).then((res: CreateTlsSubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -106,11 +108,10 @@ sdk.tlsSubscriptions.createTlsSub({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.CreateTlsSubRequest](../../models/operations/createtlssubrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.CreateTlsSubSecurity](../../models/operations/createtlssubsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.CreateTlsSubRequest](../../models/operations/createtlssubrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -126,18 +127,19 @@ Deletes a GlobalSign email challenge. After a GlobalSign email challenge is dele
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteGlobalsignEmailChallengeResponse, DeleteGlobalsignEmailChallengeSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteGlobalsignEmailChallengeSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-  globalsignEmailChallengeId: "voluptas",
-  tlsAuthorizationId: "unde",
-  tlsSubscriptionId: "architecto",
-}, operationSecurity).then((res: DeleteGlobalsignEmailChallengeResponse) => {
+  globalsignEmailChallengeId: "in",
+  tlsAuthorizationId: "commodi",
+  tlsSubscriptionId: "quidem",
+}).then((res: DeleteGlobalsignEmailChallengeResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -146,11 +148,10 @@ sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.DeleteGlobalsignEmailChallengeRequest](../../models/operations/deleteglobalsignemailchallengerequest.md)   | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `security`                                                                                                             | [operations.DeleteGlobalsignEmailChallengeSecurity](../../models/operations/deleteglobalsignemailchallengesecurity.md) | :heavy_check_mark:                                                                                                     | The security requirements to use for the request.                                                                      |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                            | [operations.DeleteGlobalsignEmailChallengeRequest](../../models/operations/deleteglobalsignemailchallengerequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
+| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
 
 
 ### Response
@@ -166,16 +167,17 @@ Destroy a TLS subscription. A subscription cannot be destroyed if there are doma
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsSubResponse, DeleteTlsSubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteTlsSubSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.deleteTlsSub({
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}, operationSecurity).then((res: DeleteTlsSubResponse) => {
+}).then((res: DeleteTlsSubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,11 +186,10 @@ sdk.tlsSubscriptions.deleteTlsSub({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteTlsSubRequest](../../models/operations/deletetlssubrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.DeleteTlsSubSecurity](../../models/operations/deletetlssubsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.DeleteTlsSubRequest](../../models/operations/deletetlssubrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -204,17 +205,18 @@ Show a TLS subscription.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsSubResponse, GetTlsSubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetTlsSubSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.getTlsSub({
   include: "tls_authorizations",
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}, operationSecurity).then((res: GetTlsSubResponse) => {
+}).then((res: GetTlsSubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -223,11 +225,10 @@ sdk.tlsSubscriptions.getTlsSub({
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetTlsSubRequest](../../models/operations/gettlssubrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.GetTlsSubSecurity](../../models/operations/gettlssubsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetTlsSubRequest](../../models/operations/gettlssubrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -243,23 +244,24 @@ List all TLS subscriptions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsSubsResponse, ListTlsSubsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsSubsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListTlsSubsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.listTlsSubs({
   filterHasActiveOrder: false,
-  filterState: "suscipit",
-  filterTlsDomainsId: "sapiente",
+  filterState: "explicabo",
+  filterTlsDomainsId: "voluptas",
   include: "tls_authorizations",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.MinusCreatedAt,
-}, operationSecurity).then((res: ListTlsSubsResponse) => {
+}).then((res: ListTlsSubsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -268,11 +270,10 @@ sdk.tlsSubscriptions.listTlsSubs({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListTlsSubsRequest](../../models/operations/listtlssubsrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.ListTlsSubsSecurity](../../models/operations/listtlssubssecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListTlsSubsRequest](../../models/operations/listtlssubsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -288,19 +289,19 @@ Change the TLS domains or common name associated with this subscription, update 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PatchTlsSubResponse, PatchTlsSubSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { PatchTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TypeTlsCertificate,
-  TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: PatchTlsSubSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsSubscriptions.patchTlsSub({
   force: true,
@@ -310,10 +311,10 @@ sdk.tlsSubscriptions.patchTlsSub({
         certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
       },
       relationships: {
-        tlsCertificates: {
+        tlsDomains: {
           data: [
             {
-              type: TypeTlsCertificate.TlsCertificate,
+              type: TypeTlsDomain.TlsDomain,
             },
           ],
         },
@@ -322,7 +323,7 @@ sdk.tlsSubscriptions.patchTlsSub({
     },
   },
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}, operationSecurity).then((res: PatchTlsSubResponse) => {
+}).then((res: PatchTlsSubResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -331,11 +332,10 @@ sdk.tlsSubscriptions.patchTlsSub({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.PatchTlsSubRequest](../../models/operations/patchtlssubrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.PatchTlsSubSecurity](../../models/operations/patchtlssubsecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.PatchTlsSubRequest](../../models/operations/patchtlssubrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response

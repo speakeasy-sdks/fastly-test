@@ -24,7 +24,7 @@ Create a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafRuleExclusionResponse, CreateWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
@@ -33,10 +33,11 @@ import {
   WafExclusionDataAttributesVariable,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateWafRuleExclusionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafExclusions.createWafRuleExclusion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -44,10 +45,10 @@ sdk.wafExclusions.createWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "aperiam",
+        condition: "reiciendis",
         exclusionType: WafExclusionDataAttributesExclusionType.Waf,
         logging: false,
-        name: "Lorraine King IV",
+        name: "Deborah Turcotte",
         number: 1,
         variable: WafExclusionDataAttributesVariable.ReqPost,
       },
@@ -63,7 +64,7 @@ sdk.wafExclusions.createWafRuleExclusion({
       type: TypeWafExclusion.WafExclusion,
     },
   },
-}, operationSecurity).then((res: CreateWafRuleExclusionResponse) => {
+}).then((res: CreateWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -72,11 +73,10 @@ sdk.wafExclusions.createWafRuleExclusion({
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.CreateWafRuleExclusionRequest](../../models/operations/createwafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.CreateWafRuleExclusionSecurity](../../models/operations/createwafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.CreateWafRuleExclusionRequest](../../models/operations/createwafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
@@ -94,18 +94,19 @@ Delete a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafRuleExclusionResponse, DeleteWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteWafRuleExclusionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafExclusions.deleteWafRuleExclusion({
   exclusionNumber: 1,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, operationSecurity).then((res: DeleteWafRuleExclusionResponse) => {
+}).then((res: DeleteWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -114,11 +115,10 @@ sdk.wafExclusions.deleteWafRuleExclusion({
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.DeleteWafRuleExclusionRequest](../../models/operations/deletewafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.DeleteWafRuleExclusionSecurity](../../models/operations/deletewafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.DeleteWafRuleExclusionRequest](../../models/operations/deletewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
@@ -136,18 +136,19 @@ Get a specific WAF exclusion object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleExclusionResponse, GetWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetWafRuleExclusionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafExclusions.getWafRuleExclusion({
   exclusionNumber: 1,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, operationSecurity).then((res: GetWafRuleExclusionResponse) => {
+}).then((res: GetWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -156,11 +157,10 @@ sdk.wafExclusions.getWafRuleExclusion({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.GetWafRuleExclusionRequest](../../models/operations/getwafruleexclusionrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.GetWafRuleExclusionSecurity](../../models/operations/getwafruleexclusionsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GetWafRuleExclusionRequest](../../models/operations/getwafruleexclusionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -178,27 +178,24 @@ List all exclusions for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  ListWafRuleExclusionsFilterExclusionType,
-  ListWafRuleExclusionsResponse,
-  ListWafRuleExclusionsSecurity,
-} from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafRuleExclusionsFilterExclusionType, ListWafRuleExclusionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListWafRuleExclusionsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafExclusions.listWafRuleExclusions({
-  filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Waf,
-  filterName: "laboriosam",
-  filterWafRulesModsecRuleId: 680515,
+  filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Rule,
+  filterName: "laudantium",
+  filterWafRulesModsecRuleId: 348476,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
   include: "waf_rules",
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListWafRuleExclusionsResponse) => {
+}).then((res: ListWafRuleExclusionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -207,11 +204,10 @@ sdk.wafExclusions.listWafRuleExclusions({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.ListWafRuleExclusionsRequest](../../models/operations/listwafruleexclusionsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.ListWafRuleExclusionsSecurity](../../models/operations/listwafruleexclusionssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.ListWafRuleExclusionsRequest](../../models/operations/listwafruleexclusionsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -229,7 +225,7 @@ Update a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafRuleExclusionResponse, UpdateWafRuleExclusionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
   TypeWafRule,
@@ -238,10 +234,11 @@ import {
   WafExclusionDataAttributesVariable,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateWafRuleExclusionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafExclusions.updateWafRuleExclusion({
   exclusionNumber: 1,
@@ -250,12 +247,12 @@ sdk.wafExclusions.updateWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "voluptatum",
-        exclusionType: WafExclusionDataAttributesExclusionType.Variable,
+        condition: "praesentium",
+        exclusionType: WafExclusionDataAttributesExclusionType.Waf,
         logging: false,
-        name: "Rudolph Trantow",
+        name: "Lee Lehner",
         number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqPost,
+        variable: WafExclusionDataAttributesVariable.ReqQs,
       },
       relationships: {
         wafRuleRevisions: {
@@ -269,7 +266,7 @@ sdk.wafExclusions.updateWafRuleExclusion({
       type: TypeWafExclusion.WafExclusion,
     },
   },
-}, operationSecurity).then((res: UpdateWafRuleExclusionResponse) => {
+}).then((res: UpdateWafRuleExclusionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -278,11 +275,10 @@ sdk.wafExclusions.updateWafRuleExclusion({
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.UpdateWafRuleExclusionRequest](../../models/operations/updatewafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.UpdateWafRuleExclusionSecurity](../../models/operations/updatewafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.UpdateWafRuleExclusionRequest](../../models/operations/updatewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response

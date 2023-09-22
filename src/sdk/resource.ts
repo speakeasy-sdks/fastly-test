@@ -30,7 +30,6 @@ export class Resource {
      */
     async createResource(
         req: operations.CreateResourceRequest,
-        security: operations.CreateResourceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateResourceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class Resource {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateResourceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -123,7 +126,6 @@ export class Resource {
      */
     async deleteResource(
         req: operations.DeleteResourceRequest,
-        security: operations.DeleteResourceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteResourceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -140,10 +142,14 @@ export class Resource {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteResourceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -201,7 +207,6 @@ export class Resource {
      */
     async getResource(
         req: operations.GetResourceRequest,
-        security: operations.GetResourceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetResourceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,10 +223,14 @@ export class Resource {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetResourceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -279,7 +288,6 @@ export class Resource {
      */
     async listResources(
         req: operations.ListResourcesRequest,
-        security: operations.ListResourcesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListResourcesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -296,10 +304,14 @@ export class Resource {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListResourcesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -360,7 +372,6 @@ export class Resource {
      */
     async updateResource(
         req: operations.UpdateResourceRequest,
-        security: operations.UpdateResourceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateResourceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -387,10 +398,14 @@ export class Resource {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateResourceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

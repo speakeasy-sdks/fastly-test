@@ -24,17 +24,18 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CloneWafFirewallVersionResponse, CloneWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CloneWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CloneWafFirewallVersionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.cloneWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, operationSecurity).then((res: CloneWafFirewallVersionResponse) => {
+}).then((res: CloneWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -43,11 +44,10 @@ sdk.wafFirewallVersions.cloneWafFirewallVersion({
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.CloneWafFirewallVersionRequest](../../models/operations/clonewaffirewallversionrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `security`                                                                                               | [operations.CloneWafFirewallVersionSecurity](../../models/operations/clonewaffirewallversionsecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.CloneWafFirewallVersionRequest](../../models/operations/clonewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
@@ -65,54 +65,55 @@ Create a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallVersionResponse, CreateWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateWafFirewallVersionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.createWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   wafFirewallVersionInput: {
     data: {
       attributes: {
-        allowedHttpVersions: "dolorum",
-        allowedMethods: "corrupti",
-        allowedRequestContentType: "accusamus",
-        allowedRequestContentTypeCharset: "tempora",
-        argLength: 543678,
-        argNameLength: 148268,
-        combinedFileSizes: 282699,
-        comment: "fugiat",
-        criticalAnomalyScore: 30235,
+        allowedHttpVersions: "neque",
+        allowedMethods: "dolorum",
+        allowedRequestContentType: "nostrum",
+        allowedRequestContentTypeCharset: "officia",
+        argLength: 676243,
+        argNameLength: 548361,
+        combinedFileSizes: 879235,
+        comment: "tempora",
+        criticalAnomalyScore: 543678,
         crsValidateUtf8Encoding: false,
-        errorAnomalyScore: 635057,
-        highRiskCountryCodes: "expedita",
-        httpViolationScoreThreshold: 299643,
-        inboundAnomalyScoreThreshold: 7884,
-        lfiScoreThreshold: 460220,
+        errorAnomalyScore: 148268,
+        highRiskCountryCodes: "ut",
+        httpViolationScoreThreshold: 856303,
+        inboundAnomalyScoreThreshold: 30235,
+        lfiScoreThreshold: 635057,
         locked: false,
-        maxFileSize: 372679,
-        maxNumArgs: 24527,
-        noticeAnomalyScore: 530537,
-        paranoiaLevel: 558065,
-        phpInjectionScoreThreshold: 922112,
-        rceScoreThreshold: 361151,
-        restrictedExtensions: "et",
-        restrictedHeaders: "blanditiis",
-        rfiScoreThreshold: 405942,
-        sessionFixationScoreThreshold: 153627,
-        sqlInjectionScoreThreshold: 24313,
-        totalArgLength: 425508,
-        warningAnomalyScore: 342611,
-        xssScoreThreshold: 906172,
+        maxFileSize: 710337,
+        maxNumArgs: 299643,
+        noticeAnomalyScore: 7884,
+        paranoiaLevel: 460220,
+        phpInjectionScoreThreshold: 372679,
+        rceScoreThreshold: 24527,
+        restrictedExtensions: "voluptatum",
+        restrictedHeaders: "quas",
+        rfiScoreThreshold: 922112,
+        sessionFixationScoreThreshold: 361151,
+        sqlInjectionScoreThreshold: 89494,
+        totalArgLength: 502710,
+        warningAnomalyScore: 405942,
+        xssScoreThreshold: 153627,
       },
       type: TypeWafFirewallVersion.WafFirewallVersion,
     },
   },
-}, operationSecurity).then((res: CreateWafFirewallVersionResponse) => {
+}).then((res: CreateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -121,11 +122,10 @@ sdk.wafFirewallVersions.createWafFirewallVersion({
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.CreateWafFirewallVersionRequest](../../models/operations/createwaffirewallversionrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.CreateWafFirewallVersionSecurity](../../models/operations/createwaffirewallversionsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.CreateWafFirewallVersionRequest](../../models/operations/createwaffirewallversionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
@@ -143,20 +143,18 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  DeployActivateWafFirewallVersionResponse,
-  DeployActivateWafFirewallVersionSecurity,
-} from "FastlyTestJS/dist/sdk/models/operations";
+import { DeployActivateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeployActivateWafFirewallVersionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
-}, operationSecurity).then((res: DeployActivateWafFirewallVersionResponse) => {
+}).then((res: DeployActivateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -165,11 +163,10 @@ sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
 
 ### Parameters
 
-| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                  | [operations.DeployActivateWafFirewallVersionRequest](../../models/operations/deployactivatewaffirewallversionrequest.md)   | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
-| `security`                                                                                                                 | [operations.DeployActivateWafFirewallVersionSecurity](../../models/operations/deployactivatewaffirewallversionsecurity.md) | :heavy_check_mark:                                                                                                         | The security requirements to use for the request.                                                                          |
-| `config`                                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                               | :heavy_minus_sign:                                                                                                         | Available config options for making requests.                                                                              |
+| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                | [operations.DeployActivateWafFirewallVersionRequest](../../models/operations/deployactivatewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
 
 
 ### Response
@@ -187,18 +184,19 @@ Get details about a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallVersionResponse, GetWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetWafFirewallVersionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.getWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
   include: "waf_firewall,waf_active_rules",
-}, operationSecurity).then((res: GetWafFirewallVersionResponse) => {
+}).then((res: GetWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -207,11 +205,10 @@ sdk.wafFirewallVersions.getWafFirewallVersion({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetWafFirewallVersionRequest](../../models/operations/getwaffirewallversionrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.GetWafFirewallVersionSecurity](../../models/operations/getwaffirewallversionsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetWafFirewallVersionRequest](../../models/operations/getwaffirewallversionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -229,19 +226,20 @@ Get a list of firewall versions associated with a specific firewall.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallVersionsResponse, ListWafFirewallVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafFirewallVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListWafFirewallVersionsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.listWafFirewallVersions({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: "waf_firewall",
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListWafFirewallVersionsResponse) => {
+}).then((res: ListWafFirewallVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -250,11 +248,10 @@ sdk.wafFirewallVersions.listWafFirewallVersions({
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.ListWafFirewallVersionsRequest](../../models/operations/listwaffirewallversionsrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `security`                                                                                               | [operations.ListWafFirewallVersionsSecurity](../../models/operations/listwaffirewallversionssecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.ListWafFirewallVersionsRequest](../../models/operations/listwaffirewallversionsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
@@ -272,13 +269,14 @@ Update a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallVersionResponse, UpdateWafFirewallVersionSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateWafFirewallVersionSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewallVersions.updateWafFirewallVersion({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -286,41 +284,41 @@ sdk.wafFirewallVersions.updateWafFirewallVersion({
   wafFirewallVersionInput: {
     data: {
       attributes: {
-        allowedHttpVersions: "error",
-        allowedMethods: "consequatur",
-        allowedRequestContentType: "incidunt",
-        allowedRequestContentTypeCharset: "reiciendis",
-        argLength: 209750,
-        argNameLength: 690894,
-        combinedFileSizes: 115703,
-        comment: "architecto",
-        criticalAnomalyScore: 577140,
+        allowedHttpVersions: "sit",
+        allowedMethods: "vel",
+        allowedRequestContentType: "nostrum",
+        allowedRequestContentTypeCharset: "saepe",
+        argLength: 622231,
+        argNameLength: 8511,
+        combinedFileSizes: 279068,
+        comment: "reiciendis",
+        criticalAnomalyScore: 209750,
         crsValidateUtf8Encoding: false,
-        errorAnomalyScore: 289776,
-        highRiskCountryCodes: "quidem",
-        httpViolationScoreThreshold: 539074,
-        inboundAnomalyScoreThreshold: 671957,
-        lfiScoreThreshold: 724148,
+        errorAnomalyScore: 690894,
+        highRiskCountryCodes: "dicta",
+        httpViolationScoreThreshold: 99416,
+        inboundAnomalyScoreThreshold: 577140,
+        lfiScoreThreshold: 289776,
         locked: false,
-        maxFileSize: 948861,
-        maxNumArgs: 388867,
-        noticeAnomalyScore: 2703,
-        paranoiaLevel: 227084,
-        phpInjectionScoreThreshold: 647197,
-        rceScoreThreshold: 454860,
-        restrictedExtensions: "unde",
-        restrictedHeaders: "reiciendis",
-        rfiScoreThreshold: 588740,
-        sessionFixationScoreThreshold: 833819,
-        sqlInjectionScoreThreshold: 962771,
-        totalArgLength: 914791,
-        warningAnomalyScore: 16871,
-        xssScoreThreshold: 667285,
+        maxFileSize: 695270,
+        maxNumArgs: 539074,
+        noticeAnomalyScore: 671957,
+        paranoiaLevel: 724148,
+        phpInjectionScoreThreshold: 948861,
+        rceScoreThreshold: 388867,
+        restrictedExtensions: "alias",
+        restrictedHeaders: "amet",
+        rfiScoreThreshold: 647197,
+        sessionFixationScoreThreshold: 454860,
+        sqlInjectionScoreThreshold: 600392,
+        totalArgLength: 972083,
+        warningAnomalyScore: 588740,
+        xssScoreThreshold: 833819,
       },
       type: TypeWafFirewallVersion.WafFirewallVersion,
     },
   },
-}, operationSecurity).then((res: UpdateWafFirewallVersionResponse) => {
+}).then((res: UpdateWafFirewallVersionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -329,11 +327,10 @@ sdk.wafFirewallVersions.updateWafFirewallVersion({
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.UpdateWafFirewallVersionRequest](../../models/operations/updatewaffirewallversionrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.UpdateWafFirewallVersionSecurity](../../models/operations/updatewaffirewallversionsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.UpdateWafFirewallVersionRequest](../../models/operations/updatewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response

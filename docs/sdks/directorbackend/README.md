@@ -19,19 +19,20 @@ Establishes a relationship between a Backend and a Director. The Backend is then
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDirectorBackendResponse, CreateDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateDirectorBackendSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.directorBackend.createDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateDirectorBackendResponse) => {
+}).then((res: CreateDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,11 +41,10 @@ sdk.directorBackend.createDirectorBackend({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.CreateDirectorBackendRequest](../../models/operations/createdirectorbackendrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.CreateDirectorBackendSecurity](../../models/operations/createdirectorbackendsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.CreateDirectorBackendRequest](../../models/operations/createdirectorbackendrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -60,19 +60,20 @@ Deletes the relationship between a Backend and a Director. The Backend is no lon
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDirectorBackendResponse, DeleteDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteDirectorBackendSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.directorBackend.deleteDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteDirectorBackendResponse) => {
+}).then((res: DeleteDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,11 +82,10 @@ sdk.directorBackend.deleteDirectorBackend({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.DeleteDirectorBackendRequest](../../models/operations/deletedirectorbackendrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.DeleteDirectorBackendSecurity](../../models/operations/deletedirectorbackendsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.DeleteDirectorBackendRequest](../../models/operations/deletedirectorbackendrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -101,19 +101,20 @@ Returns the relationship between a Backend and a Director. If the Backend has be
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDirectorBackendResponse, GetDirectorBackendSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetDirectorBackendSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.directorBackend.getDirectorBackend({
   backendName: "test-backend",
   directorName: "test-director",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetDirectorBackendResponse) => {
+}).then((res: GetDirectorBackendResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,11 +123,10 @@ sdk.directorBackend.getDirectorBackend({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetDirectorBackendRequest](../../models/operations/getdirectorbackendrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetDirectorBackendSecurity](../../models/operations/getdirectorbackendsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetDirectorBackendRequest](../../models/operations/getdirectorbackendrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

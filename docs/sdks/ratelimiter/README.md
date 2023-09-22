@@ -19,16 +19,17 @@ Delete a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRateLimiterResponse, DeleteRateLimiterSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteRateLimiterSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.rateLimiter.deleteRateLimiter({
   rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}, operationSecurity).then((res: DeleteRateLimiterResponse) => {
+}).then((res: DeleteRateLimiterResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -37,11 +38,10 @@ sdk.rateLimiter.deleteRateLimiter({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteRateLimiterRequest](../../models/operations/deleteratelimiterrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteRateLimiterSecurity](../../models/operations/deleteratelimitersecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteRateLimiterRequest](../../models/operations/deleteratelimiterrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -57,16 +57,17 @@ Get a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRateLimiterResponse, GetRateLimiterSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetRateLimiterSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.rateLimiter.getRateLimiter({
   rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}, operationSecurity).then((res: GetRateLimiterResponse) => {
+}).then((res: GetRateLimiterResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,11 +76,10 @@ sdk.rateLimiter.getRateLimiter({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetRateLimiterRequest](../../models/operations/getratelimiterrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetRateLimiterSecurity](../../models/operations/getratelimitersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetRateLimiterRequest](../../models/operations/getratelimiterrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -95,17 +95,18 @@ List all rate limiters for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRateLimitersResponse, ListRateLimitersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRateLimitersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListRateLimitersSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.rateLimiter.listRateLimiters({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListRateLimitersResponse) => {
+}).then((res: ListRateLimitersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -114,11 +115,10 @@ sdk.rateLimiter.listRateLimiters({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListRateLimitersRequest](../../models/operations/listratelimitersrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListRateLimitersSecurity](../../models/operations/listratelimiterssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListRateLimitersRequest](../../models/operations/listratelimitersrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response

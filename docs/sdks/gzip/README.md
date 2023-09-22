@@ -21,12 +21,13 @@ Create a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateGzipConfigResponse, CreateGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateGzipConfigSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.gzip.createGzipConfig({
   gzip: {
@@ -37,7 +38,7 @@ sdk.gzip.createGzipConfig({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateGzipConfigResponse) => {
+}).then((res: CreateGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,11 +47,10 @@ sdk.gzip.createGzipConfig({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreateGzipConfigRequest](../../models/operations/creategzipconfigrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateGzipConfigSecurity](../../models/operations/creategzipconfigsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.CreateGzipConfigRequest](../../models/operations/creategzipconfigrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -66,18 +66,19 @@ Delete a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteGzipConfigResponse, DeleteGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteGzipConfigSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.gzip.deleteGzipConfig({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteGzipConfigResponse) => {
+}).then((res: DeleteGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,11 +87,10 @@ sdk.gzip.deleteGzipConfig({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteGzipConfigRequest](../../models/operations/deletegzipconfigrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteGzipConfigSecurity](../../models/operations/deletegzipconfigsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeleteGzipConfigRequest](../../models/operations/deletegzipconfigrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -106,18 +106,19 @@ Get the gzip configuration for a particular service, version, and name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetGzipConfigsResponse, GetGzipConfigsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetGzipConfigsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.gzip.getGzipConfigs({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetGzipConfigsResponse) => {
+}).then((res: GetGzipConfigsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -126,11 +127,10 @@ sdk.gzip.getGzipConfigs({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetGzipConfigsRequest](../../models/operations/getgzipconfigsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetGzipConfigsSecurity](../../models/operations/getgzipconfigssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetGzipConfigsRequest](../../models/operations/getgzipconfigsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -146,17 +146,18 @@ List all gzip configurations for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListGzipConfigsResponse, ListGzipConfigsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListGzipConfigsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.gzip.listGzipConfigs({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListGzipConfigsResponse) => {
+}).then((res: ListGzipConfigsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -165,11 +166,10 @@ sdk.gzip.listGzipConfigs({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListGzipConfigsRequest](../../models/operations/listgzipconfigsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListGzipConfigsSecurity](../../models/operations/listgzipconfigssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListGzipConfigsRequest](../../models/operations/listgzipconfigsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -185,12 +185,13 @@ Update a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateGzipConfigResponse, UpdateGzipConfigSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateGzipConfigSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.gzip.updateGzipConfig({
   gzip: {
@@ -202,7 +203,7 @@ sdk.gzip.updateGzipConfig({
   gzipName: "test-gzip",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateGzipConfigResponse) => {
+}).then((res: UpdateGzipConfigResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -211,11 +212,10 @@ sdk.gzip.updateGzipConfig({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.UpdateGzipConfigRequest](../../models/operations/updategzipconfigrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.UpdateGzipConfigSecurity](../../models/operations/updategzipconfigsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.UpdateGzipConfigRequest](../../models/operations/updategzipconfigrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response

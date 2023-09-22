@@ -64,6 +64,7 @@ import { LoggingSftp } from "./loggingsftp";
 import { LoggingSplunk } from "./loggingsplunk";
 import { LoggingSumologic } from "./loggingsumologic";
 import { LoggingSyslog } from "./loggingsyslog";
+import * as shared from "./models/shared";
 import { MutualAuthentication } from "./mutualauthentication";
 import { Package } from "./package";
 import { Pool } from "./pool";
@@ -115,6 +116,10 @@ export const ServerList = ["https://api.fastly.com", "https://rt.fastly.com"] as
  */
 export type SDKProps = {
     /**
+     * The security details required to authenticate the SDK
+     */
+    security?: shared.Security | (() => Promise<shared.Security>);
+    /**
      * Allows overriding the default axios client used by the SDK
      */
     defaultClient?: AxiosInstance;
@@ -136,12 +141,13 @@ export type SDKProps = {
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
+    security?: shared.Security | (() => Promise<shared.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0.0";
-    sdkVersion = "1.12.4";
-    genVersion = "2.122.1";
+    sdkVersion = "1.13.0";
+    genVersion = "2.125.1";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -777,6 +783,7 @@ export class Fastly {
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
+            security: props?.security,
             serverURL: serverURL,
             retryConfig: props?.retryConfig,
         });

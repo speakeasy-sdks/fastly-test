@@ -20,13 +20,14 @@ Add a billing address to a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { AddBillingAddrResponse, AddBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { AddBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: AddBillingAddrSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.billingAddress.addBillingAddr({
   billingAddressRequestInput: {
@@ -45,7 +46,7 @@ sdk.billingAddress.addBillingAddr({
     skipVerification: false,
   },
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: AddBillingAddrResponse) => {
+}).then((res: AddBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,11 +55,10 @@ sdk.billingAddress.addBillingAddr({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.AddBillingAddrRequest](../../models/operations/addbillingaddrrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.AddBillingAddrSecurity](../../models/operations/addbillingaddrsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.AddBillingAddrRequest](../../models/operations/addbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -74,16 +74,17 @@ Delete a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBillingAddrResponse, DeleteBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteBillingAddrSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.billingAddress.deleteBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: DeleteBillingAddrResponse) => {
+}).then((res: DeleteBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,11 +93,10 @@ sdk.billingAddress.deleteBillingAddr({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteBillingAddrRequest](../../models/operations/deletebillingaddrrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteBillingAddrSecurity](../../models/operations/deletebillingaddrsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteBillingAddrRequest](../../models/operations/deletebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -112,16 +112,17 @@ Get a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetBillingAddrResponse, GetBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetBillingAddrSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.billingAddress.getBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: GetBillingAddrResponse) => {
+}).then((res: GetBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,11 +131,10 @@ sdk.billingAddress.getBillingAddr({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetBillingAddrRequest](../../models/operations/getbillingaddrrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetBillingAddrSecurity](../../models/operations/getbillingaddrsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetBillingAddrRequest](../../models/operations/getbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -150,13 +150,14 @@ Update a customer's billing address. You may update only part of the customer's 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBillingAddrResponse, UpdateBillingAddrSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateBillingAddrSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.billingAddress.updateBillingAddr({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
@@ -175,7 +176,7 @@ sdk.billingAddress.updateBillingAddr({
     },
     skipVerification: false,
   },
-}, operationSecurity).then((res: UpdateBillingAddrResponse) => {
+}).then((res: UpdateBillingAddrResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,11 +185,10 @@ sdk.billingAddress.updateBillingAddr({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateBillingAddrRequest](../../models/operations/updatebillingaddrrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateBillingAddrSecurity](../../models/operations/updatebillingaddrsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.UpdateBillingAddrRequest](../../models/operations/updatebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response

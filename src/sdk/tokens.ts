@@ -29,7 +29,6 @@ export class Tokens {
      * Get a single token based on the access_token used in the request.
      */
     async getTokenCurrent(
-        security: operations.GetTokenCurrentSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTokenCurrentResponse> {
         const baseURL: string = utils.templateUrl(
@@ -38,10 +37,14 @@ export class Tokens {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tokens/self";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTokenCurrentSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -114,7 +117,6 @@ export class Tokens {
      */
     async listTokensCustomer(
         req: operations.ListTokensCustomerRequest,
-        security: operations.ListTokensCustomerSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTokensCustomerResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -127,10 +129,14 @@ export class Tokens {
         );
         const url: string = utils.generateURL(baseURL, "/customer/{customer_id}/tokens", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTokensCustomerSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -190,20 +196,21 @@ export class Tokens {
      * @remarks
      * List all tokens belonging to the authenticated user.
      */
-    async listTokensUser(
-        security: operations.ListTokensUserSecurity,
-        config?: AxiosRequestConfig
-    ): Promise<operations.ListTokensUserResponse> {
+    async listTokensUser(config?: AxiosRequestConfig): Promise<operations.ListTokensUserResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tokens";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTokensUserSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -279,7 +286,6 @@ export class Tokens {
      */
     async revokeToken(
         req: operations.RevokeTokenRequest,
-        security: operations.RevokeTokenSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.RevokeTokenResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -292,10 +298,14 @@ export class Tokens {
         );
         const url: string = utils.generateURL(baseURL, "/tokens/{token_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.RevokeTokenSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -354,7 +364,6 @@ export class Tokens {
      * Revoke a token that is used to authenticate the request.
      */
     async revokeTokenCurrent(
-        security: operations.RevokeTokenCurrentSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.RevokeTokenCurrentResponse> {
         const baseURL: string = utils.templateUrl(
@@ -363,10 +372,14 @@ export class Tokens {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tokens/self";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.RevokeTokenCurrentSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

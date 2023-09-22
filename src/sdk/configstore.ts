@@ -30,7 +30,6 @@ export class ConfigStore {
      */
     async createConfigStore(
         req: shared.ConfigStore,
-        security: operations.CreateConfigStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateConfigStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -53,10 +52,14 @@ export class ConfigStore {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateConfigStoreSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -119,7 +122,6 @@ export class ConfigStore {
      */
     async deleteConfigStore(
         req: operations.DeleteConfigStoreRequest,
-        security: operations.DeleteConfigStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteConfigStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -136,10 +138,14 @@ export class ConfigStore {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteConfigStoreSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -197,7 +203,6 @@ export class ConfigStore {
      */
     async getConfigStore(
         req: operations.GetConfigStoreRequest,
-        security: operations.GetConfigStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -214,10 +219,14 @@ export class ConfigStore {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetConfigStoreSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -275,7 +284,6 @@ export class ConfigStore {
      */
     async getConfigStoreInfo(
         req: operations.GetConfigStoreInfoRequest,
-        security: operations.GetConfigStoreInfoSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigStoreInfoResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -292,10 +300,14 @@ export class ConfigStore {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetConfigStoreInfoSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -354,7 +366,6 @@ export class ConfigStore {
      */
     async listConfigStoreServices(
         req: operations.ListConfigStoreServicesRequest,
-        security: operations.ListConfigStoreServicesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListConfigStoreServicesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -371,10 +382,14 @@ export class ConfigStore {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListConfigStoreServicesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -432,7 +447,6 @@ export class ConfigStore {
      * List config stores.
      */
     async listConfigStores(
-        security: operations.ListConfigStoresSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListConfigStoresResponse> {
         const baseURL: string = utils.templateUrl(
@@ -441,10 +455,14 @@ export class ConfigStore {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/resources/stores/config";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListConfigStoresSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -505,7 +523,6 @@ export class ConfigStore {
      */
     async updateConfigStore(
         req: operations.UpdateConfigStoreRequest,
-        security: operations.UpdateConfigStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateConfigStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -532,10 +549,14 @@ export class ConfigStore {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateConfigStoreSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

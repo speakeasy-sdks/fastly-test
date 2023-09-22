@@ -30,7 +30,6 @@ export class MutualAuthentication {
      */
     async createMutualTlsAuthentication(
         req: shared.MutualAuthenticationInput,
-        security: operations.CreateMutualTlsAuthenticationSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateMutualTlsAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -53,10 +52,14 @@ export class MutualAuthentication {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateMutualTlsAuthenticationSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -120,7 +123,6 @@ export class MutualAuthentication {
      */
     async deleteMutualTls(
         req: operations.DeleteMutualTlsRequest,
-        security: operations.DeleteMutualTlsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteMutualTlsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -137,10 +139,14 @@ export class MutualAuthentication {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteMutualTlsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -184,7 +190,6 @@ export class MutualAuthentication {
      */
     async getMutualAuthentication(
         req: operations.GetMutualAuthenticationRequest,
-        security: operations.GetMutualAuthenticationSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetMutualAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -201,10 +206,14 @@ export class MutualAuthentication {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetMutualAuthenticationSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -264,7 +273,6 @@ export class MutualAuthentication {
      */
     async listMutualAuthentications(
         req: operations.ListMutualAuthenticationsRequest,
-        security: operations.ListMutualAuthenticationsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListMutualAuthenticationsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -277,10 +285,14 @@ export class MutualAuthentication {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/mutual_authentications";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListMutualAuthenticationsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -340,7 +352,6 @@ export class MutualAuthentication {
      */
     async patchMutualAuthentication(
         req: operations.PatchMutualAuthenticationRequest,
-        security: operations.PatchMutualAuthenticationSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PatchMutualAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -371,10 +382,14 @@ export class MutualAuthentication {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.PatchMutualAuthenticationSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

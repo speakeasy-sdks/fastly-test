@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class SetValueForKeySecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class SetValueForKeyRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/octet-stream" })
     requestBody?: string;

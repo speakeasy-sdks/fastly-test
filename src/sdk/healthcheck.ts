@@ -30,7 +30,6 @@ export class Healthcheck {
      */
     async createHealthcheck(
         req: operations.CreateHealthcheckRequest,
-        security: operations.CreateHealthcheckSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateHealthcheckResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class Healthcheck {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateHealthcheckSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -123,7 +126,6 @@ export class Healthcheck {
      */
     async deleteHealthcheck(
         req: operations.DeleteHealthcheckRequest,
-        security: operations.DeleteHealthcheckSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteHealthcheckResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -140,10 +142,14 @@ export class Healthcheck {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteHealthcheckSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -201,7 +207,6 @@ export class Healthcheck {
      */
     async getHealthcheck(
         req: operations.GetHealthcheckRequest,
-        security: operations.GetHealthcheckSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHealthcheckResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,10 +223,14 @@ export class Healthcheck {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHealthcheckSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -279,7 +288,6 @@ export class Healthcheck {
      */
     async listHealthchecks(
         req: operations.ListHealthchecksRequest,
-        security: operations.ListHealthchecksSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListHealthchecksResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -296,10 +304,14 @@ export class Healthcheck {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListHealthchecksSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -360,7 +372,6 @@ export class Healthcheck {
      */
     async updateHealthcheck(
         req: operations.UpdateHealthcheckRequest,
-        security: operations.UpdateHealthcheckSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateHealthcheckResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -387,10 +398,14 @@ export class Healthcheck {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateHealthcheckSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

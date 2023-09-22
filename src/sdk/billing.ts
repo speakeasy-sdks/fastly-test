@@ -41,7 +41,6 @@ export class Billing {
      */
     async getInvoice(
         req: operations.GetInvoiceRequest,
-        security: operations.GetInvoiceSecurity,
         config?: AxiosRequestConfig,
         acceptHeaderOverride?: GetInvoiceAcceptEnum
     ): Promise<operations.GetInvoiceResponse> {
@@ -59,10 +58,14 @@ export class Billing {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         if (acceptHeaderOverride !== undefined) {
             headers["Accept"] = acceptHeaderOverride.toString();
@@ -128,7 +131,6 @@ export class Billing {
      */
     async getInvoiceById(
         req: operations.GetInvoiceByIdRequest,
-        security: operations.GetInvoiceByIdSecurity,
         config?: AxiosRequestConfig,
         acceptHeaderOverride?: GetInvoiceByIdAcceptEnum
     ): Promise<operations.GetInvoiceByIdResponse> {
@@ -146,10 +148,14 @@ export class Billing {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceByIdSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         if (acceptHeaderOverride !== undefined) {
             headers["Accept"] = acceptHeaderOverride.toString();
@@ -215,7 +221,6 @@ export class Billing {
      */
     async getInvoiceMtd(
         req: operations.GetInvoiceMtdRequest,
-        security: operations.GetInvoiceMtdSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetInvoiceMtdResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -232,10 +237,14 @@ export class Billing {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceMtdSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";

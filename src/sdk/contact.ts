@@ -30,7 +30,6 @@ export class Contact {
      */
     async deleteContact(
         req: operations.DeleteContactRequest,
-        security: operations.DeleteContactSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteContactResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class Contact {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteContactSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -108,7 +111,6 @@ export class Contact {
      */
     async listContacts(
         req: operations.ListContactsRequest,
-        security: operations.ListContactsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListContactsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -121,10 +123,14 @@ export class Contact {
         );
         const url: string = utils.generateURL(baseURL, "/customer/{customer_id}/contacts", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListContactsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

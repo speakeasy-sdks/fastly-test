@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class DeleteGlobalsignEmailChallengeSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteGlobalsignEmailChallengeRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({
         data: "pathParam, style=simple;explode=false;name=globalsign_email_challenge_id",

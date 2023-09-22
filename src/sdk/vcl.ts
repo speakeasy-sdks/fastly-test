@@ -30,7 +30,6 @@ export class Vcl {
      */
     async createCustomVcl(
         req: operations.CreateCustomVclRequest,
-        security: operations.CreateCustomVclSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCustomVclResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class Vcl {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateCustomVclSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -123,7 +126,6 @@ export class Vcl {
      */
     async deleteCustomVcl(
         req: operations.DeleteCustomVclRequest,
-        security: operations.DeleteCustomVclSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteCustomVclResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -140,10 +142,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteCustomVclSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -201,7 +207,6 @@ export class Vcl {
      */
     async getCustomVcl(
         req: operations.GetCustomVclRequest,
-        security: operations.GetCustomVclSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,10 +223,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetCustomVclSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -280,7 +289,6 @@ export class Vcl {
      */
     async getCustomVclBoilerplate(
         req: operations.GetCustomVclBoilerplateRequest,
-        security: operations.GetCustomVclBoilerplateSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclBoilerplateResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -297,10 +305,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetCustomVclBoilerplateSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "text/plain";
 
@@ -356,7 +368,6 @@ export class Vcl {
      */
     async getCustomVclGenerated(
         req: operations.GetCustomVclGeneratedRequest,
-        security: operations.GetCustomVclGeneratedSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclGeneratedResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -373,10 +384,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetCustomVclGeneratedSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -435,7 +450,6 @@ export class Vcl {
      */
     async getCustomVclRaw(
         req: operations.GetCustomVclRawRequest,
-        security: operations.GetCustomVclRawSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclRawResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -452,10 +466,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetCustomVclRawSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "text/plain";
 
@@ -510,7 +528,6 @@ export class Vcl {
      */
     async listCustomVcl(
         req: operations.ListCustomVclRequest,
-        security: operations.ListCustomVclSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCustomVclResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -527,10 +544,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListCustomVclSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -591,7 +612,6 @@ export class Vcl {
      */
     async setCustomVclMain(
         req: operations.SetCustomVclMainRequest,
-        security: operations.SetCustomVclMainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.SetCustomVclMainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -608,10 +628,14 @@ export class Vcl {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.SetCustomVclMainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -669,7 +693,6 @@ export class Vcl {
      */
     async updateCustomVcl(
         req: operations.UpdateCustomVclRequest,
-        security: operations.UpdateCustomVclSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCustomVclResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -696,10 +719,14 @@ export class Vcl {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateCustomVclSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

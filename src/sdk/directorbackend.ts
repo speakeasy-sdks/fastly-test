@@ -30,7 +30,6 @@ export class DirectorBackend {
      */
     async createDirectorBackend(
         req: operations.CreateDirectorBackendRequest,
-        security: operations.CreateDirectorBackendSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDirectorBackendResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class DirectorBackend {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateDirectorBackendSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -109,7 +112,6 @@ export class DirectorBackend {
      */
     async deleteDirectorBackend(
         req: operations.DeleteDirectorBackendRequest,
-        security: operations.DeleteDirectorBackendSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDirectorBackendResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -126,10 +128,14 @@ export class DirectorBackend {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteDirectorBackendSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -188,7 +194,6 @@ export class DirectorBackend {
      */
     async getDirectorBackend(
         req: operations.GetDirectorBackendRequest,
-        security: operations.GetDirectorBackendSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDirectorBackendResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -205,10 +210,14 @@ export class DirectorBackend {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetDirectorBackendSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

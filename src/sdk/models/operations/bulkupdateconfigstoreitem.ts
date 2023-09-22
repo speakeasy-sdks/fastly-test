@@ -7,11 +7,6 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class BulkUpdateConfigStoreItemSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class BulkUpdateConfigStoreItemRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     bulkUpdateConfigStoreListRequest?: shared.BulkUpdateConfigStoreListRequest;

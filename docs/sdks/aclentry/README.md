@@ -23,13 +23,14 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntriesResponse, BulkUpdateAclEntriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateAclEntryNegated, BulkUpdateAclEntryOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: BulkUpdateAclEntriesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.bulkUpdateAclEntries({
   aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -45,7 +46,7 @@ sdk.aclEntry.bulkUpdateAclEntries({
     ],
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: BulkUpdateAclEntriesResponse) => {
+}).then((res: BulkUpdateAclEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,11 +55,10 @@ sdk.aclEntry.bulkUpdateAclEntries({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.BulkUpdateAclEntriesRequest](../../models/operations/bulkupdateaclentriesrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.BulkUpdateAclEntriesSecurity](../../models/operations/bulkupdateaclentriessecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.BulkUpdateAclEntriesRequest](../../models/operations/bulkupdateaclentriesrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -74,13 +74,14 @@ Add an ACL entry to an ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclEntryResponse, CreateAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateAclEntrySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.createAclEntry({
   aclEntry: {
@@ -91,7 +92,7 @@ sdk.aclEntry.createAclEntry({
   },
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: CreateAclEntryResponse) => {
+}).then((res: CreateAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -100,11 +101,10 @@ sdk.aclEntry.createAclEntry({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateAclEntryRequest](../../models/operations/createaclentryrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateAclEntrySecurity](../../models/operations/createaclentrysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.CreateAclEntryRequest](../../models/operations/createaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -120,18 +120,19 @@ Delete an ACL entry from a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAclEntryResponse, DeleteAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteAclEntrySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.deleteAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: DeleteAclEntryResponse) => {
+}).then((res: DeleteAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -140,11 +141,10 @@ sdk.aclEntry.deleteAclEntry({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteAclEntryRequest](../../models/operations/deleteaclentryrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteAclEntrySecurity](../../models/operations/deleteaclentrysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.DeleteAclEntryRequest](../../models/operations/deleteaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -160,18 +160,19 @@ Retrieve a single ACL entry.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAclEntryResponse, GetAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetAclEntrySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.getAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: GetAclEntryResponse) => {
+}).then((res: GetAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -180,11 +181,10 @@ sdk.aclEntry.getAclEntry({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetAclEntryRequest](../../models/operations/getaclentryrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetAclEntrySecurity](../../models/operations/getaclentrysecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetAclEntryRequest](../../models/operations/getaclentryrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -200,13 +200,14 @@ List ACL entries for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListAclEntriesResponse, ListAclEntriesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListAclEntriesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.listAclEntries({
   aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -215,7 +216,7 @@ sdk.aclEntry.listAclEntries({
   perPage: 20,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   sort: "created",
-}, operationSecurity).then((res: ListAclEntriesResponse) => {
+}).then((res: ListAclEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -224,11 +225,10 @@ sdk.aclEntry.listAclEntries({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListAclEntriesRequest](../../models/operations/listaclentriesrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListAclEntriesSecurity](../../models/operations/listaclentriessecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListAclEntriesRequest](../../models/operations/listaclentriesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -244,13 +244,14 @@ Update an ACL entry for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateAclEntryResponse, UpdateAclEntrySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateAclEntrySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.aclEntry.updateAclEntry({
   aclEntry: {
@@ -262,7 +263,7 @@ sdk.aclEntry.updateAclEntry({
   aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
   aclId: "6tUXdegLTf5BCig0zGFrU3",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: UpdateAclEntryResponse) => {
+}).then((res: UpdateAclEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -271,11 +272,10 @@ sdk.aclEntry.updateAclEntry({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateAclEntryRequest](../../models/operations/updateaclentryrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateAclEntrySecurity](../../models/operations/updateaclentrysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.UpdateAclEntryRequest](../../models/operations/updateaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

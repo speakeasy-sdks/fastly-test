@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { MutualAuthenticationResponseAttributes } from "./mutualauthenticationresponseattributes";
+import { RelationshipTlsActivations } from "./relationshiptlsactivations";
 import { TypeMutualAuthentication } from "./typemutualauthentication";
 import { Expose, Type } from "class-transformer";
 
@@ -19,7 +20,8 @@ export class MutualAuthenticationResponseData extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    relationships?: any;
+    @Type(() => RelationshipTlsActivations)
+    relationships?: RelationshipTlsActivations;
 
     /**
      * Resource type

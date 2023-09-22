@@ -30,7 +30,6 @@ export class Star {
      */
     async createServiceStar(
         req: shared.StarInput,
-        security: operations.CreateServiceStarSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceStarResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -53,10 +52,14 @@ export class Star {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateServiceStarSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -119,7 +122,6 @@ export class Star {
      */
     async deleteServiceStar(
         req: operations.DeleteServiceStarRequest,
-        security: operations.DeleteServiceStarSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteServiceStarResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -132,10 +134,14 @@ export class Star {
         );
         const url: string = utils.generateURL(baseURL, "/stars/{star_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteServiceStarSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -179,7 +185,6 @@ export class Star {
      */
     async getServiceStar(
         req: operations.GetServiceStarRequest,
-        security: operations.GetServiceStarSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceStarResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -192,10 +197,14 @@ export class Star {
         );
         const url: string = utils.generateURL(baseURL, "/stars/{star_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetServiceStarSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -252,7 +261,6 @@ export class Star {
      * List stars.
      */
     async listServiceStars(
-        security: operations.ListServiceStarsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServiceStarsResponse> {
         const baseURL: string = utils.templateUrl(
@@ -261,10 +269,14 @@ export class Star {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stars";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListServiceStarsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 

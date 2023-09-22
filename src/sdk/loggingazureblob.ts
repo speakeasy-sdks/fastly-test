@@ -30,7 +30,6 @@ export class LoggingAzureblob {
      */
     async createLogAzure(
         req: operations.CreateLogAzureRequest,
-        security: operations.CreateLogAzureSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogAzureResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingAzureblob {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogAzureSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -127,7 +130,6 @@ export class LoggingAzureblob {
      */
     async deleteLogAzure(
         req: operations.DeleteLogAzureRequest,
-        security: operations.DeleteLogAzureSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogAzureResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -144,10 +146,14 @@ export class LoggingAzureblob {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogAzureSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -205,7 +211,6 @@ export class LoggingAzureblob {
      */
     async getLogAzure(
         req: operations.GetLogAzureRequest,
-        security: operations.GetLogAzureSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogAzureResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -222,10 +227,14 @@ export class LoggingAzureblob {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogAzureSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -283,7 +292,6 @@ export class LoggingAzureblob {
      */
     async listLogAzure(
         req: operations.ListLogAzureRequest,
-        security: operations.ListLogAzureSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogAzureResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -300,10 +308,14 @@ export class LoggingAzureblob {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogAzureSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -364,7 +376,6 @@ export class LoggingAzureblob {
      */
     async updateLogAzure(
         req: operations.UpdateLogAzureRequest,
-        security: operations.UpdateLogAzureSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogAzureResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -395,10 +406,14 @@ export class LoggingAzureblob {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogAzureSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

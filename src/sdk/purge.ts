@@ -33,7 +33,6 @@ export class Purge {
      */
     async purgeAll(
         req: operations.PurgeAllRequest,
-        security: operations.PurgeAllSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeAllResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -46,10 +45,14 @@ export class Purge {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/purge_all", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.PurgeAllSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -107,7 +110,6 @@ export class Purge {
      */
     async purgeSingleUrl(
         req: operations.PurgeSingleUrlRequest,
-        security: operations.PurgeSingleUrlSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeSingleUrlResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -120,10 +122,14 @@ export class Purge {
         );
         const url: string = utils.generateURL(baseURL, "/purge/{cached_url}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.PurgeSingleUrlSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...utils.getHeadersFromRequest(req),
             ...config?.headers,
@@ -185,7 +191,6 @@ export class Purge {
      */
     async purgeTag(
         req: operations.PurgeTagRequest,
-        security: operations.PurgeTagSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeTagResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -202,10 +207,14 @@ export class Purge {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.PurgeTagSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...utils.getHeadersFromRequest(req),
             ...config?.headers,

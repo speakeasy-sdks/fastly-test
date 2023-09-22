@@ -30,7 +30,6 @@ export class Version {
      */
     async activateServiceVersion(
         req: operations.ActivateServiceVersionRequest,
-        security: operations.ActivateServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ActivateServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ActivateServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -109,7 +112,6 @@ export class Version {
      */
     async cloneServiceVersion(
         req: operations.CloneServiceVersionRequest,
-        security: operations.CloneServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CloneServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -126,10 +128,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CloneServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -185,7 +191,6 @@ export class Version {
      */
     async createServiceVersion(
         req: operations.CreateServiceVersionRequest,
-        security: operations.CreateServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -198,10 +203,14 @@ export class Version {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/version", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -260,7 +269,6 @@ export class Version {
      */
     async deactivateServiceVersion(
         req: operations.DeactivateServiceVersionRequest,
-        security: operations.DeactivateServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeactivateServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -277,10 +285,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeactivateServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -339,7 +351,6 @@ export class Version {
      */
     async getServiceVersion(
         req: operations.GetServiceVersionRequest,
-        security: operations.GetServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -356,10 +367,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -417,7 +432,6 @@ export class Version {
      */
     async listServiceVersions(
         req: operations.ListServiceVersionsRequest,
-        security: operations.ListServiceVersionsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServiceVersionsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -430,10 +444,14 @@ export class Version {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/version", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListServiceVersionsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -495,7 +513,6 @@ export class Version {
      */
     async lockServiceVersion(
         req: operations.LockServiceVersionRequest,
-        security: operations.LockServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.LockServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -512,10 +529,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.LockServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -571,7 +592,6 @@ export class Version {
      */
     async updateServiceVersion(
         req: operations.UpdateServiceVersionRequest,
-        security: operations.UpdateServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -598,10 +618,14 @@ export class Version {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -665,7 +689,6 @@ export class Version {
      */
     async validateServiceVersion(
         req: operations.ValidateServiceVersionRequest,
-        security: operations.ValidateServiceVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ValidateServiceVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -682,10 +705,14 @@ export class Version {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ValidateServiceVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

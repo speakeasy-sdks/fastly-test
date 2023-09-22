@@ -19,16 +19,17 @@ Get a specific event.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetEventResponse, GetEventSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetEventResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetEventSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.events.getEvent({
   eventId: "1PTzLK8g1NRKMGu5kUb8SC",
-}, operationSecurity).then((res: GetEventResponse) => {
+}).then((res: GetEventResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -37,11 +38,10 @@ sdk.events.getEvent({
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.GetEventRequest](../../models/operations/geteventrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.GetEventSecurity](../../models/operations/geteventsecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.GetEventRequest](../../models/operations/geteventrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
@@ -57,13 +57,14 @@ List all events for a particular customer. Events can be filtered by user, custo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListEventsResponse, ListEventsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListEventsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListEventsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.events.listEvents({
   filterCreatedAt: "eum",
@@ -75,7 +76,7 @@ sdk.events.listEvents({
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
-}, operationSecurity).then((res: ListEventsResponse) => {
+}).then((res: ListEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -84,11 +85,10 @@ sdk.events.listEvents({
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.ListEventsRequest](../../models/operations/listeventsrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.ListEventsSecurity](../../models/operations/listeventssecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.ListEventsRequest](../../models/operations/listeventsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response

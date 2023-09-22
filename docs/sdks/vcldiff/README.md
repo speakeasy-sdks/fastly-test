@@ -17,20 +17,21 @@ Get a comparison of the VCL changes between two service versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { VclDiffServiceVersionsResponse, VclDiffServiceVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { VclDiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: VclDiffServiceVersionsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vclDiff.vclDiffServiceVersions({
-  format: QueryFormat.Html,
+  format: QueryFormat.HtmlSimple,
   fromVersionId: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   toVersionId: 2,
-}, operationSecurity).then((res: VclDiffServiceVersionsResponse) => {
+}).then((res: VclDiffServiceVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,11 +40,10 @@ sdk.vclDiff.vclDiffServiceVersions({
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.VclDiffServiceVersionsRequest](../../models/operations/vcldiffserviceversionsrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.VclDiffServiceVersionsSecurity](../../models/operations/vcldiffserviceversionssecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.VclDiffServiceVersionsRequest](../../models/operations/vcldiffserviceversionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response

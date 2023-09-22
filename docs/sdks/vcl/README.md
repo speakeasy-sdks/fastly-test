@@ -25,22 +25,23 @@ Upload a VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCustomVclResponse, CreateCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateCustomVclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.createCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "voluptatibus",
+    content: "ea",
     main: false,
     name: "test-vcl",
   },
   versionId: 1,
-}, operationSecurity).then((res: CreateCustomVclResponse) => {
+}).then((res: CreateCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -49,11 +50,10 @@ sdk.vcl.createCustomVcl({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreateCustomVclRequest](../../models/operations/createcustomvclrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateCustomVclSecurity](../../models/operations/createcustomvclsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateCustomVclRequest](../../models/operations/createcustomvclrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -69,18 +69,19 @@ Delete the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomVclResponse, DeleteCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteCustomVclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.deleteCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, operationSecurity).then((res: DeleteCustomVclResponse) => {
+}).then((res: DeleteCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -89,11 +90,10 @@ sdk.vcl.deleteCustomVcl({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeleteCustomVclRequest](../../models/operations/deletecustomvclrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteCustomVclSecurity](../../models/operations/deletecustomvclsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteCustomVclRequest](../../models/operations/deletecustomvclrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -109,19 +109,20 @@ Get the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclResponse, GetCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCustomVclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.getCustomVcl({
-  noContent: "tempora",
+  noContent: "occaecati",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, operationSecurity).then((res: GetCustomVclResponse) => {
+}).then((res: GetCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,11 +131,10 @@ sdk.vcl.getCustomVcl({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetCustomVclRequest](../../models/operations/getcustomvclrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetCustomVclSecurity](../../models/operations/getcustomvclsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetCustomVclRequest](../../models/operations/getcustomvclrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -150,17 +150,18 @@ Return boilerplate VCL with the service's TTL from the [settings](/reference/api
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclBoilerplateResponse, GetCustomVclBoilerplateSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclBoilerplateResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCustomVclBoilerplateSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.getCustomVclBoilerplate({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetCustomVclBoilerplateResponse) => {
+}).then((res: GetCustomVclBoilerplateResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -169,11 +170,10 @@ sdk.vcl.getCustomVclBoilerplate({
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetCustomVclBoilerplateRequest](../../models/operations/getcustomvclboilerplaterequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `security`                                                                                               | [operations.GetCustomVclBoilerplateSecurity](../../models/operations/getcustomvclboilerplatesecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.GetCustomVclBoilerplateRequest](../../models/operations/getcustomvclboilerplaterequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
@@ -189,17 +189,18 @@ Display the generated VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclGeneratedResponse, GetCustomVclGeneratedSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclGeneratedResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCustomVclGeneratedSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.getCustomVclGenerated({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetCustomVclGeneratedResponse) => {
+}).then((res: GetCustomVclGeneratedResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -208,11 +209,10 @@ sdk.vcl.getCustomVclGenerated({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetCustomVclGeneratedRequest](../../models/operations/getcustomvclgeneratedrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.GetCustomVclGeneratedSecurity](../../models/operations/getcustomvclgeneratedsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetCustomVclGeneratedRequest](../../models/operations/getcustomvclgeneratedrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -228,18 +228,19 @@ Download the specified VCL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclRawResponse, GetCustomVclRawSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCustomVclRawResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCustomVclRawSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.getCustomVclRaw({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, operationSecurity).then((res: GetCustomVclRawResponse) => {
+}).then((res: GetCustomVclRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -248,11 +249,10 @@ sdk.vcl.getCustomVclRaw({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetCustomVclRawRequest](../../models/operations/getcustomvclrawrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetCustomVclRawSecurity](../../models/operations/getcustomvclrawsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetCustomVclRawRequest](../../models/operations/getcustomvclrawrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -268,17 +268,18 @@ List the uploaded VCLs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCustomVclResponse, ListCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListCustomVclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.listCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListCustomVclResponse) => {
+}).then((res: ListCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -287,11 +288,10 @@ sdk.vcl.listCustomVcl({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListCustomVclRequest](../../models/operations/listcustomvclrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListCustomVclSecurity](../../models/operations/listcustomvclsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.ListCustomVclRequest](../../models/operations/listcustomvclrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -307,18 +307,19 @@ Set the specified VCL as the main.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SetCustomVclMainResponse, SetCustomVclMainSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { SetCustomVclMainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: SetCustomVclMainSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.setCustomVclMain({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
-}, operationSecurity).then((res: SetCustomVclMainResponse) => {
+}).then((res: SetCustomVclMainResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -327,11 +328,10 @@ sdk.vcl.setCustomVclMain({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.SetCustomVclMainRequest](../../models/operations/setcustomvclmainrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.SetCustomVclMainSecurity](../../models/operations/setcustomvclmainsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.SetCustomVclMainRequest](../../models/operations/setcustomvclmainrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -347,23 +347,24 @@ Update the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomVclResponse, UpdateCustomVclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateCustomVclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.vcl.updateCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "tempora",
+    content: "quos",
     main: false,
     name: "test-vcl",
   },
   vclName: "test-vcl",
   versionId: 1,
-}, operationSecurity).then((res: UpdateCustomVclResponse) => {
+}).then((res: UpdateCustomVclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -372,11 +373,10 @@ sdk.vcl.updateCustomVcl({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdateCustomVclRequest](../../models/operations/updatecustomvclrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateCustomVclSecurity](../../models/operations/updatecustomvclsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateCustomVclRequest](../../models/operations/updatecustomvclrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

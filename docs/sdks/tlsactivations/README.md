@@ -21,13 +21,14 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsActivationResponse, CreateTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateTlsActivationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsActivations.createTlsActivation({
   data: {
@@ -45,7 +46,7 @@ sdk.tlsActivations.createTlsActivation({
     },
     type: TypeTlsActivation.TlsActivation,
   },
-}, operationSecurity).then((res: CreateTlsActivationResponse) => {
+}).then((res: CreateTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,11 +55,10 @@ sdk.tlsActivations.createTlsActivation({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [shared.TlsActivationInput](../../models/shared/tlsactivationinput.md)                           | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateTlsActivationSecurity](../../models/operations/createtlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [shared.TlsActivationInput](../../models/shared/tlsactivationinput.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -74,16 +74,17 @@ Disable TLS on the domain associated with this TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsActivationResponse, DeleteTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteTlsActivationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsActivations.deleteTlsActivation({
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, operationSecurity).then((res: DeleteTlsActivationResponse) => {
+}).then((res: DeleteTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,11 +93,10 @@ sdk.tlsActivations.deleteTlsActivation({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteTlsActivationRequest](../../models/operations/deletetlsactivationrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteTlsActivationSecurity](../../models/operations/deletetlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteTlsActivationRequest](../../models/operations/deletetlsactivationrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -112,17 +112,18 @@ Show a TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsActivationResponse, GetTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetTlsActivationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsActivations.getTlsActivation({
   include: "tls_certificate,tls_configuration,tls_domain",
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, operationSecurity).then((res: GetTlsActivationResponse) => {
+}).then((res: GetTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -131,11 +132,10 @@ sdk.tlsActivations.getTlsActivation({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetTlsActivationRequest](../../models/operations/gettlsactivationrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetTlsActivationSecurity](../../models/operations/gettlsactivationsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetTlsActivationRequest](../../models/operations/gettlsactivationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -151,12 +151,13 @@ List all TLS activations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsActivationsResponse, ListTlsActivationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsActivationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListTlsActivationsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsActivations.listTlsActivations({
   filterTlsCertificateId: "libero",
@@ -165,7 +166,7 @@ sdk.tlsActivations.listTlsActivations({
   include: "tls_certificate,tls_configuration,tls_domain",
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListTlsActivationsResponse) => {
+}).then((res: ListTlsActivationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -174,11 +175,10 @@ sdk.tlsActivations.listTlsActivations({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListTlsActivationsRequest](../../models/operations/listtlsactivationsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListTlsActivationsSecurity](../../models/operations/listtlsactivationssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListTlsActivationsRequest](../../models/operations/listtlsactivationsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -194,13 +194,14 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsActivationResponse, UpdateTlsActivationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateTlsActivationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsActivations.updateTlsActivation({
   tlsActivationInput: {
@@ -221,7 +222,7 @@ sdk.tlsActivations.updateTlsActivation({
     },
   },
   tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}, operationSecurity).then((res: UpdateTlsActivationResponse) => {
+}).then((res: UpdateTlsActivationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -230,11 +231,10 @@ sdk.tlsActivations.updateTlsActivation({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateTlsActivationRequest](../../models/operations/updatetlsactivationrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateTlsActivationSecurity](../../models/operations/updatetlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateTlsActivationRequest](../../models/operations/updatetlsactivationrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response

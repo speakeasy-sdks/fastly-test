@@ -30,7 +30,6 @@ export class Realtime {
      */
     async getStatsLast120Seconds(
         req: operations.GetStatsLast120SecondsRequest,
-        security: operations.GetStatsLast120SecondsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLast120SecondsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -43,10 +42,14 @@ export class Realtime {
         );
         const url: string = utils.generateURL(baseURL, "/v1/channel/{service_id}/ts/h", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetStatsLast120SecondsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -102,7 +105,6 @@ export class Realtime {
      */
     async getStatsLast120SecondsLimitEntries(
         req: operations.GetStatsLast120SecondsLimitEntriesRequest,
-        security: operations.GetStatsLast120SecondsLimitEntriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLast120SecondsLimitEntriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -119,10 +121,14 @@ export class Realtime {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetStatsLast120SecondsLimitEntriesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -178,7 +184,6 @@ export class Realtime {
      */
     async getStatsLastSecond(
         req: operations.GetStatsLastSecondRequest,
-        security: operations.GetStatsLastSecondSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLastSecondResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -195,10 +200,14 @@ export class Realtime {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetStatsLastSecondSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

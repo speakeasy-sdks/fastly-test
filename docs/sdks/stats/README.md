@@ -17,12 +17,13 @@ Get the stats from a service for a block of time. This lists all stats by PoP lo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceStatsResponse, GetServiceStatsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceStatsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetServiceStatsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.stats.getServiceStats({
   endTime: 1608560817,
@@ -30,7 +31,7 @@ sdk.stats.getServiceStats({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   startTime: 1608560817,
   year: "2020",
-}, operationSecurity).then((res: GetServiceStatsResponse) => {
+}).then((res: GetServiceStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,11 +40,10 @@ sdk.stats.getServiceStats({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetServiceStatsRequest](../../models/operations/getservicestatsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetServiceStatsSecurity](../../models/operations/getservicestatssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetServiceStatsRequest](../../models/operations/getservicestatsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

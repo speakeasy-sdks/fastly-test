@@ -30,7 +30,6 @@ export class Historical {
      */
     async getHistStats(
         req: operations.GetHistStatsRequest,
-        security: operations.GetHistStatsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -43,10 +42,14 @@ export class Historical {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHistStatsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -105,7 +108,6 @@ export class Historical {
      */
     async getHistStatsAggregated(
         req: operations.GetHistStatsAggregatedRequest,
-        security: operations.GetHistStatsAggregatedSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsAggregatedResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -118,10 +120,14 @@ export class Historical {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats/aggregate";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHistStatsAggregatedSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -181,7 +187,6 @@ export class Historical {
      */
     async getHistStatsField(
         req: operations.GetHistStatsFieldRequest,
-        security: operations.GetHistStatsFieldSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsFieldResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -194,10 +199,14 @@ export class Historical {
         );
         const url: string = utils.generateURL(baseURL, "/stats/field/{field}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHistStatsFieldSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -256,7 +265,6 @@ export class Historical {
      */
     async getHistStatsService(
         req: operations.GetHistStatsServiceRequest,
-        security: operations.GetHistStatsServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -269,10 +277,14 @@ export class Historical {
         );
         const url: string = utils.generateURL(baseURL, "/stats/service/{service_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHistStatsServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -332,7 +344,6 @@ export class Historical {
      */
     async getHistStatsServiceField(
         req: operations.GetHistStatsServiceFieldRequest,
-        security: operations.GetHistStatsServiceFieldSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsServiceFieldResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -349,10 +360,14 @@ export class Historical {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHistStatsServiceFieldSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -410,20 +425,21 @@ export class Historical {
      * @remarks
      * Fetches the list of codes for regions that are covered by the Fastly CDN service.
      */
-    async getRegions(
-        security: operations.GetRegionsSecurity,
-        config?: AxiosRequestConfig
-    ): Promise<operations.GetRegionsResponse> {
+    async getRegions(config?: AxiosRequestConfig): Promise<operations.GetRegionsResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats/regions";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetRegionsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -481,7 +497,6 @@ export class Historical {
      */
     async getUsage(
         req: operations.GetUsageRequest,
-        security: operations.GetUsageSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -494,10 +509,14 @@ export class Historical {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats/usage";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetUsageSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -556,7 +575,6 @@ export class Historical {
      */
     async getUsageMonth(
         req: operations.GetUsageMonthRequest,
-        security: operations.GetUsageMonthSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageMonthResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -569,10 +587,14 @@ export class Historical {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats/usage_by_month";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetUsageMonthSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -631,7 +653,6 @@ export class Historical {
      */
     async getUsageService(
         req: operations.GetUsageServiceRequest,
-        security: operations.GetUsageServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -644,10 +665,14 @@ export class Historical {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/stats/usage_by_service";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetUsageServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";

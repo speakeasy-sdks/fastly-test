@@ -24,24 +24,25 @@ Create a firewall object for a particular service and service version using a de
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallResponse, CreateWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateWafFirewallSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewalls.createWafFirewall({
   data: {
     attributes: {
       disabled: false,
-      prefetchCondition: "quidem",
-      response: "reprehenderit",
+      prefetchCondition: "delectus",
+      response: "voluptates",
     },
     type: TypeWafFirewall.WafFirewall,
   },
-}, operationSecurity).then((res: CreateWafFirewallResponse) => {
+}).then((res: CreateWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -50,11 +51,10 @@ sdk.wafFirewalls.createWafFirewall({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [shared.WafFirewallInput](../../models/shared/waffirewallinput.md)                           | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateWafFirewallSecurity](../../models/operations/createwaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `request`                                                          | [shared.WafFirewallInput](../../models/shared/waffirewallinput.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
 
 
 ### Response
@@ -73,13 +73,14 @@ Delete the firewall object for a particular service and service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafFirewallResponse, DeleteWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteWafFirewallSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewalls.deleteWafFirewall({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -87,13 +88,13 @@ sdk.wafFirewalls.deleteWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "facere",
-        response: "fuga",
+        prefetchCondition: "perferendis",
+        response: "est",
       },
       type: TypeWafFirewall.WafFirewall,
     },
   },
-}, operationSecurity).then((res: DeleteWafFirewallResponse) => {
+}).then((res: DeleteWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,11 +103,10 @@ sdk.wafFirewalls.deleteWafFirewall({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteWafFirewallRequest](../../models/operations/deletewaffirewallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteWafFirewallSecurity](../../models/operations/deletewaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteWafFirewallRequest](../../models/operations/deletewaffirewallrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -124,19 +124,20 @@ Get a specific firewall object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallResponse, GetWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: GetWafFirewallSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewalls.getWafFirewall({
-  filterServiceVersionNumber: "praesentium",
+  filterServiceVersionNumber: "quidem",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: FirewallInclude.WafFirewallVersions,
-}, operationSecurity).then((res: GetWafFirewallResponse) => {
+}).then((res: GetWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,11 +146,10 @@ sdk.wafFirewalls.getWafFirewall({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetWafFirewallRequest](../../models/operations/getwaffirewallrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetWafFirewallSecurity](../../models/operations/getwaffirewallsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetWafFirewallRequest](../../models/operations/getwaffirewallrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -167,21 +167,22 @@ List all firewall objects.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallsResponse, ListWafFirewallsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafFirewallsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListWafFirewallsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewalls.listWafFirewalls({
-  filterServiceId: "mollitia",
-  filterServiceVersionNumber: "veniam",
+  filterServiceId: "reprehenderit",
+  filterServiceVersionNumber: "facere",
   include: FirewallInclude.WafFirewallVersions,
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListWafFirewallsResponse) => {
+}).then((res: ListWafFirewallsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -190,11 +191,10 @@ sdk.wafFirewalls.listWafFirewalls({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListWafFirewallsRequest](../../models/operations/listwaffirewallsrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListWafFirewallsSecurity](../../models/operations/listwaffirewallssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListWafFirewallsRequest](../../models/operations/listwaffirewallsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -213,13 +213,14 @@ Update a firewall object for a particular service and service version. Specifyin
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallResponse, UpdateWafFirewallSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateWafFirewallSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.wafFirewalls.updateWafFirewall({
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
@@ -227,13 +228,13 @@ sdk.wafFirewalls.updateWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "voluptatem",
-        response: "quisquam",
+        prefetchCondition: "fuga",
+        response: "praesentium",
       },
       type: TypeWafFirewall.WafFirewall,
     },
   },
-}, operationSecurity).then((res: UpdateWafFirewallResponse) => {
+}).then((res: UpdateWafFirewallResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -242,11 +243,10 @@ sdk.wafFirewalls.updateWafFirewall({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateWafFirewallRequest](../../models/operations/updatewaffirewallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateWafFirewallSecurity](../../models/operations/updatewaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.UpdateWafFirewallRequest](../../models/operations/updatewaffirewallrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response

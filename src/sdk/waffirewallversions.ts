@@ -32,7 +32,6 @@ export class WafFirewallVersions {
      */
     async cloneWafFirewallVersion(
         req: operations.CloneWafFirewallVersionRequest,
-        security: operations.CloneWafFirewallVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CloneWafFirewallVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -49,10 +48,14 @@ export class WafFirewallVersions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CloneWafFirewallVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -113,7 +116,6 @@ export class WafFirewallVersions {
      */
     async createWafFirewallVersion(
         req: operations.CreateWafFirewallVersionRequest,
-        security: operations.CreateWafFirewallVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafFirewallVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -144,10 +146,14 @@ export class WafFirewallVersions {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateWafFirewallVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -213,7 +219,6 @@ export class WafFirewallVersions {
      */
     async deployActivateWafFirewallVersion(
         req: operations.DeployActivateWafFirewallVersionRequest,
-        security: operations.DeployActivateWafFirewallVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeployActivateWafFirewallVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -230,10 +235,14 @@ export class WafFirewallVersions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeployActivateWafFirewallVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -295,7 +304,6 @@ export class WafFirewallVersions {
      */
     async getWafFirewallVersion(
         req: operations.GetWafFirewallVersionRequest,
-        security: operations.GetWafFirewallVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafFirewallVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -312,10 +320,14 @@ export class WafFirewallVersions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetWafFirewallVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -377,7 +389,6 @@ export class WafFirewallVersions {
      */
     async listWafFirewallVersions(
         req: operations.ListWafFirewallVersionsRequest,
-        security: operations.ListWafFirewallVersionsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafFirewallVersionsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -394,10 +405,14 @@ export class WafFirewallVersions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListWafFirewallVersionsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -459,7 +474,6 @@ export class WafFirewallVersions {
      */
     async updateWafFirewallVersion(
         req: operations.UpdateWafFirewallVersionRequest,
-        security: operations.UpdateWafFirewallVersionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafFirewallVersionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -490,10 +504,14 @@ export class WafFirewallVersions {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateWafFirewallVersionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

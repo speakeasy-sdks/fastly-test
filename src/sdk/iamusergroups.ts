@@ -5,6 +5,7 @@
 import * as utils from "../internal/utils";
 import * as errors from "./models/errors";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,7 +30,6 @@ export class IamUserGroups {
      */
     async deleteAUserGroup(
         req: operations.DeleteAUserGroupRequest,
-        security: operations.DeleteAUserGroupSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteAUserGroupResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -42,10 +42,14 @@ export class IamUserGroups {
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteAUserGroupSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -89,7 +93,6 @@ export class IamUserGroups {
      */
     async getAUserGroup(
         req: operations.GetAUserGroupRequest,
-        security: operations.GetAUserGroupSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAUserGroupResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -102,10 +105,14 @@ export class IamUserGroups {
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetAUserGroupSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -163,7 +170,6 @@ export class IamUserGroups {
      */
     async listUserGroupMembers(
         req: operations.ListUserGroupMembersRequest,
-        security: operations.ListUserGroupMembersSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupMembersResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -176,10 +182,14 @@ export class IamUserGroups {
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}/members", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListUserGroupMembersSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -239,7 +249,6 @@ export class IamUserGroups {
      */
     async listUserGroupRoles(
         req: operations.ListUserGroupRolesRequest,
-        security: operations.ListUserGroupRolesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupRolesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -252,10 +261,14 @@ export class IamUserGroups {
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}/roles", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListUserGroupRolesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -315,7 +328,6 @@ export class IamUserGroups {
      */
     async listUserGroupServiceGroups(
         req: operations.ListUserGroupServiceGroupsRequest,
-        security: operations.ListUserGroupServiceGroupsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupServiceGroupsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -332,10 +344,14 @@ export class IamUserGroups {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListUserGroupServiceGroupsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -395,7 +411,6 @@ export class IamUserGroups {
      */
     async listUserGroups(
         req: operations.ListUserGroupsRequest,
-        security: operations.ListUserGroupsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -408,10 +423,14 @@ export class IamUserGroups {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/user-groups";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListUserGroupsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";

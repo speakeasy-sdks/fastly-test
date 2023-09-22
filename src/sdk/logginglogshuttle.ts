@@ -30,7 +30,6 @@ export class LoggingLogshuttle {
      */
     async createLogLogshuttle(
         req: operations.CreateLogLogshuttleRequest,
-        security: operations.CreateLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingLogshuttle {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogLogshuttleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -128,7 +131,6 @@ export class LoggingLogshuttle {
      */
     async deleteLogLogshuttle(
         req: operations.DeleteLogLogshuttleRequest,
-        security: operations.DeleteLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -145,10 +147,14 @@ export class LoggingLogshuttle {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogLogshuttleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -207,7 +213,6 @@ export class LoggingLogshuttle {
      */
     async getLogLogshuttle(
         req: operations.GetLogLogshuttleRequest,
-        security: operations.GetLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,10 +229,14 @@ export class LoggingLogshuttle {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogLogshuttleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -285,7 +294,6 @@ export class LoggingLogshuttle {
      */
     async listLogLogshuttle(
         req: operations.ListLogLogshuttleRequest,
-        security: operations.ListLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -302,10 +310,14 @@ export class LoggingLogshuttle {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogLogshuttleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -366,7 +378,6 @@ export class LoggingLogshuttle {
      */
     async updateLogLogshuttle(
         req: operations.UpdateLogLogshuttleRequest,
-        security: operations.UpdateLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -397,10 +408,14 @@ export class LoggingLogshuttle {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogLogshuttleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

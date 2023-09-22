@@ -18,17 +18,18 @@ Get the settings for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceSettingsResponse, GetServiceSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetServiceSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.settings.getServiceSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetServiceSettingsResponse) => {
+}).then((res: GetServiceSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -37,11 +38,10 @@ sdk.settings.getServiceSettings({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetServiceSettingsRequest](../../models/operations/getservicesettingsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetServiceSettingsSecurity](../../models/operations/getservicesettingssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetServiceSettingsRequest](../../models/operations/getservicesettingsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -58,12 +58,13 @@ Update the settings for a particular service and version. NOTE: If you override 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceSettingsResponse, UpdateServiceSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateServiceSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.settings.updateServiceSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -74,7 +75,7 @@ sdk.settings.updateServiceSettings({
     generalStaleIfErrorTtl: 891523,
   },
   versionId: 1,
-}, operationSecurity).then((res: UpdateServiceSettingsResponse) => {
+}).then((res: UpdateServiceSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,11 +84,10 @@ sdk.settings.updateServiceSettings({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.UpdateServiceSettingsRequest](../../models/operations/updateservicesettingsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.UpdateServiceSettingsSecurity](../../models/operations/updateservicesettingssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.UpdateServiceSettingsRequest](../../models/operations/updateservicesettingsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response

@@ -30,7 +30,6 @@ export class CacheSettings {
      */
     async createCacheSettings(
         req: operations.CreateCacheSettingsRequest,
-        security: operations.CreateCacheSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCacheSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class CacheSettings {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateCacheSettingsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -124,7 +127,6 @@ export class CacheSettings {
      */
     async deleteCacheSettings(
         req: operations.DeleteCacheSettingsRequest,
-        security: operations.DeleteCacheSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteCacheSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -141,10 +143,14 @@ export class CacheSettings {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteCacheSettingsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -203,7 +209,6 @@ export class CacheSettings {
      */
     async getCacheSettings(
         req: operations.GetCacheSettingsRequest,
-        security: operations.GetCacheSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCacheSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -220,10 +225,14 @@ export class CacheSettings {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetCacheSettingsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -281,7 +290,6 @@ export class CacheSettings {
      */
     async listCacheSettings(
         req: operations.ListCacheSettingsRequest,
-        security: operations.ListCacheSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCacheSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -298,10 +306,14 @@ export class CacheSettings {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListCacheSettingsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -362,7 +374,6 @@ export class CacheSettings {
      */
     async updateCacheSettings(
         req: operations.UpdateCacheSettingsRequest,
-        security: operations.UpdateCacheSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCacheSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -389,10 +400,14 @@ export class CacheSettings {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateCacheSettingsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

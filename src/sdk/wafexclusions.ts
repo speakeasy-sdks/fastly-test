@@ -35,7 +35,6 @@ export class WafExclusions {
      */
     async createWafRuleExclusion(
         req: operations.CreateWafRuleExclusionRequest,
-        security: operations.CreateWafRuleExclusionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafRuleExclusionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -66,10 +65,14 @@ export class WafExclusions {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateWafRuleExclusionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -135,7 +138,6 @@ export class WafExclusions {
      */
     async deleteWafRuleExclusion(
         req: operations.DeleteWafRuleExclusionRequest,
-        security: operations.DeleteWafRuleExclusionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteWafRuleExclusionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -152,10 +154,14 @@ export class WafExclusions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteWafRuleExclusionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -202,7 +208,6 @@ export class WafExclusions {
      */
     async getWafRuleExclusion(
         req: operations.GetWafRuleExclusionRequest,
-        security: operations.GetWafRuleExclusionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafRuleExclusionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -219,10 +224,14 @@ export class WafExclusions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetWafRuleExclusionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -283,7 +292,6 @@ export class WafExclusions {
      */
     async listWafRuleExclusions(
         req: operations.ListWafRuleExclusionsRequest,
-        security: operations.ListWafRuleExclusionsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafRuleExclusionsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -300,10 +308,14 @@ export class WafExclusions {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListWafRuleExclusionsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -365,7 +377,6 @@ export class WafExclusions {
      */
     async updateWafRuleExclusion(
         req: operations.UpdateWafRuleExclusionRequest,
-        security: operations.UpdateWafRuleExclusionSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafRuleExclusionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -396,10 +407,14 @@ export class WafExclusions {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateWafRuleExclusionSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

@@ -17,20 +17,21 @@ Get diff between two versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DiffServiceVersionsResponse, DiffServiceVersionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DiffServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: DiffServiceVersionsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.diff.diffServiceVersions({
   format: QueryFormat.Html,
   fromVersionId: 1,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   toVersionId: 2,
-}, operationSecurity).then((res: DiffServiceVersionsResponse) => {
+}).then((res: DiffServiceVersionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,11 +40,10 @@ sdk.diff.diffServiceVersions({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DiffServiceVersionsRequest](../../models/operations/diffserviceversionsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DiffServiceVersionsSecurity](../../models/operations/diffserviceversionssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DiffServiceVersionsRequest](../../models/operations/diffserviceversionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response

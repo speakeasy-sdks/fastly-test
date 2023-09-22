@@ -30,7 +30,6 @@ export class Service {
      */
     async createService(
         req: shared.ServiceCreate1,
-        security: operations.CreateServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -53,10 +52,14 @@ export class Service {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -119,7 +122,6 @@ export class Service {
      */
     async deleteService(
         req: operations.DeleteServiceRequest,
-        security: operations.DeleteServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -132,10 +134,14 @@ export class Service {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -193,7 +199,6 @@ export class Service {
      */
     async getService(
         req: operations.GetServiceRequest,
-        security: operations.GetServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -206,10 +211,14 @@ export class Service {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -267,7 +276,6 @@ export class Service {
      */
     async getServiceDetail(
         req: operations.GetServiceDetailRequest,
-        security: operations.GetServiceDetailSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceDetailResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -280,10 +288,14 @@ export class Service {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/details", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetServiceDetailSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -342,7 +354,6 @@ export class Service {
      */
     async listServiceDomains(
         req: operations.ListServiceDomainsRequest,
-        security: operations.ListServiceDomainsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServiceDomainsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -355,10 +366,14 @@ export class Service {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/domain", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListServiceDomainsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -420,7 +435,6 @@ export class Service {
      */
     async listServices(
         req: operations.ListServicesRequest,
-        security: operations.ListServicesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServicesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -433,10 +447,14 @@ export class Service {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/service";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListServicesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -499,7 +517,6 @@ export class Service {
      */
     async searchService(
         req: operations.SearchServiceRequest,
-        security: operations.SearchServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.SearchServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -512,10 +529,14 @@ export class Service {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/service/search";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.SearchServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
@@ -574,7 +595,6 @@ export class Service {
      */
     async updateService(
         req: operations.UpdateServiceRequest,
-        security: operations.UpdateServiceSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -597,10 +617,14 @@ export class Service {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateServiceSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

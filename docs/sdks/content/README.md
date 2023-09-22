@@ -17,16 +17,17 @@ Retrieve headers and MD5 hash of the content for a particular URL from each Fast
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ContentCheckResponse, ContentCheckSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ContentCheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ContentCheckSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.content.contentCheck({
   url: "https://www.example.com/foo/bar",
-}, operationSecurity).then((res: ContentCheckResponse) => {
+}).then((res: ContentCheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -35,11 +36,10 @@ sdk.content.contentCheck({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ContentCheckRequest](../../models/operations/contentcheckrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ContentCheckSecurity](../../models/operations/contentchecksecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ContentCheckRequest](../../models/operations/contentcheckrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response

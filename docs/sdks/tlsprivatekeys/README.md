@@ -20,32 +20,33 @@ Create a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsKeyResponse, CreateTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
+import { CreateTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsActivation, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateTlsKeySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsPrivateKeys.createTlsKey({
   data: {
     attributes: {
-      key: "asperiores",
-      name: "Miss Jared Quitzon",
+      key: "reiciendis",
+      name: "Jaime Quigley",
     },
     relationships: {
-      tlsDomains: {
+      tlsActivations: {
         data: [
           {
-            type: TypeTlsDomain.TlsDomain,
+            type: TypeTlsActivation.TlsActivation,
           },
         ],
       },
     },
     type: TypeTlsPrivateKey.TlsPrivateKey,
   },
-}, operationSecurity).then((res: CreateTlsKeyResponse) => {
+}).then((res: CreateTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,11 +55,10 @@ sdk.tlsPrivateKeys.createTlsKey({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [shared.TlsPrivateKeyInput](../../models/shared/tlsprivatekeyinput.md)             | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.CreateTlsKeySecurity](../../models/operations/createtlskeysecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [shared.TlsPrivateKeyInput](../../models/shared/tlsprivatekeyinput.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -74,16 +74,17 @@ Destroy a TLS private key. Only private keys not already matched to any certific
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsKeyResponse, DeleteTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteTlsKeySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsPrivateKeys.deleteTlsKey({
   tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}, operationSecurity).then((res: DeleteTlsKeyResponse) => {
+}).then((res: DeleteTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,11 +93,10 @@ sdk.tlsPrivateKeys.deleteTlsKey({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteTlsKeyRequest](../../models/operations/deletetlskeyrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.DeleteTlsKeySecurity](../../models/operations/deletetlskeysecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.DeleteTlsKeyRequest](../../models/operations/deletetlskeyrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -112,16 +112,17 @@ Show a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsKeyResponse, GetTlsKeySecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetTlsKeySecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsPrivateKeys.getTlsKey({
   tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}, operationSecurity).then((res: GetTlsKeyResponse) => {
+}).then((res: GetTlsKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,11 +131,10 @@ sdk.tlsPrivateKeys.getTlsKey({
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetTlsKeyRequest](../../models/operations/gettlskeyrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.GetTlsKeySecurity](../../models/operations/gettlskeysecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetTlsKeyRequest](../../models/operations/gettlskeyrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -150,18 +150,19 @@ List all TLS private keys.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsKeysResponse, ListTlsKeysSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListTlsKeysSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsPrivateKeys.listTlsKeys({
-  filterInUse: "sed",
+  filterInUse: "ab",
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListTlsKeysResponse) => {
+}).then((res: ListTlsKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -170,11 +171,10 @@ sdk.tlsPrivateKeys.listTlsKeys({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListTlsKeysRequest](../../models/operations/listtlskeysrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.ListTlsKeysSecurity](../../models/operations/listtlskeyssecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListTlsKeysRequest](../../models/operations/listtlskeysrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response

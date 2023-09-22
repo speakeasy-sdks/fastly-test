@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class PatchMutualAuthenticationSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class PatchMutualAuthenticationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
     mutualAuthenticationInput?: shared.MutualAuthenticationInput;

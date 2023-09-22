@@ -17,14 +17,15 @@ Get a list of all Fastly POPs.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPopsResponse, ListPopsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListPopsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListPopsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.pop.listPops(operationSecurity).then((res: ListPopsResponse) => {
+sdk.pop.listPops().then((res: ListPopsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -33,10 +34,9 @@ sdk.pop.listPops(operationSecurity).then((res: ListPopsResponse) => {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `security`                                                                 | [operations.ListPopsSecurity](../../models/operations/listpopssecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

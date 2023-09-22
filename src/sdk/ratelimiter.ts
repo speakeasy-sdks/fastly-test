@@ -30,7 +30,6 @@ export class RateLimiter {
      */
     async deleteRateLimiter(
         req: operations.DeleteRateLimiterRequest,
-        security: operations.DeleteRateLimiterSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteRateLimiterResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -43,10 +42,14 @@ export class RateLimiter {
         );
         const url: string = utils.generateURL(baseURL, "/rate-limiters/{rate_limiter_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteRateLimiterSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -104,7 +107,6 @@ export class RateLimiter {
      */
     async getRateLimiter(
         req: operations.GetRateLimiterRequest,
-        security: operations.GetRateLimiterSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetRateLimiterResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -117,10 +119,14 @@ export class RateLimiter {
         );
         const url: string = utils.generateURL(baseURL, "/rate-limiters/{rate_limiter_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetRateLimiterSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -178,7 +184,6 @@ export class RateLimiter {
      */
     async listRateLimiters(
         req: operations.ListRateLimitersRequest,
-        security: operations.ListRateLimitersSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListRateLimitersResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -195,10 +200,14 @@ export class RateLimiter {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListRateLimitersSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

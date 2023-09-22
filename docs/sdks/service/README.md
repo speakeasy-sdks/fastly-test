@@ -24,20 +24,21 @@ Create a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceResponse, CreateServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateServiceSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.createService({
   comment: "non",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
   name: "test-service",
   type: ServiceCreateType.Vcl,
-}, operationSecurity).then((res: CreateServiceResponse) => {
+}).then((res: CreateServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,11 +47,10 @@ sdk.service.createService({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [shared.ServiceCreate1](../../models/shared/servicecreate1.md)                       | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.CreateServiceSecurity](../../models/operations/createservicesecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `request`                                                      | [shared.ServiceCreate1](../../models/shared/servicecreate1.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
+| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |
 
 
 ### Response
@@ -66,16 +66,17 @@ Delete a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceResponse, DeleteServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteServiceSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.deleteService({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: DeleteServiceResponse) => {
+}).then((res: DeleteServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -84,11 +85,10 @@ sdk.service.deleteService({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteServiceRequest](../../models/operations/deleteservicerequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.DeleteServiceSecurity](../../models/operations/deleteservicesecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.DeleteServiceRequest](../../models/operations/deleteservicerequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -104,16 +104,17 @@ Get a specific service by id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceResponse, GetServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetServiceSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.getService({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: GetServiceResponse) => {
+}).then((res: GetServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,11 +123,10 @@ sdk.service.getService({
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetServiceRequest](../../models/operations/getservicerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetServiceSecurity](../../models/operations/getservicesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetServiceRequest](../../models/operations/getservicerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -142,17 +142,18 @@ List detailed information on a specified service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceDetailResponse, GetServiceDetailSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetServiceDetailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetServiceDetailSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.getServiceDetail({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   version: 1,
-}, operationSecurity).then((res: GetServiceDetailResponse) => {
+}).then((res: GetServiceDetailResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,11 +162,10 @@ sdk.service.getServiceDetail({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetServiceDetailRequest](../../models/operations/getservicedetailrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetServiceDetailSecurity](../../models/operations/getservicedetailsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetServiceDetailRequest](../../models/operations/getservicedetailrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -181,16 +181,17 @@ List the domains within a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceDomainsResponse, ListServiceDomainsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServiceDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListServiceDomainsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.listServiceDomains({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: ListServiceDomainsResponse) => {
+}).then((res: ListServiceDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -199,11 +200,10 @@ sdk.service.listServiceDomains({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListServiceDomainsRequest](../../models/operations/listservicedomainsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListServiceDomainsSecurity](../../models/operations/listservicedomainssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListServiceDomainsRequest](../../models/operations/listservicedomainsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -219,20 +219,21 @@ List services.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServicesResponse, ListServicesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListServicesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.listServices({
   direction: Direction.Ascend,
   page: 1,
   perPage: 20,
   sort: "created",
-}, operationSecurity).then((res: ListServicesResponse) => {
+}).then((res: ListServicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -241,11 +242,10 @@ sdk.service.listServices({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListServicesRequest](../../models/operations/listservicesrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListServicesSecurity](../../models/operations/listservicessecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListServicesRequest](../../models/operations/listservicesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -261,16 +261,17 @@ Get a specific service by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SearchServiceResponse, SearchServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { SearchServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: SearchServiceSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.searchService({
   name: "test-service",
-}, operationSecurity).then((res: SearchServiceResponse) => {
+}).then((res: SearchServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -279,11 +280,10 @@ sdk.service.searchService({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.SearchServiceRequest](../../models/operations/searchservicerequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.SearchServiceSecurity](../../models/operations/searchservicesecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.SearchServiceRequest](../../models/operations/searchservicerequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -299,12 +299,13 @@ Update a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceResponse, UpdateServiceSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateServiceSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.service.updateService({
   service: {
@@ -313,7 +314,7 @@ sdk.service.updateService({
     name: "test-service",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: UpdateServiceResponse) => {
+}).then((res: UpdateServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -322,11 +323,10 @@ sdk.service.updateService({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateServiceRequest](../../models/operations/updateservicerequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.UpdateServiceSecurity](../../models/operations/updateservicesecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.UpdateServiceRequest](../../models/operations/updateservicerequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response

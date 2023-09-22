@@ -22,16 +22,17 @@ Delete a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAUserGroupResponse, DeleteAUserGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteAUserGroupSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.deleteAUserGroup({
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: DeleteAUserGroupResponse) => {
+}).then((res: DeleteAUserGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,11 +41,10 @@ sdk.iamUserGroups.deleteAUserGroup({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteAUserGroupRequest](../../models/operations/deleteausergrouprequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteAUserGroupSecurity](../../models/operations/deleteausergroupsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeleteAUserGroupRequest](../../models/operations/deleteausergrouprequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -60,16 +60,17 @@ Get a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAUserGroupResponse, GetAUserGroupSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetAUserGroupSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.getAUserGroup({
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: GetAUserGroupResponse) => {
+}).then((res: GetAUserGroupResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -78,11 +79,10 @@ sdk.iamUserGroups.getAUserGroup({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetAUserGroupRequest](../../models/operations/getausergrouprequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetAUserGroupSecurity](../../models/operations/getausergroupsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetAUserGroupRequest](../../models/operations/getausergrouprequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -98,18 +98,19 @@ List members of a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupMembersResponse, ListUserGroupMembersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupMembersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListUserGroupMembersSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.listUserGroupMembers({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: ListUserGroupMembersResponse) => {
+}).then((res: ListUserGroupMembersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -118,11 +119,10 @@ sdk.iamUserGroups.listUserGroupMembers({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.ListUserGroupMembersRequest](../../models/operations/listusergroupmembersrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ListUserGroupMembersSecurity](../../models/operations/listusergroupmemberssecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListUserGroupMembersRequest](../../models/operations/listusergroupmembersrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -138,18 +138,19 @@ List roles in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupRolesResponse, ListUserGroupRolesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListUserGroupRolesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.listUserGroupRoles({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: ListUserGroupRolesResponse) => {
+}).then((res: ListUserGroupRolesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -158,11 +159,10 @@ sdk.iamUserGroups.listUserGroupRoles({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListUserGroupRolesRequest](../../models/operations/listusergrouprolesrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListUserGroupRolesSecurity](../../models/operations/listusergrouprolessecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListUserGroupRolesRequest](../../models/operations/listusergrouprolesrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -178,18 +178,19 @@ List service groups in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupServiceGroupsResponse, ListUserGroupServiceGroupsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListUserGroupServiceGroupsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.listUserGroupServiceGroups({
   page: 1,
   perPage: 20,
   userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: ListUserGroupServiceGroupsResponse) => {
+}).then((res: ListUserGroupServiceGroupsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -198,11 +199,10 @@ sdk.iamUserGroups.listUserGroupServiceGroups({
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.ListUserGroupServiceGroupsRequest](../../models/operations/listusergroupservicegroupsrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.ListUserGroupServiceGroupsSecurity](../../models/operations/listusergroupservicegroupssecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.ListUserGroupServiceGroupsRequest](../../models/operations/listusergroupservicegroupsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
@@ -218,17 +218,18 @@ List all user groups.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupsResponse, ListUserGroupsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListUserGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListUserGroupsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamUserGroups.listUserGroups({
   page: 1,
   perPage: 20,
-}, operationSecurity).then((res: ListUserGroupsResponse) => {
+}).then((res: ListUserGroupsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -237,11 +238,10 @@ sdk.iamUserGroups.listUserGroups({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListUserGroupsRequest](../../models/operations/listusergroupsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListUserGroupsSecurity](../../models/operations/listusergroupssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListUserGroupsRequest](../../models/operations/listusergroupsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

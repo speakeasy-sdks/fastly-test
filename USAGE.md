@@ -3,12 +3,13 @@
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclResponse, CreateAclSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateAclSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.acl.createAcl({
   acl: {
@@ -16,7 +17,7 @@ sdk.acl.createAcl({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateAclResponse) => {
+}).then((res: CreateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

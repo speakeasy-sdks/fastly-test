@@ -21,13 +21,14 @@ Create a cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCacheSettingsResponse, CreateCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateCacheSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.cacheSettings.createCacheSettings({
   cacheSetting1: {
@@ -39,7 +40,7 @@ sdk.cacheSettings.createCacheSettings({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateCacheSettingsResponse) => {
+}).then((res: CreateCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -48,11 +49,10 @@ sdk.cacheSettings.createCacheSettings({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateCacheSettingsRequest](../../models/operations/createcachesettingsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateCacheSettingsSecurity](../../models/operations/createcachesettingssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateCacheSettingsRequest](../../models/operations/createcachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -68,18 +68,19 @@ Delete a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCacheSettingsResponse, DeleteCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteCacheSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.cacheSettings.deleteCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteCacheSettingsResponse) => {
+}).then((res: DeleteCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -88,11 +89,10 @@ sdk.cacheSettings.deleteCacheSettings({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteCacheSettingsRequest](../../models/operations/deletecachesettingsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteCacheSettingsSecurity](../../models/operations/deletecachesettingssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteCacheSettingsRequest](../../models/operations/deletecachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -108,18 +108,19 @@ Get a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCacheSettingsResponse, GetCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetCacheSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.cacheSettings.getCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetCacheSettingsResponse) => {
+}).then((res: GetCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -128,11 +129,10 @@ sdk.cacheSettings.getCacheSettings({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetCacheSettingsRequest](../../models/operations/getcachesettingsrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetCacheSettingsSecurity](../../models/operations/getcachesettingssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetCacheSettingsRequest](../../models/operations/getcachesettingsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -148,17 +148,18 @@ Get a list of all cache settings for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCacheSettingsResponse, ListCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListCacheSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.cacheSettings.listCacheSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListCacheSettingsResponse) => {
+}).then((res: ListCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -167,11 +168,10 @@ sdk.cacheSettings.listCacheSettings({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListCacheSettingsRequest](../../models/operations/listcachesettingsrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListCacheSettingsSecurity](../../models/operations/listcachesettingssecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListCacheSettingsRequest](../../models/operations/listcachesettingsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -187,13 +187,14 @@ Update a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCacheSettingsResponse, UpdateCacheSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateCacheSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.cacheSettings.updateCacheSettings({
   cacheSetting1: {
@@ -206,7 +207,7 @@ sdk.cacheSettings.updateCacheSettings({
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateCacheSettingsResponse) => {
+}).then((res: UpdateCacheSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -215,11 +216,10 @@ sdk.cacheSettings.updateCacheSettings({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateCacheSettingsRequest](../../models/operations/updatecachesettingsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateCacheSettingsSecurity](../../models/operations/updatecachesettingssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateCacheSettingsRequest](../../models/operations/updatecachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response

@@ -18,17 +18,18 @@ Delete a contact.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteContactResponse, DeleteContactSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteContactResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteContactSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.contact.deleteContact({
   contactId: "x4xCwxxJxGCx123Rx5xTx",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: DeleteContactResponse) => {
+}).then((res: DeleteContactResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -37,11 +38,10 @@ sdk.contact.deleteContact({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteContactRequest](../../models/operations/deletecontactrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.DeleteContactSecurity](../../models/operations/deletecontactsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.DeleteContactRequest](../../models/operations/deletecontactrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -57,16 +57,17 @@ List all contacts from a specified customer ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListContactsResponse, ListContactsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListContactsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListContactsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.contact.listContacts({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: ListContactsResponse) => {
+}).then((res: ListContactsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,11 +76,10 @@ sdk.contact.listContacts({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListContactsRequest](../../models/operations/listcontactsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListContactsSecurity](../../models/operations/listcontactssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListContactsRequest](../../models/operations/listcontactsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response

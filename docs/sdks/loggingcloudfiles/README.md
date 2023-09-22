@@ -21,7 +21,7 @@ Create a Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogCloudfilesResponse, CreateLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -30,10 +30,11 @@ import {
   LoggingCloudfilesRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateLogCloudfilesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingCloudfiles.createLogCloudfiles({
   loggingCloudfilesInput: {
@@ -58,7 +59,7 @@ sdk.loggingCloudfiles.createLogCloudfiles({
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: CreateLogCloudfilesResponse) => {
+}).then((res: CreateLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -67,11 +68,10 @@ sdk.loggingCloudfiles.createLogCloudfiles({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateLogCloudfilesRequest](../../models/operations/createlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogCloudfilesSecurity](../../models/operations/createlogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateLogCloudfilesRequest](../../models/operations/createlogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -87,18 +87,19 @@ Delete the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogCloudfilesResponse, DeleteLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteLogCloudfilesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingCloudfiles.deleteLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteLogCloudfilesResponse) => {
+}).then((res: DeleteLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -107,11 +108,10 @@ sdk.loggingCloudfiles.deleteLogCloudfiles({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteLogCloudfilesRequest](../../models/operations/deletelogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogCloudfilesSecurity](../../models/operations/deletelogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteLogCloudfilesRequest](../../models/operations/deletelogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -127,18 +127,19 @@ Get the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogCloudfilesResponse, GetLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetLogCloudfilesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingCloudfiles.getLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetLogCloudfilesResponse) => {
+}).then((res: GetLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,11 +148,10 @@ sdk.loggingCloudfiles.getLogCloudfiles({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetLogCloudfilesRequest](../../models/operations/getlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogCloudfilesSecurity](../../models/operations/getlogcloudfilessecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetLogCloudfilesRequest](../../models/operations/getlogcloudfilesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -167,17 +167,18 @@ List all of the Cloud Files log endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogCloudfilesResponse, ListLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListLogCloudfilesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingCloudfiles.listLogCloudfiles({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListLogCloudfilesResponse) => {
+}).then((res: ListLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -186,11 +187,10 @@ sdk.loggingCloudfiles.listLogCloudfiles({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListLogCloudfilesRequest](../../models/operations/listlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogCloudfilesSecurity](../../models/operations/listlogcloudfilessecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListLogCloudfilesRequest](../../models/operations/listlogcloudfilesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -206,7 +206,7 @@ Update the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogCloudfilesResponse, UpdateLogCloudfilesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -215,10 +215,11 @@ import {
   LoggingCloudfilesRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateLogCloudfilesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesInput: {
@@ -244,7 +245,7 @@ sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateLogCloudfilesResponse) => {
+}).then((res: UpdateLogCloudfilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -253,11 +254,10 @@ sdk.loggingCloudfiles.updateLogCloudfiles({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateLogCloudfilesRequest](../../models/operations/updatelogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogCloudfilesSecurity](../../models/operations/updatelogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateLogCloudfilesRequest](../../models/operations/updatelogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response

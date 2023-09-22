@@ -30,7 +30,6 @@ export class LoggingPubsub {
      */
     async createLogGcpPubsub(
         req: operations.CreateLogGcpPubsubRequest,
-        security: operations.CreateLogGcpPubsubSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogGcpPubsubResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingPubsub {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogGcpPubsubSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -128,7 +131,6 @@ export class LoggingPubsub {
      */
     async deleteLogGcpPubsub(
         req: operations.DeleteLogGcpPubsubRequest,
-        security: operations.DeleteLogGcpPubsubSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogGcpPubsubResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -145,10 +147,14 @@ export class LoggingPubsub {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogGcpPubsubSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -207,7 +213,6 @@ export class LoggingPubsub {
      */
     async getLogGcpPubsub(
         req: operations.GetLogGcpPubsubRequest,
-        security: operations.GetLogGcpPubsubSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogGcpPubsubResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,10 +229,14 @@ export class LoggingPubsub {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogGcpPubsubSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -285,7 +294,6 @@ export class LoggingPubsub {
      */
     async listLogGcpPubsub(
         req: operations.ListLogGcpPubsubRequest,
-        security: operations.ListLogGcpPubsubSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogGcpPubsubResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -302,10 +310,14 @@ export class LoggingPubsub {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogGcpPubsubSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -366,7 +378,6 @@ export class LoggingPubsub {
      */
     async updateLogGcpPubsub(
         req: operations.UpdateLogGcpPubsubRequest,
-        security: operations.UpdateLogGcpPubsubSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogGcpPubsubResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -397,10 +408,14 @@ export class LoggingPubsub {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogGcpPubsubSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

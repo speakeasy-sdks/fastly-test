@@ -30,7 +30,6 @@ export class LoggingDigitalocean {
      */
     async createLogDigocean(
         req: operations.CreateLogDigoceanRequest,
-        security: operations.CreateLogDigoceanSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogDigoceanResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingDigitalocean {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogDigoceanSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -127,7 +130,6 @@ export class LoggingDigitalocean {
      */
     async deleteLogDigocean(
         req: operations.DeleteLogDigoceanRequest,
-        security: operations.DeleteLogDigoceanSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogDigoceanResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -144,10 +146,14 @@ export class LoggingDigitalocean {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogDigoceanSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -205,7 +211,6 @@ export class LoggingDigitalocean {
      */
     async getLogDigocean(
         req: operations.GetLogDigoceanRequest,
-        security: operations.GetLogDigoceanSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogDigoceanResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -222,10 +227,14 @@ export class LoggingDigitalocean {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogDigoceanSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -283,7 +292,6 @@ export class LoggingDigitalocean {
      */
     async listLogDigocean(
         req: operations.ListLogDigoceanRequest,
-        security: operations.ListLogDigoceanSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogDigoceanResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -300,10 +308,14 @@ export class LoggingDigitalocean {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogDigoceanSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -364,7 +376,6 @@ export class LoggingDigitalocean {
      */
     async updateLogDigocean(
         req: operations.UpdateLogDigoceanRequest,
-        security: operations.UpdateLogDigoceanSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogDigoceanResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -395,10 +406,14 @@ export class LoggingDigitalocean {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogDigoceanSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

@@ -23,13 +23,14 @@ Update multiple items in the same dictionary. For faster updates to your service
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateDictionaryItemResponse, BulkUpdateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: BulkUpdateDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.bulkUpdateDictionaryItem({
   bulkUpdateDictionaryListRequest: {
@@ -43,7 +44,7 @@ sdk.dictionaryItem.bulkUpdateDictionaryItem({
   },
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: BulkUpdateDictionaryItemResponse) => {
+}).then((res: BulkUpdateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -52,11 +53,10 @@ sdk.dictionaryItem.bulkUpdateDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.BulkUpdateDictionaryItemRequest](../../models/operations/bulkupdatedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.BulkUpdateDictionaryItemSecurity](../../models/operations/bulkupdatedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.BulkUpdateDictionaryItemRequest](../../models/operations/bulkupdatedictionaryitemrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
@@ -72,12 +72,13 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDictionaryItemResponse, CreateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.createDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -86,7 +87,7 @@ sdk.dictionaryItem.createDictionaryItem({
     itemValue: "test-value",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: CreateDictionaryItemResponse) => {
+}).then((res: CreateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,11 +96,10 @@ sdk.dictionaryItem.createDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.CreateDictionaryItemRequest](../../models/operations/createdictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.CreateDictionaryItemSecurity](../../models/operations/createdictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.CreateDictionaryItemRequest](../../models/operations/createdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -115,18 +115,19 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDictionaryItemResponse, DeleteDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.deleteDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: DeleteDictionaryItemResponse) => {
+}).then((res: DeleteDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -135,11 +136,10 @@ sdk.dictionaryItem.deleteDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.DeleteDictionaryItemRequest](../../models/operations/deletedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.DeleteDictionaryItemSecurity](../../models/operations/deletedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.DeleteDictionaryItemRequest](../../models/operations/deletedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -155,18 +155,19 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryItemResponse, GetDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.getDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: GetDictionaryItemResponse) => {
+}).then((res: GetDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -175,11 +176,10 @@ sdk.dictionaryItem.getDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetDictionaryItemRequest](../../models/operations/getdictionaryitemrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetDictionaryItemSecurity](../../models/operations/getdictionaryitemsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetDictionaryItemRequest](../../models/operations/getdictionaryitemrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -195,13 +195,14 @@ List of DictionaryItems given service and dictionary ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDictionaryItemsResponse, ListDictionaryItemsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDictionaryItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListDictionaryItemsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.listDictionaryItems({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -210,7 +211,7 @@ sdk.dictionaryItem.listDictionaryItems({
   perPage: 20,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   sort: "created",
-}, operationSecurity).then((res: ListDictionaryItemsResponse) => {
+}).then((res: ListDictionaryItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -219,11 +220,10 @@ sdk.dictionaryItem.listDictionaryItems({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListDictionaryItemsRequest](../../models/operations/listdictionaryitemsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.ListDictionaryItemsSecurity](../../models/operations/listdictionaryitemssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.ListDictionaryItemsRequest](../../models/operations/listdictionaryitemsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -239,12 +239,13 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDictionaryItemResponse, UpdateDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.updateDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -254,7 +255,7 @@ sdk.dictionaryItem.updateDictionaryItem({
   },
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: UpdateDictionaryItemResponse) => {
+}).then((res: UpdateDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -263,11 +264,10 @@ sdk.dictionaryItem.updateDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpdateDictionaryItemRequest](../../models/operations/updatedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpdateDictionaryItemSecurity](../../models/operations/updatedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpdateDictionaryItemRequest](../../models/operations/updatedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -283,12 +283,13 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertDictionaryItemResponse, UpsertDictionaryItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpsertDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpsertDictionaryItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.dictionaryItem.upsertDictionaryItem({
   dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
@@ -298,7 +299,7 @@ sdk.dictionaryItem.upsertDictionaryItem({
   },
   dictionaryItemKey: "test-key",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: UpsertDictionaryItemResponse) => {
+}).then((res: UpsertDictionaryItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -307,11 +308,10 @@ sdk.dictionaryItem.upsertDictionaryItem({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpsertDictionaryItemRequest](../../models/operations/upsertdictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpsertDictionaryItemSecurity](../../models/operations/upsertdictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpsertDictionaryItemRequest](../../models/operations/upsertdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response

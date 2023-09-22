@@ -19,12 +19,13 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PublishResponse, PublishSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { PublishResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: PublishSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.publish.publish({
   publishRequest: {
@@ -56,7 +57,7 @@ sdk.publish.publish({
     ],
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: PublishResponse) => {
+}).then((res: PublishResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -65,11 +66,10 @@ sdk.publish.publish({
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.PublishRequest](../../models/operations/publishrequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `security`                                                               | [operations.PublishSecurity](../../models/operations/publishsecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [operations.PublishRequest](../../models/operations/publishrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response

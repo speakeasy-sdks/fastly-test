@@ -30,7 +30,6 @@ export class ResponseObject {
      */
     async deleteResponseObject(
         req: operations.DeleteResponseObjectRequest,
-        security: operations.DeleteResponseObjectSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteResponseObjectResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class ResponseObject {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteResponseObjectSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -109,7 +112,6 @@ export class ResponseObject {
      */
     async getResponseObject(
         req: operations.GetResponseObjectRequest,
-        security: operations.GetResponseObjectSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetResponseObjectResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -126,10 +128,14 @@ export class ResponseObject {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetResponseObjectSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -187,7 +193,6 @@ export class ResponseObject {
      */
     async listResponseObjects(
         req: operations.ListResponseObjectsRequest,
-        security: operations.ListResponseObjectsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListResponseObjectsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -204,10 +209,14 @@ export class ResponseObject {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListResponseObjectsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

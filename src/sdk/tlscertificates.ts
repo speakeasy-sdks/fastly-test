@@ -30,7 +30,6 @@ export class TlsCertificates {
      */
     async createTlsCert(
         req: shared.TlsCertificateInput,
-        security: operations.CreateTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -53,10 +52,14 @@ export class TlsCertificates {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -119,7 +122,6 @@ export class TlsCertificates {
      */
     async deleteTlsCert(
         req: operations.DeleteTlsCertRequest,
-        security: operations.DeleteTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -136,10 +138,14 @@ export class TlsCertificates {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
 
@@ -183,7 +189,6 @@ export class TlsCertificates {
      */
     async getTlsCert(
         req: operations.GetTlsCertRequest,
-        security: operations.GetTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -200,10 +205,14 @@ export class TlsCertificates {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
 
@@ -261,7 +270,6 @@ export class TlsCertificates {
      */
     async listTlsCerts(
         req: operations.ListTlsCertsRequest,
-        security: operations.ListTlsCertsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsCertsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -274,10 +282,14 @@ export class TlsCertificates {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/certificates";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTlsCertsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -336,7 +348,6 @@ export class TlsCertificates {
      */
     async updateTlsCert(
         req: operations.UpdateTlsCertRequest,
-        security: operations.UpdateTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -367,10 +378,14 @@ export class TlsCertificates {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateTlsCertSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

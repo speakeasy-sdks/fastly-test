@@ -30,7 +30,6 @@ export class Domain {
      */
     async checkDomain(
         req: operations.CheckDomainRequest,
-        security: operations.CheckDomainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CheckDomainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class Domain {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CheckDomainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -105,7 +108,6 @@ export class Domain {
      */
     async checkDomains(
         req: operations.CheckDomainsRequest,
-        security: operations.CheckDomainsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CheckDomainsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -122,10 +124,14 @@ export class Domain {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CheckDomainsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -180,7 +186,6 @@ export class Domain {
      */
     async createDomain(
         req: operations.CreateDomainRequest,
-        security: operations.CreateDomainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDomainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -207,10 +212,14 @@ export class Domain {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateDomainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -273,7 +282,6 @@ export class Domain {
      */
     async deleteDomain(
         req: operations.DeleteDomainRequest,
-        security: operations.DeleteDomainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDomainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -290,10 +298,14 @@ export class Domain {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteDomainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -351,7 +363,6 @@ export class Domain {
      */
     async getDomain(
         req: operations.GetDomainRequest,
-        security: operations.GetDomainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDomainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -368,10 +379,14 @@ export class Domain {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetDomainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -429,7 +444,6 @@ export class Domain {
      */
     async listDomains(
         req: operations.ListDomainsRequest,
-        security: operations.ListDomainsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDomainsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -446,10 +460,14 @@ export class Domain {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListDomainsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -510,7 +528,6 @@ export class Domain {
      */
     async updateDomain(
         req: operations.UpdateDomainRequest,
-        security: operations.UpdateDomainSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDomainResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -537,10 +554,14 @@ export class Domain {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateDomainSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

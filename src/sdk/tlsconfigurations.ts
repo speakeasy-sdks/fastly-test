@@ -30,7 +30,6 @@ export class TlsConfigurations {
      */
     async getTlsConfig(
         req: operations.GetTlsConfigRequest,
-        security: operations.GetTlsConfigSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsConfigResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -47,10 +46,14 @@ export class TlsConfigurations {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTlsConfigSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -109,7 +112,6 @@ export class TlsConfigurations {
      */
     async listTlsConfigs(
         req: operations.ListTlsConfigsRequest,
-        security: operations.ListTlsConfigsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsConfigsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -122,10 +124,14 @@ export class TlsConfigurations {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/configurations";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTlsConfigsSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -184,7 +190,6 @@ export class TlsConfigurations {
      */
     async updateTlsConfig(
         req: operations.UpdateTlsConfigRequest,
-        security: operations.UpdateTlsConfigSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateTlsConfigResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -204,21 +209,21 @@ export class TlsConfigurations {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "tlsConfigurationInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "tlsConfiguration", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateTlsConfigSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

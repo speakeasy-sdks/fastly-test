@@ -21,14 +21,15 @@ Get a single token based on the access_token used in the request.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTokenCurrentResponse, GetTokenCurrentSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetTokenCurrentSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.tokens.getTokenCurrent(operationSecurity).then((res: GetTokenCurrentResponse) => {
+sdk.tokens.getTokenCurrent().then((res: GetTokenCurrentResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -37,10 +38,9 @@ sdk.tokens.getTokenCurrent(operationSecurity).then((res: GetTokenCurrentResponse
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `security`                                                                               | [operations.GetTokenCurrentSecurity](../../models/operations/gettokencurrentsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -56,16 +56,17 @@ List all tokens belonging to a specific customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTokensCustomerResponse, ListTokensCustomerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTokensCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListTokensCustomerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tokens.listTokensCustomer({
   customerId: "x4xCwxxJxGCx123Rx5xTx",
-}, operationSecurity).then((res: ListTokensCustomerResponse) => {
+}).then((res: ListTokensCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -74,11 +75,10 @@ sdk.tokens.listTokensCustomer({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListTokensCustomerRequest](../../models/operations/listtokenscustomerrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListTokensCustomerSecurity](../../models/operations/listtokenscustomersecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListTokensCustomerRequest](../../models/operations/listtokenscustomerrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -94,14 +94,15 @@ List all tokens belonging to the authenticated user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTokensUserResponse, ListTokensUserSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTokensUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListTokensUserSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.tokens.listTokensUser(operationSecurity).then((res: ListTokensUserResponse) => {
+sdk.tokens.listTokensUser().then((res: ListTokensUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,10 +111,9 @@ sdk.tokens.listTokensUser(operationSecurity).then((res: ListTokensUserResponse) 
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `security`                                                                             | [operations.ListTokensUserSecurity](../../models/operations/listtokensusersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -129,16 +129,17 @@ Revoke a specific token by its id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RevokeTokenResponse, RevokeTokenSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { RevokeTokenResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: RevokeTokenSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tokens.revokeToken({
   tokenId: "5Yo3XXnrQpjc20u0ybrf2g",
-}, operationSecurity).then((res: RevokeTokenResponse) => {
+}).then((res: RevokeTokenResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,11 +148,10 @@ sdk.tokens.revokeToken({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.RevokeTokenRequest](../../models/operations/revoketokenrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.RevokeTokenSecurity](../../models/operations/revoketokensecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.RevokeTokenRequest](../../models/operations/revoketokenrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -167,14 +167,15 @@ Revoke a token that is used to authenticate the request.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RevokeTokenCurrentResponse, RevokeTokenCurrentSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { RevokeTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: RevokeTokenCurrentSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.tokens.revokeTokenCurrent(operationSecurity).then((res: RevokeTokenCurrentResponse) => {
+sdk.tokens.revokeTokenCurrent().then((res: RevokeTokenCurrentResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -183,10 +184,9 @@ sdk.tokens.revokeTokenCurrent(operationSecurity).then((res: RevokeTokenCurrentRe
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `security`                                                                                     | [operations.RevokeTokenCurrentSecurity](../../models/operations/revoketokencurrentsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

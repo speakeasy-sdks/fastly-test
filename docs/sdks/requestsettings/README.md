@@ -20,18 +20,19 @@ Removes the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRequestSettingsResponse, DeleteRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteRequestSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.requestSettings.deleteRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: DeleteRequestSettingsResponse) => {
+}).then((res: DeleteRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,11 +41,10 @@ sdk.requestSettings.deleteRequestSettings({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.DeleteRequestSettingsRequest](../../models/operations/deleterequestsettingsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.DeleteRequestSettingsSecurity](../../models/operations/deleterequestsettingssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.DeleteRequestSettingsRequest](../../models/operations/deleterequestsettingsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -60,18 +60,19 @@ Gets the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRequestSettingsResponse, GetRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetRequestSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.requestSettings.getRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: GetRequestSettingsResponse) => {
+}).then((res: GetRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -80,11 +81,10 @@ sdk.requestSettings.getRequestSettings({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetRequestSettingsRequest](../../models/operations/getrequestsettingsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetRequestSettingsSecurity](../../models/operations/getrequestsettingssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetRequestSettingsRequest](../../models/operations/getrequestsettingsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -100,17 +100,18 @@ Returns a list of all Request Settings objects for the given service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRequestSettingsResponse, ListRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListRequestSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.requestSettings.listRequestSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: ListRequestSettingsResponse) => {
+}).then((res: ListRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,11 +120,10 @@ sdk.requestSettings.listRequestSettings({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListRequestSettingsRequest](../../models/operations/listrequestsettingsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.ListRequestSettingsSecurity](../../models/operations/listrequestsettingssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.ListRequestSettingsRequest](../../models/operations/listrequestsettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -139,13 +139,14 @@ Updates the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateRequestSettingsResponse, UpdateRequestSettingsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateRequestSettingsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.requestSettings.updateRequestSettings({
   requestSettings2: {
@@ -165,7 +166,7 @@ sdk.requestSettings.updateRequestSettings({
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
-}, operationSecurity).then((res: UpdateRequestSettingsResponse) => {
+}).then((res: UpdateRequestSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -174,11 +175,10 @@ sdk.requestSettings.updateRequestSettings({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.UpdateRequestSettingsRequest](../../models/operations/updaterequestsettingsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.UpdateRequestSettingsSecurity](../../models/operations/updaterequestsettingssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.UpdateRequestSettingsRequest](../../models/operations/updaterequestsettingsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response

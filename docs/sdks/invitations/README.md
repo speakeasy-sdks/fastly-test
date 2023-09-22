@@ -19,7 +19,7 @@ Create an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateInvitationResponse, CreateInvitationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   InvitationDataAttributesStatusCode,
   RoleUser,
@@ -29,10 +29,11 @@ import {
   TypeServiceInvitation,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateInvitationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.invitations.createInvitation({
   data: {
@@ -63,7 +64,7 @@ sdk.invitations.createInvitation({
     },
     type: TypeInvitation.Invitation,
   },
-}, operationSecurity).then((res: CreateInvitationResponse) => {
+}).then((res: CreateInvitationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -72,11 +73,10 @@ sdk.invitations.createInvitation({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [shared.InvitationInput](../../models/shared/invitationinput.md)                           | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateInvitationSecurity](../../models/operations/createinvitationsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `request`                                                        | [shared.InvitationInput](../../models/shared/invitationinput.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
 
 
 ### Response
@@ -92,16 +92,17 @@ Delete an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteInvitationResponse, DeleteInvitationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteInvitationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.invitations.deleteInvitation({
   invitationId: "3krg2uUGZzb2W9Euo4moOY",
-}, operationSecurity).then((res: DeleteInvitationResponse) => {
+}).then((res: DeleteInvitationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,11 +111,10 @@ sdk.invitations.deleteInvitation({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteInvitationRequest](../../models/operations/deleteinvitationrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteInvitationSecurity](../../models/operations/deleteinvitationsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeleteInvitationRequest](../../models/operations/deleteinvitationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -130,17 +130,18 @@ List all invitations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListInvitationsResponse, ListInvitationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListInvitationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListInvitationsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.invitations.listInvitations({
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListInvitationsResponse) => {
+}).then((res: ListInvitationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -149,11 +150,10 @@ sdk.invitations.listInvitations({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListInvitationsRequest](../../models/operations/listinvitationsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListInvitationsSecurity](../../models/operations/listinvitationssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListInvitationsRequest](../../models/operations/listinvitationsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

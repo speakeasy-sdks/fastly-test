@@ -17,14 +17,15 @@ List all domain-ownerships.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDomainOwnershipsResponse, ListDomainOwnershipsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListDomainOwnershipsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListDomainOwnershipsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.domainOwnerships.listDomainOwnerships(operationSecurity).then((res: ListDomainOwnershipsResponse) => {
+sdk.domainOwnerships.listDomainOwnerships().then((res: ListDomainOwnershipsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -33,10 +34,9 @@ sdk.domainOwnerships.listDomainOwnerships(operationSecurity).then((res: ListDoma
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `security`                                                                                         | [operations.ListDomainOwnershipsSecurity](../../models/operations/listdomainownershipssecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

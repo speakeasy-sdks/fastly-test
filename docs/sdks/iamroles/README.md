@@ -20,16 +20,17 @@ Delete a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteARoleResponse, DeleteARoleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteARoleSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamRoles.deleteARole({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: DeleteARoleResponse) => {
+}).then((res: DeleteARoleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -38,11 +39,10 @@ sdk.iamRoles.deleteARole({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.DeleteARoleRequest](../../models/operations/deletearolerequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.DeleteARoleSecurity](../../models/operations/deletearolesecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.DeleteARoleRequest](../../models/operations/deletearolerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -58,16 +58,17 @@ Get a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetARoleResponse, GetARoleSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetARoleSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamRoles.getARole({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: GetARoleResponse) => {
+}).then((res: GetARoleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,11 +77,10 @@ sdk.iamRoles.getARole({
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.GetARoleRequest](../../models/operations/getarolerequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.GetARoleSecurity](../../models/operations/getarolesecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.GetARoleRequest](../../models/operations/getarolerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
@@ -96,16 +96,17 @@ List all permissions in a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolePermissionsResponse, ListRolePermissionsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRolePermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListRolePermissionsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamRoles.listRolePermissions({
   roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, operationSecurity).then((res: ListRolePermissionsResponse) => {
+}).then((res: ListRolePermissionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -114,11 +115,10 @@ sdk.iamRoles.listRolePermissions({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListRolePermissionsRequest](../../models/operations/listrolepermissionsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.ListRolePermissionsSecurity](../../models/operations/listrolepermissionssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.ListRolePermissionsRequest](../../models/operations/listrolepermissionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -134,17 +134,18 @@ List all roles.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolesResponse, ListRolesSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListRolesSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.iamRoles.listRoles({
   page: 1,
   perPage: 20,
-}, operationSecurity).then((res: ListRolesResponse) => {
+}).then((res: ListRolesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -153,11 +154,10 @@ sdk.iamRoles.listRoles({
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.ListRolesRequest](../../models/operations/listrolesrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.ListRolesSecurity](../../models/operations/listrolessecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListRolesRequest](../../models/operations/listrolesrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response

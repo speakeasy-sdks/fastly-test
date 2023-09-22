@@ -17,14 +17,15 @@ List the public IP addresses for the Fastly network.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListFastlyIpsResponse, ListFastlyIpsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListFastlyIpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListFastlyIpsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
-sdk.publicIpList.listFastlyIps(operationSecurity).then((res: ListFastlyIpsResponse) => {
+sdk.publicIpList.listFastlyIps().then((res: ListFastlyIpsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -33,10 +34,9 @@ sdk.publicIpList.listFastlyIps(operationSecurity).then((res: ListFastlyIpsRespon
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `security`                                                                           | [operations.ListFastlyIpsSecurity](../../models/operations/listfastlyipssecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

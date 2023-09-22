@@ -30,7 +30,6 @@ export class LoggingSumologic {
      */
     async createLogSumologic(
         req: operations.CreateLogSumologicRequest,
-        security: operations.CreateLogSumologicSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSumologicResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,10 +60,14 @@ export class LoggingSumologic {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogSumologicSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -128,7 +131,6 @@ export class LoggingSumologic {
      */
     async deleteLogSumologic(
         req: operations.DeleteLogSumologicRequest,
-        security: operations.DeleteLogSumologicSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSumologicResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -145,10 +147,14 @@ export class LoggingSumologic {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogSumologicSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -207,7 +213,6 @@ export class LoggingSumologic {
      */
     async getLogSumologic(
         req: operations.GetLogSumologicRequest,
-        security: operations.GetLogSumologicSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSumologicResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,10 +229,14 @@ export class LoggingSumologic {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogSumologicSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -285,7 +294,6 @@ export class LoggingSumologic {
      */
     async listLogSumologic(
         req: operations.ListLogSumologicRequest,
-        security: operations.ListLogSumologicSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSumologicResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -302,10 +310,14 @@ export class LoggingSumologic {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogSumologicSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -366,7 +378,6 @@ export class LoggingSumologic {
      */
     async updateLogSumologic(
         req: operations.UpdateLogSumologicRequest,
-        security: operations.UpdateLogSumologicSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSumologicResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -397,10 +408,14 @@ export class LoggingSumologic {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogSumologicSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,

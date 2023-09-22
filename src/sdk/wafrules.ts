@@ -32,7 +32,6 @@ export class WafRules {
      */
     async getWafRule(
         req: operations.GetWafRuleRequest,
-        security: operations.GetWafRuleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,10 +44,14 @@ export class WafRules {
         );
         const url: string = utils.generateURL(baseURL, "/waf/rules/{waf_rule_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetWafRuleSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
@@ -109,7 +112,6 @@ export class WafRules {
      */
     async listWafRules(
         req: operations.ListWafRulesRequest,
-        security: operations.ListWafRulesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafRulesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -122,10 +124,14 @@ export class WafRules {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/waf/rules";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListWafRulesSecurity(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";

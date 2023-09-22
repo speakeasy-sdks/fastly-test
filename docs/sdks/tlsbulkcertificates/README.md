@@ -21,16 +21,17 @@ Destroy a certificate. This disables TLS for all domains listed as SAN entries.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBulkTlsCertResponse, DeleteBulkTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteBulkTlsCertSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsBulkCertificates.deleteBulkTlsCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
-}, operationSecurity).then((res: DeleteBulkTlsCertResponse) => {
+}).then((res: DeleteBulkTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,11 +40,10 @@ sdk.tlsBulkCertificates.deleteBulkTlsCert({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteBulkTlsCertRequest](../../models/operations/deletebulktlscertrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteBulkTlsCertSecurity](../../models/operations/deletebulktlscertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteBulkTlsCertRequest](../../models/operations/deletebulktlscertrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -59,16 +59,17 @@ Retrieve a single certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsBulkCertResponse, GetTlsBulkCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetTlsBulkCertSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsBulkCertificates.getTlsBulkCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
-}, operationSecurity).then((res: GetTlsBulkCertResponse) => {
+}).then((res: GetTlsBulkCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -77,11 +78,10 @@ sdk.tlsBulkCertificates.getTlsBulkCert({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetTlsBulkCertRequest](../../models/operations/gettlsbulkcertrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetTlsBulkCertSecurity](../../models/operations/gettlsbulkcertsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetTlsBulkCertRequest](../../models/operations/gettlsbulkcertrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -97,20 +97,21 @@ List all certificates.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsBulkCertsResponse, ListTlsBulkCertsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListTlsBulkCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: ListTlsBulkCertsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsBulkCertificates.listTlsBulkCerts({
   filterTlsDomainId: "similique",
   pageNumber: 1,
   pageSize: 20,
   sort: Sort.CreatedAt,
-}, operationSecurity).then((res: ListTlsBulkCertsResponse) => {
+}).then((res: ListTlsBulkCertsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,11 +120,10 @@ sdk.tlsBulkCertificates.listTlsBulkCerts({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListTlsBulkCertsRequest](../../models/operations/listtlsbulkcertsrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListTlsBulkCertsSecurity](../../models/operations/listtlsbulkcertssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListTlsBulkCertsRequest](../../models/operations/listtlsbulkcertsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -139,13 +139,14 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBulkTlsCertResponse, UpdateBulkTlsCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { UpdateBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateBulkTlsCertSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsBulkCertificates.updateBulkTlsCert({
   certificateId: "cRTguUGZzb2W9Euo4moOr",
@@ -168,7 +169,7 @@ sdk.tlsBulkCertificates.updateBulkTlsCert({
       type: TypeTlsBulkCertificate.TlsBulkCertificate,
     },
   },
-}, operationSecurity).then((res: UpdateBulkTlsCertResponse) => {
+}).then((res: UpdateBulkTlsCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -177,11 +178,10 @@ sdk.tlsBulkCertificates.updateBulkTlsCert({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateBulkTlsCertRequest](../../models/operations/updatebulktlscertrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateBulkTlsCertSecurity](../../models/operations/updatebulktlscertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.UpdateBulkTlsCertRequest](../../models/operations/updatebulktlscertrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -197,31 +197,32 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UploadTlsBulkCertResponse, UploadTlsBulkCertSecurity } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { UploadTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: UploadTlsBulkCertSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.tlsBulkCertificates.uploadTlsBulkCert({
   attributes: {
     allowUntrustedRoot: false,
     certBlob: "voluptas",
-    intermediatesBlob: "minima",
+    intermediatesBlob: "voluptas",
   },
   relationships: {
-    tlsDomains: {
+    tlsConfigurations: {
       data: [
         {
-          type: TypeTlsDomain.TlsDomain,
+          type: TypeTlsConfiguration.TlsConfiguration,
         },
       ],
     },
   },
   type: TypeTlsBulkCertificate.TlsBulkCertificate,
-}, operationSecurity).then((res: UploadTlsBulkCertResponse) => {
+}).then((res: UploadTlsBulkCertResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -230,11 +231,10 @@ sdk.tlsBulkCertificates.uploadTlsBulkCert({
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [shared.TlsBulkCertificateDataInput](../../models/shared/tlsbulkcertificatedatainput.md)     | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UploadTlsBulkCertSecurity](../../models/operations/uploadtlsbulkcertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [shared.TlsBulkCertificateDataInput](../../models/shared/tlsbulkcertificatedatainput.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response

@@ -30,7 +30,6 @@ export class Http3 {
      */
     async createHttp3(
         req: operations.CreateHttp3Request,
-        security: operations.CreateHttp3Security,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateHttp3Response> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,10 +56,14 @@ export class Http3 {
             }
         }
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateHttp3Security(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
             ...reqBodyHeaders,
             ...config?.headers,
@@ -120,7 +123,6 @@ export class Http3 {
      */
     async deleteHttp3(
         req: operations.DeleteHttp3Request,
-        security: operations.DeleteHttp3Security,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteHttp3Response> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -137,10 +139,14 @@ export class Http3 {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteHttp3Security(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
@@ -198,7 +204,6 @@ export class Http3 {
      */
     async getHttp3(
         req: operations.GetHttp3Request,
-        security: operations.GetHttp3Security,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHttp3Response> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -215,10 +220,14 @@ export class Http3 {
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetHttp3Security(security);
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const properties = utils.parseSecurityProperties(security);
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 

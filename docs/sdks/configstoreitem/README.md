@@ -23,13 +23,14 @@ Add multiple key-value pairs to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateConfigStoreItemResponse, BulkUpdateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { BulkUpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: BulkUpdateConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.bulkUpdateConfigStoreItem({
   bulkUpdateConfigStoreListRequest: {
@@ -42,7 +43,7 @@ sdk.configStoreItem.bulkUpdateConfigStoreItem({
     ],
   },
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, operationSecurity).then((res: BulkUpdateConfigStoreItemResponse) => {
+}).then((res: BulkUpdateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -51,11 +52,10 @@ sdk.configStoreItem.bulkUpdateConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.BulkUpdateConfigStoreItemRequest](../../models/operations/bulkupdateconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.BulkUpdateConfigStoreItemSecurity](../../models/operations/bulkupdateconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.BulkUpdateConfigStoreItemRequest](../../models/operations/bulkupdateconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
@@ -71,12 +71,13 @@ Add a single key-value pair to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConfigStoreItemResponse, CreateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreateConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.createConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -84,7 +85,7 @@ sdk.configStoreItem.createConfigStoreItem({
     itemKey: "test-key",
     itemValue: "test-value",
   },
-}, operationSecurity).then((res: CreateConfigStoreItemResponse) => {
+}).then((res: CreateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -93,11 +94,10 @@ sdk.configStoreItem.createConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.CreateConfigStoreItemRequest](../../models/operations/createconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.CreateConfigStoreItemSecurity](../../models/operations/createconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.CreateConfigStoreItemRequest](../../models/operations/createconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -113,17 +113,18 @@ Delete an entry in a config store given a config store ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConfigStoreItemResponse, DeleteConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.deleteConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
   configStoreItemKey: "test-key",
-}, operationSecurity).then((res: DeleteConfigStoreItemResponse) => {
+}).then((res: DeleteConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -132,11 +133,10 @@ sdk.configStoreItem.deleteConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.DeleteConfigStoreItemRequest](../../models/operations/deleteconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.DeleteConfigStoreItemSecurity](../../models/operations/deleteconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.DeleteConfigStoreItemRequest](../../models/operations/deleteconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -152,17 +152,18 @@ Retrieve a config store entry given a config store ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConfigStoreItemResponse, GetConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.getConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
   configStoreItemKey: "test-key",
-}, operationSecurity).then((res: GetConfigStoreItemResponse) => {
+}).then((res: GetConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -171,11 +172,10 @@ sdk.configStoreItem.getConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetConfigStoreItemRequest](../../models/operations/getconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetConfigStoreItemSecurity](../../models/operations/getconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetConfigStoreItemRequest](../../models/operations/getconfigstoreitemrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -191,16 +191,17 @@ List the key-value pairs associated with a given config store ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConfigStoreItemsResponse, ListConfigStoreItemsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListConfigStoreItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListConfigStoreItemsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.listConfigStoreItems({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}, operationSecurity).then((res: ListConfigStoreItemsResponse) => {
+}).then((res: ListConfigStoreItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -209,11 +210,10 @@ sdk.configStoreItem.listConfigStoreItems({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.ListConfigStoreItemsRequest](../../models/operations/listconfigstoreitemsrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ListConfigStoreItemsSecurity](../../models/operations/listconfigstoreitemssecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListConfigStoreItemsRequest](../../models/operations/listconfigstoreitemsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -229,12 +229,13 @@ Update an entry in a config store given a config store ID, item key, and item va
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConfigStoreItemResponse, UpdateConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdateConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.updateConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -243,7 +244,7 @@ sdk.configStoreItem.updateConfigStoreItem({
     itemValue: "test-value",
   },
   configStoreItemKey: "test-key",
-}, operationSecurity).then((res: UpdateConfigStoreItemResponse) => {
+}).then((res: UpdateConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -252,11 +253,10 @@ sdk.configStoreItem.updateConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.UpdateConfigStoreItemRequest](../../models/operations/updateconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.UpdateConfigStoreItemSecurity](../../models/operations/updateconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.UpdateConfigStoreItemRequest](../../models/operations/updateconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
@@ -272,12 +272,13 @@ Insert or update an entry in a config store given a config store ID, item key, a
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertConfigStoreItemResponse, UpsertConfigStoreItemSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpsertConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpsertConfigStoreItemSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.configStoreItem.upsertConfigStoreItem({
   configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
@@ -286,7 +287,7 @@ sdk.configStoreItem.upsertConfigStoreItem({
     itemValue: "test-value",
   },
   configStoreItemKey: "test-key",
-}, operationSecurity).then((res: UpsertConfigStoreItemResponse) => {
+}).then((res: UpsertConfigStoreItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -295,11 +296,10 @@ sdk.configStoreItem.upsertConfigStoreItem({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.UpsertConfigStoreItemRequest](../../models/operations/upsertconfigstoreitemrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.UpsertConfigStoreItemSecurity](../../models/operations/upsertconfigstoreitemsecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.UpsertConfigStoreItemRequest](../../models/operations/upsertconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response

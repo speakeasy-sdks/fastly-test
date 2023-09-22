@@ -21,13 +21,14 @@ Create a mutual authentication using a bundle of certificates to enable client-t
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateMutualTlsAuthenticationResponse, CreateMutualTlsAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreateMutualTlsAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: CreateMutualTlsAuthenticationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.mutualAuthentication.createMutualTlsAuthentication({
   data: {
@@ -47,7 +48,7 @@ sdk.mutualAuthentication.createMutualTlsAuthentication({
     },
     type: TypeMutualAuthentication.MutualAuthentication,
   },
-}, operationSecurity).then((res: CreateMutualTlsAuthenticationResponse) => {
+}).then((res: CreateMutualTlsAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,11 +57,10 @@ sdk.mutualAuthentication.createMutualTlsAuthentication({
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                            | [shared.MutualAuthenticationInput](../../models/shared/mutualauthenticationinput.md)                                 | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
-| `security`                                                                                                           | [operations.CreateMutualTlsAuthenticationSecurity](../../models/operations/createmutualtlsauthenticationsecurity.md) | :heavy_check_mark:                                                                                                   | The security requirements to use for the request.                                                                    |
-| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [shared.MutualAuthenticationInput](../../models/shared/mutualauthenticationinput.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -76,16 +76,17 @@ Remove a Mutual TLS authentication
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteMutualTlsResponse, DeleteMutualTlsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeleteMutualTlsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeleteMutualTlsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.mutualAuthentication.deleteMutualTls({
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, operationSecurity).then((res: DeleteMutualTlsResponse) => {
+}).then((res: DeleteMutualTlsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,11 +95,10 @@ sdk.mutualAuthentication.deleteMutualTls({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeleteMutualTlsRequest](../../models/operations/deletemutualtlsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteMutualTlsSecurity](../../models/operations/deletemutualtlssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteMutualTlsRequest](../../models/operations/deletemutualtlsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -114,17 +114,18 @@ Show a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetMutualAuthenticationResponse, GetMutualAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetMutualAuthenticationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.mutualAuthentication.getMutualAuthentication({
   include: "culpa",
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, operationSecurity).then((res: GetMutualAuthenticationResponse) => {
+}).then((res: GetMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -133,11 +134,10 @@ sdk.mutualAuthentication.getMutualAuthentication({
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetMutualAuthenticationRequest](../../models/operations/getmutualauthenticationrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `security`                                                                                               | [operations.GetMutualAuthenticationSecurity](../../models/operations/getmutualauthenticationsecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.GetMutualAuthenticationRequest](../../models/operations/getmutualauthenticationrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
@@ -153,18 +153,19 @@ List all mutual authentications.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListMutualAuthenticationsResponse, ListMutualAuthenticationsSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListMutualAuthenticationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListMutualAuthenticationsSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.mutualAuthentication.listMutualAuthentications({
   include: "aliquid",
   pageNumber: 1,
   pageSize: 20,
-}, operationSecurity).then((res: ListMutualAuthenticationsResponse) => {
+}).then((res: ListMutualAuthenticationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -173,11 +174,10 @@ sdk.mutualAuthentication.listMutualAuthentications({
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.ListMutualAuthenticationsRequest](../../models/operations/listmutualauthenticationsrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.ListMutualAuthenticationsSecurity](../../models/operations/listmutualauthenticationssecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.ListMutualAuthenticationsRequest](../../models/operations/listmutualauthenticationsrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
@@ -193,13 +193,14 @@ Update a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PatchMutualAuthenticationResponse, PatchMutualAuthenticationSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { PatchMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
-const operationSecurity: PatchMutualAuthenticationSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.mutualAuthentication.patchMutualAuthentication({
   mutualAuthenticationInput: {
@@ -222,7 +223,7 @@ sdk.mutualAuthentication.patchMutualAuthentication({
     },
   },
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}, operationSecurity).then((res: PatchMutualAuthenticationResponse) => {
+}).then((res: PatchMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -231,11 +232,10 @@ sdk.mutualAuthentication.patchMutualAuthentication({
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.PatchMutualAuthenticationRequest](../../models/operations/patchmutualauthenticationrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.PatchMutualAuthenticationSecurity](../../models/operations/patchmutualauthenticationsecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.PatchMutualAuthenticationRequest](../../models/operations/patchmutualauthenticationrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response

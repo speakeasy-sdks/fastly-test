@@ -21,12 +21,13 @@ Creates a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreatePoolServerResponse, CreatePoolServerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { CreatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: CreatePoolServerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.server.createPoolServer({
   poolId: "2Yd1WfiCBPENLloXfXmlO",
@@ -40,7 +41,7 @@ sdk.server.createPoolServer({
     weight: 937285,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: CreatePoolServerResponse) => {
+}).then((res: CreatePoolServerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -49,11 +50,10 @@ sdk.server.createPoolServer({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreatePoolServerRequest](../../models/operations/createpoolserverrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreatePoolServerSecurity](../../models/operations/createpoolserversecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.CreatePoolServerRequest](../../models/operations/createpoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -69,18 +69,19 @@ Deletes a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeletePoolServerResponse, DeletePoolServerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { DeletePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: DeletePoolServerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.server.deletePoolServer({
   poolId: "2Yd1WfiCBPENLloXfXmlO",
   serverId: "6kEuoknxiaDBCLiAjKqyXq",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: DeletePoolServerResponse) => {
+}).then((res: DeletePoolServerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -89,11 +90,10 @@ sdk.server.deletePoolServer({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeletePoolServerRequest](../../models/operations/deletepoolserverrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeletePoolServerSecurity](../../models/operations/deletepoolserversecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeletePoolServerRequest](../../models/operations/deletepoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -109,18 +109,19 @@ Gets a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetPoolServerResponse, GetPoolServerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { GetPoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: GetPoolServerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.server.getPoolServer({
   poolId: "2Yd1WfiCBPENLloXfXmlO",
   serverId: "6kEuoknxiaDBCLiAjKqyXq",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: GetPoolServerResponse) => {
+}).then((res: GetPoolServerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -129,11 +130,10 @@ sdk.server.getPoolServer({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetPoolServerRequest](../../models/operations/getpoolserverrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetPoolServerSecurity](../../models/operations/getpoolserversecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetPoolServerRequest](../../models/operations/getpoolserverrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -149,17 +149,18 @@ Lists all servers for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPoolServersResponse, ListPoolServersSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListPoolServersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: ListPoolServersSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.server.listPoolServers({
   poolId: "2Yd1WfiCBPENLloXfXmlO",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: ListPoolServersResponse) => {
+}).then((res: ListPoolServersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -168,11 +169,10 @@ sdk.server.listPoolServers({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListPoolServersRequest](../../models/operations/listpoolserversrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListPoolServersSecurity](../../models/operations/listpoolserverssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListPoolServersRequest](../../models/operations/listpoolserversrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -188,12 +188,13 @@ Updates a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdatePoolServerResponse, UpdatePoolServerSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-const operationSecurity: UpdatePoolServerSecurity = {
-  token: "",
-};
+const sdk = new Fastly({
+  security: {
+    token: "",
+  },
+});
 
 sdk.server.updatePoolServer({
   poolId: "2Yd1WfiCBPENLloXfXmlO",
@@ -208,7 +209,7 @@ sdk.server.updatePoolServer({
   },
   serverId: "6kEuoknxiaDBCLiAjKqyXq",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, operationSecurity).then((res: UpdatePoolServerResponse) => {
+}).then((res: UpdatePoolServerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -217,11 +218,10 @@ sdk.server.updatePoolServer({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.UpdatePoolServerRequest](../../models/operations/updatepoolserverrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.UpdatePoolServerSecurity](../../models/operations/updatepoolserversecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.UpdatePoolServerRequest](../../models/operations/updatepoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
