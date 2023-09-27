@@ -1,4 +1,5 @@
 # LoggingPubsub
+(*loggingPubsub*)
 
 ## Overview
 

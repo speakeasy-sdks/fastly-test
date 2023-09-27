@@ -1,4 +1,5 @@
 # LoggingAzureblob
+(*loggingAzureblob*)
 
 ## Overview
 

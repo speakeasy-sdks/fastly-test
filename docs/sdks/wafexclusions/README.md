@@ -1,4 +1,5 @@
 # WafExclusions
+(*wafExclusions*)
 
 ## Overview
 

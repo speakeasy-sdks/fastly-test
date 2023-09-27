@@ -1,4 +1,5 @@
 # LoggingHoneycomb
+(*loggingHoneycomb*)
 
 ## Overview
 

@@ -1,4 +1,5 @@
 # WafTags
+(*wafTags*)
 
 ## Overview
 
