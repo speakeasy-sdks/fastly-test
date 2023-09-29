@@ -31,8 +31,8 @@ const sdk = new Fastly({
 
 sdk.kvStoreItem.deleteKeyFromStore({
   force: false,
-  keyName: "perferendis",
-  storeId: "dolores",
+  keyName: "South Recumbent yuppify",
+  storeId: "Factors turning Electric",
 }).then((res: DeleteKeyFromStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,10 +70,10 @@ const sdk = new Fastly({
 });
 
 sdk.kvStoreItem.getKeys({
-  cursor: "minus",
-  limit: 463451,
-  prefix: "dolor",
-  storeId: "vero",
+  cursor: "scoot",
+  limit: 474500,
+  prefix: "asymmetric midst official",
+  storeId: "Sports Music Health",
 }).then((res: GetKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -111,8 +111,8 @@ const sdk = new Fastly({
 });
 
 sdk.kvStoreItem.getValueForKey({
-  keyName: "nostrum",
-  storeId: "hic",
+  keyName: "rehome lumen Vista",
+  storeId: "turquoise incentivize joule",
 }).then((res: GetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -150,16 +150,16 @@ const sdk = new Fastly({
 });
 
 sdk.kvStoreItem.setValueForKey({
-  requestBody: "recusandae",
+  requestBody: "Cotton Kia",
   add: false,
   append: false,
   backgroundFetch: false,
-  ifGenerationMatch: 608253,
-  keyName: "facilis",
-  metadata: "perspiciatis",
+  ifGenerationMatch: 808354,
+  keyName: "ick",
+  metadata: "harum Branding joule",
   prepend: false,
-  storeId: "voluptatem",
-  timeToLiveSec: 783645,
+  storeId: "lavender override Assimilated",
+  timeToLiveSec: 284898,
 }).then((res: SetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response

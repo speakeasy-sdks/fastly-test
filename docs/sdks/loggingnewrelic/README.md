@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingNewrelic.createLogNewrelic({
-  loggingNewrelic3: {
-    format: "aut",
-    formatVersion: LoggingNewrelicFormatVersion.Two,
+  loggingNewrelic: {
+    format: "copy Tigard",
+    formatVersion: LoggingNewrelicFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
     region: LoggingNewrelicRegion.Us,
     responseCondition: "null",
-    token: "fugit",
+    token: "Sports plantation unless",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingNewrelic.updateLogNewrelic({
-  loggingNewrelic3: {
-    format: "accusamus",
+  loggingNewrelic: {
+    format: "Carolina invoice pink",
     formatVersion: LoggingNewrelicFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingNewrelicPlacement.None,
-    region: LoggingNewrelicRegion.Us,
+    region: LoggingNewrelicRegion.Eu,
     responseCondition: "null",
-    token: "dolorum",
+    token: "Colorado jittery",
   },
   loggingNewrelicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

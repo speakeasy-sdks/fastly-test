@@ -43,15 +43,15 @@ const sdk = new Fastly({
 sdk.wafActiveRules.bulkUpdateWafActiveRules({
   bulkWafActiveRuleInput: {
     attributes: {
-      modsecRuleId: 273009,
+      modsecRuleId: 492455,
       revision: 2,
-      status: BulkWafActiveRuleAttributesStatus.Score,
+      status: BulkWafActiveRuleAttributesStatus.Log,
     },
     relationships: {
-      wafFirewallVersion: {
+      wafRuleRevisions: {
         data: [
           {
-            type: TypeWafFirewallVersion.WafFirewallVersion,
+            type: TypeWafRuleRevision.WafRuleRevision,
           },
         ],
       },
@@ -109,8 +109,8 @@ sdk.wafActiveRules.createWafActiveRule({
     data: [
       {
         attributes: {
-          modsecRuleId: 25497,
-          revision: 2,
+          modsecRuleId: 640840,
+          revision: "latest",
           status: WafActiveRuleDataAttributesStatus.Score,
         },
         relationships: {
@@ -178,9 +178,9 @@ sdk.wafActiveRules.createWafActiveRulesTag({
   wafActiveRuleInput: {
     data: {
       attributes: {
-        modsecRuleId: 708609,
+        modsecRuleId: 645125,
         revision: 2,
-        status: WafActiveRuleDataAttributesStatus.Log,
+        status: WafActiveRuleDataAttributesStatus.Score,
       },
       relationships: {
         wafFirewallVersion: {
@@ -319,10 +319,10 @@ const sdk = new Fastly({
 });
 
 sdk.wafActiveRules.listWafActiveRules({
-  filterOutdated: "debitis",
-  filterStatus: "rem",
-  filterWafRuleRevisionMessage: "sit",
-  filterWafRuleRevisionModsecRuleId: "nobis",
+  filterOutdated: "Rutherfordium Account and",
+  filterStatus: "Tricycle anti Hartford",
+  filterWafRuleRevisionMessage: "delectus Metical deposit",
+  filterWafRuleRevisionModsecRuleId: "National",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: "waf_rule_revision,waf_firewall_version",
   pageNumber: 1,
@@ -378,9 +378,9 @@ sdk.wafActiveRules.updateWafActiveRule({
   wafActiveRuleInput: {
     data: {
       attributes: {
-        modsecRuleId: 625637,
-        revision: 2,
-        status: WafActiveRuleDataAttributesStatus.Log,
+        modsecRuleId: 627655,
+        revision: "latest",
+        status: WafActiveRuleDataAttributesStatus.Score,
       },
       relationships: {
         wafRuleRevisions: {

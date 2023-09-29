@@ -70,10 +70,10 @@ const sdk = new Fastly({
 sdk.settings.updateServiceSettings({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   settings: {
-    generalDefaultHost: "dignissimos",
-    generalDefaultTtl: 950953,
+    generalDefaultHost: "Pants iste",
+    generalDefaultTtl: 994466,
     generalStaleIfError: false,
-    generalStaleIfErrorTtl: 891523,
+    generalStaleIfErrorTtl: 822979,
   },
   versionId: 1,
 }).then((res: UpdateServiceSettingsResponse) => {

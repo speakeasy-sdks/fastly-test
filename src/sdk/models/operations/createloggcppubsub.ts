@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogGcpPubsubRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingGooglePubsub2?: shared.LoggingGooglePubsub2;
+    loggingGooglePubsub?: shared.LoggingGooglePubsub;
 
     /**
      * Alphanumeric string identifying the service.

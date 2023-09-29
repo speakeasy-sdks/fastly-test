@@ -34,8 +34,8 @@ const sdk = new Fastly({
 sdk.tlsCertificates.createTlsCert({
   data: {
     attributes: {
-      certBlob: "minima",
-      name: "Wilbur Ferry",
+      certBlob: "Gloves SQL Dubnium",
+      name: "Avon Electric",
     },
     relationships: {
       tlsDomains: {
@@ -162,13 +162,13 @@ const sdk = new Fastly({
 });
 
 sdk.tlsCertificates.listTlsCerts({
-  filterInUse: "blanditiis",
-  filterNotAfter: "in",
-  filterTlsDomainsId: "dolore",
-  include: "aliquam",
+  filterInUse: "Northwest overriding plum",
+  filterNotAfter: "Dollar",
+  filterTlsDomainsId: "Corporate Customer",
+  include: "Passage Blues",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.MinusCreatedAt,
+  sort: Sort.CreatedAt,
 }).then((res: ListTlsCertsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -210,8 +210,8 @@ sdk.tlsCertificates.updateTlsCert({
   tlsCertificateInput: {
     data: {
       attributes: {
-        certBlob: "temporibus",
-        name: "Sherry Ritchie",
+        certBlob: "male Klocko North",
+        name: "National",
       },
       relationships: {
         tlsDomains: {

@@ -14,7 +14,7 @@ export class CreateSnippetRequest extends SpeakeasyBase {
     serviceId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    snippet2?: shared.Snippet2;
+    snippet?: shared.Snippet;
 
     /**
      * Integer identifying a service version.

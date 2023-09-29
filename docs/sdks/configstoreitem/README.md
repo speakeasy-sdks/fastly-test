@@ -39,7 +39,7 @@ sdk.configStoreItem.bulkUpdateConfigStoreItem({
       {
         itemKey: "test-key",
         itemValue: "test-value",
-        op: BulkUpdateConfigStoreItemOp.Create,
+        op: BulkUpdateConfigStoreItemOp.Update,
       },
     ],
   },

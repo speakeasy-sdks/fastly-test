@@ -32,13 +32,13 @@ const sdk = new Fastly({
 });
 
 sdk.loggingPapertrail.createLogPapertrail({
-  loggingPapertrail2: {
+  loggingPapertrail: {
     address: "example.com",
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingPapertrailFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingPapertrailPlacement.WafDebug,
-    port: 301598,
+    placement: LoggingPapertrailPlacement.LessThanNilGreaterThan,
+    port: 236529,
     responseCondition: "null",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -200,13 +200,13 @@ const sdk = new Fastly({
 });
 
 sdk.loggingPapertrail.updateLogPapertrail({
-  loggingPapertrail2: {
+  loggingPapertrail: {
     address: "example.com",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingPapertrailFormatVersion.One,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingPapertrailFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingPapertrailPlacement.None,
-    port: 458515,
+    placement: LoggingPapertrailPlacement.WafDebug,
+    port: 486742,
     responseCondition: "null",
   },
   loggingPapertrailName: "test-log-endpoint",

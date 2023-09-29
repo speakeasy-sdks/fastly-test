@@ -161,9 +161,9 @@ const sdk = new Fastly({
 });
 
 sdk.tlsActivations.listTlsActivations({
-  filterTlsCertificateId: "libero",
-  filterTlsConfigurationId: "vitae",
-  filterTlsDomainId: "accusamus",
+  filterTlsCertificateId: "Classical North programming",
+  filterTlsConfigurationId: "cyan Heights lumen",
+  filterTlsDomainId: "maximize after",
   include: "tls_certificate,tls_configuration,tls_domain",
   pageNumber: 1,
   pageSize: 20,

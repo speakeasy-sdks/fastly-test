@@ -30,7 +30,7 @@ const sdk = new Fastly({
 });
 
 sdk.apexRedirect.deleteApexRedirect({
-  apexRedirectId: "illum",
+  apexRedirectId: "mole South Manganese",
 }).then((res: DeleteApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,7 +68,7 @@ const sdk = new Fastly({
 });
 
 sdk.apexRedirect.getApexRedirect({
-  apexRedirectId: "vel",
+  apexRedirectId: "below Metrics port",
 }).then((res: GetApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,12 +148,12 @@ const sdk = new Fastly({
 sdk.apexRedirect.updateApexRedirect({
   apexRedirectInput: {
     domains: [
-      "error",
+      "SUV",
     ],
-    featureRevision: 645894,
+    featureRevision: 666790,
     statusCode: ApexRedirectStatusCode.ThreeHundredAndTwo,
   },
-  apexRedirectId: "iure",
+  apexRedirectId: "shingle Music",
 }).then((res: UpdateApexRedirectResponse) => {
   if (res.statusCode == 200) {
     // handle response

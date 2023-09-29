@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogScalyrRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingScalyr3?: shared.LoggingScalyr3;
+    loggingScalyr?: shared.LoggingScalyr;
 
     /**
      * The name for the real-time logging configuration.

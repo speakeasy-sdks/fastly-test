@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogScalyrRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingScalyr3?: shared.LoggingScalyr3;
+    loggingScalyr?: shared.LoggingScalyr;
 
     /**
      * Alphanumeric string identifying the service.

@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogHerokuRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHeroku2?: shared.LoggingHeroku2;
+    loggingHeroku?: shared.LoggingHeroku;
 
     /**
      * The name for the real-time logging configuration.

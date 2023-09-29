@@ -38,8 +38,8 @@ sdk.wafFirewalls.createWafFirewall({
   data: {
     attributes: {
       disabled: false,
-      prefetchCondition: "delectus",
-      response: "voluptates",
+      prefetchCondition: "Djibouti",
+      response: "duh",
     },
     type: TypeWafFirewall.WafFirewall,
   },
@@ -89,8 +89,8 @@ sdk.wafFirewalls.deleteWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "perferendis",
-        response: "est",
+        prefetchCondition: "Barium microchip Forward",
+        response: "mass Bromine",
       },
       type: TypeWafFirewall.WafFirewall,
     },
@@ -135,7 +135,7 @@ const sdk = new Fastly({
 });
 
 sdk.wafFirewalls.getWafFirewall({
-  filterServiceVersionNumber: "quidem",
+  filterServiceVersionNumber: "Touring subsidize",
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   include: FirewallInclude.WafFirewallVersions,
 }).then((res: GetWafFirewallResponse) => {
@@ -178,8 +178,8 @@ const sdk = new Fastly({
 });
 
 sdk.wafFirewalls.listWafFirewalls({
-  filterServiceId: "reprehenderit",
-  filterServiceVersionNumber: "facere",
+  filterServiceId: "into coulomb",
+  filterServiceVersionNumber: "Southwest portal Frozen",
   include: FirewallInclude.WafFirewallVersions,
   pageNumber: 1,
   pageSize: 20,
@@ -229,8 +229,8 @@ sdk.wafFirewalls.updateWafFirewall({
     data: {
       attributes: {
         disabled: false,
-        prefetchCondition: "fuga",
-        response: "praesentium",
+        prefetchCondition: "Cyclocross Music",
+        response: "North saepe",
       },
       type: TypeWafFirewall.WafFirewall,
     },

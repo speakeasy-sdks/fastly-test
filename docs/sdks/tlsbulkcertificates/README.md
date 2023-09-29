@@ -108,10 +108,10 @@ const sdk = new Fastly({
 });
 
 sdk.tlsBulkCertificates.listTlsBulkCerts({
-  filterTlsDomainId: "similique",
+  filterTlsDomainId: "lavender",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.CreatedAt,
+  sort: Sort.MinusCreatedAt,
 }).then((res: ListTlsBulkCertsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -155,8 +155,8 @@ sdk.tlsBulkCertificates.updateBulkTlsCert({
     data: {
       attributes: {
         allowUntrustedRoot: false,
-        certBlob: "aspernatur",
-        intermediatesBlob: "voluptas",
+        certBlob: "Cadillac",
+        intermediatesBlob: "Officer Electronics Mountain",
       },
       relationships: {
         tlsConfigurations: {
@@ -210,8 +210,8 @@ const sdk = new Fastly({
 sdk.tlsBulkCertificates.uploadTlsBulkCert({
   attributes: {
     allowUntrustedRoot: false,
-    certBlob: "voluptas",
-    intermediatesBlob: "voluptas",
+    certBlob: "Representative Corporate",
+    intermediatesBlob: "Computers eclipse Fitness",
   },
   relationships: {
     tlsConfigurations: {

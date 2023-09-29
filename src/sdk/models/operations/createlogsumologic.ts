@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogSumologicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSumologic2?: shared.LoggingSumologic2;
+    loggingSumologic?: shared.LoggingSumologic;
 
     /**
      * Alphanumeric string identifying the service.

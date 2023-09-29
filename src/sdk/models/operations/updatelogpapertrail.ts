@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogPapertrailRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingPapertrail2?: shared.LoggingPapertrail2;
+    loggingPapertrail?: shared.LoggingPapertrail;
 
     /**
      * The name for the real-time logging configuration.

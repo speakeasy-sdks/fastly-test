@@ -68,11 +68,11 @@ const sdk = new Fastly({
 });
 
 sdk.package.putPackage({
-  expect: "libero",
+  expect: "hacking Iowa",
   packageUpload: {
     package: {
-      content: "illum".encode(),
-      package: "soluta",
+      content: "\xXmX%2z)R" as bytes <<<>>>,
+      package: "haptic",
     },
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

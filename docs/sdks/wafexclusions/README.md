@@ -46,18 +46,18 @@ sdk.wafExclusions.createWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "reiciendis",
-        exclusionType: WafExclusionDataAttributesExclusionType.Waf,
+        condition: "override Central",
+        exclusionType: WafExclusionDataAttributesExclusionType.Rule,
         logging: false,
-        name: "Deborah Turcotte",
+        name: "navigate magenta",
         number: 1,
         variable: WafExclusionDataAttributesVariable.ReqPost,
       },
       relationships: {
-        wafRuleRevisions: {
+        wafRules: {
           data: [
             {
-              type: TypeWafRuleRevision.WafRuleRevision,
+              type: TypeWafRule.WafRule,
             },
           ],
         },
@@ -188,9 +188,9 @@ const sdk = new Fastly({
 });
 
 sdk.wafExclusions.listWafRuleExclusions({
-  filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Rule,
-  filterName: "laudantium",
-  filterWafRulesModsecRuleId: 348476,
+  filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Waf,
+  filterName: "Factors Central Ukraine",
+  filterWafRulesModsecRuleId: 212442,
   firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
   firewallVersionNumber: 1,
   include: "waf_rules",
@@ -248,18 +248,18 @@ sdk.wafExclusions.updateWafRuleExclusion({
   wafExclusionInput: {
     data: {
       attributes: {
-        condition: "praesentium",
-        exclusionType: WafExclusionDataAttributesExclusionType.Waf,
+        condition: "Van female",
+        exclusionType: WafExclusionDataAttributesExclusionType.Rule,
         logging: false,
-        name: "Lee Lehner",
+        name: "Bicycle Buckinghamshire aged",
         number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqQs,
+        variable: WafExclusionDataAttributesVariable.ReqPost,
       },
       relationships: {
-        wafRuleRevisions: {
+        wafRules: {
           data: [
             {
-              type: TypeWafRuleRevision.WafRuleRevision,
+              type: TypeWafRule.WafRule,
             },
           ],
         },

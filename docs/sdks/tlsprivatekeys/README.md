@@ -33,8 +33,8 @@ const sdk = new Fastly({
 sdk.tlsPrivateKeys.createTlsKey({
   data: {
     attributes: {
-      key: "reiciendis",
-      name: "Jaime Quigley",
+      key: "<key>",
+      name: "white pascal Central",
     },
     relationships: {
       tlsActivations: {
@@ -160,7 +160,7 @@ const sdk = new Fastly({
 });
 
 sdk.tlsPrivateKeys.listTlsKeys({
-  filterInUse: "ab",
+  filterInUse: "Customer bypass",
   pageNumber: 1,
   pageSize: 20,
 }).then((res: ListTlsKeysResponse) => {

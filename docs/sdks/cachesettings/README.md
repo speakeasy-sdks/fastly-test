@@ -32,12 +32,12 @@ const sdk = new Fastly({
 });
 
 sdk.cacheSettings.createCacheSettings({
-  cacheSetting1: {
-    action: CacheSettingAction.Cache,
+  cacheSetting: {
+    action: CacheSettingAction.Restart,
     cacheCondition: "null",
     name: "test-cache-setting",
-    staleTtl: 282807,
-    ttl: 979587,
+    staleTtl: 810916,
+    ttl: 569974,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -198,12 +198,12 @@ const sdk = new Fastly({
 });
 
 sdk.cacheSettings.updateCacheSettings({
-  cacheSetting1: {
+  cacheSetting: {
     action: CacheSettingAction.Pass,
     cacheCondition: "null",
     name: "test-cache-setting",
-    staleTtl: 359444,
-    ttl: 296140,
+    staleTtl: 274991,
+    ttl: 744463,
   },
   cacheSettingsName: "test-cache-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

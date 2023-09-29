@@ -35,7 +35,7 @@ const sdk = new Fastly({
 
 sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
   requestBody: {
-    "iste": "dolore",
+    "ad": "Principal",
   },
   tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
   tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
@@ -86,7 +86,7 @@ sdk.tlsSubscriptions.createTlsSub({
   tlsSubscriptionInput: {
     data: {
       attributes: {
-        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.Globalsign,
+        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
       },
       relationships: {
         tlsDomains: {
@@ -137,9 +137,9 @@ const sdk = new Fastly({
 });
 
 sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-  globalsignEmailChallengeId: "in",
-  tlsAuthorizationId: "commodi",
-  tlsSubscriptionId: "quidem",
+  globalsignEmailChallengeId: "Southwest",
+  tlsAuthorizationId: "reciprocal",
+  tlsSubscriptionId: "West for",
 }).then((res: DeleteGlobalsignEmailChallengeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,8 +256,8 @@ const sdk = new Fastly({
 
 sdk.tlsSubscriptions.listTlsSubs({
   filterHasActiveOrder: false,
-  filterState: "explicabo",
-  filterTlsDomainsId: "voluptas",
+  filterState: "Metal Dobra Electric",
+  filterTlsDomainsId: "omnis North IP",
   include: "tls_authorizations",
   pageNumber: 1,
   pageSize: 20,
@@ -309,13 +309,13 @@ sdk.tlsSubscriptions.patchTlsSub({
   tlsSubscriptionInput: {
     data: {
       attributes: {
-        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
+        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.Globalsign,
       },
       relationships: {
-        tlsDomains: {
+        tlsCertificates: {
           data: [
             {
-              type: TypeTlsDomain.TlsDomain,
+              type: TypeTlsCertificate.TlsCertificate,
             },
           ],
         },

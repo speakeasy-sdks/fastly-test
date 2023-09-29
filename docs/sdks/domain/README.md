@@ -113,7 +113,7 @@ const sdk = new Fastly({
 
 sdk.domain.createDomain({
   domain: {
-    comment: "natus",
+    comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
     name: "www.example.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -275,7 +275,7 @@ const sdk = new Fastly({
 
 sdk.domain.updateDomain({
   domain: {
-    comment: "nobis",
+    comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
     name: "www.example.com",
   },
   domainName: "www.example.com",

@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingHeroku.createLogHeroku({
-  loggingHeroku2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingHerokuFormatVersion.One,
+  loggingHeroku: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingHerokuFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.None,
+    placement: LoggingHerokuPlacement.WafDebug,
     responseCondition: "null",
-    token: "quas",
-    url: "itaque",
+    token: "female",
+    url: "http://minor-handover.net",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingHeroku.updateLogHeroku({
-  loggingHeroku2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingHeroku: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingHerokuFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.LessThanNilGreaterThan,
+    placement: LoggingHerokuPlacement.WafDebug,
     responseCondition: "null",
-    token: "repellendus",
-    url: "porro",
+    token: "Investment Polygender",
+    url: "https://black-and-white-diaphragm.org",
   },
   loggingHerokuName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

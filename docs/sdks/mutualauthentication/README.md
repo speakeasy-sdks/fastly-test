@@ -34,9 +34,9 @@ const sdk = new Fastly({
 sdk.mutualAuthentication.createMutualTlsAuthentication({
   data: {
     attributes: {
-      certBundle: "eveniet",
+      certBundle: "Manat yahoo",
       enforced: false,
-      name: "Carroll Bogan V",
+      name: "architect female Markets",
     },
     relationships: {
       tlsActivations: {
@@ -124,7 +124,7 @@ const sdk = new Fastly({
 });
 
 sdk.mutualAuthentication.getMutualAuthentication({
-  include: "culpa",
+  include: "huzzah",
   mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
 }).then((res: GetMutualAuthenticationResponse) => {
   if (res.statusCode == 200) {
@@ -163,7 +163,7 @@ const sdk = new Fastly({
 });
 
 sdk.mutualAuthentication.listMutualAuthentications({
-  include: "aliquid",
+  include: "visionary",
   pageNumber: 1,
   pageSize: 20,
 }).then((res: ListMutualAuthenticationsResponse) => {
@@ -207,9 +207,9 @@ sdk.mutualAuthentication.patchMutualAuthentication({
   mutualAuthenticationInput: {
     data: {
       attributes: {
-        certBundle: "tenetur",
+        certBundle: "New",
         enforced: false,
-        name: "Lila Kassulke",
+        name: "Convertible Gasoline Vista",
       },
       relationships: {
         tlsActivations: {

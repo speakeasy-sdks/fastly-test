@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogSplunkRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSplunk2?: shared.LoggingSplunk2;
+    loggingSplunk?: shared.LoggingSplunk;
 
     /**
      * The name for the real-time logging configuration.

@@ -34,12 +34,12 @@ const sdk = new Fastly({
 
 sdk.snippet.createSnippet({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippet2: {
-    content: "consectetur",
-    dynamic: SnippetDynamic.Zero,
+  snippet: {
+    content: "architectures withdrawal Darmstadtium",
+    dynamic: SnippetDynamic.One,
     name: "test-snippet",
     priority: "10",
-    type: SnippetType.Error,
+    type: SnippetType.Recv,
   },
   versionId: 1,
 }).then((res: CreateSnippetResponse) => {
@@ -239,12 +239,12 @@ const sdk = new Fastly({
 
 sdk.snippet.updateSnippetDynamic({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippet2: {
-    content: "laboriosam",
-    dynamic: SnippetDynamic.Zero,
+  snippet: {
+    content: "Shoes",
+    dynamic: SnippetDynamic.One,
     name: "test-snippet",
     priority: "10",
-    type: SnippetType.None,
+    type: SnippetType.Log,
   },
   snippetId: "62Yd1WfiCBPENLloXfXmlO",
 }).then((res: UpdateSnippetDynamicResponse) => {

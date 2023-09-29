@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogNewrelicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingNewrelic3?: shared.LoggingNewrelic3;
+    loggingNewrelic?: shared.LoggingNewrelic;
 
     /**
      * Alphanumeric string identifying the service.

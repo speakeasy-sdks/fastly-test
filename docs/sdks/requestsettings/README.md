@@ -150,19 +150,19 @@ const sdk = new Fastly({
 });
 
 sdk.requestSettings.updateRequestSettings({
-  requestSettings2: {
+  requestSettings: {
     action: RequestSettingsAction.Pass,
-    bypassBusyWait: 424089,
-    defaultHost: "ducimus",
-    forceMiss: 554688,
-    forceSsl: 427834,
-    geoHeaders: 287051,
-    hashKeys: "possimus",
-    maxStaleAge: 706575,
+    bypassBusyWait: 713589,
+    defaultHost: "Northeast Producer",
+    forceMiss: 216239,
+    forceSsl: 459715,
+    geoHeaders: 703251,
+    hashKeys: "demanding niches",
+    maxStaleAge: 618939,
     name: "test-request-setting",
     requestCondition: "null",
-    timerSupport: 738227,
-    xff: RequestSettingsXff.Append,
+    timerSupport: 698909,
+    xff: RequestSettingsXff.AppendAll,
   },
   requestSettingsName: "test-request-setting",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

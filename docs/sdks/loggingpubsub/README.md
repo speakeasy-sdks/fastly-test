@@ -32,19 +32,19 @@ const sdk = new Fastly({
 });
 
 sdk.loggingPubsub.createLogGcpPubsub({
-  loggingGooglePubsub2: {
+  loggingGooglePubsub: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingGooglePubsubFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingGooglePubsubPlacement.WafDebug,
+    placement: LoggingGooglePubsubPlacement.LessThanNilGreaterThan,
     projectId: "test-project-id",
     responseCondition: "null",
     secretKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    topic: "fuga",
+    topic: "Franc",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -206,9 +206,9 @@ const sdk = new Fastly({
 });
 
 sdk.loggingPubsub.updateLogGcpPubsub({
-  loggingGooglePubsub2: {
+  loggingGooglePubsub: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingGooglePubsubFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingGooglePubsubPlacement.LessThanNilGreaterThan,
@@ -218,7 +218,7 @@ sdk.loggingPubsub.updateLogGcpPubsub({
   ...
   -----END PRIVATE KEY-----
   ",
-    topic: "fugiat",
+    topic: "Generic restructure",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   loggingGooglePubsubName: "test-log-endpoint",

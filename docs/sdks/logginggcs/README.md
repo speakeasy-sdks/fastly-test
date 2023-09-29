@@ -39,14 +39,14 @@ const sdk = new Fastly({
 sdk.loggingGcs.createLogGcs({
   loggingGcsInput: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "tempore",
+    bucketName: "turquoise cyan Account",
     compressionCodec: LoggingGcsCompressionCodec.Snappy,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingGcsFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingGcsMessageType.Classic,
     name: "test-log-endpoint",
-    path: "delectus",
+    path: "/usr/X11R6",
     period: 3600,
     placement: LoggingGcsPlacement.None,
     projectId: "test-project-id",
@@ -227,16 +227,16 @@ const sdk = new Fastly({
 sdk.loggingGcs.updateLogGcs({
   loggingGcsInput: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "dolore",
+    bucketName: "Volkswagen Other",
     compressionCodec: LoggingGcsCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingGcsFormatVersion.One,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingGcsFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingGcsMessageType.Classic,
     name: "test-log-endpoint",
-    path: "dolorum",
+    path: "/dev",
     period: 3600,
-    placement: LoggingGcsPlacement.None,
+    placement: LoggingGcsPlacement.LessThanNilGreaterThan,
     projectId: "test-project-id",
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...

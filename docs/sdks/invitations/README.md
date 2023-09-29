@@ -39,10 +39,10 @@ const sdk = new Fastly({
 sdk.invitations.createInvitation({
   data: {
     attributes: {
-      email: "Russ76@gmail.com",
+      email: "Kenneth.Ullrich36@gmail.com",
       limitServices: false,
       role: RoleUser.User,
-      statusCode: InvitationDataAttributesStatusCode.Zero,
+      statusCode: InvitationDataAttributesStatusCode.One,
     },
     relationships: {
       serviceInvitations: {
@@ -50,7 +50,7 @@ sdk.invitations.createInvitation({
           {
             data: {
               attributes: {
-                permission: ServiceInvitationDataAttributesPermission.PurgeAll,
+                permission: ServiceInvitationDataAttributesPermission.ReadOnly,
               },
               relationships: {
                 service: {

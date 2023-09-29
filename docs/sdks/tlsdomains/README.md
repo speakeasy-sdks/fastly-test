@@ -28,13 +28,13 @@ const sdk = new Fastly({
 });
 
 sdk.tlsDomains.listTlsDomains({
-  filterInUse: "exercitationem",
-  filterTlsCertificatesId: "nobis",
-  filterTlsSubscriptionsId: "sit",
-  include: "rerum",
+  filterInUse: "Towels Sarasota Granite",
+  filterTlsCertificatesId: "whether Computer",
+  filterTlsSubscriptionsId: "trivialise",
+  include: "Southwest pink",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.CreatedAt,
+  sort: Sort.MinusCreatedAt,
 }).then((res: ListTlsDomainsResponse) => {
   if (res.statusCode == 200) {
     // handle response

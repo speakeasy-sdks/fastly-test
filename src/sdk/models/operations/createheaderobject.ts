@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateHeaderObjectRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    header2?: shared.Header2;
+    header?: shared.Header;
 
     /**
      * Alphanumeric string identifying the service.

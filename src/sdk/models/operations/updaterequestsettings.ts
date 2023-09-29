@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateRequestSettingsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    requestSettings2?: shared.RequestSettings2;
+    requestSettings?: shared.RequestSettings;
 
     /**
      * Name for the request settings.

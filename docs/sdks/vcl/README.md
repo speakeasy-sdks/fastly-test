@@ -37,7 +37,7 @@ const sdk = new Fastly({
 sdk.vcl.createCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "ea",
+    content: "program harum",
     main: false,
     name: "test-vcl",
   },
@@ -119,7 +119,7 @@ const sdk = new Fastly({
 });
 
 sdk.vcl.getCustomVcl({
-  noContent: "occaecati",
+  noContent: "Tampa firewall",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vclName: "test-vcl",
   versionId: 1,
@@ -359,7 +359,7 @@ const sdk = new Fastly({
 sdk.vcl.updateCustomVcl({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   vcl: {
-    content: "quos",
+    content: "Crossroad",
     main: false,
     name: "test-vcl",
   },

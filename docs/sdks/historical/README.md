@@ -37,9 +37,9 @@ const sdk = new Fastly({
 
 sdk.historical.getHistStats({
   by: By.Day,
-  from: "excepturi",
+  from: "male",
   region: Region.Usa,
-  to: "odit",
+  to: "azure Universal",
 }).then((res: GetHistStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,9 +79,9 @@ const sdk = new Fastly({
 
 sdk.historical.getHistStatsAggregated({
   by: By.Day,
-  from: "ea",
+  from: "program",
   region: Region.Usa,
-  to: "accusantium",
+  to: "lime",
 }).then((res: GetHistStatsAggregatedResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,9 +122,9 @@ const sdk = new Fastly({
 sdk.historical.getHistStatsField({
   by: By.Day,
   field: "hit_ratio",
-  from: "ab",
+  from: "bleakly siemens desktop",
   region: Region.Usa,
-  to: "maiores",
+  to: "Van drive",
 }).then((res: GetHistStatsFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -164,10 +164,10 @@ const sdk = new Fastly({
 
 sdk.historical.getHistStatsService({
   by: By.Day,
-  from: "quidem",
+  from: "Gold Reduced sexy",
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  to: "ipsam",
+  to: "Advanced",
 }).then((res: GetHistStatsServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -208,10 +208,10 @@ const sdk = new Fastly({
 sdk.historical.getHistStatsServiceField({
   by: By.Day,
   field: "hit_ratio",
-  from: "voluptate",
+  from: "phew Micronesia overlooked",
   region: Region.Usa,
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  to: "autem",
+  to: "Solutions Designer",
 }).then((res: GetHistStatsServiceFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -284,8 +284,8 @@ const sdk = new Fastly({
 });
 
 sdk.historical.getUsage({
-  from: "nam",
-  to: "eaque",
+  from: "plum Visionary droopy",
+  to: "lavender Estates Kentucky",
 }).then((res: GetUsageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -363,8 +363,8 @@ const sdk = new Fastly({
 });
 
 sdk.historical.getUsageService({
-  from: "pariatur",
-  to: "nemo",
+  from: "Southeast Facilitator Cab",
+  to: "Savings Mercedes",
 }).then((res: GetUsageServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -32,15 +32,15 @@ const sdk = new Fastly({
 });
 
 sdk.loggingScalyr.createLogScalyr({
-  loggingScalyr3: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingScalyr: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingScalyrFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingScalyrPlacement.LessThanNilGreaterThan,
-    projectId: "esse",
+    placement: LoggingScalyrPlacement.None,
+    projectId: "Beauty",
     region: LoggingScalyrRegion.Eu,
     responseCondition: "null",
-    token: "aperiam",
+    token: "hack infatuated",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -201,15 +201,15 @@ const sdk = new Fastly({
 });
 
 sdk.loggingScalyr.updateLogScalyr({
-  loggingScalyr3: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingScalyr: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingScalyrFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingScalyrPlacement.LessThanNilGreaterThan,
-    projectId: "dignissimos",
-    region: LoggingScalyrRegion.Us,
+    placement: LoggingScalyrPlacement.WafDebug,
+    projectId: "man East orange",
+    region: LoggingScalyrRegion.Eu,
     responseCondition: "null",
-    token: "nihil",
+    token: "Southeast siemens",
   },
   loggingScalyrName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

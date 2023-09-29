@@ -35,7 +35,7 @@ const sdk = new Fastly({
 });
 
 sdk.service.createService({
-  comment: "non",
+  comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
   customerId: "x4xCwxxJxGCx123Rx5xTx",
   name: "test-service",
   type: ServiceCreateType.Vcl,
@@ -48,10 +48,10 @@ sdk.service.createService({
 
 ### Parameters
 
-| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `request`                                                      | [shared.ServiceCreate1](../../models/shared/servicecreate1.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
-| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.ServiceCreate](../../models/shared/servicecreate.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -310,7 +310,7 @@ const sdk = new Fastly({
 
 sdk.service.updateService({
   service: {
-    comment: "beatae",
+    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     customerId: "x4xCwxxJxGCx123Rx5xTx",
     name: "test-service",
   },

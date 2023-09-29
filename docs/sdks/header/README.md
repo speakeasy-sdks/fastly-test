@@ -32,19 +32,19 @@ const sdk = new Fastly({
 });
 
 sdk.header.createHeaderObject({
-  header2: {
-    action: HeaderAction.Delete,
+  header: {
+    action: HeaderAction.Append,
     cacheCondition: "null",
-    dst: "accusantium",
-    ignoreIfSet: 653201,
+    dst: "anti gold",
+    ignoreIfSet: 802152,
     name: "test-header",
-    priority: 968962,
-    regex: "mollitia",
+    priority: 352185,
+    regex: "TCP infomediaries",
     requestCondition: "null",
-    responseCondition: "ad",
-    src: "eum",
-    substitution: "dolor",
-    type: HeaderType.Response,
+    responseCondition: "monitor Northeast",
+    src: "briefly Account Secured",
+    substitution: "Egypt gee",
+    type: HeaderType.Cache,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -205,19 +205,19 @@ const sdk = new Fastly({
 });
 
 sdk.header.updateHeaderObject({
-  header2: {
-    action: HeaderAction.Set,
+  header: {
+    action: HeaderAction.RegexRepeat,
     cacheCondition: "null",
-    dst: "nemo",
-    ignoreIfSet: 97260,
+    dst: "male",
+    ignoreIfSet: 926675,
     name: "test-header",
-    priority: 435865,
-    regex: "doloribus",
+    priority: 444514,
+    regex: "North North",
     requestCondition: "null",
-    responseCondition: "debitis",
-    src: "eius",
-    substitution: "maxime",
-    type: HeaderType.Cache,
+    responseCondition: "candela program 24",
+    src: "Salad",
+    substitution: "tempora Buckinghamshire alarm",
+    type: HeaderType.Request,
   },
   headerName: "test-header",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

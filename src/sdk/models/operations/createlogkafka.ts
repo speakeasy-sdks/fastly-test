@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogKafkaRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingKafka5?: shared.LoggingKafka5;
+    loggingKafka?: shared.LoggingKafka;
 
     /**
      * Alphanumeric string identifying the service.

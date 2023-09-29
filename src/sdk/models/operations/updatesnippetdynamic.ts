@@ -14,7 +14,7 @@ export class UpdateSnippetDynamicRequest extends SpeakeasyBase {
     serviceId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    snippet2?: shared.Snippet2;
+    snippet?: shared.Snippet;
 
     /**
      * Alphanumeric string identifying a VCL Snippet.

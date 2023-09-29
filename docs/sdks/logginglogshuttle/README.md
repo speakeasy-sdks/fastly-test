@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLogshuttle.createLogLogshuttle({
-  loggingLogshuttle2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingLogshuttle: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingLogshuttleFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingLogshuttlePlacement.LessThanNilGreaterThan,
     responseCondition: "null",
-    token: "aspernatur",
-    url: "minima",
+    token: "Southeast Group",
+    url: "http://frozen-hypochondria.name",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLogshuttle.updateLogLogshuttle({
-  loggingLogshuttle2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingLogshuttle: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingLogshuttleFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.LessThanNilGreaterThan,
+    placement: LoggingLogshuttlePlacement.None,
     responseCondition: "null",
-    token: "libero",
-    url: "aut",
+    token: "Computers",
+    url: "http://bogus-census.biz",
   },
   loggingLogshuttleName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

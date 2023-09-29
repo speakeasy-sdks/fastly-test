@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogElasticsearchRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingElasticsearch2?: shared.LoggingElasticsearch2;
+    loggingElasticsearch?: shared.LoggingElasticsearch;
 
     /**
      * Alphanumeric string identifying the service.

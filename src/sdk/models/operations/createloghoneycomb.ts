@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogHoneycombRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHoneycomb2?: shared.LoggingHoneycomb2;
+    loggingHoneycomb?: shared.LoggingHoneycomb;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHoneycomb?: shared.LoggingHoneycomb2;
+    loggingHoneycomb?: shared.LoggingHoneycomb;
 }

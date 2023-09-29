@@ -68,15 +68,15 @@ const sdk = new Fastly({
 });
 
 sdk.events.listEvents({
-  filterCreatedAt: "eum",
+  filterCreatedAt: "haptic honestly female",
   filterCustomerId: "x4xCwxxJxGCx123Rx5xTx",
-  filterEventType: "vero",
-  filterServiceId: "aspernatur",
-  filterTokenId: "architecto",
-  filterUserId: "magnam",
+  filterEventType: "Linden excepting auxiliary",
+  filterServiceId: "invoice Electric Caesium",
+  filterTokenId: "Stark Home Anguilla",
+  filterUserId: "East male",
   pageNumber: 1,
   pageSize: 20,
-  sort: Sort.CreatedAt,
+  sort: Sort.MinusCreatedAt,
 }).then((res: ListEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response

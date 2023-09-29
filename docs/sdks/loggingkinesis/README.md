@@ -32,15 +32,15 @@ const sdk = new Fastly({
 
 sdk.loggingKinesis.createLogKinesis({
   loggingKinesis: {
-    accessKey: "possimus",
-    format: "magnam",
+    accessKey: "Chad Fresh Mini",
+    format: "DRAM",
     formatVersion: LoggingFormatVersion.One,
-    iamRole: "ex",
+    iamRole: "Convertible barring",
     name: "test-log-endpoint",
-    placement: LoggingPlacement.WafDebug,
-    region: AwsRegion.UsWest1,
-    secretKey: "dolor",
-    topic: "maiores",
+    placement: LoggingPlacement.LessThanNilGreaterThan,
+    region: AwsRegion.ApNortheast3,
+    secretKey: "Ball Nihonium",
+    topic: "knowledgeably synthesize topic",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,

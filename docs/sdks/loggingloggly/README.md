@@ -32,13 +32,13 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLoggly.createLogLoggly({
-  loggingLoggly2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingLoggly: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingLogglyFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingLogglyPlacement.WafDebug,
     responseCondition: "null",
-    token: "inventore",
+    token: "Granite Integration strategize",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -199,13 +199,13 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLoggly.updateLogLoggly({
-  loggingLoggly2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogglyFormatVersion.One,
+  loggingLoggly: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingLogglyFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingLogglyPlacement.WafDebug,
+    placement: LoggingLogglyPlacement.LessThanNilGreaterThan,
     responseCondition: "null",
-    token: "quo",
+    token: "Birmingham per Regional",
   },
   loggingLogglyName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

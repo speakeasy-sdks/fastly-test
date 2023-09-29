@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingSumologic.createLogSumologic({
-  loggingSumologic2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingSumologicFormatVersion.Two,
+  loggingSumologic: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingSumologicFormatVersion.One,
     messageType: LoggingMessageType.Classic,
     name: "test-log-endpoint",
-    placement: LoggingSumologicPlacement.LessThanNilGreaterThan,
+    placement: LoggingSumologicPlacement.WafDebug,
     responseCondition: "null",
-    url: "aliquid",
+    url: "https://alert-fir.net",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingSumologic.updateLogSumologic({
-  loggingSumologic2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingSumologicFormatVersion.One,
+  loggingSumologic: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingSumologicFormatVersion.Two,
     messageType: LoggingMessageType.Classic,
     name: "test-log-endpoint",
-    placement: LoggingSumologicPlacement.LessThanNilGreaterThan,
+    placement: LoggingSumologicPlacement.None,
     responseCondition: "null",
-    url: "vel",
+    url: "https://nice-heyday.org",
   },
   loggingSumologicName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

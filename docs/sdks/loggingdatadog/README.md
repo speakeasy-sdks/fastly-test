@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingDatadog.createLogDatadog({
-  loggingDatadog3: {
-    format: "voluptate",
+  loggingDatadog: {
+    format: "Designer",
     formatVersion: LoggingDatadogFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingDatadogPlacement.WafDebug,
+    placement: LoggingDatadogPlacement.None,
     region: LoggingDatadogRegion.Eu,
     responseCondition: "null",
-    token: "necessitatibus",
+    token: "obedience Industrial AGP",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingDatadog.updateLogDatadog({
-  loggingDatadog3: {
-    format: "distinctio",
-    formatVersion: LoggingDatadogFormatVersion.Two,
+  loggingDatadog: {
+    format: "alias questioning Southwest",
+    formatVersion: LoggingDatadogFormatVersion.One,
     name: "test-log-endpoint",
     placement: LoggingDatadogPlacement.WafDebug,
     region: LoggingDatadogRegion.Us,
     responseCondition: "null",
-    token: "voluptate",
+    token: "Dynamic Coordinator",
   },
   loggingDatadogName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

@@ -30,7 +30,7 @@ const sdk = new Fastly({
 });
 
 sdk.wafTags.listWafTags({
-  filterName: "repudiandae",
+  filterName: "male",
   include: WafTagInclude.WafRules,
   pageNumber: 1,
   pageSize: 20,

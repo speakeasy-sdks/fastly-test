@@ -38,24 +38,24 @@ const sdk = new Fastly({
 
 sdk.loggingAzureblob.createLogAzure({
   loggingAzureblobInput: {
-    accountName: "consequuntur",
-    compressionCodec: LoggingAzureblobCompressionCodec.Snappy,
-    container: "error",
-    fileMaxBytes: 50370,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    accountName: "Northwest Southeast",
+    compressionCodec: LoggingAzureblobCompressionCodec.Zstd,
+    container: "Ratke Northwest Flerovium",
+    fileMaxBytes: 119558,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingAzureblobFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingAzureblobMessageType.Classic,
     name: "test-log-endpoint",
-    path: "rerum",
+    path: "/etc/defaults",
     period: 3600,
-    placement: LoggingAzureblobPlacement.None,
+    placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    sasToken: "asperiores",
+    sasToken: "which tiny",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -222,24 +222,24 @@ const sdk = new Fastly({
 
 sdk.loggingAzureblob.updateLogAzure({
   loggingAzureblobInput: {
-    accountName: "earum",
+    accountName: "Quality Strategist Plastic",
     compressionCodec: LoggingAzureblobCompressionCodec.Zstd,
-    container: "iste",
-    fileMaxBytes: 679091,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    container: "solemnly Integration Spinka",
+    fileMaxBytes: 785632,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingAzureblobFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingAzureblobMessageType.Classic,
     name: "test-log-endpoint",
-    path: "pariatur",
+    path: "/usr",
     period: 3600,
-    placement: LoggingAzureblobPlacement.WafDebug,
+    placement: LoggingAzureblobPlacement.None,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    sasToken: "nobis",
+    sasToken: "Principal",
   },
   loggingAzureblobName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

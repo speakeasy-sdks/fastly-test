@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogBigqueryRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingBigquery2?: shared.LoggingBigquery2;
+    loggingBigquery?: shared.LoggingBigquery;
 
     /**
      * Alphanumeric string identifying the service.

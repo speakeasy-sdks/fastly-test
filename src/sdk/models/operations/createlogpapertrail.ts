@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogPapertrailRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingPapertrail2?: shared.LoggingPapertrail2;
+    loggingPapertrail?: shared.LoggingPapertrail;
 
     /**
      * Alphanumeric string identifying the service.

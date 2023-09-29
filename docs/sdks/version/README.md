@@ -309,7 +309,7 @@ sdk.version.updateServiceVersion({
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionInput: {
     active: false,
-    comment: "tempora",
+    comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     deployed: false,
     locked: false,
     staging: false,

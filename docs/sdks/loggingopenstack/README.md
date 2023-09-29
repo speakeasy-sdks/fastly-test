@@ -38,24 +38,24 @@ const sdk = new Fastly({
 
 sdk.loggingOpenstack.createLogOpenstack({
   loggingOpenstackInput: {
-    accessKey: "laborum",
-    bucketName: "placeat",
-    compressionCodec: LoggingOpenstackCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    accessKey: "absentmindedly Diesel",
+    bucketName: "Gasoline Southwest",
+    compressionCodec: LoggingOpenstackCompressionCodec.Gzip,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingOpenstackFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingOpenstackMessageType.Classic,
     name: "test-log-endpoint",
-    path: "autem",
+    path: "/Library",
     period: 3600,
-    placement: LoggingOpenstackPlacement.LessThanNilGreaterThan,
+    placement: LoggingOpenstackPlacement.None,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    url: "quas",
-    user: "assumenda",
+    url: "http://feminine-acre.com",
+    user: "Jamaal39",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -222,24 +222,24 @@ const sdk = new Fastly({
 
 sdk.loggingOpenstack.updateLogOpenstack({
   loggingOpenstackInput: {
-    accessKey: "nulla",
-    bucketName: "voluptas",
-    compressionCodec: LoggingOpenstackCompressionCodec.Gzip,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    accessKey: "Account virtual Northeast",
+    bucketName: "Executive",
+    compressionCodec: LoggingOpenstackCompressionCodec.Zstd,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingOpenstackFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingOpenstackMessageType.Classic,
     name: "test-log-endpoint",
-    path: "tempora",
+    path: "/opt/share",
     period: 3600,
-    placement: LoggingOpenstackPlacement.None,
+    placement: LoggingOpenstackPlacement.WafDebug,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    url: "explicabo",
-    user: "provident",
+    url: "https://jolly-handful.biz",
+    user: "Conner_Howe53",
   },
   loggingOpenstackName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

@@ -33,8 +33,8 @@ const sdk = new Fastly({
 sdk.gzip.createGzipConfig({
   gzip: {
     cacheCondition: "null",
-    contentTypes: "excepturi",
-    extensions: "ullam",
+    contentTypes: "Automotive violet Analyst",
+    extensions: "Indiana beneath",
     name: "test-gzip",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -197,8 +197,8 @@ const sdk = new Fastly({
 sdk.gzip.updateGzipConfig({
   gzip: {
     cacheCondition: "null",
-    contentTypes: "provident",
-    extensions: "quos",
+    contentTypes: "proactive transition",
+    extensions: "Northeast",
     name: "test-gzip",
   },
   gzipName: "test-gzip",

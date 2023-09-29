@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateCacheSettingsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    cacheSetting1?: shared.CacheSetting1;
+    cacheSetting?: shared.CacheSetting;
 
     /**
      * Alphanumeric string identifying the service.

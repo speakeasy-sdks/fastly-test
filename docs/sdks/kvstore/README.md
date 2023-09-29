@@ -30,9 +30,9 @@ const sdk = new Fastly({
 });
 
 sdk.kvStore.createStore({
-  location: "libero",
+  location: "Digitized",
   store: {
-    name: "Ernest Hayes",
+    name: "Ferry",
   },
 }).then((res: CreateStoreResponse) => {
   if (res.statusCode == 200) {
@@ -72,7 +72,7 @@ const sdk = new Fastly({
 
 sdk.kvStore.deleteStore({
   force: false,
-  storeId: "eaque",
+  storeId: "male",
 }).then((res: DeleteStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,7 +110,7 @@ const sdk = new Fastly({
 });
 
 sdk.kvStore.getStore({
-  storeId: "quis",
+  storeId: "SSD Technician East",
 }).then((res: GetStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,8 +148,8 @@ const sdk = new Fastly({
 });
 
 sdk.kvStore.getStores({
-  cursor: "nesciunt",
-  limit: 179490,
+  cursor: "card Plastic",
+  limit: 829081,
 }).then((res: GetStoresResponse) => {
   if (res.statusCode == 200) {
     // handle response

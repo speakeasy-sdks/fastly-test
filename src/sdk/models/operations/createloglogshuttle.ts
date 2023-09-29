@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateLogLogshuttleRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingLogshuttle2?: shared.LoggingLogshuttle2;
+    loggingLogshuttle?: shared.LoggingLogshuttle;
 
     /**
      * Alphanumeric string identifying the service.

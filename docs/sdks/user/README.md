@@ -36,7 +36,7 @@ const sdk = new Fastly({
 sdk.user.createUser({
   limitServices: false,
   locked: false,
-  name: "Rogelio Bins V",
+  name: "gasoline East Androgyne",
   requireNewPassword: false,
   role: RoleUser.User,
   twoFactorAuthEnabled: false,
@@ -231,7 +231,7 @@ sdk.user.updateUser({
   userInput: {
     limitServices: false,
     locked: false,
-    name: "Troy Cormier",
+    name: "stir",
     requireNewPassword: false,
     role: RoleUser.User,
     twoFactorAuthEnabled: false,
@@ -275,8 +275,8 @@ const operationSecurity: UpdateUserPasswordSecurity = {
 };
 
 sdk.user.updateUserPassword({
-  newPassword: "necessitatibus",
-  oldPassword: "ipsum",
+  newPassword: "Automotive",
+  oldPassword: "Northwest",
 }, operationSecurity).then((res: UpdateUserPasswordResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -51,5 +51,5 @@ export class GetLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHoneycomb?: shared.LoggingHoneycomb2;
+    loggingHoneycomb?: shared.LoggingHoneycomb;
 }

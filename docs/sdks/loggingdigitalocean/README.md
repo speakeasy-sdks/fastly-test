@@ -38,24 +38,24 @@ const sdk = new Fastly({
 
 sdk.loggingDigitalocean.createLogDigocean({
   loggingDigitaloceanInput: {
-    accessKey: "id",
-    bucketName: "saepe",
+    accessKey: "Security Analyst",
+    bucketName: "Beaumont midst circuit",
     compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
-    domain: "aspernatur",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.One,
+    domain: "honest-manufacturer.net",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingDigitaloceanFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingDigitaloceanMessageType.Classic,
     name: "test-log-endpoint",
-    path: "amet",
+    path: "/opt/bin",
     period: 3600,
-    placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
+    placement: LoggingDigitaloceanPlacement.WafDebug,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    secretKey: "accusamus",
+    secretKey: "Dynamic Fantastic shove",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -222,24 +222,24 @@ const sdk = new Fastly({
 
 sdk.loggingDigitalocean.updateLogDigocean({
   loggingDigitaloceanInput: {
-    accessKey: "ad",
-    bucketName: "saepe",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Snappy,
-    domain: "deserunt",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.Two,
+    accessKey: "copy neutral",
+    bucketName: "digital",
+    compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
+    domain: "spectacular-feng.name",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingDigitaloceanFormatVersion.One,
     gzipLevel: 0,
     messageType: LoggingDigitaloceanMessageType.Classic,
     name: "test-log-endpoint",
-    path: "minima",
+    path: "/private/tmp",
     period: 3600,
-    placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
+    placement: LoggingDigitaloceanPlacement.WafDebug,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
     responseCondition: "null",
-    secretKey: "totam",
+    secretKey: "Cruiser",
   },
   loggingDigitaloceanName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

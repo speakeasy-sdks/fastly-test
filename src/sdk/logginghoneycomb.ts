@@ -49,11 +49,7 @@ export class LoggingHoneycomb {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "loggingHoneycomb2",
-                "form"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingHoneycomb", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -75,9 +71,7 @@ export class LoggingHoneycomb {
         };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -107,7 +101,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb2
+                        shared.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -158,9 +152,7 @@ export class LoggingHoneycomb {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -240,9 +232,7 @@ export class LoggingHoneycomb {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -270,7 +260,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb2
+                        shared.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -321,9 +311,7 @@ export class LoggingHoneycomb {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -397,11 +385,7 @@ export class LoggingHoneycomb {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "loggingHoneycomb2",
-                "form"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingHoneycomb", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -423,9 +407,7 @@ export class LoggingHoneycomb {
         };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,

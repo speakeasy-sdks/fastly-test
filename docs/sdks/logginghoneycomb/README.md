@@ -32,14 +32,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingHoneycomb.createLogHoneycomb({
-  loggingHoneycomb2: {
-    dataset: "doloribus",
-    format: "ut",
-    formatVersion: LoggingHoneycombFormatVersion.Two,
+  loggingHoneycomb: {
+    dataset: "septicaemia calculate",
+    format: "complexity Lock",
+    formatVersion: LoggingHoneycombFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingHoneycombPlacement.WafDebug,
+    placement: LoggingHoneycombPlacement.LessThanNilGreaterThan,
     responseCondition: "null",
-    token: "qui",
+    token: "Northeast Northwest",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,14 +200,14 @@ const sdk = new Fastly({
 });
 
 sdk.loggingHoneycomb.updateLogHoneycomb({
-  loggingHoneycomb2: {
-    dataset: "quae",
-    format: "laudantium",
-    formatVersion: LoggingHoneycombFormatVersion.One,
+  loggingHoneycomb: {
+    dataset: "Towels",
+    format: "mint Jamaican array",
+    formatVersion: LoggingHoneycombFormatVersion.Two,
     name: "test-log-endpoint",
     placement: LoggingHoneycombPlacement.WafDebug,
     responseCondition: "null",
-    token: "voluptatibus",
+    token: "probable male copying",
   },
   loggingHoneycombName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

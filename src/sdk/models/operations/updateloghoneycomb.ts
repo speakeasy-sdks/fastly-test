@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogHoneycombRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHoneycomb2?: shared.LoggingHoneycomb2;
+    loggingHoneycomb?: shared.LoggingHoneycomb;
 
     /**
      * The name for the real-time logging configuration.

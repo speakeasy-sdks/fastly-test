@@ -33,12 +33,12 @@ const sdk = new Fastly({
 
 sdk.condition.createCondition({
   conditionInput: {
-    comment: "iusto",
+    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     name: "test-condition",
     priority: "10",
-    statement: "dicta",
-    type: ConditionType.Response,
-    version: "enim",
+    statement: "Miles",
+    type: ConditionType.Cache,
+    version: "Forward",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -200,12 +200,12 @@ const sdk = new Fastly({
 
 sdk.condition.updateCondition({
   conditionInput: {
-    comment: "accusamus",
+    comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
     name: "test-condition",
     priority: "10",
-    statement: "commodi",
-    type: ConditionType.Prefetch,
-    version: "quae",
+    statement: "overriding",
+    type: ConditionType.Cache,
+    version: "1080p bah deliver",
   },
   conditionName: "test-condition",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

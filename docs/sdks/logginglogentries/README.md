@@ -39,15 +39,15 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLogentries.createLogLogentries({
-  loggingLogentries3: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogentriesFormatVersion.One,
+  loggingLogentries: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
+    formatVersion: LoggingLogentriesFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingLogentriesPlacement.WafDebug,
-    port: 862192,
-    region: LoggingLogentriesRegion.Eu,
+    placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
+    port: 843159,
+    region: LoggingLogentriesRegion.Us,
     responseCondition: "null",
-    token: "voluptatibus",
+    token: "Beach",
     useTls: LoggingUseTls.Zero,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -222,16 +222,16 @@ const sdk = new Fastly({
 });
 
 sdk.loggingLogentries.updateLogLogentries({
-  loggingLogentries3: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingLogentries: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingLogentriesFormatVersion.Two,
     name: "test-log-endpoint",
     placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
-    port: 906556,
-    region: LoggingLogentriesRegion.Us3,
+    port: 975061,
+    region: LoggingLogentriesRegion.Eu,
     responseCondition: "null",
-    token: "impedit",
-    useTls: LoggingUseTls.Zero,
+    token: "towards",
+    useTls: LoggingUseTls.One,
   },
   loggingLogentriesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

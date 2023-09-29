@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogSumologicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSumologic2?: shared.LoggingSumologic2;
+    loggingSumologic?: shared.LoggingSumologic;
 
     /**
      * The name for the real-time logging configuration.

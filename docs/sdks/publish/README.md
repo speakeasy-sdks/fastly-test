@@ -32,28 +32,28 @@ sdk.publish.publish({
   publishRequest: {
     items: [
       {
-        channel: "non",
+        channel: "what Lira Ohio",
         formats: {
           httpResponse: {
-            body: "voluptatem",
-            bodyBin: "dolor",
-            code: 580152,
+            body: "bypassing Southwest er",
+            bodyBin: "Clarksville frictionless",
+            code: 222146,
             headers: {
-              "numquam": "impedit",
+              "eos": "joshingly",
             },
-            reason: "explicabo",
+            reason: "user Ambrose infrastructure",
           },
           httpStream: {
-            content: "voluptas",
-            contentBin: "aut",
+            content: "Buckinghamshire",
+            contentBin: "withdrawal",
           },
           wsMessage: {
-            content: "dignissimos",
-            contentBin: "dicta",
+            content: "Electric",
+            contentBin: "Oriental",
           },
         },
-        id: "f93f5f06-42da-4c7a-b515-cc413aa63aae",
-        prevId: "totam",
+        id: "<ID>",
+        prevId: "ferociously next",
       },
     ],
   },

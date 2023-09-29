@@ -32,20 +32,20 @@ const sdk = new Fastly({
 });
 
 sdk.loggingSplunk.createLogSplunk({
-  loggingSplunk2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingSplunk: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingSplunkFormatVersion.Two,
     name: "test-log-endpoint",
-    placement: LoggingSplunkPlacement.WafDebug,
-    requestMaxBytes: 277596,
-    requestMaxEntries: 539224,
+    placement: LoggingSplunkPlacement.LessThanNilGreaterThan,
+    requestMaxBytes: 98989,
+    requestMaxEntries: 953900,
     responseCondition: "null",
-    tlsCaCert: "explicabo",
-    tlsClientCert: "minima",
-    tlsClientKey: "nisi",
-    tlsHostname: "fugit",
-    token: "sapiente",
-    url: "consequuntur",
+    tlsCaCert: "degree likewise Cotton",
+    tlsClientCert: "Checking",
+    tlsClientKey: "matrix",
+    tlsHostname: "while Volkswagen GB",
+    token: "Account Southwest West",
+    url: "https://curly-guidance.net",
     useTls: LoggingUseTls.Zero,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -207,20 +207,20 @@ const sdk = new Fastly({
 });
 
 sdk.loggingSplunk.updateLogSplunk({
-  loggingSplunk2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
+  loggingSplunk: {
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingSplunkFormatVersion.One,
     name: "test-log-endpoint",
-    placement: LoggingSplunkPlacement.LessThanNilGreaterThan,
-    requestMaxBytes: 578922,
-    requestMaxEntries: 543806,
+    placement: LoggingSplunkPlacement.WafDebug,
+    requestMaxBytes: 499214,
+    requestMaxEntries: 893979,
     responseCondition: "null",
-    tlsCaCert: "et",
-    tlsClientCert: "esse",
-    tlsClientKey: "eveniet",
-    tlsHostname: "accusamus",
-    token: "veritatis",
-    url: "esse",
+    tlsCaCert: "male seamless",
+    tlsClientCert: "Rubber impactful",
+    tlsClientKey: "Powlowski Screen",
+    tlsHostname: "mollitia Northwest Northwest",
+    token: "Pizza Southeast Molybdenum",
+    url: "https://critical-radiosonde.info",
     useTls: LoggingUseTls.One,
   },
   loggingSplunkName: "test-log-endpoint",

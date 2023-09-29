@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateLogLogglyRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingLoggly2?: shared.LoggingLoggly2;
+    loggingLoggly?: shared.LoggingLoggly;
 
     /**
      * The name for the real-time logging configuration.

@@ -32,12 +32,12 @@ const sdk = new Fastly({
 });
 
 sdk.loggingBigquery.createLogBigquery({
-  loggingBigquery2: {
+  loggingBigquery: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "libero",
-    format: "delectus",
+    dataset: "online",
+    format: "generate Director Touring",
     formatVersion: LoggingBigqueryFormatVersion.One,
-    name: "Gene Effertz",
+    name: "Internal reserved",
     placement: LoggingBigqueryPlacement.None,
     projectId: "test-project-id",
     responseCondition: "null",
@@ -45,8 +45,8 @@ sdk.loggingBigquery.createLogBigquery({
   ...
   -----END PRIVATE KEY-----
   ",
-    table: "ipsum",
-    templateSuffix: "hic",
+    table: "yoga copy embrace",
+    templateSuffix: "neural copying",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -208,12 +208,12 @@ const sdk = new Fastly({
 });
 
 sdk.loggingBigquery.updateLogBigquery({
-  loggingBigquery2: {
+  loggingBigquery: {
     accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "excepturi",
-    format: "cum",
+    dataset: "happy Yttrium",
+    format: "Gloves repudiandae",
     formatVersion: LoggingBigqueryFormatVersion.One,
-    name: "Johanna Farrell",
+    name: "Chair Southeast Dare",
     placement: LoggingBigqueryPlacement.None,
     projectId: "test-project-id",
     responseCondition: "null",
@@ -221,8 +221,8 @@ sdk.loggingBigquery.updateLogBigquery({
   ...
   -----END PRIVATE KEY-----
   ",
-    table: "ipsa",
-    templateSuffix: "ipsa",
+    table: "primary Coupe",
+    templateSuffix: "optical",
     user: "test-user@test-project-id.iam.gserviceaccount.com",
   },
   loggingBigqueryName: "test-log-endpoint",

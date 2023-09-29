@@ -68,7 +68,7 @@ const sdk = new Fastly({
 });
 
 sdk.tlsConfigurations.listTlsConfigs({
-  filterBulk: "hic",
+  filterBulk: "algorithm olive Usability",
   include: "dns_records",
   pageNumber: 1,
   pageSize: 20,
@@ -113,9 +113,9 @@ sdk.tlsConfigurations.updateTlsConfig({
   tlsConfiguration: {
     data: {
       attributes: {
-        name: "Molly Lowe",
+        name: "portal",
       },
-      relationships: "hic",
+      relationships: "influence",
       type: TypeTlsConfiguration.TlsConfiguration,
     },
   },

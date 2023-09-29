@@ -39,24 +39,24 @@ const sdk = new Fastly({
 
 sdk.loggingCloudfiles.createLogCloudfiles({
   loggingCloudfilesInput: {
-    accessKey: "iure",
-    bucketName: "odio",
-    compressionCodec: LoggingCloudfilesCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    accessKey: "Gasoline Technician North",
+    bucketName: "Immanuel",
+    compressionCodec: LoggingCloudfilesCompressionCodec.Snappy,
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingCloudfilesFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingCloudfilesMessageType.Classic,
     name: "test-log-endpoint",
-    path: "quidem",
+    path: "/usr/include",
     period: 3600,
     placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    region: LoggingCloudfilesRegion.Iad,
+    region: LoggingCloudfilesRegion.Syd,
     responseCondition: "null",
-    user: "natus",
+    user: "Foster_Hettinger",
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
@@ -224,24 +224,24 @@ const sdk = new Fastly({
 
 sdk.loggingCloudfiles.updateLogCloudfiles({
   loggingCloudfilesInput: {
-    accessKey: "eos",
-    bucketName: "atque",
+    accessKey: "calculating capacitor Bicycle",
+    bucketName: "interactive",
     compressionCodec: LoggingCloudfilesCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
+    format: "%h %l %u %t \"%r\" %&gt;s %b",
     formatVersion: LoggingCloudfilesFormatVersion.Two,
     gzipLevel: 0,
     messageType: LoggingCloudfilesMessageType.Classic,
     name: "test-log-endpoint",
-    path: "ab",
+    path: "/Network",
     period: 3600,
     placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
     publicKey: "-----BEGIN PRIVATE KEY-----
   ...
   -----END PRIVATE KEY-----
   ",
-    region: LoggingCloudfilesRegion.Syd,
+    region: LoggingCloudfilesRegion.Dfw,
     responseCondition: "null",
-    user: "iusto",
+    user: "Casper.Stanton",
   },
   loggingCloudfilesName: "test-log-endpoint",
   serviceId: "SU1Z0isxPaozGVKXdv0eY",

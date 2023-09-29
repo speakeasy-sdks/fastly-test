@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateServerPoolRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    pool2?: shared.Pool2;
+    pool?: shared.Pool;
 
     /**
      * Alphanumeric string identifying the service.

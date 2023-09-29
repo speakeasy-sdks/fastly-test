@@ -71,10 +71,10 @@ const sdk = new Fastly({
 });
 
 sdk.wafRules.listWafRules({
-  filterModsecRuleId: "mollitia",
-  filterWafFirewallIdNotMatch: "veniam",
-  filterWafRuleRevisionsSource: "voluptatem",
-  filterWafTagsName: "quisquam",
+  filterModsecRuleId: "South pricing",
+  filterWafFirewallIdNotMatch: "Hatchback Avon",
+  filterWafRuleRevisionsSource: "Latin candela Home",
+  filterWafTagsName: "Electric Tajikistan",
   include: "waf_tags,waf_rule_revisions",
   pageNumber: 1,
   pageSize: 20,

@@ -30,7 +30,7 @@ const sdk = new Fastly({
 
 sdk.http3.createHttp3({
   http3Input: {
-    featureRevision: 975522,
+    featureRevision: 201549,
   },
   serviceId: "SU1Z0isxPaozGVKXdv0eY",
   versionId: 1,
