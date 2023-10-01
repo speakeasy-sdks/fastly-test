@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipTlsActivationsInput } from "./relationshiptlsactivations";
 import { TypeMutualAuthentication } from "./typemutualauthentication";
 import { Expose, Type } from "class-transformer";
 
@@ -38,8 +37,7 @@ export class MutualAuthenticationDataInput extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => RelationshipTlsActivationsInput)
-    relationships?: RelationshipTlsActivationsInput;
+    relationships?: any;
 
     /**
      * Resource type

@@ -101,7 +101,7 @@ Update a TLS configuration.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeService, TypeTlsConfiguration, TypeTlsDnsRecord } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly({
   security: {
@@ -110,12 +110,20 @@ const sdk = new Fastly({
 });
 
 sdk.tlsConfigurations.updateTlsConfig({
-  tlsConfiguration: {
+  tlsConfigurationInput: {
     data: {
       attributes: {
         name: "portal",
       },
-      relationships: "influence",
+      relationships: {
+        dnsRecords: {
+          data: [
+            {
+              type: TypeTlsDnsRecord.DnsRecord,
+            },
+          ],
+        },
+      },
       type: TypeTlsConfiguration.TlsConfiguration,
     },
   },

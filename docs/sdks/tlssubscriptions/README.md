@@ -71,6 +71,7 @@ import { CreateTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TypeTlsCertificate,
+  TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
 } from "FastlyTestJS/dist/sdk/models/shared";
@@ -89,12 +90,8 @@ sdk.tlsSubscriptions.createTlsSub({
         certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
       },
       relationships: {
-        tlsDomains: {
-          data: [
-            {
-              type: TypeTlsDomain.TlsDomain,
-            },
-          ],
+        commonName: {
+          type: TypeTlsDomain.TlsDomain,
         },
       },
       type: TypeTlsSubscription.TlsSubscription,
@@ -294,6 +291,7 @@ import { PatchTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TlsSubscriptionDataAttributesCertificateAuthority,
   TypeTlsCertificate,
+  TypeTlsConfiguration,
   TypeTlsDomain,
   TypeTlsSubscription,
 } from "FastlyTestJS/dist/sdk/models/shared";

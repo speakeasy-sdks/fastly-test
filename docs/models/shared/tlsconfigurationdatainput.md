@@ -1,4 +1,4 @@
-# TlsConfigurationData
+# TlsConfigurationDataInput
 
 
 ## Fields

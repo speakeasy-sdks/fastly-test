@@ -141,7 +141,7 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UpdateBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly({
   security: {
@@ -199,7 +199,7 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { UploadTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly({
   security: {
@@ -214,10 +214,10 @@ sdk.tlsBulkCertificates.uploadTlsBulkCert({
     intermediatesBlob: "Computers eclipse Fitness",
   },
   relationships: {
-    tlsConfigurations: {
+    tlsDomains: {
       data: [
         {
-          type: TypeTlsConfiguration.TlsConfiguration,
+          type: TypeTlsDomain.TlsDomain,
         },
       ],
     },

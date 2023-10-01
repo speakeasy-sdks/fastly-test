@@ -3,19 +3,19 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { TypeService } from "./typeservice";
+import { TypeTlsDnsRecord } from "./typetlsdnsrecord";
 import { Expose } from "class-transformer";
 
-export class RelationshipMemberServiceInput extends SpeakeasyBase {
+export class RelationshipMemberTlsDnsRecordInput extends SpeakeasyBase {
     /**
      * Resource type
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: TypeService;
+    type?: TypeTlsDnsRecord;
 }
 
-export class RelationshipMemberService extends SpeakeasyBase {
+export class RelationshipMemberTlsDnsRecord extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
@@ -25,5 +25,5 @@ export class RelationshipMemberService extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: TypeService;
+    type?: TypeTlsDnsRecord;
 }

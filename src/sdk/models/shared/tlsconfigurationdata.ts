@@ -3,6 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RelationshipMemberServiceInput } from "./relationshipmemberservice";
+import { RelationshipMemberTlsDnsRecordInput } from "./relationshipmembertlsdnsrecord";
 import { TypeTlsConfiguration } from "./typetlsconfiguration";
 import { Expose, Type } from "class-transformer";
 
@@ -15,7 +17,34 @@ export class TlsConfigurationDataAttributes extends SpeakeasyBase {
     name?: string;
 }
 
-export class TlsConfigurationData extends SpeakeasyBase {
+export class TlsConfigurationDataRelationships2DnsRecordsInput extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsDnsRecordInput })
+    @Expose({ name: "data" })
+    @Type(() => RelationshipMemberTlsDnsRecordInput)
+    data?: RelationshipMemberTlsDnsRecordInput[];
+}
+
+/**
+ * The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
+ */
+export class TlsConfigurationDataRelationships2Input extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "dns_records" })
+    @Type(() => TlsConfigurationDataRelationships2DnsRecordsInput)
+    dnsRecords?: TlsConfigurationDataRelationships2DnsRecordsInput;
+}
+
+/**
+ * The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
+ */
+export class TlsConfigurationDataRelationships1Input extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    @Type(() => RelationshipMemberServiceInput)
+    service?: RelationshipMemberServiceInput;
+}
+
+export class TlsConfigurationDataInput extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => TlsConfigurationDataAttributes)

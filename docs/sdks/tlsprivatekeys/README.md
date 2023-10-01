@@ -22,7 +22,7 @@ Create a TLS private key.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import { CreateTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
 const sdk = new Fastly({
   security: {
