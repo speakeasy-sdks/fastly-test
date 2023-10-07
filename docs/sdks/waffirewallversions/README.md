@@ -25,22 +25,23 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CloneWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewallVersions.cloneWafFirewallVersion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-}).then((res: CloneWafFirewallVersionResponse) => {
+  const res = await sdk.wafFirewallVersions.cloneWafFirewallVersion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -66,59 +67,30 @@ Create a new, draft firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafFirewallVersions.createWafFirewallVersion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  wafFirewallVersionInput: {
-    data: {
-      attributes: {
-        allowedHttpVersions: "enormously",
-        allowedMethods: "East",
-        allowedRequestContentType: "Hat",
-        allowedRequestContentTypeCharset: "Recycled purple Chevrolet",
-        argLength: 985257,
-        argNameLength: 847307,
-        combinedFileSizes: 306754,
-        comment: "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        criticalAnomalyScore: 856555,
-        crsValidateUtf8Encoding: false,
-        errorAnomalyScore: 9460,
-        highRiskCountryCodes: "bypass Tungsten DRAM",
-        httpViolationScoreThreshold: 29946,
-        inboundAnomalyScoreThreshold: 72074,
-        lfiScoreThreshold: 827941,
-        locked: false,
-        maxFileSize: 389880,
-        maxNumArgs: 854051,
-        noticeAnomalyScore: 114786,
-        paranoiaLevel: 351968,
-        phpInjectionScoreThreshold: 673502,
-        rceScoreThreshold: 706153,
-        restrictedExtensions: "Royce",
-        restrictedHeaders: "District lime",
-        rfiScoreThreshold: 311744,
-        sessionFixationScoreThreshold: 576231,
-        sqlInjectionScoreThreshold: 790680,
-        totalArgLength: 4268,
-        warningAnomalyScore: 801994,
-        xssScoreThreshold: 931823,
-      },
-      type: TypeWafFirewallVersion.WafFirewallVersion,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: CreateWafFirewallVersionResponse) => {
+  });
+
+  const res = await sdk.wafFirewallVersions.createWafFirewallVersion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    wafFirewallVersionInput: {
+      data: {
+        attributes: {
+          comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        },
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -144,22 +116,23 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeployActivateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-}).then((res: DeployActivateWafFirewallVersionResponse) => {
+  const res = await sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,23 +158,24 @@ Get details about a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewallVersions.getWafFirewallVersion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-  include: "waf_firewall,waf_active_rules",
-}).then((res: GetWafFirewallVersionResponse) => {
+  const res = await sdk.wafFirewallVersions.getWafFirewallVersion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+    include: "waf_firewall,waf_active_rules",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -227,24 +201,25 @@ Get a list of firewall versions associated with a specific firewall.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewallVersions.listWafFirewallVersions({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  include: "waf_firewall",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListWafFirewallVersionsResponse) => {
+  const res = await sdk.wafFirewallVersions.listWafFirewallVersions({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    include: "waf_firewall",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -270,60 +245,31 @@ Update a specific firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafFirewallVersions.updateWafFirewallVersion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-  wafFirewallVersionInput: {
-    data: {
-      attributes: {
-        allowedHttpVersions: "schemas",
-        allowedMethods: "Bugatti Somalia",
-        allowedRequestContentType: "Diesel celebrated",
-        allowedRequestContentTypeCharset: "Gasoline",
-        argLength: 817491,
-        argNameLength: 225176,
-        combinedFileSizes: 245616,
-        comment: "The Football Is Good For Training And Recreational Purposes",
-        criticalAnomalyScore: 751053,
-        crsValidateUtf8Encoding: false,
-        errorAnomalyScore: 893340,
-        highRiskCountryCodes: "Bespoke Planner",
-        httpViolationScoreThreshold: 975928,
-        inboundAnomalyScoreThreshold: 739597,
-        lfiScoreThreshold: 974090,
-        locked: false,
-        maxFileSize: 274045,
-        maxNumArgs: 487683,
-        noticeAnomalyScore: 660999,
-        paranoiaLevel: 601607,
-        phpInjectionScoreThreshold: 676720,
-        rceScoreThreshold: 650022,
-        restrictedExtensions: "indexing Credit becquerel",
-        restrictedHeaders: "Tesla",
-        rfiScoreThreshold: 134918,
-        sessionFixationScoreThreshold: 611213,
-        sqlInjectionScoreThreshold: 583043,
-        totalArgLength: 627256,
-        warningAnomalyScore: 333088,
-        xssScoreThreshold: 545207,
-      },
-      type: TypeWafFirewallVersion.WafFirewallVersion,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: UpdateWafFirewallVersionResponse) => {
+  });
+
+  const res = await sdk.wafFirewallVersions.updateWafFirewallVersion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+    wafFirewallVersionInput: {
+      data: {
+        attributes: {
+          comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        },
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

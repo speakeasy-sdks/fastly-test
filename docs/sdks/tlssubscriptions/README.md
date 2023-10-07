@@ -25,25 +25,26 @@ Creates an email challenge for a domain on a GlobalSign subscription. An email c
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
-  requestBody: {
-    "ad": "Principal",
-  },
-  tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
-  tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}).then((res: CreateGlobalsignEmailChallengeResponse) => {
+  const res = await sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
+    requestBody: {
+      "bandwidth": "than",
+    },
+    tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
+    tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,41 +68,29 @@ Create a new TLS subscription. This response includes a list of possible challen
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TlsSubscriptionDataAttributesCertificateAuthority,
-  TypeTlsCertificate,
-  TypeTlsConfiguration,
-  TypeTlsDomain,
-  TypeTlsSubscription,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsSubscriptions.createTlsSub({
-  force: true,
-  tlsSubscriptionInput: {
-    data: {
-      attributes: {
-        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.LetsEncrypt,
-      },
-      relationships: {
-        commonName: {
-          type: TypeTlsDomain.TlsDomain,
-        },
-      },
-      type: TypeTlsSubscription.TlsSubscription,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: CreateTlsSubResponse) => {
+  });
+
+  const res = await sdk.tlsSubscriptions.createTlsSub({
+    force: true,
+    tlsSubscription: {
+      data: {
+        attributes: {},
+        relationships: "exuding",
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -125,23 +114,24 @@ Deletes a GlobalSign email challenge. After a GlobalSign email challenge is dele
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteGlobalsignEmailChallengeResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-  globalsignEmailChallengeId: "Southwest",
-  tlsAuthorizationId: "reciprocal",
-  tlsSubscriptionId: "West for",
-}).then((res: DeleteGlobalsignEmailChallengeResponse) => {
+  const res = await sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
+    globalsignEmailChallengeId: "Southwest",
+    tlsAuthorizationId: "reciprocal",
+    tlsSubscriptionId: "West for",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -165,21 +155,22 @@ Destroy a TLS subscription. A subscription cannot be destroyed if there are doma
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsSubscriptions.deleteTlsSub({
-  tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}).then((res: DeleteTlsSubResponse) => {
+  const res = await sdk.tlsSubscriptions.deleteTlsSub({
+    tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -203,22 +194,23 @@ Show a TLS subscription.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsSubscriptions.getTlsSub({
-  include: "tls_authorizations",
-  tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}).then((res: GetTlsSubResponse) => {
+  const res = await sdk.tlsSubscriptions.getTlsSub({
+    include: "tls_authorizations",
+    tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -242,28 +234,25 @@ List all TLS subscriptions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsSubsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsSubscriptions.listTlsSubs({
-  filterHasActiveOrder: false,
-  filterState: "Metal Dobra Electric",
-  filterTlsDomainsId: "omnis North IP",
-  include: "tls_authorizations",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.MinusCreatedAt,
-}).then((res: ListTlsSubsResponse) => {
+  const res = await sdk.tlsSubscriptions.listTlsSubs({
+    include: "tls_authorizations",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -287,46 +276,30 @@ Change the TLS domains or common name associated with this subscription, update 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PatchTlsSubResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TlsSubscriptionDataAttributesCertificateAuthority,
-  TypeTlsCertificate,
-  TypeTlsConfiguration,
-  TypeTlsDomain,
-  TypeTlsSubscription,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsSubscriptions.patchTlsSub({
-  force: true,
-  tlsSubscriptionInput: {
-    data: {
-      attributes: {
-        certificateAuthority: TlsSubscriptionDataAttributesCertificateAuthority.Globalsign,
-      },
-      relationships: {
-        tlsCertificates: {
-          data: [
-            {
-              type: TypeTlsCertificate.TlsCertificate,
-            },
-          ],
-        },
-      },
-      type: TypeTlsSubscription.TlsSubscription,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
-}).then((res: PatchTlsSubResponse) => {
+  });
+
+  const res = await sdk.tlsSubscriptions.patchTlsSub({
+    force: true,
+    tlsSubscription: {
+      data: {
+        attributes: {},
+        relationships: "Non",
+      },
+    },
+    tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

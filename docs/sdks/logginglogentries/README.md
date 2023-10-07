@@ -24,7 +24,6 @@ Create a Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
@@ -32,31 +31,29 @@ import {
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogentries.createLogLogentries({
-  loggingLogentries: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogentriesFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
-    port: 843159,
-    region: LoggingLogentriesRegion.Us,
-    responseCondition: "null",
-    token: "Beach",
-    useTls: LoggingUseTls.Zero,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogLogentriesResponse) => {
+  const res = await sdk.loggingLogentries.createLogLogentries({
+    loggingLogentries: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogentriesFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -82,23 +79,24 @@ Delete the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogentries.deleteLogLogentries({
-  loggingLogentriesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogLogentriesResponse) => {
+  const res = await sdk.loggingLogentries.deleteLogLogentries({
+    loggingLogentriesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -124,23 +122,24 @@ Get the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogentries.getLogLogentries({
-  loggingLogentriesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogLogentriesResponse) => {
+  const res = await sdk.loggingLogentries.getLogLogentries({
+    loggingLogentriesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -166,22 +165,23 @@ List all of the Logentries for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogentries.listLogLogentries({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogLogentriesResponse) => {
+  const res = await sdk.loggingLogentries.listLogLogentries({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -207,7 +207,6 @@ Update the Logentry for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogentriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
@@ -215,32 +214,30 @@ import {
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogentries.updateLogLogentries({
-  loggingLogentries: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogentriesFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
-    port: 975061,
-    region: LoggingLogentriesRegion.Eu,
-    responseCondition: "null",
-    token: "towards",
-    useTls: LoggingUseTls.One,
-  },
-  loggingLogentriesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogLogentriesResponse) => {
+  const res = await sdk.loggingLogentries.updateLogLogentries({
+    loggingLogentries: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogentriesFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    loggingLogentriesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,32 +22,31 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogshuttle.createLogLogshuttle({
-  loggingLogshuttle: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.LessThanNilGreaterThan,
-    responseCondition: "null",
-    token: "Southeast Group",
-    url: "http://frozen-hypochondria.name",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.createLogLogshuttle({
+    loggingLogshuttle: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogshuttleFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogshuttlePlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +70,24 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogshuttle.deleteLogLogshuttle({
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.deleteLogLogshuttle({
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +111,24 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogshuttle.getLogLogshuttle({
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.getLogLogshuttle({
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +152,23 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogshuttle.listLogLogshuttle({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.listLogLogshuttle({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +192,32 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogshuttleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLogshuttle.updateLogLogshuttle({
-  loggingLogshuttle: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.None,
-    responseCondition: "null",
-    token: "Computers",
-    url: "http://bogus-census.biz",
-  },
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.updateLogLogshuttle({
+    loggingLogshuttle: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogshuttleFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogshuttlePlacement.None,
+      responseCondition: "null",
+    },
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,21 +22,22 @@ Delete a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.customer.deleteCustomer({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: DeleteCustomerResponse) => {
+  const res = await sdk.customer.deleteCustomer({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -60,21 +61,22 @@ Get a specific customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.customer.getCustomer({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: GetCustomerResponse) => {
+  const res = await sdk.customer.getCustomer({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,19 +100,20 @@ Get the logged in customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLoggedInCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.customer.getLoggedInCustomer().then((res: GetLoggedInCustomerResponse) => {
+  const res = await sdk.customer.getLoggedInCustomer();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -133,21 +136,22 @@ List all users from a specified customer id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUsersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.customer.listUsers({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: ListUsersResponse) => {
+  const res = await sdk.customer.listUsers({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -171,43 +175,24 @@ Update a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.customer.updateCustomer({
-  customerInput: {
-    billingContactId: "Electric",
-    billingNetworkType: CustomerBillingNetworkType.Private,
-    billingRef: "katal blot",
-    force2fa: false,
-    forceSso: false,
-    hasAccountPanel: false,
-    hasImprovedEvents: false,
-    hasOpenstackLogging: false,
-    hasPci: false,
-    ipWhitelist: "overriding program port",
-    legalContactId: "Northeast watt index",
-    name: "online Concrete",
-    ownerId: "Avon South",
-    phoneNumber: "oblong reckless Molybdenum",
-    postalAddress: "Southwest North circuit",
-    pricingPlan: "Osinski circumstance",
-    pricingPlanId: "yellow coulomb",
-    securityContactId: "female",
-    technicalContactId: "asset navigate Rustic",
-  },
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: UpdateCustomerResponse) => {
+  const res = await sdk.customer.updateCustomer({
+    customerInput: {},
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

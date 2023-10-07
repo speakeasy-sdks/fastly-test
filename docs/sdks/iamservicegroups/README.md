@@ -21,21 +21,22 @@ Delete a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAServiceGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamServiceGroups.deleteAServiceGroup({
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: DeleteAServiceGroupResponse) => {
+  const res = await sdk.iamServiceGroups.deleteAServiceGroup({
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,21 +60,22 @@ Get a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAServiceGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamServiceGroups.getAServiceGroup({
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: GetAServiceGroupResponse) => {
+  const res = await sdk.iamServiceGroups.getAServiceGroup({
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,23 +99,24 @@ List services to a service group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceGroupServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamServiceGroups.listServiceGroupServices({
-  page: 1,
-  perPage: 20,
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: ListServiceGroupServicesResponse) => {
+  const res = await sdk.iamServiceGroups.listServiceGroupServices({
+    page: 1,
+    perPage: 20,
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,22 +140,23 @@ List all service groups.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamServiceGroups.listServiceGroups({
-  page: 1,
-  perPage: 20,
-}).then((res: ListServiceGroupsResponse) => {
+  const res = await sdk.iamServiceGroups.listServiceGroups({
+    page: 1,
+    perPage: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -53,7 +53,7 @@ export class WafActiveRules {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "bulkWafActiveRuleInput",
+                "bulkWafActiveRule",
                 "json"
             );
         } catch (e: unknown) {
@@ -140,7 +140,7 @@ export class WafActiveRules {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "bulkWafActiveRulesInput",
+                "bulkWafActiveRules",
                 "json"
             );
         } catch (e: unknown) {
@@ -236,11 +236,7 @@ export class WafActiveRules {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "wafActiveRuleInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafActiveRule", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -556,11 +552,7 @@ export class WafActiveRules {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "wafActiveRuleInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafActiveRule", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

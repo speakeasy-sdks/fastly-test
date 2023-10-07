@@ -21,66 +21,34 @@ Create a director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { DirectorType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.director.createDirector({
-  director: {
-    backends: [
-      {
-        address: "717 Shyann Court",
-        autoLoadbalance: false,
-        betweenBytesTimeout: 738047,
-        clientCert: "Trinidad Walter",
-        comment: "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        connectTimeout: 170452,
-        firstByteTimeout: 352442,
-        healthcheck: "Ford alien",
-        hostname: "fuzzy-agency.com",
-        ipv4: "114.120.196.94",
-        ipv6: "32b3:6d69:96eb:3917:b6f8:6c39:5e53:79ef",
-        keepaliveTime: 252718,
-        maxConn: 42903,
-        maxTlsVersion: "Gorgeous",
-        minTlsVersion: "Concrete Wagon Cambridgeshire",
-        name: "test-backend",
-        overrideHost: "Research vortals Applications",
-        port: 173140,
-        requestCondition: "Books Hop",
-        shield: "for Elta",
-        sslCaCert: "Gadolinium Inverse executor",
-        sslCertHostname: "ivory since benchmark",
-        sslCheckCert: false,
-        sslCiphers: "person Louisiana",
-        sslClientCert: "Macao Rubber architect",
-        sslClientKey: "Branding subdued Generic",
-        sslHostname: "if",
-        sslSniHostname: "Checking East Fresh",
-        useSsl: false,
-        weight: 299197,
-      },
-    ],
-    capacity: 835514,
-    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    name: "test-director",
-    quorum: 124644,
-    retries: 725220,
-    shield: "Human trim Bicycle",
-    type: DirectorType.One,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateDirectorResponse) => {
+  const res = await sdk.director.createDirector({
+    director: {
+      backends: [
+        {
+          comment: "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+          name: "test-backend",
+        },
+      ],
+      comment: "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      name: "test-director",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,23 +72,24 @@ Delete the director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.director.deleteDirector({
-  directorName: "test-director",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteDirectorResponse) => {
+  const res = await sdk.director.deleteDirector({
+    directorName: "test-director",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -144,23 +113,24 @@ Get the director for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDirectorResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.director.getDirector({
-  directorName: "test-director",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetDirectorResponse) => {
+  const res = await sdk.director.getDirector({
+    directorName: "test-director",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,22 +154,23 @@ List the directors for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDirectorsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.director.listDirectors({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListDirectorsResponse) => {
+  const res = await sdk.director.listDirectors({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

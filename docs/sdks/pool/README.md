@@ -22,46 +22,29 @@ Creates a pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pool.createServerPool({
-  pool: {
-    comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    connectTimeout: 811080,
-    firstByteTimeout: 590807,
-    healthcheck: "Producer ROI",
-    maxConnDefault: 866009,
-    maxTlsVersion: 533393,
-    minTlsVersion: 447912,
-    name: "my-pool",
-    overrideHost: "empower Darmstadtium",
-    quorum: 662201,
-    requestCondition: "null",
-    shield: "Paradigm",
-    tlsCaCert: "Hybrid Electronic Nihonium",
-    tlsCertHostname: "Dinar spool disintermediate",
-    tlsCheckCert: 135881,
-    tlsCiphers: "Cotton useful",
-    tlsClientCert: "instructive drive Touring",
-    tlsClientKey: "Buckinghamshire hack",
-    tlsSniHostname: "harum bifurcated",
-    type: PoolType.Random,
-    useTls: PoolUseTls.One,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateServerPoolResponse) => {
+  const res = await sdk.pool.createServerPool({
+    pool: {
+      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      name: "my-pool",
+      requestCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -85,23 +68,24 @@ Deletes a specific pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pool.deleteServerPool({
-  poolName: "my-pool",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteServerPoolResponse) => {
+  const res = await sdk.pool.deleteServerPool({
+    poolName: "my-pool",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -125,23 +109,24 @@ Gets a single pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pool.getServerPool({
-  poolName: "my-pool",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetServerPoolResponse) => {
+  const res = await sdk.pool.getServerPool({
+    poolName: "my-pool",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -165,22 +150,23 @@ Lists all pools for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServerPoolsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pool.listServerPools({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListServerPoolsResponse) => {
+  const res = await sdk.pool.listServerPools({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -204,47 +190,30 @@ Updates a specific pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServerPoolResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pool.updateServerPool({
-  pool: {
-    comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    connectTimeout: 870420,
-    firstByteTimeout: 29969,
-    healthcheck: "gold Rancho Hybrid",
-    maxConnDefault: 422957,
-    maxTlsVersion: 357933,
-    minTlsVersion: 955467,
-    name: "my-pool",
-    overrideHost: "Cedi",
-    quorum: 770007,
-    requestCondition: "null",
-    shield: "experiences Tactics",
-    tlsCaCert: "terribly quantifying MTF",
-    tlsCertHostname: "services BCEAO requite",
-    tlsCheckCert: 600539,
-    tlsCiphers: "male",
-    tlsClientCert: "Northwest blue digital",
-    tlsClientKey: "navigating",
-    tlsSniHostname: "Arab",
-    type: PoolType.Client,
-    useTls: PoolUseTls.One,
-  },
-  poolName: "my-pool",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateServerPoolResponse) => {
+  const res = await sdk.pool.updateServerPool({
+    pool: {
+      comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      name: "my-pool",
+      requestCondition: "null",
+    },
+    poolName: "my-pool",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,30 +22,28 @@ Create a cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.cacheSettings.createCacheSettings({
-  cacheSetting: {
-    action: CacheSettingAction.Restart,
-    cacheCondition: "null",
-    name: "test-cache-setting",
-    staleTtl: 810916,
-    ttl: 569974,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateCacheSettingsResponse) => {
+  const res = await sdk.cacheSettings.createCacheSettings({
+    cacheSetting: {
+      cacheCondition: "null",
+      name: "test-cache-setting",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,23 +67,24 @@ Delete a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.cacheSettings.deleteCacheSettings({
-  cacheSettingsName: "test-cache-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteCacheSettingsResponse) => {
+  const res = await sdk.cacheSettings.deleteCacheSettings({
+    cacheSettingsName: "test-cache-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,23 +108,24 @@ Get a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.cacheSettings.getCacheSettings({
-  cacheSettingsName: "test-cache-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetCacheSettingsResponse) => {
+  const res = await sdk.cacheSettings.getCacheSettings({
+    cacheSettingsName: "test-cache-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -149,22 +149,23 @@ Get a list of all cache settings for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.cacheSettings.listCacheSettings({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListCacheSettingsResponse) => {
+  const res = await sdk.cacheSettings.listCacheSettings({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -188,31 +189,29 @@ Update a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCacheSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.cacheSettings.updateCacheSettings({
-  cacheSetting: {
-    action: CacheSettingAction.Pass,
-    cacheCondition: "null",
-    name: "test-cache-setting",
-    staleTtl: 274991,
-    ttl: 744463,
-  },
-  cacheSettingsName: "test-cache-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateCacheSettingsResponse) => {
+  const res = await sdk.cacheSettings.updateCacheSettings({
+    cacheSetting: {
+      cacheCondition: "null",
+      name: "test-cache-setting",
+    },
+    cacheSettingsName: "test-cache-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

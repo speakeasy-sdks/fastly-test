@@ -20,22 +20,23 @@ Disable a product on a service. Supported product IDs: `brotli_compression`,`dom
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DisableProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.enabledProducts.disableProduct({
-  productId: "origin_inspector",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: DisableProductResponse) => {
+  const res = await sdk.enabledProducts.disableProduct({
+    productId: "origin_inspector",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,22 +60,23 @@ Enable a product on a service. Supported product IDs: `brotli_compression`,`doma
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { EnableProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.enabledProducts.enableProduct({
-  productId: "origin_inspector",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: EnableProductResponse) => {
+  const res = await sdk.enabledProducts.enableProduct({
+    productId: "origin_inspector",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,22 +100,23 @@ Get enabled product on a service. Supported product IDs: `brotli_compression`,`d
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetEnabledProductResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.enabledProducts.getEnabledProduct({
-  productId: "origin_inspector",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetEnabledProductResponse) => {
+  const res = await sdk.enabledProducts.getEnabledProduct({
+    productId: "origin_inspector",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

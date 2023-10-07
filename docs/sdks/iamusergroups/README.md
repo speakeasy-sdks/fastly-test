@@ -23,21 +23,22 @@ Delete a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.deleteAUserGroup({
-  userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: DeleteAUserGroupResponse) => {
+  const res = await sdk.iamUserGroups.deleteAUserGroup({
+    userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,21 +62,22 @@ Get a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAUserGroupResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.getAUserGroup({
-  userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: GetAUserGroupResponse) => {
+  const res = await sdk.iamUserGroups.getAUserGroup({
+    userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -99,23 +101,24 @@ List members of a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupMembersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.listUserGroupMembers({
-  page: 1,
-  perPage: 20,
-  userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: ListUserGroupMembersResponse) => {
+  const res = await sdk.iamUserGroups.listUserGroupMembers({
+    page: 1,
+    perPage: 20,
+    userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,23 +142,24 @@ List roles in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.listUserGroupRoles({
-  page: 1,
-  perPage: 20,
-  userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: ListUserGroupRolesResponse) => {
+  const res = await sdk.iamUserGroups.listUserGroupRoles({
+    page: 1,
+    perPage: 20,
+    userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -179,23 +183,24 @@ List service groups in a user group.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupServiceGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.listUserGroupServiceGroups({
-  page: 1,
-  perPage: 20,
-  userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: ListUserGroupServiceGroupsResponse) => {
+  const res = await sdk.iamUserGroups.listUserGroupServiceGroups({
+    page: 1,
+    perPage: 20,
+    userGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -219,22 +224,23 @@ List all user groups.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListUserGroupsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamUserGroups.listUserGroups({
-  page: 1,
-  perPage: 20,
-}).then((res: ListUserGroupsResponse) => {
+  const res = await sdk.iamUserGroups.listUserGroups({
+    page: 1,
+    perPage: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

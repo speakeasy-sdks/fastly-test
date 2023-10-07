@@ -22,7 +22,6 @@ Create a FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -30,42 +29,36 @@ import {
   LoggingFtpPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingFtp.createLogFtp({
-  loggingFtpInput: {
-    address: "568 Barry Rapids",
-    compressionCodec: LoggingFtpCompressionCodec.Gzip,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.One,
-    gzipLevel: 0,
-    hostname: "functional-someone.name",
-    ipv4: "166.27.47.190",
-    messageType: LoggingFtpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "Wbz3kRNXW1XMkGo",
-    path: "/usr/obj",
-    period: 3600,
-    placement: LoggingFtpPlacement.WafDebug,
-    port: 579333,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    user: "Paul_Schuppe",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogFtpResponse) => {
+  const res = await sdk.loggingFtp.createLogFtp({
+    loggingFtpInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingFtpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingFtpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingFtpPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -89,23 +82,24 @@ Delete the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingFtp.deleteLogFtp({
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogFtpResponse) => {
+  const res = await sdk.loggingFtp.deleteLogFtp({
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -129,23 +123,24 @@ Get the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingFtp.getLogFtp({
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogFtpResponse) => {
+  const res = await sdk.loggingFtp.getLogFtp({
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -169,22 +164,23 @@ List all of the FTPs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingFtp.listLogFtp({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogFtpResponse) => {
+  const res = await sdk.loggingFtp.listLogFtp({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -208,7 +204,6 @@ Update the FTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogFtpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
@@ -216,43 +211,37 @@ import {
   LoggingFtpPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingFtp.updateLogFtp({
-  loggingFtpInput: {
-    address: "10315 Greenholt Valley",
-    compressionCodec: LoggingFtpCompressionCodec.Snappy,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.Two,
-    gzipLevel: 0,
-    hostname: "acrobatic-horn.name",
-    ipv4: "11.86.46.29",
-    messageType: LoggingFtpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "hWN7ObwWqEABkD3",
-    path: "/opt/sbin",
-    period: 3600,
-    placement: LoggingFtpPlacement.LessThanNilGreaterThan,
-    port: 504004,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    user: "Raymundo.Balistreri63",
-  },
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogFtpResponse) => {
+  const res = await sdk.loggingFtp.updateLogFtp({
+    loggingFtpInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingFtpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingFtpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingFtpPlacement.None,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

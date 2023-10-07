@@ -20,25 +20,25 @@ List all tags.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafTagsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { WafTagInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafTags.listWafTags({
-  filterName: "male",
-  include: WafTagInclude.WafRules,
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListWafTagsResponse) => {
+  const res = await sdk.wafTags.listWafTags({
+    include: WafTagInclude.WafRules,
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

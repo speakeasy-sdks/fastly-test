@@ -20,21 +20,22 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLast120SecondsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.realtime.getStatsLast120Seconds({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetStatsLast120SecondsResponse) => {
+  const res = await sdk.realtime.getStatsLast120Seconds({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,22 +59,23 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLast120SecondsLimitEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.realtime.getStatsLast120SecondsLimitEntries({
-  maxEntries: 1,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetStatsLast120SecondsLimitEntriesResponse) => {
+  const res = await sdk.realtime.getStatsLast120SecondsLimitEntries({
+    maxEntries: 1,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,22 +99,23 @@ Get real-time data for the specified reporting period. Specify `0` to get a sing
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStatsLastSecondResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.realtime.getStatsLastSecond({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  timestampInSeconds: 1608560817,
-}).then((res: GetStatsLastSecondResponse) => {
+  const res = await sdk.realtime.getStatsLastSecond({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    timestampInSeconds: 1608560817,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

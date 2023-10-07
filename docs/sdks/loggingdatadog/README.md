@@ -22,32 +22,30 @@ Create a Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDatadog.createLogDatadog({
-  loggingDatadog: {
-    format: "Designer",
-    formatVersion: LoggingDatadogFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingDatadogPlacement.None,
-    region: LoggingDatadogRegion.Eu,
-    responseCondition: "null",
-    token: "obedience Industrial AGP",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogDatadogResponse) => {
+  const res = await sdk.loggingDatadog.createLogDatadog({
+    loggingDatadog: {
+      formatVersion: LoggingDatadogFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingDatadogPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +69,24 @@ Delete the Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDatadog.deleteLogDatadog({
-  loggingDatadogName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogDatadogResponse) => {
+  const res = await sdk.loggingDatadog.deleteLogDatadog({
+    loggingDatadogName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +110,24 @@ Get the details for a Datadog logging object for a particular service and versio
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDatadog.getLogDatadog({
-  loggingDatadogName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogDatadogResponse) => {
+  const res = await sdk.loggingDatadog.getLogDatadog({
+    loggingDatadogName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +151,23 @@ List all of the Datadog logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDatadog.listLogDatadog({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogDatadogResponse) => {
+  const res = await sdk.loggingDatadog.listLogDatadog({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +191,31 @@ Update the Datadog logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogDatadogResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingDatadogFormatVersion, LoggingDatadogPlacement, LoggingDatadogRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDatadog.updateLogDatadog({
-  loggingDatadog: {
-    format: "alias questioning Southwest",
-    formatVersion: LoggingDatadogFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingDatadogPlacement.WafDebug,
-    region: LoggingDatadogRegion.Us,
-    responseCondition: "null",
-    token: "Dynamic Coordinator",
-  },
-  loggingDatadogName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogDatadogResponse) => {
+  const res = await sdk.loggingDatadog.updateLogDatadog({
+    loggingDatadog: {
+      formatVersion: LoggingDatadogFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingDatadogPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    loggingDatadogName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

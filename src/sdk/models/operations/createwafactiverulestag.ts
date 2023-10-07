@@ -20,7 +20,7 @@ export class CreateWafActiveRulesTagRequest extends SpeakeasyBase {
     versionId: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafActiveRuleInput?: shared.WafActiveRuleInput;
+    wafActiveRule?: shared.WafActiveRule;
 
     /**
      * Name of the tag.

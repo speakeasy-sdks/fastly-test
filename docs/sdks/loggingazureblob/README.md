@@ -22,7 +22,6 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingAzureblobCompressionCodec,
   LoggingAzureblobFormatVersion,
@@ -30,40 +29,36 @@ import {
   LoggingAzureblobPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingAzureblob.createLogAzure({
-  loggingAzureblobInput: {
-    accountName: "Northwest Southeast",
-    compressionCodec: LoggingAzureblobCompressionCodec.Zstd,
-    container: "Ratke Northwest Flerovium",
-    fileMaxBytes: 119558,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingAzureblobFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingAzureblobMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/etc/defaults",
-    period: 3600,
-    placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    sasToken: "which tiny",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.createLogAzure({
+    loggingAzureblobInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingAzureblobFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingAzureblobMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingAzureblobPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -87,23 +82,24 @@ Delete the Azure Blob Storage logging endpoint for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingAzureblob.deleteLogAzure({
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.deleteLogAzure({
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -127,23 +123,24 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingAzureblob.getLogAzure({
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.getLogAzure({
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -167,22 +164,23 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingAzureblob.listLogAzure({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.listLogAzure({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -206,7 +204,6 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogAzureResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingAzureblobCompressionCodec,
   LoggingAzureblobFormatVersion,
@@ -214,41 +211,37 @@ import {
   LoggingAzureblobPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingAzureblob.updateLogAzure({
-  loggingAzureblobInput: {
-    accountName: "Quality Strategist Plastic",
-    compressionCodec: LoggingAzureblobCompressionCodec.Zstd,
-    container: "solemnly Integration Spinka",
-    fileMaxBytes: 785632,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingAzureblobFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingAzureblobMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/usr",
-    period: 3600,
-    placement: LoggingAzureblobPlacement.None,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    sasToken: "Principal",
-  },
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.updateLogAzure({
+    loggingAzureblobInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingAzureblobFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingAzureblobMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

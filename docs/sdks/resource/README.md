@@ -22,26 +22,27 @@ Create a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.resource.createResource({
-  resource: {
-    name: "test-resource",
-    resourceId: "3vjTN8v1O7nOAY7aNDGOL",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateResourceResponse) => {
+  const res = await sdk.resource.createResource({
+    resource: {
+      name: "test-resource",
+      resourceId: "3vjTN8v1O7nOAY7aNDGOL",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,23 +66,24 @@ Delete a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.resource.deleteResource({
-  id: "7Lsb7Y76rChV9hSrv3KgFl",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteResourceResponse) => {
+  const res = await sdk.resource.deleteResource({
+    id: "7Lsb7Y76rChV9hSrv3KgFl",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,23 +107,24 @@ Display a resource link by its identifier.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.resource.getResource({
-  id: "7Lsb7Y76rChV9hSrv3KgFl",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetResourceResponse) => {
+  const res = await sdk.resource.getResource({
+    id: "7Lsb7Y76rChV9hSrv3KgFl",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +148,23 @@ List links between resources and services
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListResourcesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.resource.listResources({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListResourcesResponse) => {
+  const res = await sdk.resource.listResources({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,27 +188,28 @@ Update a link between a resource and a service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateResourceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.resource.updateResource({
-  id: "7Lsb7Y76rChV9hSrv3KgFl",
-  resource: {
-    name: "test-resource",
-    resourceId: "3vjTN8v1O7nOAY7aNDGOL",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateResourceResponse) => {
+  const res = await sdk.resource.updateResource({
+    id: "7Lsb7Y76rChV9hSrv3KgFl",
+    resource: {
+      name: "test-resource",
+      resourceId: "3vjTN8v1O7nOAY7aNDGOL",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

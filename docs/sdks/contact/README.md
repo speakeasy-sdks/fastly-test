@@ -19,22 +19,23 @@ Delete a contact.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteContactResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.contact.deleteContact({
-  contactId: "x4xCwxxJxGCx123Rx5xTx",
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: DeleteContactResponse) => {
+  const res = await sdk.contact.deleteContact({
+    contactId: "x4xCwxxJxGCx123Rx5xTx",
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +59,22 @@ List all contacts from a specified customer ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListContactsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.contact.listContacts({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: ListContactsResponse) => {
+  const res = await sdk.contact.listContacts({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

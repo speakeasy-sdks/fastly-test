@@ -21,34 +21,30 @@ Create star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeService, TypeStar, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.star.createServiceStar({
-  data: {
-    relationships: {
-      service: {
-        type: TypeService.Service,
-      },
-      user: {
-        data: {
-          type: TypeUser.User,
+  const res = await sdk.star.createServiceStar({
+    data: {
+      relationships: {
+        service: {},
+        user: {
+          data: {},
         },
       },
     },
-    type: TypeStar.Star,
-  },
-}).then((res: CreateServiceStarResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,21 +68,22 @@ Delete star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.star.deleteServiceStar({
-  starId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: DeleteServiceStarResponse) => {
+  const res = await sdk.star.deleteServiceStar({
+    starId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,21 +107,22 @@ Show star.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceStarResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.star.getServiceStar({
-  starId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: GetServiceStarResponse) => {
+  const res = await sdk.star.getServiceStar({
+    starId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -148,19 +146,20 @@ List stars.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceStarsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.star.listServiceStars().then((res: ListServiceStarsResponse) => {
+  const res = await sdk.star.listServiceStars();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

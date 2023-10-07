@@ -18,19 +18,20 @@ List all domain-ownerships.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDomainOwnershipsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domainOwnerships.listDomainOwnerships().then((res: ListDomainOwnershipsResponse) => {
+  const res = await sdk.domainOwnerships.listDomainOwnerships();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

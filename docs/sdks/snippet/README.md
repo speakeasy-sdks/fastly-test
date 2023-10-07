@@ -23,30 +23,28 @@ Create a snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.createSnippet({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippet: {
-    content: "architectures withdrawal Darmstadtium",
-    dynamic: SnippetDynamic.One,
-    name: "test-snippet",
-    priority: "10",
-    type: SnippetType.Recv,
-  },
-  versionId: 1,
-}).then((res: CreateSnippetResponse) => {
+  const res = await sdk.snippet.createSnippet({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    snippet: {
+      name: "test-snippet",
+      priority: "10",
+    },
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +68,24 @@ Delete a specific snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.deleteSnippet({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippetName: "test-snippet",
-  versionId: 1,
-}).then((res: DeleteSnippetResponse) => {
+  const res = await sdk.snippet.deleteSnippet({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    snippetName: "test-snippet",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +109,24 @@ Get a single snippet for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.getSnippet({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippetName: "test-snippet",
-  versionId: 1,
-}).then((res: GetSnippetResponse) => {
+  const res = await sdk.snippet.getSnippet({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    snippetName: "test-snippet",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,22 +150,23 @@ Get a single dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.getSnippetDynamic({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}).then((res: GetSnippetDynamicResponse) => {
+  const res = await sdk.snippet.getSnippetDynamic({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    snippetId: "62Yd1WfiCBPENLloXfXmlO",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,22 +190,23 @@ List all snippets for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListSnippetsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.listSnippets({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListSnippetsResponse) => {
+  const res = await sdk.snippet.listSnippets({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -228,30 +230,28 @@ Update a dynamic snippet for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateSnippetDynamicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { SnippetDynamic, SnippetType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.snippet.updateSnippetDynamic({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  snippet: {
-    content: "Shoes",
-    dynamic: SnippetDynamic.One,
-    name: "test-snippet",
-    priority: "10",
-    type: SnippetType.Log,
-  },
-  snippetId: "62Yd1WfiCBPENLloXfXmlO",
-}).then((res: UpdateSnippetDynamicResponse) => {
+  const res = await sdk.snippet.updateSnippetDynamic({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    snippet: {
+      name: "test-snippet",
+      priority: "10",
+    },
+    snippetId: "62Yd1WfiCBPENLloXfXmlO",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

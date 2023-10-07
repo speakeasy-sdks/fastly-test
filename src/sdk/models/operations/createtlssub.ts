@@ -17,7 +17,7 @@ export class CreateTlsSubRequest extends SpeakeasyBase {
     force?: boolean;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsSubscriptionInput?: shared.TlsSubscriptionInput;
+    tlsSubscription?: shared.TlsSubscription;
 }
 
 export class CreateTlsSubResponse extends SpeakeasyBase {

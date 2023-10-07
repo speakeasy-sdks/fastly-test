@@ -21,34 +21,29 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKinesis.createLogKinesis({
-  loggingKinesis: {
-    accessKey: "Chad Fresh Mini",
-    format: "DRAM",
-    formatVersion: LoggingFormatVersion.One,
-    iamRole: "Convertible barring",
-    name: "test-log-endpoint",
-    placement: LoggingPlacement.LessThanNilGreaterThan,
-    region: AwsRegion.ApNortheast3,
-    secretKey: "Ball Nihonium",
-    topic: "knowledgeably synthesize topic",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.createLogKinesis({
+    loggingKinesis: {
+      formatVersion: LoggingFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingPlacement.LessThanNilGreaterThan,
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,23 +67,24 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKinesis.deleteLogKinesis({
-  loggingKinesisName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.deleteLogKinesis({
+    loggingKinesisName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -112,23 +108,24 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKinesis.getLogKinesis({
-  loggingKinesisName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.getLogKinesis({
+    loggingKinesisName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -152,22 +149,23 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogKinesisResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKinesis.listLogKinesis({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.listLogKinesis({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

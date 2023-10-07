@@ -18,19 +18,20 @@ List all permissions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamPermissions.listPermissions().then((res: ListPermissionsResponse) => {
+  const res = await sdk.iamPermissions.listPermissions();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

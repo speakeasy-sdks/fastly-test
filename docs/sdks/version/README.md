@@ -26,22 +26,23 @@ Activate the current version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ActivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.activateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ActivateServiceVersionResponse) => {
+  const res = await sdk.version.activateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,22 +66,23 @@ Clone the current configuration into a new version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CloneServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.cloneServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CloneServiceVersionResponse) => {
+  const res = await sdk.version.cloneServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,21 +106,22 @@ Create a version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.createServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: CreateServiceVersionResponse) => {
+  const res = await sdk.version.createServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -142,22 +145,23 @@ Deactivate the current version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeactivateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.deactivateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeactivateServiceVersionResponse) => {
+  const res = await sdk.version.deactivateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -181,22 +185,23 @@ Get the version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.getServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetServiceVersionResponse) => {
+  const res = await sdk.version.getServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -220,21 +225,22 @@ List the versions for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceVersionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.listServiceVersions({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: ListServiceVersionsResponse) => {
+  const res = await sdk.version.listServiceVersions({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -258,22 +264,23 @@ Locks the specified version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { LockServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.lockServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: LockServiceVersionResponse) => {
+  const res = await sdk.version.lockServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -297,30 +304,26 @@ Update a particular version for a particular service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.updateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionInput: {
-    active: false,
-    comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    deployed: false,
-    locked: false,
-    staging: false,
-    testing: false,
-  },
-  versionId: 1,
-}).then((res: UpdateServiceVersionResponse) => {
+  const res = await sdk.version.updateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionInput: {
+      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    },
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -344,22 +347,23 @@ Validate the version for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ValidateServiceVersionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.version.validateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ValidateServiceVersionResponse) => {
+  const res = await sdk.version.validateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

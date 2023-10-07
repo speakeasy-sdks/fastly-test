@@ -22,19 +22,20 @@ Get a single token based on the access_token used in the request.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tokens.getTokenCurrent().then((res: GetTokenCurrentResponse) => {
+  const res = await sdk.tokens.getTokenCurrent();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,21 +58,22 @@ List all tokens belonging to a specific customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTokensCustomerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tokens.listTokensCustomer({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: ListTokensCustomerResponse) => {
+  const res = await sdk.tokens.listTokensCustomer({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -95,19 +97,20 @@ List all tokens belonging to the authenticated user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTokensUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tokens.listTokensUser().then((res: ListTokensUserResponse) => {
+  const res = await sdk.tokens.listTokensUser();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -130,21 +133,22 @@ Revoke a specific token by its id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RevokeTokenResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tokens.revokeToken({
-  tokenId: "5Yo3XXnrQpjc20u0ybrf2g",
-}).then((res: RevokeTokenResponse) => {
+  const res = await sdk.tokens.revokeToken({
+    tokenId: "5Yo3XXnrQpjc20u0ybrf2g",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -168,19 +172,20 @@ Revoke a token that is used to authenticate the request.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RevokeTokenCurrentResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tokens.revokeTokenCurrent().then((res: RevokeTokenCurrentResponse) => {
+  const res = await sdk.tokens.revokeTokenCurrent();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

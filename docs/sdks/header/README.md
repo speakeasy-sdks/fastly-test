@@ -22,37 +22,29 @@ Creates a new Header object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.header.createHeaderObject({
-  header: {
-    action: HeaderAction.Append,
-    cacheCondition: "null",
-    dst: "anti gold",
-    ignoreIfSet: 802152,
-    name: "test-header",
-    priority: 352185,
-    regex: "TCP infomediaries",
-    requestCondition: "null",
-    responseCondition: "monitor Northeast",
-    src: "briefly Account Secured",
-    substitution: "Egypt gee",
-    type: HeaderType.Cache,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateHeaderObjectResponse) => {
+  const res = await sdk.header.createHeaderObject({
+    header: {
+      cacheCondition: "null",
+      name: "test-header",
+      requestCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -76,23 +68,24 @@ Deletes a Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.header.deleteHeaderObject({
-  headerName: "test-header",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteHeaderObjectResponse) => {
+  const res = await sdk.header.deleteHeaderObject({
+    headerName: "test-header",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -116,23 +109,24 @@ Retrieves a Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.header.getHeaderObject({
-  headerName: "test-header",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetHeaderObjectResponse) => {
+  const res = await sdk.header.getHeaderObject({
+    headerName: "test-header",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -156,22 +150,23 @@ Retrieves all Header objects for a particular Version of a Service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListHeaderObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.header.listHeaderObjects({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListHeaderObjectsResponse) => {
+  const res = await sdk.header.listHeaderObjects({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -195,38 +190,30 @@ Modifies an existing Header object by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateHeaderObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.header.updateHeaderObject({
-  header: {
-    action: HeaderAction.RegexRepeat,
-    cacheCondition: "null",
-    dst: "male",
-    ignoreIfSet: 926675,
-    name: "test-header",
-    priority: 444514,
-    regex: "North North",
-    requestCondition: "null",
-    responseCondition: "candela program 24",
-    src: "Salad",
-    substitution: "tempora Buckinghamshire alarm",
-    type: HeaderType.Request,
-  },
-  headerName: "test-header",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateHeaderObjectResponse) => {
+  const res = await sdk.header.updateHeaderObject({
+    header: {
+      cacheCondition: "null",
+      name: "test-header",
+      requestCondition: "null",
+    },
+    headerName: "test-header",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

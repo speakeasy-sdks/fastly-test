@@ -24,34 +24,34 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateAclEntryNegated, BulkUpdateAclEntryOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.bulkUpdateAclEntries({
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  bulkUpdateAclEntriesRequestInput: {
-    entries: [
-      {
-        comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        ip: "127.0.0.1",
-        negated: BulkUpdateAclEntryNegated.One,
-        op: BulkUpdateAclEntryOp.Create,
-        subnet: 8,
-      },
-    ],
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: BulkUpdateAclEntriesResponse) => {
+  const res = await sdk.aclEntry.bulkUpdateAclEntries({
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    bulkUpdateAclEntriesRequestInput: {
+      entries: [
+        {
+          comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+          ip: "127.0.0.1",
+          negated: BulkUpdateAclEntryNegated.One,
+          subnet: 8,
+        },
+      ],
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -75,29 +75,30 @@ Add an ACL entry to an ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.createAclEntry({
-  aclEntry: {
-    comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    ip: "127.0.0.1",
-    negated: AclEntryNegated.One,
-    subnet: 8,
-  },
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: CreateAclEntryResponse) => {
+  const res = await sdk.aclEntry.createAclEntry({
+    aclEntry: {
+      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      ip: "127.0.0.1",
+      negated: AclEntryNegated.One,
+      subnet: 8,
+    },
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -121,23 +122,24 @@ Delete an ACL entry from a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.deleteAclEntry({
-  aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: DeleteAclEntryResponse) => {
+  const res = await sdk.aclEntry.deleteAclEntry({
+    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -161,23 +163,24 @@ Retrieve a single ACL entry.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.getAclEntry({
-  aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetAclEntryResponse) => {
+  const res = await sdk.aclEntry.getAclEntry({
+    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -201,27 +204,28 @@ List ACL entries for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListAclEntriesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.listAclEntries({
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  direction: Direction.Ascend,
-  page: 1,
-  perPage: 20,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  sort: "created",
-}).then((res: ListAclEntriesResponse) => {
+  const res = await sdk.aclEntry.listAclEntries({
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    direction: Direction.Ascend,
+    page: 1,
+    perPage: 20,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    sort: "created",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -245,30 +249,31 @@ Update an ACL entry for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateAclEntryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.aclEntry.updateAclEntry({
-  aclEntry: {
-    comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    ip: "127.0.0.1",
-    negated: AclEntryNegated.Zero,
-    subnet: 8,
-  },
-  aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-  aclId: "6tUXdegLTf5BCig0zGFrU3",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: UpdateAclEntryResponse) => {
+  const res = await sdk.aclEntry.updateAclEntry({
+    aclEntry: {
+      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      ip: "127.0.0.1",
+      negated: AclEntryNegated.Zero,
+      subnet: 8,
+    },
+    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
+    aclId: "6tUXdegLTf5BCig0zGFrU3",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

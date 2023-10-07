@@ -22,37 +22,32 @@ Create a TLS certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsCertificates.createTlsCert({
-  data: {
-    attributes: {
-      certBlob: "Gloves SQL Dubnium",
-      name: "Avon Electric",
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    relationships: {
-      tlsDomains: {
-        data: [
-          {
-            type: TypeTlsDomain.TlsDomain,
-          },
-        ],
+  });
+
+  const res = await sdk.tlsCertificates.createTlsCert({
+    data: {
+      attributes: {},
+      relationships: {
+        tlsDomains: {
+          data: [
+            {},
+          ],
+        },
       },
     },
-    type: TypeTlsCertificate.TlsCertificate,
-  },
-}).then((res: CreateTlsCertResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -76,21 +71,22 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsCertificates.deleteTlsCert({
-  tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}).then((res: DeleteTlsCertResponse) => {
+  const res = await sdk.tlsCertificates.deleteTlsCert({
+    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -114,21 +110,22 @@ Show a TLS certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsCertificates.getTlsCert({
-  tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}).then((res: GetTlsCertResponse) => {
+  const res = await sdk.tlsCertificates.getTlsCert({
+    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -152,28 +149,24 @@ List all TLS certificates.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsCertificates.listTlsCerts({
-  filterInUse: "Northwest overriding plum",
-  filterNotAfter: "Dollar",
-  filterTlsDomainsId: "Corporate Customer",
-  include: "Passage Blues",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.CreatedAt,
-}).then((res: ListTlsCertsResponse) => {
+  const res = await sdk.tlsCertificates.listTlsCerts({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -197,40 +190,35 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsCertificates.updateTlsCert({
-  tlsCertificateInput: {
-    data: {
-      attributes: {
-        certBlob: "male Klocko North",
-        name: "National",
-      },
-      relationships: {
-        tlsDomains: {
-          data: [
-            {
-              type: TypeTlsDomain.TlsDomain,
-            },
-          ],
+  const res = await sdk.tlsCertificates.updateTlsCert({
+    tlsCertificateInput: {
+      data: {
+        attributes: {},
+        relationships: {
+          tlsDomains: {
+            data: [
+              {},
+            ],
+          },
         },
       },
-      type: TypeTlsCertificate.TlsCertificate,
     },
-  },
-  tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-}).then((res: UpdateTlsCertResponse) => {
+    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,32 +22,32 @@ Create a Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPapertrail.createLogPapertrail({
-  loggingPapertrail: {
-    address: "example.com",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingPapertrailFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingPapertrailPlacement.LessThanNilGreaterThan,
-    port: 236529,
-    responseCondition: "null",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogPapertrailResponse) => {
+  const res = await sdk.loggingPapertrail.createLogPapertrail({
+    loggingPapertrail: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingPapertrailFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingPapertrailPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +71,24 @@ Delete the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPapertrail.deleteLogPapertrail({
-  loggingPapertrailName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogPapertrailResponse) => {
+  const res = await sdk.loggingPapertrail.deleteLogPapertrail({
+    loggingPapertrailName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +112,24 @@ Get the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPapertrail.getLogPapertrail({
-  loggingPapertrailName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogPapertrailResponse) => {
+  const res = await sdk.loggingPapertrail.getLogPapertrail({
+    loggingPapertrailName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +153,23 @@ List all of the Papertrails for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPapertrail.listLogPapertrail({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogPapertrailResponse) => {
+  const res = await sdk.loggingPapertrail.listLogPapertrail({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +193,33 @@ Update the Papertrail for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogPapertrailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPapertrail.updateLogPapertrail({
-  loggingPapertrail: {
-    address: "example.com",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingPapertrailFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingPapertrailPlacement.WafDebug,
-    port: 486742,
-    responseCondition: "null",
-  },
-  loggingPapertrailName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogPapertrailResponse) => {
+  const res = await sdk.loggingPapertrail.updateLogPapertrail({
+    loggingPapertrail: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingPapertrailFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingPapertrailPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    loggingPapertrailName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,7 +22,6 @@ Create GCS logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
@@ -30,44 +29,43 @@ import {
   LoggingGcsPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingGcs.createLogGcs({
-  loggingGcsInput: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "turquoise cyan Account",
-    compressionCodec: LoggingGcsCompressionCodec.Snappy,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingGcsFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingGcsMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/usr/X11R6",
-    period: 3600,
-    placement: LoggingGcsPlacement.None,
-    projectId: "test-project-id",
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogGcsResponse) => {
+  const res = await sdk.loggingGcs.createLogGcs({
+    loggingGcsInput: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingGcsFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingGcsMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingGcsPlacement.LessThanNilGreaterThan,
+      projectId: "test-project-id",
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -91,23 +89,24 @@ Delete the GCS Logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingGcs.deleteLogGcs({
-  loggingGcsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogGcsResponse) => {
+  const res = await sdk.loggingGcs.deleteLogGcs({
+    loggingGcsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -131,23 +130,24 @@ Get the GCS Logging for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingGcs.getLogGcs({
-  loggingGcsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogGcsResponse) => {
+  const res = await sdk.loggingGcs.getLogGcs({
+    loggingGcsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -171,22 +171,23 @@ List all of the GCS log endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingGcs.listLogGcs({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogGcsResponse) => {
+  const res = await sdk.loggingGcs.listLogGcs({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -210,7 +211,6 @@ Update the GCS for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogGcsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingGcsCompressionCodec,
   LoggingGcsFormatVersion,
@@ -218,45 +218,44 @@ import {
   LoggingGcsPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingGcs.updateLogGcs({
-  loggingGcsInput: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    bucketName: "Volkswagen Other",
-    compressionCodec: LoggingGcsCompressionCodec.Zstd,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingGcsFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingGcsMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/dev",
-    period: 3600,
-    placement: LoggingGcsPlacement.LessThanNilGreaterThan,
-    projectId: "test-project-id",
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  loggingGcsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogGcsResponse) => {
+  const res = await sdk.loggingGcs.updateLogGcs({
+    loggingGcsInput: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingGcsFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingGcsMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingGcsPlacement.WafDebug,
+      projectId: "test-project-id",
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    loggingGcsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -17,7 +17,7 @@ export class PatchTlsSubRequest extends SpeakeasyBase {
     force?: boolean;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsSubscriptionInput?: shared.TlsSubscriptionInput;
+    tlsSubscription?: shared.TlsSubscription;
 
     /**
      * Alphanumeric string identifying a TLS subscription.

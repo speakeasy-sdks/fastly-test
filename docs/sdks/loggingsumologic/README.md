@@ -22,32 +22,32 @@ Create a Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSumologic.createLogSumologic({
-  loggingSumologic: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSumologicFormatVersion.One,
-    messageType: LoggingMessageType.Classic,
-    name: "test-log-endpoint",
-    placement: LoggingSumologicPlacement.WafDebug,
-    responseCondition: "null",
-    url: "https://alert-fir.net",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogSumologicResponse) => {
+  const res = await sdk.loggingSumologic.createLogSumologic({
+    loggingSumologic: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSumologicFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingSumologicPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +71,24 @@ Delete the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSumologic.deleteLogSumologic({
-  loggingSumologicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogSumologicResponse) => {
+  const res = await sdk.loggingSumologic.deleteLogSumologic({
+    loggingSumologicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +112,24 @@ Get the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSumologic.getLogSumologic({
-  loggingSumologicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogSumologicResponse) => {
+  const res = await sdk.loggingSumologic.getLogSumologic({
+    loggingSumologicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +153,23 @@ List all of the Sumologics for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSumologic.listLogSumologic({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogSumologicResponse) => {
+  const res = await sdk.loggingSumologic.listLogSumologic({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +193,33 @@ Update the Sumologic for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSumologicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSumologic.updateLogSumologic({
-  loggingSumologic: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSumologicFormatVersion.Two,
-    messageType: LoggingMessageType.Classic,
-    name: "test-log-endpoint",
-    placement: LoggingSumologicPlacement.None,
-    responseCondition: "null",
-    url: "https://nice-heyday.org",
-  },
-  loggingSumologicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogSumologicResponse) => {
+  const res = await sdk.loggingSumologic.updateLogSumologic({
+    loggingSumologic: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSumologicFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingSumologicPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingSumologicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

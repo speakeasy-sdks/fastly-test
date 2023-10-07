@@ -22,7 +22,6 @@ Create a openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -30,40 +29,36 @@ import {
   LoggingOpenstackPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingOpenstack.createLogOpenstack({
-  loggingOpenstackInput: {
-    accessKey: "absentmindedly Diesel",
-    bucketName: "Gasoline Southwest",
-    compressionCodec: LoggingOpenstackCompressionCodec.Gzip,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingOpenstackFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingOpenstackMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/Library",
-    period: 3600,
-    placement: LoggingOpenstackPlacement.None,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    url: "http://feminine-acre.com",
-    user: "Jamaal39",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogOpenstackResponse) => {
+  const res = await sdk.loggingOpenstack.createLogOpenstack({
+    loggingOpenstackInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingOpenstackFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingOpenstackMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingOpenstackPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -87,23 +82,24 @@ Delete the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingOpenstack.deleteLogOpenstack({
-  loggingOpenstackName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogOpenstackResponse) => {
+  const res = await sdk.loggingOpenstack.deleteLogOpenstack({
+    loggingOpenstackName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -127,23 +123,24 @@ Get the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingOpenstack.getLogOpenstack({
-  loggingOpenstackName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogOpenstackResponse) => {
+  const res = await sdk.loggingOpenstack.getLogOpenstack({
+    loggingOpenstackName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -167,22 +164,23 @@ List all of the openstacks for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingOpenstack.listLogOpenstack({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogOpenstackResponse) => {
+  const res = await sdk.loggingOpenstack.listLogOpenstack({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -206,7 +204,6 @@ Update the openstack for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogOpenstackResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingOpenstackCompressionCodec,
   LoggingOpenstackFormatVersion,
@@ -214,41 +211,37 @@ import {
   LoggingOpenstackPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingOpenstack.updateLogOpenstack({
-  loggingOpenstackInput: {
-    accessKey: "Account virtual Northeast",
-    bucketName: "Executive",
-    compressionCodec: LoggingOpenstackCompressionCodec.Zstd,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingOpenstackFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingOpenstackMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/opt/share",
-    period: 3600,
-    placement: LoggingOpenstackPlacement.WafDebug,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    url: "https://jolly-handful.biz",
-    user: "Conner_Howe53",
-  },
-  loggingOpenstackName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogOpenstackResponse) => {
+  const res = await sdk.loggingOpenstack.updateLogOpenstack({
+    loggingOpenstackInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingOpenstackFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingOpenstackMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingOpenstackPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingOpenstackName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -18,23 +18,24 @@ Retrieve metadata for a single dictionary by ID for a version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryInfoResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryInfo.getDictionaryInfo({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetDictionaryInfoResponse) => {
+  const res = await sdk.dictionaryInfo.getDictionaryInfo({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

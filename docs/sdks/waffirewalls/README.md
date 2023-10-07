@@ -25,29 +25,25 @@ Create a firewall object for a particular service and service version using a de
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafFirewalls.createWafFirewall({
-  data: {
-    attributes: {
-      disabled: false,
-      prefetchCondition: "Djibouti",
-      response: "duh",
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    type: TypeWafFirewall.WafFirewall,
-  },
-}).then((res: CreateWafFirewallResponse) => {
+  });
+
+  const res = await sdk.wafFirewalls.createWafFirewall({
+    data: {
+      attributes: {},
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -74,32 +70,28 @@ Delete the firewall object for a particular service and service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafFirewalls.deleteWafFirewall({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  wafFirewallInput: {
-    data: {
-      attributes: {
-        disabled: false,
-        prefetchCondition: "Barium microchip Forward",
-        response: "mass Bromine",
-      },
-      type: TypeWafFirewall.WafFirewall,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: DeleteWafFirewallResponse) => {
+  });
+
+  const res = await sdk.wafFirewalls.deleteWafFirewall({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    wafFirewallInput: {
+      data: {
+        attributes: {},
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -125,24 +117,23 @@ Get a specific firewall object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewalls.getWafFirewall({
-  filterServiceVersionNumber: "Touring subsidize",
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  include: FirewallInclude.WafFirewallVersions,
-}).then((res: GetWafFirewallResponse) => {
+  const res = await sdk.wafFirewalls.getWafFirewall({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -168,26 +159,24 @@ List all firewall objects.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafFirewallsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafFirewalls.listWafFirewalls({
-  filterServiceId: "into coulomb",
-  filterServiceVersionNumber: "Southwest portal Frozen",
-  include: FirewallInclude.WafFirewallVersions,
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListWafFirewallsResponse) => {
+  const res = await sdk.wafFirewalls.listWafFirewalls({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -214,32 +203,28 @@ Update a firewall object for a particular service and service version. Specifyin
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafFirewallResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafFirewalls.updateWafFirewall({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  wafFirewallInput: {
-    data: {
-      attributes: {
-        disabled: false,
-        prefetchCondition: "Cyclocross Music",
-        response: "North saepe",
-      },
-      type: TypeWafFirewall.WafFirewall,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: UpdateWafFirewallResponse) => {
+  });
+
+  const res = await sdk.wafFirewalls.updateWafFirewall({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    wafFirewallInput: {
+      data: {
+        attributes: {},
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,32 +22,31 @@ Create a Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHeroku.createLogHeroku({
-  loggingHeroku: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingHerokuFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.WafDebug,
-    responseCondition: "null",
-    token: "female",
-    url: "http://minor-handover.net",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.createLogHeroku({
+    loggingHeroku: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHerokuFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHerokuPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +70,24 @@ Delete the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHeroku.deleteLogHeroku({
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.deleteLogHeroku({
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +111,24 @@ Get the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHeroku.getLogHeroku({
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.getLogHeroku({
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +152,23 @@ List all of the Herokus for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHeroku.listLogHeroku({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.listLogHeroku({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +192,32 @@ Update the Heroku for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHerokuResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHeroku.updateLogHeroku({
-  loggingHeroku: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingHerokuFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.WafDebug,
-    responseCondition: "null",
-    token: "Investment Polygender",
-    url: "https://black-and-white-diaphragm.org",
-  },
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.updateLogHeroku({
+    loggingHeroku: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHerokuFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHerokuPlacement.None,
+      responseCondition: "null",
+    },
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

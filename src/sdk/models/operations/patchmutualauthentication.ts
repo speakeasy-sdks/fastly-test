@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class PatchMutualAuthenticationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    mutualAuthenticationInput?: shared.MutualAuthenticationInput;
+    mutualAuthentication?: shared.MutualAuthentication;
 
     /**
      * Alphanumeric string identifying a mutual authentication.

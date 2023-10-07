@@ -20,49 +20,38 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PublishResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.publish.publish({
-  publishRequest: {
-    items: [
-      {
-        channel: "what Lira Ohio",
-        formats: {
-          httpResponse: {
-            body: "bypassing Southwest er",
-            bodyBin: "Clarksville frictionless",
-            code: 222146,
-            headers: {
-              "eos": "joshingly",
+  const res = await sdk.publish.publish({
+    publishRequest: {
+      items: [
+        {
+          channel: "what Lira Ohio",
+          formats: {
+            httpResponse: {
+              headers: {
+                "psst": "North",
+              },
             },
-            reason: "user Ambrose infrastructure",
-          },
-          httpStream: {
-            content: "Buckinghamshire",
-            contentBin: "withdrawal",
-          },
-          wsMessage: {
-            content: "Electric",
-            contentBin: "Oriental",
+            httpStream: {},
+            wsMessage: {},
           },
         },
-        id: "<ID>",
-        prevId: "ferociously next",
-      },
-    ],
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: PublishResponse) => {
+      ],
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

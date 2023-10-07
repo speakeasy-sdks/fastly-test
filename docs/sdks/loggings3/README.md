@@ -22,7 +22,6 @@ Create a S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
@@ -30,45 +29,36 @@ import {
   LoggingS3Placement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.createLogAwsS3({
-  loggingS3Input: {
-    accessKey: "Northwest deposit",
-    acl: "Borders Beauty VGA",
-    bucketName: "Assurance Central",
-    compressionCodec: LoggingS3CompressionCodec.Zstd,
-    domain: "overdue-grain.org",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingS3FormatVersion.Two,
-    gzipLevel: 0,
-    iamRole: "Music",
-    messageType: LoggingS3MessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/proc",
-    period: 3600,
-    placement: LoggingS3Placement.WafDebug,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    redundancy: "congregation adapter Shirt",
-    responseCondition: "null",
-    secretKey: "Hybrid Usability Mills",
-    serverSideEncryption: "so tempo mindshare",
-    serverSideEncryptionKmsKeyId: "Fish Cotton broadly",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogAwsS3Response) => {
+  const res = await sdk.loggingS3.createLogAwsS3({
+    loggingS3Input: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingS3FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingS3MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingS3Placement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -92,23 +82,24 @@ Delete the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.deleteLogAwsS3({
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogAwsS3Response) => {
+  const res = await sdk.loggingS3.deleteLogAwsS3({
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -132,23 +123,24 @@ Get the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.getLogAwsS3({
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogAwsS3Response) => {
+  const res = await sdk.loggingS3.getLogAwsS3({
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -172,22 +164,23 @@ List all of the S3s for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.listLogAwsS3({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogAwsS3Response) => {
+  const res = await sdk.loggingS3.listLogAwsS3({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -211,7 +204,6 @@ Update the S3 for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogAwsS3Response } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
@@ -219,46 +211,37 @@ import {
   LoggingS3Placement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.updateLogAwsS3({
-  loggingS3Input: {
-    accessKey: "North Sausages",
-    acl: "while wireless Kwanza",
-    bucketName: "Applications Electric West",
-    compressionCodec: LoggingS3CompressionCodec.Zstd,
-    domain: "sharp-hatchet.biz",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingS3FormatVersion.Two,
-    gzipLevel: 0,
-    iamRole: "impartial",
-    messageType: LoggingS3MessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/etc/ppp",
-    period: 3600,
-    placement: LoggingS3Placement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    redundancy: "plum Interface",
-    responseCondition: "null",
-    secretKey: "compete 24/7",
-    serverSideEncryption: "Claire payment silver",
-    serverSideEncryptionKmsKeyId: "Elegant Borders",
-  },
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogAwsS3Response) => {
+  const res = await sdk.loggingS3.updateLogAwsS3({
+    loggingS3Input: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingS3FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingS3MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingS3Placement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

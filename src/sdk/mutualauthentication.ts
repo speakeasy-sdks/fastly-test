@@ -29,11 +29,11 @@ export class MutualAuthentication {
      * Create a mutual authentication using a bundle of certificates to enable client-to-server mutual TLS.
      */
     async createMutualTlsAuthentication(
-        req: shared.MutualAuthenticationInput,
+        req: shared.MutualAuthentication,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateMutualTlsAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.MutualAuthenticationInput(req);
+            req = new shared.MutualAuthentication(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -365,7 +365,7 @@ export class MutualAuthentication {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "mutualAuthenticationInput",
+                "mutualAuthentication",
                 "json"
             );
         } catch (e: unknown) {

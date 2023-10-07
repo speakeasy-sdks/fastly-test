@@ -14,7 +14,7 @@ export class UpdateBulkTlsCertRequest extends SpeakeasyBase {
     certificateId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsBulkCertificateInput?: shared.TlsBulkCertificateInput;
+    tlsBulkCertificate?: shared.TlsBulkCertificate;
 }
 
 export class UpdateBulkTlsCertResponse extends SpeakeasyBase {

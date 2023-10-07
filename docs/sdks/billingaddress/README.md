@@ -21,37 +21,36 @@ Add a billing address to a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { AddBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.billingAddress.addBillingAddr({
-  billingAddressRequestInput: {
-    data: {
-      attributes: {
-        address1: "80719 Dorothea Mountain",
-        address2: "Apt. 652",
-        city: "New Rasheedville",
-        country: "US",
-        locality: "New Castle",
-        postalCode: "53538-5902",
-        state: "DE",
-      },
-      type: TypeBillingAddress.BillingAddress,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    skipVerification: false,
-  },
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: AddBillingAddrResponse) => {
+  });
+
+  const res = await sdk.billingAddress.addBillingAddr({
+    billingAddressRequestInput: {
+      data: {
+        attributes: {
+          address1: "80719 Dorothea Mountain",
+          address2: "Apt. 652",
+          city: "New Rasheedville",
+          country: "US",
+          locality: "New Castle",
+          postalCode: "53538-5902",
+          state: "DE",
+        },
+      },
+    },
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -75,21 +74,22 @@ Delete a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billingAddress.deleteBillingAddr({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: DeleteBillingAddrResponse) => {
+  const res = await sdk.billingAddress.deleteBillingAddr({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -113,21 +113,22 @@ Get a customer's billing address.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billingAddress.getBillingAddr({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-}).then((res: GetBillingAddrResponse) => {
+  const res = await sdk.billingAddress.getBillingAddr({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,37 +152,36 @@ Update a customer's billing address. You may update only part of the customer's 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBillingAddrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.billingAddress.updateBillingAddr({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  updateBillingAddressRequestInput: {
-    data: {
-      attributes: {
-        address1: "80719 Dorothea Mountain",
-        address2: "Apt. 652",
-        city: "New Rasheedville",
-        country: "US",
-        locality: "New Castle",
-        postalCode: "53538-5902",
-        state: "DE",
-      },
-      type: TypeBillingAddress.BillingAddress,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    skipVerification: false,
-  },
-}).then((res: UpdateBillingAddrResponse) => {
+  });
+
+  const res = await sdk.billingAddress.updateBillingAddr({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    updateBillingAddressRequestInput: {
+      data: {
+        attributes: {
+          address1: "80719 Dorothea Mountain",
+          address2: "Apt. 652",
+          city: "New Rasheedville",
+          country: "US",
+          locality: "New Castle",
+          postalCode: "53538-5902",
+          state: "DE",
+        },
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

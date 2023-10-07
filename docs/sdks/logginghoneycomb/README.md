@@ -22,32 +22,30 @@ Create a Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHoneycomb.createLogHoneycomb({
-  loggingHoneycomb: {
-    dataset: "septicaemia calculate",
-    format: "complexity Lock",
-    formatVersion: LoggingHoneycombFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingHoneycombPlacement.LessThanNilGreaterThan,
-    responseCondition: "null",
-    token: "Northeast Northwest",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.createLogHoneycomb({
+    loggingHoneycomb: {
+      formatVersion: LoggingHoneycombFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHoneycombPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +69,24 @@ Delete the Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHoneycomb.deleteLogHoneycomb({
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.deleteLogHoneycomb({
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +110,24 @@ Get the details of a Honeycomb logging object for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHoneycomb.getLogHoneycomb({
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.getLogHoneycomb({
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +151,23 @@ List all of the Honeycomb logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHoneycomb.listLogHoneycomb({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.listLogHoneycomb({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +191,31 @@ Update a Honeycomb logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHoneycombResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHoneycomb.updateLogHoneycomb({
-  loggingHoneycomb: {
-    dataset: "Towels",
-    format: "mint Jamaican array",
-    formatVersion: LoggingHoneycombFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingHoneycombPlacement.WafDebug,
-    responseCondition: "null",
-    token: "probable male copying",
-  },
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.updateLogHoneycomb({
+    loggingHoneycomb: {
+      formatVersion: LoggingHoneycombFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHoneycombPlacement.None,
+      responseCondition: "null",
+    },
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

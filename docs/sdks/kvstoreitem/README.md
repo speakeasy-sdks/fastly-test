@@ -21,23 +21,23 @@ Delete an item from an kv store
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteKeyFromStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStoreItem.deleteKeyFromStore({
-  force: false,
-  keyName: "South Recumbent yuppify",
-  storeId: "Factors turning Electric",
-}).then((res: DeleteKeyFromStoreResponse) => {
+  const res = await sdk.kvStoreItem.deleteKeyFromStore({
+    keyName: "South Recumbent yuppify",
+    storeId: "Factors turning Electric",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,24 +61,22 @@ List the keys of all items within an kv store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStoreItem.getKeys({
-  cursor: "scoot",
-  limit: 474500,
-  prefix: "asymmetric midst official",
-  storeId: "Sports Music Health",
-}).then((res: GetKeysResponse) => {
+  const res = await sdk.kvStoreItem.getKeys({
+    storeId: "scoot",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -102,22 +100,23 @@ Get the value associated with a key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStoreItem.getValueForKey({
-  keyName: "rehome lumen Vista",
-  storeId: "turquoise incentivize joule",
-}).then((res: GetValueForKeyResponse) => {
+  const res = await sdk.kvStoreItem.getValueForKey({
+    keyName: "rehome lumen Vista",
+    storeId: "turquoise incentivize joule",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -141,30 +140,23 @@ Set a new value for a new or existing key in an kv store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SetValueForKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStoreItem.setValueForKey({
-  requestBody: "Cotton Kia",
-  add: false,
-  append: false,
-  backgroundFetch: false,
-  ifGenerationMatch: 808354,
-  keyName: "ick",
-  metadata: "harum Branding joule",
-  prepend: false,
-  storeId: "lavender override Assimilated",
-  timeToLiveSec: 284898,
-}).then((res: SetValueForKeyResponse) => {
+  const res = await sdk.kvStoreItem.setValueForKey({
+    keyName: "Cotton Kia",
+    storeId: "Southwest twig harum",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

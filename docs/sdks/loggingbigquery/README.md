@@ -22,40 +22,36 @@ Create a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingBigquery.createLogBigquery({
-  loggingBigquery: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "online",
-    format: "generate Director Touring",
-    formatVersion: LoggingBigqueryFormatVersion.One,
-    name: "Internal reserved",
-    placement: LoggingBigqueryPlacement.None,
-    projectId: "test-project-id",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    table: "yoga copy embrace",
-    templateSuffix: "neural copying",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogBigqueryResponse) => {
+  const res = await sdk.loggingBigquery.createLogBigquery({
+    loggingBigquery: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      formatVersion: LoggingBigqueryFormatVersion.Two,
+      placement: LoggingBigqueryPlacement.None,
+      projectId: "test-project-id",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -79,23 +75,24 @@ Delete a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingBigquery.deleteLogBigquery({
-  loggingBigqueryName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogBigqueryResponse) => {
+  const res = await sdk.loggingBigquery.deleteLogBigquery({
+    loggingBigqueryName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -119,23 +116,24 @@ Get the details for a BigQuery logging object for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingBigquery.getLogBigquery({
-  loggingBigqueryName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogBigqueryResponse) => {
+  const res = await sdk.loggingBigquery.getLogBigquery({
+    loggingBigqueryName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -159,22 +157,23 @@ List all of the BigQuery logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingBigquery.listLogBigquery({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogBigqueryResponse) => {
+  const res = await sdk.loggingBigquery.listLogBigquery({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -198,41 +197,37 @@ Update a BigQuery logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogBigqueryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingBigquery.updateLogBigquery({
-  loggingBigquery: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    dataset: "happy Yttrium",
-    format: "Gloves repudiandae",
-    formatVersion: LoggingBigqueryFormatVersion.One,
-    name: "Chair Southeast Dare",
-    placement: LoggingBigqueryPlacement.None,
-    projectId: "test-project-id",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    table: "primary Coupe",
-    templateSuffix: "optical",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  loggingBigqueryName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogBigqueryResponse) => {
+  const res = await sdk.loggingBigquery.updateLogBigquery({
+    loggingBigquery: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      formatVersion: LoggingBigqueryFormatVersion.Two,
+      placement: LoggingBigqueryPlacement.WafDebug,
+      projectId: "test-project-id",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    loggingBigqueryName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

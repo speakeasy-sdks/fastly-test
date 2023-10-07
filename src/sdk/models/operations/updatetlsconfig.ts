@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateTlsConfigRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsConfigurationInput?: shared.TlsConfigurationInput;
+    tlsConfiguration?: shared.TlsConfiguration;
 
     /**
      * Alphanumeric string identifying a TLS configuration.

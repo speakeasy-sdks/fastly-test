@@ -20,23 +20,24 @@ Deletes the specified Response Object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteResponseObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.responseObject.deleteResponseObject({
-  responseObjectName: "test-response",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteResponseObjectResponse) => {
+  const res = await sdk.responseObject.deleteResponseObject({
+    responseObjectName: "test-response",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -60,23 +61,24 @@ Gets the specified Response Object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetResponseObjectResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.responseObject.getResponseObject({
-  responseObjectName: "test-response",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetResponseObjectResponse) => {
+  const res = await sdk.responseObject.getResponseObject({
+    responseObjectName: "test-response",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,22 +102,23 @@ Returns all Response Objects for the specified service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListResponseObjectsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.responseObject.listResponseObjects({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListResponseObjectsResponse) => {
+  const res = await sdk.responseObject.listResponseObjects({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

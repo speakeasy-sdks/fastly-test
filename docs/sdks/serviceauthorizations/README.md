@@ -22,37 +22,33 @@ Create service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.serviceAuthorizations.createServiceAuthorization({
-  data: {
-    attributes: {
-      permission: Permission.Full,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    relationships: {
-      service: {
-        type: TypeService.Service,
+  });
+
+  const res = await sdk.serviceAuthorizations.createServiceAuthorization({
+    data: {
+      attributes: {
+        permission: Permission.Full,
       },
-      user: {
-        data: {
-          type: TypeUser.User,
+      relationships: {
+        service: {},
+        user: {
+          data: {},
         },
       },
     },
-    type: TypeServiceAuthorization.ServiceAuthorization,
-  },
-}).then((res: CreateServiceAuthorizationResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -76,21 +72,22 @@ Delete service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.serviceAuthorizations.deleteServiceAuthorization({
-  serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: DeleteServiceAuthorizationResponse) => {
+  const res = await sdk.serviceAuthorizations.deleteServiceAuthorization({
+    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -114,22 +111,23 @@ List service authorizations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.serviceAuthorizations.listServiceAuthorization({
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListServiceAuthorizationResponse) => {
+  const res = await sdk.serviceAuthorizations.listServiceAuthorization({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -153,21 +151,22 @@ Show service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ShowServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.serviceAuthorizations.showServiceAuthorization({
-  serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: ShowServiceAuthorizationResponse) => {
+  const res = await sdk.serviceAuthorizations.showServiceAuthorization({
+    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -191,40 +190,36 @@ Update service authorization.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceAuthorizationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.serviceAuthorizations.updateServiceAuthorization({
-  serviceAuthorizationInput: {
-    data: {
-      attributes: {
-        permission: Permission.Full,
-      },
-      relationships: {
-        service: {
-          type: TypeService.Service,
+  const res = await sdk.serviceAuthorizations.updateServiceAuthorization({
+    serviceAuthorizationInput: {
+      data: {
+        attributes: {
+          permission: Permission.Full,
         },
-        user: {
-          data: {
-            type: TypeUser.User,
+        relationships: {
+          service: {},
+          user: {
+            data: {},
           },
         },
       },
-      type: TypeServiceAuthorization.ServiceAuthorization,
     },
-  },
-  serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: UpdateServiceAuthorizationResponse) => {
+    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

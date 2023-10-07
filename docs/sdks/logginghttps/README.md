@@ -22,7 +22,6 @@ Create an HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -31,40 +30,30 @@ import {
   LoggingMessageType,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHttps.createLogHttps({
-  loggingHttps: {
-    contentType: "wireless Bicycle",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingHttpsFormatVersion.One,
-    headerName: "schemas Beauty Rolls",
-    headerValue: "shallow",
-    jsonFormat: LoggingHttpsJsonFormat.Zero,
-    messageType: LoggingMessageType.Classic,
-    method: LoggingHttpsMethod.Put,
-    name: "test-log-endpoint",
-    placement: LoggingHttpsPlacement.WafDebug,
-    requestMaxBytes: 879956,
-    requestMaxEntries: 842598,
-    responseCondition: "null",
-    tlsCaCert: "Coordinator although truthfully",
-    tlsClientCert: "especially World Northeast",
-    tlsClientKey: "nor Passenger",
-    tlsHostname: "Forward",
-    url: "http://narrow-puffin.name",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.createLogHttps({
+    loggingHttps: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHttpsFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingHttpsPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -88,23 +77,24 @@ Delete the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHttps.deleteLogHttps({
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.deleteLogHttps({
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -128,23 +118,24 @@ Get the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHttps.getLogHttps({
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.getLogHttps({
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -168,22 +159,23 @@ List all of the HTTPS objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHttps.listLogHttps({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.listLogHttps({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -207,7 +199,6 @@ Update the HTTPS object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogHttpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingHttpsFormatVersion,
   LoggingHttpsJsonFormat,
@@ -216,41 +207,31 @@ import {
   LoggingMessageType,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingHttps.updateLogHttps({
-  loggingHttps: {
-    contentType: "Iowa Sausages",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingHttpsFormatVersion.One,
-    headerName: "impactful invoice aggregate",
-    headerValue: "Assistant",
-    jsonFormat: LoggingHttpsJsonFormat.One,
-    messageType: LoggingMessageType.Classic,
-    method: LoggingHttpsMethod.Post,
-    name: "test-log-endpoint",
-    placement: LoggingHttpsPlacement.None,
-    requestMaxBytes: 382846,
-    requestMaxEntries: 490200,
-    responseCondition: "null",
-    tlsCaCert: "rightfully possimus",
-    tlsClientCert: "Credit",
-    tlsClientKey: "blue",
-    tlsHostname: "indexing North",
-    url: "https://imaginary-louse.biz",
-  },
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.updateLogHttps({
+    loggingHttps: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHttpsFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingHttpsPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

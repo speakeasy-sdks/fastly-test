@@ -22,33 +22,31 @@ Create a Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingScalyr.createLogScalyr({
-  loggingScalyr: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingScalyrFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingScalyrPlacement.None,
-    projectId: "Beauty",
-    region: LoggingScalyrRegion.Eu,
-    responseCondition: "null",
-    token: "hack infatuated",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogScalyrResponse) => {
+  const res = await sdk.loggingScalyr.createLogScalyr({
+    loggingScalyr: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingScalyrFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingScalyrPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,23 +70,24 @@ Delete the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingScalyr.deleteLogScalyr({
-  loggingScalyrName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogScalyrResponse) => {
+  const res = await sdk.loggingScalyr.deleteLogScalyr({
+    loggingScalyrName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -112,23 +111,24 @@ Get the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingScalyr.getLogScalyr({
-  loggingScalyrName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogScalyrResponse) => {
+  const res = await sdk.loggingScalyr.getLogScalyr({
+    loggingScalyrName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -152,22 +152,23 @@ List all of the Scalyrs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingScalyr.listLogScalyr({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogScalyrResponse) => {
+  const res = await sdk.loggingScalyr.listLogScalyr({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -191,34 +192,32 @@ Update the Scalyr for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogScalyrResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingScalyr.updateLogScalyr({
-  loggingScalyr: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingScalyrFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingScalyrPlacement.WafDebug,
-    projectId: "man East orange",
-    region: LoggingScalyrRegion.Eu,
-    responseCondition: "null",
-    token: "Southeast siemens",
-  },
-  loggingScalyrName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogScalyrResponse) => {
+  const res = await sdk.loggingScalyr.updateLogScalyr({
+    loggingScalyr: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingScalyrFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingScalyrPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    loggingScalyrName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

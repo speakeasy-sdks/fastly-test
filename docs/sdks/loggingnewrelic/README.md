@@ -22,32 +22,30 @@ Create a New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingNewrelic.createLogNewrelic({
-  loggingNewrelic: {
-    format: "copy Tigard",
-    formatVersion: LoggingNewrelicFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
-    region: LoggingNewrelicRegion.Us,
-    responseCondition: "null",
-    token: "Sports plantation unless",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogNewrelicResponse) => {
+  const res = await sdk.loggingNewrelic.createLogNewrelic({
+    loggingNewrelic: {
+      formatVersion: LoggingNewrelicFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingNewrelicPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +69,24 @@ Delete the New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingNewrelic.deleteLogNewrelic({
-  loggingNewrelicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogNewrelicResponse) => {
+  const res = await sdk.loggingNewrelic.deleteLogNewrelic({
+    loggingNewrelicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +110,24 @@ Get the details of a New Relic Logs logging object for a particular service and 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingNewrelic.getLogNewrelic({
-  loggingNewrelicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogNewrelicResponse) => {
+  const res = await sdk.loggingNewrelic.getLogNewrelic({
+    loggingNewrelicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +151,23 @@ List all of the New Relic Logs logging objects for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingNewrelic.listLogNewrelic({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogNewrelicResponse) => {
+  const res = await sdk.loggingNewrelic.listLogNewrelic({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,33 +191,31 @@ Update a New Relic Logs logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogNewrelicResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingNewrelic.updateLogNewrelic({
-  loggingNewrelic: {
-    format: "Carolina invoice pink",
-    formatVersion: LoggingNewrelicFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingNewrelicPlacement.None,
-    region: LoggingNewrelicRegion.Eu,
-    responseCondition: "null",
-    token: "Colorado jittery",
-  },
-  loggingNewrelicName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogNewrelicResponse) => {
+  const res = await sdk.loggingNewrelic.updateLogNewrelic({
+    loggingNewrelic: {
+      formatVersion: LoggingNewrelicFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    loggingNewrelicName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

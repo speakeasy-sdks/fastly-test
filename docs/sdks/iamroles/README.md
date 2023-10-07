@@ -21,21 +21,22 @@ Delete a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamRoles.deleteARole({
-  roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: DeleteARoleResponse) => {
+  const res = await sdk.iamRoles.deleteARole({
+    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,21 +60,22 @@ Get a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetARoleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamRoles.getARole({
-  roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: GetARoleResponse) => {
+  const res = await sdk.iamRoles.getARole({
+    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,21 +99,22 @@ List all permissions in a role.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolePermissionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamRoles.listRolePermissions({
-  roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}).then((res: ListRolePermissionsResponse) => {
+  const res = await sdk.iamRoles.listRolePermissions({
+    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -135,22 +138,23 @@ List all roles.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRolesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.iamRoles.listRoles({
-  page: 1,
-  perPage: 20,
-}).then((res: ListRolesResponse) => {
+  const res = await sdk.iamRoles.listRoles({
+    page: 1,
+    perPage: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

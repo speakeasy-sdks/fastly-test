@@ -20,24 +20,25 @@ Establishes a relationship between a Backend and a Director. The Backend is then
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.directorBackend.createDirectorBackend({
-  backendName: "test-backend",
-  directorName: "test-director",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateDirectorBackendResponse) => {
+  const res = await sdk.directorBackend.createDirectorBackend({
+    backendName: "test-backend",
+    directorName: "test-director",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,24 +62,25 @@ Deletes the relationship between a Backend and a Director. The Backend is no lon
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.directorBackend.deleteDirectorBackend({
-  backendName: "test-backend",
-  directorName: "test-director",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteDirectorBackendResponse) => {
+  const res = await sdk.directorBackend.deleteDirectorBackend({
+    backendName: "test-backend",
+    directorName: "test-director",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -102,24 +104,25 @@ Returns the relationship between a Backend and a Director. If the Backend has be
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDirectorBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.directorBackend.getDirectorBackend({
-  backendName: "test-backend",
-  directorName: "test-director",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetDirectorBackendResponse) => {
+  const res = await sdk.directorBackend.getDirectorBackend({
+    backendName: "test-backend",
+    directorName: "test-director",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

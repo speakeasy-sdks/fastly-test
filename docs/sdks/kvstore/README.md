@@ -21,24 +21,22 @@ Create a new kv store.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStore.createStore({
-  location: "Digitized",
-  store: {
-    name: "Ferry",
-  },
-}).then((res: CreateStoreResponse) => {
+  const res = await sdk.kvStore.createStore({
+    store: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,22 +60,22 @@ An kv store must be empty before it can be deleted.  Deleting an kv store that s
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStore.deleteStore({
-  force: false,
-  storeId: "male",
-}).then((res: DeleteStoreResponse) => {
+  const res = await sdk.kvStore.deleteStore({
+    storeId: "male",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,21 +99,22 @@ Get an kv store by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStoreResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStore.getStore({
-  storeId: "SSD Technician East",
-}).then((res: GetStoreResponse) => {
+  const res = await sdk.kvStore.getStore({
+    storeId: "SSD Technician East",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,22 +138,20 @@ Get all stores for a given customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetStoresResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.kvStore.getStores({
-  cursor: "card Plastic",
-  limit: 829081,
-}).then((res: GetStoresResponse) => {
+  const res = await sdk.kvStore.getStores({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

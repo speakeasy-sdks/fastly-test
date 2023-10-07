@@ -22,28 +22,27 @@ Create a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.gzip.createGzipConfig({
-  gzip: {
-    cacheCondition: "null",
-    contentTypes: "Automotive violet Analyst",
-    extensions: "Indiana beneath",
-    name: "test-gzip",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateGzipConfigResponse) => {
+  const res = await sdk.gzip.createGzipConfig({
+    gzip: {
+      cacheCondition: "null",
+      name: "test-gzip",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,23 +66,24 @@ Delete a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.gzip.deleteGzipConfig({
-  gzipName: "test-gzip",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteGzipConfigResponse) => {
+  const res = await sdk.gzip.deleteGzipConfig({
+    gzipName: "test-gzip",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,23 +107,24 @@ Get the gzip configuration for a particular service, version, and name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.gzip.getGzipConfigs({
-  gzipName: "test-gzip",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetGzipConfigsResponse) => {
+  const res = await sdk.gzip.getGzipConfigs({
+    gzipName: "test-gzip",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -147,22 +148,23 @@ List all gzip configurations for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListGzipConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.gzip.listGzipConfigs({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListGzipConfigsResponse) => {
+  const res = await sdk.gzip.listGzipConfigs({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,29 +188,28 @@ Update a named gzip configuration on a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateGzipConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.gzip.updateGzipConfig({
-  gzip: {
-    cacheCondition: "null",
-    contentTypes: "proactive transition",
-    extensions: "Northeast",
-    name: "test-gzip",
-  },
-  gzipName: "test-gzip",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateGzipConfigResponse) => {
+  const res = await sdk.gzip.updateGzipConfig({
+    gzip: {
+      cacheCondition: "null",
+      name: "test-gzip",
+    },
+    gzipName: "test-gzip",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

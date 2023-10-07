@@ -20,21 +20,22 @@ Delete a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.rateLimiter.deleteRateLimiter({
-  rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}).then((res: DeleteRateLimiterResponse) => {
+  const res = await sdk.rateLimiter.deleteRateLimiter({
+    rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +59,22 @@ Get a rate limiter by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRateLimiterResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.rateLimiter.getRateLimiter({
-  rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
-}).then((res: GetRateLimiterResponse) => {
+  const res = await sdk.rateLimiter.getRateLimiter({
+    rateLimiterId: "s7aqgcJjqqKhwiTRMaP11",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -96,22 +98,23 @@ List all rate limiters for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRateLimitersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.rateLimiter.listRateLimiters({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListRateLimitersResponse) => {
+  const res = await sdk.rateLimiter.listRateLimiters({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -271,7 +271,7 @@ export class TlsBulkCertificates {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "tlsBulkCertificateInput",
+                "tlsBulkCertificate",
                 "json"
             );
         } catch (e: unknown) {
@@ -347,11 +347,11 @@ export class TlsBulkCertificates {
      * Upload a new certificate. TLS domains are automatically enabled upon certificate creation. If a domain is already enabled on a previously uploaded certificate, that domain will be updated to use the new certificate for all future TLS handshake requests.
      */
     async uploadTlsBulkCert(
-        req: shared.TlsBulkCertificateDataInput,
+        req: shared.TlsBulkCertificateData,
         config?: AxiosRequestConfig
     ): Promise<operations.UploadTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsBulkCertificateDataInput(req);
+            req = new shared.TlsBulkCertificateData(req);
         }
 
         const baseURL: string = utils.templateUrl(

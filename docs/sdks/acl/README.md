@@ -22,25 +22,26 @@ Create a new ACL attached to the specified service version. A new, empty ACL mus
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.acl.createAcl({
-  acl: {
-    name: "test-acl",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateAclResponse) => {
+  const res = await sdk.acl.createAcl({
+    acl: {
+      name: "test-acl",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -64,23 +65,24 @@ Delete an ACL from the specified service version. To remove an ACL from use, the
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.acl.deleteAcl({
-  aclName: "test-acl",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteAclResponse) => {
+  const res = await sdk.acl.deleteAcl({
+    aclName: "test-acl",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,23 +106,24 @@ Retrieve a single ACL by name for the version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.acl.getAcl({
-  aclName: "test-acl",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetAclResponse) => {
+  const res = await sdk.acl.getAcl({
+    aclName: "test-acl",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -144,22 +147,23 @@ List ACLs.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListAclsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.acl.listAcls({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListAclsResponse) => {
+  const res = await sdk.acl.listAcls({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -183,26 +187,27 @@ Update an ACL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateAclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.acl.updateAcl({
-  acl: {
-    name: "test-acl",
-  },
-  aclName: "test-acl",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateAclResponse) => {
+  const res = await sdk.acl.updateAcl({
+    acl: {
+      name: "test-acl",
+    },
+    aclName: "test-acl",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

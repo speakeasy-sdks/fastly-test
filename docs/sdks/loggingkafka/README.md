@@ -21,7 +21,6 @@ Create a Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingKafkaAuthMethod,
   LoggingKafkaCompressionCodec,
@@ -31,41 +30,29 @@ import {
   LoggingUseTls,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKafka.createLogKafka({
-  loggingKafka: {
-    authMethod: LoggingKafkaAuthMethod.Plain,
-    brokers: "regarding Hills dynamic",
-    compressionCodec: LoggingKafkaCompressionCodec.LessThanNilGreaterThan,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingKafkaFormatVersion.Two,
-    name: "test-log-endpoint",
-    parseLogKeyvals: false,
-    password: "pYCQxRtGcFHbQQe",
-    placement: LoggingKafkaPlacement.LessThanNilGreaterThan,
-    requestMaxBytes: 849155,
-    requiredAcks: LoggingKafkaRequiredAcks.One,
-    responseCondition: "null",
-    tlsCaCert: "Avon",
-    tlsClientCert: "ashamed Market",
-    tlsClientKey: "Buckinghamshire Southwest feed",
-    tlsHostname: "Ball",
-    topic: "mindshare",
-    useTls: LoggingUseTls.One,
-    user: "Earline_Lynch83",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogKafkaResponse) => {
+  const res = await sdk.loggingKafka.createLogKafka({
+    loggingKafka: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingKafkaFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingKafkaPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -89,23 +76,24 @@ Delete the Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKafka.deleteLogKafka({
-  loggingKafkaName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogKafkaResponse) => {
+  const res = await sdk.loggingKafka.deleteLogKafka({
+    loggingKafkaName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -129,23 +117,24 @@ Get the Kafka logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKafka.getLogKafka({
-  loggingKafkaName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogKafkaResponse) => {
+  const res = await sdk.loggingKafka.getLogKafka({
+    loggingKafkaName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -169,22 +158,23 @@ List all of the Kafka logging endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogKafkaResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingKafka.listLogKafka({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogKafkaResponse) => {
+  const res = await sdk.loggingKafka.listLogKafka({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,54 +22,27 @@ Create a backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.backend.createBackend({
-  backend: {
-    address: "8907 Jenkins River",
-    autoLoadbalance: false,
-    betweenBytesTimeout: 183210,
-    clientCert: "impactful",
-    comment: "The Football Is Good For Training And Recreational Purposes",
-    connectTimeout: 98007,
-    firstByteTimeout: 257494,
-    healthcheck: "dolor Celsius",
-    hostname: "partial-palm.com",
-    ipv4: "161.90.29.1",
-    ipv6: "d39b:d79a:5d04:c177:f7f9:6719:86e6:473c",
-    keepaliveTime: 885848,
-    maxConn: 588682,
-    maxTlsVersion: "gray Eritrea",
-    minTlsVersion: "withdrawal US Pop",
-    name: "test-backend",
-    overrideHost: "Transexual Southwest Buckinghamshire",
-    port: 572529,
-    requestCondition: "productivity enhance",
-    shield: "Account",
-    sslCaCert: "Officer realistic Bronze",
-    sslCertHostname: "Bigender",
-    sslCheckCert: false,
-    sslCiphers: "Checking Alabama Representative",
-    sslClientCert: "calculate Funk man",
-    sslClientKey: "collaborative Configuration",
-    sslHostname: "Southwest holistic",
-    sslSniHostname: "Cotton",
-    useSsl: false,
-    weight: 161737,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateBackendResponse) => {
+  const res = await sdk.backend.createBackend({
+    backend: {
+      comment: "The Football Is Good For Training And Recreational Purposes",
+      name: "test-backend",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -93,23 +66,24 @@ Delete the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.backend.deleteBackend({
-  backendName: "test-backend",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteBackendResponse) => {
+  const res = await sdk.backend.deleteBackend({
+    backendName: "test-backend",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -133,23 +107,24 @@ Get the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.backend.getBackend({
-  backendName: "test-backend",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetBackendResponse) => {
+  const res = await sdk.backend.getBackend({
+    backendName: "test-backend",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -173,22 +148,23 @@ List all backends for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListBackendsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.backend.listBackends({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListBackendsResponse) => {
+  const res = await sdk.backend.listBackends({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -212,55 +188,28 @@ Update the backend for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBackendResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.backend.updateBackend({
-  backend: {
-    address: "64862 Kerluke Track",
-    autoLoadbalance: false,
-    betweenBytesTimeout: 56573,
-    clientCert: "Response politicize Ashburn",
-    comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    connectTimeout: 378358,
-    firstByteTimeout: 306955,
-    healthcheck: "API",
-    hostname: "willing-emergent.name",
-    ipv4: "227.145.93.119",
-    ipv6: "bab4:866d:fe81:1d0a:13db:54fa:628f:0807",
-    keepaliveTime: 424116,
-    maxConn: 391076,
-    maxTlsVersion: "man Northwest",
-    minTlsVersion: "pfft watt generate",
-    name: "test-backend",
-    overrideHost: "Chrysler",
-    port: 882064,
-    requestCondition: "Convertible",
-    shield: "turquoise",
-    sslCaCert: "West Security Jeep",
-    sslCertHostname: "Strategist",
-    sslCheckCert: false,
-    sslCiphers: "hacksaw supermarket battle",
-    sslClientCert: "green Computer",
-    sslClientKey: "Wooden Bicycle open",
-    sslHostname: "bifurcated",
-    sslSniHostname: "unto nor",
-    useSsl: false,
-    weight: 67164,
-  },
-  backendName: "test-backend",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateBackendResponse) => {
+  const res = await sdk.backend.updateBackend({
+    backend: {
+      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      name: "test-backend",
+    },
+    backendName: "test-backend",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

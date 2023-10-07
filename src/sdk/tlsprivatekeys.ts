@@ -29,11 +29,11 @@ export class TlsPrivateKeys {
      * Create a TLS private key.
      */
     async createTlsKey(
-        req: shared.TlsPrivateKeyInput,
+        req: shared.TlsPrivateKey,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsPrivateKeyInput(req);
+            req = new shared.TlsPrivateKey(req);
         }
 
         const baseURL: string = utils.templateUrl(

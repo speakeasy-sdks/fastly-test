@@ -18,12 +18,3 @@ export class RelationshipMemberWafRule extends SpeakeasyBase {
     @Expose({ name: "type" })
     type?: TypeWafRule;
 }
-
-export class RelationshipMemberWafRuleInput extends SpeakeasyBase {
-    /**
-     * Resource type.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: TypeWafRule;
-}

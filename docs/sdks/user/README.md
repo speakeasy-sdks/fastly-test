@@ -24,28 +24,23 @@ Create a user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.createUser({
-  limitServices: false,
-  locked: false,
-  name: "gasoline East Androgyne",
-  requireNewPassword: false,
-  role: RoleUser.User,
-  twoFactorAuthEnabled: false,
-  twoFactorSetupRequired: false,
-}).then((res: CreateUserResponse) => {
+  const res = await sdk.user.createUser({
+    role: RoleUser.User,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,21 +64,22 @@ Delete a user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.deleteUser({
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}).then((res: DeleteUserResponse) => {
+  const res = await sdk.user.deleteUser({
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,19 +103,20 @@ Get the logged in user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCurrentUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.getCurrentUser().then((res: GetCurrentUserResponse) => {
+  const res = await sdk.user.getCurrentUser();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -142,21 +139,22 @@ Get a specific user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.getUser({
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}).then((res: GetUserResponse) => {
+  const res = await sdk.user.getUser({
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -180,21 +178,22 @@ Requests a password reset for the specified user.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RequestPasswordResetResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.requestPasswordReset({
-  userLogin: "krisowner@example.com",
-}).then((res: RequestPasswordResetResponse) => {
+  const res = await sdk.user.requestPasswordReset({
+    userLogin: "krisowner@example.com",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -218,31 +217,26 @@ Update a user. Only users with the role of `superuser` can make changes to other
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateUserResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.user.updateUser({
-  userInput: {
-    limitServices: false,
-    locked: false,
-    name: "stir",
-    requireNewPassword: false,
-    role: RoleUser.User,
-    twoFactorAuthEnabled: false,
-    twoFactorSetupRequired: false,
-  },
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}).then((res: UpdateUserResponse) => {
+  const res = await sdk.user.updateUser({
+    userInput: {
+      role: RoleUser.User,
+    },
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -266,22 +260,21 @@ Update the user's password to a new one.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateUserPasswordResponse, UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly();
 const operationSecurity: UpdateUserPasswordSecurity = {
   password: "",
   username: "",
 };
 
-sdk.user.updateUserPassword({
-  newPassword: "Automotive",
-  oldPassword: "Northwest",
-}, operationSecurity).then((res: UpdateUserPasswordResponse) => {
+  const res = await sdk.user.updateUserPassword({}, operationSecurity);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

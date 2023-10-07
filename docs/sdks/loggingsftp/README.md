@@ -22,7 +22,6 @@ Create a SFTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
@@ -30,42 +29,37 @@ import {
   LoggingSftpPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.createLogSftp({
-  loggingSftpInput: {
-    address: "example.com",
-    compressionCodec: LoggingSftpCompressionCodec.Zstd,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSftpFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingSftpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "Rm73s4qtnKCb1Iy",
-    path: "/net",
-    period: 3600,
-    placement: LoggingSftpPlacement.LessThanNilGreaterThan,
-    port: 101982,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "Pickup Hybrid",
-    sshKnownHosts: "Porsche firewall enhance",
-    user: "Nikki_Reichert",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogSftpResponse) => {
+  const res = await sdk.loggingSftp.createLogSftp({
+    loggingSftpInput: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSftpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingSftpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingSftpPlacement.None,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -89,23 +83,24 @@ Delete the SFTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.deleteLogSftp({
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogSftpResponse) => {
+  const res = await sdk.loggingSftp.deleteLogSftp({
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -129,23 +124,24 @@ Get the SFTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.getLogSftp({
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogSftpResponse) => {
+  const res = await sdk.loggingSftp.getLogSftp({
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -169,22 +165,23 @@ List all of the SFTPs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.listLogSftp({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogSftpResponse) => {
+  const res = await sdk.loggingSftp.listLogSftp({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -208,7 +205,6 @@ Update the SFTP for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSftpResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
@@ -216,43 +212,38 @@ import {
   LoggingSftpPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.updateLogSftp({
-  loggingSftpInput: {
-    address: "example.com",
-    compressionCodec: LoggingSftpCompressionCodec.Gzip,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSftpFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingSftpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "URboNeTxmiD9bUI",
-    path: "/Library",
-    period: 3600,
-    placement: LoggingSftpPlacement.LessThanNilGreaterThan,
-    port: 844898,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "Cambridgeshire",
-    sshKnownHosts: "why Frozen brr",
-    user: "Josiah49",
-  },
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogSftpResponse) => {
+  const res = await sdk.loggingSftp.updateLogSftp({
+    loggingSftpInput: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSftpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingSftpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingSftpPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

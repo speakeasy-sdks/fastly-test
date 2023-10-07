@@ -22,36 +22,32 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsActivations.createTlsActivation({
-  data: {
-    relationships: {
-      tlsCertificate: {
-        data: {
-          type: TypeTlsCertificate.TlsCertificate,
+  const res = await sdk.tlsActivations.createTlsActivation({
+    data: {
+      relationships: {
+        tlsCertificate: {
+          data: {},
         },
-      },
-      tlsDomain: {
-        data: {
-          type: TypeTlsDomain.TlsDomain,
+        tlsDomain: {
+          data: {},
         },
       },
     },
-    type: TypeTlsActivation.TlsActivation,
-  },
-}).then((res: CreateTlsActivationResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -75,21 +71,22 @@ Disable TLS on the domain associated with this TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsActivations.deleteTlsActivation({
-  tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}).then((res: DeleteTlsActivationResponse) => {
+  const res = await sdk.tlsActivations.deleteTlsActivation({
+    tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -113,22 +110,23 @@ Show a TLS activation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsActivations.getTlsActivation({
-  include: "tls_certificate,tls_configuration,tls_domain",
-  tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}).then((res: GetTlsActivationResponse) => {
+  const res = await sdk.tlsActivations.getTlsActivation({
+    include: "tls_certificate,tls_configuration,tls_domain",
+    tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -152,26 +150,24 @@ List all TLS activations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsActivationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsActivations.listTlsActivations({
-  filterTlsCertificateId: "Classical North programming",
-  filterTlsConfigurationId: "cyan Heights lumen",
-  filterTlsDomainId: "maximize after",
-  include: "tls_certificate,tls_configuration,tls_domain",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListTlsActivationsResponse) => {
+  const res = await sdk.tlsActivations.listTlsActivations({
+    include: "tls_certificate,tls_configuration,tls_domain",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -195,39 +191,35 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsActivationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsActivations.updateTlsActivation({
-  tlsActivationInput: {
-    data: {
-      relationships: {
-        tlsCertificate: {
-          data: {
-            type: TypeTlsCertificate.TlsCertificate,
+  const res = await sdk.tlsActivations.updateTlsActivation({
+    tlsActivationInput: {
+      data: {
+        relationships: {
+          tlsCertificate: {
+            data: {},
           },
-        },
-        tlsDomain: {
-          data: {
-            type: TypeTlsDomain.TlsDomain,
+          tlsDomain: {
+            data: {},
           },
         },
       },
-      type: TypeTlsActivation.TlsActivation,
     },
-  },
-  tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
-}).then((res: UpdateTlsActivationResponse) => {
+    tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

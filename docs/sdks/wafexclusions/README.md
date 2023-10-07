@@ -25,51 +25,36 @@ Create a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
-  TypeWafRule,
-  TypeWafRuleRevision,
   WafExclusionDataAttributesExclusionType,
   WafExclusionDataAttributesVariable,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafExclusions.createWafRuleExclusion({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-  wafExclusionInput: {
-    data: {
-      attributes: {
-        condition: "override Central",
-        exclusionType: WafExclusionDataAttributesExclusionType.Rule,
-        logging: false,
-        name: "navigate magenta",
-        number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqPost,
-      },
-      relationships: {
-        wafRules: {
-          data: [
-            {
-              type: TypeWafRule.WafRule,
-            },
-          ],
-        },
-      },
-      type: TypeWafExclusion.WafExclusion,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: CreateWafRuleExclusionResponse) => {
+  });
+
+  const res = await sdk.wafExclusions.createWafRuleExclusion({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+    wafExclusion: {
+      data: {
+        attributes: {
+          number: 1,
+        },
+        relationships: "Infrastructure",
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -95,23 +80,24 @@ Delete a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafExclusions.deleteWafRuleExclusion({
-  exclusionNumber: 1,
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-}).then((res: DeleteWafRuleExclusionResponse) => {
+  const res = await sdk.wafExclusions.deleteWafRuleExclusion({
+    exclusionNumber: 1,
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,23 +123,24 @@ Get a specific WAF exclusion object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafExclusions.getWafRuleExclusion({
-  exclusionNumber: 1,
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-}).then((res: GetWafRuleExclusionResponse) => {
+  const res = await sdk.wafExclusions.getWafRuleExclusion({
+    exclusionNumber: 1,
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -179,28 +166,27 @@ List all exclusions for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRuleExclusionsFilterExclusionType, ListWafRuleExclusionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
+import { ListWafRuleExclusionsFilterExclusionType } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafExclusions.listWafRuleExclusions({
-  filterExclusionType: ListWafRuleExclusionsFilterExclusionType.Waf,
-  filterName: "Factors Central Ukraine",
-  filterWafRulesModsecRuleId: 212442,
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-  include: "waf_rules",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListWafRuleExclusionsResponse) => {
+  const res = await sdk.wafExclusions.listWafRuleExclusions({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+    include: "waf_rules",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -226,52 +212,37 @@ Update a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafRuleExclusionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   TypeWafExclusion,
-  TypeWafRule,
-  TypeWafRuleRevision,
   WafExclusionDataAttributesExclusionType,
   WafExclusionDataAttributesVariable,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafExclusions.updateWafRuleExclusion({
-  exclusionNumber: 1,
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  firewallVersionNumber: 1,
-  wafExclusionInput: {
-    data: {
-      attributes: {
-        condition: "Van female",
-        exclusionType: WafExclusionDataAttributesExclusionType.Rule,
-        logging: false,
-        name: "Bicycle Buckinghamshire aged",
-        number: 1,
-        variable: WafExclusionDataAttributesVariable.ReqPost,
-      },
-      relationships: {
-        wafRules: {
-          data: [
-            {
-              type: TypeWafRule.WafRule,
-            },
-          ],
-        },
-      },
-      type: TypeWafExclusion.WafExclusion,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: UpdateWafRuleExclusionResponse) => {
+  });
+
+  const res = await sdk.wafExclusions.updateWafRuleExclusion({
+    exclusionNumber: 1,
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    firewallVersionNumber: 1,
+    wafExclusion: {
+      data: {
+        attributes: {
+          number: 1,
+        },
+        relationships: "Account",
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

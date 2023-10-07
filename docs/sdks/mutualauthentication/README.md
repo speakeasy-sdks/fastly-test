@@ -22,46 +22,34 @@ Create a mutual authentication using a bundle of certificates to enable client-t
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateMutualTlsAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.mutualAuthentication.createMutualTlsAuthentication({
-  data: {
-    attributes: {
-      certBundle: "Manat yahoo",
-      enforced: false,
-      name: "architect female Markets",
+  const res = await sdk.mutualAuthentication.createMutualTlsAuthentication({
+    data: {
+      attributes: {},
+      relationships: "index",
     },
-    relationships: {
-      tlsActivations: {
-        data: [
-          {
-            type: TypeTlsActivation.TlsActivation,
-          },
-        ],
-      },
-    },
-    type: TypeMutualAuthentication.MutualAuthentication,
-  },
-}).then((res: CreateMutualTlsAuthenticationResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [shared.MutualAuthenticationInput](../../models/shared/mutualauthenticationinput.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.MutualAuthentication](../../models/shared/mutualauthentication.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -77,21 +65,22 @@ Remove a Mutual TLS authentication
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteMutualTlsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.mutualAuthentication.deleteMutualTls({
-  mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}).then((res: DeleteMutualTlsResponse) => {
+  const res = await sdk.mutualAuthentication.deleteMutualTls({
+    mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -115,22 +104,22 @@ Show a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.mutualAuthentication.getMutualAuthentication({
-  include: "huzzah",
-  mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}).then((res: GetMutualAuthenticationResponse) => {
+  const res = await sdk.mutualAuthentication.getMutualAuthentication({
+    mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -154,23 +143,23 @@ List all mutual authentications.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListMutualAuthenticationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.mutualAuthentication.listMutualAuthentications({
-  include: "visionary",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListMutualAuthenticationsResponse) => {
+  const res = await sdk.mutualAuthentication.listMutualAuthentications({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -194,41 +183,29 @@ Update a Mutual Authentication.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PatchMutualAuthenticationResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeMutualAuthentication, TypeTlsActivation } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.mutualAuthentication.patchMutualAuthentication({
-  mutualAuthenticationInput: {
-    data: {
-      attributes: {
-        certBundle: "New",
-        enforced: false,
-        name: "Convertible Gasoline Vista",
-      },
-      relationships: {
-        tlsActivations: {
-          data: [
-            {
-              type: TypeTlsActivation.TlsActivation,
-            },
-          ],
-        },
-      },
-      type: TypeMutualAuthentication.MutualAuthentication,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
-}).then((res: PatchMutualAuthenticationResponse) => {
+  });
+
+  const res = await sdk.mutualAuthentication.patchMutualAuthentication({
+    mutualAuthentication: {
+      data: {
+        attributes: {},
+        relationships: "Music",
+      },
+    },
+    mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

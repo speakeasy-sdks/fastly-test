@@ -19,22 +19,23 @@ Get the settings for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.settings.getServiceSettings({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetServiceSettingsResponse) => {
+  const res = await sdk.settings.getServiceSettings({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,28 +60,24 @@ Update the settings for a particular service and version. NOTE: If you override 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.settings.updateServiceSettings({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  settings: {
-    generalDefaultHost: "Pants iste",
-    generalDefaultTtl: 994466,
-    generalStaleIfError: false,
-    generalStaleIfErrorTtl: 822979,
-  },
-  versionId: 1,
-}).then((res: UpdateServiceSettingsResponse) => {
+  const res = await sdk.settings.updateServiceSettings({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    settings: {},
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -20,21 +20,22 @@ Get a specific event.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetEventResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.events.getEvent({
-  eventId: "1PTzLK8g1NRKMGu5kUb8SC",
-}).then((res: GetEventResponse) => {
+  const res = await sdk.events.getEvent({
+    eventId: "1PTzLK8g1NRKMGu5kUb8SC",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,30 +59,25 @@ List all events for a particular customer. Events can be filtered by user, custo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListEventsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.events.listEvents({
-  filterCreatedAt: "haptic honestly female",
-  filterCustomerId: "x4xCwxxJxGCx123Rx5xTx",
-  filterEventType: "Linden excepting auxiliary",
-  filterServiceId: "invoice Electric Caesium",
-  filterTokenId: "Stark Home Anguilla",
-  filterUserId: "East male",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.MinusCreatedAt,
-}).then((res: ListEventsResponse) => {
+  const res = await sdk.events.listEvents({
+    filterCustomerId: "x4xCwxxJxGCx123Rx5xTx",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

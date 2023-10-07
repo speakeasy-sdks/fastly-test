@@ -22,7 +22,6 @@ Create a Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -31,40 +30,36 @@ import {
   LoggingCloudfilesRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingCloudfiles.createLogCloudfiles({
-  loggingCloudfilesInput: {
-    accessKey: "Gasoline Technician North",
-    bucketName: "Immanuel",
-    compressionCodec: LoggingCloudfilesCompressionCodec.Snappy,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingCloudfilesFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingCloudfilesMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/usr/include",
-    period: 3600,
-    placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    region: LoggingCloudfilesRegion.Syd,
-    responseCondition: "null",
-    user: "Foster_Hettinger",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogCloudfilesResponse) => {
+  const res = await sdk.loggingCloudfiles.createLogCloudfiles({
+    loggingCloudfilesInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingCloudfilesFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingCloudfilesMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -88,23 +83,24 @@ Delete the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingCloudfiles.deleteLogCloudfiles({
-  loggingCloudfilesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogCloudfilesResponse) => {
+  const res = await sdk.loggingCloudfiles.deleteLogCloudfiles({
+    loggingCloudfilesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -128,23 +124,24 @@ Get the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingCloudfiles.getLogCloudfiles({
-  loggingCloudfilesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogCloudfilesResponse) => {
+  const res = await sdk.loggingCloudfiles.getLogCloudfiles({
+    loggingCloudfilesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -168,22 +165,23 @@ List all of the Cloud Files log endpoints for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingCloudfiles.listLogCloudfiles({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogCloudfilesResponse) => {
+  const res = await sdk.loggingCloudfiles.listLogCloudfiles({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -207,7 +205,6 @@ Update the Cloud Files log endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogCloudfilesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingCloudfilesCompressionCodec,
   LoggingCloudfilesFormatVersion,
@@ -216,41 +213,37 @@ import {
   LoggingCloudfilesRegion,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingCloudfiles.updateLogCloudfiles({
-  loggingCloudfilesInput: {
-    accessKey: "calculating capacitor Bicycle",
-    bucketName: "interactive",
-    compressionCodec: LoggingCloudfilesCompressionCodec.Zstd,
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingCloudfilesFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingCloudfilesMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/Network",
-    period: 3600,
-    placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    region: LoggingCloudfilesRegion.Dfw,
-    responseCondition: "null",
-    user: "Casper.Stanton",
-  },
-  loggingCloudfilesName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogCloudfilesResponse) => {
+  const res = await sdk.loggingCloudfiles.updateLogCloudfiles({
+    loggingCloudfilesInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingCloudfilesFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingCloudfilesMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingCloudfilesName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

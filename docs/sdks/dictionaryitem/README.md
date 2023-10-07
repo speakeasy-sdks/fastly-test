@@ -24,32 +24,32 @@ Update multiple items in the same dictionary. For faster updates to your service
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.bulkUpdateDictionaryItem({
-  bulkUpdateDictionaryListRequest: {
-    items: [
-      {
-        itemKey: "test-key",
-        itemValue: "test-value",
-        op: BulkUpdateDictionaryItemOp.Delete,
-      },
-    ],
-  },
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: BulkUpdateDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.bulkUpdateDictionaryItem({
+    bulkUpdateDictionaryListRequest: {
+      items: [
+        {
+          itemKey: "test-key",
+          itemValue: "test-value",
+        },
+      ],
+    },
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -73,26 +73,27 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.createDictionaryItem({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  dictionaryItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: CreateDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.createDictionaryItem({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    dictionaryItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -116,23 +117,24 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.deleteDictionaryItem({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  dictionaryItemKey: "test-key",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: DeleteDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.deleteDictionaryItem({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    dictionaryItemKey: "test-key",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -156,23 +158,24 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.getDictionaryItem({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  dictionaryItemKey: "test-key",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.getDictionaryItem({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    dictionaryItemKey: "test-key",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -196,27 +199,28 @@ List of DictionaryItems given service and dictionary ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDictionaryItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.listDictionaryItems({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  direction: Direction.Ascend,
-  page: 1,
-  perPage: 20,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  sort: "created",
-}).then((res: ListDictionaryItemsResponse) => {
+  const res = await sdk.dictionaryItem.listDictionaryItems({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    direction: Direction.Ascend,
+    page: 1,
+    perPage: 20,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    sort: "created",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -240,27 +244,28 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.updateDictionaryItem({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  dictionaryItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-  dictionaryItemKey: "test-key",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: UpdateDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.updateDictionaryItem({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    dictionaryItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+    dictionaryItemKey: "test-key",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -284,27 +289,28 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertDictionaryItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionaryItem.upsertDictionaryItem({
-  dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-  dictionaryItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-  dictionaryItemKey: "test-key",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: UpsertDictionaryItemResponse) => {
+  const res = await sdk.dictionaryItem.upsertDictionaryItem({
+    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
+    dictionaryItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+    dictionaryItemKey: "test-key",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

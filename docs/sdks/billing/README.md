@@ -20,22 +20,23 @@ Get the invoice for a given year and month. Can be any month from when the Custo
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetInvoiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoice({
-  month: "05",
-  year: "2020",
-}).then((res: GetInvoiceResponse) => {
+  const res = await sdk.billing.getInvoice({
+    month: "05",
+    year: "2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,22 +60,23 @@ Get the invoice for the given invoice_id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetInvoiceByIdResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoiceById({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  invoiceId: "7SlAESxcJ2zxHOV4gQ9y9X",
-}).then((res: GetInvoiceByIdResponse) => {
+  const res = await sdk.billing.getInvoiceById({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    invoiceId: "7SlAESxcJ2zxHOV4gQ9y9X",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,23 +100,24 @@ Get the current month-to-date estimate. This endpoint has two different response
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetInvoiceMtdResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoiceMtd({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  month: "05",
-  year: "2020",
-}).then((res: GetInvoiceMtdResponse) => {
+  const res = await sdk.billing.getInvoiceMtd({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    month: "05",
+    year: "2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

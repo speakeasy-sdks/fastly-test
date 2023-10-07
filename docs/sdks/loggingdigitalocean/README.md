@@ -22,7 +22,6 @@ Create a DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -30,40 +29,36 @@ import {
   LoggingDigitaloceanPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.createLogDigocean({
-  loggingDigitaloceanInput: {
-    accessKey: "Security Analyst",
-    bucketName: "Beaumont midst circuit",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
-    domain: "honest-manufacturer.net",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingDigitaloceanMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/opt/bin",
-    period: 3600,
-    placement: LoggingDigitaloceanPlacement.WafDebug,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "Dynamic Fantastic shove",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.createLogDigocean({
+    loggingDigitaloceanInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingDigitaloceanFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingDigitaloceanMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingDigitaloceanPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -87,23 +82,24 @@ Delete the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.deleteLogDigocean({
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.deleteLogDigocean({
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -127,23 +123,24 @@ Get the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.getLogDigocean({
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.getLogDigocean({
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -167,22 +164,23 @@ List all of the DigitalOcean Spaces for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.listLogDigocean({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.listLogDigocean({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -206,7 +204,6 @@ Update the DigitalOcean Space for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogDigoceanResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
@@ -214,41 +211,37 @@ import {
   LoggingDigitaloceanPlacement,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.updateLogDigocean({
-  loggingDigitaloceanInput: {
-    accessKey: "copy neutral",
-    bucketName: "digital",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
-    domain: "spectacular-feng.name",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingDigitaloceanMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "/private/tmp",
-    period: 3600,
-    placement: LoggingDigitaloceanPlacement.WafDebug,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "Cruiser",
-  },
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.updateLogDigocean({
+    loggingDigitaloceanInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingDigitaloceanFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingDigitaloceanMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingDigitaloceanPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,39 +22,30 @@ Create a health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.healthcheck.createHealthcheck({
-  healthcheck: {
-    checkInterval: 894822,
-    comment: "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    expectedResponse: 563880,
-    headers: [
-      "synergistic",
-    ],
-    host: "glistening-concept.biz",
-    httpVersion: "meh Caguas",
-    initial: 288154,
-    method: "whenever",
-    name: "test-healthcheck",
-    path: "/opt/share",
-    threshold: 837733,
-    timeout: 697295,
-    window: 644894,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateHealthcheckResponse) => {
+  const res = await sdk.healthcheck.createHealthcheck({
+    healthcheck: {
+      comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      headers: [
+        "Grady",
+      ],
+      name: "test-healthcheck",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -78,23 +69,24 @@ Delete the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.healthcheck.deleteHealthcheck({
-  healthcheckName: "test-healthcheck",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteHealthcheckResponse) => {
+  const res = await sdk.healthcheck.deleteHealthcheck({
+    healthcheckName: "test-healthcheck",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -118,23 +110,24 @@ Get the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.healthcheck.getHealthcheck({
-  healthcheckName: "test-healthcheck",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetHealthcheckResponse) => {
+  const res = await sdk.healthcheck.getHealthcheck({
+    healthcheckName: "test-healthcheck",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -158,22 +151,23 @@ List all of the health checks for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListHealthchecksResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.healthcheck.listHealthchecks({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListHealthchecksResponse) => {
+  const res = await sdk.healthcheck.listHealthchecks({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -197,40 +191,31 @@ Update the health check for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateHealthcheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.healthcheck.updateHealthcheck({
-  healthcheck: {
-    checkInterval: 931535,
-    comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    expectedResponse: 848950,
-    headers: [
-      "Branding",
-    ],
-    host: "past-armament.org",
-    httpVersion: "Canadian",
-    initial: 693029,
-    method: "Nissan",
-    name: "test-healthcheck",
-    path: "/root",
-    threshold: 324473,
-    timeout: 242944,
-    window: 455756,
-  },
-  healthcheckName: "test-healthcheck",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateHealthcheckResponse) => {
+  const res = await sdk.healthcheck.updateHealthcheck({
+    healthcheck: {
+      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      headers: [
+        "Internal",
+      ],
+      name: "test-healthcheck",
+    },
+    healthcheckName: "test-healthcheck",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

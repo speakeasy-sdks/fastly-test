@@ -24,31 +24,31 @@ Add multiple key-value pairs to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.bulkUpdateConfigStoreItem({
-  bulkUpdateConfigStoreListRequest: {
-    items: [
-      {
-        itemKey: "test-key",
-        itemValue: "test-value",
-        op: BulkUpdateConfigStoreItemOp.Update,
-      },
-    ],
-  },
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}).then((res: BulkUpdateConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.bulkUpdateConfigStoreItem({
+    bulkUpdateConfigStoreListRequest: {
+      items: [
+        {
+          itemKey: "test-key",
+          itemValue: "test-value",
+        },
+      ],
+    },
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,25 +72,26 @@ Add a single key-value pair to an individual config store, specified by ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.createConfigStoreItem({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  configStoreItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-}).then((res: CreateConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.createConfigStoreItem({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+    configStoreItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -114,22 +115,23 @@ Delete an entry in a config store given a config store ID, and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.deleteConfigStoreItem({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  configStoreItemKey: "test-key",
-}).then((res: DeleteConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.deleteConfigStoreItem({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+    configStoreItemKey: "test-key",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -153,22 +155,23 @@ Retrieve a config store entry given a config store ID and item key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.getConfigStoreItem({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  configStoreItemKey: "test-key",
-}).then((res: GetConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.getConfigStoreItem({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+    configStoreItemKey: "test-key",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,21 +195,22 @@ List the key-value pairs associated with a given config store ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConfigStoreItemsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.listConfigStoreItems({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-}).then((res: ListConfigStoreItemsResponse) => {
+  const res = await sdk.configStoreItem.listConfigStoreItems({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -230,26 +234,27 @@ Update an entry in a config store given a config store ID, item key, and item va
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.updateConfigStoreItem({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  configStoreItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-  configStoreItemKey: "test-key",
-}).then((res: UpdateConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.updateConfigStoreItem({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+    configStoreItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+    configStoreItemKey: "test-key",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -273,26 +278,27 @@ Insert or update an entry in a config store given a config store ID, item key, a
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpsertConfigStoreItemResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.configStoreItem.upsertConfigStoreItem({
-  configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  configStoreItem: {
-    itemKey: "test-key",
-    itemValue: "test-value",
-  },
-  configStoreItemKey: "test-key",
-}).then((res: UpsertConfigStoreItemResponse) => {
+  const res = await sdk.configStoreItem.upsertConfigStoreItem({
+    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
+    configStoreItem: {
+      itemKey: "test-key",
+      itemValue: "test-value",
+    },
+    configStoreItemKey: "test-key",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

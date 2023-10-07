@@ -20,7 +20,6 @@ Create an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import {
   InvitationDataAttributesStatusCode,
   RoleUser,
@@ -30,46 +29,39 @@ import {
   TypeServiceInvitation,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.invitations.createInvitation({
-  data: {
-    attributes: {
-      email: "Kenneth.Ullrich36@gmail.com",
-      limitServices: false,
-      role: RoleUser.User,
-      statusCode: InvitationDataAttributesStatusCode.One,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    relationships: {
-      serviceInvitations: {
-        data: [
-          {
-            data: {
-              attributes: {
-                permission: ServiceInvitationDataAttributesPermission.ReadOnly,
-              },
-              relationships: {
-                service: {
-                  type: TypeService.Service,
+  });
+
+  const res = await sdk.invitations.createInvitation({
+    data: {
+      attributes: {
+        role: RoleUser.User,
+      },
+      relationships: {
+        serviceInvitations: {
+          data: [
+            {
+              data: {
+                attributes: {},
+                relationships: {
+                  service: {},
                 },
               },
-              type: TypeServiceInvitation.ServiceInvitation,
             },
-          },
-        ],
+          ],
+        },
       },
     },
-    type: TypeInvitation.Invitation,
-  },
-}).then((res: CreateInvitationResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -93,21 +85,22 @@ Delete an invitation.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteInvitationResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.invitations.deleteInvitation({
-  invitationId: "3krg2uUGZzb2W9Euo4moOY",
-}).then((res: DeleteInvitationResponse) => {
+  const res = await sdk.invitations.deleteInvitation({
+    invitationId: "3krg2uUGZzb2W9Euo4moOY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -131,22 +124,23 @@ List all invitations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListInvitationsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.invitations.listInvitations({
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListInvitationsResponse) => {
+  const res = await sdk.invitations.listInvitations({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

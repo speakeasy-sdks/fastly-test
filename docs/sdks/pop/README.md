@@ -18,19 +18,20 @@ Get a list of all Fastly POPs.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPopsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.pop.listPops().then((res: ListPopsResponse) => {
+  const res = await sdk.pop.listPops();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -26,45 +26,30 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  BulkWafActiveRuleAttributesStatus,
-  TypeWafActiveRule,
-  TypeWafFirewallVersion,
-  TypeWafRuleRevision,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { BulkWafActiveRuleAttributesStatus, TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafActiveRules.bulkUpdateWafActiveRules({
-  bulkWafActiveRuleInput: {
-    attributes: {
-      modsecRuleId: 492455,
-      revision: 2,
-      status: BulkWafActiveRuleAttributesStatus.Log,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-    relationships: {
-      wafRuleRevisions: {
-        data: [
-          {
-            type: TypeWafRuleRevision.WafRuleRevision,
-          },
-        ],
+  });
+
+  const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules({
+    bulkWafActiveRule: {
+      attributes: {
+        revision: "online",
       },
+      relationships: "plum",
     },
-    type: TypeWafActiveRule.WafActiveRule,
-  },
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  versionId: 1,
-}).then((res: BulkUpdateWafActiveRulesResponse) => {
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -90,49 +75,34 @@ Create an active rule for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafActiveRule,
-  TypeWafFirewallVersion,
-  TypeWafRuleRevision,
-  WafActiveRuleDataAttributesStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafActiveRules.createWafActiveRule({
-  bulkWafActiveRulesInput: {
-    data: [
-      {
-        attributes: {
-          modsecRuleId: 640840,
-          revision: "latest",
-          status: WafActiveRuleDataAttributesStatus.Score,
-        },
-        relationships: {
-          wafRuleRevisions: {
-            data: [
-              {
-                type: TypeWafRuleRevision.WafRuleRevision,
-              },
-            ],
+  const res = await sdk.wafActiveRules.createWafActiveRule({
+    bulkWafActiveRules: {
+      data: [
+        {
+          attributes: {
+            revision: "Human",
           },
+          relationships: "male",
         },
-        type: TypeWafActiveRule.WafActiveRule,
-      },
-    ],
-  },
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  versionId: 1,
-}).then((res: CreateWafActiveRuleResponse) => {
+      ],
+    },
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -158,48 +128,33 @@ Create active rules by tag. This endpoint will create active rules using the lat
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateWafActiveRulesTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafActiveRule,
-  TypeWafFirewallVersion,
-  TypeWafRuleRevision,
-  WafActiveRuleDataAttributesStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafActiveRules.createWafActiveRulesTag({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  versionId: 1,
-  wafActiveRuleInput: {
-    data: {
-      attributes: {
-        modsecRuleId: 645125,
-        revision: 2,
-        status: WafActiveRuleDataAttributesStatus.Score,
-      },
-      relationships: {
-        wafFirewallVersion: {
-          data: [
-            {
-              type: TypeWafFirewallVersion.WafFirewallVersion,
-            },
-          ],
-        },
-      },
-      type: TypeWafActiveRule.WafActiveRule,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  wafTagName: "test-waf-tag",
-}).then((res: CreateWafActiveRulesTagResponse) => {
+  });
+
+  const res = await sdk.wafActiveRules.createWafActiveRulesTag({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    versionId: 1,
+    wafActiveRule: {
+      data: {
+        attributes: {
+          revision: "Dynamic",
+        },
+        relationships: "Diesel",
+      },
+    },
+    wafTagName: "test-waf-tag",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -225,23 +180,24 @@ Delete an active rule for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafActiveRules.deleteWafActiveRule({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  versionId: 1,
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}).then((res: DeleteWafActiveRuleResponse) => {
+  const res = await sdk.wafActiveRules.deleteWafActiveRule({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    versionId: 1,
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -267,24 +223,25 @@ Get a specific active rule object. Includes details of the rule revision associa
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafActiveRules.getWafActiveRule({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  include: "waf_rule_revision,waf_firewall_version",
-  versionId: 1,
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}).then((res: GetWafActiveRuleResponse) => {
+  const res = await sdk.wafActiveRules.getWafActiveRule({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    include: "waf_rule_revision,waf_firewall_version",
+    versionId: 1,
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -310,29 +267,26 @@ List all active rules for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafActiveRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafActiveRules.listWafActiveRules({
-  filterOutdated: "Rutherfordium Account and",
-  filterStatus: "Tricycle anti Hartford",
-  filterWafRuleRevisionMessage: "delectus Metical deposit",
-  filterWafRuleRevisionModsecRuleId: "National",
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  include: "waf_rule_revision,waf_firewall_version",
-  pageNumber: 1,
-  pageSize: 20,
-  versionId: 1,
-}).then((res: ListWafActiveRulesResponse) => {
+  const res = await sdk.wafActiveRules.listWafActiveRules({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    include: "waf_rule_revision,waf_firewall_version",
+    pageNumber: 1,
+    pageSize: 20,
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -358,48 +312,33 @@ Update an active rule's status for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateWafActiveRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import {
-  TypeWafActiveRule,
-  TypeWafFirewallVersion,
-  TypeWafRuleRevision,
-  WafActiveRuleDataAttributesStatus,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.wafActiveRules.updateWafActiveRule({
-  firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-  versionId: 1,
-  wafActiveRuleInput: {
-    data: {
-      attributes: {
-        modsecRuleId: 627655,
-        revision: "latest",
-        status: WafActiveRuleDataAttributesStatus.Score,
-      },
-      relationships: {
-        wafRuleRevisions: {
-          data: [
-            {
-              type: TypeWafRuleRevision.WafRuleRevision,
-            },
-          ],
-        },
-      },
-      type: TypeWafActiveRule.WafActiveRule,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}).then((res: UpdateWafActiveRuleResponse) => {
+  });
+
+  const res = await sdk.wafActiveRules.updateWafActiveRule({
+    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
+    versionId: 1,
+    wafActiveRule: {
+      data: {
+        attributes: {
+          revision: "Branding",
+        },
+        relationships: "Technician",
+      },
+    },
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

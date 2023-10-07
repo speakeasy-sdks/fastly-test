@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class CheckDomainRequest extends SpeakeasyBase {
     /**
@@ -24,25 +23,6 @@ export class CheckDomainRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
-}
-
-/**
- * Domain details.
- */
-export class CheckDomain200ApplicationJson1 extends SpeakeasyBase {
-    /**
-     * A freeform descriptive note.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "comment" })
-    comment?: string;
-
-    /**
-     * The name of the domain or domains associated with this service.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
 }
 
 export class CheckDomainResponse extends SpeakeasyBase {

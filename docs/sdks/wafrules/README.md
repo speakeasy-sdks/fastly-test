@@ -21,22 +21,23 @@ Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fas
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafRules.getWafRule({
-  include: "waf_tags,waf_rule_revisions",
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}).then((res: GetWafRuleResponse) => {
+  const res = await sdk.wafRules.getWafRule({
+    include: "waf_tags,waf_rule_revisions",
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,27 +63,24 @@ List all available WAF rules.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRulesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafRules.listWafRules({
-  filterModsecRuleId: "South pricing",
-  filterWafFirewallIdNotMatch: "Hatchback Avon",
-  filterWafRuleRevisionsSource: "Latin candela Home",
-  filterWafTagsName: "Electric Tajikistan",
-  include: "waf_tags,waf_rule_revisions",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListWafRulesResponse) => {
+  const res = await sdk.wafRules.listWafRules({
+    include: "waf_tags,waf_rule_revisions",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

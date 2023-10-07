@@ -18,28 +18,24 @@ List all TLS domains.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsDomains.listTlsDomains({
-  filterInUse: "Towels Sarasota Granite",
-  filterTlsCertificatesId: "whether Computer",
-  filterTlsSubscriptionsId: "trivialise",
-  include: "Southwest pink",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.MinusCreatedAt,
-}).then((res: ListTlsDomainsResponse) => {
+  const res = await sdk.tlsDomains.listTlsDomains({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,31 +22,29 @@ Creates a new condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.condition.createCondition({
-  conditionInput: {
-    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    name: "test-condition",
-    priority: "10",
-    statement: "Miles",
-    type: ConditionType.Cache,
-    version: "Forward",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateConditionResponse) => {
+  const res = await sdk.condition.createCondition({
+    conditionInput: {
+      comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      name: "test-condition",
+      priority: "10",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +68,24 @@ Deletes the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.condition.deleteCondition({
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteConditionResponse) => {
+  const res = await sdk.condition.deleteCondition({
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +109,24 @@ Gets the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.condition.getCondition({
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetConditionResponse) => {
+  const res = await sdk.condition.getCondition({
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,22 +150,23 @@ Gets all conditions for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListConditionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.condition.listConditions({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListConditionsResponse) => {
+  const res = await sdk.condition.listConditions({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,32 +190,30 @@ Updates the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateConditionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.condition.updateCondition({
-  conditionInput: {
-    comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    name: "test-condition",
-    priority: "10",
-    statement: "overriding",
-    type: ConditionType.Cache,
-    version: "1080p bah deliver",
-  },
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateConditionResponse) => {
+  const res = await sdk.condition.updateCondition({
+    conditionInput: {
+      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      name: "test-condition",
+      priority: "10",
+    },
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

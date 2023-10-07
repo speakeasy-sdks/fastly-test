@@ -25,25 +25,25 @@ Create a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.createService({
-  comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  name: "test-service",
-  type: ServiceCreateType.Vcl,
-}).then((res: CreateServiceResponse) => {
+  const res = await sdk.service.createService({
+    comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    name: "test-service",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,21 +67,22 @@ Delete a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.deleteService({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: DeleteServiceResponse) => {
+  const res = await sdk.service.deleteService({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,21 +106,22 @@ Get a specific service by id.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.getService({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetServiceResponse) => {
+  const res = await sdk.service.getService({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -143,22 +145,23 @@ List detailed information on a specified service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetServiceDetailResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.getServiceDetail({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  version: 1,
-}).then((res: GetServiceDetailResponse) => {
+  const res = await sdk.service.getServiceDetail({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    version: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -182,21 +185,22 @@ List the domains within a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServiceDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.listServiceDomains({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: ListServiceDomainsResponse) => {
+  const res = await sdk.service.listServiceDomains({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -220,25 +224,26 @@ List services.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListServicesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.listServices({
-  direction: Direction.Ascend,
-  page: 1,
-  perPage: 20,
-  sort: "created",
-}).then((res: ListServicesResponse) => {
+  const res = await sdk.service.listServices({
+    direction: Direction.Ascend,
+    page: 1,
+    perPage: 20,
+    sort: "created",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -262,21 +267,22 @@ Get a specific service by name.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SearchServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.searchService({
-  name: "test-service",
-}).then((res: SearchServiceResponse) => {
+  const res = await sdk.service.searchService({
+    name: "test-service",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -300,26 +306,27 @@ Update a service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateServiceResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.service.updateService({
-  service: {
-    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-    name: "test-service",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: UpdateServiceResponse) => {
+  const res = await sdk.service.updateService({
+    service: {
+      comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      customerId: "x4xCwxxJxGCx123Rx5xTx",
+      name: "test-service",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

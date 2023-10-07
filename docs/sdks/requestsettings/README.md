@@ -21,23 +21,24 @@ Removes the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.requestSettings.deleteRequestSettings({
-  requestSettingsName: "test-request-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteRequestSettingsResponse) => {
+  const res = await sdk.requestSettings.deleteRequestSettings({
+    requestSettingsName: "test-request-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,23 +62,24 @@ Gets the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.requestSettings.getRequestSettings({
-  requestSettingsName: "test-request-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetRequestSettingsResponse) => {
+  const res = await sdk.requestSettings.getRequestSettings({
+    requestSettingsName: "test-request-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,22 +103,23 @@ Returns a list of all Request Settings objects for the given service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.requestSettings.listRequestSettings({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListRequestSettingsResponse) => {
+  const res = await sdk.requestSettings.listRequestSettings({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,38 +143,29 @@ Updates the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateRequestSettingsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.requestSettings.updateRequestSettings({
-  requestSettings: {
-    action: RequestSettingsAction.Pass,
-    bypassBusyWait: 713589,
-    defaultHost: "Northeast Producer",
-    forceMiss: 216239,
-    forceSsl: 459715,
-    geoHeaders: 703251,
-    hashKeys: "demanding niches",
-    maxStaleAge: 618939,
-    name: "test-request-setting",
-    requestCondition: "null",
-    timerSupport: 698909,
-    xff: RequestSettingsXff.AppendAll,
-  },
-  requestSettingsName: "test-request-setting",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateRequestSettingsResponse) => {
+  const res = await sdk.requestSettings.updateRequestSettings({
+    requestSettings: {
+      name: "test-request-setting",
+      requestCondition: "null",
+    },
+    requestSettingsName: "test-request-setting",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

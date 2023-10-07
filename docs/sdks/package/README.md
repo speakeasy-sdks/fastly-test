@@ -20,22 +20,23 @@ List detailed information about the Compute@Edge package for the specified servi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.package.getPackage({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetPackageResponse) => {
+  const res = await sdk.package.getPackage({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,29 +60,29 @@ Upload a Compute@Edge package associated with the specified service version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PutPackageResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.package.putPackage({
-  expect: "hacking Iowa",
-  packageUpload: {
-    package: {
-      content: "\xXmX%2z)R" as bytes <<<>>>,
-      package: "haptic",
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: PutPackageResponse) => {
+  });
+
+  const res = await sdk.package.putPackage({
+    packageUpload: {
+      package: {
+        content: "PP--<\xXmX" as bytes <<<>>>,
+        package: "Industrial",
+      },
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

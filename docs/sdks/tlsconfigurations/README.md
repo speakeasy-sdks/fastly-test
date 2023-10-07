@@ -20,22 +20,23 @@ Show a TLS configuration.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsConfigurations.getTlsConfig({
-  include: "dns_records",
-  tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-}).then((res: GetTlsConfigResponse) => {
+  const res = await sdk.tlsConfigurations.getTlsConfig({
+    include: "dns_records",
+    tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,24 +60,24 @@ List all TLS configurations.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsConfigsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsConfigurations.listTlsConfigs({
-  filterBulk: "algorithm olive Usability",
-  include: "dns_records",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListTlsConfigsResponse) => {
+  const res = await sdk.tlsConfigurations.listTlsConfigs({
+    include: "dns_records",
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,39 +101,29 @@ Update a TLS configuration.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateTlsConfigResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeService, TypeTlsConfiguration, TypeTlsDnsRecord } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsConfigurations.updateTlsConfig({
-  tlsConfigurationInput: {
-    data: {
-      attributes: {
-        name: "portal",
-      },
-      relationships: {
-        dnsRecords: {
-          data: [
-            {
-              type: TypeTlsDnsRecord.DnsRecord,
-            },
-          ],
-        },
-      },
-      type: TypeTlsConfiguration.TlsConfiguration,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-}).then((res: UpdateTlsConfigResponse) => {
+  });
+
+  const res = await sdk.tlsConfigurations.updateTlsConfig({
+    tlsConfiguration: {
+      data: {
+        attributes: {},
+        relationships: "disintermediate",
+      },
+    },
+    tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

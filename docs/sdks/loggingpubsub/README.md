@@ -22,38 +22,38 @@ Create a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPubsub.createLogGcpPubsub({
-  loggingGooglePubsub: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingGooglePubsubFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingGooglePubsubPlacement.LessThanNilGreaterThan,
-    projectId: "test-project-id",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    topic: "Franc",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogGcpPubsubResponse) => {
+  const res = await sdk.loggingPubsub.createLogGcpPubsub({
+    loggingGooglePubsub: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingGooglePubsubFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingGooglePubsubPlacement.None,
+      projectId: "test-project-id",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -77,23 +77,24 @@ Delete a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPubsub.deleteLogGcpPubsub({
-  loggingGooglePubsubName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogGcpPubsubResponse) => {
+  const res = await sdk.loggingPubsub.deleteLogGcpPubsub({
+    loggingGooglePubsubName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -117,23 +118,24 @@ Get the details for a Pub/Sub logging object for a particular service and versio
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPubsub.getLogGcpPubsub({
-  loggingGooglePubsubName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogGcpPubsubResponse) => {
+  const res = await sdk.loggingPubsub.getLogGcpPubsub({
+    loggingGooglePubsubName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -157,22 +159,23 @@ List all of the Pub/Sub logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPubsub.listLogGcpPubsub({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogGcpPubsubResponse) => {
+  const res = await sdk.loggingPubsub.listLogGcpPubsub({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -196,39 +199,39 @@ Update a Pub/Sub logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogGcpPubsubResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingPubsub.updateLogGcpPubsub({
-  loggingGooglePubsub: {
-    accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingGooglePubsubFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingGooglePubsubPlacement.LessThanNilGreaterThan,
-    projectId: "test-project-id",
-    responseCondition: "null",
-    secretKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    topic: "Generic restructure",
-    user: "test-user@test-project-id.iam.gserviceaccount.com",
-  },
-  loggingGooglePubsubName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogGcpPubsubResponse) => {
+  const res = await sdk.loggingPubsub.updateLogGcpPubsub({
+    loggingGooglePubsub: {
+      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingGooglePubsubFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingGooglePubsubPlacement.None,
+      projectId: "test-project-id",
+      responseCondition: "null",
+      secretKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      user: "test-user@test-project-id.iam.gserviceaccount.com",
+    },
+    loggingGooglePubsubName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -24,23 +24,24 @@ Checks the status of a specific domain's DNS record for a Service Version. Retur
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CheckDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.checkDomain({
-  domainName: "www.example.com",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CheckDomainResponse) => {
+  const res = await sdk.domain.checkDomain({
+    domainName: "www.example.com",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -64,22 +65,23 @@ Checks the status of all domains' DNS records for a Service Version. Returns an 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CheckDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.checkDomains({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CheckDomainsResponse) => {
+  const res = await sdk.domain.checkDomains({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,26 +105,27 @@ Create a domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.createDomain({
-  domain: {
-    comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    name: "www.example.com",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateDomainResponse) => {
+  const res = await sdk.domain.createDomain({
+    domain: {
+      comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      name: "www.example.com",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,23 +149,24 @@ Delete the domain for a particular service and versions.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.deleteDomain({
-  domainName: "www.example.com",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteDomainResponse) => {
+  const res = await sdk.domain.deleteDomain({
+    domainName: "www.example.com",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,23 +190,24 @@ Get the domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.getDomain({
-  domainName: "www.example.com",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetDomainResponse) => {
+  const res = await sdk.domain.getDomain({
+    domainName: "www.example.com",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -226,22 +231,23 @@ List all the domains for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDomainsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.listDomains({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListDomainsResponse) => {
+  const res = await sdk.domain.listDomains({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -265,27 +271,28 @@ Update the domain for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDomainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.domain.updateDomain({
-  domain: {
-    comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    name: "www.example.com",
-  },
-  domainName: "www.example.com",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateDomainResponse) => {
+  const res = await sdk.domain.updateDomain({
+    domain: {
+      comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      name: "www.example.com",
+    },
+    domainName: "www.example.com",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,26 +22,26 @@ Create named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionary.createDictionary({
-  dictionary: {
-    name: "test_dictionary",
-    writeOnly: false,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateDictionaryResponse) => {
+  const res = await sdk.dictionary.createDictionary({
+    dictionary: {
+      name: "test_dictionary",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,23 +65,24 @@ Delete named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionary.deleteDictionary({
-  dictionaryName: "test_dictionary",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteDictionaryResponse) => {
+  const res = await sdk.dictionary.deleteDictionary({
+    dictionaryName: "test_dictionary",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,23 +106,24 @@ Retrieve a single dictionary by name for the version and service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionary.getDictionary({
-  dictionaryName: "test_dictionary",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetDictionaryResponse) => {
+  const res = await sdk.dictionary.getDictionary({
+    dictionaryName: "test_dictionary",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +147,23 @@ List all dictionaries for the version of the service.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListDictionariesResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionary.listDictionaries({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListDictionariesResponse) => {
+  const res = await sdk.dictionary.listDictionaries({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,27 +187,27 @@ Update named dictionary for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateDictionaryResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.dictionary.updateDictionary({
-  dictionary: {
-    name: "test_dictionary",
-    writeOnly: false,
-  },
-  dictionaryName: "test_dictionary",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateDictionaryResponse) => {
+  const res = await sdk.dictionary.updateDictionary({
+    dictionary: {
+      name: "test_dictionary",
+    },
+    dictionaryName: "test_dictionary",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

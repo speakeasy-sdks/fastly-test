@@ -18,21 +18,22 @@ Retrieve headers and MD5 hash of the content for a particular URL from each Fast
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ContentCheckResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.content.contentCheck({
-  url: "https://www.example.com/foo/bar",
-}).then((res: ContentCheckResponse) => {
+  const res = await sdk.content.contentCheck({
+    url: "https://www.example.com/foo/bar",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -22,7 +22,7 @@ export class CreateWafRuleExclusionRequest extends SpeakeasyBase {
     firewallVersionNumber: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafExclusionInput?: shared.WafExclusionInput;
+    wafExclusion?: shared.WafExclusion;
 }
 
 export class CreateWafRuleExclusionResponse extends SpeakeasyBase {

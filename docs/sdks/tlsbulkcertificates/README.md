@@ -22,21 +22,22 @@ Destroy a certificate. This disables TLS for all domains listed as SAN entries.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsBulkCertificates.deleteBulkTlsCert({
-  certificateId: "cRTguUGZzb2W9Euo4moOr",
-}).then((res: DeleteBulkTlsCertResponse) => {
+  const res = await sdk.tlsBulkCertificates.deleteBulkTlsCert({
+    certificateId: "cRTguUGZzb2W9Euo4moOr",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -60,21 +61,22 @@ Retrieve a single certificate.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsBulkCertificates.getTlsBulkCert({
-  certificateId: "cRTguUGZzb2W9Euo4moOr",
-}).then((res: GetTlsBulkCertResponse) => {
+  const res = await sdk.tlsBulkCertificates.getTlsBulkCert({
+    certificateId: "cRTguUGZzb2W9Euo4moOr",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,25 +100,24 @@ List all certificates.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsBulkCertsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsBulkCertificates.listTlsBulkCerts({
-  filterTlsDomainId: "lavender",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.MinusCreatedAt,
-}).then((res: ListTlsBulkCertsResponse) => {
+  const res = await sdk.tlsBulkCertificates.listTlsBulkCerts({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,41 +141,29 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateBulkTlsCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsBulkCertificates.updateBulkTlsCert({
-  certificateId: "cRTguUGZzb2W9Euo4moOr",
-  tlsBulkCertificateInput: {
-    data: {
-      attributes: {
-        allowUntrustedRoot: false,
-        certBlob: "Cadillac",
-        intermediatesBlob: "Officer Electronics Mountain",
-      },
-      relationships: {
-        tlsConfigurations: {
-          data: [
-            {
-              type: TypeTlsConfiguration.TlsConfiguration,
-            },
-          ],
-        },
-      },
-      type: TypeTlsBulkCertificate.TlsBulkCertificate,
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-}).then((res: UpdateBulkTlsCertResponse) => {
+  });
+
+  const res = await sdk.tlsBulkCertificates.updateBulkTlsCert({
+    certificateId: "cRTguUGZzb2W9Euo4moOr",
+    tlsBulkCertificate: {
+      data: {
+        attributes: {},
+        relationships: "Licensed",
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -198,44 +187,32 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UploadTlsBulkCertResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsBulkCertificate, TypeTlsConfiguration, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
-
-sdk.tlsBulkCertificates.uploadTlsBulkCert({
-  attributes: {
-    allowUntrustedRoot: false,
-    certBlob: "Representative Corporate",
-    intermediatesBlob: "Computers eclipse Fitness",
-  },
-  relationships: {
-    tlsDomains: {
-      data: [
-        {
-          type: TypeTlsDomain.TlsDomain,
-        },
-      ],
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
     },
-  },
-  type: TypeTlsBulkCertificate.TlsBulkCertificate,
-}).then((res: UploadTlsBulkCertResponse) => {
+  });
+
+  const res = await sdk.tlsBulkCertificates.uploadTlsBulkCert({
+    attributes: {},
+    relationships: "alarm",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.TlsBulkCertificateDataInput](../../models/shared/tlsbulkcertificatedatainput.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [shared.TlsBulkCertificateData](../../models/shared/tlsbulkcertificatedata.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response

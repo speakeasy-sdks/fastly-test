@@ -22,31 +22,26 @@ Creates a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.server.createPoolServer({
-  poolId: "2Yd1WfiCBPENLloXfXmlO",
-  server: {
-    address: "669 Amber Square",
-    comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    disabled: false,
-    maxConn: 467910,
-    overrideHost: "Road scalable",
-    port: 74265,
-    weight: 846472,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: CreatePoolServerResponse) => {
+  const res = await sdk.server.createPoolServer({
+    poolId: "2Yd1WfiCBPENLloXfXmlO",
+    server: {
+      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +65,24 @@ Deletes a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeletePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.server.deletePoolServer({
-  poolId: "2Yd1WfiCBPENLloXfXmlO",
-  serverId: "6kEuoknxiaDBCLiAjKqyXq",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: DeletePoolServerResponse) => {
+  const res = await sdk.server.deletePoolServer({
+    poolId: "2Yd1WfiCBPENLloXfXmlO",
+    serverId: "6kEuoknxiaDBCLiAjKqyXq",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +106,24 @@ Gets a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetPoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.server.getPoolServer({
-  poolId: "2Yd1WfiCBPENLloXfXmlO",
-  serverId: "6kEuoknxiaDBCLiAjKqyXq",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: GetPoolServerResponse) => {
+  const res = await sdk.server.getPoolServer({
+    poolId: "2Yd1WfiCBPENLloXfXmlO",
+    serverId: "6kEuoknxiaDBCLiAjKqyXq",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,22 +147,23 @@ Lists all servers for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListPoolServersResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.server.listPoolServers({
-  poolId: "2Yd1WfiCBPENLloXfXmlO",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: ListPoolServersResponse) => {
+  const res = await sdk.server.listPoolServers({
+    poolId: "2Yd1WfiCBPENLloXfXmlO",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,32 +187,27 @@ Updates a single server for a particular service and pool.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdatePoolServerResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.server.updatePoolServer({
-  poolId: "2Yd1WfiCBPENLloXfXmlO",
-  server: {
-    address: "5838 Abshire Union",
-    comment: "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    disabled: false,
-    maxConn: 71212,
-    overrideHost: "South Soft",
-    port: 875148,
-    weight: 10211,
-  },
-  serverId: "6kEuoknxiaDBCLiAjKqyXq",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: UpdatePoolServerResponse) => {
+  const res = await sdk.server.updatePoolServer({
+    poolId: "2Yd1WfiCBPENLloXfXmlO",
+    server: {
+      comment: "The Football Is Good For Training And Recreational Purposes",
+    },
+    serverId: "6kEuoknxiaDBCLiAjKqyXq",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

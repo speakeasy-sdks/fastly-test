@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class BulkUpdateWafActiveRulesRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    bulkWafActiveRuleInput?: shared.BulkWafActiveRuleInput;
+    bulkWafActiveRule?: shared.BulkWafActiveRule;
 
     /**
      * Alphanumeric string identifying a WAF Firewall.

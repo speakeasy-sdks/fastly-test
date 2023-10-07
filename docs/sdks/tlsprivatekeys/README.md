@@ -21,45 +21,34 @@ Create a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
-import { TypeTlsActivation, TypeTlsDomain, TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsPrivateKeys.createTlsKey({
-  data: {
-    attributes: {
-      key: "<key>",
-      name: "white pascal Central",
+  const res = await sdk.tlsPrivateKeys.createTlsKey({
+    data: {
+      attributes: {},
+      relationships: "anti",
     },
-    relationships: {
-      tlsActivations: {
-        data: [
-          {
-            type: TypeTlsActivation.TlsActivation,
-          },
-        ],
-      },
-    },
-    type: TypeTlsPrivateKey.TlsPrivateKey,
-  },
-}).then((res: CreateTlsKeyResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [shared.TlsPrivateKeyInput](../../models/shared/tlsprivatekeyinput.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.TlsPrivateKey](../../models/shared/tlsprivatekey.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -75,21 +64,22 @@ Destroy a TLS private key. Only private keys not already matched to any certific
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsPrivateKeys.deleteTlsKey({
-  tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}).then((res: DeleteTlsKeyResponse) => {
+  const res = await sdk.tlsPrivateKeys.deleteTlsKey({
+    tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -113,21 +103,22 @@ Show a TLS private key.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetTlsKeyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsPrivateKeys.getTlsKey({
-  tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
-}).then((res: GetTlsKeyResponse) => {
+  const res = await sdk.tlsPrivateKeys.getTlsKey({
+    tlsPrivateKeyId: "KeYguUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,23 +142,23 @@ List all TLS private keys.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListTlsKeysResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.tlsPrivateKeys.listTlsKeys({
-  filterInUse: "Customer bypass",
-  pageNumber: 1,
-  pageSize: 20,
-}).then((res: ListTlsKeysResponse) => {
+  const res = await sdk.tlsPrivateKeys.listTlsKeys({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

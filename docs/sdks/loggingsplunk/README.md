@@ -22,39 +22,31 @@ Create a Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSplunk.createLogSplunk({
-  loggingSplunk: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSplunkFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingSplunkPlacement.LessThanNilGreaterThan,
-    requestMaxBytes: 98989,
-    requestMaxEntries: 953900,
-    responseCondition: "null",
-    tlsCaCert: "degree likewise Cotton",
-    tlsClientCert: "Checking",
-    tlsClientKey: "matrix",
-    tlsHostname: "while Volkswagen GB",
-    token: "Account Southwest West",
-    url: "https://curly-guidance.net",
-    useTls: LoggingUseTls.Zero,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogSplunkResponse) => {
+  const res = await sdk.loggingSplunk.createLogSplunk({
+    loggingSplunk: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSplunkFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingSplunkPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -78,23 +70,24 @@ Delete the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSplunk.deleteLogSplunk({
-  loggingSplunkName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogSplunkResponse) => {
+  const res = await sdk.loggingSplunk.deleteLogSplunk({
+    loggingSplunkName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -118,23 +111,24 @@ Get the details for a Splunk logging object for a particular service and version
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSplunk.getLogSplunk({
-  loggingSplunkName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogSplunkResponse) => {
+  const res = await sdk.loggingSplunk.getLogSplunk({
+    loggingSplunkName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -158,22 +152,23 @@ List all of the Splunk logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSplunk.listLogSplunk({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogSplunkResponse) => {
+  const res = await sdk.loggingSplunk.listLogSplunk({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -197,40 +192,32 @@ Update the Splunk logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogSplunkResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSplunk.updateLogSplunk({
-  loggingSplunk: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingSplunkFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingSplunkPlacement.WafDebug,
-    requestMaxBytes: 499214,
-    requestMaxEntries: 893979,
-    responseCondition: "null",
-    tlsCaCert: "male seamless",
-    tlsClientCert: "Rubber impactful",
-    tlsClientKey: "Powlowski Screen",
-    tlsHostname: "mollitia Northwest Northwest",
-    token: "Pizza Southeast Molybdenum",
-    url: "https://critical-radiosonde.info",
-    useTls: LoggingUseTls.One,
-  },
-  loggingSplunkName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogSplunkResponse) => {
+  const res = await sdk.loggingSplunk.updateLogSplunk({
+    loggingSplunk: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSplunkFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingSplunkPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingSplunkName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

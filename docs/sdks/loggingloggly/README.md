@@ -22,31 +22,31 @@ Create a Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLoggly.createLogLoggly({
-  loggingLoggly: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogglyFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingLogglyPlacement.WafDebug,
-    responseCondition: "null",
-    token: "Granite Integration strategize",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogLogglyResponse) => {
+  const res = await sdk.loggingLoggly.createLogLoggly({
+    loggingLoggly: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogglyFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogglyPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +70,24 @@ Delete the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLoggly.deleteLogLoggly({
-  loggingLogglyName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogLogglyResponse) => {
+  const res = await sdk.loggingLoggly.deleteLogLoggly({
+    loggingLogglyName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +111,24 @@ Get the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLoggly.getLogLoggly({
-  loggingLogglyName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogLogglyResponse) => {
+  const res = await sdk.loggingLoggly.getLogLoggly({
+    loggingLogglyName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,22 +152,23 @@ List all Loggly logging objects for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLoggly.listLogLoggly({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogLogglyResponse) => {
+  const res = await sdk.loggingLoggly.listLogLoggly({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,32 +192,32 @@ Update the Loggly logging object for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogLogglyResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingLoggly.updateLogLoggly({
-  loggingLoggly: {
-    format: "%h %l %u %t \"%r\" %&gt;s %b",
-    formatVersion: LoggingLogglyFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingLogglyPlacement.LessThanNilGreaterThan,
-    responseCondition: "null",
-    token: "Birmingham per Regional",
-  },
-  loggingLogglyName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogLogglyResponse) => {
+  const res = await sdk.loggingLoggly.updateLogLoggly({
+    loggingLoggly: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogglyFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogglyPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingLogglyName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

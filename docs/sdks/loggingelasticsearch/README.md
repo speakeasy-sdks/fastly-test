@@ -22,41 +22,30 @@ Create a Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingElasticsearch.createLogElasticsearch({
-  loggingElasticsearch: {
-    format: "Sedan",
-    formatVersion: LoggingElasticsearchFormatVersion.Two,
-    index: "Mouse",
-    name: "test-log-endpoint",
-    password: "L0LtOVDJ_cyv_Gf",
-    pipeline: "leverage CSS",
-    placement: LoggingElasticsearchPlacement.WafDebug,
-    requestMaxBytes: 733399,
-    requestMaxEntries: 237272,
-    responseCondition: "null",
-    tlsCaCert: "thistle purple",
-    tlsClientCert: "superstructure",
-    tlsClientKey: "Cayman Court Bicycle",
-    tlsHostname: "mobile Croatian paradigms",
-    url: "http://trained-dusk.info",
-    user: "Raul_Ankunding",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: CreateLogElasticsearchResponse) => {
+  const res = await sdk.loggingElasticsearch.createLogElasticsearch({
+    loggingElasticsearch: {
+      formatVersion: LoggingElasticsearchFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingElasticsearchPlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -80,23 +69,24 @@ Delete the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingElasticsearch.deleteLogElasticsearch({
-  loggingElasticsearchName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: DeleteLogElasticsearchResponse) => {
+  const res = await sdk.loggingElasticsearch.deleteLogElasticsearch({
+    loggingElasticsearchName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -120,23 +110,24 @@ Get the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingElasticsearch.getLogElasticsearch({
-  loggingElasticsearchName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetLogElasticsearchResponse) => {
+  const res = await sdk.loggingElasticsearch.getLogElasticsearch({
+    loggingElasticsearchName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -160,22 +151,23 @@ List all of the Elasticsearch logging endpoints for a particular service and ver
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingElasticsearch.listLogElasticsearch({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListLogElasticsearchResponse) => {
+  const res = await sdk.loggingElasticsearch.listLogElasticsearch({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -199,42 +191,31 @@ Update the Elasticsearch logging endpoint for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateLogElasticsearchResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingElasticsearch.updateLogElasticsearch({
-  loggingElasticsearch: {
-    format: "grenade yellow",
-    formatVersion: LoggingElasticsearchFormatVersion.One,
-    index: "HDD",
-    name: "test-log-endpoint",
-    password: "vvCrseYZg_P55Bi",
-    pipeline: "Handmade",
-    placement: LoggingElasticsearchPlacement.None,
-    requestMaxBytes: 534662,
-    requestMaxEntries: 978553,
-    responseCondition: "null",
-    tlsCaCert: "reciprocal PCI Wagon",
-    tlsClientCert: "snare experiences",
-    tlsClientKey: "Seychelles muffled Freeda",
-    tlsHostname: "bypass",
-    url: "https://well-worn-maker.com",
-    user: "Jamil_Bauch53",
-  },
-  loggingElasticsearchName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: UpdateLogElasticsearchResponse) => {
+  const res = await sdk.loggingElasticsearch.updateLogElasticsearch({
+    loggingElasticsearch: {
+      formatVersion: LoggingElasticsearchFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingElasticsearchPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingElasticsearchName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

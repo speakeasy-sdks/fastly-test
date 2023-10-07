@@ -23,21 +23,22 @@ Purge-all requests cannot be done in soft mode and will always immediately inval
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeAllResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeAll({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}).then((res: PurgeAllResponse) => {
+  const res = await sdk.purge.purgeAll({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,22 +62,23 @@ Instant Purge an individual URL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeSingleUrlResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeSingleUrl({
-  cachedUrl: "www.example.com/path/to/object-to-purge",
-  fastlySoftPurge: 1,
-}).then((res: PurgeSingleUrlResponse) => {
+  const res = await sdk.purge.purgeSingleUrl({
+    cachedUrl: "www.example.com/path/to/object-to-purge",
+    fastlySoftPurge: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,23 +102,24 @@ Instant Purge a particular service of items tagged with a Surrogate Key. Only on
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PurgeTagResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeTag({
-  fastlySoftPurge: 1,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  surrogateKey: "key_1",
-}).then((res: PurgeTagResponse) => {
+  const res = await sdk.purge.purgeTag({
+    fastlySoftPurge: 1,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    surrogateKey: "key_1",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

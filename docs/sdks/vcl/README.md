@@ -26,27 +26,26 @@ Upload a VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CreateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.createCustomVcl({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vcl: {
-    content: "program harum",
-    main: false,
-    name: "test-vcl",
-  },
-  versionId: 1,
-}).then((res: CreateCustomVclResponse) => {
+  const res = await sdk.vcl.createCustomVcl({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vcl: {
+      name: "test-vcl",
+    },
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +69,24 @@ Delete the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { DeleteCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.deleteCustomVcl({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vclName: "test-vcl",
-  versionId: 1,
-}).then((res: DeleteCustomVclResponse) => {
+  const res = await sdk.vcl.deleteCustomVcl({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vclName: "test-vcl",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,24 +110,24 @@ Get the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.getCustomVcl({
-  noContent: "Tampa firewall",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vclName: "test-vcl",
-  versionId: 1,
-}).then((res: GetCustomVclResponse) => {
+  const res = await sdk.vcl.getCustomVcl({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vclName: "test-vcl",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +151,23 @@ Return boilerplate VCL with the service's TTL from the [settings](/reference/api
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclBoilerplateResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.getCustomVclBoilerplate({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetCustomVclBoilerplateResponse) => {
+  const res = await sdk.vcl.getCustomVclBoilerplate({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,22 +191,23 @@ Display the generated VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclGeneratedResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.getCustomVclGenerated({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: GetCustomVclGeneratedResponse) => {
+  const res = await sdk.vcl.getCustomVclGenerated({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -229,23 +231,24 @@ Download the specified VCL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetCustomVclRawResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.getCustomVclRaw({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vclName: "test-vcl",
-  versionId: 1,
-}).then((res: GetCustomVclRawResponse) => {
+  const res = await sdk.vcl.getCustomVclRaw({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vclName: "test-vcl",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -269,22 +272,23 @@ List the uploaded VCLs for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.listCustomVcl({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}).then((res: ListCustomVclResponse) => {
+  const res = await sdk.vcl.listCustomVcl({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -308,23 +312,24 @@ Set the specified VCL as the main.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { SetCustomVclMainResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.setCustomVclMain({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vclName: "test-vcl",
-  versionId: 1,
-}).then((res: SetCustomVclMainResponse) => {
+  const res = await sdk.vcl.setCustomVclMain({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vclName: "test-vcl",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -348,28 +353,27 @@ Update the uploaded VCL for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { UpdateCustomVclResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.vcl.updateCustomVcl({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  vcl: {
-    content: "Crossroad",
-    main: false,
-    name: "test-vcl",
-  },
-  vclName: "test-vcl",
-  versionId: 1,
-}).then((res: UpdateCustomVclResponse) => {
+  const res = await sdk.vcl.updateCustomVcl({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    vcl: {
+      name: "test-vcl",
+    },
+    vclName: "test-vcl",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

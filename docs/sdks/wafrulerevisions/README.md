@@ -21,23 +21,24 @@ Get a specific rule revision.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { GetWafRuleRevisionResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafRuleRevisions.getWafRuleRevision({
-  include: "source,vcl,waf_rule",
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  wafRuleRevisionNumber: 2,
-}).then((res: GetWafRuleRevisionResponse) => {
+  const res = await sdk.wafRuleRevisions.getWafRuleRevision({
+    include: "source,vcl,waf_rule",
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+    wafRuleRevisionNumber: 2,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -63,25 +64,26 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRuleRevisionsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.wafRuleRevisions.listWafRuleRevisions({
-  include: WafRuleRevisionInclude.WafRule,
-  pageNumber: 1,
-  pageSize: 20,
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}).then((res: ListWafRuleRevisionsResponse) => {
+  const res = await sdk.wafRuleRevisions.listWafRuleRevisions({
+    include: WafRuleRevisionInclude.WafRule,
+    pageNumber: 1,
+    pageSize: 20,
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

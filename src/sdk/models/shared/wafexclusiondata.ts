@@ -71,7 +71,7 @@ export class WafExclusionDataAttributes extends SpeakeasyBase {
     variable?: WafExclusionDataAttributesVariable;
 }
 
-export class WafExclusionDataInput extends SpeakeasyBase {
+export class WafExclusionData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => WafExclusionDataAttributes)

@@ -18,19 +18,20 @@ List the public IP addresses for the Fastly network.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListFastlyIpsResponse } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly({
-  security: {
-    token: "",
-  },
-});
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.publicIpList.listFastlyIps().then((res: ListFastlyIpsResponse) => {
+  const res = await sdk.publicIpList.listFastlyIps();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
