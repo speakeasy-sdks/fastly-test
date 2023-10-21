@@ -34,7 +34,7 @@ import { Fastly } from "FastlyTestJS";
     healthcheck: {
       comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
       headers: [
-        "Grady",
+        "string",
       ],
       name: "test-healthcheck",
     },
@@ -203,7 +203,7 @@ import { Fastly } from "FastlyTestJS";
     healthcheck: {
       comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       headers: [
-        "Internal",
+        "string",
       ],
       name: "test-healthcheck",
     },

@@ -114,7 +114,7 @@ import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
     tlsConfiguration: {
       data: {
         attributes: {},
-        relationships: "disintermediate",
+        relationships: "string",
       },
     },
     tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",

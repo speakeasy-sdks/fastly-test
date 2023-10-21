@@ -155,7 +155,7 @@ import { TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
     tlsBulkCertificate: {
       data: {
         attributes: {},
-        relationships: "Licensed",
+        relationships: "string",
       },
     },
   });
@@ -198,7 +198,7 @@ import { TypeTlsBulkCertificate } from "FastlyTestJS/dist/sdk/models/shared";
 
   const res = await sdk.tlsBulkCertificates.uploadTlsBulkCert({
     attributes: {},
-    relationships: "alarm",
+    relationships: "string",
   });
 
   if (res.statusCode == 200) {

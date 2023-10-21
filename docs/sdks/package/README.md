@@ -72,7 +72,7 @@ import { Fastly } from "FastlyTestJS";
     packageUpload: {
       package: {
         content: "PP--<\xXmX" as bytes <<<>>>,
-        package: "Industrial",
+        package: "string",
       },
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

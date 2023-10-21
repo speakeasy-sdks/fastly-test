@@ -38,9 +38,9 @@ import { BulkWafActiveRuleAttributesStatus, TypeWafActiveRule } from "FastlyTest
   const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules({
     bulkWafActiveRule: {
       attributes: {
-        revision: "online",
+        revision: "string",
       },
-      relationships: "plum",
+      relationships: "string",
     },
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
     versionId: 1,
@@ -89,9 +89,9 @@ import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTest
       data: [
         {
           attributes: {
-            revision: "Human",
+            revision: "string",
           },
-          relationships: "male",
+          relationships: "string",
         },
       ],
     },
@@ -143,9 +143,9 @@ import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTest
     wafActiveRule: {
       data: {
         attributes: {
-          revision: "Dynamic",
+          revision: "string",
         },
-        relationships: "Diesel",
+        relationships: "string",
       },
     },
     wafTagName: "test-waf-tag",
@@ -327,9 +327,9 @@ import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTest
     wafActiveRule: {
       data: {
         attributes: {
-          revision: "Branding",
+          revision: "string",
         },
-        relationships: "Technician",
+        relationships: "string",
       },
     },
     wafRuleId: "3krg2uUGZzb2W9Euo4moOR",

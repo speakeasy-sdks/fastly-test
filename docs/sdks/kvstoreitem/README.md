@@ -30,8 +30,8 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStoreItem.deleteKeyFromStore({
-    keyName: "South Recumbent yuppify",
-    storeId: "Factors turning Electric",
+    keyName: "string",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -70,7 +70,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStoreItem.getKeys({
-    storeId: "scoot",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -109,8 +109,8 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStoreItem.getValueForKey({
-    keyName: "rehome lumen Vista",
-    storeId: "turquoise incentivize joule",
+    keyName: "string",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -149,8 +149,8 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStoreItem.setValueForKey({
-    keyName: "Cotton Kia",
-    storeId: "Southwest twig harum",
+    keyName: "string",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {

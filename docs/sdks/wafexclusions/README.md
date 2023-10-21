@@ -46,7 +46,7 @@ import {
         attributes: {
           number: 1,
         },
-        relationships: "Infrastructure",
+        relationships: "string",
       },
     },
   });
@@ -234,7 +234,7 @@ import {
         attributes: {
           number: 1,
         },
-        relationships: "Account",
+        relationships: "string",
       },
     },
   });

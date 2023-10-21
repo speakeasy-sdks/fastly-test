@@ -32,11 +32,11 @@ import { Fastly } from "FastlyTestJS";
     publishRequest: {
       items: [
         {
-          channel: "what Lira Ohio",
+          channel: "string",
           formats: {
             httpResponse: {
               headers: {
-                "psst": "North",
+                "key": "string",
               },
             },
             httpStream: {},

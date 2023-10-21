@@ -33,7 +33,7 @@ import { TypeTlsPrivateKey } from "FastlyTestJS/dist/sdk/models/shared";
   const res = await sdk.tlsPrivateKeys.createTlsKey({
     data: {
       attributes: {},
-      relationships: "anti",
+      relationships: "string",
     },
   });
 

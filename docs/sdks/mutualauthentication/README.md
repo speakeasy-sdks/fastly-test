@@ -34,7 +34,7 @@ import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
   const res = await sdk.mutualAuthentication.createMutualTlsAuthentication({
     data: {
       attributes: {},
-      relationships: "index",
+      relationships: "string",
     },
   });
 
@@ -196,7 +196,7 @@ import { TypeMutualAuthentication } from "FastlyTestJS/dist/sdk/models/shared";
     mutualAuthentication: {
       data: {
         attributes: {},
-        relationships: "Music",
+        relationships: "string",
       },
     },
     mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",

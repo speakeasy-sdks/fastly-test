@@ -30,7 +30,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.apexRedirect.deleteApexRedirect({
-    apexRedirectId: "mole South Manganese",
+    apexRedirectId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -69,7 +69,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.apexRedirect.getApexRedirect({
-    apexRedirectId: "below Metrics port",
+    apexRedirectId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -151,10 +151,10 @@ import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
   const res = await sdk.apexRedirect.updateApexRedirect({
     apexRedirectInput: {
       domains: [
-        "SUV",
+        "string",
       ],
     },
-    apexRedirectId: "Account plum provided",
+    apexRedirectId: "string",
   });
 
   if (res.statusCode == 200) {

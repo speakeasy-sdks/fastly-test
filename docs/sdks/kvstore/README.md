@@ -69,7 +69,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStore.deleteStore({
-    storeId: "male",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -108,7 +108,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.kvStore.getStore({
-    storeId: "SSD Technician East",
+    storeId: "string",
   });
 
   if (res.statusCode == 200) {

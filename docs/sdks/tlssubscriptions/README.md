@@ -35,7 +35,7 @@ import { Fastly } from "FastlyTestJS";
 
   const res = await sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
     requestBody: {
-      "bandwidth": "than",
+      "key": "string",
     },
     tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
     tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
@@ -82,7 +82,7 @@ import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription 
     tlsSubscription: {
       data: {
         attributes: {},
-        relationships: "exuding",
+        relationships: "string",
       },
     },
   });
@@ -123,9 +123,9 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-    globalsignEmailChallengeId: "Southwest",
-    tlsAuthorizationId: "reciprocal",
-    tlsSubscriptionId: "West for",
+    globalsignEmailChallengeId: "string",
+    tlsAuthorizationId: "string",
+    tlsSubscriptionId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -290,7 +290,7 @@ import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription 
     tlsSubscription: {
       data: {
         attributes: {},
-        relationships: "Non",
+        relationships: "string",
       },
     },
     tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
