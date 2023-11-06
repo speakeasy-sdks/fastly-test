@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * A private key is used to sign a Certificate. A key can be used to sign multiple certificates.
  *
  * @see {@link https://developer.fastly.com/reference/api/tls/custom-certs/private-keys}
  */
+
 export class TlsPrivateKeys {
     private sdkConfiguration: SDKConfiguration;
 
@@ -27,12 +29,11 @@ export class TlsPrivateKeys {
      * Create a TLS private key.
      */
     async createTlsKey(
-        req: shared.TlsPrivateKeyInput,
-        security: operations.CreateTlsKeySecurity,
+        req: shared.TlsPrivateKey,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsPrivateKeyInput(req);
+            req = new shared.TlsPrivateKey(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -41,7 +42,7 @@ export class TlsPrivateKeys {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -50,20 +51,23 @@ export class TlsPrivateKeys {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateTlsKeySecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -94,6 +98,13 @@ export class TlsPrivateKeys {
                         JSON.parse(decodedRes),
                         shared.TlsPrivateKeyResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -109,7 +120,6 @@ export class TlsPrivateKeys {
      */
     async deleteTlsKey(
         req: operations.DeleteTlsKeyRequest,
-        security: operations.DeleteTlsKeySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -125,20 +135,19 @@ export class TlsPrivateKeys {
             "/tls/private_keys/{tls_private_key_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteTlsKeySecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -176,7 +185,6 @@ export class TlsPrivateKeys {
      */
     async getTlsKey(
         req: operations.GetTlsKeyRequest,
-        security: operations.GetTlsKeySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -192,20 +200,19 @@ export class TlsPrivateKeys {
             "/tls/private_keys/{tls_private_key_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTlsKeySecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -235,6 +242,13 @@ export class TlsPrivateKeys {
                         JSON.parse(decodedRes),
                         shared.TlsPrivateKeyResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -250,7 +264,6 @@ export class TlsPrivateKeys {
      */
     async listTlsKeys(
         req: operations.ListTlsKeysRequest,
-        security: operations.ListTlsKeysSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsKeysResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -262,21 +275,20 @@ export class TlsPrivateKeys {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTlsKeysSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -305,6 +317,13 @@ export class TlsPrivateKeys {
                     res.tlsPrivateKeysResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsPrivateKeysResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

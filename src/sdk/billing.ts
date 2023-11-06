@@ -3,16 +3,29 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Get information on current and past bills.
  *
  * @see {@link https://developer.fastly.com/reference/api/account/billing}
  */
+export enum GetInvoiceAcceptEnum {
+    applicationJson = "application/json",
+    textCsv = "text/csv",
+    applicationPdf = "application/pdf",
+}
+
+export enum GetInvoiceByIdAcceptEnum {
+    applicationJson = "application/json",
+    textCsv = "text/csv",
+    applicationPdf = "application/pdf",
+}
+
 export class Billing {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,8 +41,8 @@ export class Billing {
      */
     async getInvoice(
         req: operations.GetInvoiceRequest,
-        security: operations.GetInvoiceSecurity,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: GetInvoiceAcceptEnum
     ): Promise<operations.GetInvoiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.GetInvoiceRequest(req);
@@ -44,20 +57,23 @@ export class Billing {
             "/billing/v2/year/{year}/month/{month}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        }
 
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -87,12 +103,17 @@ export class Billing {
                         JSON.parse(decodedRes),
                         shared.BillingResponse
                     );
-                }
-                if (utils.matchContentType(contentType, `application/pdf`)) {
+                } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.getInvoice200ApplicationPdfBinaryString = httpRes?.data;
-                }
-                if (utils.matchContentType(contentType, `text/csv`)) {
+                } else if (utils.matchContentType(contentType, `text/csv`)) {
                     res.getInvoice200TextCsvCsvString = decodedRes;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -108,8 +129,8 @@ export class Billing {
      */
     async getInvoiceById(
         req: operations.GetInvoiceByIdRequest,
-        security: operations.GetInvoiceByIdSecurity,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: GetInvoiceByIdAcceptEnum
     ): Promise<operations.GetInvoiceByIdResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.GetInvoiceByIdRequest(req);
@@ -124,20 +145,23 @@ export class Billing {
             "/billing/v2/account_customers/{customer_id}/invoices/{invoice_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceByIdSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
+        }
 
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, text/csv;q=0.7, application/pdf;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -167,12 +191,17 @@ export class Billing {
                         JSON.parse(decodedRes),
                         shared.BillingResponse
                     );
-                }
-                if (utils.matchContentType(contentType, `application/pdf`)) {
+                } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.getInvoiceById200ApplicationPdfBinaryString = httpRes?.data;
-                }
-                if (utils.matchContentType(contentType, `text/csv`)) {
+                } else if (utils.matchContentType(contentType, `text/csv`)) {
                     res.getInvoiceById200TextCsvCsvString = decodedRes;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -188,7 +217,6 @@ export class Billing {
      */
     async getInvoiceMtd(
         req: operations.GetInvoiceMtdRequest,
-        security: operations.GetInvoiceMtdSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetInvoiceMtdResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -204,21 +232,20 @@ export class Billing {
             "/billing/v2/account_customers/{customer_id}/mtd_invoice",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetInvoiceMtdSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -247,6 +274,13 @@ export class Billing {
                     res.billingEstimateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingEstimateResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

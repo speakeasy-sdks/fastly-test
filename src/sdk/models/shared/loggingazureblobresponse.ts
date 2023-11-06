@@ -47,9 +47,6 @@ export enum LoggingAzureblobResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingAzureblobResponse extends SpeakeasyBase {
     /**
      * The unique Azure Blob Storage namespace in which your data objects are stored. Required.

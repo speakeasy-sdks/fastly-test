@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * A Dictionary Item is a single key-value pair that makes up an entry in a Dictionary. Dictionary Items can be added, removed and modified without activating a new version of the associated service.
  *
  * @see {@link https://developer.fastly.com/reference/api/dictionaries/dictionary-item}
  */
+
 export class DictionaryItem {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class DictionaryItem {
      */
     async bulkUpdateDictionaryItem(
         req: operations.BulkUpdateDictionaryItemRequest,
-        security: operations.BulkUpdateDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,7 +46,7 @@ export class DictionaryItem {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -58,20 +59,23 @@ export class DictionaryItem {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.BulkUpdateDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -103,6 +107,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         operations.BulkUpdateDictionaryItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -118,7 +129,6 @@ export class DictionaryItem {
      */
     async createDictionaryItem(
         req: operations.CreateDictionaryItemRequest,
-        security: operations.CreateDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -135,7 +145,7 @@ export class DictionaryItem {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "dictionaryItem", "form");
@@ -144,20 +154,23 @@ export class DictionaryItem {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -189,6 +202,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -204,7 +224,6 @@ export class DictionaryItem {
      */
     async deleteDictionaryItem(
         req: operations.DeleteDictionaryItemRequest,
-        security: operations.DeleteDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -220,20 +239,19 @@ export class DictionaryItem {
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -264,6 +282,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         operations.DeleteDictionaryItem200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -279,7 +304,6 @@ export class DictionaryItem {
      */
     async getDictionaryItem(
         req: operations.GetDictionaryItemRequest,
-        security: operations.GetDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -295,20 +319,19 @@ export class DictionaryItem {
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -338,6 +361,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -353,7 +383,6 @@ export class DictionaryItem {
      */
     async listDictionaryItems(
         req: operations.ListDictionaryItemsRequest,
-        security: operations.ListDictionaryItemsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDictionaryItemsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -369,21 +398,20 @@ export class DictionaryItem {
             "/service/{service_id}/dictionary/{dictionary_id}/items",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListDictionaryItemsSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -418,6 +446,13 @@ export class DictionaryItem {
                         shared.DictionaryItemResponse,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -433,7 +468,6 @@ export class DictionaryItem {
      */
     async updateDictionaryItem(
         req: operations.UpdateDictionaryItemRequest,
-        security: operations.UpdateDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -450,7 +484,7 @@ export class DictionaryItem {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "dictionaryItem", "form");
@@ -459,20 +493,23 @@ export class DictionaryItem {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -504,6 +541,13 @@ export class DictionaryItem {
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -519,7 +563,6 @@ export class DictionaryItem {
      */
     async upsertDictionaryItem(
         req: operations.UpsertDictionaryItemRequest,
-        security: operations.UpsertDictionaryItemSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpsertDictionaryItemResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -536,7 +579,7 @@ export class DictionaryItem {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "dictionaryItem", "form");
@@ -545,20 +588,23 @@ export class DictionaryItem {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpsertDictionaryItemSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -589,6 +635,13 @@ export class DictionaryItem {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

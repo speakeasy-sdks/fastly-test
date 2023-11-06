@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { RealtimeEntry } from "./realtimeentry";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class Realtime extends SpeakeasyBase {
     /**
      * How long the system will wait before aggregating messages for each second. The most recent data returned will have happened at the moment of the request, minus the aggregation delay.

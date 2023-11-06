@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Fastly will upload log messages to Honeycomb.io in the format specified in the Honeycomb object.
  *
  * @see {@link https://developer.fastly.com/reference/api/logging/honeycomb}
  */
+
 export class LoggingHoneycomb {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class LoggingHoneycomb {
      */
     async createLogHoneycomb(
         req: operations.CreateLogHoneycombRequest,
-        security: operations.CreateLogHoneycombSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogHoneycombResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,33 +46,32 @@ export class LoggingHoneycomb {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "loggingHoneycomb2",
-                "form"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingHoneycomb", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogHoneycombSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -101,7 +101,14 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb2
+                        shared.LoggingHoneycomb
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -118,7 +125,6 @@ export class LoggingHoneycomb {
      */
     async deleteLogHoneycomb(
         req: operations.DeleteLogHoneycombRequest,
-        security: operations.DeleteLogHoneycombSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogHoneycombResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -134,20 +140,19 @@ export class LoggingHoneycomb {
             "/service/{service_id}/version/{version_id}/logging/honeycomb/{logging_honeycomb_name}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogHoneycombSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -178,6 +183,13 @@ export class LoggingHoneycomb {
                         JSON.parse(decodedRes),
                         operations.DeleteLogHoneycomb200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -193,7 +205,6 @@ export class LoggingHoneycomb {
      */
     async getLogHoneycomb(
         req: operations.GetLogHoneycombRequest,
-        security: operations.GetLogHoneycombSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogHoneycombResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -209,20 +220,19 @@ export class LoggingHoneycomb {
             "/service/{service_id}/version/{version_id}/logging/honeycomb/{logging_honeycomb_name}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogHoneycombSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -250,7 +260,14 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb2
+                        shared.LoggingHoneycomb
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -267,7 +284,6 @@ export class LoggingHoneycomb {
      */
     async listLogHoneycomb(
         req: operations.ListLogHoneycombRequest,
-        security: operations.ListLogHoneycombSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogHoneycombResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -283,20 +299,19 @@ export class LoggingHoneycomb {
             "/service/{service_id}/version/{version_id}/logging/honeycomb",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogHoneycombSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -329,6 +344,13 @@ export class LoggingHoneycomb {
                         shared.LoggingHoneycombResponse,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -344,7 +366,6 @@ export class LoggingHoneycomb {
      */
     async updateLogHoneycomb(
         req: operations.UpdateLogHoneycombRequest,
-        security: operations.UpdateLogHoneycombSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogHoneycombResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -361,33 +382,32 @@ export class LoggingHoneycomb {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "loggingHoneycomb2",
-                "form"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingHoneycomb", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogHoneycombSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -418,6 +438,13 @@ export class LoggingHoneycomb {
                     res.loggingHoneycombResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingHoneycombResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

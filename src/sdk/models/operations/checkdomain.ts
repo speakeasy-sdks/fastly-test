@@ -4,12 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
-
-export class CheckDomainSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class CheckDomainRequest extends SpeakeasyBase {
     /**
@@ -31,32 +25,22 @@ export class CheckDomainRequest extends SpeakeasyBase {
     versionId: number;
 }
 
-/**
- * Domain details.
- */
-export class CheckDomain200ApplicationJson1 extends SpeakeasyBase {
-    /**
-     * A freeform descriptive note.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "comment" })
-    comment?: string;
-
-    /**
-     * The name of the domain or domains associated with this service.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
-}
-
 export class CheckDomainResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

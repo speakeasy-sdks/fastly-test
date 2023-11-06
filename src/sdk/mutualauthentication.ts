@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * The Mutual TLS API allows for client-to-server authentication using client-side X.509 authentication. The main Mutual Authentication object represents the certificate bundle and other configurations which support Mutual TLS for your domains.
  *
  * @see {@link https://developer.fastly.com/reference/api/tls/mutual-tls/authentication}
  */
+
 export class MutualAuthentication {
     private sdkConfiguration: SDKConfiguration;
 
@@ -27,12 +29,11 @@ export class MutualAuthentication {
      * Create a mutual authentication using a bundle of certificates to enable client-to-server mutual TLS.
      */
     async createMutualTlsAuthentication(
-        req: shared.MutualAuthenticationInput,
-        security: operations.CreateMutualTlsAuthenticationSecurity,
+        req: shared.MutualAuthentication,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateMutualTlsAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.MutualAuthenticationInput(req);
+            req = new shared.MutualAuthentication(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -41,7 +42,7 @@ export class MutualAuthentication {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/mutual_authentications";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -50,20 +51,23 @@ export class MutualAuthentication {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateMutualTlsAuthenticationSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -95,6 +99,13 @@ export class MutualAuthentication {
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -110,7 +121,6 @@ export class MutualAuthentication {
      */
     async deleteMutualTls(
         req: operations.DeleteMutualTlsRequest,
-        security: operations.DeleteMutualTlsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteMutualTlsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -126,20 +136,19 @@ export class MutualAuthentication {
             "/tls/mutual_authentications/{mutual_authentication_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteMutualTlsSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -177,7 +186,6 @@ export class MutualAuthentication {
      */
     async getMutualAuthentication(
         req: operations.GetMutualAuthenticationRequest,
-        security: operations.GetMutualAuthenticationSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetMutualAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -193,21 +201,20 @@ export class MutualAuthentication {
             "/tls/mutual_authentications/{mutual_authentication_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetMutualAuthenticationSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -238,6 +245,13 @@ export class MutualAuthentication {
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -253,7 +267,6 @@ export class MutualAuthentication {
      */
     async listMutualAuthentications(
         req: operations.ListMutualAuthenticationsRequest,
-        security: operations.ListMutualAuthenticationsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListMutualAuthenticationsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -265,21 +278,20 @@ export class MutualAuthentication {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/mutual_authentications";
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListMutualAuthenticationsSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -310,6 +322,13 @@ export class MutualAuthentication {
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationsResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -325,7 +344,6 @@ export class MutualAuthentication {
      */
     async patchMutualAuthentication(
         req: operations.PatchMutualAuthenticationRequest,
-        security: operations.PatchMutualAuthenticationSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PatchMutualAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -342,12 +360,12 @@ export class MutualAuthentication {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "mutualAuthenticationInput",
+                "mutualAuthentication",
                 "json"
             );
         } catch (e: unknown) {
@@ -355,20 +373,23 @@ export class MutualAuthentication {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.PatchMutualAuthenticationSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -399,6 +420,13 @@ export class MutualAuthentication {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.MutualAuthenticationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

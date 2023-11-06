@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { WafFirewallVersionResponseData } from "./waffirewallversionresponsedata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Created
- */
 export class WafFirewallVersionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

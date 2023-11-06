@@ -1,4 +1,5 @@
-# loggingFtp
+# LoggingFtp
+(*loggingFtp*)
 
 ## Overview
 
@@ -20,62 +21,51 @@ Create a FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
   LoggingFtpMessageType,
   LoggingFtpPlacement,
-  LoggingFtpResponseCompressionCodec,
-  LoggingFtpResponseFormatVersion,
-  LoggingFtpResponseMessageType,
-  LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingFtp.createLogFtp({
-  loggingFtpInput: {
-    address: "7588 Mona Cliffs",
-    compressionCodec: LoggingFtpCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.One,
-    gzipLevel: 0,
-    hostname: "compassionate-network.com",
-    ipv4: "121.77.124.67",
-    messageType: LoggingFtpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "esse",
-    path: "esse",
-    period: 3600,
-    placement: LoggingFtpPlacement.WafDebug,
-    port: 683282,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    user: "reprehenderit",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogFtpResponse) => {
+  const res = await sdk.loggingFtp.createLogFtp({
+    loggingFtpInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingFtpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingFtpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingFtpPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.CreateLogFtpRequest](../../models/operations/createlogftprequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.CreateLogFtpSecurity](../../models/operations/createlogftpsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.CreateLogFtpRequest](../../models/operations/createlogftprequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -90,31 +80,32 @@ Delete the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingFtp.deleteLogFtp({
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogFtpResponse) => {
+  const res = await sdk.loggingFtp.deleteLogFtp({
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteLogFtpRequest](../../models/operations/deletelogftprequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.DeleteLogFtpSecurity](../../models/operations/deletelogftpsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.DeleteLogFtpRequest](../../models/operations/deletelogftprequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -129,37 +120,32 @@ Get the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingFtpResponseCompressionCodec,
-  LoggingFtpResponseFormatVersion,
-  LoggingFtpResponseMessageType,
-  LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingFtp.getLogFtp({
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogFtpResponse) => {
+  const res = await sdk.loggingFtp.getLogFtp({
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetLogFtpRequest](../../models/operations/getlogftprequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.GetLogFtpSecurity](../../models/operations/getlogftpsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetLogFtpRequest](../../models/operations/getlogftprequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -174,36 +160,31 @@ List all of the FTPs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingFtpResponseCompressionCodec,
-  LoggingFtpResponseFormatVersion,
-  LoggingFtpResponseMessageType,
-  LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingFtp.listLogFtp({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogFtpResponse) => {
+  const res = await sdk.loggingFtp.listLogFtp({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.ListLogFtpRequest](../../models/operations/listlogftprequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.ListLogFtpSecurity](../../models/operations/listlogftpsecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.ListLogFtpRequest](../../models/operations/listlogftprequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -218,63 +199,52 @@ Update the FTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogFtpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingFtpCompressionCodec,
   LoggingFtpFormatVersion,
   LoggingFtpMessageType,
   LoggingFtpPlacement,
-  LoggingFtpResponseCompressionCodec,
-  LoggingFtpResponseFormatVersion,
-  LoggingFtpResponseMessageType,
-  LoggingFtpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingFtp.updateLogFtp({
-  loggingFtpInput: {
-    address: "824 Reyna Dam",
-    compressionCodec: LoggingFtpCompressionCodec.Snappy,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingFtpFormatVersion.Two,
-    gzipLevel: 0,
-    hostname: "bouncy-babushka.name",
-    ipv4: "178.52.199.216",
-    messageType: LoggingFtpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "quo",
-    path: "fuga",
-    period: 3600,
-    placement: LoggingFtpPlacement.None,
-    port: 178367,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    user: "voluptas",
-  },
-  loggingFtpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogFtpResponse) => {
+  const res = await sdk.loggingFtp.updateLogFtp({
+    loggingFtpInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingFtpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingFtpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingFtpPlacement.None,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingFtpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.UpdateLogFtpRequest](../../models/operations/updatelogftprequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.UpdateLogFtpSecurity](../../models/operations/updatelogftpsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.UpdateLogFtpRequest](../../models/operations/updatelogftprequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response

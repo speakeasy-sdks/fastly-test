@@ -1,7 +1,5 @@
 # TlsCertificateResponse
 
-OK
-
 
 ## Fields
 

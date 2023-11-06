@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { TlsBulkCertificateDataInput } from "./tlsbulkcertificatedata";
+import { TlsBulkCertificateData } from "./tlsbulkcertificatedata";
 import { Expose, Type } from "class-transformer";
 
-export class TlsBulkCertificateInput extends SpeakeasyBase {
+export class TlsBulkCertificate extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => TlsBulkCertificateDataInput)
-    data?: TlsBulkCertificateDataInput;
+    @Type(() => TlsBulkCertificateData)
+    data?: TlsBulkCertificateData;
 }

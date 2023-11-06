@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * A billing address is used to calculate your bill correctly.
  *
  * @see {@link https://developer.fastly.com/reference/api/account/billing-address}
  */
+
 export class BillingAddress {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class BillingAddress {
      */
     async addBillingAddr(
         req: operations.AddBillingAddrRequest,
-        security: operations.AddBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.AddBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,7 +46,7 @@ export class BillingAddress {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -58,20 +59,23 @@ export class BillingAddress {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.AddBillingAddrSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
+        headers["Accept"] = "application/vnd.api+json";
 
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/vnd.api+json;q=1, application/vnd.api+json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -102,6 +106,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -109,6 +120,13 @@ export class BillingAddress {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingAddressVerificationErrorResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -125,7 +143,6 @@ export class BillingAddress {
      */
     async deleteBillingAddr(
         req: operations.DeleteBillingAddrRequest,
-        security: operations.DeleteBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -141,20 +158,19 @@ export class BillingAddress {
             "/customer/{customer_id}/billing_address",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteBillingAddrSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -192,7 +208,6 @@ export class BillingAddress {
      */
     async getBillingAddr(
         req: operations.GetBillingAddrRequest,
-        security: operations.GetBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -208,20 +223,19 @@ export class BillingAddress {
             "/customer/{customer_id}/billing_address",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetBillingAddrSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -251,6 +265,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -266,7 +287,6 @@ export class BillingAddress {
      */
     async updateBillingAddr(
         req: operations.UpdateBillingAddrRequest,
-        security: operations.UpdateBillingAddrSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBillingAddrResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -283,7 +303,7 @@ export class BillingAddress {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -296,20 +316,23 @@ export class BillingAddress {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateBillingAddrSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
+        headers["Accept"] = "application/vnd.api+json";
 
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/vnd.api+json;q=1, application/vnd.api+json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -340,6 +363,13 @@ export class BillingAddress {
                         JSON.parse(decodedRes),
                         shared.BillingAddressResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -347,6 +377,13 @@ export class BillingAddress {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.BillingAddressVerificationErrorResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

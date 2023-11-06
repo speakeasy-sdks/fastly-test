@@ -1,4 +1,5 @@
-# loggingKinesis
+# LoggingKinesis
+(*loggingKinesis*)
 
 ## Overview
 
@@ -19,42 +20,37 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingKinesis.createLogKinesis({
-  loggingKinesis: {
-    accessKey: "culpa",
-    format: "tempore",
-    formatVersion: LoggingFormatVersion.One,
-    iamRole: "cumque",
-    name: "test-log-endpoint",
-    placement: LoggingPlacement.None,
-    region: AwsRegion.UsEast1,
-    secretKey: "minus",
-    topic: "quaerat",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.createLogKinesis({
+    loggingKinesis: {
+      formatVersion: LoggingFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingPlacement.LessThanNilGreaterThan,
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreateLogKinesisRequest](../../models/operations/createlogkinesisrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateLogKinesisSecurity](../../models/operations/createlogkinesissecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.CreateLogKinesisRequest](../../models/operations/createlogkinesisrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -69,31 +65,32 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingKinesis.deleteLogKinesis({
-  loggingKinesisName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.deleteLogKinesis({
+    loggingKinesisName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteLogKinesisRequest](../../models/operations/deletelogkinesisrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteLogKinesisSecurity](../../models/operations/deletelogkinesissecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeleteLogKinesisRequest](../../models/operations/deletelogkinesisrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -108,32 +105,32 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingKinesis.getLogKinesis({
-  loggingKinesisName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.getLogKinesis({
+    loggingKinesisName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetLogKinesisRequest](../../models/operations/getlogkinesisrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetLogKinesisSecurity](../../models/operations/getlogkinesissecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetLogKinesisRequest](../../models/operations/getlogkinesisrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -148,31 +145,31 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogKinesisResponse } from "FastlyTest/dist/sdk/models/operations";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingKinesis.listLogKinesis({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogKinesisResponse) => {
+  const res = await sdk.loggingKinesis.listLogKinesis({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListLogKinesisRequest](../../models/operations/listlogkinesisrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListLogKinesisSecurity](../../models/operations/listlogkinesissecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListLogKinesisRequest](../../models/operations/listlogkinesisrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

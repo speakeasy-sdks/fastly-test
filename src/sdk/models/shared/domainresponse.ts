@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * OK
- */
 export class DomainResponse extends SpeakeasyBase {
     /**
      * A freeform descriptive note.

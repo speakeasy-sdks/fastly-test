@@ -1,4 +1,5 @@
-# version
+# Version
+(*version*)
 
 ## Overview
 
@@ -24,30 +25,31 @@ Activate the current version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ActivateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.activateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ActivateServiceVersionResponse) => {
+  const res = await sdk.version.activateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.ActivateServiceVersionRequest](../../models/operations/activateserviceversionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.ActivateServiceVersionSecurity](../../models/operations/activateserviceversionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.ActivateServiceVersionRequest](../../models/operations/activateserviceversionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
@@ -62,30 +64,31 @@ Clone the current configuration into a new version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CloneServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.cloneServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CloneServiceVersionResponse) => {
+  const res = await sdk.version.cloneServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CloneServiceVersionRequest](../../models/operations/cloneserviceversionrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CloneServiceVersionSecurity](../../models/operations/cloneserviceversionsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CloneServiceVersionRequest](../../models/operations/cloneserviceversionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -100,29 +103,30 @@ Create a version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.createServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: CreateServiceVersionResponse) => {
+  const res = await sdk.version.createServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.CreateServiceVersionRequest](../../models/operations/createserviceversionrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.CreateServiceVersionSecurity](../../models/operations/createserviceversionsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.CreateServiceVersionRequest](../../models/operations/createserviceversionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -137,30 +141,31 @@ Deactivate the current version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeactivateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.deactivateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeactivateServiceVersionResponse) => {
+  const res = await sdk.version.deactivateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.DeactivateServiceVersionRequest](../../models/operations/deactivateserviceversionrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.DeactivateServiceVersionSecurity](../../models/operations/deactivateserviceversionsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.DeactivateServiceVersionRequest](../../models/operations/deactivateserviceversionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
@@ -175,30 +180,31 @@ Get the version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.getServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetServiceVersionResponse) => {
+  const res = await sdk.version.getServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetServiceVersionRequest](../../models/operations/getserviceversionrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetServiceVersionSecurity](../../models/operations/getserviceversionsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetServiceVersionRequest](../../models/operations/getserviceversionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -213,29 +219,30 @@ List the versions for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceVersionsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.listServiceVersions({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: ListServiceVersionsResponse) => {
+  const res = await sdk.version.listServiceVersions({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListServiceVersionsRequest](../../models/operations/listserviceversionsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.ListServiceVersionsSecurity](../../models/operations/listserviceversionssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.ListServiceVersionsRequest](../../models/operations/listserviceversionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -250,30 +257,31 @@ Locks the specified version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { LockServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.lockServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: LockServiceVersionResponse) => {
+  const res = await sdk.version.lockServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.LockServiceVersionRequest](../../models/operations/lockserviceversionrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.LockServiceVersionSecurity](../../models/operations/lockserviceversionsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.LockServiceVersionRequest](../../models/operations/lockserviceversionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -288,38 +296,34 @@ Update a particular version for a particular service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.updateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionInput: {
-    active: false,
-    comment: "doloremque",
-    deployed: false,
-    locked: false,
-    staging: false,
-    testing: false,
-  },
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateServiceVersionResponse) => {
+  const res = await sdk.version.updateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionInput: {
+      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    },
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpdateServiceVersionRequest](../../models/operations/updateserviceversionrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpdateServiceVersionSecurity](../../models/operations/updateserviceversionsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpdateServiceVersionRequest](../../models/operations/updateserviceversionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -334,30 +338,31 @@ Validate the version for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ValidateServiceVersionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.version.validateServiceVersion({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ValidateServiceVersionResponse) => {
+  const res = await sdk.version.validateServiceVersion({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.ValidateServiceVersionRequest](../../models/operations/validateserviceversionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.ValidateServiceVersionSecurity](../../models/operations/validateserviceversionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.ValidateServiceVersionRequest](../../models/operations/validateserviceversionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response

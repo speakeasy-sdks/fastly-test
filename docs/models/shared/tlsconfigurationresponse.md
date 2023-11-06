@@ -1,7 +1,5 @@
 # TlsConfigurationResponse
 
-OK
-
 
 ## Fields
 

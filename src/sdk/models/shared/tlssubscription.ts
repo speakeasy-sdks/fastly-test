@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { TlsSubscriptionDataInput } from "./tlssubscriptiondata";
+import { TlsSubscriptionData } from "./tlssubscriptiondata";
 import { Expose, Type } from "class-transformer";
 
-export class TlsSubscriptionInput extends SpeakeasyBase {
+export class TlsSubscription extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => TlsSubscriptionDataInput)
-    data?: TlsSubscriptionDataInput;
+    @Type(() => TlsSubscriptionData)
+    data?: TlsSubscriptionData;
 }

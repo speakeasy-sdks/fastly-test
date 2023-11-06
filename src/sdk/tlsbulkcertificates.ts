@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Available to Platform TLS customers, these endpoints streamline the upload, deployment and management of large numbers of TLS certificates. A certificate is used to terminate TLS traffic for one or more of your fully qualified domain names (domains). Uploading a new certificate automatically enables TLS for all domains listed as Subject Alternative Names (SAN entries) on the certificate.
  *
  * @see {@link https://developer.fastly.com/reference/api/tls/platform}
  */
+
 export class TlsBulkCertificates {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class TlsBulkCertificates {
      */
     async deleteBulkTlsCert(
         req: operations.DeleteBulkTlsCertRequest,
-        security: operations.DeleteBulkTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBulkTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -44,20 +45,19 @@ export class TlsBulkCertificates {
             "/tls/bulk/certificates/{certificate_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteBulkTlsCertSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "*/*";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -95,7 +95,6 @@ export class TlsBulkCertificates {
      */
     async getTlsBulkCert(
         req: operations.GetTlsBulkCertRequest,
-        security: operations.GetTlsBulkCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -111,20 +110,19 @@ export class TlsBulkCertificates {
             "/tls/bulk/certificates/{certificate_id}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetTlsBulkCertSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -154,6 +152,13 @@ export class TlsBulkCertificates {
                         JSON.parse(decodedRes),
                         shared.TlsBulkCertificateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -169,7 +174,6 @@ export class TlsBulkCertificates {
      */
     async listTlsBulkCerts(
         req: operations.ListTlsBulkCertsRequest,
-        security: operations.ListTlsBulkCertsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsBulkCertsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -181,21 +185,20 @@ export class TlsBulkCertificates {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/bulk/certificates";
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListTlsBulkCertsSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -225,6 +228,13 @@ export class TlsBulkCertificates {
                         JSON.parse(decodedRes),
                         shared.TlsBulkCertificatesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -240,7 +250,6 @@ export class TlsBulkCertificates {
      */
     async updateBulkTlsCert(
         req: operations.UpdateBulkTlsCertRequest,
-        security: operations.UpdateBulkTlsCertSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBulkTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -257,12 +266,12 @@ export class TlsBulkCertificates {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "tlsBulkCertificateInput",
+                "tlsBulkCertificate",
                 "json"
             );
         } catch (e: unknown) {
@@ -270,20 +279,23 @@ export class TlsBulkCertificates {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateBulkTlsCertSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -314,6 +326,13 @@ export class TlsBulkCertificates {
                         JSON.parse(decodedRes),
                         shared.TlsBulkCertificateResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -328,12 +347,11 @@ export class TlsBulkCertificates {
      * Upload a new certificate. TLS domains are automatically enabled upon certificate creation. If a domain is already enabled on a previously uploaded certificate, that domain will be updated to use the new certificate for all future TLS handshake requests.
      */
     async uploadTlsBulkCert(
-        req: shared.TlsBulkCertificateDataInput,
-        security: operations.UploadTlsBulkCertSecurity,
+        req: shared.TlsBulkCertificateData,
         config?: AxiosRequestConfig
     ): Promise<operations.UploadTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsBulkCertificateDataInput(req);
+            req = new shared.TlsBulkCertificateData(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -342,7 +360,7 @@ export class TlsBulkCertificates {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/tls/bulk/certificates";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -351,20 +369,23 @@ export class TlsBulkCertificates {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UploadTlsBulkCertSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/vnd.api+json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -394,6 +415,13 @@ export class TlsBulkCertificates {
                     res.tlsBulkCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.TlsBulkCertificateResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

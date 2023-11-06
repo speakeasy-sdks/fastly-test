@@ -1,7 +1,5 @@
 # TlsPrivateKeyResponse
 
-Created
-
 
 ## Fields
 

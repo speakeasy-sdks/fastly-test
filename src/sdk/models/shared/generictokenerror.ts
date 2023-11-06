@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * Missing or expired token.
- */
 export class GenericTokenError extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "msg" })

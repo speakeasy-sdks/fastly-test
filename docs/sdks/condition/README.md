@@ -1,4 +1,5 @@
-# condition
+# Condition
+(*condition*)
 
 ## Overview
 
@@ -20,39 +21,37 @@ Creates a new condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.condition.createCondition({
-  conditionInput: {
-    comment: "excepturi",
-    name: "test-condition",
-    priority: "10",
-    statement: "pariatur",
-    type: ConditionType.Cache,
-    version: "praesentium",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateConditionResponse) => {
+  const res = await sdk.condition.createCondition({
+    conditionInput: {
+      comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      name: "test-condition",
+      priority: "10",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreateConditionRequest](../../models/operations/createconditionrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateConditionSecurity](../../models/operations/createconditionsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateConditionRequest](../../models/operations/createconditionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -67,31 +66,32 @@ Deletes the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteConditionResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.condition.deleteCondition({
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteConditionResponse) => {
+  const res = await sdk.condition.deleteCondition({
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeleteConditionRequest](../../models/operations/deleteconditionrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteConditionSecurity](../../models/operations/deleteconditionsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteConditionRequest](../../models/operations/deleteconditionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -106,32 +106,32 @@ Gets the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.condition.getCondition({
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetConditionResponse) => {
+  const res = await sdk.condition.getCondition({
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetConditionRequest](../../models/operations/getconditionrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetConditionSecurity](../../models/operations/getconditionsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetConditionRequest](../../models/operations/getconditionrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -146,31 +146,31 @@ Gets all conditions for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListConditionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.condition.listConditions({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListConditionsResponse) => {
+  const res = await sdk.condition.listConditions({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListConditionsRequest](../../models/operations/listconditionsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListConditionsSecurity](../../models/operations/listconditionssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListConditionsRequest](../../models/operations/listconditionsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -185,40 +185,38 @@ Updates the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateConditionResponse } from "FastlyTest/dist/sdk/models/operations";
-import { ConditionResponseType, ConditionType } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.condition.updateCondition({
-  conditionInput: {
-    comment: "rem",
-    name: "test-condition",
-    priority: "10",
-    statement: "voluptates",
-    type: ConditionType.Request,
-    version: "repudiandae",
-  },
-  conditionName: "test-condition",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateConditionResponse) => {
+  const res = await sdk.condition.updateCondition({
+    conditionInput: {
+      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      name: "test-condition",
+      priority: "10",
+    },
+    conditionName: "test-condition",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdateConditionRequest](../../models/operations/updateconditionrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateConditionSecurity](../../models/operations/updateconditionsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateConditionRequest](../../models/operations/updateconditionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

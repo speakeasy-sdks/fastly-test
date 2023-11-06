@@ -1,4 +1,5 @@
-# tlsDomains
+# TlsDomains
+(*tlsDomains*)
 
 ## Overview
 
@@ -16,36 +17,32 @@ List all TLS domains.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListTlsDomainsResponse } from "FastlyTest/dist/sdk/models/operations";
-import { Sort, TypeTlsDomain } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.tlsDomains.listTlsDomains({
-  filterInUse: "dicta",
-  filterTlsCertificatesId: "minima",
-  filterTlsSubscriptionsId: "beatae",
-  include: "cupiditate",
-  pageNumber: 1,
-  pageSize: 20,
-  sort: Sort.MinusCreatedAt,
-}, {
-  token: "",
-}).then((res: ListTlsDomainsResponse) => {
+  const res = await sdk.tlsDomains.listTlsDomains({
+    pageNumber: 1,
+    pageSize: 20,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListTlsDomainsRequest](../../models/operations/listtlsdomainsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListTlsDomainsSecurity](../../models/operations/listtlsdomainssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListTlsDomainsRequest](../../models/operations/listtlsdomainsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

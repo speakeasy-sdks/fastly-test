@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { WafExclusionResponseData } from "./wafexclusionresponsedata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Created
- */
 export class WafExclusionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

@@ -6,14 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class UpdateLogLogglySecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class UpdateLogLogglyRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingLoggly2?: shared.LoggingLoggly2;
+    loggingLoggly?: shared.LoggingLoggly;
 
     /**
      * The name for the real-time logging configuration.
@@ -35,12 +30,21 @@ export class UpdateLogLogglyRequest extends SpeakeasyBase {
 }
 
 export class UpdateLogLogglyResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

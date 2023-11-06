@@ -29,7 +29,7 @@ export class MutualAuthenticationDataAttributes extends SpeakeasyBase {
     name?: string;
 }
 
-export class MutualAuthenticationDataInput extends SpeakeasyBase {
+export class MutualAuthenticationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => MutualAuthenticationDataAttributes)

@@ -1,7 +1,5 @@
 # AclResponse
 
-OK
-
 
 ## Fields
 

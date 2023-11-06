@@ -7,9 +7,6 @@ import { WafRule } from "./wafrule";
 import { WafRuleRevisionResponseData } from "./wafrulerevisionresponsedata";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class WafRuleRevisionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

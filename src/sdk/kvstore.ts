@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * An kv store is a persistent, globally consistent key-value store accessible to Compute@Edge services during request processing.
  *
  * @see {@link https://developer.fastly.com/reference/api/services/resources/kv-store}
  */
+
 export class KvStore {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class KvStore {
      */
     async createStore(
         req: operations.CreateStoreRequest,
-        security: operations.CreateStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -41,7 +42,7 @@ export class KvStore {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/resources/stores/kv";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "store", "json");
@@ -50,21 +51,24 @@ export class KvStore {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateStoreSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -95,6 +99,13 @@ export class KvStore {
                         JSON.parse(decodedRes),
                         shared.StoreResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -110,7 +121,6 @@ export class KvStore {
      */
     async deleteStore(
         req: operations.DeleteStoreRequest,
-        security: operations.DeleteStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -122,20 +132,23 @@ export class KvStore {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/resources/stores/kv/{store_id}", req);
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteStoreSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...utils.getHeadersFromRequest(req), ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...utils.getHeadersFromRequest(req),
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "*/*";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -173,7 +186,6 @@ export class KvStore {
      */
     async getStore(
         req: operations.GetStoreRequest,
-        security: operations.GetStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -185,20 +197,19 @@ export class KvStore {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/resources/stores/kv/{store_id}", req);
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetStoreSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -228,6 +239,13 @@ export class KvStore {
                         JSON.parse(decodedRes),
                         shared.StoreResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -243,7 +261,6 @@ export class KvStore {
      */
     async getStores(
         req: operations.GetStoresRequest,
-        security: operations.GetStoresSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStoresResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -255,21 +272,20 @@ export class KvStore {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/resources/stores/kv";
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetStoresSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -298,6 +314,13 @@ export class KvStore {
                     res.getStores200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetStores200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

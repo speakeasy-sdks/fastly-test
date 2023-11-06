@@ -1,4 +1,5 @@
-# http3
+# Http3
+(*http3*)
 
 ## Overview
 
@@ -18,33 +19,32 @@ Enable HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.http3.createHttp3({
-  http3Input: {
-    featureRevision: 396060,
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateHttp3Response) => {
+  const res = await sdk.http3.createHttp3({
+    http3Input: {},
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.CreateHttp3Request](../../models/operations/createhttp3request.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.CreateHttp3Security](../../models/operations/createhttp3security.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.CreateHttp3Request](../../models/operations/createhttp3request.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -59,30 +59,31 @@ Disable HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.http3.deleteHttp3({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteHttp3Response) => {
+  const res = await sdk.http3.deleteHttp3({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.DeleteHttp3Request](../../models/operations/deletehttp3request.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.DeleteHttp3Security](../../models/operations/deletehttp3security.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.DeleteHttp3Request](../../models/operations/deletehttp3request.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -97,30 +98,31 @@ Get the status of HTTP/3 (QUIC) support for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetHttp3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.http3.getHttp3({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetHttp3Response) => {
+  const res = await sdk.http3.getHttp3({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.GetHttp3Request](../../models/operations/gethttp3request.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.GetHttp3Security](../../models/operations/gethttp3security.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.GetHttp3Request](../../models/operations/gethttp3request.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response

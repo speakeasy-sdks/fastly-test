@@ -8,9 +8,6 @@ import { LoggingFormatVersion } from "./loggingformatversion";
 import { LoggingPlacement } from "./loggingplacement";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * OK
- */
 export class LoggingKinesisResponse extends SpeakeasyBase {
     /**
      * The access key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.

@@ -1,4 +1,5 @@
-# loggingHoneycomb
+# LoggingHoneycomb
+(*loggingHoneycomb*)
 
 ## Overview
 
@@ -20,40 +21,38 @@ Create a Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHoneycomb.createLogHoneycomb({
-  loggingHoneycomb2: {
-    dataset: "accusamus",
-    format: "aliquam",
-    formatVersion: LoggingHoneycombFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingHoneycombPlacement.WafDebug,
-    responseCondition: "null",
-    token: "commodi",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.createLogHoneycomb({
+    loggingHoneycomb: {
+      formatVersion: LoggingHoneycombFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHoneycombPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateLogHoneycombRequest](../../models/operations/createloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.CreateLogHoneycombSecurity](../../models/operations/createloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.CreateLogHoneycombRequest](../../models/operations/createloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -68,31 +67,32 @@ Delete the Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHoneycomb.deleteLogHoneycomb({
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.deleteLogHoneycomb({
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteLogHoneycombRequest](../../models/operations/deleteloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteLogHoneycombSecurity](../../models/operations/deleteloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.DeleteLogHoneycombRequest](../../models/operations/deleteloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -107,32 +107,32 @@ Get the details of a Honeycomb logging object for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHoneycomb.getLogHoneycomb({
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.getLogHoneycomb({
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetLogHoneycombRequest](../../models/operations/getloghoneycombrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetLogHoneycombSecurity](../../models/operations/getloghoneycombsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetLogHoneycombRequest](../../models/operations/getloghoneycombrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -147,31 +147,31 @@ List all of the Honeycomb logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHoneycombResponseFormatVersion, LoggingHoneycombResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHoneycomb.listLogHoneycomb({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.listLogHoneycomb({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListLogHoneycombRequest](../../models/operations/listloghoneycombrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListLogHoneycombSecurity](../../models/operations/listloghoneycombsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListLogHoneycombRequest](../../models/operations/listloghoneycombrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -186,46 +186,39 @@ Update a Honeycomb logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHoneycombResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHoneycombFormatVersion,
-  LoggingHoneycombPlacement,
-  LoggingHoneycombResponseFormatVersion,
-  LoggingHoneycombResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingHoneycombFormatVersion, LoggingHoneycombPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHoneycomb.updateLogHoneycomb({
-  loggingHoneycomb2: {
-    dataset: "sapiente",
-    format: "dolores",
-    formatVersion: LoggingHoneycombFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingHoneycombPlacement.WafDebug,
-    responseCondition: "null",
-    token: "accusantium",
-  },
-  loggingHoneycombName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHoneycombResponse) => {
+  const res = await sdk.loggingHoneycomb.updateLogHoneycomb({
+    loggingHoneycomb: {
+      formatVersion: LoggingHoneycombFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHoneycombPlacement.None,
+      responseCondition: "null",
+    },
+    loggingHoneycombName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateLogHoneycombRequest](../../models/operations/updateloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateLogHoneycombSecurity](../../models/operations/updateloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.UpdateLogHoneycombRequest](../../models/operations/updateloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

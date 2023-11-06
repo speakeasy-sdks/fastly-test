@@ -1,7 +1,5 @@
 # TlsPrivateKeysResponse
 
-OK
-
 
 ## Fields
 

@@ -1,7 +1,5 @@
 # TlsActivationResponse
 
-Created
-
 
 ## Fields
 
