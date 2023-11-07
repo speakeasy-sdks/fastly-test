@@ -28,9 +28,9 @@ typescript:
       callbacks: sdk/models/callbacks
       errors: sdk/models/errors
       operations: sdk/models/operations
-      shared: sdk/models/shared
+      shared: sdk/models/components
       webhooks: sdk/models/webhooks
   installationURL: https://github.com/speakeasy-sdks/fastly-test
-  maxMethodParams: 0
-  packageName: FastlyTestJS
+  maxMethodParams: 4
+  packageName: Fastly
   repoSubDirectory: .
