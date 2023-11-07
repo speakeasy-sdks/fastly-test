@@ -20,7 +20,7 @@ features:
 typescript:
   version: 2.1.0
   author: doramatadora
-  clientServerStatusCodesAsErrors: false
+  clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
     option: openapi
