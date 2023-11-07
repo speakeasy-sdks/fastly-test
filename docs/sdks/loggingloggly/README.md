@@ -21,25 +21,25 @@ Create a Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingLoggly, LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/sdk/models/components";
+import { CreateLogLogglyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingLoggly: LoggingLoggly = {
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingLogglyFormatVersion.Two,
+  name: "test-log-endpoint",
+  placement: LoggingLogglyPlacement.None,
+  responseCondition: "null",
+};
 
-  const res = await sdk.loggingLoggly.createLogLoggly({
-    loggingLoggly: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingLogglyFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingLogglyPlacement.None,
-      responseCondition: "null",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingLoggly.createLogLoggly(serviceId, versionId, loggingLoggly);
 
 
   if (res.statusCode == 200) {
@@ -50,10 +50,12 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateLogLogglyRequest](../../models/operations/createloglogglyrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `serviceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | Alphanumeric string identifying the service.                     | SU1Z0isxPaozGVKXdv0eY                                            |
+| `versionId`                                                      | *number*                                                         | :heavy_check_mark:                                               | Integer identifying a service version.                           | 1                                                                |
+| `loggingLoggly`                                                  | [components.LoggingLoggly](../../models/shared/loggingloggly.md) | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |                                                                  |
 
 
 ### Response
@@ -68,18 +70,18 @@ Delete the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteLogLogglyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingLogglyName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingLoggly.deleteLogLoggly({
-    loggingLogglyName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingLoggly.deleteLogLoggly(loggingLogglyName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -90,10 +92,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteLogLogglyRequest](../../models/operations/deleteloglogglyrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingLogglyName`                                          | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -108,18 +112,18 @@ Get the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetLogLogglyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingLogglyName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingLoggly.getLogLoggly({
-    loggingLogglyName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingLoggly.getLogLoggly(loggingLogglyName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -130,10 +134,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetLogLogglyRequest](../../models/operations/getloglogglyrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingLogglyName`                                          | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -148,17 +154,17 @@ List all Loggly logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListLogLogglyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingLoggly.listLogLoggly({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingLoggly.listLogLoggly(serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -169,10 +175,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListLogLogglyRequest](../../models/operations/listloglogglyrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -187,26 +194,26 @@ Update the Loggly logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingLoggly, LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/sdk/models/components";
+import { UpdateLogLogglyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingLogglyName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingLoggly: LoggingLoggly = {
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingLogglyFormatVersion.Two,
+  name: "test-log-endpoint",
+  placement: LoggingLogglyPlacement.WafDebug,
+  responseCondition: "null",
+};
 
-  const res = await sdk.loggingLoggly.updateLogLoggly({
-    loggingLoggly: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingLogglyFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingLogglyPlacement.WafDebug,
-      responseCondition: "null",
-    },
-    loggingLogglyName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingLoggly.updateLogLoggly(loggingLogglyName, serviceId, versionId, loggingLoggly);
 
 
   if (res.statusCode == 200) {
@@ -217,10 +224,13 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "FastlyTestJS
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateLogLogglyRequest](../../models/operations/updateloglogglyrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `loggingLogglyName`                                              | *string*                                                         | :heavy_check_mark:                                               | The name for the real-time logging configuration.                | test-log-endpoint                                                |
+| `serviceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | Alphanumeric string identifying the service.                     | SU1Z0isxPaozGVKXdv0eY                                            |
+| `versionId`                                                      | *number*                                                         | :heavy_check_mark:                                               | Integer identifying a service version.                           | 1                                                                |
+| `loggingLoggly`                                                  | [components.LoggingLoggly](../../models/shared/loggingloggly.md) | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |                                                                  |
 
 
 ### Response

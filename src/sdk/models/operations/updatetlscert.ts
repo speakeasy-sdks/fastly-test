@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateTlsCertRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsCertificate?: shared.TlsCertificate;
-
     /**
      * Alphanumeric string identifying a TLS certificate.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_certificate_id" })
     tlsCertificateId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
+    tlsCertificate?: components.TlsCertificate;
 }
 
 export class UpdateTlsCertResponse extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class UpdateTlsCertResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsCertificateResponse?: shared.TlsCertificateResponse;
+    tlsCertificateResponse?: components.TlsCertificateResponse;
 }

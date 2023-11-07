@@ -21,22 +21,22 @@ Create a cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Action } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Action, CacheSetting } from "Fastly/dist/sdk/models/components";
+import { CreateCacheSettingsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const cacheSetting: CacheSetting = {
+  cacheCondition: "null",
+  name: "test-cache-setting",
+};
 
-  const res = await sdk.cacheSettings.createCacheSettings({
-    cacheSetting: {
-      cacheCondition: "null",
-      name: "test-cache-setting",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.cacheSettings.createCacheSettings(serviceId, versionId, cacheSetting);
 
 
   if (res.statusCode == 200) {
@@ -47,10 +47,12 @@ import { Action } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateCacheSettingsRequest](../../models/operations/createcachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `serviceId`                                                    | *string*                                                       | :heavy_check_mark:                                             | Alphanumeric string identifying the service.                   | SU1Z0isxPaozGVKXdv0eY                                          |
+| `versionId`                                                    | *number*                                                       | :heavy_check_mark:                                             | Integer identifying a service version.                         | 1                                                              |
+| `cacheSetting`                                                 | [components.CacheSetting](../../models/shared/cachesetting.md) | :heavy_minus_sign:                                             | N/A                                                            |                                                                |
+| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |                                                                |
 
 
 ### Response
@@ -65,18 +67,18 @@ Delete a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteCacheSettingsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const cacheSettingsName: string = "test-cache-setting";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.cacheSettings.deleteCacheSettings({
-    cacheSettingsName: "test-cache-setting",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.cacheSettings.deleteCacheSettings(cacheSettingsName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -87,10 +89,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteCacheSettingsRequest](../../models/operations/deletecachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `cacheSettingsName`                                          | *string*                                                     | :heavy_check_mark:                                           | Name for the cache settings object.                          | test-cache-setting                                           |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -105,18 +109,18 @@ Get a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetCacheSettingsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const cacheSettingsName: string = "test-cache-setting";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.cacheSettings.getCacheSettings({
-    cacheSettingsName: "test-cache-setting",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.cacheSettings.getCacheSettings(cacheSettingsName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -127,10 +131,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetCacheSettingsRequest](../../models/operations/getcachesettingsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `cacheSettingsName`                                          | *string*                                                     | :heavy_check_mark:                                           | Name for the cache settings object.                          | test-cache-setting                                           |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -145,17 +151,17 @@ Get a list of all cache settings for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListCacheSettingsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.cacheSettings.listCacheSettings({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.cacheSettings.listCacheSettings(serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -166,10 +172,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListCacheSettingsRequest](../../models/operations/listcachesettingsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -184,23 +191,23 @@ Update a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Action } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Action, CacheSetting } from "Fastly/dist/sdk/models/components";
+import { UpdateCacheSettingsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const cacheSettingsName: string = "test-cache-setting";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const cacheSetting: CacheSetting = {
+  cacheCondition: "null",
+  name: "test-cache-setting",
+};
 
-  const res = await sdk.cacheSettings.updateCacheSettings({
-    cacheSetting: {
-      cacheCondition: "null",
-      name: "test-cache-setting",
-    },
-    cacheSettingsName: "test-cache-setting",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.cacheSettings.updateCacheSettings(cacheSettingsName, serviceId, versionId, cacheSetting);
 
 
   if (res.statusCode == 200) {
@@ -211,10 +218,13 @@ import { Action } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateCacheSettingsRequest](../../models/operations/updatecachesettingsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `cacheSettingsName`                                            | *string*                                                       | :heavy_check_mark:                                             | Name for the cache settings object.                            | test-cache-setting                                             |
+| `serviceId`                                                    | *string*                                                       | :heavy_check_mark:                                             | Alphanumeric string identifying the service.                   | SU1Z0isxPaozGVKXdv0eY                                          |
+| `versionId`                                                    | *number*                                                       | :heavy_check_mark:                                             | Integer identifying a service version.                         | 1                                                              |
+| `cacheSetting`                                                 | [components.CacheSetting](../../models/shared/cachesetting.md) | :heavy_minus_sign:                                             | N/A                                                            |                                                                |
+| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |                                                                |
 
 
 ### Response

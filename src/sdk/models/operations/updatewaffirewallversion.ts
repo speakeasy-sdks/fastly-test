@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateWafFirewallVersionRequest extends SpeakeasyBase {
@@ -22,7 +22,7 @@ export class UpdateWafFirewallVersionRequest extends SpeakeasyBase {
     firewallVersionNumber: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafFirewallVersion?: shared.WafFirewallVersion;
+    wafFirewallVersion?: components.WafFirewallVersion;
 }
 
 export class UpdateWafFirewallVersionResponse extends SpeakeasyBase {
@@ -48,5 +48,5 @@ export class UpdateWafFirewallVersionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafFirewallVersionResponse?: shared.WafFirewallVersionResponse;
+    wafFirewallVersionResponse?: components.WafFirewallVersionResponse;
 }

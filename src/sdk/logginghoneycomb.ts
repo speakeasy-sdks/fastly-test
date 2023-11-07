@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingHoneycomb {
      * Create a Honeycomb logging object for a particular service and version.
      */
     async createLogHoneycomb(
-        req: operations.CreateLogHoneycombRequest,
+        serviceId: string,
+        versionId: number,
+        loggingHoneycomb?: components.LoggingHoneycomb,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogHoneycombResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogHoneycombRequest(req);
-        }
-
+        const req = new operations.CreateLogHoneycombRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHoneycomb: loggingHoneycomb,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +104,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb
+                        components.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -124,13 +127,16 @@ export class LoggingHoneycomb {
      * Delete the Honeycomb logging object for a particular service and version.
      */
     async deleteLogHoneycomb(
-        req: operations.DeleteLogHoneycombRequest,
+        loggingHoneycombName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogHoneycombResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogHoneycombRequest(req);
-        }
-
+        const req = new operations.DeleteLogHoneycombRequest({
+            loggingHoneycombName: loggingHoneycombName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -146,7 +152,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -204,13 +210,16 @@ export class LoggingHoneycomb {
      * Get the details of a Honeycomb logging object for a particular service and version.
      */
     async getLogHoneycomb(
-        req: operations.GetLogHoneycombRequest,
+        loggingHoneycombName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogHoneycombResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogHoneycombRequest(req);
-        }
-
+        const req = new operations.GetLogHoneycombRequest({
+            loggingHoneycombName: loggingHoneycombName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -226,7 +235,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +269,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb
+                        components.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -283,13 +292,14 @@ export class LoggingHoneycomb {
      * List all of the Honeycomb logging objects for a particular service and version.
      */
     async listLogHoneycomb(
-        req: operations.ListLogHoneycombRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogHoneycombResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogHoneycombRequest(req);
-        }
-
+        const req = new operations.ListLogHoneycombRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -305,7 +315,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +351,7 @@ export class LoggingHoneycomb {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycombResponse,
+                        components.LoggingHoneycombResponse,
                         resFieldDepth
                     );
                 } else {
@@ -365,13 +375,18 @@ export class LoggingHoneycomb {
      * Update a Honeycomb logging object for a particular service and version.
      */
     async updateLogHoneycomb(
-        req: operations.UpdateLogHoneycombRequest,
+        loggingHoneycombName: string,
+        serviceId: string,
+        versionId: number,
+        loggingHoneycomb?: components.LoggingHoneycomb,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogHoneycombResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogHoneycombRequest(req);
-        }
-
+        const req = new operations.UpdateLogHoneycombRequest({
+            loggingHoneycombName: loggingHoneycombName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHoneycomb: loggingHoneycomb,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -397,7 +412,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +452,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycombResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycombResponse
+                        components.LoggingHoneycombResponse
                     );
                 } else {
                     throw new errors.SDKError(

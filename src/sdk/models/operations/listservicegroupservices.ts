@@ -7,6 +7,12 @@ import { AxiosResponse } from "axios";
 
 export class ListServiceGroupServicesRequest extends SpeakeasyBase {
     /**
+     * Alphanumeric string identifying the service group.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_group_id" })
+    serviceGroupId: string;
+
+    /**
      * Current page.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
@@ -17,12 +23,6 @@ export class ListServiceGroupServicesRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=per_page" })
     perPage?: number;
-
-    /**
-     * Alphanumeric string identifying the service group.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_group_id" })
-    serviceGroupId: string;
 }
 
 /**

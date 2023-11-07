@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingSyslog {
      * Create a Syslog for a particular service and version.
      */
     async createLogSyslog(
-        req: operations.CreateLogSyslogRequest,
+        serviceId: string,
+        versionId: number,
+        loggingSyslog?: components.LoggingSyslog,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSyslogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogSyslogRequest(req);
-        }
-
+        const req = new operations.CreateLogSyslogRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSyslog: loggingSyslog,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingSyslog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingSyslog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSyslogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSyslogResponse
+                        components.LoggingSyslogResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingSyslog {
      * Delete the Syslog for a particular service and version.
      */
     async deleteLogSyslog(
-        req: operations.DeleteLogSyslogRequest,
+        loggingSyslogName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSyslogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogSyslogRequest(req);
-        }
-
+        const req = new operations.DeleteLogSyslogRequest({
+            loggingSyslogName: loggingSyslogName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingSyslog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingSyslog {
      * Get the Syslog for a particular service and version.
      */
     async getLogSyslog(
-        req: operations.GetLogSyslogRequest,
+        loggingSyslogName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSyslogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogSyslogRequest(req);
-        }
-
+        const req = new operations.GetLogSyslogRequest({
+            loggingSyslogName: loggingSyslogName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingSyslog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingSyslog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSyslogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSyslogResponse
+                        components.LoggingSyslogResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingSyslog {
      * List all of the Syslogs for a particular service and version.
      */
     async listLogSyslog(
-        req: operations.ListLogSyslogRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSyslogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogSyslogRequest(req);
-        }
-
+        const req = new operations.ListLogSyslogRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingSyslog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingSyslog {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSyslogResponse,
+                        components.LoggingSyslogResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingSyslog {
      * Update the Syslog for a particular service and version.
      */
     async updateLogSyslog(
-        req: operations.UpdateLogSyslogRequest,
+        loggingSyslogName: string,
+        serviceId: string,
+        versionId: number,
+        loggingSyslog?: components.LoggingSyslog,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSyslogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogSyslogRequest(req);
-        }
-
+        const req = new operations.UpdateLogSyslogRequest({
+            loggingSyslogName: loggingSyslogName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSyslog: loggingSyslog,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingSyslog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingSyslog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSyslogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSyslogResponse
+                        components.LoggingSyslogResponse
                     );
                 } else {
                     throw new errors.SDKError(

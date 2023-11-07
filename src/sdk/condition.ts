@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Condition {
      * Creates a new condition.
      */
     async createCondition(
-        req: operations.CreateConditionRequest,
+        serviceId: string,
+        versionId: number,
+        condition?: components.Condition,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateConditionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateConditionRequest(req);
-        }
-
+        const req = new operations.CreateConditionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            condition: condition,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Condition {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Condition {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.conditionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConditionResponse
+                        components.ConditionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Condition {
      * Deletes the specified condition.
      */
     async deleteCondition(
-        req: operations.DeleteConditionRequest,
+        conditionName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteConditionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteConditionRequest(req);
-        }
-
+        const req = new operations.DeleteConditionRequest({
+            conditionName: conditionName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Condition {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Condition {
      * Gets the specified condition.
      */
     async getCondition(
-        req: operations.GetConditionRequest,
+        conditionName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConditionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetConditionRequest(req);
-        }
-
+        const req = new operations.GetConditionRequest({
+            conditionName: conditionName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Condition {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Condition {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.conditionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConditionResponse
+                        components.ConditionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Condition {
      * Gets all conditions for a particular service and version.
      */
     async listConditions(
-        req: operations.ListConditionsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListConditionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListConditionsRequest(req);
-        }
-
+        const req = new operations.ListConditionsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Condition {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Condition {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.conditionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConditionResponse,
+                        components.ConditionResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Condition {
      * Updates the specified condition.
      */
     async updateCondition(
-        req: operations.UpdateConditionRequest,
+        conditionName: string,
+        serviceId: string,
+        versionId: number,
+        condition?: components.Condition,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateConditionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateConditionRequest(req);
-        }
-
+        const req = new operations.UpdateConditionRequest({
+            conditionName: conditionName,
+            serviceId: serviceId,
+            versionId: versionId,
+            condition: condition,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Condition {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Condition {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.conditionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConditionResponse
+                        components.ConditionResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -20,16 +20,16 @@ Delete a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteARoleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const roleId: string = "t4Gg2uUGZzb2W9Euo4mo0R";
 
-  const res = await sdk.iamRoles.deleteARole({
-    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-  });
+  const res = await sdk.iamRoles.deleteARole(roleId);
 
 
   if (res.statusCode == 200) {
@@ -40,10 +40,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.DeleteARoleRequest](../../models/operations/deletearolerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `roleId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the role.                    | t4Gg2uUGZzb2W9Euo4mo0R                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -58,16 +58,16 @@ Get a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetARoleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const roleId: string = "t4Gg2uUGZzb2W9Euo4mo0R";
 
-  const res = await sdk.iamRoles.getARole({
-    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-  });
+  const res = await sdk.iamRoles.getARole(roleId);
 
 
   if (res.statusCode == 200) {
@@ -78,10 +78,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetARoleRequest](../../models/operations/getarolerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `roleId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the role.                    | t4Gg2uUGZzb2W9Euo4mo0R                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -96,16 +96,16 @@ List all permissions in a role.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListRolePermissionsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const roleId: string = "t4Gg2uUGZzb2W9Euo4mo0R";
 
-  const res = await sdk.iamRoles.listRolePermissions({
-    roleId: "t4Gg2uUGZzb2W9Euo4mo0R",
-  });
+  const res = await sdk.iamRoles.listRolePermissions(roleId);
 
 
   if (res.statusCode == 200) {
@@ -116,10 +116,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListRolePermissionsRequest](../../models/operations/listrolepermissionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `roleId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the role.                    | t4Gg2uUGZzb2W9Euo4mo0R                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -134,17 +134,17 @@ List all roles.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListRolesRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const page: number = 1;
+const perPage: number = 20;
 
-  const res = await sdk.iamRoles.listRoles({
-    page: 1,
-    perPage: 20,
-  });
+  const res = await sdk.iamRoles.listRoles(page, perPage);
 
 
   if (res.statusCode == 200) {
@@ -155,10 +155,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.ListRolesRequest](../../models/operations/listrolesrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `page`                                                       | *number*                                                     | :heavy_minus_sign:                                           | Current page.                                                | 1                                                            |
+| `perPage`                                                    | *number*                                                     | :heavy_minus_sign:                                           | Number of records per page.                                  | 20                                                           |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response

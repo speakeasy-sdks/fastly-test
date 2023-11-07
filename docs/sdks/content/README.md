@@ -17,16 +17,16 @@ Retrieve headers and MD5 hash of the content for a particular URL from each Fast
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ContentCheckRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const url: string = "https://www.example.com/foo/bar";
 
-  const res = await sdk.content.contentCheck({
-    url: "https://www.example.com/foo/bar",
-  });
+  const res = await sdk.content.contentCheck(url);
 
 
   if (res.statusCode == 200) {
@@ -37,10 +37,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ContentCheckRequest](../../models/operations/contentcheckrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `url`                                                                                         | *string*                                                                                      | :heavy_minus_sign:                                                                            | Full URL (host and path) to check on all nodes. if protocol is omitted, http will be assumed. | https://www.example.com/foo/bar                                                               |
+| `config`                                                                                      | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                  | :heavy_minus_sign:                                                                            | Available config options for making requests.                                                 |                                                                                               |
 
 
 ### Response

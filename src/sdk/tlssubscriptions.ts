@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -30,13 +30,16 @@ export class TlsSubscriptions {
      *
      */
     async createGlobalsignEmailChallenge(
-        req: operations.CreateGlobalsignEmailChallengeRequest,
+        tlsAuthorizationId: string,
+        tlsSubscriptionId: string,
+        requestBody?: Record<string, any>,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateGlobalsignEmailChallengeResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateGlobalsignEmailChallengeRequest(req);
-        }
-
+        const req = new operations.CreateGlobalsignEmailChallengeRequest({
+            tlsAuthorizationId: tlsAuthorizationId,
+            tlsSubscriptionId: tlsSubscriptionId,
+            requestBody: requestBody,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -62,7 +65,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -125,13 +128,14 @@ export class TlsSubscriptions {
      * Create a new TLS subscription. This response includes a list of possible challenges to verify domain ownership.
      */
     async createTlsSub(
-        req: operations.CreateTlsSubRequest,
+        force?: boolean,
+        tlsSubscription?: components.TlsSubscription,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsSubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateTlsSubRequest(req);
-        }
-
+        const req = new operations.CreateTlsSubRequest({
+            force: force,
+            tlsSubscription: tlsSubscription,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -153,7 +157,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -193,7 +197,7 @@ export class TlsSubscriptions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsSubscriptionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsSubscriptionResponse
+                        components.TlsSubscriptionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -216,13 +220,16 @@ export class TlsSubscriptions {
      * Deletes a GlobalSign email challenge. After a GlobalSign email challenge is deleted, the domain can use HTTP and DNS validation methods again.
      */
     async deleteGlobalsignEmailChallenge(
-        req: operations.DeleteGlobalsignEmailChallengeRequest,
+        globalsignEmailChallengeId: string,
+        tlsAuthorizationId: string,
+        tlsSubscriptionId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteGlobalsignEmailChallengeResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteGlobalsignEmailChallengeRequest(req);
-        }
-
+        const req = new operations.DeleteGlobalsignEmailChallengeRequest({
+            globalsignEmailChallengeId: globalsignEmailChallengeId,
+            tlsAuthorizationId: tlsAuthorizationId,
+            tlsSubscriptionId: tlsSubscriptionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -238,7 +245,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -282,13 +289,12 @@ export class TlsSubscriptions {
      * Destroy a TLS subscription. A subscription cannot be destroyed if there are domains in the TLS enabled state.
      */
     async deleteTlsSub(
-        req: operations.DeleteTlsSubRequest,
+        tlsSubscriptionId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsSubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteTlsSubRequest(req);
-        }
-
+        const req = new operations.DeleteTlsSubRequest({
+            tlsSubscriptionId: tlsSubscriptionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -304,7 +310,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -347,13 +353,14 @@ export class TlsSubscriptions {
      * Show a TLS subscription.
      */
     async getTlsSub(
-        req: operations.GetTlsSubRequest,
+        tlsSubscriptionId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsSubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetTlsSubRequest(req);
-        }
-
+        const req = new operations.GetTlsSubRequest({
+            tlsSubscriptionId: tlsSubscriptionId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -369,7 +376,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -404,7 +411,7 @@ export class TlsSubscriptions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsSubscriptionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsSubscriptionResponse
+                        components.TlsSubscriptionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -445,7 +452,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -480,7 +487,7 @@ export class TlsSubscriptions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsSubscriptionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsSubscriptionsResponse
+                        components.TlsSubscriptionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -503,13 +510,16 @@ export class TlsSubscriptions {
      * Change the TLS domains or common name associated with this subscription, update the TLS configuration for this set of domains, or retry a subscription with state `failed` by setting the state to `retry`.
      */
     async patchTlsSub(
-        req: operations.PatchTlsSubRequest,
+        tlsSubscriptionId: string,
+        force?: boolean,
+        tlsSubscription?: components.TlsSubscription,
         config?: AxiosRequestConfig
     ): Promise<operations.PatchTlsSubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PatchTlsSubRequest(req);
-        }
-
+        const req = new operations.PatchTlsSubRequest({
+            tlsSubscriptionId: tlsSubscriptionId,
+            force: force,
+            tlsSubscription: tlsSubscription,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -535,7 +545,7 @@ export class TlsSubscriptions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -575,7 +585,7 @@ export class TlsSubscriptions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsSubscriptionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsSubscriptionResponse
+                        components.TlsSubscriptionResponse
                     );
                 } else {
                     throw new errors.SDKError(

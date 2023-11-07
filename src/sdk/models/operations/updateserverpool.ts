@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateServerPoolRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    pool?: shared.Pool;
-
     /**
      * Name for the Pool.
      */
@@ -27,6 +24,9 @@ export class UpdateServerPoolRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    pool?: components.Pool;
 }
 
 export class UpdateServerPoolResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class UpdateServerPoolResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    poolResponse?: shared.PoolResponse;
+    poolResponse?: components.PoolResponse;
 }

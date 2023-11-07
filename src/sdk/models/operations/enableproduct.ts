@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class EnableProductRequest extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class EnableProductResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    enabledProductResponse?: shared.EnabledProductResponse;
+    enabledProductResponse?: components.EnabledProductResponse;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,12 @@ export class Customer {
      * Delete a customer.
      */
     async deleteCustomer(
-        req: operations.DeleteCustomerRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteCustomerResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteCustomerRequest(req);
-        }
-
+        const req = new operations.DeleteCustomerRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +46,7 @@ export class Customer {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -104,13 +103,12 @@ export class Customer {
      * Get a specific customer.
      */
     async getCustomer(
-        req: operations.GetCustomerRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomerResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCustomerRequest(req);
-        }
-
+        const req = new operations.GetCustomerRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -122,7 +120,7 @@ export class Customer {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -156,7 +154,7 @@ export class Customer {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.customerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CustomerResponse
+                        components.CustomerResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -192,7 +190,7 @@ export class Customer {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -227,7 +225,7 @@ export class Customer {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.customerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CustomerResponse
+                        components.CustomerResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -250,13 +248,12 @@ export class Customer {
      * List all users from a specified customer id.
      */
     async listUsers(
-        req: operations.ListUsersRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUsersResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListUsersRequest(req);
-        }
-
+        const req = new operations.ListUsersRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -268,7 +265,7 @@ export class Customer {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -304,7 +301,7 @@ export class Customer {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SchemasUserResponse,
+                        components.SchemasUserResponse,
                         resFieldDepth
                     );
                 } else {
@@ -328,13 +325,14 @@ export class Customer {
      * Update a customer.
      */
     async updateCustomer(
-        req: operations.UpdateCustomerRequest,
+        customerId: string,
+        customer?: components.Customer,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCustomerResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateCustomerRequest(req);
-        }
-
+        const req = new operations.UpdateCustomerRequest({
+            customerId: customerId,
+            customer: customer,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -356,7 +354,7 @@ export class Customer {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -395,7 +393,7 @@ export class Customer {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.customerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CustomerResponse
+                        components.CustomerResponse
                     );
                 } else {
                     throw new errors.SDKError(

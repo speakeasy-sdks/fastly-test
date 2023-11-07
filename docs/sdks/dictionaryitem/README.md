@@ -23,26 +23,30 @@ Update multiple items in the same dictionary. For faster updates to your service
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  BulkUpdateDictionaryItem,
+  BulkUpdateDictionaryItemOp,
+  BulkUpdateDictionaryListRequest,
+} from "Fastly/dist/sdk/models/components";
+import { BulkUpdateDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.dictionaryItem.bulkUpdateDictionaryItem({
-    bulkUpdateDictionaryListRequest: {
-      items: [
-        {
-          itemKey: "test-key",
-          itemValue: "test-value",
-        },
-      ],
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const bulkUpdateDictionaryListRequest: BulkUpdateDictionaryListRequest = {
+  items: [
+    {
+      itemKey: "test-key",
+      itemValue: "test-value",
     },
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  ],
+};
+
+  const res = await sdk.dictionaryItem.bulkUpdateDictionaryItem(dictionaryId, serviceId, bulkUpdateDictionaryListRequest);
 
 
   if (res.statusCode == 200) {
@@ -53,10 +57,12 @@ import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared"
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.BulkUpdateDictionaryItemRequest](../../models/operations/bulkupdatedictionaryitemrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          | Example                                                                                              |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `dictionaryId`                                                                                       | *string*                                                                                             | :heavy_check_mark:                                                                                   | Alphanumeric string identifying a Dictionary.                                                        | 3vjTN8v1O7nOAY7aNDGOL                                                                                |
+| `serviceId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | Alphanumeric string identifying the service.                                                         | SU1Z0isxPaozGVKXdv0eY                                                                                |
+| `bulkUpdateDictionaryListRequest`                                                                    | [components.BulkUpdateDictionaryListRequest](../../models/shared/bulkupdatedictionarylistrequest.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |                                                                                                      |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |                                                                                                      |
 
 
 ### Response
@@ -71,21 +77,22 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DictionaryItem } from "Fastly/dist/sdk/models/components";
+import { CreateDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const dictionaryItem: DictionaryItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.dictionaryItem.createDictionaryItem({
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    dictionaryItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.dictionaryItem.createDictionaryItem(dictionaryId, serviceId, dictionaryItem);
 
 
   if (res.statusCode == 200) {
@@ -96,10 +103,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateDictionaryItemRequest](../../models/operations/createdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `dictionaryId`                                                     | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying a Dictionary.                      | 3vjTN8v1O7nOAY7aNDGOL                                              |
+| `serviceId`                                                        | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying the service.                       | SU1Z0isxPaozGVKXdv0eY                                              |
+| `dictionaryItem`                                                   | [components.DictionaryItem](../../models/shared/dictionaryitem.md) | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |                                                                    |
 
 
 ### Response
@@ -114,18 +123,18 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const dictionaryItemKey: string = "test-key";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.dictionaryItem.deleteDictionaryItem({
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    dictionaryItemKey: "test-key",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.dictionaryItem.deleteDictionaryItem(dictionaryId, dictionaryItemKey, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -136,10 +145,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteDictionaryItemRequest](../../models/operations/deletedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `dictionaryId`                                               | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Dictionary.                | 3vjTN8v1O7nOAY7aNDGOL                                        |
+| `dictionaryItemKey`                                          | *string*                                                     | :heavy_check_mark:                                           | Item key, maximum 256 characters.                            | test-key                                                     |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -154,18 +165,18 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const dictionaryItemKey: string = "test-key";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.dictionaryItem.getDictionaryItem({
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    dictionaryItemKey: "test-key",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.dictionaryItem.getDictionaryItem(dictionaryId, dictionaryItemKey, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -176,10 +187,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetDictionaryItemRequest](../../models/operations/getdictionaryitemrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `dictionaryId`                                               | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Dictionary.                | 3vjTN8v1O7nOAY7aNDGOL                                        |
+| `dictionaryItemKey`                                          | *string*                                                     | :heavy_check_mark:                                           | Item key, maximum 256 characters.                            | test-key                                                     |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -194,8 +207,8 @@ List of DictionaryItems given service and dictionary ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Direction } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -238,22 +251,23 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DictionaryItem } from "Fastly/dist/sdk/models/components";
+import { UpdateDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const dictionaryItemKey: string = "test-key";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const dictionaryItem: DictionaryItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.dictionaryItem.updateDictionaryItem({
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    dictionaryItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-    dictionaryItemKey: "test-key",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.dictionaryItem.updateDictionaryItem(dictionaryId, dictionaryItemKey, serviceId, dictionaryItem);
 
 
   if (res.statusCode == 200) {
@@ -264,10 +278,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateDictionaryItemRequest](../../models/operations/updatedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `dictionaryId`                                                     | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying a Dictionary.                      | 3vjTN8v1O7nOAY7aNDGOL                                              |
+| `dictionaryItemKey`                                                | *string*                                                           | :heavy_check_mark:                                                 | Item key, maximum 256 characters.                                  | test-key                                                           |
+| `serviceId`                                                        | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying the service.                       | SU1Z0isxPaozGVKXdv0eY                                              |
+| `dictionaryItem`                                                   | [components.DictionaryItem](../../models/shared/dictionaryitem.md) | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |                                                                    |
 
 
 ### Response
@@ -282,22 +299,23 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DictionaryItem } from "Fastly/dist/sdk/models/components";
+import { UpsertDictionaryItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const dictionaryId: string = "3vjTN8v1O7nOAY7aNDGOL";
+const dictionaryItemKey: string = "test-key";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const dictionaryItem: DictionaryItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.dictionaryItem.upsertDictionaryItem({
-    dictionaryId: "3vjTN8v1O7nOAY7aNDGOL",
-    dictionaryItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-    dictionaryItemKey: "test-key",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.dictionaryItem.upsertDictionaryItem(dictionaryId, dictionaryItemKey, serviceId, dictionaryItem);
 
 
   if (res.statusCode == 200) {
@@ -308,10 +326,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpsertDictionaryItemRequest](../../models/operations/upsertdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `dictionaryId`                                                     | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying a Dictionary.                      | 3vjTN8v1O7nOAY7aNDGOL                                              |
+| `dictionaryItemKey`                                                | *string*                                                           | :heavy_check_mark:                                                 | Item key, maximum 256 characters.                                  | test-key                                                           |
+| `serviceId`                                                        | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying the service.                       | SU1Z0isxPaozGVKXdv0eY                                              |
+| `dictionaryItem`                                                   | [components.DictionaryItem](../../models/shared/dictionaryitem.md) | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |                                                                    |
 
 
 ### Response

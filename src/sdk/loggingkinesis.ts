@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingKinesis {
      * Create an Amazon Kinesis Data Streams logging object for a particular service and version.
      */
     async createLogKinesis(
-        req: operations.CreateLogKinesisRequest,
+        serviceId: string,
+        versionId: number,
+        loggingKinesis?: components.LoggingKinesis,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogKinesisResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogKinesisRequest(req);
-        }
-
+        const req = new operations.CreateLogKinesisRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingKinesis: loggingKinesis,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingKinesis {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingKinesis {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingKinesisResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKinesisResponse
+                        components.LoggingKinesisResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingKinesis {
      * Delete an Amazon Kinesis Data Streams logging object for a particular service and version.
      */
     async deleteLogKinesis(
-        req: operations.DeleteLogKinesisRequest,
+        loggingKinesisName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogKinesisResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogKinesisRequest(req);
-        }
-
+        const req = new operations.DeleteLogKinesisRequest({
+            loggingKinesisName: loggingKinesisName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingKinesis {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingKinesis {
      * Get the details for an Amazon Kinesis Data Streams logging object for a particular service and version.
      */
     async getLogKinesis(
-        req: operations.GetLogKinesisRequest,
+        loggingKinesisName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogKinesisResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogKinesisRequest(req);
-        }
-
+        const req = new operations.GetLogKinesisRequest({
+            loggingKinesisName: loggingKinesisName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingKinesis {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingKinesis {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingKinesisResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKinesisResponse
+                        components.LoggingKinesisResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingKinesis {
      * List all of the Amazon Kinesis Data Streams logging objects for a particular service and version.
      */
     async listLogKinesis(
-        req: operations.ListLogKinesisRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogKinesisResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogKinesisRequest(req);
-        }
-
+        const req = new operations.ListLogKinesisRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingKinesis {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingKinesis {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKinesisResponse,
+                        components.LoggingKinesisResponse,
                         resFieldDepth
                     );
                 } else {

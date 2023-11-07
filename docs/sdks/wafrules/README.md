@@ -20,17 +20,17 @@ Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fas
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetWafRuleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
+const include: string = "waf_tags,waf_rule_revisions";
 
-  const res = await sdk.wafRules.getWafRule({
-    include: "waf_tags,waf_rule_revisions",
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
+  const res = await sdk.wafRules.getWafRule(wafRuleId, include);
 
 
   if (res.statusCode == 200) {
@@ -41,10 +41,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetWafRuleRequest](../../models/operations/getwafrulerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      | Example                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `wafRuleId`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Alphanumeric string identifying a WAF rule.                                                                      | 3krg2uUGZzb2W9Euo4moOR                                                                                           |
+| `include`                                                                                                        | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | Include relationships. Optional, comma-separated values. Permitted values: `waf_tags` and `waf_rule_revisions`.<br/> | waf_tags,waf_rule_revisions                                                                                      |
+| `config`                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                     | :heavy_minus_sign:                                                                                               | Available config options for making requests.                                                                    |                                                                                                                  |
 
 
 ### Response
@@ -61,7 +62,7 @@ List all available WAF rules.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

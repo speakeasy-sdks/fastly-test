@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class ResponseObject {
      * Deletes the specified Response Object.
      */
     async deleteResponseObject(
-        req: operations.DeleteResponseObjectRequest,
+        responseObjectName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteResponseObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteResponseObjectRequest(req);
-        }
-
+        const req = new operations.DeleteResponseObjectRequest({
+            responseObjectName: responseObjectName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +54,7 @@ export class ResponseObject {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -109,13 +112,16 @@ export class ResponseObject {
      * Gets the specified Response Object.
      */
     async getResponseObject(
-        req: operations.GetResponseObjectRequest,
+        responseObjectName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetResponseObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetResponseObjectRequest(req);
-        }
-
+        const req = new operations.GetResponseObjectRequest({
+            responseObjectName: responseObjectName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -131,7 +137,7 @@ export class ResponseObject {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -165,7 +171,7 @@ export class ResponseObject {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.responseObjectResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResponseObjectResponse
+                        components.ResponseObjectResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -188,13 +194,14 @@ export class ResponseObject {
      * Returns all Response Objects for the specified service and version.
      */
     async listResponseObjects(
-        req: operations.ListResponseObjectsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListResponseObjectsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListResponseObjectsRequest(req);
-        }
-
+        const req = new operations.ListResponseObjectsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -210,7 +217,7 @@ export class ResponseObject {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -247,7 +254,7 @@ export class ResponseObject {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResponseObjectResponse,
+                        components.ResponseObjectResponse,
                         resFieldDepth
                     );
                 } else {

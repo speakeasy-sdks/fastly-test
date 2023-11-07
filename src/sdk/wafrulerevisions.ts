@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,16 @@ export class WafRuleRevisions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRuleRevision(
-        req: operations.GetWafRuleRevisionRequest,
+        wafRuleId: string,
+        wafRuleRevisionNumber: number,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafRuleRevisionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetWafRuleRevisionRequest(req);
-        }
-
+        const req = new operations.GetWafRuleRevisionRequest({
+            wafRuleId: wafRuleId,
+            wafRuleRevisionNumber: wafRuleRevisionNumber,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -53,7 +56,7 @@ export class WafRuleRevisions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -89,7 +92,7 @@ export class WafRuleRevisions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafRuleRevisionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafRuleRevisionResponse
+                        components.WafRuleRevisionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -114,13 +117,18 @@ export class WafRuleRevisions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafRuleRevisions(
-        req: operations.ListWafRuleRevisionsRequest,
+        wafRuleId: string,
+        include?: components.WafRuleRevisionInclude,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafRuleRevisionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListWafRuleRevisionsRequest(req);
-        }
-
+        const req = new operations.ListWafRuleRevisionsRequest({
+            wafRuleId: wafRuleId,
+            include: include,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -132,7 +140,7 @@ export class WafRuleRevisions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -168,7 +176,7 @@ export class WafRuleRevisions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafRuleRevisionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafRuleRevisionsResponse
+                        components.WafRuleRevisionsResponse
                     );
                 } else {
                     throw new errors.SDKError(

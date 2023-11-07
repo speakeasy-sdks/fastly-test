@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsPrivateKeys {
      * Create a TLS private key.
      */
     async createTlsKey(
-        req: shared.TlsPrivateKey,
+        req: components.TlsPrivateKey,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsPrivateKey(req);
+            req = new components.TlsPrivateKey(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeyResponse
+                        components.TlsPrivateKeyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,13 +119,12 @@ export class TlsPrivateKeys {
      * Destroy a TLS private key. Only private keys not already matched to any certificates can be deleted.
      */
     async deleteTlsKey(
-        req: operations.DeleteTlsKeyRequest,
+        tlsPrivateKeyId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsKeyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteTlsKeyRequest(req);
-        }
-
+        const req = new operations.DeleteTlsKeyRequest({
+            tlsPrivateKeyId: tlsPrivateKeyId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -141,7 +140,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -184,13 +183,12 @@ export class TlsPrivateKeys {
      * Show a TLS private key.
      */
     async getTlsKey(
-        req: operations.GetTlsKeyRequest,
+        tlsPrivateKeyId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsKeyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetTlsKeyRequest(req);
-        }
-
+        const req = new operations.GetTlsKeyRequest({
+            tlsPrivateKeyId: tlsPrivateKeyId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -206,7 +204,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +238,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeyResponse
+                        components.TlsPrivateKeyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -263,13 +261,16 @@ export class TlsPrivateKeys {
      * List all TLS private keys.
      */
     async listTlsKeys(
-        req: operations.ListTlsKeysRequest,
+        filterInUse?: string,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsKeysResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListTlsKeysRequest(req);
-        }
-
+        const req = new operations.ListTlsKeysRequest({
+            filterInUse: filterInUse,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -281,7 +282,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -316,7 +317,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeysResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeysResponse
+                        components.TlsPrivateKeysResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,19 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PutPackageRequest extends SpeakeasyBase {
-    /**
-     * We recommend using the Expect header because it may identify issues with the request based upon the headers alone instead of requiring you to wait until the entire binary package upload has completed.
-     */
-    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=expect" })
-    expect?: string;
-
-    @SpeakeasyMetadata({ data: "request, media_type=multipart/form-data" })
-    packageUpload?: shared.PackageUpload;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -27,6 +18,15 @@ export class PutPackageRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    /**
+     * We recommend using the Expect header because it may identify issues with the request based upon the headers alone instead of requiring you to wait until the entire binary package upload has completed.
+     */
+    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=expect" })
+    expect?: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=multipart/form-data" })
+    packageUpload?: components.PackageUpload;
 }
 
 export class PutPackageResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class PutPackageResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    packageResponse?: shared.PackageResponse;
+    packageResponse?: components.PackageResponse;
 }

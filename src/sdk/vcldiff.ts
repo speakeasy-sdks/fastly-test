@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,18 @@ export class VclDiff {
      * Get a comparison of the VCL changes between two service versions.
      */
     async vclDiffServiceVersions(
-        req: operations.VclDiffServiceVersionsRequest,
+        fromVersionId: number,
+        serviceId: string,
+        toVersionId: number,
+        format?: components.QueryFormat,
         config?: AxiosRequestConfig
     ): Promise<operations.VclDiffServiceVersionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.VclDiffServiceVersionsRequest(req);
-        }
-
+        const req = new operations.VclDiffServiceVersionsRequest({
+            fromVersionId: fromVersionId,
+            serviceId: serviceId,
+            toVersionId: toVersionId,
+            format: format,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +56,7 @@ export class VclDiff {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -85,7 +90,7 @@ export class VclDiff {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.vclDiff = utils.objectToClass(JSON.parse(decodedRes), shared.VclDiff);
+                    res.vclDiff = utils.objectToClass(JSON.parse(decodedRes), components.VclDiff);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

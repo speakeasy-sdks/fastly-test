@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogSftpRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSftp?: shared.LoggingSftp;
-
     /**
      * The name for the real-time logging configuration.
      */
@@ -27,6 +24,9 @@ export class UpdateLogSftpRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    loggingSftp?: components.LoggingSftp;
 }
 
 export class UpdateLogSftpResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class UpdateLogSftpResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSftpResponse?: shared.LoggingSftpResponse;
+    loggingSftpResponse?: components.LoggingSftpResponse;
 }

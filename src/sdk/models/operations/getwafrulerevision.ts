@@ -3,19 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafRuleRevisionRequest extends SpeakeasyBase {
-    /**
-     * Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: string;
-
     /**
      * Alphanumeric string identifying a WAF rule.
      */
@@ -29,6 +20,15 @@ export class GetWafRuleRevisionRequest extends SpeakeasyBase {
         data: "pathParam, style=simple;explode=false;name=waf_rule_revision_number",
     })
     wafRuleRevisionNumber: number;
+
+    /**
+     * Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
+    include?: string;
 }
 
 export class GetWafRuleRevisionResponse extends SpeakeasyBase {
@@ -54,5 +54,5 @@ export class GetWafRuleRevisionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafRuleRevisionResponse?: shared.WafRuleRevisionResponse;
+    wafRuleRevisionResponse?: components.WafRuleRevisionResponse;
 }

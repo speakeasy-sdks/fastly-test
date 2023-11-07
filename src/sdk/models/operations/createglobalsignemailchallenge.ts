@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class CreateGlobalsignEmailChallengeRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    requestBody?: Record<string, any>;
-
     /**
      * Alphanumeric string identifying a TLS subscription.
      */
@@ -20,6 +17,9 @@ export class CreateGlobalsignEmailChallengeRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_subscription_id" })
     tlsSubscriptionId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
+    requestBody?: Record<string, any>;
 }
 
 /**

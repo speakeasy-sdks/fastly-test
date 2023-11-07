@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingS3 {
      * Create a S3 for a particular service and version.
      */
     async createLogAwsS3(
-        req: operations.CreateLogAwsS3Request,
+        serviceId: string,
+        versionId: number,
+        loggingS3?: components.LoggingS3,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogAwsS3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogAwsS3Request(req);
-        }
-
+        const req = new operations.CreateLogAwsS3Request({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingS3: loggingS3,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingS3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingS3 {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingS3Response = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingS3Response
+                        components.LoggingS3Response
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingS3 {
      * Delete the S3 for a particular service and version.
      */
     async deleteLogAwsS3(
-        req: operations.DeleteLogAwsS3Request,
+        loggingS3Name: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogAwsS3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogAwsS3Request(req);
-        }
-
+        const req = new operations.DeleteLogAwsS3Request({
+            loggingS3Name: loggingS3Name,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingS3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingS3 {
      * Get the S3 for a particular service and version.
      */
     async getLogAwsS3(
-        req: operations.GetLogAwsS3Request,
+        loggingS3Name: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogAwsS3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogAwsS3Request(req);
-        }
-
+        const req = new operations.GetLogAwsS3Request({
+            loggingS3Name: loggingS3Name,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingS3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingS3 {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingS3Response = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingS3Response
+                        components.LoggingS3Response
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingS3 {
      * List all of the S3s for a particular service and version.
      */
     async listLogAwsS3(
-        req: operations.ListLogAwsS3Request,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogAwsS3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogAwsS3Request(req);
-        }
-
+        const req = new operations.ListLogAwsS3Request({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingS3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingS3 {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingS3Response,
+                        components.LoggingS3Response,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingS3 {
      * Update the S3 for a particular service and version.
      */
     async updateLogAwsS3(
-        req: operations.UpdateLogAwsS3Request,
+        loggingS3Name: string,
+        serviceId: string,
+        versionId: number,
+        loggingS3?: components.LoggingS3,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogAwsS3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogAwsS3Request(req);
-        }
-
+        const req = new operations.UpdateLogAwsS3Request({
+            loggingS3Name: loggingS3Name,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingS3: loggingS3,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingS3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingS3 {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingS3Response = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingS3Response
+                        components.LoggingS3Response
                     );
                 } else {
                     throw new errors.SDKError(

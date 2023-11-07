@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Healthcheck {
      * Create a health check for a particular service and version.
      */
     async createHealthcheck(
-        req: operations.CreateHealthcheckRequest,
+        serviceId: string,
+        versionId: number,
+        healthcheck?: components.Healthcheck,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateHealthcheckResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateHealthcheckRequest(req);
-        }
-
+        const req = new operations.CreateHealthcheckRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            healthcheck: healthcheck,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Healthcheck {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Healthcheck {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.healthcheckResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HealthcheckResponse
+                        components.HealthcheckResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Healthcheck {
      * Delete the health check for a particular service and version.
      */
     async deleteHealthcheck(
-        req: operations.DeleteHealthcheckRequest,
+        healthcheckName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteHealthcheckResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteHealthcheckRequest(req);
-        }
-
+        const req = new operations.DeleteHealthcheckRequest({
+            healthcheckName: healthcheckName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Healthcheck {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Healthcheck {
      * Get the health check for a particular service and version.
      */
     async getHealthcheck(
-        req: operations.GetHealthcheckRequest,
+        healthcheckName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHealthcheckResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetHealthcheckRequest(req);
-        }
-
+        const req = new operations.GetHealthcheckRequest({
+            healthcheckName: healthcheckName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Healthcheck {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Healthcheck {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.healthcheckResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HealthcheckResponse
+                        components.HealthcheckResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Healthcheck {
      * List all of the health checks for a particular service and version.
      */
     async listHealthchecks(
-        req: operations.ListHealthchecksRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListHealthchecksResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListHealthchecksRequest(req);
-        }
-
+        const req = new operations.ListHealthchecksRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Healthcheck {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Healthcheck {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HealthcheckResponse,
+                        components.HealthcheckResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Healthcheck {
      * Update the health check for a particular service and version.
      */
     async updateHealthcheck(
-        req: operations.UpdateHealthcheckRequest,
+        healthcheckName: string,
+        serviceId: string,
+        versionId: number,
+        healthcheck?: components.Healthcheck,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateHealthcheckResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateHealthcheckRequest(req);
-        }
-
+        const req = new operations.UpdateHealthcheckRequest({
+            healthcheckName: healthcheckName,
+            serviceId: serviceId,
+            versionId: versionId,
+            healthcheck: healthcheck,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Healthcheck {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Healthcheck {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.healthcheckResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HealthcheckResponse
+                        components.HealthcheckResponse
                     );
                 } else {
                     throw new errors.SDKError(

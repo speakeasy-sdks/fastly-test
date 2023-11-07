@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetServiceDetailRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class GetServiceDetailResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    serviceDetail?: shared.ServiceDetail;
+    serviceDetail?: components.ServiceDetail;
 }

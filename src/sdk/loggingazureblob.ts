@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingAzureblob {
      * Create an Azure Blob Storage logging endpoint for a particular service and version.
      */
     async createLogAzure(
-        req: operations.CreateLogAzureRequest,
+        serviceId: string,
+        versionId: number,
+        loggingAzureblob?: components.LoggingAzureblob,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogAzureResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogAzureRequest(req);
-        }
-
+        const req = new operations.CreateLogAzureRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingAzureblob: loggingAzureblob,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingAzureblob {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingAzureblob {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingAzureblobResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingAzureblobResponse
+                        components.LoggingAzureblobResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingAzureblob {
      * Delete the Azure Blob Storage logging endpoint for a particular service and version.
      */
     async deleteLogAzure(
-        req: operations.DeleteLogAzureRequest,
+        loggingAzureblobName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogAzureResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogAzureRequest(req);
-        }
-
+        const req = new operations.DeleteLogAzureRequest({
+            loggingAzureblobName: loggingAzureblobName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingAzureblob {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingAzureblob {
      * Get the Azure Blob Storage logging endpoint for a particular service and version.
      */
     async getLogAzure(
-        req: operations.GetLogAzureRequest,
+        loggingAzureblobName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogAzureResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogAzureRequest(req);
-        }
-
+        const req = new operations.GetLogAzureRequest({
+            loggingAzureblobName: loggingAzureblobName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingAzureblob {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingAzureblob {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingAzureblobResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingAzureblobResponse
+                        components.LoggingAzureblobResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingAzureblob {
      * List all of the Azure Blob Storage logging endpoints for a particular service and version.
      */
     async listLogAzure(
-        req: operations.ListLogAzureRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogAzureResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogAzureRequest(req);
-        }
-
+        const req = new operations.ListLogAzureRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingAzureblob {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingAzureblob {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingAzureblobResponse,
+                        components.LoggingAzureblobResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingAzureblob {
      * Update the Azure Blob Storage logging endpoint for a particular service and version.
      */
     async updateLogAzure(
-        req: operations.UpdateLogAzureRequest,
+        loggingAzureblobName: string,
+        serviceId: string,
+        versionId: number,
+        loggingAzureblob?: components.LoggingAzureblob,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogAzureResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogAzureRequest(req);
-        }
-
+        const req = new operations.UpdateLogAzureRequest({
+            loggingAzureblobName: loggingAzureblobName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingAzureblob: loggingAzureblob,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingAzureblob {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingAzureblob {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingAzureblobResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingAzureblobResponse
+                        components.LoggingAzureblobResponse
                     );
                 } else {
                     throw new errors.SDKError(

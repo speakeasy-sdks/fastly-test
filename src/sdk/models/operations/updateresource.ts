@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateResourceRequest extends SpeakeasyBase {
@@ -12,9 +12,6 @@ export class UpdateResourceRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
     id: string;
-
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    resource?: shared.Resource;
 
     /**
      * Alphanumeric string identifying the service.
@@ -27,6 +24,9 @@ export class UpdateResourceRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    resource?: components.Resource;
 }
 
 export class UpdateResourceResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class UpdateResourceResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    resourceResponse?: shared.ResourceResponse;
+    resourceResponse?: components.ResourceResponse;
 }

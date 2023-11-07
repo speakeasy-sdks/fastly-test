@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingHttps {
      * Create an HTTPS object for a particular service and version.
      */
     async createLogHttps(
-        req: operations.CreateLogHttpsRequest,
+        serviceId: string,
+        versionId: number,
+        loggingHttps?: components.LoggingHttps,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogHttpsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogHttpsRequest(req);
-        }
-
+        const req = new operations.CreateLogHttpsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHttps: loggingHttps,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingHttps {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingHttps {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHttpsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHttpsResponse
+                        components.LoggingHttpsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingHttps {
      * Delete the HTTPS object for a particular service and version.
      */
     async deleteLogHttps(
-        req: operations.DeleteLogHttpsRequest,
+        loggingHttpsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogHttpsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogHttpsRequest(req);
-        }
-
+        const req = new operations.DeleteLogHttpsRequest({
+            loggingHttpsName: loggingHttpsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingHttps {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingHttps {
      * Get the HTTPS object for a particular service and version.
      */
     async getLogHttps(
-        req: operations.GetLogHttpsRequest,
+        loggingHttpsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogHttpsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogHttpsRequest(req);
-        }
-
+        const req = new operations.GetLogHttpsRequest({
+            loggingHttpsName: loggingHttpsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingHttps {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingHttps {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHttpsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHttpsResponse
+                        components.LoggingHttpsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingHttps {
      * List all of the HTTPS objects for a particular service and version.
      */
     async listLogHttps(
-        req: operations.ListLogHttpsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogHttpsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogHttpsRequest(req);
-        }
-
+        const req = new operations.ListLogHttpsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingHttps {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingHttps {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHttpsResponse,
+                        components.LoggingHttpsResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingHttps {
      * Update the HTTPS object for a particular service and version.
      */
     async updateLogHttps(
-        req: operations.UpdateLogHttpsRequest,
+        loggingHttpsName: string,
+        serviceId: string,
+        versionId: number,
+        loggingHttps?: components.LoggingHttps,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogHttpsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogHttpsRequest(req);
-        }
-
+        const req = new operations.UpdateLogHttpsRequest({
+            loggingHttpsName: loggingHttpsName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHttps: loggingHttps,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingHttps {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingHttps {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHttpsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHttpsResponse
+                        components.LoggingHttpsResponse
                     );
                 } else {
                     throw new errors.SDKError(

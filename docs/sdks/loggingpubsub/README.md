@@ -21,32 +21,36 @@ Create a Pub/Sub logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  LoggingGooglePubsub,
+  LoggingGooglePubsubFormatVersion,
+  LoggingGooglePubsubPlacement,
+} from "Fastly/dist/sdk/models/components";
+import { CreateLogGcpPubsubRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingGooglePubsub: LoggingGooglePubsub = {
+  accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingGooglePubsubFormatVersion.Two,
+  name: "test-log-endpoint",
+  placement: LoggingGooglePubsubPlacement.None,
+  projectId: "test-project-id",
+  responseCondition: "null",
+  secretKey: "-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----
+",
+  user: "test-user@test-project-id.iam.gserviceaccount.com",
+};
 
-  const res = await sdk.loggingPubsub.createLogGcpPubsub({
-    loggingGooglePubsub: {
-      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingGooglePubsubFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingGooglePubsubPlacement.None,
-      projectId: "test-project-id",
-      responseCondition: "null",
-      secretKey: "-----BEGIN PRIVATE KEY-----
-    ...
-    -----END PRIVATE KEY-----
-    ",
-      user: "test-user@test-project-id.iam.gserviceaccount.com",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingPubsub.createLogGcpPubsub(serviceId, versionId, loggingGooglePubsub);
 
 
   if (res.statusCode == 200) {
@@ -57,10 +61,12 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.CreateLogGcpPubsubRequest](../../models/operations/createloggcppubsubrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `serviceId`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | Alphanumeric string identifying the service.                                 | SU1Z0isxPaozGVKXdv0eY                                                        |
+| `versionId`                                                                  | *number*                                                                     | :heavy_check_mark:                                                           | Integer identifying a service version.                                       | 1                                                                            |
+| `loggingGooglePubsub`                                                        | [components.LoggingGooglePubsub](../../models/shared/logginggooglepubsub.md) | :heavy_minus_sign:                                                           | N/A                                                                          |                                                                              |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |                                                                              |
 
 
 ### Response
@@ -75,18 +81,18 @@ Delete a Pub/Sub logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteLogGcpPubsubRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingGooglePubsubName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingPubsub.deleteLogGcpPubsub({
-    loggingGooglePubsubName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingPubsub.deleteLogGcpPubsub(loggingGooglePubsubName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -97,10 +103,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteLogGcpPubsubRequest](../../models/operations/deleteloggcppubsubrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingGooglePubsubName`                                    | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -115,18 +123,18 @@ Get the details for a Pub/Sub logging object for a particular service and versio
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetLogGcpPubsubRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingGooglePubsubName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingPubsub.getLogGcpPubsub({
-    loggingGooglePubsubName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingPubsub.getLogGcpPubsub(loggingGooglePubsubName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -137,10 +145,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetLogGcpPubsubRequest](../../models/operations/getloggcppubsubrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingGooglePubsubName`                                    | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -155,17 +165,17 @@ List all of the Pub/Sub logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListLogGcpPubsubRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingPubsub.listLogGcpPubsub({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingPubsub.listLogGcpPubsub(serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -176,10 +186,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListLogGcpPubsubRequest](../../models/operations/listloggcppubsubrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -194,33 +205,37 @@ Update a Pub/Sub logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  LoggingGooglePubsub,
+  LoggingGooglePubsubFormatVersion,
+  LoggingGooglePubsubPlacement,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateLogGcpPubsubRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingGooglePubsubName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingGooglePubsub: LoggingGooglePubsub = {
+  accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingGooglePubsubFormatVersion.Two,
+  name: "test-log-endpoint",
+  placement: LoggingGooglePubsubPlacement.None,
+  projectId: "test-project-id",
+  responseCondition: "null",
+  secretKey: "-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----
+",
+  user: "test-user@test-project-id.iam.gserviceaccount.com",
+};
 
-  const res = await sdk.loggingPubsub.updateLogGcpPubsub({
-    loggingGooglePubsub: {
-      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingGooglePubsubFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingGooglePubsubPlacement.None,
-      projectId: "test-project-id",
-      responseCondition: "null",
-      secretKey: "-----BEGIN PRIVATE KEY-----
-    ...
-    -----END PRIVATE KEY-----
-    ",
-      user: "test-user@test-project-id.iam.gserviceaccount.com",
-    },
-    loggingGooglePubsubName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingPubsub.updateLogGcpPubsub(loggingGooglePubsubName, serviceId, versionId, loggingGooglePubsub);
 
 
   if (res.statusCode == 200) {
@@ -231,10 +246,13 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateLogGcpPubsubRequest](../../models/operations/updateloggcppubsubrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `loggingGooglePubsubName`                                                    | *string*                                                                     | :heavy_check_mark:                                                           | The name for the real-time logging configuration.                            | test-log-endpoint                                                            |
+| `serviceId`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | Alphanumeric string identifying the service.                                 | SU1Z0isxPaozGVKXdv0eY                                                        |
+| `versionId`                                                                  | *number*                                                                     | :heavy_check_mark:                                                           | Integer identifying a service version.                                       | 1                                                                            |
+| `loggingGooglePubsub`                                                        | [components.LoggingGooglePubsub](../../models/shared/logginggooglepubsub.md) | :heavy_minus_sign:                                                           | N/A                                                                          |                                                                              |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |                                                                              |
 
 
 ### Response

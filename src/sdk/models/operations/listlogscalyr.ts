@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListLogScalyrRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListLogScalyrResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.LoggingScalyrResponse })
-    classes?: shared.LoggingScalyrResponse[];
+    @SpeakeasyMetadata({ elemType: components.LoggingScalyrResponse })
+    classes?: components.LoggingScalyrResponse[];
 }

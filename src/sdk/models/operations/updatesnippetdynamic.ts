@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateSnippetDynamicRequest extends SpeakeasyBase {
@@ -13,14 +13,14 @@ export class UpdateSnippetDynamicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_id" })
     serviceId: string;
 
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    snippet?: shared.Snippet;
-
     /**
      * Alphanumeric string identifying a VCL Snippet.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=snippet_id" })
     snippetId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    snippet?: components.Snippet;
 }
 
 export class UpdateSnippetDynamicResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class UpdateSnippetDynamicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    snippetResponse?: shared.SnippetResponse;
+    snippetResponse?: components.SnippetResponse;
 }

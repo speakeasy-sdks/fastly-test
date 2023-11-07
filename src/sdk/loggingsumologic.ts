@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingSumologic {
      * Create a Sumologic for a particular service and version.
      */
     async createLogSumologic(
-        req: operations.CreateLogSumologicRequest,
+        serviceId: string,
+        versionId: number,
+        loggingSumologic?: components.LoggingSumologic,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSumologicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogSumologicRequest(req);
-        }
-
+        const req = new operations.CreateLogSumologicRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSumologic: loggingSumologic,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingSumologic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +104,7 @@ export class LoggingSumologic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSumologicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSumologicResponse
+                        components.LoggingSumologicResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -124,13 +127,16 @@ export class LoggingSumologic {
      * Delete the Sumologic for a particular service and version.
      */
     async deleteLogSumologic(
-        req: operations.DeleteLogSumologicRequest,
+        loggingSumologicName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSumologicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogSumologicRequest(req);
-        }
-
+        const req = new operations.DeleteLogSumologicRequest({
+            loggingSumologicName: loggingSumologicName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -146,7 +152,7 @@ export class LoggingSumologic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -204,13 +210,16 @@ export class LoggingSumologic {
      * Get the Sumologic for a particular service and version.
      */
     async getLogSumologic(
-        req: operations.GetLogSumologicRequest,
+        loggingSumologicName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSumologicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogSumologicRequest(req);
-        }
-
+        const req = new operations.GetLogSumologicRequest({
+            loggingSumologicName: loggingSumologicName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -226,7 +235,7 @@ export class LoggingSumologic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +269,7 @@ export class LoggingSumologic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSumologicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSumologicResponse
+                        components.LoggingSumologicResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -283,13 +292,14 @@ export class LoggingSumologic {
      * List all of the Sumologics for a particular service and version.
      */
     async listLogSumologic(
-        req: operations.ListLogSumologicRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSumologicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogSumologicRequest(req);
-        }
-
+        const req = new operations.ListLogSumologicRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -305,7 +315,7 @@ export class LoggingSumologic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +351,7 @@ export class LoggingSumologic {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSumologicResponse,
+                        components.LoggingSumologicResponse,
                         resFieldDepth
                     );
                 } else {
@@ -365,13 +375,18 @@ export class LoggingSumologic {
      * Update the Sumologic for a particular service and version.
      */
     async updateLogSumologic(
-        req: operations.UpdateLogSumologicRequest,
+        loggingSumologicName: string,
+        serviceId: string,
+        versionId: number,
+        loggingSumologic?: components.LoggingSumologic,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSumologicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogSumologicRequest(req);
-        }
-
+        const req = new operations.UpdateLogSumologicRequest({
+            loggingSumologicName: loggingSumologicName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSumologic: loggingSumologic,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -397,7 +412,7 @@ export class LoggingSumologic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +452,7 @@ export class LoggingSumologic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSumologicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSumologicResponse
+                        components.LoggingSumologicResponse
                     );
                 } else {
                     throw new errors.SDKError(

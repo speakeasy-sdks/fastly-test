@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateConfigStoreRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    configStore?: shared.ConfigStore;
-
     /**
      * An alphanumeric string identifying the config store.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=config_store_id" })
     configStoreId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    configStore?: components.ConfigStore;
 }
 
 export class UpdateConfigStoreResponse extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class UpdateConfigStoreResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    configStoreResponse?: shared.ConfigStoreResponse;
+    configStoreResponse?: components.ConfigStoreResponse;
 }

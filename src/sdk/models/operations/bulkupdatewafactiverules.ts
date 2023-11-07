@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class BulkUpdateWafActiveRulesRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    bulkWafActiveRule?: shared.BulkWafActiveRule;
-
     /**
      * Alphanumeric string identifying a WAF Firewall.
      */
@@ -21,6 +18,9 @@ export class BulkUpdateWafActiveRulesRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
+    bulkWafActiveRule?: components.BulkWafActiveRule;
 }
 
 export class BulkUpdateWafActiveRulesResponse extends SpeakeasyBase {

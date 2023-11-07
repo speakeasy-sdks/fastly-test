@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Dictionary {
      * Create named dictionary for a particular service and version.
      */
     async createDictionary(
-        req: operations.CreateDictionaryRequest,
+        serviceId: string,
+        versionId: number,
+        dictionary?: components.Dictionary,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDictionaryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDictionaryRequest(req);
-        }
-
+        const req = new operations.CreateDictionaryRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            dictionary: dictionary,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Dictionary {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Dictionary {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryResponse
+                        components.DictionaryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Dictionary {
      * Delete named dictionary for a particular service and version.
      */
     async deleteDictionary(
-        req: operations.DeleteDictionaryRequest,
+        dictionaryName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDictionaryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteDictionaryRequest(req);
-        }
-
+        const req = new operations.DeleteDictionaryRequest({
+            dictionaryName: dictionaryName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Dictionary {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Dictionary {
      * Retrieve a single dictionary by name for the version and service.
      */
     async getDictionary(
-        req: operations.GetDictionaryRequest,
+        dictionaryName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDictionaryRequest(req);
-        }
-
+        const req = new operations.GetDictionaryRequest({
+            dictionaryName: dictionaryName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Dictionary {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Dictionary {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryResponse
+                        components.DictionaryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Dictionary {
      * List all dictionaries for the version of the service.
      */
     async listDictionaries(
-        req: operations.ListDictionariesRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDictionariesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListDictionariesRequest(req);
-        }
-
+        const req = new operations.ListDictionariesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Dictionary {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Dictionary {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryResponse,
+                        components.DictionaryResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Dictionary {
      * Update named dictionary for a particular service and version.
      */
     async updateDictionary(
-        req: operations.UpdateDictionaryRequest,
+        dictionaryName: string,
+        serviceId: string,
+        versionId: number,
+        dictionary?: components.Dictionary,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDictionaryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateDictionaryRequest(req);
-        }
-
+        const req = new operations.UpdateDictionaryRequest({
+            dictionaryName: dictionaryName,
+            serviceId: serviceId,
+            versionId: versionId,
+            dictionary: dictionary,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Dictionary {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Dictionary {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryResponse
+                        components.DictionaryResponse
                     );
                 } else {
                     throw new errors.SDKError(

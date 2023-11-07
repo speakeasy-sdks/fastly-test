@@ -6,14 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DeleteKeyFromStoreRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=force" })
-    force?: boolean;
-
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=key_name" })
     keyName: string;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=store_id" })
     storeId: string;
+
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=force" })
+    force?: boolean;
 }
 
 export class DeleteKeyFromStoreResponse extends SpeakeasyBase {

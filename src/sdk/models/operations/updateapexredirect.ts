@@ -3,15 +3,15 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateApexRedirectRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    apexRedirect?: shared.ApexRedirectInput;
-
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=apex_redirect_id" })
     apexRedirectId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    apexRedirect?: components.ApexRedirectInput;
 }
 
 export class UpdateApexRedirectResponse extends SpeakeasyBase {
@@ -37,5 +37,5 @@ export class UpdateApexRedirectResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    apexRedirect?: shared.ApexRedirect;
+    apexRedirect?: components.ApexRedirect;
 }

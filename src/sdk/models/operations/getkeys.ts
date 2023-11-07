@@ -7,6 +7,9 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class GetKeysRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=store_id" })
+    storeId: string;
+
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=cursor" })
     cursor?: string;
 
@@ -15,9 +18,6 @@ export class GetKeysRequest extends SpeakeasyBase {
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=prefix" })
     prefix?: string;
-
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=store_id" })
-    storeId: string;
 }
 
 export class GetKeysMeta extends SpeakeasyBase {

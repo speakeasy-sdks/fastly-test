@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class Settings {
      * Get the settings for a particular service and version.
      */
     async getServiceSettings(
-        req: operations.GetServiceSettingsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetServiceSettingsRequest(req);
-        }
-
+        const req = new operations.GetServiceSettingsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +52,7 @@ export class Settings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -86,7 +87,7 @@ export class Settings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.settingsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SettingsResponse
+                        components.SettingsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -110,13 +111,16 @@ export class Settings {
      *
      */
     async updateServiceSettings(
-        req: operations.UpdateServiceSettingsRequest,
+        serviceId: string,
+        versionId: number,
+        settings?: components.Settings,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServiceSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateServiceSettingsRequest(req);
-        }
-
+        const req = new operations.UpdateServiceSettingsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            settings: settings,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -142,7 +146,7 @@ export class Settings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -182,7 +186,7 @@ export class Settings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.settingsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SettingsResponse
+                        components.SettingsResponse
                     );
                 } else {
                     throw new errors.SDKError(

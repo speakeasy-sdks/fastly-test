@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class User {
      * Create a user.
      */
     async createUser(
-        req: shared.User,
+        req: components.User,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.User(req);
+            req = new components.User(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,13 +119,12 @@ export class User {
      * Delete a user.
      */
     async deleteUser(
-        req: operations.DeleteUserRequest,
+        userId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteUserResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteUserRequest(req);
-        }
-
+        const req = new operations.DeleteUserRequest({
+            userId: userId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -137,7 +136,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -205,7 +204,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -239,7 +238,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -262,13 +261,12 @@ export class User {
      * Get a specific user.
      */
     async getUser(
-        req: operations.GetUserRequest,
+        userId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUserResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetUserRequest(req);
-        }
-
+        const req = new operations.GetUserRequest({
+            userId: userId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -280,7 +278,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -314,7 +312,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -337,13 +335,12 @@ export class User {
      * Requests a password reset for the specified user.
      */
     async requestPasswordReset(
-        req: operations.RequestPasswordResetRequest,
+        userLogin: string,
         config?: AxiosRequestConfig
     ): Promise<operations.RequestPasswordResetResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.RequestPasswordResetRequest(req);
-        }
-
+        const req = new operations.RequestPasswordResetRequest({
+            userLogin: userLogin,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -359,7 +356,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -417,13 +414,14 @@ export class User {
      * Update a user. Only users with the role of `superuser` can make changes to other users on the account. Non-superusers may use this endpoint to make changes to their own account. Two-factor attributes are not editable via this endpoint.
      */
     async updateUser(
-        req: operations.UpdateUserRequest,
+        userId: string,
+        user?: components.User,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateUserResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateUserRequest(req);
-        }
-
+        const req = new operations.UpdateUserRequest({
+            userId: userId,
+            user: user,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -445,7 +443,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -484,7 +482,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -507,12 +505,12 @@ export class User {
      * Update the user's password to a new one.
      */
     async updateUserPassword(
-        req: shared.PasswordChange,
+        req: components.PasswordChange,
         security: operations.UpdateUserPasswordSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateUserPasswordResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.PasswordChange(req);
+            req = new components.PasswordChange(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -572,7 +570,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(

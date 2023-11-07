@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Http3 {
      * Enable HTTP/3 (QUIC) support for a particular service and version.
      */
     async createHttp3(
-        req: operations.CreateHttp3Request,
+        serviceId: string,
+        versionId: number,
+        http3?: components.Http3Input,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateHttp3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateHttp3Request(req);
-        }
-
+        const req = new operations.CreateHttp3Request({
+            serviceId: serviceId,
+            versionId: versionId,
+            http3: http3,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Http3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -98,7 +101,7 @@ export class Http3 {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.http3 = utils.objectToClass(JSON.parse(decodedRes), shared.Http3);
+                    res.http3 = utils.objectToClass(JSON.parse(decodedRes), components.Http3);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -120,13 +123,14 @@ export class Http3 {
      * Disable HTTP/3 (QUIC) support for a particular service and version.
      */
     async deleteHttp3(
-        req: operations.DeleteHttp3Request,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteHttp3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteHttp3Request(req);
-        }
-
+        const req = new operations.DeleteHttp3Request({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -142,7 +146,7 @@ export class Http3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -199,13 +203,14 @@ export class Http3 {
      * Get the status of HTTP/3 (QUIC) support for a particular service and version.
      */
     async getHttp3(
-        req: operations.GetHttp3Request,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHttp3Response> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetHttp3Request(req);
-        }
-
+        const req = new operations.GetHttp3Request({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -221,7 +226,7 @@ export class Http3 {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -253,7 +258,7 @@ export class Http3 {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.http3 = utils.objectToClass(JSON.parse(decodedRes), shared.Http3);
+                    res.http3 = utils.objectToClass(JSON.parse(decodedRes), components.Http3);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

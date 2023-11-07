@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingPapertrail {
      * Create a Papertrail for a particular service and version.
      */
     async createLogPapertrail(
-        req: operations.CreateLogPapertrailRequest,
+        serviceId: string,
+        versionId: number,
+        loggingPapertrail?: components.LoggingPapertrail,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogPapertrailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogPapertrailRequest(req);
-        }
-
+        const req = new operations.CreateLogPapertrailRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingPapertrail: loggingPapertrail,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class LoggingPapertrail {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -105,7 +108,7 @@ export class LoggingPapertrail {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingPapertrailResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingPapertrailResponse
+                        components.LoggingPapertrailResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -128,13 +131,16 @@ export class LoggingPapertrail {
      * Delete the Papertrail for a particular service and version.
      */
     async deleteLogPapertrail(
-        req: operations.DeleteLogPapertrailRequest,
+        loggingPapertrailName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogPapertrailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogPapertrailRequest(req);
-        }
-
+        const req = new operations.DeleteLogPapertrailRequest({
+            loggingPapertrailName: loggingPapertrailName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -150,7 +156,7 @@ export class LoggingPapertrail {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -208,13 +214,16 @@ export class LoggingPapertrail {
      * Get the Papertrail for a particular service and version.
      */
     async getLogPapertrail(
-        req: operations.GetLogPapertrailRequest,
+        loggingPapertrailName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogPapertrailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogPapertrailRequest(req);
-        }
-
+        const req = new operations.GetLogPapertrailRequest({
+            loggingPapertrailName: loggingPapertrailName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -230,7 +239,7 @@ export class LoggingPapertrail {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -264,7 +273,7 @@ export class LoggingPapertrail {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingPapertrailResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingPapertrailResponse
+                        components.LoggingPapertrailResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -287,13 +296,14 @@ export class LoggingPapertrail {
      * List all of the Papertrails for a particular service and version.
      */
     async listLogPapertrail(
-        req: operations.ListLogPapertrailRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogPapertrailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogPapertrailRequest(req);
-        }
-
+        const req = new operations.ListLogPapertrailRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -309,7 +319,7 @@ export class LoggingPapertrail {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -345,7 +355,7 @@ export class LoggingPapertrail {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingPapertrailResponse,
+                        components.LoggingPapertrailResponse,
                         resFieldDepth
                     );
                 } else {
@@ -369,13 +379,18 @@ export class LoggingPapertrail {
      * Update the Papertrail for a particular service and version.
      */
     async updateLogPapertrail(
-        req: operations.UpdateLogPapertrailRequest,
+        loggingPapertrailName: string,
+        serviceId: string,
+        versionId: number,
+        loggingPapertrail?: components.LoggingPapertrail,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogPapertrailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogPapertrailRequest(req);
-        }
-
+        const req = new operations.UpdateLogPapertrailRequest({
+            loggingPapertrailName: loggingPapertrailName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingPapertrail: loggingPapertrail,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -405,7 +420,7 @@ export class LoggingPapertrail {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -445,7 +460,7 @@ export class LoggingPapertrail {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingPapertrailResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingPapertrailResponse
+                        components.LoggingPapertrailResponse
                     );
                 } else {
                     throw new errors.SDKError(

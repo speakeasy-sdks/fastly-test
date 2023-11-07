@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateDictionaryItemRequest extends SpeakeasyBase {
@@ -13,14 +13,14 @@ export class CreateDictionaryItemRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dictionary_id" })
     dictionaryId: string;
 
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    dictionaryItem?: shared.DictionaryItem;
-
     /**
      * Alphanumeric string identifying the service.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_id" })
     serviceId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    dictionaryItem?: components.DictionaryItem;
 }
 
 export class CreateDictionaryItemResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class CreateDictionaryItemResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    dictionaryItemResponse?: shared.DictionaryItemResponse;
+    dictionaryItemResponse?: components.DictionaryItemResponse;
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateTlsSubRequest extends SpeakeasyBase {
@@ -17,7 +17,7 @@ export class CreateTlsSubRequest extends SpeakeasyBase {
     force?: boolean;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsSubscription?: shared.TlsSubscription;
+    tlsSubscription?: components.TlsSubscription;
 }
 
 export class CreateTlsSubResponse extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class CreateTlsSubResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    tlsSubscriptionResponse?: shared.TlsSubscriptionResponse;
+    tlsSubscriptionResponse?: components.TlsSubscriptionResponse;
 }

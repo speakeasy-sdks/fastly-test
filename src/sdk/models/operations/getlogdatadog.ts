@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetLogDatadogRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetLogDatadogResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingDatadogResponse?: shared.LoggingDatadogResponse;
+    loggingDatadogResponse?: components.LoggingDatadogResponse;
 }

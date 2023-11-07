@@ -20,30 +20,35 @@ Add a billing address to a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  BillingAddressAttributesInput,
+  BillingAddressRequest,
+  BillingAddressRequestData,
+  TypeBillingAddress,
+} from "Fastly/dist/sdk/models/components";
+import { AddBillingAddrRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.billingAddress.addBillingAddr({
-    billingAddressRequest: {
-      data: {
-        attributes: {
-          address1: "80719 Dorothea Mountain",
-          address2: "Apt. 652",
-          city: "New Rasheedville",
-          country: "US",
-          locality: "New Castle",
-          postalCode: "53538-5902",
-          state: "DE",
-        },
-      },
+const customerId: string = "x4xCwxxJxGCx123Rx5xTx";
+const billingAddressRequest: BillingAddressRequest = {
+  data: {
+    attributes: {
+      address1: "80719 Dorothea Mountain",
+      address2: "Apt. 652",
+      city: "New Rasheedville",
+      country: "US",
+      locality: "New Castle",
+      postalCode: "53538-5902",
+      state: "DE",
     },
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-  });
+  },
+};
+
+  const res = await sdk.billingAddress.addBillingAddr(customerId, billingAddressRequest);
 
 
   if (res.statusCode == 200) {
@@ -54,10 +59,11 @@ import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.AddBillingAddrRequest](../../models/operations/addbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `customerId`                                                                     | *string*                                                                         | :heavy_check_mark:                                                               | Alphanumeric string identifying the customer.                                    | x4xCwxxJxGCx123Rx5xTx                                                            |
+| `billingAddressRequest`                                                          | [components.BillingAddressRequest](../../models/shared/billingaddressrequest.md) | :heavy_minus_sign:                                                               | Billing address                                                                  |                                                                                  |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |                                                                                  |
 
 
 ### Response
@@ -72,16 +78,16 @@ Delete a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteBillingAddrRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const customerId: string = "x4xCwxxJxGCx123Rx5xTx";
 
-  const res = await sdk.billingAddress.deleteBillingAddr({
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-  });
+  const res = await sdk.billingAddress.deleteBillingAddr(customerId);
 
 
   if (res.statusCode == 200) {
@@ -92,10 +98,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteBillingAddrRequest](../../models/operations/deletebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `customerId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the customer.                | x4xCwxxJxGCx123Rx5xTx                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -110,16 +116,16 @@ Get a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetBillingAddrRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const customerId: string = "x4xCwxxJxGCx123Rx5xTx";
 
-  const res = await sdk.billingAddress.getBillingAddr({
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-  });
+  const res = await sdk.billingAddress.getBillingAddr(customerId);
 
 
   if (res.statusCode == 200) {
@@ -130,10 +136,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetBillingAddrRequest](../../models/operations/getbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `customerId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the customer.                | x4xCwxxJxGCx123Rx5xTx                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -148,30 +154,35 @@ Update a customer's billing address. You may update only part of the customer's 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  BillingAddressAttributesInput,
+  TypeBillingAddress,
+  UpdateBillingAddressRequest,
+  UpdateBillingAddressRequestData,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateBillingAddrRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.billingAddress.updateBillingAddr({
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-    updateBillingAddressRequest: {
-      data: {
-        attributes: {
-          address1: "80719 Dorothea Mountain",
-          address2: "Apt. 652",
-          city: "New Rasheedville",
-          country: "US",
-          locality: "New Castle",
-          postalCode: "53538-5902",
-          state: "DE",
-        },
-      },
+const customerId: string = "x4xCwxxJxGCx123Rx5xTx";
+const updateBillingAddressRequest: UpdateBillingAddressRequest = {
+  data: {
+    attributes: {
+      address1: "80719 Dorothea Mountain",
+      address2: "Apt. 652",
+      city: "New Rasheedville",
+      country: "US",
+      locality: "New Castle",
+      postalCode: "53538-5902",
+      state: "DE",
     },
-  });
+  },
+};
+
+  const res = await sdk.billingAddress.updateBillingAddr(customerId, updateBillingAddressRequest);
 
 
   if (res.statusCode == 200) {
@@ -182,10 +193,11 @@ import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.UpdateBillingAddrRequest](../../models/operations/updatebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `customerId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | Alphanumeric string identifying the customer.                                                | x4xCwxxJxGCx123Rx5xTx                                                                        |
+| `updateBillingAddressRequest`                                                                | [components.UpdateBillingAddressRequest](../../models/shared/updatebillingaddressrequest.md) | :heavy_minus_sign:                                                                           | One or more billing address attributes                                                       |                                                                                              |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |                                                                                              |
 
 
 ### Response

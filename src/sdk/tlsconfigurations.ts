@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class TlsConfigurations {
      * Show a TLS configuration.
      */
     async getTlsConfig(
-        req: operations.GetTlsConfigRequest,
+        tlsConfigurationId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsConfigResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetTlsConfigRequest(req);
-        }
-
+        const req = new operations.GetTlsConfigRequest({
+            tlsConfigurationId: tlsConfigurationId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +52,7 @@ export class TlsConfigurations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -86,7 +87,7 @@ export class TlsConfigurations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsConfigurationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsConfigurationResponse
+                        components.TlsConfigurationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -109,13 +110,18 @@ export class TlsConfigurations {
      * List all TLS configurations.
      */
     async listTlsConfigs(
-        req: operations.ListTlsConfigsRequest,
+        filterBulk?: string,
+        include?: string,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTlsConfigsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListTlsConfigsRequest(req);
-        }
-
+        const req = new operations.ListTlsConfigsRequest({
+            filterBulk: filterBulk,
+            include: include,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -127,7 +133,7 @@ export class TlsConfigurations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -162,7 +168,7 @@ export class TlsConfigurations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsConfigurationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsConfigurationsResponse
+                        components.TlsConfigurationsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -185,13 +191,14 @@ export class TlsConfigurations {
      * Update a TLS configuration.
      */
     async updateTlsConfig(
-        req: operations.UpdateTlsConfigRequest,
+        tlsConfigurationId: string,
+        tlsConfiguration?: components.TlsConfiguration,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateTlsConfigResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateTlsConfigRequest(req);
-        }
-
+        const req = new operations.UpdateTlsConfigRequest({
+            tlsConfigurationId: tlsConfigurationId,
+            tlsConfiguration: tlsConfiguration,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -217,7 +224,7 @@ export class TlsConfigurations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -256,7 +263,7 @@ export class TlsConfigurations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsConfigurationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsConfigurationResponse
+                        components.TlsConfigurationResponse
                     );
                 } else {
                     throw new errors.SDKError(

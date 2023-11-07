@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,18 @@ export class Historical {
      * Fetches historical stats for each of your Fastly services and groups the results by service ID.
      */
     async getHistStats(
-        req: operations.GetHistStatsRequest,
+        by?: components.By,
+        from?: string,
+        region?: components.Region,
+        to?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetHistStatsRequest(req);
-        }
-
+        const req = new operations.GetHistStatsRequest({
+            by: by,
+            from: from,
+            region: region,
+            to: to,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +52,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -82,7 +87,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalResponse
+                        components.HistoricalResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -105,13 +110,18 @@ export class Historical {
      * Fetches historical stats information aggregated across all of your Fastly services.
      */
     async getHistStatsAggregated(
-        req: operations.GetHistStatsAggregatedRequest,
+        by?: components.By,
+        from?: string,
+        region?: components.Region,
+        to?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHistStatsAggregatedResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetHistStatsAggregatedRequest(req);
-        }
-
+        const req = new operations.GetHistStatsAggregatedRequest({
+            by: by,
+            from: from,
+            region: region,
+            to: to,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -123,7 +133,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -159,7 +169,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalAggregateResponse
+                        components.HistoricalAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -200,7 +210,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -235,7 +245,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalFieldResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalFieldResponse
+                        components.HistoricalFieldResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -276,7 +286,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -312,7 +322,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalAggregateResponse
+                        components.HistoricalAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -357,7 +367,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -393,7 +403,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalFieldAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalFieldAggregateResponse
+                        components.HistoricalFieldAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -427,7 +437,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -461,7 +471,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalRegionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalRegionsResponse
+                        components.HistoricalRegionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -484,13 +494,14 @@ export class Historical {
      * Returns usage information aggregated across all Fastly services and grouped by region. To aggregate across all Fastly services by time period, see [`/stats/aggregate`](#get-hist-stats-aggregated).
      */
     async getUsage(
-        req: operations.GetUsageRequest,
+        from?: string,
+        to?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetUsageRequest(req);
-        }
-
+        const req = new operations.GetUsageRequest({
+            from: from,
+            to: to,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -502,7 +513,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -537,7 +548,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageAggregateResponse
+                        components.HistoricalUsageAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -560,13 +571,16 @@ export class Historical {
      * Returns month-to-date usage details for a given month and year. Usage details are aggregated by service and across all Fastly services, and then grouped by region. This endpoint does not use the `from` or `to` fields for selecting the date for which data is requested. Instead, it uses `month` and `year` integer fields. Both fields are optional and default to the current month and year respectively. When set, an optional `billable_units` field will convert bandwidth to GB and divide requests by 10,000.
      */
     async getUsageMonth(
-        req: operations.GetUsageMonthRequest,
+        billableUnits?: boolean,
+        month?: string,
+        year?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageMonthResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetUsageMonthRequest(req);
-        }
-
+        const req = new operations.GetUsageMonthRequest({
+            billableUnits: billableUnits,
+            month: month,
+            year: year,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -578,7 +592,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -613,7 +627,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageMonthResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageMonthResponse
+                        components.HistoricalUsageMonthResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -636,13 +650,14 @@ export class Historical {
      * Returns usage information aggregated by service and grouped by service and region. For service stats by time period, see [`/stats`](#get-hist-stats) and [`/stats/field/:field`](#get-hist-stats-field).
      */
     async getUsageService(
-        req: operations.GetUsageServiceRequest,
+        from?: string,
+        to?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUsageServiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetUsageServiceRequest(req);
-        }
-
+        const req = new operations.GetUsageServiceRequest({
+            from: from,
+            to: to,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -654,7 +669,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -689,7 +704,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageServiceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageServiceResponse
+                        components.HistoricalUsageServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(

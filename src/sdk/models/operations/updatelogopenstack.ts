@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogOpenstackRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingOpenstack?: shared.LoggingOpenstack;
-
     /**
      * The name for the real-time logging configuration.
      */
@@ -29,6 +26,9 @@ export class UpdateLogOpenstackRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    loggingOpenstack?: components.LoggingOpenstack;
 }
 
 export class UpdateLogOpenstackResponse extends SpeakeasyBase {
@@ -54,5 +54,5 @@ export class UpdateLogOpenstackResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingOpenstackResponse?: shared.LoggingOpenstackResponse;
+    loggingOpenstackResponse?: components.LoggingOpenstackResponse;
 }

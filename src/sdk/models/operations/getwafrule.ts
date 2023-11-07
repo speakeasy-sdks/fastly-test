@@ -3,10 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafRuleRequest extends SpeakeasyBase {
+    /**
+     * Alphanumeric string identifying a WAF rule.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=waf_rule_id" })
+    wafRuleId: string;
+
     /**
      * Include relationships. Optional, comma-separated values. Permitted values: `waf_tags` and `waf_rule_revisions`.
      *
@@ -15,12 +21,6 @@ export class GetWafRuleRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
     include?: string;
-
-    /**
-     * Alphanumeric string identifying a WAF rule.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=waf_rule_id" })
-    wafRuleId: string;
 }
 
 export class GetWafRuleResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class GetWafRuleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafRuleResponse?: shared.WafRuleResponse;
+    wafRuleResponse?: components.WafRuleResponse;
 }

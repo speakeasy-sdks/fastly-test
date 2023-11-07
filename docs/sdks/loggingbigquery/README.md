@@ -21,30 +21,30 @@ Create a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingBigquery, LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
+import { CreateLogBigqueryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingBigquery: LoggingBigquery = {
+  accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+  formatVersion: LoggingBigqueryFormatVersion.Two,
+  placement: LoggingBigqueryPlacement.None,
+  projectId: "test-project-id",
+  responseCondition: "null",
+  secretKey: "-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----
+",
+  user: "test-user@test-project-id.iam.gserviceaccount.com",
+};
 
-  const res = await sdk.loggingBigquery.createLogBigquery({
-    loggingBigquery: {
-      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-      formatVersion: LoggingBigqueryFormatVersion.Two,
-      placement: LoggingBigqueryPlacement.None,
-      projectId: "test-project-id",
-      responseCondition: "null",
-      secretKey: "-----BEGIN PRIVATE KEY-----
-    ...
-    -----END PRIVATE KEY-----
-    ",
-      user: "test-user@test-project-id.iam.gserviceaccount.com",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingBigquery.createLogBigquery(serviceId, versionId, loggingBigquery);
 
 
   if (res.statusCode == 200) {
@@ -55,10 +55,12 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTe
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreateLogBigqueryRequest](../../models/operations/createlogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `serviceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | Alphanumeric string identifying the service.                         | SU1Z0isxPaozGVKXdv0eY                                                |
+| `versionId`                                                          | *number*                                                             | :heavy_check_mark:                                                   | Integer identifying a service version.                               | 1                                                                    |
+| `loggingBigquery`                                                    | [components.LoggingBigquery](../../models/shared/loggingbigquery.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |                                                                      |
 
 
 ### Response
@@ -73,18 +75,18 @@ Delete a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteLogBigqueryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingBigqueryName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingBigquery.deleteLogBigquery({
-    loggingBigqueryName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingBigquery.deleteLogBigquery(loggingBigqueryName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -95,10 +97,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteLogBigqueryRequest](../../models/operations/deletelogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingBigqueryName`                                        | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -113,18 +117,18 @@ Get the details for a BigQuery logging object for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetLogBigqueryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingBigqueryName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingBigquery.getLogBigquery({
-    loggingBigqueryName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingBigquery.getLogBigquery(loggingBigqueryName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -135,10 +139,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetLogBigqueryRequest](../../models/operations/getlogbigqueryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingBigqueryName`                                        | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -153,17 +159,17 @@ List all of the BigQuery logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListLogBigqueryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingBigquery.listLogBigquery({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingBigquery.listLogBigquery(serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -174,10 +180,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListLogBigqueryRequest](../../models/operations/listlogbigqueryrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -192,31 +199,31 @@ Update a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingBigquery, LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
+import { UpdateLogBigqueryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingBigqueryName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingBigquery: LoggingBigquery = {
+  accountName: "test-user@test-project-id.iam.gserviceaccount.com",
+  formatVersion: LoggingBigqueryFormatVersion.Two,
+  placement: LoggingBigqueryPlacement.WafDebug,
+  projectId: "test-project-id",
+  responseCondition: "null",
+  secretKey: "-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----
+",
+  user: "test-user@test-project-id.iam.gserviceaccount.com",
+};
 
-  const res = await sdk.loggingBigquery.updateLogBigquery({
-    loggingBigquery: {
-      accountName: "test-user@test-project-id.iam.gserviceaccount.com",
-      formatVersion: LoggingBigqueryFormatVersion.Two,
-      placement: LoggingBigqueryPlacement.WafDebug,
-      projectId: "test-project-id",
-      responseCondition: "null",
-      secretKey: "-----BEGIN PRIVATE KEY-----
-    ...
-    -----END PRIVATE KEY-----
-    ",
-      user: "test-user@test-project-id.iam.gserviceaccount.com",
-    },
-    loggingBigqueryName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingBigquery.updateLogBigquery(loggingBigqueryName, serviceId, versionId, loggingBigquery);
 
 
   if (res.statusCode == 200) {
@@ -227,10 +234,13 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTe
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.UpdateLogBigqueryRequest](../../models/operations/updatelogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `loggingBigqueryName`                                                | *string*                                                             | :heavy_check_mark:                                                   | The name for the real-time logging configuration.                    | test-log-endpoint                                                    |
+| `serviceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | Alphanumeric string identifying the service.                         | SU1Z0isxPaozGVKXdv0eY                                                |
+| `versionId`                                                          | *number*                                                             | :heavy_check_mark:                                                   | Integer identifying a service version.                               | 1                                                                    |
+| `loggingBigquery`                                                    | [components.LoggingBigquery](../../models/shared/loggingbigquery.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |                                                                      |
 
 
 ### Response

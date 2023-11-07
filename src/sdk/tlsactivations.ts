@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsActivations {
      * Enable TLS for a particular TLS domain and certificate combination. These relationships must be specified to create the TLS activation.
      */
     async createTlsActivation(
-        req: shared.TlsActivation,
+        req: components.TlsActivation,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsActivationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsActivation(req);
+            req = new components.TlsActivation(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class TlsActivations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -97,7 +97,7 @@ export class TlsActivations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsActivationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsActivationResponse
+                        components.TlsActivationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -120,13 +120,12 @@ export class TlsActivations {
      * Disable TLS on the domain associated with this TLS activation.
      */
     async deleteTlsActivation(
-        req: operations.DeleteTlsActivationRequest,
+        tlsActivationId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsActivationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteTlsActivationRequest(req);
-        }
-
+        const req = new operations.DeleteTlsActivationRequest({
+            tlsActivationId: tlsActivationId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -138,7 +137,7 @@ export class TlsActivations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -182,13 +181,14 @@ export class TlsActivations {
      * Show a TLS activation.
      */
     async getTlsActivation(
-        req: operations.GetTlsActivationRequest,
+        tlsActivationId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsActivationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetTlsActivationRequest(req);
-        }
-
+        const req = new operations.GetTlsActivationRequest({
+            tlsActivationId: tlsActivationId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -200,7 +200,7 @@ export class TlsActivations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -235,7 +235,7 @@ export class TlsActivations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsActivationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsActivationResponse
+                        components.TlsActivationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -276,7 +276,7 @@ export class TlsActivations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -312,7 +312,7 @@ export class TlsActivations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsActivationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsActivationsResponse
+                        components.TlsActivationsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -335,13 +335,14 @@ export class TlsActivations {
      * Update the certificate used to terminate TLS traffic for the domain associated with this TLS activation.
      */
     async updateTlsActivation(
-        req: operations.UpdateTlsActivationRequest,
+        tlsActivationId: string,
+        tlsActivation?: components.TlsActivation,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateTlsActivationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateTlsActivationRequest(req);
-        }
-
+        const req = new operations.UpdateTlsActivationRequest({
+            tlsActivationId: tlsActivationId,
+            tlsActivation: tlsActivation,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -363,7 +364,7 @@ export class TlsActivations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -403,7 +404,7 @@ export class TlsActivations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsActivationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsActivationResponse
+                        components.TlsActivationResponse
                     );
                 } else {
                     throw new errors.SDKError(

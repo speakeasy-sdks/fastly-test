@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class DictionaryItem {
      * Update multiple items in the same dictionary. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 items. [Contact support](https://support.fastly.com/) to discuss raising this limit.
      */
     async bulkUpdateDictionaryItem(
-        req: operations.BulkUpdateDictionaryItemRequest,
+        dictionaryId: string,
+        serviceId: string,
+        bulkUpdateDictionaryListRequest?: components.BulkUpdateDictionaryListRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.BulkUpdateDictionaryItemRequest(req);
-        }
-
+        const req = new operations.BulkUpdateDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            serviceId: serviceId,
+            bulkUpdateDictionaryListRequest: bulkUpdateDictionaryListRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -128,13 +131,16 @@ export class DictionaryItem {
      * Create DictionaryItem given service, dictionary ID, item key, and item value.
      */
     async createDictionaryItem(
-        req: operations.CreateDictionaryItemRequest,
+        dictionaryId: string,
+        serviceId: string,
+        dictionaryItem?: components.DictionaryItem,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDictionaryItemRequest(req);
-        }
-
+        const req = new operations.CreateDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            serviceId: serviceId,
+            dictionaryItem: dictionaryItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -160,7 +166,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -200,7 +206,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -223,13 +229,16 @@ export class DictionaryItem {
      * Delete DictionaryItem given service, dictionary ID, and item key.
      */
     async deleteDictionaryItem(
-        req: operations.DeleteDictionaryItemRequest,
+        dictionaryId: string,
+        dictionaryItemKey: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteDictionaryItemRequest(req);
-        }
-
+        const req = new operations.DeleteDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            dictionaryItemKey: dictionaryItemKey,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -245,7 +254,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -303,13 +312,16 @@ export class DictionaryItem {
      * Retrieve a single DictionaryItem given service, dictionary ID and item key.
      */
     async getDictionaryItem(
-        req: operations.GetDictionaryItemRequest,
+        dictionaryId: string,
+        dictionaryItemKey: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDictionaryItemRequest(req);
-        }
-
+        const req = new operations.GetDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            dictionaryItemKey: dictionaryItemKey,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -325,7 +337,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -359,7 +371,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -404,7 +416,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -443,7 +455,7 @@ export class DictionaryItem {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse,
+                        components.DictionaryItemResponse,
                         resFieldDepth
                     );
                 } else {
@@ -467,13 +479,18 @@ export class DictionaryItem {
      * Update DictionaryItem given service, dictionary ID, item key, and item value.
      */
     async updateDictionaryItem(
-        req: operations.UpdateDictionaryItemRequest,
+        dictionaryId: string,
+        dictionaryItemKey: string,
+        serviceId: string,
+        dictionaryItem?: components.DictionaryItem,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateDictionaryItemRequest(req);
-        }
-
+        const req = new operations.UpdateDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            dictionaryItemKey: dictionaryItemKey,
+            serviceId: serviceId,
+            dictionaryItem: dictionaryItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -499,7 +516,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -539,7 +556,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -562,13 +579,18 @@ export class DictionaryItem {
      * Upsert DictionaryItem given service, dictionary ID, item key, and item value.
      */
     async upsertDictionaryItem(
-        req: operations.UpsertDictionaryItemRequest,
+        dictionaryId: string,
+        dictionaryItemKey: string,
+        serviceId: string,
+        dictionaryItem?: components.DictionaryItem,
         config?: AxiosRequestConfig
     ): Promise<operations.UpsertDictionaryItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpsertDictionaryItemRequest(req);
-        }
-
+        const req = new operations.UpsertDictionaryItemRequest({
+            dictionaryId: dictionaryId,
+            dictionaryItemKey: dictionaryItemKey,
+            serviceId: serviceId,
+            dictionaryItem: dictionaryItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -594,7 +616,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -634,7 +656,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(

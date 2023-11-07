@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,12 @@ export class Realtime {
      * Get data for the 120 seconds preceding the latest timestamp available for a service.
      */
     async getStatsLast120Seconds(
-        req: operations.GetStatsLast120SecondsRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLast120SecondsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetStatsLast120SecondsRequest(req);
-        }
-
+        const req = new operations.GetStatsLast120SecondsRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +46,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -80,7 +79,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -102,13 +101,14 @@ export class Realtime {
      * Get data for the 120 seconds preceding the latest timestamp available for a service, up to a maximum of `max_entries` entries.
      */
     async getStatsLast120SecondsLimitEntries(
-        req: operations.GetStatsLast120SecondsLimitEntriesRequest,
+        maxEntries: number,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLast120SecondsLimitEntriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetStatsLast120SecondsLimitEntriesRequest(req);
-        }
-
+        const req = new operations.GetStatsLast120SecondsLimitEntriesRequest({
+            maxEntries: maxEntries,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -124,7 +124,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -157,7 +157,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -179,13 +179,14 @@ export class Realtime {
      * Get real-time data for the specified reporting period. Specify `0` to get a single entry for the last complete second. The `Timestamp` field included in the response provides the time index of the latest entry in the dataset and can be provided as the `start_timestamp` of the next request for a seamless continuation of the dataset from one request to the next.
      */
     async getStatsLastSecond(
-        req: operations.GetStatsLastSecondRequest,
+        serviceId: string,
+        timestampInSeconds: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStatsLastSecondResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetStatsLastSecondRequest(req);
-        }
-
+        const req = new operations.GetStatsLastSecondRequest({
+            serviceId: serviceId,
+            timestampInSeconds: timestampInSeconds,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -201,7 +202,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -234,7 +235,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

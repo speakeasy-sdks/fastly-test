@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class MutualAuthentication {
      * Create a mutual authentication using a bundle of certificates to enable client-to-server mutual TLS.
      */
     async createMutualTlsAuthentication(
-        req: shared.MutualAuthentication,
+        req: components.MutualAuthentication,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateMutualTlsAuthenticationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.MutualAuthentication(req);
+            req = new components.MutualAuthentication(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class MutualAuthentication {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -97,7 +97,7 @@ export class MutualAuthentication {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.MutualAuthenticationResponse
+                        components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -120,13 +120,12 @@ export class MutualAuthentication {
      * Remove a Mutual TLS authentication
      */
     async deleteMutualTls(
-        req: operations.DeleteMutualTlsRequest,
+        mutualAuthenticationId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteMutualTlsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteMutualTlsRequest(req);
-        }
-
+        const req = new operations.DeleteMutualTlsRequest({
+            mutualAuthenticationId: mutualAuthenticationId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -142,7 +141,7 @@ export class MutualAuthentication {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -185,13 +184,14 @@ export class MutualAuthentication {
      * Show a Mutual Authentication.
      */
     async getMutualAuthentication(
-        req: operations.GetMutualAuthenticationRequest,
+        mutualAuthenticationId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetMutualAuthenticationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetMutualAuthenticationRequest(req);
-        }
-
+        const req = new operations.GetMutualAuthenticationRequest({
+            mutualAuthenticationId: mutualAuthenticationId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -207,7 +207,7 @@ export class MutualAuthentication {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -243,7 +243,7 @@ export class MutualAuthentication {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.MutualAuthenticationResponse
+                        components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -266,13 +266,16 @@ export class MutualAuthentication {
      * List all mutual authentications.
      */
     async listMutualAuthentications(
-        req: operations.ListMutualAuthenticationsRequest,
+        include?: string,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListMutualAuthenticationsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListMutualAuthenticationsRequest(req);
-        }
-
+        const req = new operations.ListMutualAuthenticationsRequest({
+            include: include,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -284,7 +287,7 @@ export class MutualAuthentication {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -320,7 +323,7 @@ export class MutualAuthentication {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.MutualAuthenticationsResponse
+                        components.MutualAuthenticationsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -343,13 +346,14 @@ export class MutualAuthentication {
      * Update a Mutual Authentication.
      */
     async patchMutualAuthentication(
-        req: operations.PatchMutualAuthenticationRequest,
+        mutualAuthenticationId: string,
+        mutualAuthentication?: components.MutualAuthentication,
         config?: AxiosRequestConfig
     ): Promise<operations.PatchMutualAuthenticationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PatchMutualAuthenticationRequest(req);
-        }
-
+        const req = new operations.PatchMutualAuthenticationRequest({
+            mutualAuthenticationId: mutualAuthenticationId,
+            mutualAuthentication: mutualAuthentication,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -379,7 +383,7 @@ export class MutualAuthentication {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -419,7 +423,7 @@ export class MutualAuthentication {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.MutualAuthenticationResponse
+                        components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(

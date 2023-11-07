@@ -23,25 +23,29 @@ Add multiple key-value pairs to an individual config store, specified by ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  BulkUpdateConfigStoreItem,
+  BulkUpdateConfigStoreItemOp,
+  BulkUpdateConfigStoreListRequest,
+} from "Fastly/dist/sdk/models/components";
+import { BulkUpdateConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.configStoreItem.bulkUpdateConfigStoreItem({
-    bulkUpdateConfigStoreListRequest: {
-      items: [
-        {
-          itemKey: "test-key",
-          itemValue: "test-value",
-        },
-      ],
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const bulkUpdateConfigStoreListRequest: BulkUpdateConfigStoreListRequest = {
+  items: [
+    {
+      itemKey: "test-key",
+      itemValue: "test-value",
     },
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  });
+  ],
+};
+
+  const res = await sdk.configStoreItem.bulkUpdateConfigStoreItem(configStoreId, bulkUpdateConfigStoreListRequest);
 
 
   if (res.statusCode == 200) {
@@ -52,10 +56,11 @@ import { BulkUpdateConfigStoreItemOp } from "FastlyTestJS/dist/sdk/models/shared
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.BulkUpdateConfigStoreItemRequest](../../models/operations/bulkupdateconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            | Example                                                                                                |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `configStoreId`                                                                                        | *string*                                                                                               | :heavy_check_mark:                                                                                     | An alphanumeric string identifying the config store.                                                   | 7Lsb7Y76rChV9hSrv3KgFl                                                                                 |
+| `bulkUpdateConfigStoreListRequest`                                                                     | [components.BulkUpdateConfigStoreListRequest](../../models/shared/bulkupdateconfigstorelistrequest.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |                                                                                                        |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |                                                                                                        |
 
 
 ### Response
@@ -70,20 +75,21 @@ Add a single key-value pair to an individual config store, specified by ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ConfigStoreItem } from "Fastly/dist/sdk/models/components";
+import { CreateConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const configStoreItem: ConfigStoreItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.configStoreItem.createConfigStoreItem({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-    configStoreItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-  });
+  const res = await sdk.configStoreItem.createConfigStoreItem(configStoreId, configStoreItem);
 
 
   if (res.statusCode == 200) {
@@ -94,10 +100,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.CreateConfigStoreItemRequest](../../models/operations/createconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `configStoreId`                                                      | *string*                                                             | :heavy_check_mark:                                                   | An alphanumeric string identifying the config store.                 | 7Lsb7Y76rChV9hSrv3KgFl                                               |
+| `configStoreItem`                                                    | [components.ConfigStoreItem](../../models/shared/configstoreitem.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |                                                                      |
 
 
 ### Response
@@ -112,17 +119,17 @@ Delete an entry in a config store given a config store ID, and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const configStoreItemKey: string = "test-key";
 
-  const res = await sdk.configStoreItem.deleteConfigStoreItem({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-    configStoreItemKey: "test-key",
-  });
+  const res = await sdk.configStoreItem.deleteConfigStoreItem(configStoreId, configStoreItemKey);
 
 
   if (res.statusCode == 200) {
@@ -133,10 +140,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.DeleteConfigStoreItemRequest](../../models/operations/deleteconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `configStoreId`                                              | *string*                                                     | :heavy_check_mark:                                           | An alphanumeric string identifying the config store.         | 7Lsb7Y76rChV9hSrv3KgFl                                       |
+| `configStoreItemKey`                                         | *string*                                                     | :heavy_check_mark:                                           | Item key, maximum 256 characters.                            | test-key                                                     |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -151,17 +159,17 @@ Retrieve a config store entry given a config store ID and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const configStoreItemKey: string = "test-key";
 
-  const res = await sdk.configStoreItem.getConfigStoreItem({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-    configStoreItemKey: "test-key",
-  });
+  const res = await sdk.configStoreItem.getConfigStoreItem(configStoreId, configStoreItemKey);
 
 
   if (res.statusCode == 200) {
@@ -172,10 +180,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetConfigStoreItemRequest](../../models/operations/getconfigstoreitemrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `configStoreId`                                              | *string*                                                     | :heavy_check_mark:                                           | An alphanumeric string identifying the config store.         | 7Lsb7Y76rChV9hSrv3KgFl                                       |
+| `configStoreItemKey`                                         | *string*                                                     | :heavy_check_mark:                                           | Item key, maximum 256 characters.                            | test-key                                                     |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -190,16 +199,16 @@ List the key-value pairs associated with a given config store ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListConfigStoreItemsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
 
-  const res = await sdk.configStoreItem.listConfigStoreItems({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-  });
+  const res = await sdk.configStoreItem.listConfigStoreItems(configStoreId);
 
 
   if (res.statusCode == 200) {
@@ -210,10 +219,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListConfigStoreItemsRequest](../../models/operations/listconfigstoreitemsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `configStoreId`                                              | *string*                                                     | :heavy_check_mark:                                           | An alphanumeric string identifying the config store.         | 7Lsb7Y76rChV9hSrv3KgFl                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -228,21 +237,22 @@ Update an entry in a config store given a config store ID, item key, and item va
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ConfigStoreItem } from "Fastly/dist/sdk/models/components";
+import { UpdateConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const configStoreItemKey: string = "test-key";
+const configStoreItem: ConfigStoreItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.configStoreItem.updateConfigStoreItem({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-    configStoreItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-    configStoreItemKey: "test-key",
-  });
+  const res = await sdk.configStoreItem.updateConfigStoreItem(configStoreId, configStoreItemKey, configStoreItem);
 
 
   if (res.statusCode == 200) {
@@ -253,10 +263,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpdateConfigStoreItemRequest](../../models/operations/updateconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `configStoreId`                                                      | *string*                                                             | :heavy_check_mark:                                                   | An alphanumeric string identifying the config store.                 | 7Lsb7Y76rChV9hSrv3KgFl                                               |
+| `configStoreItemKey`                                                 | *string*                                                             | :heavy_check_mark:                                                   | Item key, maximum 256 characters.                                    | test-key                                                             |
+| `configStoreItem`                                                    | [components.ConfigStoreItem](../../models/shared/configstoreitem.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |                                                                      |
 
 
 ### Response
@@ -271,21 +283,22 @@ Insert or update an entry in a config store given a config store ID, item key, a
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ConfigStoreItem } from "Fastly/dist/sdk/models/components";
+import { UpsertConfigStoreItemRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const configStoreId: string = "7Lsb7Y76rChV9hSrv3KgFl";
+const configStoreItemKey: string = "test-key";
+const configStoreItem: ConfigStoreItem = {
+  itemKey: "test-key",
+  itemValue: "test-value",
+};
 
-  const res = await sdk.configStoreItem.upsertConfigStoreItem({
-    configStoreId: "7Lsb7Y76rChV9hSrv3KgFl",
-    configStoreItem: {
-      itemKey: "test-key",
-      itemValue: "test-value",
-    },
-    configStoreItemKey: "test-key",
-  });
+  const res = await sdk.configStoreItem.upsertConfigStoreItem(configStoreId, configStoreItemKey, configStoreItem);
 
 
   if (res.statusCode == 200) {
@@ -296,10 +309,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.UpsertConfigStoreItemRequest](../../models/operations/upsertconfigstoreitemrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `configStoreId`                                                      | *string*                                                             | :heavy_check_mark:                                                   | An alphanumeric string identifying the config store.                 | 7Lsb7Y76rChV9hSrv3KgFl                                               |
+| `configStoreItemKey`                                                 | *string*                                                             | :heavy_check_mark:                                                   | Item key, maximum 256 characters.                                    | test-key                                                             |
+| `configStoreItem`                                                    | [components.ConfigStoreItem](../../models/shared/configstoreitem.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |                                                                      |
 
 
 ### Response

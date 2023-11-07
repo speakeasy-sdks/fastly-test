@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -40,14 +40,15 @@ export class Billing {
      * Get the invoice for a given year and month. Can be any month from when the Customer was created to the current month.
      */
     async getInvoice(
-        req: operations.GetInvoiceRequest,
+        month: string,
+        year: string,
         config?: AxiosRequestConfig,
         acceptHeaderOverride?: GetInvoiceAcceptEnum
     ): Promise<operations.GetInvoiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetInvoiceRequest(req);
-        }
-
+        const req = new operations.GetInvoiceRequest({
+            month: month,
+            year: year,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -63,7 +64,7 @@ export class Billing {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -101,7 +102,7 @@ export class Billing {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.billingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingResponse
+                        components.BillingResponse
                     );
                 } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.bytes = httpRes?.data;
@@ -128,14 +129,15 @@ export class Billing {
      * Get the invoice for the given invoice_id.
      */
     async getInvoiceById(
-        req: operations.GetInvoiceByIdRequest,
+        customerId: string,
+        invoiceId: string,
         config?: AxiosRequestConfig,
         acceptHeaderOverride?: GetInvoiceByIdAcceptEnum
     ): Promise<operations.GetInvoiceByIdResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetInvoiceByIdRequest(req);
-        }
-
+        const req = new operations.GetInvoiceByIdRequest({
+            customerId: customerId,
+            invoiceId: invoiceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -151,7 +153,7 @@ export class Billing {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -189,7 +191,7 @@ export class Billing {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.billingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingResponse
+                        components.BillingResponse
                     );
                 } else if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.bytes = httpRes?.data;
@@ -216,13 +218,16 @@ export class Billing {
      * Get the current month-to-date estimate. This endpoint has two different responses. Under normal circumstances, it generally takes less than 5 seconds to generate but in certain cases can take up to 60 seconds. Once generated the month-to-date estimate is cached for 4 hours, and is available the next request will return the JSON representation of the month-to-date estimate. While a report is being generated in the background, this endpoint will return a `202 Accepted` response. The full format of which can be found in detail in our [billing calculation guide](https://docs.fastly.com/en/guides/how-we-calculate-your-bill). There are certain accounts for which we are unable to generate a month-to-date estimate. For example, accounts who have parent-pay are unable to generate an MTD estimate. The parent accounts are able to generate a month-to-date estimate but that estimate will not include the child accounts amounts at this time.
      */
     async getInvoiceMtd(
-        req: operations.GetInvoiceMtdRequest,
+        customerId: string,
+        month?: string,
+        year?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetInvoiceMtdResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetInvoiceMtdRequest(req);
-        }
-
+        const req = new operations.GetInvoiceMtdRequest({
+            customerId: customerId,
+            month: month,
+            year: year,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -238,7 +243,7 @@ export class Billing {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -273,7 +278,7 @@ export class Billing {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.billingEstimateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingEstimateResponse
+                        components.BillingEstimateResponse
                     );
                 } else {
                     throw new errors.SDKError(

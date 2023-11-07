@@ -21,26 +21,31 @@ Create a Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  LoggingMessageType,
+  LoggingSumologic,
+  LoggingSumologicFormatVersion,
+  LoggingSumologicPlacement,
+} from "Fastly/dist/sdk/models/components";
+import { CreateLogSumologicRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingSumologic: LoggingSumologic = {
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingSumologicFormatVersion.Two,
+  messageType: LoggingMessageType.Classic,
+  name: "test-log-endpoint",
+  placement: LoggingSumologicPlacement.WafDebug,
+  responseCondition: "null",
+};
 
-  const res = await sdk.loggingSumologic.createLogSumologic({
-    loggingSumologic: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingSumologicFormatVersion.Two,
-      messageType: LoggingMessageType.Classic,
-      name: "test-log-endpoint",
-      placement: LoggingSumologicPlacement.WafDebug,
-      responseCondition: "null",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingSumologic.createLogSumologic(serviceId, versionId, loggingSumologic);
 
 
   if (res.statusCode == 200) {
@@ -51,10 +56,12 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.CreateLogSumologicRequest](../../models/operations/createlogsumologicrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `serviceId`                                                            | *string*                                                               | :heavy_check_mark:                                                     | Alphanumeric string identifying the service.                           | SU1Z0isxPaozGVKXdv0eY                                                  |
+| `versionId`                                                            | *number*                                                               | :heavy_check_mark:                                                     | Integer identifying a service version.                                 | 1                                                                      |
+| `loggingSumologic`                                                     | [components.LoggingSumologic](../../models/shared/loggingsumologic.md) | :heavy_minus_sign:                                                     | N/A                                                                    |                                                                        |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |                                                                        |
 
 
 ### Response
@@ -69,18 +76,18 @@ Delete the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteLogSumologicRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingSumologicName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingSumologic.deleteLogSumologic({
-    loggingSumologicName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingSumologic.deleteLogSumologic(loggingSumologicName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -91,10 +98,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteLogSumologicRequest](../../models/operations/deletelogsumologicrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingSumologicName`                                       | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -109,18 +118,18 @@ Get the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetLogSumologicRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingSumologicName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingSumologic.getLogSumologic({
-    loggingSumologicName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingSumologic.getLogSumologic(loggingSumologicName, serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -131,10 +140,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetLogSumologicRequest](../../models/operations/getlogsumologicrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `loggingSumologicName`                                       | *string*                                                     | :heavy_check_mark:                                           | The name for the real-time logging configuration.            | test-log-endpoint                                            |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -149,17 +160,17 @@ List all of the Sumologics for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListLogSumologicRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
 
-  const res = await sdk.loggingSumologic.listLogSumologic({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingSumologic.listLogSumologic(serviceId, versionId);
 
 
   if (res.statusCode == 200) {
@@ -170,10 +181,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListLogSumologicRequest](../../models/operations/listlogsumologicrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -188,27 +200,32 @@ Update the Sumologic for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  LoggingMessageType,
+  LoggingSumologic,
+  LoggingSumologicFormatVersion,
+  LoggingSumologicPlacement,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateLogSumologicRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const loggingSumologicName: string = "test-log-endpoint";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const versionId: number = 1;
+const loggingSumologic: LoggingSumologic = {
+  format: "%h %l %u %t \"%r\" %&gt;s %b",
+  formatVersion: LoggingSumologicFormatVersion.Two,
+  messageType: LoggingMessageType.Classic,
+  name: "test-log-endpoint",
+  placement: LoggingSumologicPlacement.WafDebug,
+  responseCondition: "null",
+};
 
-  const res = await sdk.loggingSumologic.updateLogSumologic({
-    loggingSumologic: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingSumologicFormatVersion.Two,
-      messageType: LoggingMessageType.Classic,
-      name: "test-log-endpoint",
-      placement: LoggingSumologicPlacement.WafDebug,
-      responseCondition: "null",
-    },
-    loggingSumologicName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
+  const res = await sdk.loggingSumologic.updateLogSumologic(loggingSumologicName, serviceId, versionId, loggingSumologic);
 
 
   if (res.statusCode == 200) {
@@ -219,10 +236,13 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateLogSumologicRequest](../../models/operations/updatelogsumologicrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `loggingSumologicName`                                                 | *string*                                                               | :heavy_check_mark:                                                     | The name for the real-time logging configuration.                      | test-log-endpoint                                                      |
+| `serviceId`                                                            | *string*                                                               | :heavy_check_mark:                                                     | Alphanumeric string identifying the service.                           | SU1Z0isxPaozGVKXdv0eY                                                  |
+| `versionId`                                                            | *number*                                                               | :heavy_check_mark:                                                     | Integer identifying a service version.                                 | 1                                                                      |
+| `loggingSumologic`                                                     | [components.LoggingSumologic](../../models/shared/loggingsumologic.md) | :heavy_minus_sign:                                                     | N/A                                                                    |                                                                        |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |                                                                        |
 
 
 ### Response

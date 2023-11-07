@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetLogPapertrailRequest extends SpeakeasyBase {
@@ -51,5 +51,5 @@ export class GetLogPapertrailResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingPapertrailResponse?: shared.LoggingPapertrailResponse;
+    loggingPapertrailResponse?: components.LoggingPapertrailResponse;
 }

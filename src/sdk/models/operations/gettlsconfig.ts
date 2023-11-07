@@ -3,10 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetTlsConfigRequest extends SpeakeasyBase {
+    /**
+     * Alphanumeric string identifying a TLS configuration.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_configuration_id" })
+    tlsConfigurationId: string;
+
     /**
      * Include related objects. Optional, comma-separated values. Permitted values: `dns_records`.
      *
@@ -15,12 +21,6 @@ export class GetTlsConfigRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
     include?: string;
-
-    /**
-     * Alphanumeric string identifying a TLS configuration.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_configuration_id" })
-    tlsConfigurationId: string;
 }
 
 export class GetTlsConfigResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class GetTlsConfigResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsConfigurationResponse?: shared.TlsConfigurationResponse;
+    tlsConfigurationResponse?: components.TlsConfigurationResponse;
 }

@@ -3,16 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetCustomVclRequest extends SpeakeasyBase {
-    /**
-     * Omit VCL content.
-     */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=no_content" })
-    noContent?: string;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -30,6 +24,12 @@ export class GetCustomVclRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    /**
+     * Omit VCL content.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=no_content" })
+    noContent?: string;
 }
 
 export class GetCustomVclResponse extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class GetCustomVclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    vclResponse?: shared.VclResponse;
+    vclResponse?: components.VclResponse;
 }

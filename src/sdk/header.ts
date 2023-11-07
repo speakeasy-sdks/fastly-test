@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Header {
      * Creates a new Header object.
      */
     async createHeaderObject(
-        req: operations.CreateHeaderObjectRequest,
+        serviceId: string,
+        versionId: number,
+        header?: components.Header,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateHeaderObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateHeaderObjectRequest(req);
-        }
-
+        const req = new operations.CreateHeaderObjectRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            header: header,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Header {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +104,7 @@ export class Header {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.headerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HeaderResponse
+                        components.HeaderResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -124,13 +127,16 @@ export class Header {
      * Deletes a Header object by name.
      */
     async deleteHeaderObject(
-        req: operations.DeleteHeaderObjectRequest,
+        headerName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteHeaderObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteHeaderObjectRequest(req);
-        }
-
+        const req = new operations.DeleteHeaderObjectRequest({
+            headerName: headerName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -146,7 +152,7 @@ export class Header {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -204,13 +210,16 @@ export class Header {
      * Retrieves a Header object by name.
      */
     async getHeaderObject(
-        req: operations.GetHeaderObjectRequest,
+        headerName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetHeaderObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetHeaderObjectRequest(req);
-        }
-
+        const req = new operations.GetHeaderObjectRequest({
+            headerName: headerName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -226,7 +235,7 @@ export class Header {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +269,7 @@ export class Header {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.headerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HeaderResponse
+                        components.HeaderResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -283,13 +292,14 @@ export class Header {
      * Retrieves all Header objects for a particular Version of a Service.
      */
     async listHeaderObjects(
-        req: operations.ListHeaderObjectsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListHeaderObjectsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListHeaderObjectsRequest(req);
-        }
-
+        const req = new operations.ListHeaderObjectsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -305,7 +315,7 @@ export class Header {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +351,7 @@ export class Header {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HeaderResponse,
+                        components.HeaderResponse,
                         resFieldDepth
                     );
                 } else {
@@ -365,13 +375,18 @@ export class Header {
      * Modifies an existing Header object by name.
      */
     async updateHeaderObject(
-        req: operations.UpdateHeaderObjectRequest,
+        headerName: string,
+        serviceId: string,
+        versionId: number,
+        header?: components.Header,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateHeaderObjectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateHeaderObjectRequest(req);
-        }
-
+        const req = new operations.UpdateHeaderObjectRequest({
+            headerName: headerName,
+            serviceId: serviceId,
+            versionId: versionId,
+            header: header,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -397,7 +412,7 @@ export class Header {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +452,7 @@ export class Header {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.headerResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HeaderResponse
+                        components.HeaderResponse
                     );
                 } else {
                     throw new errors.SDKError(

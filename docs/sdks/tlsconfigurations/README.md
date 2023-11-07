@@ -19,17 +19,17 @@ Show a TLS configuration.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetTlsConfigRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const tlsConfigurationId: string = "t7CguUGZzb2W9Euo5FoKa";
+const include: string = "dns_records";
 
-  const res = await sdk.tlsConfigurations.getTlsConfig({
-    include: "dns_records",
-    tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-  });
+  const res = await sdk.tlsConfigurations.getTlsConfig(tlsConfigurationId, include);
 
 
   if (res.statusCode == 200) {
@@ -40,10 +40,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetTlsConfigRequest](../../models/operations/gettlsconfigrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `tlsConfigurationId`                                                                         | *string*                                                                                     | :heavy_check_mark:                                                                           | Alphanumeric string identifying a TLS configuration.                                         | t7CguUGZzb2W9Euo5FoKa                                                                        |
+| `include`                                                                                    | *string*                                                                                     | :heavy_minus_sign:                                                                           | Include related objects. Optional, comma-separated values. Permitted values: `dns_records`.<br/> | dns_records                                                                                  |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |                                                                                              |
 
 
 ### Response
@@ -58,18 +59,19 @@ List all TLS configurations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListTlsConfigsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const filterBulk: string = "string";
+const include: string = "dns_records";
+const pageNumber: number = 1;
+const pageSize: number = 20;
 
-  const res = await sdk.tlsConfigurations.listTlsConfigs({
-    include: "dns_records",
-    pageNumber: 1,
-    pageSize: 20,
-  });
+  const res = await sdk.tlsConfigurations.listTlsConfigs(filterBulk, include, pageNumber, pageSize);
 
 
   if (res.statusCode == 200) {
@@ -80,10 +82,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListTlsConfigsRequest](../../models/operations/listtlsconfigsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `filterBulk`                                                                                 | *string*                                                                                     | :heavy_minus_sign:                                                                           | Optionally filters by the bulk attribute.                                                    |                                                                                              |
+| `include`                                                                                    | *string*                                                                                     | :heavy_minus_sign:                                                                           | Include related objects. Optional, comma-separated values. Permitted values: `dns_records`.<br/> | dns_records                                                                                  |
+| `pageNumber`                                                                                 | *number*                                                                                     | :heavy_minus_sign:                                                                           | Current page.                                                                                | 1                                                                                            |
+| `pageSize`                                                                                   | *number*                                                                                     | :heavy_minus_sign:                                                                           | Number of records per page.                                                                  | 20                                                                                           |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |                                                                                              |
 
 
 ### Response
@@ -98,23 +103,28 @@ Update a TLS configuration.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  TlsConfiguration,
+  TlsConfigurationData,
+  TlsConfigurationDataAttributes,
+  TypeTlsConfiguration,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateTlsConfigRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const tlsConfigurationId: string = "t7CguUGZzb2W9Euo5FoKa";
+const tlsConfiguration: TlsConfiguration = {
+  data: {
+    attributes: {},
+    relationships: "string",
+  },
+};
 
-  const res = await sdk.tlsConfigurations.updateTlsConfig({
-    tlsConfiguration: {
-      data: {
-        attributes: {},
-        relationships: "string",
-      },
-    },
-    tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",
-  });
+  const res = await sdk.tlsConfigurations.updateTlsConfig(tlsConfigurationId, tlsConfiguration);
 
 
   if (res.statusCode == 200) {
@@ -125,10 +135,11 @@ import { TypeTlsConfiguration } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateTlsConfigRequest](../../models/operations/updatetlsconfigrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `tlsConfigurationId`                                                   | *string*                                                               | :heavy_check_mark:                                                     | Alphanumeric string identifying a TLS configuration.                   | t7CguUGZzb2W9Euo5FoKa                                                  |
+| `tlsConfiguration`                                                     | [components.TlsConfiguration](../../models/shared/tlsconfiguration.md) | :heavy_minus_sign:                                                     | N/A                                                                    |                                                                        |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |                                                                        |
 
 
 ### Response

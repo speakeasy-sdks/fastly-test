@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,16 @@ export class LoggingLogentries {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createLogLogentries(
-        req: operations.CreateLogLogentriesRequest,
+        serviceId: string,
+        versionId: number,
+        loggingLogentries?: components.LoggingLogentries,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogentriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogLogentriesRequest(req);
-        }
-
+        const req = new operations.CreateLogLogentriesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLogentries: loggingLogentries,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -67,7 +70,7 @@ export class LoggingLogentries {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -107,7 +110,7 @@ export class LoggingLogentries {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogentriesResponse
+                        components.LoggingLogentriesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -132,13 +135,16 @@ export class LoggingLogentries {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteLogLogentries(
-        req: operations.DeleteLogLogentriesRequest,
+        loggingLogentriesName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogentriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogLogentriesRequest(req);
-        }
-
+        const req = new operations.DeleteLogLogentriesRequest({
+            loggingLogentriesName: loggingLogentriesName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -154,7 +160,7 @@ export class LoggingLogentries {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -214,13 +220,16 @@ export class LoggingLogentries {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getLogLogentries(
-        req: operations.GetLogLogentriesRequest,
+        loggingLogentriesName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogentriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogLogentriesRequest(req);
-        }
-
+        const req = new operations.GetLogLogentriesRequest({
+            loggingLogentriesName: loggingLogentriesName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -236,7 +245,7 @@ export class LoggingLogentries {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -270,7 +279,7 @@ export class LoggingLogentries {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogentriesResponse
+                        components.LoggingLogentriesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -295,13 +304,14 @@ export class LoggingLogentries {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listLogLogentries(
-        req: operations.ListLogLogentriesRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogentriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogLogentriesRequest(req);
-        }
-
+        const req = new operations.ListLogLogentriesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -317,7 +327,7 @@ export class LoggingLogentries {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -353,7 +363,7 @@ export class LoggingLogentries {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogentriesResponse,
+                        components.LoggingLogentriesResponse,
                         resFieldDepth
                     );
                 } else {
@@ -379,13 +389,18 @@ export class LoggingLogentries {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateLogLogentries(
-        req: operations.UpdateLogLogentriesRequest,
+        loggingLogentriesName: string,
+        serviceId: string,
+        versionId: number,
+        loggingLogentries?: components.LoggingLogentries,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogentriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogLogentriesRequest(req);
-        }
-
+        const req = new operations.UpdateLogLogentriesRequest({
+            loggingLogentriesName: loggingLogentriesName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLogentries: loggingLogentries,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -415,7 +430,7 @@ export class LoggingLogentries {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -455,7 +470,7 @@ export class LoggingLogentries {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogentriesResponse
+                        components.LoggingLogentriesResponse
                     );
                 } else {
                     throw new errors.SDKError(

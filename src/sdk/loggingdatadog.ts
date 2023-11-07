@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingDatadog {
      * Create a Datadog logging object for a particular service and version.
      */
     async createLogDatadog(
-        req: operations.CreateLogDatadogRequest,
+        serviceId: string,
+        versionId: number,
+        loggingDatadog?: components.LoggingDatadog,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogDatadogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogDatadogRequest(req);
-        }
-
+        const req = new operations.CreateLogDatadogRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingDatadog: loggingDatadog,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingDatadog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingDatadog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDatadogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDatadogResponse
+                        components.LoggingDatadogResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingDatadog {
      * Delete the Datadog logging object for a particular service and version.
      */
     async deleteLogDatadog(
-        req: operations.DeleteLogDatadogRequest,
+        loggingDatadogName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogDatadogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogDatadogRequest(req);
-        }
-
+        const req = new operations.DeleteLogDatadogRequest({
+            loggingDatadogName: loggingDatadogName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingDatadog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingDatadog {
      * Get the details for a Datadog logging object for a particular service and version.
      */
     async getLogDatadog(
-        req: operations.GetLogDatadogRequest,
+        loggingDatadogName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogDatadogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogDatadogRequest(req);
-        }
-
+        const req = new operations.GetLogDatadogRequest({
+            loggingDatadogName: loggingDatadogName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingDatadog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingDatadog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDatadogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDatadogResponse
+                        components.LoggingDatadogResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingDatadog {
      * List all of the Datadog logging objects for a particular service and version.
      */
     async listLogDatadog(
-        req: operations.ListLogDatadogRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogDatadogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogDatadogRequest(req);
-        }
-
+        const req = new operations.ListLogDatadogRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingDatadog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingDatadog {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDatadogResponse,
+                        components.LoggingDatadogResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingDatadog {
      * Update the Datadog logging object for a particular service and version.
      */
     async updateLogDatadog(
-        req: operations.UpdateLogDatadogRequest,
+        loggingDatadogName: string,
+        serviceId: string,
+        versionId: number,
+        loggingDatadog?: components.LoggingDatadog,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogDatadogResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogDatadogRequest(req);
-        }
-
+        const req = new operations.UpdateLogDatadogRequest({
+            loggingDatadogName: loggingDatadogName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingDatadog: loggingDatadog,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingDatadog {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingDatadog {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDatadogResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDatadogResponse
+                        components.LoggingDatadogResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class ConfigStoreItem {
      * Add multiple key-value pairs to an individual config store, specified by ID.
      */
     async bulkUpdateConfigStoreItem(
-        req: operations.BulkUpdateConfigStoreItemRequest,
+        configStoreId: string,
+        bulkUpdateConfigStoreListRequest?: components.BulkUpdateConfigStoreListRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.BulkUpdateConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.BulkUpdateConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            bulkUpdateConfigStoreListRequest: bulkUpdateConfigStoreListRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +66,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -128,13 +129,14 @@ export class ConfigStoreItem {
      * Add a single key-value pair to an individual config store, specified by ID.
      */
     async createConfigStoreItem(
-        req: operations.CreateConfigStoreItemRequest,
+        configStoreId: string,
+        configStoreItem?: components.ConfigStoreItem,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.CreateConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            configStoreItem: configStoreItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -160,7 +162,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -200,7 +202,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -223,13 +225,14 @@ export class ConfigStoreItem {
      * Delete an entry in a config store given a config store ID, and item key.
      */
     async deleteConfigStoreItem(
-        req: operations.DeleteConfigStoreItemRequest,
+        configStoreId: string,
+        configStoreItemKey: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.DeleteConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            configStoreItemKey: configStoreItemKey,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -245,7 +248,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -303,13 +306,14 @@ export class ConfigStoreItem {
      * Retrieve a config store entry given a config store ID and item key.
      */
     async getConfigStoreItem(
-        req: operations.GetConfigStoreItemRequest,
+        configStoreId: string,
+        configStoreItemKey: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.GetConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            configStoreItemKey: configStoreItemKey,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -325,7 +329,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -360,7 +364,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -383,13 +387,12 @@ export class ConfigStoreItem {
      * List the key-value pairs associated with a given config store ID.
      */
     async listConfigStoreItems(
-        req: operations.ListConfigStoreItemsRequest,
+        configStoreId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListConfigStoreItemsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListConfigStoreItemsRequest(req);
-        }
-
+        const req = new operations.ListConfigStoreItemsRequest({
+            configStoreId: configStoreId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -405,7 +408,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -442,7 +445,7 @@ export class ConfigStoreItem {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse,
+                        components.ConfigStoreItemResponse,
                         resFieldDepth
                     );
                 } else {
@@ -466,13 +469,16 @@ export class ConfigStoreItem {
      * Update an entry in a config store given a config store ID, item key, and item value.
      */
     async updateConfigStoreItem(
-        req: operations.UpdateConfigStoreItemRequest,
+        configStoreId: string,
+        configStoreItemKey: string,
+        configStoreItem?: components.ConfigStoreItem,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.UpdateConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            configStoreItemKey: configStoreItemKey,
+            configStoreItem: configStoreItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -498,7 +504,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -538,7 +544,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -561,13 +567,16 @@ export class ConfigStoreItem {
      * Insert or update an entry in a config store given a config store ID, item key, and item value.
      */
     async upsertConfigStoreItem(
-        req: operations.UpsertConfigStoreItemRequest,
+        configStoreId: string,
+        configStoreItemKey: string,
+        configStoreItem?: components.ConfigStoreItem,
         config?: AxiosRequestConfig
     ): Promise<operations.UpsertConfigStoreItemResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpsertConfigStoreItemRequest(req);
-        }
-
+        const req = new operations.UpsertConfigStoreItemRequest({
+            configStoreId: configStoreId,
+            configStoreItemKey: configStoreItemKey,
+            configStoreItem: configStoreItem,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -593,7 +602,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -633,7 +642,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(

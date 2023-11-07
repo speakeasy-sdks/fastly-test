@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Snippet {
      * Create a snippet for a particular service and version.
      */
     async createSnippet(
-        req: operations.CreateSnippetRequest,
+        serviceId: string,
+        versionId: number,
+        snippet?: components.Snippet,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateSnippetResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateSnippetRequest(req);
-        }
-
+        const req = new operations.CreateSnippetRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            snippet: snippet,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Snippet {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.snippetResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SnippetResponse
+                        components.SnippetResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Snippet {
      * Delete a specific snippet for a particular service and version.
      */
     async deleteSnippet(
-        req: operations.DeleteSnippetRequest,
+        serviceId: string,
+        snippetName: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteSnippetResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteSnippetRequest(req);
-        }
-
+        const req = new operations.DeleteSnippetRequest({
+            serviceId: serviceId,
+            snippetName: snippetName,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Snippet {
      * Get a single snippet for a particular service and version.
      */
     async getSnippet(
-        req: operations.GetSnippetRequest,
+        serviceId: string,
+        snippetName: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetSnippetResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetSnippetRequest(req);
-        }
-
+        const req = new operations.GetSnippetRequest({
+            serviceId: serviceId,
+            snippetName: snippetName,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Snippet {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.snippetResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SnippetResponse
+                        components.SnippetResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Snippet {
      * Get a single dynamic snippet for a particular service.
      */
     async getSnippetDynamic(
-        req: operations.GetSnippetDynamicRequest,
+        serviceId: string,
+        snippetId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetSnippetDynamicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetSnippetDynamicRequest(req);
-        }
-
+        const req = new operations.GetSnippetDynamicRequest({
+            serviceId: serviceId,
+            snippetId: snippetId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -337,7 +347,7 @@ export class Snippet {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.snippetResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SnippetResponse
+                        components.SnippetResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -360,13 +370,14 @@ export class Snippet {
      * List all snippets for a particular service and version.
      */
     async listSnippets(
-        req: operations.ListSnippetsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListSnippetsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListSnippetsRequest(req);
-        }
-
+        const req = new operations.ListSnippetsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -382,7 +393,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -418,7 +429,7 @@ export class Snippet {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SnippetResponse,
+                        components.SnippetResponse,
                         resFieldDepth
                     );
                 } else {
@@ -442,13 +453,16 @@ export class Snippet {
      * Update a dynamic snippet for a particular service.
      */
     async updateSnippetDynamic(
-        req: operations.UpdateSnippetDynamicRequest,
+        serviceId: string,
+        snippetId: string,
+        snippet?: components.Snippet,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateSnippetDynamicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateSnippetDynamicRequest(req);
-        }
-
+        const req = new operations.UpdateSnippetDynamicRequest({
+            serviceId: serviceId,
+            snippetId: snippetId,
+            snippet: snippet,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -474,7 +488,7 @@ export class Snippet {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -514,7 +528,7 @@ export class Snippet {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.snippetResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SnippetResponse
+                        components.SnippetResponse
                     );
                 } else {
                     throw new errors.SDKError(

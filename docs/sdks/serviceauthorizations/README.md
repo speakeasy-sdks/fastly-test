@@ -21,8 +21,8 @@ Create service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -52,10 +52,10 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [shared.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [components.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -70,16 +70,16 @@ Delete service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteServiceAuthorizationRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceAuthorizationId: string = "3krg2uUGZzb2W9Euo4moOY";
 
-  const res = await sdk.serviceAuthorizations.deleteServiceAuthorization({
-    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-  });
+  const res = await sdk.serviceAuthorizations.deleteServiceAuthorization(serviceAuthorizationId);
 
 
   if (res.statusCode == 200) {
@@ -90,10 +90,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.DeleteServiceAuthorizationRequest](../../models/operations/deleteserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceAuthorizationId`                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a service authorization.     | 3krg2uUGZzb2W9Euo4moOY                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -108,17 +108,17 @@ List service authorizations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListServiceAuthorizationRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const pageNumber: number = 1;
+const pageSize: number = 20;
 
-  const res = await sdk.serviceAuthorizations.listServiceAuthorization({
-    pageNumber: 1,
-    pageSize: 20,
-  });
+  const res = await sdk.serviceAuthorizations.listServiceAuthorization(pageNumber, pageSize);
 
 
   if (res.statusCode == 200) {
@@ -129,10 +129,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.ListServiceAuthorizationRequest](../../models/operations/listserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `pageNumber`                                                 | *number*                                                     | :heavy_minus_sign:                                           | Current page.                                                | 1                                                            |
+| `pageSize`                                                   | *number*                                                     | :heavy_minus_sign:                                           | Number of records per page.                                  | 20                                                           |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -147,16 +148,16 @@ Show service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ShowServiceAuthorizationRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const serviceAuthorizationId: string = "3krg2uUGZzb2W9Euo4moOY";
 
-  const res = await sdk.serviceAuthorizations.showServiceAuthorization({
-    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-  });
+  const res = await sdk.serviceAuthorizations.showServiceAuthorization(serviceAuthorizationId);
 
 
   if (res.statusCode == 200) {
@@ -167,10 +168,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.ShowServiceAuthorizationRequest](../../models/operations/showserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `serviceAuthorizationId`                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a service authorization.     | 3krg2uUGZzb2W9Euo4moOY                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -185,30 +186,42 @@ Update service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  Permission,
+  RelationshipMemberServiceInput,
+  ServiceAuthorization,
+  ServiceAuthorizationData,
+  ServiceAuthorizationDataAttributes,
+  ServiceAuthorizationDataData,
+  ServiceAuthorizationDataRelationships,
+  ServiceAuthorizationDataUser,
+  TypeService,
+  TypeServiceAuthorization,
+  TypeUser,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateServiceAuthorizationRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.serviceAuthorizations.updateServiceAuthorization({
-    serviceAuthorization: {
-      data: {
-        attributes: {
-          permission: Permission.Full,
-        },
-        relationships: {
-          service: {},
-          user: {
-            data: {},
-          },
-        },
+const serviceAuthorizationId: string = "3krg2uUGZzb2W9Euo4moOY";
+const serviceAuthorization: ServiceAuthorization = {
+  data: {
+    attributes: {
+      permission: Permission.Full,
+    },
+    relationships: {
+      service: {},
+      user: {
+        data: {},
       },
     },
-    serviceAuthorizationId: "3krg2uUGZzb2W9Euo4moOY",
-  });
+  },
+};
+
+  const res = await sdk.serviceAuthorizations.updateServiceAuthorization(serviceAuthorizationId, serviceAuthorization);
 
 
   if (res.statusCode == 200) {
@@ -219,10 +232,11 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.UpdateServiceAuthorizationRequest](../../models/operations/updateserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `serviceAuthorizationId`                                                       | *string*                                                                       | :heavy_check_mark:                                                             | Alphanumeric string identifying a service authorization.                       | 3krg2uUGZzb2W9Euo4moOY                                                         |
+| `serviceAuthorization`                                                         | [components.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_minus_sign:                                                             | N/A                                                                            |                                                                                |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |                                                                                |
 
 
 ### Response

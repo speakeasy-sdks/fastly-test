@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -34,13 +34,16 @@ export class WafExclusions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafRuleExclusion(
-        req: operations.CreateWafRuleExclusionRequest,
+        firewallId: string,
+        firewallVersionNumber: number,
+        wafExclusion?: components.WafExclusion,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafRuleExclusionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateWafRuleExclusionRequest(req);
-        }
-
+        const req = new operations.CreateWafRuleExclusionRequest({
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+            wafExclusion: wafExclusion,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -66,7 +69,7 @@ export class WafExclusions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -106,7 +109,7 @@ export class WafExclusions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafExclusionResponse
+                        components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -131,13 +134,16 @@ export class WafExclusions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteWafRuleExclusion(
-        req: operations.DeleteWafRuleExclusionRequest,
+        exclusionNumber: number,
+        firewallId: string,
+        firewallVersionNumber: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteWafRuleExclusionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteWafRuleExclusionRequest(req);
-        }
-
+        const req = new operations.DeleteWafRuleExclusionRequest({
+            exclusionNumber: exclusionNumber,
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -153,7 +159,7 @@ export class WafExclusions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -199,13 +205,16 @@ export class WafExclusions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRuleExclusion(
-        req: operations.GetWafRuleExclusionRequest,
+        exclusionNumber: number,
+        firewallId: string,
+        firewallVersionNumber: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafRuleExclusionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetWafRuleExclusionRequest(req);
-        }
-
+        const req = new operations.GetWafRuleExclusionRequest({
+            exclusionNumber: exclusionNumber,
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -221,7 +230,7 @@ export class WafExclusions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -256,7 +265,7 @@ export class WafExclusions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafExclusionResponse
+                        components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -303,7 +312,7 @@ export class WafExclusions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +348,7 @@ export class WafExclusions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafExclusionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafExclusionsResponse
+                        components.WafExclusionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -364,13 +373,18 @@ export class WafExclusions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafRuleExclusion(
-        req: operations.UpdateWafRuleExclusionRequest,
+        exclusionNumber: number,
+        firewallId: string,
+        firewallVersionNumber: number,
+        wafExclusion?: components.WafExclusion,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafRuleExclusionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateWafRuleExclusionRequest(req);
-        }
-
+        const req = new operations.UpdateWafRuleExclusionRequest({
+            exclusionNumber: exclusionNumber,
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+            wafExclusion: wafExclusion,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -396,7 +410,7 @@ export class WafExclusions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -436,7 +450,7 @@ export class WafExclusions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafExclusionResponse
+                        components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(

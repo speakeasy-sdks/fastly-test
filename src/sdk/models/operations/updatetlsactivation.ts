@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateTlsActivationRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsActivation?: shared.TlsActivation;
-
     /**
      * Alphanumeric string identifying a TLS activation.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_activation_id" })
     tlsActivationId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
+    tlsActivation?: components.TlsActivation;
 }
 
 export class UpdateTlsActivationResponse extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class UpdateTlsActivationResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsActivationResponse?: shared.TlsActivationResponse;
+    tlsActivationResponse?: components.TlsActivationResponse;
 }

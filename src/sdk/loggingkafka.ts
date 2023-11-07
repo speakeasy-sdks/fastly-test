@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingKafka {
      * Create a Kafka logging endpoint for a particular service and version.
      */
     async createLogKafka(
-        req: operations.CreateLogKafkaRequest,
+        serviceId: string,
+        versionId: number,
+        loggingKafka?: components.LoggingKafka,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogKafkaResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogKafkaRequest(req);
-        }
-
+        const req = new operations.CreateLogKafkaRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingKafka: loggingKafka,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingKafka {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingKafka {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingKafkaResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKafkaResponse
+                        components.LoggingKafkaResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingKafka {
      * Delete the Kafka logging endpoint for a particular service and version.
      */
     async deleteLogKafka(
-        req: operations.DeleteLogKafkaRequest,
+        loggingKafkaName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogKafkaResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogKafkaRequest(req);
-        }
-
+        const req = new operations.DeleteLogKafkaRequest({
+            loggingKafkaName: loggingKafkaName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingKafka {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingKafka {
      * Get the Kafka logging endpoint for a particular service and version.
      */
     async getLogKafka(
-        req: operations.GetLogKafkaRequest,
+        loggingKafkaName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogKafkaResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogKafkaRequest(req);
-        }
-
+        const req = new operations.GetLogKafkaRequest({
+            loggingKafkaName: loggingKafkaName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingKafka {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingKafka {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingKafkaResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKafkaResponse
+                        components.LoggingKafkaResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingKafka {
      * List all of the Kafka logging endpoints for a particular service and version.
      */
     async listLogKafka(
-        req: operations.ListLogKafkaRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogKafkaResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogKafkaRequest(req);
-        }
-
+        const req = new operations.ListLogKafkaRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingKafka {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingKafka {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingKafkaResponse,
+                        components.LoggingKafkaResponse,
                         resFieldDepth
                     );
                 } else {

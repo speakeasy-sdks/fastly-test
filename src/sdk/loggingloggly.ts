@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingLoggly {
      * Create a Loggly logging object for a particular service and version.
      */
     async createLogLoggly(
-        req: operations.CreateLogLogglyRequest,
+        serviceId: string,
+        versionId: number,
+        loggingLoggly?: components.LoggingLoggly,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogglyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogLogglyRequest(req);
-        }
-
+        const req = new operations.CreateLogLogglyRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLoggly: loggingLoggly,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingLoggly {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingLoggly {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogglyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogglyResponse
+                        components.LoggingLogglyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingLoggly {
      * Delete the Loggly logging object for a particular service and version.
      */
     async deleteLogLoggly(
-        req: operations.DeleteLogLogglyRequest,
+        loggingLogglyName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogglyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogLogglyRequest(req);
-        }
-
+        const req = new operations.DeleteLogLogglyRequest({
+            loggingLogglyName: loggingLogglyName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingLoggly {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingLoggly {
      * Get the Loggly logging object for a particular service and version.
      */
     async getLogLoggly(
-        req: operations.GetLogLogglyRequest,
+        loggingLogglyName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogglyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogLogglyRequest(req);
-        }
-
+        const req = new operations.GetLogLogglyRequest({
+            loggingLogglyName: loggingLogglyName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingLoggly {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingLoggly {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogglyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogglyResponse
+                        components.LoggingLogglyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingLoggly {
      * List all Loggly logging objects for a particular service and version.
      */
     async listLogLoggly(
-        req: operations.ListLogLogglyRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogglyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogLogglyRequest(req);
-        }
-
+        const req = new operations.ListLogLogglyRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingLoggly {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingLoggly {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogglyResponse,
+                        components.LoggingLogglyResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingLoggly {
      * Update the Loggly logging object for a particular service and version.
      */
     async updateLogLoggly(
-        req: operations.UpdateLogLogglyRequest,
+        loggingLogglyName: string,
+        serviceId: string,
+        versionId: number,
+        loggingLoggly?: components.LoggingLoggly,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogglyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogLogglyRequest(req);
-        }
-
+        const req = new operations.UpdateLogLogglyRequest({
+            loggingLogglyName: loggingLogglyName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLoggly: loggingLoggly,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingLoggly {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingLoggly {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogglyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogglyResponse
+                        components.LoggingLogglyResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingCloudfiles {
      * Create a Cloud Files log endpoint for a particular service and version.
      */
     async createLogCloudfiles(
-        req: operations.CreateLogCloudfilesRequest,
+        serviceId: string,
+        versionId: number,
+        loggingCloudfiles?: components.LoggingCloudfiles,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogCloudfilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogCloudfilesRequest(req);
-        }
-
+        const req = new operations.CreateLogCloudfilesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingCloudfiles: loggingCloudfiles,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class LoggingCloudfiles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -105,7 +108,7 @@ export class LoggingCloudfiles {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingCloudfilesResponse
+                        components.LoggingCloudfilesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -128,13 +131,16 @@ export class LoggingCloudfiles {
      * Delete the Cloud Files log endpoint for a particular service and version.
      */
     async deleteLogCloudfiles(
-        req: operations.DeleteLogCloudfilesRequest,
+        loggingCloudfilesName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogCloudfilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogCloudfilesRequest(req);
-        }
-
+        const req = new operations.DeleteLogCloudfilesRequest({
+            loggingCloudfilesName: loggingCloudfilesName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -150,7 +156,7 @@ export class LoggingCloudfiles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -208,13 +214,16 @@ export class LoggingCloudfiles {
      * Get the Cloud Files log endpoint for a particular service and version.
      */
     async getLogCloudfiles(
-        req: operations.GetLogCloudfilesRequest,
+        loggingCloudfilesName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogCloudfilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogCloudfilesRequest(req);
-        }
-
+        const req = new operations.GetLogCloudfilesRequest({
+            loggingCloudfilesName: loggingCloudfilesName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -230,7 +239,7 @@ export class LoggingCloudfiles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -264,7 +273,7 @@ export class LoggingCloudfiles {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingCloudfilesResponse
+                        components.LoggingCloudfilesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -287,13 +296,14 @@ export class LoggingCloudfiles {
      * List all of the Cloud Files log endpoints for a particular service and version.
      */
     async listLogCloudfiles(
-        req: operations.ListLogCloudfilesRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogCloudfilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogCloudfilesRequest(req);
-        }
-
+        const req = new operations.ListLogCloudfilesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -309,7 +319,7 @@ export class LoggingCloudfiles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -345,7 +355,7 @@ export class LoggingCloudfiles {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingCloudfilesResponse,
+                        components.LoggingCloudfilesResponse,
                         resFieldDepth
                     );
                 } else {
@@ -369,13 +379,18 @@ export class LoggingCloudfiles {
      * Update the Cloud Files log endpoint for a particular service and version.
      */
     async updateLogCloudfiles(
-        req: operations.UpdateLogCloudfilesRequest,
+        loggingCloudfilesName: string,
+        serviceId: string,
+        versionId: number,
+        loggingCloudfiles?: components.LoggingCloudfiles,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogCloudfilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogCloudfilesRequest(req);
-        }
-
+        const req = new operations.UpdateLogCloudfilesRequest({
+            loggingCloudfilesName: loggingCloudfilesName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingCloudfiles: loggingCloudfiles,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -405,7 +420,7 @@ export class LoggingCloudfiles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -445,7 +460,7 @@ export class LoggingCloudfiles {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingCloudfilesResponse
+                        components.LoggingCloudfilesResponse
                     );
                 } else {
                     throw new errors.SDKError(

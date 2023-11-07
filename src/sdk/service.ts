@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class Service {
      * Create a service.
      */
     async createService(
-        req: shared.ServiceCreate,
+        req: components.ServiceCreate,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.ServiceCreate(req);
+            req = new components.ServiceCreate(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class Service {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.serviceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceResponse
+                        components.ServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,13 +119,12 @@ export class Service {
      * Delete a service.
      */
     async deleteService(
-        req: operations.DeleteServiceRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteServiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteServiceRequest(req);
-        }
-
+        const req = new operations.DeleteServiceRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -137,7 +136,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -194,13 +193,12 @@ export class Service {
      * Get a specific service by id.
      */
     async getService(
-        req: operations.GetServiceRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetServiceRequest(req);
-        }
-
+        const req = new operations.GetServiceRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -212,7 +210,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -246,7 +244,7 @@ export class Service {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.serviceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceResponse
+                        components.ServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -269,13 +267,14 @@ export class Service {
      * List detailed information on a specified service.
      */
     async getServiceDetail(
-        req: operations.GetServiceDetailRequest,
+        serviceId: string,
+        version?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceDetailResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetServiceDetailRequest(req);
-        }
-
+        const req = new operations.GetServiceDetailRequest({
+            serviceId: serviceId,
+            version: version,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -287,7 +286,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -322,7 +321,7 @@ export class Service {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.serviceDetail = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceDetail
+                        components.ServiceDetail
                     );
                 } else {
                     throw new errors.SDKError(
@@ -345,13 +344,12 @@ export class Service {
      * List the domains within a service.
      */
     async listServiceDomains(
-        req: operations.ListServiceDomainsRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServiceDomainsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListServiceDomainsRequest(req);
-        }
-
+        const req = new operations.ListServiceDomainsRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -363,7 +361,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -400,7 +398,7 @@ export class Service {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DomainResponse,
+                        components.DomainResponse,
                         resFieldDepth
                     );
                 } else {
@@ -424,13 +422,18 @@ export class Service {
      * List services.
      */
     async listServices(
-        req: operations.ListServicesRequest,
+        direction?: components.Direction,
+        page?: number,
+        perPage?: number,
+        sort?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServicesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListServicesRequest(req);
-        }
-
+        const req = new operations.ListServicesRequest({
+            direction: direction,
+            page: page,
+            perPage: perPage,
+            sort: sort,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -442,7 +445,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -480,7 +483,7 @@ export class Service {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceListResponse,
+                        components.ServiceListResponse,
                         resFieldDepth
                     );
                 } else {
@@ -504,13 +507,12 @@ export class Service {
      * Get a specific service by name.
      */
     async searchService(
-        req: operations.SearchServiceRequest,
+        name: string,
         config?: AxiosRequestConfig
     ): Promise<operations.SearchServiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.SearchServiceRequest(req);
-        }
-
+        const req = new operations.SearchServiceRequest({
+            name: name,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -522,7 +524,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -557,7 +559,7 @@ export class Service {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.serviceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceResponse
+                        components.ServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -580,13 +582,14 @@ export class Service {
      * Update a service.
      */
     async updateService(
-        req: operations.UpdateServiceRequest,
+        serviceId: string,
+        service?: components.Service,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServiceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateServiceRequest(req);
-        }
-
+        const req = new operations.UpdateServiceRequest({
+            serviceId: serviceId,
+            service: service,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -608,7 +611,7 @@ export class Service {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -647,7 +650,7 @@ export class Service {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.serviceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ServiceResponse
+                        components.ServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(

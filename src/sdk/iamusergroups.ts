@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,12 @@ export class IamUserGroups {
      * Delete a user group.
      */
     async deleteAUserGroup(
-        req: operations.DeleteAUserGroupRequest,
+        userGroupId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteAUserGroupResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteAUserGroupRequest(req);
-        }
-
+        const req = new operations.DeleteAUserGroupRequest({
+            userGroupId: userGroupId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +46,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -90,13 +89,12 @@ export class IamUserGroups {
      * Get a user group.
      */
     async getAUserGroup(
-        req: operations.GetAUserGroupRequest,
+        userGroupId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAUserGroupResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetAUserGroupRequest(req);
-        }
-
+        const req = new operations.GetAUserGroupRequest({
+            userGroupId: userGroupId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -108,7 +106,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -165,13 +163,16 @@ export class IamUserGroups {
      * List members of a user group.
      */
     async listUserGroupMembers(
-        req: operations.ListUserGroupMembersRequest,
+        userGroupId: string,
+        page?: number,
+        perPage?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupMembersResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListUserGroupMembersRequest(req);
-        }
-
+        const req = new operations.ListUserGroupMembersRequest({
+            userGroupId: userGroupId,
+            page: page,
+            perPage: perPage,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -183,7 +184,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -242,13 +243,16 @@ export class IamUserGroups {
      * List roles in a user group.
      */
     async listUserGroupRoles(
-        req: operations.ListUserGroupRolesRequest,
+        userGroupId: string,
+        page?: number,
+        perPage?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupRolesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListUserGroupRolesRequest(req);
-        }
-
+        const req = new operations.ListUserGroupRolesRequest({
+            userGroupId: userGroupId,
+            page: page,
+            perPage: perPage,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -260,7 +264,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -319,13 +323,16 @@ export class IamUserGroups {
      * List service groups in a user group.
      */
     async listUserGroupServiceGroups(
-        req: operations.ListUserGroupServiceGroupsRequest,
+        userGroupId: string,
+        page?: number,
+        perPage?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupServiceGroupsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListUserGroupServiceGroupsRequest(req);
-        }
-
+        const req = new operations.ListUserGroupServiceGroupsRequest({
+            userGroupId: userGroupId,
+            page: page,
+            perPage: perPage,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -341,7 +348,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -400,13 +407,14 @@ export class IamUserGroups {
      * List all user groups.
      */
     async listUserGroups(
-        req: operations.ListUserGroupsRequest,
+        page?: number,
+        perPage?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListUserGroupsRequest(req);
-        }
-
+        const req = new operations.ListUserGroupsRequest({
+            page: page,
+            perPage: perPage,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -418,7 +426,7 @@ export class IamUserGroups {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingPubsub {
      * Create a Pub/Sub logging object for a particular service and version.
      */
     async createLogGcpPubsub(
-        req: operations.CreateLogGcpPubsubRequest,
+        serviceId: string,
+        versionId: number,
+        loggingGooglePubsub?: components.LoggingGooglePubsub,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogGcpPubsubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogGcpPubsubRequest(req);
-        }
-
+        const req = new operations.CreateLogGcpPubsubRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingGooglePubsub: loggingGooglePubsub,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class LoggingPubsub {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -105,7 +108,7 @@ export class LoggingPubsub {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGooglePubsubResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGooglePubsubResponse
+                        components.LoggingGooglePubsubResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -128,13 +131,16 @@ export class LoggingPubsub {
      * Delete a Pub/Sub logging object for a particular service and version.
      */
     async deleteLogGcpPubsub(
-        req: operations.DeleteLogGcpPubsubRequest,
+        loggingGooglePubsubName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogGcpPubsubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogGcpPubsubRequest(req);
-        }
-
+        const req = new operations.DeleteLogGcpPubsubRequest({
+            loggingGooglePubsubName: loggingGooglePubsubName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -150,7 +156,7 @@ export class LoggingPubsub {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -208,13 +214,16 @@ export class LoggingPubsub {
      * Get the details for a Pub/Sub logging object for a particular service and version.
      */
     async getLogGcpPubsub(
-        req: operations.GetLogGcpPubsubRequest,
+        loggingGooglePubsubName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogGcpPubsubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogGcpPubsubRequest(req);
-        }
-
+        const req = new operations.GetLogGcpPubsubRequest({
+            loggingGooglePubsubName: loggingGooglePubsubName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -230,7 +239,7 @@ export class LoggingPubsub {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -264,7 +273,7 @@ export class LoggingPubsub {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGooglePubsubResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGooglePubsubResponse
+                        components.LoggingGooglePubsubResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -287,13 +296,14 @@ export class LoggingPubsub {
      * List all of the Pub/Sub logging objects for a particular service and version.
      */
     async listLogGcpPubsub(
-        req: operations.ListLogGcpPubsubRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogGcpPubsubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogGcpPubsubRequest(req);
-        }
-
+        const req = new operations.ListLogGcpPubsubRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -309,7 +319,7 @@ export class LoggingPubsub {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -345,7 +355,7 @@ export class LoggingPubsub {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGooglePubsubResponse,
+                        components.LoggingGooglePubsubResponse,
                         resFieldDepth
                     );
                 } else {
@@ -369,13 +379,18 @@ export class LoggingPubsub {
      * Update a Pub/Sub logging object for a particular service and version.
      */
     async updateLogGcpPubsub(
-        req: operations.UpdateLogGcpPubsubRequest,
+        loggingGooglePubsubName: string,
+        serviceId: string,
+        versionId: number,
+        loggingGooglePubsub?: components.LoggingGooglePubsub,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogGcpPubsubResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogGcpPubsubRequest(req);
-        }
-
+        const req = new operations.UpdateLogGcpPubsubRequest({
+            loggingGooglePubsubName: loggingGooglePubsubName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingGooglePubsub: loggingGooglePubsub,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -405,7 +420,7 @@ export class LoggingPubsub {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -445,7 +460,7 @@ export class LoggingPubsub {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGooglePubsubResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGooglePubsubResponse
+                        components.LoggingGooglePubsubResponse
                     );
                 } else {
                     throw new errors.SDKError(

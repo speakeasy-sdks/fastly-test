@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateAclRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    acl?: shared.Acl;
-
     /**
      * Name for the ACL. Must start with an alphanumeric character and contain only alphanumeric characters, underscores, and whitespace.
      */
@@ -27,6 +24,9 @@ export class UpdateAclRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    acl?: components.Acl;
 }
 
 export class UpdateAclResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class UpdateAclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    aclResponse?: shared.AclResponse;
+    aclResponse?: components.AclResponse;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,18 @@ export class WafTags {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafTags(
-        req: operations.ListWafTagsRequest,
+        filterName?: string,
+        include?: components.WafTagInclude,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafTagsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListWafTagsRequest(req);
-        }
-
+        const req = new operations.ListWafTagsRequest({
+            filterName: filterName,
+            include: include,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -49,7 +54,7 @@ export class WafTags {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -84,7 +89,7 @@ export class WafTags {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafTagsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafTagsResponse
+                        components.WafTagsResponse
                     );
                 } else {
                     throw new errors.SDKError(

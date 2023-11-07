@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class DictionaryInfo {
      * Retrieve metadata for a single dictionary by ID for a version and service.
      */
     async getDictionaryInfo(
-        req: operations.GetDictionaryInfoRequest,
+        dictionaryId: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryInfoResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDictionaryInfoRequest(req);
-        }
-
+        const req = new operations.GetDictionaryInfoRequest({
+            dictionaryId: dictionaryId,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +54,7 @@ export class DictionaryInfo {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -85,7 +88,7 @@ export class DictionaryInfo {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryInfoResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryInfoResponse
+                        components.DictionaryInfoResponse
                     );
                 } else {
                     throw new errors.SDKError(

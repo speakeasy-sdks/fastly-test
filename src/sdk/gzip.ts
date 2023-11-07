@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Gzip {
      * Create a named gzip configuration on a particular service and version.
      */
     async createGzipConfig(
-        req: operations.CreateGzipConfigRequest,
+        serviceId: string,
+        versionId: number,
+        gzip?: components.Gzip,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateGzipConfigResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateGzipConfigRequest(req);
-        }
-
+        const req = new operations.CreateGzipConfigRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            gzip: gzip,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Gzip {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Gzip {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.gzipResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GzipResponse
+                        components.GzipResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Gzip {
      * Delete a named gzip configuration on a particular service and version.
      */
     async deleteGzipConfig(
-        req: operations.DeleteGzipConfigRequest,
+        gzipName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteGzipConfigResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteGzipConfigRequest(req);
-        }
-
+        const req = new operations.DeleteGzipConfigRequest({
+            gzipName: gzipName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Gzip {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Gzip {
      * Get the gzip configuration for a particular service, version, and name.
      */
     async getGzipConfigs(
-        req: operations.GetGzipConfigsRequest,
+        gzipName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetGzipConfigsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetGzipConfigsRequest(req);
-        }
-
+        const req = new operations.GetGzipConfigsRequest({
+            gzipName: gzipName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Gzip {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Gzip {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.gzipResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GzipResponse
+                        components.GzipResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Gzip {
      * List all gzip configurations for a particular service and version.
      */
     async listGzipConfigs(
-        req: operations.ListGzipConfigsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListGzipConfigsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListGzipConfigsRequest(req);
-        }
-
+        const req = new operations.ListGzipConfigsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Gzip {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Gzip {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GzipResponse,
+                        components.GzipResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Gzip {
      * Update a named gzip configuration on a particular service and version.
      */
     async updateGzipConfig(
-        req: operations.UpdateGzipConfigRequest,
+        gzipName: string,
+        serviceId: string,
+        versionId: number,
+        gzip?: components.Gzip,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateGzipConfigResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateGzipConfigRequest(req);
-        }
-
+        const req = new operations.UpdateGzipConfigRequest({
+            gzipName: gzipName,
+            serviceId: serviceId,
+            versionId: versionId,
+            gzip: gzip,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Gzip {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Gzip {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.gzipResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GzipResponse
+                        components.GzipResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -32,13 +32,14 @@ export class Package {
      * List detailed information about the Compute@Edge package for the specified service.
      */
     async getPackage(
-        req: operations.GetPackageRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetPackageResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetPackageRequest(req);
-        }
-
+        const req = new operations.GetPackageRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -54,7 +55,7 @@ export class Package {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -88,7 +89,7 @@ export class Package {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.packageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PackageResponse
+                        components.PackageResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -111,13 +112,18 @@ export class Package {
      * Upload a Compute@Edge package associated with the specified service version.
      */
     async putPackage(
-        req: operations.PutPackageRequest,
+        serviceId: string,
+        versionId: number,
+        expect?: string,
+        packageUpload?: components.PackageUpload,
         config?: AxiosRequestConfig
     ): Promise<operations.PutPackageResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PutPackageRequest(req);
-        }
-
+        const req = new operations.PutPackageRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            expect: expect,
+            packageUpload: packageUpload,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -147,7 +153,7 @@ export class Package {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -187,7 +193,7 @@ export class Package {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.packageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PackageResponse
+                        components.PackageResponse
                     );
                 } else {
                     throw new errors.SDKError(

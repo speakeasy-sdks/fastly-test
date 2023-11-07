@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,12 @@ export class IamRoles {
      * Delete a role.
      */
     async deleteARole(
-        req: operations.DeleteARoleRequest,
+        roleId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteARoleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteARoleRequest(req);
-        }
-
+        const req = new operations.DeleteARoleRequest({
+            roleId: roleId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +46,7 @@ export class IamRoles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -90,13 +89,12 @@ export class IamRoles {
      * Get a role.
      */
     async getARole(
-        req: operations.GetARoleRequest,
+        roleId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetARoleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetARoleRequest(req);
-        }
-
+        const req = new operations.GetARoleRequest({
+            roleId: roleId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -108,7 +106,7 @@ export class IamRoles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -165,13 +163,12 @@ export class IamRoles {
      * List all permissions in a role.
      */
     async listRolePermissions(
-        req: operations.ListRolePermissionsRequest,
+        roleId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListRolePermissionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListRolePermissionsRequest(req);
-        }
-
+        const req = new operations.ListRolePermissionsRequest({
+            roleId: roleId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -183,7 +180,7 @@ export class IamRoles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -241,13 +238,14 @@ export class IamRoles {
      * List all roles.
      */
     async listRoles(
-        req: operations.ListRolesRequest,
+        page?: number,
+        perPage?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListRolesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListRolesRequest(req);
-        }
-
+        const req = new operations.ListRolesRequest({
+            page: page,
+            perPage: perPage,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -259,7 +257,7 @@ export class IamRoles {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };

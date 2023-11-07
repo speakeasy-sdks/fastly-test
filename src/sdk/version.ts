@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class Version {
      * Activate the current version.
      */
     async activateServiceVersion(
-        req: operations.ActivateServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ActivateServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ActivateServiceVersionRequest(req);
-        }
-
+        const req = new operations.ActivateServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +52,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -86,7 +87,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -109,13 +110,14 @@ export class Version {
      * Clone the current configuration into a new version.
      */
     async cloneServiceVersion(
-        req: operations.CloneServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.CloneServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CloneServiceVersionRequest(req);
-        }
-
+        const req = new operations.CloneServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -131,7 +133,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -164,7 +166,7 @@ export class Version {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.version = utils.objectToClass(JSON.parse(decodedRes), shared.Version);
+                    res.version = utils.objectToClass(JSON.parse(decodedRes), components.Version);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -186,13 +188,12 @@ export class Version {
      * Create a version for a particular service.
      */
     async createServiceVersion(
-        req: operations.CreateServiceVersionRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateServiceVersionRequest(req);
-        }
-
+        const req = new operations.CreateServiceVersionRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -204,7 +205,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -239,7 +240,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionCreateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionCreateResponse
+                        components.VersionCreateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -262,13 +263,14 @@ export class Version {
      * Deactivate the current version.
      */
     async deactivateServiceVersion(
-        req: operations.DeactivateServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeactivateServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeactivateServiceVersionRequest(req);
-        }
-
+        const req = new operations.DeactivateServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -284,7 +286,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -319,7 +321,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -342,13 +344,14 @@ export class Version {
      * Get the version for a particular service.
      */
     async getServiceVersion(
-        req: operations.GetServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetServiceVersionRequest(req);
-        }
-
+        const req = new operations.GetServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -364,7 +367,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -398,7 +401,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -421,13 +424,12 @@ export class Version {
      * List the versions for a particular service.
      */
     async listServiceVersions(
-        req: operations.ListServiceVersionsRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServiceVersionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListServiceVersionsRequest(req);
-        }
-
+        const req = new operations.ListServiceVersionsRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -439,7 +441,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -476,7 +478,7 @@ export class Version {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse,
+                        components.VersionResponse,
                         resFieldDepth
                     );
                 } else {
@@ -500,13 +502,14 @@ export class Version {
      * Locks the specified version.
      */
     async lockServiceVersion(
-        req: operations.LockServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.LockServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.LockServiceVersionRequest(req);
-        }
-
+        const req = new operations.LockServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -522,7 +525,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -555,7 +558,7 @@ export class Version {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.version = utils.objectToClass(JSON.parse(decodedRes), shared.Version);
+                    res.version = utils.objectToClass(JSON.parse(decodedRes), components.Version);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -577,13 +580,16 @@ export class Version {
      * Update a particular version for a particular service.
      */
     async updateServiceVersion(
-        req: operations.UpdateServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
+        version?: components.VersionInput,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateServiceVersionRequest(req);
-        }
-
+        const req = new operations.UpdateServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            version: version,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -609,7 +615,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -649,7 +655,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -672,13 +678,14 @@ export class Version {
      * Validate the version for a particular service and version.
      */
     async validateServiceVersion(
-        req: operations.ValidateServiceVersionRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ValidateServiceVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ValidateServiceVersionRequest(req);
-        }
-
+        const req = new operations.ValidateServiceVersionRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -694,7 +701,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };

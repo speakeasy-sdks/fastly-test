@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogSumologicRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSumologic?: shared.LoggingSumologic;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -21,6 +18,9 @@ export class CreateLogSumologicRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    loggingSumologic?: components.LoggingSumologic;
 }
 
 export class CreateLogSumologicResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class CreateLogSumologicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSumologicResponse?: shared.LoggingSumologicResponse;
+    loggingSumologicResponse?: components.LoggingSumologicResponse;
 }

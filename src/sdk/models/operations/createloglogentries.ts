@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogLogentriesRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingLogentries?: shared.LoggingLogentries;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -21,6 +18,9 @@ export class CreateLogLogentriesRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    loggingLogentries?: components.LoggingLogentries;
 }
 
 export class CreateLogLogentriesResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class CreateLogLogentriesResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingLogentriesResponse?: shared.LoggingLogentriesResponse;
+    loggingLogentriesResponse?: components.LoggingLogentriesResponse;
 }

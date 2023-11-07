@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogSyslogRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSyslog?: shared.LoggingSyslog;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -21,6 +18,9 @@ export class CreateLogSyslogRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    loggingSyslog?: components.LoggingSyslog;
 }
 
 export class CreateLogSyslogResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class CreateLogSyslogResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSyslogResponse?: shared.LoggingSyslogResponse;
+    loggingSyslogResponse?: components.LoggingSyslogResponse;
 }

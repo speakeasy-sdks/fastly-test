@@ -19,16 +19,16 @@ Get a specific event.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetEventRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const eventId: string = "1PTzLK8g1NRKMGu5kUb8SC";
 
-  const res = await sdk.events.getEvent({
-    eventId: "1PTzLK8g1NRKMGu5kUb8SC",
-  });
+  const res = await sdk.events.getEvent(eventId);
 
 
   if (res.statusCode == 200) {
@@ -39,10 +39,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetEventRequest](../../models/operations/geteventrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `eventId`                                                    | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying an event.                    | 1PTzLK8g1NRKMGu5kUb8SC                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -57,8 +57,8 @@ List all events for a particular customer. Events can be filtered by user, custo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Sort } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

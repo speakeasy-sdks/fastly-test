@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Resource {
      * Create a link between a resource and a service version.
      */
     async createResource(
-        req: operations.CreateResourceRequest,
+        serviceId: string,
+        versionId: number,
+        resource?: components.Resource,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateResourceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateResourceRequest(req);
-        }
-
+        const req = new operations.CreateResourceRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            resource: resource,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Resource {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Resource {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.resourceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResourceResponse
+                        components.ResourceResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Resource {
      * Delete a link between a resource and a service version.
      */
     async deleteResource(
-        req: operations.DeleteResourceRequest,
+        id: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteResourceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteResourceRequest(req);
-        }
-
+        const req = new operations.DeleteResourceRequest({
+            id: id,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Resource {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Resource {
      * Display a resource link by its identifier.
      */
     async getResource(
-        req: operations.GetResourceRequest,
+        id: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetResourceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetResourceRequest(req);
-        }
-
+        const req = new operations.GetResourceRequest({
+            id: id,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Resource {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Resource {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.resourceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResourceResponse
+                        components.ResourceResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Resource {
      * List links between resources and services
      */
     async listResources(
-        req: operations.ListResourcesRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListResourcesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListResourcesRequest(req);
-        }
-
+        const req = new operations.ListResourcesRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Resource {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Resource {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResourceResponse,
+                        components.ResourceResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Resource {
      * Update a link between a resource and a service version.
      */
     async updateResource(
-        req: operations.UpdateResourceRequest,
+        id: string,
+        serviceId: string,
+        versionId: number,
+        resource?: components.Resource,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateResourceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateResourceRequest(req);
-        }
-
+        const req = new operations.UpdateResourceRequest({
+            id: id,
+            serviceId: serviceId,
+            versionId: versionId,
+            resource: resource,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Resource {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Resource {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.resourceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ResourceResponse
+                        components.ResourceResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -20,18 +20,18 @@ Get a specific rule revision.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetWafRuleRevisionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
+const wafRuleRevisionNumber: number = 2;
+const include: string = "source,vcl,waf_rule";
 
-  const res = await sdk.wafRuleRevisions.getWafRuleRevision({
-    include: "source,vcl,waf_rule",
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-    wafRuleRevisionNumber: 2,
-  });
+  const res = await sdk.wafRuleRevisions.getWafRuleRevision(wafRuleId, wafRuleRevisionNumber, include);
 
 
   if (res.statusCode == 200) {
@@ -42,10 +42,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetWafRuleRevisionRequest](../../models/operations/getwafrulerevisionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                                                                                                                                                                                            | Type                                                                                                                                                                                                                                                                 | Required                                                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                          | Example                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wafRuleId`                                                                                                                                                                                                                                                          | *string*                                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                   | Alphanumeric string identifying a WAF rule.                                                                                                                                                                                                                          | 3krg2uUGZzb2W9Euo4moOR                                                                                                                                                                                                                                               |
+| `wafRuleRevisionNumber`                                                                                                                                                                                                                                              | *number*                                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                   | Revision number.                                                                                                                                                                                                                                                     | 2                                                                                                                                                                                                                                                                    |
+| `include`                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                                                                                                   | Include relationships. Optional, comma-separated values. Permitted values: `waf_rule`, `vcl`, and `source`. The `vcl` and `source` relationships show the WAF VCL and corresponding ModSecurity source. These fields are blank unless the relationship is included.<br/> | source,vcl,waf_rule                                                                                                                                                                                                                                                  |
+| `config`                                                                                                                                                                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                   | Available config options for making requests.                                                                                                                                                                                                                        |                                                                                                                                                                                                                                                                      |
 
 
 ### Response
@@ -62,20 +64,20 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { WafRuleRevisionInclude } from "Fastly/dist/sdk/models/components";
+import { ListWafRuleRevisionsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
+const include: WafRuleRevisionInclude = WafRuleRevisionInclude.WafRule;
+const pageNumber: number = 1;
+const pageSize: number = 20;
 
-  const res = await sdk.wafRuleRevisions.listWafRuleRevisions({
-    include: WafRuleRevisionInclude.WafRule,
-    pageNumber: 1,
-    pageSize: 20,
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
+  const res = await sdk.wafRuleRevisions.listWafRuleRevisions(wafRuleId, include, pageNumber, pageSize);
 
 
   if (res.statusCode == 200) {
@@ -86,10 +88,13 @@ import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListWafRuleRevisionsRequest](../../models/operations/listwafrulerevisionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `wafRuleId`                                                                        | *string*                                                                           | :heavy_check_mark:                                                                 | Alphanumeric string identifying a WAF rule.                                        | 3krg2uUGZzb2W9Euo4moOR                                                             |
+| `include`                                                                          | [components.WafRuleRevisionInclude](../../models/shared/wafrulerevisioninclude.md) | :heavy_minus_sign:                                                                 | Include relationships. Optional.                                                   | waf_rule                                                                           |
+| `pageNumber`                                                                       | *number*                                                                           | :heavy_minus_sign:                                                                 | Current page.                                                                      | 1                                                                                  |
+| `pageSize`                                                                         | *number*                                                                           | :heavy_minus_sign:                                                                 | Number of records per page.                                                        | 20                                                                                 |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |                                                                                    |
 
 
 ### Response

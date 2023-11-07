@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingBigquery {
      * Create a BigQuery logging object for a particular service and version.
      */
     async createLogBigquery(
-        req: operations.CreateLogBigqueryRequest,
+        serviceId: string,
+        versionId: number,
+        loggingBigquery?: components.LoggingBigquery,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogBigqueryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogBigqueryRequest(req);
-        }
-
+        const req = new operations.CreateLogBigqueryRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingBigquery: loggingBigquery,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingBigquery {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingBigquery {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingBigqueryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingBigqueryResponse
+                        components.LoggingBigqueryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingBigquery {
      * Delete a BigQuery logging object for a particular service and version.
      */
     async deleteLogBigquery(
-        req: operations.DeleteLogBigqueryRequest,
+        loggingBigqueryName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogBigqueryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogBigqueryRequest(req);
-        }
-
+        const req = new operations.DeleteLogBigqueryRequest({
+            loggingBigqueryName: loggingBigqueryName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingBigquery {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingBigquery {
      * Get the details for a BigQuery logging object for a particular service and version.
      */
     async getLogBigquery(
-        req: operations.GetLogBigqueryRequest,
+        loggingBigqueryName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogBigqueryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogBigqueryRequest(req);
-        }
-
+        const req = new operations.GetLogBigqueryRequest({
+            loggingBigqueryName: loggingBigqueryName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingBigquery {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingBigquery {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingBigqueryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingBigqueryResponse
+                        components.LoggingBigqueryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingBigquery {
      * List all of the BigQuery logging objects for a particular service and version.
      */
     async listLogBigquery(
-        req: operations.ListLogBigqueryRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogBigqueryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogBigqueryRequest(req);
-        }
-
+        const req = new operations.ListLogBigqueryRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingBigquery {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingBigquery {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingBigqueryResponse,
+                        components.LoggingBigqueryResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingBigquery {
      * Update a BigQuery logging object for a particular service and version.
      */
     async updateLogBigquery(
-        req: operations.UpdateLogBigqueryRequest,
+        loggingBigqueryName: string,
+        serviceId: string,
+        versionId: number,
+        loggingBigquery?: components.LoggingBigquery,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogBigqueryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogBigqueryRequest(req);
-        }
-
+        const req = new operations.UpdateLogBigqueryRequest({
+            loggingBigqueryName: loggingBigqueryName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingBigquery: loggingBigquery,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingBigquery {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingBigquery {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingBigqueryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingBigqueryResponse
+                        components.LoggingBigqueryResponse
                     );
                 } else {
                     throw new errors.SDKError(

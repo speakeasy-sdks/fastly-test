@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class Contact {
      * Delete a contact.
      */
     async deleteContact(
-        req: operations.DeleteContactRequest,
+        contactId: string,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteContactResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteContactRequest(req);
-        }
-
+        const req = new operations.DeleteContactRequest({
+            contactId: contactId,
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +52,7 @@ export class Contact {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -108,13 +109,12 @@ export class Contact {
      * List all contacts from a specified customer ID.
      */
     async listContacts(
-        req: operations.ListContactsRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListContactsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListContactsRequest(req);
-        }
-
+        const req = new operations.ListContactsRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -126,7 +126,7 @@ export class Contact {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -162,7 +162,7 @@ export class Contact {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SchemasContactResponse,
+                        components.SchemasContactResponse,
                         resFieldDepth
                     );
                 } else {

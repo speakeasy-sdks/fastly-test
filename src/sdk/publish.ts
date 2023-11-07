@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,14 @@ export class Publish {
      *
      */
     async publish(
-        req: operations.PublishRequest,
+        serviceId: string,
+        publishRequest?: components.PublishRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.PublishResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PublishRequest(req);
-        }
-
+        const req = new operations.PublishRequest({
+            serviceId: serviceId,
+            publishRequest: publishRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -59,7 +60,7 @@ export class Publish {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {

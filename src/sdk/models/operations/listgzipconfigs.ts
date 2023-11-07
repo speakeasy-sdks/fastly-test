@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListGzipConfigsRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListGzipConfigsResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.GzipResponse })
-    classes?: shared.GzipResponse[];
+    @SpeakeasyMetadata({ elemType: components.GzipResponse })
+    classes?: components.GzipResponse[];
 }

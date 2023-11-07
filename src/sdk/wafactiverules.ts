@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,16 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async bulkUpdateWafActiveRules(
-        req: operations.BulkUpdateWafActiveRulesRequest,
+        firewallId: string,
+        versionId: number,
+        bulkWafActiveRule?: components.BulkWafActiveRule,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateWafActiveRulesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.BulkUpdateWafActiveRulesRequest(req);
-        }
-
+        const req = new operations.BulkUpdateWafActiveRulesRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            bulkWafActiveRule: bulkWafActiveRule,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -67,7 +70,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -118,13 +121,16 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafActiveRule(
-        req: operations.CreateWafActiveRuleRequest,
+        firewallId: string,
+        versionId: number,
+        bulkWafActiveRules?: components.BulkWafActiveRules,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafActiveRuleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateWafActiveRuleRequest(req);
-        }
-
+        const req = new operations.CreateWafActiveRuleRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            bulkWafActiveRules: bulkWafActiveRules,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -154,7 +160,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -216,13 +222,18 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafActiveRulesTag(
-        req: operations.CreateWafActiveRulesTagRequest,
+        firewallId: string,
+        versionId: number,
+        wafTagName: string,
+        wafActiveRule?: components.WafActiveRule,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafActiveRulesTagResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateWafActiveRulesTagRequest(req);
-        }
-
+        const req = new operations.CreateWafActiveRulesTagRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            wafTagName: wafTagName,
+            wafActiveRule: wafActiveRule,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -248,7 +259,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -299,13 +310,16 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deleteWafActiveRule(
-        req: operations.DeleteWafActiveRuleRequest,
+        firewallId: string,
+        versionId: number,
+        wafRuleId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteWafActiveRuleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteWafActiveRuleRequest(req);
-        }
-
+        const req = new operations.DeleteWafActiveRuleRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            wafRuleId: wafRuleId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -321,7 +335,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -367,13 +381,18 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafActiveRule(
-        req: operations.GetWafActiveRuleRequest,
+        firewallId: string,
+        versionId: number,
+        wafRuleId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafActiveRuleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetWafActiveRuleRequest(req);
-        }
-
+        const req = new operations.GetWafActiveRuleRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            wafRuleId: wafRuleId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -389,7 +408,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -424,7 +443,7 @@ export class WafActiveRules {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafActiveRuleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafActiveRuleResponse
+                        components.WafActiveRuleResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -471,7 +490,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -507,7 +526,7 @@ export class WafActiveRules {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafActiveRulesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafActiveRulesResponse
+                        components.WafActiveRulesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -532,13 +551,18 @@ export class WafActiveRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafActiveRule(
-        req: operations.UpdateWafActiveRuleRequest,
+        firewallId: string,
+        versionId: number,
+        wafRuleId: string,
+        wafActiveRule?: components.WafActiveRule,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafActiveRuleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateWafActiveRuleRequest(req);
-        }
-
+        const req = new operations.UpdateWafActiveRuleRequest({
+            firewallId: firewallId,
+            versionId: versionId,
+            wafRuleId: wafRuleId,
+            wafActiveRule: wafActiveRule,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -564,7 +588,7 @@ export class WafActiveRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -604,7 +628,7 @@ export class WafActiveRules {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafActiveRuleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafActiveRuleResponse
+                        components.WafActiveRuleResponse
                     );
                 } else {
                     throw new errors.SDKError(

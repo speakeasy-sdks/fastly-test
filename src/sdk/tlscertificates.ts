@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsCertificates {
      * Create a TLS certificate.
      */
     async createTlsCert(
-        req: shared.TlsCertificate,
+        req: components.TlsCertificate,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsCertificate(req);
+            req = new components.TlsCertificate(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -119,13 +119,12 @@ export class TlsCertificates {
      * Destroy a TLS certificate. TLS certificates already enabled for a domain cannot be destroyed.
      */
     async deleteTlsCert(
-        req: operations.DeleteTlsCertRequest,
+        tlsCertificateId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteTlsCertResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteTlsCertRequest(req);
-        }
-
+        const req = new operations.DeleteTlsCertRequest({
+            tlsCertificateId: tlsCertificateId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -141,7 +140,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -184,13 +183,12 @@ export class TlsCertificates {
      * Show a TLS certificate.
      */
     async getTlsCert(
-        req: operations.GetTlsCertRequest,
+        tlsCertificateId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTlsCertResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetTlsCertRequest(req);
-        }
-
+        const req = new operations.GetTlsCertRequest({
+            tlsCertificateId: tlsCertificateId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -206,7 +204,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +238,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificateResponse
+                        components.TlsCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,7 +279,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -316,7 +314,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificatesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificatesResponse
+                        components.TlsCertificatesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -339,13 +337,14 @@ export class TlsCertificates {
      * Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS certificate's name. If replacing a TLS certificate, the new TLS certificate must contain all SAN entries as the current TLS certificate. It must either have an exact matching list or contain a superset.
      */
     async updateTlsCert(
-        req: operations.UpdateTlsCertRequest,
+        tlsCertificateId: string,
+        tlsCertificate?: components.TlsCertificate,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateTlsCertResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateTlsCertRequest(req);
-        }
-
+        const req = new operations.UpdateTlsCertRequest({
+            tlsCertificateId: tlsCertificateId,
+            tlsCertificate: tlsCertificate,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -371,7 +370,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -410,7 +409,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificateResponse
+                        components.TlsCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(

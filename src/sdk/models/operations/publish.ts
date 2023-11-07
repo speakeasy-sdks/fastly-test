@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PublishRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    publishRequest?: shared.PublishRequest;
-
     /**
      * Alphanumeric string identifying the service.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_id" })
     serviceId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    publishRequest?: components.PublishRequest;
 }
 
 export class PublishResponse extends SpeakeasyBase {

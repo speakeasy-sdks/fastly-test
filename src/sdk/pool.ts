@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Pool {
      * Creates a pool for a particular service and version.
      */
     async createServerPool(
-        req: operations.CreateServerPoolRequest,
+        serviceId: string,
+        versionId: number,
+        pool?: components.Pool,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServerPoolResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateServerPoolRequest(req);
-        }
-
+        const req = new operations.CreateServerPoolRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            pool: pool,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Pool {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Pool {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.poolResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PoolResponse
+                        components.PoolResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Pool {
      * Deletes a specific pool for a particular service and version.
      */
     async deleteServerPool(
-        req: operations.DeleteServerPoolRequest,
+        poolName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteServerPoolResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteServerPoolRequest(req);
-        }
-
+        const req = new operations.DeleteServerPoolRequest({
+            poolName: poolName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Pool {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Pool {
      * Gets a single pool for a particular service and version.
      */
     async getServerPool(
-        req: operations.GetServerPoolRequest,
+        poolName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetServerPoolResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetServerPoolRequest(req);
-        }
-
+        const req = new operations.GetServerPoolRequest({
+            poolName: poolName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Pool {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Pool {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.poolResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PoolResponse
+                        components.PoolResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Pool {
      * Lists all pools for a particular service and pool.
      */
     async listServerPools(
-        req: operations.ListServerPoolsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListServerPoolsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListServerPoolsRequest(req);
-        }
-
+        const req = new operations.ListServerPoolsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Pool {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Pool {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PoolResponse,
+                        components.PoolResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Pool {
      * Updates a specific pool for a particular service and version.
      */
     async updateServerPool(
-        req: operations.UpdateServerPoolRequest,
+        poolName: string,
+        serviceId: string,
+        versionId: number,
+        pool?: components.Pool,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateServerPoolResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateServerPoolRequest(req);
-        }
-
+        const req = new operations.UpdateServerPoolRequest({
+            poolName: poolName,
+            serviceId: serviceId,
+            versionId: versionId,
+            pool: pool,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Pool {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Pool {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.poolResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PoolResponse
+                        components.PoolResponse
                     );
                 } else {
                     throw new errors.SDKError(

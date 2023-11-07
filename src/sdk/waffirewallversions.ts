@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,14 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async cloneWafFirewallVersion(
-        req: operations.CloneWafFirewallVersionRequest,
+        firewallId: string,
+        firewallVersionNumber: number,
         config?: AxiosRequestConfig
     ): Promise<operations.CloneWafFirewallVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CloneWafFirewallVersionRequest(req);
-        }
-
+        const req = new operations.CloneWafFirewallVersionRequest({
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -53,7 +54,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -88,7 +89,7 @@ export class WafFirewallVersions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallVersionResponse
+                        components.WafFirewallVersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -113,13 +114,14 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafFirewallVersion(
-        req: operations.CreateWafFirewallVersionRequest,
+        firewallId: string,
+        wafFirewallVersion?: components.WafFirewallVersion,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafFirewallVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateWafFirewallVersionRequest(req);
-        }
-
+        const req = new operations.CreateWafFirewallVersionRequest({
+            firewallId: firewallId,
+            wafFirewallVersion: wafFirewallVersion,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -149,7 +151,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -189,7 +191,7 @@ export class WafFirewallVersions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallVersionResponse
+                        components.WafFirewallVersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -214,13 +216,14 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async deployActivateWafFirewallVersion(
-        req: operations.DeployActivateWafFirewallVersionRequest,
+        firewallId: string,
+        firewallVersionNumber: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeployActivateWafFirewallVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeployActivateWafFirewallVersionRequest(req);
-        }
-
+        const req = new operations.DeployActivateWafFirewallVersionRequest({
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -236,7 +239,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -296,13 +299,16 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafFirewallVersion(
-        req: operations.GetWafFirewallVersionRequest,
+        firewallId: string,
+        firewallVersionNumber: number,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafFirewallVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetWafFirewallVersionRequest(req);
-        }
-
+        const req = new operations.GetWafFirewallVersionRequest({
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -318,7 +324,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -354,7 +360,7 @@ export class WafFirewallVersions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallVersionResponse
+                        components.WafFirewallVersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -379,13 +385,18 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listWafFirewallVersions(
-        req: operations.ListWafFirewallVersionsRequest,
+        firewallId: string,
+        include?: string,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafFirewallVersionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListWafFirewallVersionsRequest(req);
-        }
-
+        const req = new operations.ListWafFirewallVersionsRequest({
+            firewallId: firewallId,
+            include: include,
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -401,7 +412,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -437,7 +448,7 @@ export class WafFirewallVersions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallVersionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallVersionsResponse
+                        components.WafFirewallVersionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -462,13 +473,16 @@ export class WafFirewallVersions {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async updateWafFirewallVersion(
-        req: operations.UpdateWafFirewallVersionRequest,
+        firewallId: string,
+        firewallVersionNumber: number,
+        wafFirewallVersion?: components.WafFirewallVersion,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafFirewallVersionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateWafFirewallVersionRequest(req);
-        }
-
+        const req = new operations.UpdateWafFirewallVersionRequest({
+            firewallId: firewallId,
+            firewallVersionNumber: firewallVersionNumber,
+            wafFirewallVersion: wafFirewallVersion,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -498,7 +512,7 @@ export class WafFirewallVersions {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -538,7 +552,7 @@ export class WafFirewallVersions {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallVersionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallVersionResponse
+                        components.WafFirewallVersionResponse
                     );
                 } else {
                     throw new errors.SDKError(

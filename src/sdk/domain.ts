@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Domain {
      * Checks the status of a specific domain's DNS record for a Service Version. Returns an array in the same format as domain/check_all.
      */
     async checkDomain(
-        req: operations.CheckDomainRequest,
+        domainName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.CheckDomainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CheckDomainRequest(req);
-        }
-
+        const req = new operations.CheckDomainRequest({
+            domainName: domainName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +54,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -105,13 +108,14 @@ export class Domain {
      * Checks the status of all domains' DNS records for a Service Version. Returns an array of 3 items for each domain; the first is the details for the domain, the second is the current CNAME of the domain, and the third is a boolean indicating whether or not it has been properly setup to use Fastly.
      */
     async checkDomains(
-        req: operations.CheckDomainsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.CheckDomainsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CheckDomainsRequest(req);
-        }
-
+        const req = new operations.CheckDomainsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -127,7 +131,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -181,13 +185,16 @@ export class Domain {
      * Create a domain for a particular service and version.
      */
     async createDomain(
-        req: operations.CreateDomainRequest,
+        serviceId: string,
+        versionId: number,
+        domain?: components.Domain,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDomainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDomainRequest(req);
-        }
-
+        const req = new operations.CreateDomainRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            domain: domain,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -213,7 +220,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -252,7 +259,7 @@ export class Domain {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.domainResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DomainResponse
+                        components.DomainResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -275,13 +282,16 @@ export class Domain {
      * Delete the domain for a particular service and versions.
      */
     async deleteDomain(
-        req: operations.DeleteDomainRequest,
+        domainName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDomainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteDomainRequest(req);
-        }
-
+        const req = new operations.DeleteDomainRequest({
+            domainName: domainName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -297,7 +307,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -354,13 +364,16 @@ export class Domain {
      * Get the domain for a particular service and version.
      */
     async getDomain(
-        req: operations.GetDomainRequest,
+        domainName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDomainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDomainRequest(req);
-        }
-
+        const req = new operations.GetDomainRequest({
+            domainName: domainName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -376,7 +389,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -410,7 +423,7 @@ export class Domain {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.domainResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DomainResponse
+                        components.DomainResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -433,13 +446,14 @@ export class Domain {
      * List all the domains for a particular service and version.
      */
     async listDomains(
-        req: operations.ListDomainsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDomainsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListDomainsRequest(req);
-        }
-
+        const req = new operations.ListDomainsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -455,7 +469,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -491,7 +505,7 @@ export class Domain {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.domainsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DomainResponse,
+                        components.DomainResponse,
                         resFieldDepth
                     );
                 } else {
@@ -515,13 +529,18 @@ export class Domain {
      * Update the domain for a particular service and version.
      */
     async updateDomain(
-        req: operations.UpdateDomainRequest,
+        domainName: string,
+        serviceId: string,
+        versionId: number,
+        domain?: components.Domain,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDomainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateDomainRequest(req);
-        }
-
+        const req = new operations.UpdateDomainRequest({
+            domainName: domainName,
+            serviceId: serviceId,
+            versionId: versionId,
+            domain: domain,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -547,7 +566,7 @@ export class Domain {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -586,7 +605,7 @@ export class Domain {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.domainResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DomainResponse
+                        components.DomainResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -21,20 +21,21 @@ Creates a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { Server } from "Fastly/dist/sdk/models/components";
+import { CreatePoolServerRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const poolId: string = "2Yd1WfiCBPENLloXfXmlO";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const server: Server = {
+  comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+};
 
-  const res = await sdk.server.createPoolServer({
-    poolId: "2Yd1WfiCBPENLloXfXmlO",
-    server: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.server.createPoolServer(poolId, serviceId, server);
 
 
   if (res.statusCode == 200) {
@@ -45,10 +46,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreatePoolServerRequest](../../models/operations/createpoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `poolId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Pool.                      | 2Yd1WfiCBPENLloXfXmlO                                        |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `server`                                                     | [components.Server](../../models/shared/server.md)           | :heavy_minus_sign:                                           | N/A                                                          |                                                              |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -63,18 +66,18 @@ Deletes a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeletePoolServerRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const poolId: string = "2Yd1WfiCBPENLloXfXmlO";
+const serverId: string = "6kEuoknxiaDBCLiAjKqyXq";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.server.deletePoolServer({
-    poolId: "2Yd1WfiCBPENLloXfXmlO",
-    serverId: "6kEuoknxiaDBCLiAjKqyXq",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.server.deletePoolServer(poolId, serverId, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -85,10 +88,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeletePoolServerRequest](../../models/operations/deletepoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `poolId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Pool.                      | 2Yd1WfiCBPENLloXfXmlO                                        |
+| `serverId`                                                   | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Server.                    | 6kEuoknxiaDBCLiAjKqyXq                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -103,18 +108,18 @@ Gets a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetPoolServerRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const poolId: string = "2Yd1WfiCBPENLloXfXmlO";
+const serverId: string = "6kEuoknxiaDBCLiAjKqyXq";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.server.getPoolServer({
-    poolId: "2Yd1WfiCBPENLloXfXmlO",
-    serverId: "6kEuoknxiaDBCLiAjKqyXq",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.server.getPoolServer(poolId, serverId, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -125,10 +130,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetPoolServerRequest](../../models/operations/getpoolserverrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `poolId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Pool.                      | 2Yd1WfiCBPENLloXfXmlO                                        |
+| `serverId`                                                   | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Server.                    | 6kEuoknxiaDBCLiAjKqyXq                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -143,17 +150,17 @@ Lists all servers for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListPoolServersRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const poolId: string = "2Yd1WfiCBPENLloXfXmlO";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.server.listPoolServers({
-    poolId: "2Yd1WfiCBPENLloXfXmlO",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.server.listPoolServers(poolId, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -164,10 +171,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListPoolServersRequest](../../models/operations/listpoolserversrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `poolId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Pool.                      | 2Yd1WfiCBPENLloXfXmlO                                        |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -182,21 +190,22 @@ Updates a single server for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { Server } from "Fastly/dist/sdk/models/components";
+import { UpdatePoolServerRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const poolId: string = "2Yd1WfiCBPENLloXfXmlO";
+const serverId: string = "6kEuoknxiaDBCLiAjKqyXq";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const server: Server = {
+  comment: "The Football Is Good For Training And Recreational Purposes",
+};
 
-  const res = await sdk.server.updatePoolServer({
-    poolId: "2Yd1WfiCBPENLloXfXmlO",
-    server: {
-      comment: "The Football Is Good For Training And Recreational Purposes",
-    },
-    serverId: "6kEuoknxiaDBCLiAjKqyXq",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.server.updatePoolServer(poolId, serverId, serviceId, server);
 
 
   if (res.statusCode == 200) {
@@ -207,10 +216,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdatePoolServerRequest](../../models/operations/updatepoolserverrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `poolId`                                                     | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Pool.                      | 2Yd1WfiCBPENLloXfXmlO                                        |
+| `serverId`                                                   | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a Server.                    | 6kEuoknxiaDBCLiAjKqyXq                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `server`                                                     | [components.Server](../../models/shared/server.md)           | :heavy_minus_sign:                                           | N/A                                                          |                                                              |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response

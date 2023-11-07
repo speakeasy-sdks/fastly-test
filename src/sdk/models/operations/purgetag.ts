@@ -3,16 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PurgeTagRequest extends SpeakeasyBase {
-    /**
-     * If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to "1" when used, but the value is not important.
-     */
-    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=fastly-soft-purge" })
-    fastlySoftPurge?: number;
-
     /**
      * Alphanumeric string identifying the service.
      */
@@ -24,6 +18,12 @@ export class PurgeTagRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=surrogate_key" })
     surrogateKey: string;
+
+    /**
+     * If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to "1" when used, but the value is not important.
+     */
+    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=fastly-soft-purge" })
+    fastlySoftPurge?: number;
 }
 
 export class PurgeTagResponse extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class PurgeTagResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    purgeResponse?: shared.PurgeResponse;
+    purgeResponse?: components.PurgeResponse;
 }

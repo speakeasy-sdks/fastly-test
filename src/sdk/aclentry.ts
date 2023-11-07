@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -32,13 +32,16 @@ export class AclEntry {
      * Update multiple ACL entries on the same ACL. For faster updates to your service, group your changes into large batches. The maximum batch size is 1000 entries. [Contact support](https://support.fastly.com/) to discuss raising this limit.
      */
     async bulkUpdateAclEntries(
-        req: operations.BulkUpdateAclEntriesRequest,
+        aclId: string,
+        serviceId: string,
+        bulkUpdateAclEntriesRequest?: components.BulkUpdateAclEntriesRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateAclEntriesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.BulkUpdateAclEntriesRequest(req);
-        }
-
+        const req = new operations.BulkUpdateAclEntriesRequest({
+            aclId: aclId,
+            serviceId: serviceId,
+            bulkUpdateAclEntriesRequest: bulkUpdateAclEntriesRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -68,7 +71,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -131,13 +134,16 @@ export class AclEntry {
      * Add an ACL entry to an ACL.
      */
     async createAclEntry(
-        req: operations.CreateAclEntryRequest,
+        aclId: string,
+        serviceId: string,
+        aclEntry?: components.AclEntry,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateAclEntryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateAclEntryRequest(req);
-        }
-
+        const req = new operations.CreateAclEntryRequest({
+            aclId: aclId,
+            serviceId: serviceId,
+            aclEntry: aclEntry,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -163,7 +169,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -202,7 +208,7 @@ export class AclEntry {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclEntryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclEntryResponse
+                        components.AclEntryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -225,13 +231,16 @@ export class AclEntry {
      * Delete an ACL entry from a specified ACL.
      */
     async deleteAclEntry(
-        req: operations.DeleteAclEntryRequest,
+        aclEntryId: string,
+        aclId: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteAclEntryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteAclEntryRequest(req);
-        }
-
+        const req = new operations.DeleteAclEntryRequest({
+            aclEntryId: aclEntryId,
+            aclId: aclId,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -247,7 +256,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -304,13 +313,16 @@ export class AclEntry {
      * Retrieve a single ACL entry.
      */
     async getAclEntry(
-        req: operations.GetAclEntryRequest,
+        aclEntryId: string,
+        aclId: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAclEntryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetAclEntryRequest(req);
-        }
-
+        const req = new operations.GetAclEntryRequest({
+            aclEntryId: aclEntryId,
+            aclId: aclId,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -326,7 +338,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -360,7 +372,7 @@ export class AclEntry {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclEntryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclEntryResponse
+                        components.AclEntryResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -405,7 +417,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -443,7 +455,7 @@ export class AclEntry {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclEntryResponse,
+                        components.AclEntryResponse,
                         resFieldDepth
                     );
                 } else {
@@ -467,13 +479,18 @@ export class AclEntry {
      * Update an ACL entry for a specified ACL.
      */
     async updateAclEntry(
-        req: operations.UpdateAclEntryRequest,
+        aclEntryId: string,
+        aclId: string,
+        serviceId: string,
+        aclEntry?: components.AclEntry,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateAclEntryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateAclEntryRequest(req);
-        }
-
+        const req = new operations.UpdateAclEntryRequest({
+            aclEntryId: aclEntryId,
+            aclId: aclId,
+            serviceId: serviceId,
+            aclEntry: aclEntry,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -499,7 +516,7 @@ export class AclEntry {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -538,7 +555,7 @@ export class AclEntry {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclEntryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclEntryResponse
+                        components.AclEntryResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateUserRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    user?: shared.User;
-
     /**
      * Alphanumeric string identifying the user.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=user_id" })
     userId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    user?: components.User;
 }
 
 export class UpdateUserResponse extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class UpdateUserResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    userResponse?: shared.UserResponse;
+    userResponse?: components.UserResponse;
 }

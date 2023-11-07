@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateWafRuleExclusionRequest extends SpeakeasyBase {
@@ -28,7 +28,7 @@ export class UpdateWafRuleExclusionRequest extends SpeakeasyBase {
     firewallVersionNumber: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafExclusion?: shared.WafExclusion;
+    wafExclusion?: components.WafExclusion;
 }
 
 export class UpdateWafRuleExclusionResponse extends SpeakeasyBase {
@@ -54,5 +54,5 @@ export class UpdateWafRuleExclusionResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    wafExclusionResponse?: shared.WafExclusionResponse;
+    wafExclusionResponse?: components.WafExclusionResponse;
 }

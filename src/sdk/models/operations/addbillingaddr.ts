@@ -3,21 +3,21 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class AddBillingAddrRequest extends SpeakeasyBase {
-    /**
-     * Billing address
-     */
-    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    billingAddressRequest?: shared.BillingAddressRequest;
-
     /**
      * Alphanumeric string identifying the customer.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=customer_id" })
     customerId: string;
+
+    /**
+     * Billing address
+     */
+    @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
+    billingAddressRequest?: components.BillingAddressRequest;
 }
 
 export class AddBillingAddrResponse extends SpeakeasyBase {
@@ -43,11 +43,11 @@ export class AddBillingAddrResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    billingAddressResponse?: shared.BillingAddressResponse;
+    billingAddressResponse?: components.BillingAddressResponse;
 
     /**
      * Could not validate address
      */
     @SpeakeasyMetadata()
-    billingAddressVerificationErrorResponse?: shared.BillingAddressVerificationErrorResponse;
+    billingAddressVerificationErrorResponse?: components.BillingAddressVerificationErrorResponse;
 }

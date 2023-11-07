@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Vcl {
      * Upload a VCL for a particular service and version.
      */
     async createCustomVcl(
-        req: operations.CreateCustomVclRequest,
+        serviceId: string,
+        versionId: number,
+        vcl?: components.Vcl,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCustomVclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateCustomVclRequest(req);
-        }
-
+        const req = new operations.CreateCustomVclRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            vcl: vcl,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Vcl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.vclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse
+                        components.VclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Vcl {
      * Delete the uploaded VCL for a particular service and version.
      */
     async deleteCustomVcl(
-        req: operations.DeleteCustomVclRequest,
+        serviceId: string,
+        vclName: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteCustomVclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteCustomVclRequest(req);
-        }
-
+        const req = new operations.DeleteCustomVclRequest({
+            serviceId: serviceId,
+            vclName: vclName,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,18 @@ export class Vcl {
      * Get the uploaded VCL for a particular service and version.
      */
     async getCustomVcl(
-        req: operations.GetCustomVclRequest,
+        serviceId: string,
+        vclName: string,
+        versionId: number,
+        noContent?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCustomVclRequest(req);
-        }
-
+        const req = new operations.GetCustomVclRequest({
+            serviceId: serviceId,
+            vclName: vclName,
+            versionId: versionId,
+            noContent: noContent,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +235,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -259,7 +270,7 @@ export class Vcl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.vclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse
+                        components.VclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -282,13 +293,14 @@ export class Vcl {
      * Return boilerplate VCL with the service's TTL from the [settings](/reference/api/vcl-services/settings/).
      */
     async getCustomVclBoilerplate(
-        req: operations.GetCustomVclBoilerplateRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclBoilerplateResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCustomVclBoilerplateRequest(req);
-        }
-
+        const req = new operations.GetCustomVclBoilerplateRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -304,7 +316,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -359,13 +371,14 @@ export class Vcl {
      * Display the generated VCL for a particular service and version.
      */
     async getCustomVclGenerated(
-        req: operations.GetCustomVclGeneratedRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclGeneratedResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCustomVclGeneratedRequest(req);
-        }
-
+        const req = new operations.GetCustomVclGeneratedRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -381,7 +394,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -416,7 +429,7 @@ export class Vcl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.vclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse
+                        components.VclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -439,13 +452,16 @@ export class Vcl {
      * Download the specified VCL.
      */
     async getCustomVclRaw(
-        req: operations.GetCustomVclRawRequest,
+        serviceId: string,
+        vclName: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomVclRawResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCustomVclRawRequest(req);
-        }
-
+        const req = new operations.GetCustomVclRawRequest({
+            serviceId: serviceId,
+            vclName: vclName,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -461,7 +477,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -515,13 +531,14 @@ export class Vcl {
      * List the uploaded VCLs for a particular service and version.
      */
     async listCustomVcl(
-        req: operations.ListCustomVclRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCustomVclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCustomVclRequest(req);
-        }
-
+        const req = new operations.ListCustomVclRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -537,7 +554,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -573,7 +590,7 @@ export class Vcl {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse,
+                        components.VclResponse,
                         resFieldDepth
                     );
                 } else {
@@ -597,13 +614,16 @@ export class Vcl {
      * Set the specified VCL as the main.
      */
     async setCustomVclMain(
-        req: operations.SetCustomVclMainRequest,
+        serviceId: string,
+        vclName: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.SetCustomVclMainResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.SetCustomVclMainRequest(req);
-        }
-
+        const req = new operations.SetCustomVclMainRequest({
+            serviceId: serviceId,
+            vclName: vclName,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -619,7 +639,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -653,7 +673,7 @@ export class Vcl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.vclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse
+                        components.VclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -676,13 +696,18 @@ export class Vcl {
      * Update the uploaded VCL for a particular service and version.
      */
     async updateCustomVcl(
-        req: operations.UpdateCustomVclRequest,
+        serviceId: string,
+        vclName: string,
+        versionId: number,
+        vcl?: components.Vcl,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCustomVclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateCustomVclRequest(req);
-        }
-
+        const req = new operations.UpdateCustomVclRequest({
+            serviceId: serviceId,
+            vclName: vclName,
+            versionId: versionId,
+            vcl: vcl,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -708,7 +733,7 @@ export class Vcl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -747,7 +772,7 @@ export class Vcl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.vclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VclResponse
+                        components.VclResponse
                     );
                 } else {
                     throw new errors.SDKError(

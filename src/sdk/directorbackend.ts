@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,18 @@ export class DirectorBackend {
      * Establishes a relationship between a Backend and a Director. The Backend is then considered a member of the Director and can be used to balance traffic onto.
      */
     async createDirectorBackend(
-        req: operations.CreateDirectorBackendRequest,
+        backendName: string,
+        directorName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDirectorBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDirectorBackendRequest(req);
-        }
-
+        const req = new operations.CreateDirectorBackendRequest({
+            backendName: backendName,
+            directorName: directorName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +56,7 @@ export class DirectorBackend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -86,7 +91,7 @@ export class DirectorBackend {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.directorBackend = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DirectorBackend
+                        components.DirectorBackend
                     );
                 } else {
                     throw new errors.SDKError(
@@ -109,13 +114,18 @@ export class DirectorBackend {
      * Deletes the relationship between a Backend and a Director. The Backend is no longer considered a member of the Director and thus will not have traffic balanced onto it from this Director.
      */
     async deleteDirectorBackend(
-        req: operations.DeleteDirectorBackendRequest,
+        backendName: string,
+        directorName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDirectorBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteDirectorBackendRequest(req);
-        }
-
+        const req = new operations.DeleteDirectorBackendRequest({
+            backendName: backendName,
+            directorName: directorName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -131,7 +141,7 @@ export class DirectorBackend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -189,13 +199,18 @@ export class DirectorBackend {
      * Returns the relationship between a Backend and a Director. If the Backend has been associated with the Director, it returns a simple record indicating this. Otherwise, returns a 404.
      */
     async getDirectorBackend(
-        req: operations.GetDirectorBackendRequest,
+        backendName: string,
+        directorName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDirectorBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDirectorBackendRequest(req);
-        }
-
+        const req = new operations.GetDirectorBackendRequest({
+            backendName: backendName,
+            directorName: directorName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -211,7 +226,7 @@ export class DirectorBackend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -246,7 +261,7 @@ export class DirectorBackend {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.directorBackend = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DirectorBackend
+                        components.DirectorBackend
                     );
                 } else {
                     throw new errors.SDKError(

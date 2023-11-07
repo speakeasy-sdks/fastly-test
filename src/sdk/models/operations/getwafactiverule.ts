@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafActiveRuleRequest extends SpeakeasyBase {
@@ -12,15 +12,6 @@ export class GetWafActiveRuleRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=firewall_id" })
     firewallId: string;
-
-    /**
-     * Include relationships. Optional, comma-separated values. Permitted values: `waf_rule_revision` and `waf_firewall_version`.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: string;
 
     /**
      * Integer identifying a service version.
@@ -33,6 +24,15 @@ export class GetWafActiveRuleRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=waf_rule_id" })
     wafRuleId: string;
+
+    /**
+     * Include relationships. Optional, comma-separated values. Permitted values: `waf_rule_revision` and `waf_firewall_version`.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
+    include?: string;
 }
 
 export class GetWafActiveRuleResponse extends SpeakeasyBase {
@@ -58,5 +58,5 @@ export class GetWafActiveRuleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafActiveRuleResponse?: shared.WafActiveRuleResponse;
+    wafActiveRuleResponse?: components.WafActiveRuleResponse;
 }

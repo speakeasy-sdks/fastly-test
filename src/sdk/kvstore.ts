@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class KvStore {
      * Create a new kv store.
      */
     async createStore(
-        req: operations.CreateStoreRequest,
+        location?: string,
+        store?: components.Store,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateStoreRequest(req);
-        }
-
+        const req = new operations.CreateStoreRequest({
+            location: location,
+            store: store,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -57,7 +58,7 @@ export class KvStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -97,7 +98,7 @@ export class KvStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.storeResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.StoreResponse
+                        components.StoreResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -120,13 +121,14 @@ export class KvStore {
      * An kv store must be empty before it can be deleted.  Deleting an kv store that still contains keys will result in a `409` (Conflict).
      */
     async deleteStore(
-        req: operations.DeleteStoreRequest,
+        storeId: string,
+        force?: boolean,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteStoreRequest(req);
-        }
-
+        const req = new operations.DeleteStoreRequest({
+            storeId: storeId,
+            force: force,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -138,7 +140,7 @@ export class KvStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -185,13 +187,12 @@ export class KvStore {
      * Get an kv store by ID.
      */
     async getStore(
-        req: operations.GetStoreRequest,
+        storeId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetStoreRequest(req);
-        }
-
+        const req = new operations.GetStoreRequest({
+            storeId: storeId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -203,7 +204,7 @@ export class KvStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -237,7 +238,7 @@ export class KvStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.storeResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.StoreResponse
+                        components.StoreResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -260,13 +261,14 @@ export class KvStore {
      * Get all stores for a given customer.
      */
     async getStores(
-        req: operations.GetStoresRequest,
+        cursor?: string,
+        limit?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetStoresResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetStoresRequest(req);
-        }
-
+        const req = new operations.GetStoresRequest({
+            cursor: cursor,
+            limit: limit,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -278,7 +280,7 @@ export class KvStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };

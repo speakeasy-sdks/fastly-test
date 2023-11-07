@@ -23,28 +23,28 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntryNegated, Op } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { BulkUpdateAclEntriesRequest, BulkUpdateAclEntry, BulkUpdateAclEntryNegated, Op } from "Fastly/dist/sdk/models/components";
+import { BulkUpdateAclEntriesRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.aclEntry.bulkUpdateAclEntries({
-    aclId: "6tUXdegLTf5BCig0zGFrU3",
-    bulkUpdateAclEntriesRequest: {
-      entries: [
-        {
-          comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-          ip: "127.0.0.1",
-          negated: BulkUpdateAclEntryNegated.One,
-          subnet: 8,
-        },
-      ],
+const aclId: string = "6tUXdegLTf5BCig0zGFrU3";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const bulkUpdateAclEntriesRequest: BulkUpdateAclEntriesRequest = {
+  entries: [
+    {
+      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      ip: "127.0.0.1",
+      negated: BulkUpdateAclEntryNegated.One,
+      subnet: 8,
     },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  ],
+};
+
+  const res = await sdk.aclEntry.bulkUpdateAclEntries(aclId, serviceId, bulkUpdateAclEntriesRequest);
 
 
   if (res.statusCode == 200) {
@@ -55,10 +55,12 @@ import { BulkUpdateAclEntryNegated, Op } from "FastlyTestJS/dist/sdk/models/shar
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.BulkUpdateAclEntriesRequest](../../models/operations/bulkupdateaclentriesrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `aclId`                                                                                      | *string*                                                                                     | :heavy_check_mark:                                                                           | Alphanumeric string identifying a ACL.                                                       | 6tUXdegLTf5BCig0zGFrU3                                                                       |
+| `serviceId`                                                                                  | *string*                                                                                     | :heavy_check_mark:                                                                           | Alphanumeric string identifying the service.                                                 | SU1Z0isxPaozGVKXdv0eY                                                                        |
+| `bulkUpdateAclEntriesRequest`                                                                | [components.BulkUpdateAclEntriesRequest](../../models/shared/bulkupdateaclentriesrequest.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |                                                                                              |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |                                                                                              |
 
 
 ### Response
@@ -73,24 +75,24 @@ Add an ACL entry to an ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { AclEntry, Negated } from "Fastly/dist/sdk/models/components";
+import { CreateAclEntryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const aclId: string = "6tUXdegLTf5BCig0zGFrU3";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const aclEntry: AclEntry = {
+  comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+  ip: "127.0.0.1",
+  negated: Negated.One,
+  subnet: 8,
+};
 
-  const res = await sdk.aclEntry.createAclEntry({
-    aclEntry: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      ip: "127.0.0.1",
-      negated: Negated.One,
-      subnet: 8,
-    },
-    aclId: "6tUXdegLTf5BCig0zGFrU3",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.aclEntry.createAclEntry(aclId, serviceId, aclEntry);
 
 
   if (res.statusCode == 200) {
@@ -101,10 +103,12 @@ import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateAclEntryRequest](../../models/operations/createaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `aclId`                                                      | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a ACL.                       | 6tUXdegLTf5BCig0zGFrU3                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `aclEntry`                                                   | [components.AclEntry](../../models/shared/aclentry.md)       | :heavy_minus_sign:                                           | N/A                                                          |                                                              |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -119,18 +123,18 @@ Delete an ACL entry from a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteAclEntryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const aclEntryId: string = "6yxNzlOpW1V7JfSwvLGtOc";
+const aclId: string = "6tUXdegLTf5BCig0zGFrU3";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.aclEntry.deleteAclEntry({
-    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-    aclId: "6tUXdegLTf5BCig0zGFrU3",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.aclEntry.deleteAclEntry(aclEntryId, aclId, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -141,10 +145,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteAclEntryRequest](../../models/operations/deleteaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `aclEntryId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying an ACL Entry.                | 6yxNzlOpW1V7JfSwvLGtOc                                       |
+| `aclId`                                                      | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a ACL.                       | 6tUXdegLTf5BCig0zGFrU3                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -159,18 +165,18 @@ Retrieve a single ACL entry.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetAclEntryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const aclEntryId: string = "6yxNzlOpW1V7JfSwvLGtOc";
+const aclId: string = "6tUXdegLTf5BCig0zGFrU3";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
 
-  const res = await sdk.aclEntry.getAclEntry({
-    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-    aclId: "6tUXdegLTf5BCig0zGFrU3",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.aclEntry.getAclEntry(aclEntryId, aclId, serviceId);
 
 
   if (res.statusCode == 200) {
@@ -181,10 +187,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetAclEntryRequest](../../models/operations/getaclentryrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `aclEntryId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying an ACL Entry.                | 6yxNzlOpW1V7JfSwvLGtOc                                       |
+| `aclId`                                                      | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a ACL.                       | 6tUXdegLTf5BCig0zGFrU3                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -199,8 +207,8 @@ List ACL entries for a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Direction } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -243,25 +251,25 @@ Update an ACL entry for a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { AclEntry, Negated } from "Fastly/dist/sdk/models/components";
+import { UpdateAclEntryRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const aclEntryId: string = "6yxNzlOpW1V7JfSwvLGtOc";
+const aclId: string = "6tUXdegLTf5BCig0zGFrU3";
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const aclEntry: AclEntry = {
+  comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+  ip: "127.0.0.1",
+  negated: Negated.Zero,
+  subnet: 8,
+};
 
-  const res = await sdk.aclEntry.updateAclEntry({
-    aclEntry: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      ip: "127.0.0.1",
-      negated: Negated.Zero,
-      subnet: 8,
-    },
-    aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",
-    aclId: "6tUXdegLTf5BCig0zGFrU3",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  const res = await sdk.aclEntry.updateAclEntry(aclEntryId, aclId, serviceId, aclEntry);
 
 
   if (res.statusCode == 200) {
@@ -272,10 +280,13 @@ import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateAclEntryRequest](../../models/operations/updateaclentryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `aclEntryId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying an ACL Entry.                | 6yxNzlOpW1V7JfSwvLGtOc                                       |
+| `aclId`                                                      | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a ACL.                       | 6tUXdegLTf5BCig0zGFrU3                                       |
+| `serviceId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying the service.                 | SU1Z0isxPaozGVKXdv0eY                                        |
+| `aclEntry`                                                   | [components.AclEntry](../../models/shared/aclentry.md)       | :heavy_minus_sign:                                           | N/A                                                          |                                                              |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response

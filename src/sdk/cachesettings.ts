@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class CacheSettings {
      * Create a cache settings object.
      */
     async createCacheSettings(
-        req: operations.CreateCacheSettingsRequest,
+        serviceId: string,
+        versionId: number,
+        cacheSetting?: components.CacheSetting,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCacheSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateCacheSettingsRequest(req);
-        }
-
+        const req = new operations.CreateCacheSettingsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            cacheSetting: cacheSetting,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class CacheSettings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +104,7 @@ export class CacheSettings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cacheSettingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CacheSettingResponse
+                        components.CacheSettingResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -124,13 +127,16 @@ export class CacheSettings {
      * Delete a specific cache settings object.
      */
     async deleteCacheSettings(
-        req: operations.DeleteCacheSettingsRequest,
+        cacheSettingsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteCacheSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteCacheSettingsRequest(req);
-        }
-
+        const req = new operations.DeleteCacheSettingsRequest({
+            cacheSettingsName: cacheSettingsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -146,7 +152,7 @@ export class CacheSettings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -204,13 +210,16 @@ export class CacheSettings {
      * Get a specific cache settings object.
      */
     async getCacheSettings(
-        req: operations.GetCacheSettingsRequest,
+        cacheSettingsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCacheSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCacheSettingsRequest(req);
-        }
-
+        const req = new operations.GetCacheSettingsRequest({
+            cacheSettingsName: cacheSettingsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -226,7 +235,7 @@ export class CacheSettings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +269,7 @@ export class CacheSettings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cacheSettingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CacheSettingResponse
+                        components.CacheSettingResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -283,13 +292,14 @@ export class CacheSettings {
      * Get a list of all cache settings for a particular service and version.
      */
     async listCacheSettings(
-        req: operations.ListCacheSettingsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCacheSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCacheSettingsRequest(req);
-        }
-
+        const req = new operations.ListCacheSettingsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -305,7 +315,7 @@ export class CacheSettings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +351,7 @@ export class CacheSettings {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CacheSettingResponse,
+                        components.CacheSettingResponse,
                         resFieldDepth
                     );
                 } else {
@@ -365,13 +375,18 @@ export class CacheSettings {
      * Update a specific cache settings object.
      */
     async updateCacheSettings(
-        req: operations.UpdateCacheSettingsRequest,
+        cacheSettingsName: string,
+        serviceId: string,
+        versionId: number,
+        cacheSetting?: components.CacheSetting,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCacheSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateCacheSettingsRequest(req);
-        }
-
+        const req = new operations.UpdateCacheSettingsRequest({
+            cacheSettingsName: cacheSettingsName,
+            serviceId: serviceId,
+            versionId: versionId,
+            cacheSetting: cacheSetting,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -397,7 +412,7 @@ export class CacheSettings {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +452,7 @@ export class CacheSettings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cacheSettingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CacheSettingResponse
+                        components.CacheSettingResponse
                     );
                 } else {
                     throw new errors.SDKError(

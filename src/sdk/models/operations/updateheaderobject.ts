@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateHeaderObjectRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    header?: shared.Header;
-
     /**
      * A handle to refer to this Header object.
      */
@@ -27,6 +24,9 @@ export class UpdateHeaderObjectRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=version_id" })
     versionId: number;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
+    header?: components.Header;
 }
 
 export class UpdateHeaderObjectResponse extends SpeakeasyBase {
@@ -52,5 +52,5 @@ export class UpdateHeaderObjectResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    headerResponse?: shared.HeaderResponse;
+    headerResponse?: components.HeaderResponse;
 }

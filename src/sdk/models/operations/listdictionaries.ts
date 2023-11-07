@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListDictionariesRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListDictionariesResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.DictionaryResponse })
-    classes?: shared.DictionaryResponse[];
+    @SpeakeasyMetadata({ elemType: components.DictionaryResponse })
+    classes?: components.DictionaryResponse[];
 }

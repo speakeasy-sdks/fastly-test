@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class BillingAddress {
      * Add a billing address to a customer.
      */
     async addBillingAddr(
-        req: operations.AddBillingAddrRequest,
+        customerId: string,
+        billingAddressRequest?: components.BillingAddressRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.AddBillingAddrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.AddBillingAddrRequest(req);
-        }
-
+        const req = new operations.AddBillingAddrRequest({
+            customerId: customerId,
+            billingAddressRequest: billingAddressRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +66,7 @@ export class BillingAddress {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -104,7 +105,7 @@ export class BillingAddress {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingAddressResponse
+                        components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,7 +120,7 @@ export class BillingAddress {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingAddressVerificationErrorResponse
+                        components.BillingAddressVerificationErrorResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -142,13 +143,12 @@ export class BillingAddress {
      * Delete a customer's billing address.
      */
     async deleteBillingAddr(
-        req: operations.DeleteBillingAddrRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBillingAddrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteBillingAddrRequest(req);
-        }
-
+        const req = new operations.DeleteBillingAddrRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -164,7 +164,7 @@ export class BillingAddress {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -207,13 +207,12 @@ export class BillingAddress {
      * Get a customer's billing address.
      */
     async getBillingAddr(
-        req: operations.GetBillingAddrRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetBillingAddrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetBillingAddrRequest(req);
-        }
-
+        const req = new operations.GetBillingAddrRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -229,7 +228,7 @@ export class BillingAddress {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -263,7 +262,7 @@ export class BillingAddress {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingAddressResponse
+                        components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -286,13 +285,14 @@ export class BillingAddress {
      * Update a customer's billing address. You may update only part of the customer's billing address.
      */
     async updateBillingAddr(
-        req: operations.UpdateBillingAddrRequest,
+        customerId: string,
+        updateBillingAddressRequest?: components.UpdateBillingAddressRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBillingAddrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateBillingAddrRequest(req);
-        }
-
+        const req = new operations.UpdateBillingAddrRequest({
+            customerId: customerId,
+            updateBillingAddressRequest: updateBillingAddressRequest,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -322,7 +322,7 @@ export class BillingAddress {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -361,7 +361,7 @@ export class BillingAddress {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingAddressResponse
+                        components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -376,7 +376,7 @@ export class BillingAddress {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.billingAddressVerificationErrorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BillingAddressVerificationErrorResponse
+                        components.BillingAddressVerificationErrorResponse
                     );
                 } else {
                     throw new errors.SDKError(

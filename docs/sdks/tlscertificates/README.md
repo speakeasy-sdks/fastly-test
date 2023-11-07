@@ -21,8 +21,8 @@ Create a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -51,10 +51,10 @@ import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `request`                                                      | [shared.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
-| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `request`                                                          | [components.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
 
 
 ### Response
@@ -69,16 +69,16 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteTlsCertRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const tlsCertificateId: string = "cRTguUGZzb2W9Euo4moOr";
 
-  const res = await sdk.tlsCertificates.deleteTlsCert({
-    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-  });
+  const res = await sdk.tlsCertificates.deleteTlsCert(tlsCertificateId);
 
 
   if (res.statusCode == 200) {
@@ -89,10 +89,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteTlsCertRequest](../../models/operations/deletetlscertrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `tlsCertificateId`                                           | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a TLS certificate.           | cRTguUGZzb2W9Euo4moOr                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -107,16 +107,16 @@ Show a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetTlsCertRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const tlsCertificateId: string = "cRTguUGZzb2W9Euo4moOr";
 
-  const res = await sdk.tlsCertificates.getTlsCert({
-    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-  });
+  const res = await sdk.tlsCertificates.getTlsCert(tlsCertificateId);
 
 
   if (res.statusCode == 200) {
@@ -127,10 +127,10 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetTlsCertRequest](../../models/operations/gettlscertrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `tlsCertificateId`                                           | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a TLS certificate.           | cRTguUGZzb2W9Euo4moOr                                        |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -145,8 +145,8 @@ List all TLS certificates.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Sort } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,29 +185,38 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  RelationshipMemberTlsDomainInput,
+  RelationshipTlsDomainsInput,
+  RelationshipTlsDomainsTlsDomains,
+  TlsCertificate,
+  TlsCertificateData,
+  TlsCertificateDataAttributes,
+  TypeTlsCertificate,
+  TypeTlsDomain,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateTlsCertRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.tlsCertificates.updateTlsCert({
-    tlsCertificate: {
-      data: {
-        attributes: {},
-        relationships: {
-          tlsDomains: {
-            data: [
-              {},
-            ],
-          },
-        },
+const tlsCertificateId: string = "cRTguUGZzb2W9Euo4moOr";
+const tlsCertificate: TlsCertificate = {
+  data: {
+    attributes: {},
+    relationships: {
+      tlsDomains: {
+        data: [
+          {},
+        ],
       },
     },
-    tlsCertificateId: "cRTguUGZzb2W9Euo4moOr",
-  });
+  },
+};
+
+  const res = await sdk.tlsCertificates.updateTlsCert(tlsCertificateId, tlsCertificate);
 
 
   if (res.statusCode == 200) {
@@ -218,10 +227,11 @@ import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.UpdateTlsCertRequest](../../models/operations/updatetlscertrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `tlsCertificateId`                                                 | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying a TLS certificate.                 | cRTguUGZzb2W9Euo4moOr                                              |
+| `tlsCertificate`                                                   | [components.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |                                                                    |
 
 
 ### Response

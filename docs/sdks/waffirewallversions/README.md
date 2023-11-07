@@ -24,17 +24,17 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { CloneWafFirewallVersionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const firewallVersionNumber: number = 1;
 
-  const res = await sdk.wafFirewallVersions.cloneWafFirewallVersion({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    firewallVersionNumber: 1,
-  });
+  const res = await sdk.wafFirewallVersions.cloneWafFirewallVersion(firewallId, firewallVersionNumber);
 
 
   if (res.statusCode == 200) {
@@ -45,10 +45,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.CloneWafFirewallVersionRequest](../../models/operations/clonewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `firewallId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a WAF Firewall.              | fW7g2uUGZzb2W9Euo4Mo0r                                       |
+| `firewallVersionNumber`                                      | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a WAF firewall version.                  | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -65,24 +66,29 @@ Create a new, draft firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  TypeWafFirewallVersion,
+  WafFirewallVersion,
+  WafFirewallVersionData,
+  WafFirewallVersionDataAttributes,
+} from "Fastly/dist/sdk/models/components";
+import { CreateWafFirewallVersionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.wafFirewallVersions.createWafFirewallVersion({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    wafFirewallVersion: {
-      data: {
-        attributes: {
-          comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        },
-      },
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const wafFirewallVersion: WafFirewallVersion = {
+  data: {
+    attributes: {
+      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     },
-  });
+  },
+};
+
+  const res = await sdk.wafFirewallVersions.createWafFirewallVersion(firewallId, wafFirewallVersion);
 
 
   if (res.statusCode == 200) {
@@ -93,10 +99,11 @@ import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.CreateWafFirewallVersionRequest](../../models/operations/createwaffirewallversionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `firewallId`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | Alphanumeric string identifying a WAF Firewall.                            | fW7g2uUGZzb2W9Euo4Mo0r                                                     |
+| `wafFirewallVersion`                                                       | [components.WafFirewallVersion](../../models/shared/waffirewallversion.md) | :heavy_minus_sign:                                                         | N/A                                                                        |                                                                            |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |                                                                            |
 
 
 ### Response
@@ -113,17 +120,17 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeployActivateWafFirewallVersionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const firewallVersionNumber: number = 1;
 
-  const res = await sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    firewallVersionNumber: 1,
-  });
+  const res = await sdk.wafFirewallVersions.deployActivateWafFirewallVersion(firewallId, firewallVersionNumber);
 
 
   if (res.statusCode == 200) {
@@ -134,10 +141,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.DeployActivateWafFirewallVersionRequest](../../models/operations/deployactivatewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `firewallId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a WAF Firewall.              | fW7g2uUGZzb2W9Euo4Mo0r                                       |
+| `firewallVersionNumber`                                      | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a WAF firewall version.                  | 1                                                            |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -154,18 +162,18 @@ Get details about a specific firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetWafFirewallVersionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const firewallVersionNumber: number = 1;
+const include: string = "waf_firewall,waf_active_rules";
 
-  const res = await sdk.wafFirewallVersions.getWafFirewallVersion({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    firewallVersionNumber: 1,
-    include: "waf_firewall,waf_active_rules",
-  });
+  const res = await sdk.wafFirewallVersions.getWafFirewallVersion(firewallId, firewallVersionNumber, include);
 
 
   if (res.statusCode == 200) {
@@ -176,10 +184,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.GetWafFirewallVersionRequest](../../models/operations/getwaffirewallversionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `firewallId`                                                                                                       | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | Alphanumeric string identifying a WAF Firewall.                                                                    | fW7g2uUGZzb2W9Euo4Mo0r                                                                                             |
+| `firewallVersionNumber`                                                                                            | *number*                                                                                                           | :heavy_check_mark:                                                                                                 | Integer identifying a WAF firewall version.                                                                        | 1                                                                                                                  |
+| `include`                                                                                                          | *string*                                                                                                           | :heavy_minus_sign:                                                                                                 | Include relationships. Optional, comma-separated values. Permitted values: `waf_firewall` and `waf_active_rules`.<br/> | waf_firewall,waf_active_rules                                                                                      |
+| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |                                                                                                                    |
 
 
 ### Response
@@ -196,19 +206,19 @@ Get a list of firewall versions associated with a specific firewall.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { ListWafFirewallVersionsRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const include: string = "waf_firewall";
+const pageNumber: number = 1;
+const pageSize: number = 20;
 
-  const res = await sdk.wafFirewallVersions.listWafFirewallVersions({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    include: "waf_firewall",
-    pageNumber: 1,
-    pageSize: 20,
-  });
+  const res = await sdk.wafFirewallVersions.listWafFirewallVersions(firewallId, include, pageNumber, pageSize);
 
 
   if (res.statusCode == 200) {
@@ -219,10 +229,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.ListWafFirewallVersionsRequest](../../models/operations/listwaffirewallversionsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `firewallId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a WAF Firewall.              | fW7g2uUGZzb2W9Euo4Mo0r                                       |
+| `include`                                                    | *string*                                                     | :heavy_minus_sign:                                           | Include relationships. Optional.                             | waf_firewall                                                 |
+| `pageNumber`                                                 | *number*                                                     | :heavy_minus_sign:                                           | Current page.                                                | 1                                                            |
+| `pageSize`                                                   | *number*                                                     | :heavy_minus_sign:                                           | Number of records per page.                                  | 20                                                           |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -239,25 +252,30 @@ Update a specific firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  TypeWafFirewallVersion,
+  WafFirewallVersion,
+  WafFirewallVersionData,
+  WafFirewallVersionDataAttributes,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateWafFirewallVersionRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.wafFirewallVersions.updateWafFirewallVersion({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    firewallVersionNumber: 1,
-    wafFirewallVersion: {
-      data: {
-        attributes: {
-          comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        },
-      },
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const firewallVersionNumber: number = 1;
+const wafFirewallVersion: WafFirewallVersion = {
+  data: {
+    attributes: {
+      comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
     },
-  });
+  },
+};
+
+  const res = await sdk.wafFirewallVersions.updateWafFirewallVersion(firewallId, firewallVersionNumber, wafFirewallVersion);
 
 
   if (res.statusCode == 200) {
@@ -268,10 +286,12 @@ import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.UpdateWafFirewallVersionRequest](../../models/operations/updatewaffirewallversionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `firewallId`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | Alphanumeric string identifying a WAF Firewall.                            | fW7g2uUGZzb2W9Euo4Mo0r                                                     |
+| `firewallVersionNumber`                                                    | *number*                                                                   | :heavy_check_mark:                                                         | Integer identifying a WAF firewall version.                                | 1                                                                          |
+| `wafFirewallVersion`                                                       | [components.WafFirewallVersion](../../models/shared/waffirewallversion.md) | :heavy_minus_sign:                                                         | N/A                                                                        |                                                                            |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |                                                                            |
 
 
 ### Response

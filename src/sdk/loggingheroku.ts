@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingHeroku {
      * Create a Heroku for a particular service and version.
      */
     async createLogHeroku(
-        req: operations.CreateLogHerokuRequest,
+        serviceId: string,
+        versionId: number,
+        loggingHeroku?: components.LoggingHeroku,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogHerokuResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogHerokuRequest(req);
-        }
-
+        const req = new operations.CreateLogHerokuRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHeroku: loggingHeroku,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingHeroku {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingHeroku {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHerokuResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHerokuResponse
+                        components.LoggingHerokuResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingHeroku {
      * Delete the Heroku for a particular service and version.
      */
     async deleteLogHeroku(
-        req: operations.DeleteLogHerokuRequest,
+        loggingHerokuName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogHerokuResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogHerokuRequest(req);
-        }
-
+        const req = new operations.DeleteLogHerokuRequest({
+            loggingHerokuName: loggingHerokuName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingHeroku {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingHeroku {
      * Get the Heroku for a particular service and version.
      */
     async getLogHeroku(
-        req: operations.GetLogHerokuRequest,
+        loggingHerokuName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogHerokuResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogHerokuRequest(req);
-        }
-
+        const req = new operations.GetLogHerokuRequest({
+            loggingHerokuName: loggingHerokuName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingHeroku {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingHeroku {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHerokuResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHerokuResponse
+                        components.LoggingHerokuResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingHeroku {
      * List all of the Herokus for a particular service and version.
      */
     async listLogHeroku(
-        req: operations.ListLogHerokuRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogHerokuResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogHerokuRequest(req);
-        }
-
+        const req = new operations.ListLogHerokuRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingHeroku {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingHeroku {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHerokuResponse,
+                        components.LoggingHerokuResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingHeroku {
      * Update the Heroku for a particular service and version.
      */
     async updateLogHeroku(
-        req: operations.UpdateLogHerokuRequest,
+        loggingHerokuName: string,
+        serviceId: string,
+        versionId: number,
+        loggingHeroku?: components.LoggingHeroku,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogHerokuResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogHerokuRequest(req);
-        }
-
+        const req = new operations.UpdateLogHerokuRequest({
+            loggingHerokuName: loggingHerokuName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingHeroku: loggingHeroku,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingHeroku {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingHeroku {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHerokuResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHerokuResponse
+                        components.LoggingHerokuResponse
                     );
                 } else {
                     throw new errors.SDKError(

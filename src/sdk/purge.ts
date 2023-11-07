@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -32,13 +32,12 @@ export class Purge {
      *
      */
     async purgeAll(
-        req: operations.PurgeAllRequest,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeAllResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PurgeAllRequest(req);
-        }
-
+        const req = new operations.PurgeAllRequest({
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -50,7 +49,7 @@ export class Purge {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -107,13 +106,14 @@ export class Purge {
      * Instant Purge an individual URL.
      */
     async purgeSingleUrl(
-        req: operations.PurgeSingleUrlRequest,
+        cachedUrl: string,
+        fastlySoftPurge?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeSingleUrlResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PurgeSingleUrlRequest(req);
-        }
-
+        const req = new operations.PurgeSingleUrlRequest({
+            cachedUrl: cachedUrl,
+            fastlySoftPurge: fastlySoftPurge,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -125,7 +125,7 @@ export class Purge {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -163,7 +163,7 @@ export class Purge {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.purgeResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PurgeResponse
+                        components.PurgeResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -186,13 +186,16 @@ export class Purge {
      * Instant Purge a particular service of items tagged with a Surrogate Key. Only one surrogate key can be purged at a time. Multiple keys can be purged using a batch surrogate key purge request.
      */
     async purgeTag(
-        req: operations.PurgeTagRequest,
+        serviceId: string,
+        surrogateKey: string,
+        fastlySoftPurge?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.PurgeTagResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PurgeTagRequest(req);
-        }
-
+        const req = new operations.PurgeTagRequest({
+            serviceId: serviceId,
+            surrogateKey: surrogateKey,
+            fastlySoftPurge: fastlySoftPurge,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -208,7 +211,7 @@ export class Purge {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -246,7 +249,7 @@ export class Purge {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.purgeResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PurgeResponse
+                        components.PurgeResponse
                     );
                 } else {
                     throw new errors.SDKError(

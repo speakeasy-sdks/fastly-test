@@ -3,15 +3,21 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListWafRuleRevisionsRequest extends SpeakeasyBase {
     /**
+     * Alphanumeric string identifying a WAF rule.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=waf_rule_id" })
+    wafRuleId: string;
+
+    /**
      * Include relationships. Optional.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: shared.WafRuleRevisionInclude;
+    include?: components.WafRuleRevisionInclude;
 
     /**
      * Current page.
@@ -24,12 +30,6 @@ export class ListWafRuleRevisionsRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page[size]" })
     pageSize?: number;
-
-    /**
-     * Alphanumeric string identifying a WAF rule.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=waf_rule_id" })
-    wafRuleId: string;
 }
 
 export class ListWafRuleRevisionsResponse extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class ListWafRuleRevisionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafRuleRevisionsResponse?: shared.WafRuleRevisionsResponse;
+    wafRuleRevisionsResponse?: components.WafRuleRevisionsResponse;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingLogshuttle {
      * Create a Log Shuttle logging endpoint for a particular service and version.
      */
     async createLogLogshuttle(
-        req: operations.CreateLogLogshuttleRequest,
+        serviceId: string,
+        versionId: number,
+        loggingLogshuttle?: components.LoggingLogshuttle,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogshuttleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogLogshuttleRequest(req);
-        }
-
+        const req = new operations.CreateLogLogshuttleRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLogshuttle: loggingLogshuttle,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class LoggingLogshuttle {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -105,7 +108,7 @@ export class LoggingLogshuttle {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogshuttleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogshuttleResponse
+                        components.LoggingLogshuttleResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -128,13 +131,16 @@ export class LoggingLogshuttle {
      * Delete the Log Shuttle logging endpoint for a particular service and version.
      */
     async deleteLogLogshuttle(
-        req: operations.DeleteLogLogshuttleRequest,
+        loggingLogshuttleName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogshuttleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogLogshuttleRequest(req);
-        }
-
+        const req = new operations.DeleteLogLogshuttleRequest({
+            loggingLogshuttleName: loggingLogshuttleName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -150,7 +156,7 @@ export class LoggingLogshuttle {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -208,13 +214,16 @@ export class LoggingLogshuttle {
      * Get the Log Shuttle logging endpoint for a particular service and version.
      */
     async getLogLogshuttle(
-        req: operations.GetLogLogshuttleRequest,
+        loggingLogshuttleName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogshuttleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogLogshuttleRequest(req);
-        }
-
+        const req = new operations.GetLogLogshuttleRequest({
+            loggingLogshuttleName: loggingLogshuttleName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -230,7 +239,7 @@ export class LoggingLogshuttle {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -264,7 +273,7 @@ export class LoggingLogshuttle {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogshuttleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogshuttleResponse
+                        components.LoggingLogshuttleResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -287,13 +296,14 @@ export class LoggingLogshuttle {
      * List all of the Log Shuttle logging endpoints for a particular service and version.
      */
     async listLogLogshuttle(
-        req: operations.ListLogLogshuttleRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogshuttleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogLogshuttleRequest(req);
-        }
-
+        const req = new operations.ListLogLogshuttleRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -309,7 +319,7 @@ export class LoggingLogshuttle {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -345,7 +355,7 @@ export class LoggingLogshuttle {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogshuttleResponse,
+                        components.LoggingLogshuttleResponse,
                         resFieldDepth
                     );
                 } else {
@@ -369,13 +379,18 @@ export class LoggingLogshuttle {
      * Update the Log Shuttle logging endpoint for a particular service and version.
      */
     async updateLogLogshuttle(
-        req: operations.UpdateLogLogshuttleRequest,
+        loggingLogshuttleName: string,
+        serviceId: string,
+        versionId: number,
+        loggingLogshuttle?: components.LoggingLogshuttle,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogshuttleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogLogshuttleRequest(req);
-        }
-
+        const req = new operations.UpdateLogLogshuttleRequest({
+            loggingLogshuttleName: loggingLogshuttleName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingLogshuttle: loggingLogshuttle,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -405,7 +420,7 @@ export class LoggingLogshuttle {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -445,7 +460,7 @@ export class LoggingLogshuttle {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingLogshuttleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingLogshuttleResponse
+                        components.LoggingLogshuttleResponse
                     );
                 } else {
                     throw new errors.SDKError(

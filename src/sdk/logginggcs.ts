@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingGcs {
      * Create GCS logging for a particular service and version.
      */
     async createLogGcs(
-        req: operations.CreateLogGcsRequest,
+        serviceId: string,
+        versionId: number,
+        loggingGcs?: components.LoggingGcs,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogGcsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogGcsRequest(req);
-        }
-
+        const req = new operations.CreateLogGcsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingGcs: loggingGcs,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingGcs {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingGcs {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGcsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGcsResponse
+                        components.LoggingGcsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingGcs {
      * Delete the GCS Logging for a particular service and version.
      */
     async deleteLogGcs(
-        req: operations.DeleteLogGcsRequest,
+        loggingGcsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogGcsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogGcsRequest(req);
-        }
-
+        const req = new operations.DeleteLogGcsRequest({
+            loggingGcsName: loggingGcsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingGcs {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingGcs {
      * Get the GCS Logging for a particular service and version.
      */
     async getLogGcs(
-        req: operations.GetLogGcsRequest,
+        loggingGcsName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogGcsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogGcsRequest(req);
-        }
-
+        const req = new operations.GetLogGcsRequest({
+            loggingGcsName: loggingGcsName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingGcs {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingGcs {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGcsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGcsResponse
+                        components.LoggingGcsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingGcs {
      * List all of the GCS log endpoints for a particular service and version.
      */
     async listLogGcs(
-        req: operations.ListLogGcsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogGcsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogGcsRequest(req);
-        }
-
+        const req = new operations.ListLogGcsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingGcs {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingGcs {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGcsResponse,
+                        components.LoggingGcsResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingGcs {
      * Update the GCS for a particular service and version.
      */
     async updateLogGcs(
-        req: operations.UpdateLogGcsRequest,
+        loggingGcsName: string,
+        serviceId: string,
+        versionId: number,
+        loggingGcs?: components.LoggingGcs,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogGcsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogGcsRequest(req);
-        }
-
+        const req = new operations.UpdateLogGcsRequest({
+            loggingGcsName: loggingGcsName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingGcs: loggingGcs,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingGcs {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingGcs {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingGcsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingGcsResponse
+                        components.LoggingGcsResponse
                     );
                 } else {
                     throw new errors.SDKError(

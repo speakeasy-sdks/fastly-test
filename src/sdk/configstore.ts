@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class ConfigStore {
      * Create a config store.
      */
     async createConfigStore(
-        req: shared.ConfigStore,
+        req: components.ConfigStore,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateConfigStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.ConfigStore(req);
+            req = new components.ConfigStore(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class ConfigStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreResponse
+                        components.ConfigStoreResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,13 +119,12 @@ export class ConfigStore {
      * Delete a config store.
      */
     async deleteConfigStore(
-        req: operations.DeleteConfigStoreRequest,
+        configStoreId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteConfigStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteConfigStoreRequest(req);
-        }
-
+        const req = new operations.DeleteConfigStoreRequest({
+            configStoreId: configStoreId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -141,7 +140,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -198,13 +197,12 @@ export class ConfigStore {
      * Describe a config store by its identifier.
      */
     async getConfigStore(
-        req: operations.GetConfigStoreRequest,
+        configStoreId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetConfigStoreRequest(req);
-        }
-
+        const req = new operations.GetConfigStoreRequest({
+            configStoreId: configStoreId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -220,7 +218,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -254,7 +252,7 @@ export class ConfigStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreResponse
+                        components.ConfigStoreResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -277,13 +275,12 @@ export class ConfigStore {
      * Retrieve metadata for a single config store.
      */
     async getConfigStoreInfo(
-        req: operations.GetConfigStoreInfoRequest,
+        configStoreId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigStoreInfoResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetConfigStoreInfoRequest(req);
-        }
-
+        const req = new operations.GetConfigStoreInfoRequest({
+            configStoreId: configStoreId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -299,7 +296,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -334,7 +331,7 @@ export class ConfigStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreInfoResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreInfoResponse
+                        components.ConfigStoreInfoResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -357,13 +354,12 @@ export class ConfigStore {
      * List services linked to a config store
      */
     async listConfigStoreServices(
-        req: operations.ListConfigStoreServicesRequest,
+        configStoreId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListConfigStoreServicesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListConfigStoreServicesRequest(req);
-        }
-
+        const req = new operations.ListConfigStoreServicesRequest({
+            configStoreId: configStoreId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -379,7 +375,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -450,7 +446,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -486,7 +482,7 @@ export class ConfigStore {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreResponse,
+                        components.ConfigStoreResponse,
                         resFieldDepth
                     );
                 } else {
@@ -510,13 +506,14 @@ export class ConfigStore {
      * Update a config store.
      */
     async updateConfigStore(
-        req: operations.UpdateConfigStoreRequest,
+        configStoreId: string,
+        configStore?: components.ConfigStore,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateConfigStoreResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateConfigStoreRequest(req);
-        }
-
+        const req = new operations.UpdateConfigStoreRequest({
+            configStoreId: configStoreId,
+            configStore: configStore,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -542,7 +539,7 @@ export class ConfigStore {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -581,7 +578,7 @@ export class ConfigStore {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreResponse
+                        components.ConfigStoreResponse
                     );
                 } else {
                     throw new errors.SDKError(

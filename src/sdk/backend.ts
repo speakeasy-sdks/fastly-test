@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Backend {
      * Create a backend for a particular service and version.
      */
     async createBackend(
-        req: operations.CreateBackendRequest,
+        serviceId: string,
+        versionId: number,
+        backend?: components.Backend,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateBackendRequest(req);
-        }
-
+        const req = new operations.CreateBackendRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            backend: backend,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Backend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Backend {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.backendResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BackendResponse
+                        components.BackendResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Backend {
      * Delete the backend for a particular service and version.
      */
     async deleteBackend(
-        req: operations.DeleteBackendRequest,
+        backendName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteBackendRequest(req);
-        }
-
+        const req = new operations.DeleteBackendRequest({
+            backendName: backendName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Backend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Backend {
      * Get the backend for a particular service and version.
      */
     async getBackend(
-        req: operations.GetBackendRequest,
+        backendName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetBackendRequest(req);
-        }
-
+        const req = new operations.GetBackendRequest({
+            backendName: backendName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Backend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Backend {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.backendResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BackendResponse
+                        components.BackendResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Backend {
      * List all backends for a particular service and version.
      */
     async listBackends(
-        req: operations.ListBackendsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListBackendsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListBackendsRequest(req);
-        }
-
+        const req = new operations.ListBackendsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Backend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Backend {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BackendResponse,
+                        components.BackendResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Backend {
      * Update the backend for a particular service and version.
      */
     async updateBackend(
-        req: operations.UpdateBackendRequest,
+        backendName: string,
+        serviceId: string,
+        versionId: number,
+        backend?: components.Backend,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBackendResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateBackendRequest(req);
-        }
-
+        const req = new operations.UpdateBackendRequest({
+            backendName: backendName,
+            serviceId: serviceId,
+            versionId: versionId,
+            backend: backend,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Backend {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Backend {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.backendResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BackendResponse
+                        components.BackendResponse
                     );
                 } else {
                     throw new errors.SDKError(

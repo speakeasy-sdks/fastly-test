@@ -19,32 +19,40 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import {
+  Formats,
+  HttpResponseFormat,
+  HttpStreamFormat,
+  PublishItem,
+  PublishRequest,
+  WsMessageFormat,
+} from "Fastly/dist/sdk/models/components";
+import { PublishRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.publish.publish({
-    publishRequest: {
-      items: [
-        {
-          channel: "string",
-          formats: {
-            httpResponse: {
-              headers: {
-                "key": "string",
-              },
-            },
-            httpStream: {},
-            wsMessage: {},
+const serviceId: string = "SU1Z0isxPaozGVKXdv0eY";
+const publishRequest: PublishRequest = {
+  items: [
+    {
+      channel: "string",
+      formats: {
+        httpResponse: {
+          headers: {
+            "key": "string",
           },
         },
-      ],
+        httpStream: {},
+        wsMessage: {},
+      },
     },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
+  ],
+};
+
+  const res = await sdk.publish.publish(serviceId, publishRequest);
 
 
   if (res.statusCode == 200) {
@@ -55,10 +63,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.PublishRequest](../../models/operations/publishrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `serviceId`                                                        | *string*                                                           | :heavy_check_mark:                                                 | Alphanumeric string identifying the service.                       | SU1Z0isxPaozGVKXdv0eY                                              |
+| `publishRequest`                                                   | [components.PublishRequest](../../models/shared/publishrequest.md) | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |                                                                    |
 
 
 ### Response

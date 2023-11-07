@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Director {
      * Create a director for a particular service and version.
      */
     async createDirector(
-        req: operations.CreateDirectorRequest,
+        serviceId: string,
+        versionId: number,
+        director?: components.Director,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDirectorResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDirectorRequest(req);
-        }
-
+        const req = new operations.CreateDirectorRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            director: director,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Director {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Director {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.directorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DirectorResponse
+                        components.DirectorResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Director {
      * Delete the director for a particular service and version.
      */
     async deleteDirector(
-        req: operations.DeleteDirectorRequest,
+        directorName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteDirectorResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteDirectorRequest(req);
-        }
-
+        const req = new operations.DeleteDirectorRequest({
+            directorName: directorName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Director {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Director {
      * Get the director for a particular service and version.
      */
     async getDirector(
-        req: operations.GetDirectorRequest,
+        directorName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDirectorResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDirectorRequest(req);
-        }
-
+        const req = new operations.GetDirectorRequest({
+            directorName: directorName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Director {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Director {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.directorResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DirectorResponse
+                        components.DirectorResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Director {
      * List the directors for a particular service and version.
      */
     async listDirectors(
-        req: operations.ListDirectorsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDirectorsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListDirectorsRequest(req);
-        }
-
+        const req = new operations.ListDirectorsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Director {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Director {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DirectorResponse,
+                        components.DirectorResponse,
                         resFieldDepth
                     );
                 } else {

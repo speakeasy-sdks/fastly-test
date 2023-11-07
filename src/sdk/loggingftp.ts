@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingFtp {
      * Create a FTP for a particular service and version.
      */
     async createLogFtp(
-        req: operations.CreateLogFtpRequest,
+        serviceId: string,
+        versionId: number,
+        loggingFtp?: components.LoggingFtp,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogFtpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogFtpRequest(req);
-        }
-
+        const req = new operations.CreateLogFtpRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingFtp: loggingFtp,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingFtp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingFtp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingFtpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingFtpResponse
+                        components.LoggingFtpResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingFtp {
      * Delete the FTP for a particular service and version.
      */
     async deleteLogFtp(
-        req: operations.DeleteLogFtpRequest,
+        loggingFtpName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogFtpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogFtpRequest(req);
-        }
-
+        const req = new operations.DeleteLogFtpRequest({
+            loggingFtpName: loggingFtpName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingFtp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingFtp {
      * Get the FTP for a particular service and version.
      */
     async getLogFtp(
-        req: operations.GetLogFtpRequest,
+        loggingFtpName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogFtpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogFtpRequest(req);
-        }
-
+        const req = new operations.GetLogFtpRequest({
+            loggingFtpName: loggingFtpName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingFtp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingFtp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingFtpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingFtpResponse
+                        components.LoggingFtpResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingFtp {
      * List all of the FTPs for a particular service and version.
      */
     async listLogFtp(
-        req: operations.ListLogFtpRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogFtpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogFtpRequest(req);
-        }
-
+        const req = new operations.ListLogFtpRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingFtp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingFtp {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingFtpResponse,
+                        components.LoggingFtpResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingFtp {
      * Update the FTP for a particular service and version.
      */
     async updateLogFtp(
-        req: operations.UpdateLogFtpRequest,
+        loggingFtpName: string,
+        serviceId: string,
+        versionId: number,
+        loggingFtp?: components.LoggingFtp,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogFtpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogFtpRequest(req);
-        }
-
+        const req = new operations.UpdateLogFtpRequest({
+            loggingFtpName: loggingFtpName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingFtp: loggingFtp,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingFtp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingFtp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingFtpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingFtpResponse
+                        components.LoggingFtpResponse
                     );
                 } else {
                     throw new errors.SDKError(

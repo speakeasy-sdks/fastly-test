@@ -20,17 +20,18 @@ Delete an item from an kv store
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteKeyFromStoreRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const keyName: string = "string";
+const storeId: string = "string";
+const force: boolean = false;
 
-  const res = await sdk.kvStoreItem.deleteKeyFromStore({
-    keyName: "string",
-    storeId: "string",
-  });
+  const res = await sdk.kvStoreItem.deleteKeyFromStore(keyName, storeId, force);
 
 
   if (res.statusCode == 200) {
@@ -41,10 +42,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteKeyFromStoreRequest](../../models/operations/deletekeyfromstorerequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `keyName`                                                    | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `storeId`                                                    | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `force`                                                      | *boolean*                                                    | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -59,16 +62,19 @@ List the keys of all items within an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetKeysRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const storeId: string = "string";
+const cursor: string = "string";
+const limit: number = 261587;
+const prefix: string = "string";
 
-  const res = await sdk.kvStoreItem.getKeys({
-    storeId: "string",
-  });
+  const res = await sdk.kvStoreItem.getKeys(storeId, cursor, limit, prefix);
 
 
   if (res.statusCode == 200) {
@@ -79,10 +85,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.GetKeysRequest](../../models/operations/getkeysrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `storeId`                                                    | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `cursor`                                                     | *string*                                                     | :heavy_minus_sign:                                           | N/A                                                          |
+| `limit`                                                      | *number*                                                     | :heavy_minus_sign:                                           | N/A                                                          |
+| `prefix`                                                     | *string*                                                     | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -97,17 +106,17 @@ Get the value associated with a key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetValueForKeyRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const keyName: string = "string";
+const storeId: string = "string";
 
-  const res = await sdk.kvStoreItem.getValueForKey({
-    keyName: "string",
-    storeId: "string",
-  });
+  const res = await sdk.kvStoreItem.getValueForKey(keyName, storeId);
 
 
   if (res.statusCode == 200) {
@@ -118,10 +127,11 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetValueForKeyRequest](../../models/operations/getvalueforkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `keyName`                                                    | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `storeId`                                                    | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -136,7 +146,7 @@ Set a new value for a new or existing key in an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,18 @@ export class Diff {
      * Get diff between two versions.
      */
     async diffServiceVersions(
-        req: operations.DiffServiceVersionsRequest,
+        fromVersionId: number,
+        serviceId: string,
+        toVersionId: number,
+        format?: components.QueryFormat,
         config?: AxiosRequestConfig
     ): Promise<operations.DiffServiceVersionsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DiffServiceVersionsRequest(req);
-        }
-
+        const req = new operations.DiffServiceVersionsRequest({
+            fromVersionId: fromVersionId,
+            serviceId: serviceId,
+            toVersionId: toVersionId,
+            format: format,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +56,7 @@ export class Diff {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -87,7 +92,7 @@ export class Diff {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.diffResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DiffResponse
+                        components.DiffResponse
                     );
                 } else {
                     throw new errors.SDKError(

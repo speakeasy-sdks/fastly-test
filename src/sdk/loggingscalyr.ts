@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingScalyr {
      * Create a Scalyr for a particular service and version.
      */
     async createLogScalyr(
-        req: operations.CreateLogScalyrRequest,
+        serviceId: string,
+        versionId: number,
+        loggingScalyr?: components.LoggingScalyr,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogScalyrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogScalyrRequest(req);
-        }
-
+        const req = new operations.CreateLogScalyrRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingScalyr: loggingScalyr,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingScalyr {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingScalyr {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingScalyrResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingScalyrResponse
+                        components.LoggingScalyrResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingScalyr {
      * Delete the Scalyr for a particular service and version.
      */
     async deleteLogScalyr(
-        req: operations.DeleteLogScalyrRequest,
+        loggingScalyrName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogScalyrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogScalyrRequest(req);
-        }
-
+        const req = new operations.DeleteLogScalyrRequest({
+            loggingScalyrName: loggingScalyrName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingScalyr {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingScalyr {
      * Get the Scalyr for a particular service and version.
      */
     async getLogScalyr(
-        req: operations.GetLogScalyrRequest,
+        loggingScalyrName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogScalyrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogScalyrRequest(req);
-        }
-
+        const req = new operations.GetLogScalyrRequest({
+            loggingScalyrName: loggingScalyrName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingScalyr {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingScalyr {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingScalyrResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingScalyrResponse
+                        components.LoggingScalyrResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingScalyr {
      * List all of the Scalyrs for a particular service and version.
      */
     async listLogScalyr(
-        req: operations.ListLogScalyrRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogScalyrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogScalyrRequest(req);
-        }
-
+        const req = new operations.ListLogScalyrRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingScalyr {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingScalyr {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingScalyrResponse,
+                        components.LoggingScalyrResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingScalyr {
      * Update the Scalyr for a particular service and version.
      */
     async updateLogScalyr(
-        req: operations.UpdateLogScalyrRequest,
+        loggingScalyrName: string,
+        serviceId: string,
+        versionId: number,
+        loggingScalyr?: components.LoggingScalyr,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogScalyrResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogScalyrRequest(req);
-        }
-
+        const req = new operations.UpdateLogScalyrRequest({
+            loggingScalyrName: loggingScalyrName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingScalyr: loggingScalyr,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingScalyr {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingScalyr {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingScalyrResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingScalyrResponse
+                        components.LoggingScalyrResponse
                     );
                 } else {
                     throw new errors.SDKError(

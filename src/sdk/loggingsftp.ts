@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingSftp {
      * Create a SFTP for a particular service and version.
      */
     async createLogSftp(
-        req: operations.CreateLogSftpRequest,
+        serviceId: string,
+        versionId: number,
+        loggingSftp?: components.LoggingSftp,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSftpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogSftpRequest(req);
-        }
-
+        const req = new operations.CreateLogSftpRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSftp: loggingSftp,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingSftp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingSftp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSftpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSftpResponse
+                        components.LoggingSftpResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingSftp {
      * Delete the SFTP for a particular service and version.
      */
     async deleteLogSftp(
-        req: operations.DeleteLogSftpRequest,
+        loggingSftpName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSftpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogSftpRequest(req);
-        }
-
+        const req = new operations.DeleteLogSftpRequest({
+            loggingSftpName: loggingSftpName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingSftp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingSftp {
      * Get the SFTP for a particular service and version.
      */
     async getLogSftp(
-        req: operations.GetLogSftpRequest,
+        loggingSftpName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSftpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogSftpRequest(req);
-        }
-
+        const req = new operations.GetLogSftpRequest({
+            loggingSftpName: loggingSftpName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingSftp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingSftp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSftpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSftpResponse
+                        components.LoggingSftpResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingSftp {
      * List all of the SFTPs for a particular service and version.
      */
     async listLogSftp(
-        req: operations.ListLogSftpRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSftpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogSftpRequest(req);
-        }
-
+        const req = new operations.ListLogSftpRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingSftp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingSftp {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSftpResponse,
+                        components.LoggingSftpResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingSftp {
      * Update the SFTP for a particular service and version.
      */
     async updateLogSftp(
-        req: operations.UpdateLogSftpRequest,
+        loggingSftpName: string,
+        serviceId: string,
+        versionId: number,
+        loggingSftp?: components.LoggingSftp,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSftpResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogSftpRequest(req);
-        }
-
+        const req = new operations.UpdateLogSftpRequest({
+            loggingSftpName: loggingSftpName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSftp: loggingSftp,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingSftp {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingSftp {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSftpResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSftpResponse
+                        components.LoggingSftpResponse
                     );
                 } else {
                     throw new errors.SDKError(

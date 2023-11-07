@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetLogAwsS3Request extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetLogAwsS3Response extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingS3Response?: shared.LoggingS3Response;
+    loggingS3Response?: components.LoggingS3Response;
 }

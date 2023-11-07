@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingElasticsearch {
      * Create a Elasticsearch logging endpoint for a particular service and version.
      */
     async createLogElasticsearch(
-        req: operations.CreateLogElasticsearchRequest,
+        serviceId: string,
+        versionId: number,
+        loggingElasticsearch?: components.LoggingElasticsearch,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogElasticsearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogElasticsearchRequest(req);
-        }
-
+        const req = new operations.CreateLogElasticsearchRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingElasticsearch: loggingElasticsearch,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -65,7 +68,7 @@ export class LoggingElasticsearch {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -105,7 +108,7 @@ export class LoggingElasticsearch {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingElasticsearchResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingElasticsearchResponse
+                        components.LoggingElasticsearchResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -128,13 +131,16 @@ export class LoggingElasticsearch {
      * Delete the Elasticsearch logging endpoint for a particular service and version.
      */
     async deleteLogElasticsearch(
-        req: operations.DeleteLogElasticsearchRequest,
+        loggingElasticsearchName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogElasticsearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogElasticsearchRequest(req);
-        }
-
+        const req = new operations.DeleteLogElasticsearchRequest({
+            loggingElasticsearchName: loggingElasticsearchName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -150,7 +156,7 @@ export class LoggingElasticsearch {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -208,13 +214,16 @@ export class LoggingElasticsearch {
      * Get the Elasticsearch logging endpoint for a particular service and version.
      */
     async getLogElasticsearch(
-        req: operations.GetLogElasticsearchRequest,
+        loggingElasticsearchName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogElasticsearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogElasticsearchRequest(req);
-        }
-
+        const req = new operations.GetLogElasticsearchRequest({
+            loggingElasticsearchName: loggingElasticsearchName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -230,7 +239,7 @@ export class LoggingElasticsearch {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -265,7 +274,7 @@ export class LoggingElasticsearch {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingElasticsearchResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingElasticsearchResponse
+                        components.LoggingElasticsearchResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -288,13 +297,14 @@ export class LoggingElasticsearch {
      * List all of the Elasticsearch logging endpoints for a particular service and version.
      */
     async listLogElasticsearch(
-        req: operations.ListLogElasticsearchRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogElasticsearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogElasticsearchRequest(req);
-        }
-
+        const req = new operations.ListLogElasticsearchRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -310,7 +320,7 @@ export class LoggingElasticsearch {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -347,7 +357,7 @@ export class LoggingElasticsearch {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingElasticsearchResponse,
+                        components.LoggingElasticsearchResponse,
                         resFieldDepth
                     );
                 } else {
@@ -371,13 +381,18 @@ export class LoggingElasticsearch {
      * Update the Elasticsearch logging endpoint for a particular service and version.
      */
     async updateLogElasticsearch(
-        req: operations.UpdateLogElasticsearchRequest,
+        loggingElasticsearchName: string,
+        serviceId: string,
+        versionId: number,
+        loggingElasticsearch?: components.LoggingElasticsearch,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogElasticsearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogElasticsearchRequest(req);
-        }
-
+        const req = new operations.UpdateLogElasticsearchRequest({
+            loggingElasticsearchName: loggingElasticsearchName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingElasticsearch: loggingElasticsearch,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -407,7 +422,7 @@ export class LoggingElasticsearch {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -447,7 +462,7 @@ export class LoggingElasticsearch {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingElasticsearchResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingElasticsearchResponse
+                        components.LoggingElasticsearchResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,14 @@ export class EnabledProducts {
      * Disable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
      */
     async disableProduct(
-        req: operations.DisableProductRequest,
+        productId: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DisableProductResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DisableProductRequest(req);
-        }
-
+        const req = new operations.DisableProductRequest({
+            productId: productId,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -51,7 +52,7 @@ export class EnabledProducts {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -94,13 +95,14 @@ export class EnabledProducts {
      * Enable a product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
      */
     async enableProduct(
-        req: operations.EnableProductRequest,
+        productId: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.EnableProductResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.EnableProductRequest(req);
-        }
-
+        const req = new operations.EnableProductRequest({
+            productId: productId,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -116,7 +118,7 @@ export class EnabledProducts {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -150,7 +152,7 @@ export class EnabledProducts {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.enabledProductResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.EnabledProductResponse
+                        components.EnabledProductResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -173,13 +175,14 @@ export class EnabledProducts {
      * Get enabled product on a service. Supported product IDs: `brotli_compression`,`domain_inspector`,`fanout`,`image_optimizer`,`origin_inspector`, and `websockets`.
      */
     async getEnabledProduct(
-        req: operations.GetEnabledProductRequest,
+        productId: string,
+        serviceId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetEnabledProductResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnabledProductRequest(req);
-        }
-
+        const req = new operations.GetEnabledProductRequest({
+            productId: productId,
+            serviceId: serviceId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -195,7 +198,7 @@ export class EnabledProducts {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -229,7 +232,7 @@ export class EnabledProducts {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.enabledProductResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.EnabledProductResponse
+                        components.EnabledProductResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -42,7 +42,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -76,7 +76,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.tokenResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse
+                        components.TokenResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -91,7 +91,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -114,13 +114,12 @@ export class Tokens {
      * List all tokens belonging to a specific customer.
      */
     async listTokensCustomer(
-        req: operations.ListTokensCustomerRequest,
+        customerId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.ListTokensCustomerResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListTokensCustomerRequest(req);
-        }
-
+        const req = new operations.ListTokensCustomerRequest({
+            customerId: customerId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -132,7 +131,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -169,7 +168,7 @@ export class Tokens {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse,
+                        components.TokenResponse,
                         resFieldDepth
                     );
                 } else {
@@ -204,7 +203,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +239,7 @@ export class Tokens {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse,
+                        components.TokenResponse,
                         resFieldDepth
                     );
                 } else {
@@ -256,7 +255,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -279,13 +278,12 @@ export class Tokens {
      * Revoke a specific token by its id.
      */
     async revokeToken(
-        req: operations.RevokeTokenRequest,
+        tokenId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.RevokeTokenResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.RevokeTokenRequest(req);
-        }
-
+        const req = new operations.RevokeTokenRequest({
+            tokenId: tokenId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -297,7 +295,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -333,7 +331,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -369,7 +367,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -406,7 +404,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(

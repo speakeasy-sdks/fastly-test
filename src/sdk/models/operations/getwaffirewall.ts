@@ -3,10 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafFirewallRequest extends SpeakeasyBase {
+    /**
+     * Alphanumeric string identifying a WAF Firewall.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=firewall_id" })
+    firewallId: string;
+
     /**
      * Limit the results returned to a specific service version.
      */
@@ -16,16 +22,10 @@ export class GetWafFirewallRequest extends SpeakeasyBase {
     filterServiceVersionNumber?: string;
 
     /**
-     * Alphanumeric string identifying a WAF Firewall.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=firewall_id" })
-    firewallId: string;
-
-    /**
      * Include related objects. Optional.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: shared.FirewallInclude;
+    include?: components.FirewallInclude;
 }
 
 export class GetWafFirewallResponse extends SpeakeasyBase {
@@ -51,5 +51,5 @@ export class GetWafFirewallResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafFirewallResponse?: shared.WafFirewallResponse;
+    wafFirewallResponse?: components.WafFirewallResponse;
 }

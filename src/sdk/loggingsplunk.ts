@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingSplunk {
      * Create a Splunk logging object for a particular service and version.
      */
     async createLogSplunk(
-        req: operations.CreateLogSplunkRequest,
+        serviceId: string,
+        versionId: number,
+        loggingSplunk?: components.LoggingSplunk,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogSplunkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogSplunkRequest(req);
-        }
-
+        const req = new operations.CreateLogSplunkRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSplunk: loggingSplunk,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingSplunk {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingSplunk {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSplunkResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSplunkResponse
+                        components.LoggingSplunkResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingSplunk {
      * Delete the Splunk logging object for a particular service and version.
      */
     async deleteLogSplunk(
-        req: operations.DeleteLogSplunkRequest,
+        loggingSplunkName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogSplunkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogSplunkRequest(req);
-        }
-
+        const req = new operations.DeleteLogSplunkRequest({
+            loggingSplunkName: loggingSplunkName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingSplunk {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingSplunk {
      * Get the details for a Splunk logging object for a particular service and version.
      */
     async getLogSplunk(
-        req: operations.GetLogSplunkRequest,
+        loggingSplunkName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogSplunkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogSplunkRequest(req);
-        }
-
+        const req = new operations.GetLogSplunkRequest({
+            loggingSplunkName: loggingSplunkName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingSplunk {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingSplunk {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSplunkResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSplunkResponse
+                        components.LoggingSplunkResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingSplunk {
      * List all of the Splunk logging objects for a particular service and version.
      */
     async listLogSplunk(
-        req: operations.ListLogSplunkRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogSplunkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogSplunkRequest(req);
-        }
-
+        const req = new operations.ListLogSplunkRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingSplunk {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingSplunk {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSplunkResponse,
+                        components.LoggingSplunkResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingSplunk {
      * Update the Splunk logging object for a particular service and version.
      */
     async updateLogSplunk(
-        req: operations.UpdateLogSplunkRequest,
+        loggingSplunkName: string,
+        serviceId: string,
+        versionId: number,
+        loggingSplunk?: components.LoggingSplunk,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogSplunkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogSplunkRequest(req);
-        }
-
+        const req = new operations.UpdateLogSplunkRequest({
+            loggingSplunkName: loggingSplunkName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingSplunk: loggingSplunk,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingSplunk {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingSplunk {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingSplunkResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingSplunkResponse
+                        components.LoggingSplunkResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -25,24 +25,24 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkWafActiveRuleStatus, TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Attributes, BulkWafActiveRule, BulkWafActiveRuleStatus, TypeWafActiveRule } from "Fastly/dist/sdk/models/components";
+import { BulkUpdateWafActiveRulesRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const bulkWafActiveRule: BulkWafActiveRule = {
+  attributes: {
+    revision: "string",
+  },
+  relationships: "string",
+};
 
-  const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules({
-    bulkWafActiveRule: {
-      attributes: {
-        revision: "string",
-      },
-      relationships: "string",
-    },
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    versionId: 1,
-  });
+  const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules(firewallId, versionId, bulkWafActiveRule);
 
 
   if (res.statusCode == 200) {
@@ -53,10 +53,12 @@ import { BulkWafActiveRuleStatus, TypeWafActiveRule } from "FastlyTestJS/dist/sd
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.BulkUpdateWafActiveRulesRequest](../../models/operations/bulkupdatewafactiverulesrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `firewallId`                                                             | *string*                                                                 | :heavy_check_mark:                                                       | Alphanumeric string identifying a WAF Firewall.                          | fW7g2uUGZzb2W9Euo4Mo0r                                                   |
+| `versionId`                                                              | *number*                                                                 | :heavy_check_mark:                                                       | Integer identifying a service version.                                   | 1                                                                        |
+| `bulkWafActiveRule`                                                      | [components.BulkWafActiveRule](../../models/shared/bulkwafactiverule.md) | :heavy_minus_sign:                                                       | N/A                                                                      |                                                                          |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |                                                                          |
 
 
 ### Response
@@ -73,28 +75,34 @@ Create an active rule for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  BulkWafActiveRules,
+  TypeWafActiveRule,
+  WafActiveRuleData,
+  WafActiveRuleDataAttributes,
+  WafActiveRuleDataStatus,
+} from "Fastly/dist/sdk/models/components";
+import { CreateWafActiveRuleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.wafActiveRules.createWafActiveRule({
-    bulkWafActiveRules: {
-      data: [
-        {
-          attributes: {
-            revision: "string",
-          },
-          relationships: "string",
-        },
-      ],
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const bulkWafActiveRules: BulkWafActiveRules = {
+  data: [
+    {
+      attributes: {
+        revision: "string",
+      },
+      relationships: "string",
     },
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    versionId: 1,
-  });
+  ],
+};
+
+  const res = await sdk.wafActiveRules.createWafActiveRule(firewallId, versionId, bulkWafActiveRules);
 
 
   if (res.statusCode == 200) {
@@ -105,10 +113,12 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sd
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateWafActiveRuleRequest](../../models/operations/createwafactiverulerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `firewallId`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | Alphanumeric string identifying a WAF Firewall.                            | fW7g2uUGZzb2W9Euo4Mo0r                                                     |
+| `versionId`                                                                | *number*                                                                   | :heavy_check_mark:                                                         | Integer identifying a service version.                                     | 1                                                                          |
+| `bulkWafActiveRules`                                                       | [components.BulkWafActiveRules](../../models/shared/bulkwafactiverules.md) | :heavy_minus_sign:                                                         | N/A                                                                        |                                                                            |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |                                                                            |
 
 
 ### Response
@@ -125,27 +135,33 @@ Create active rules by tag. This endpoint will create active rules using the lat
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  TypeWafActiveRule,
+  WafActiveRule,
+  WafActiveRuleData,
+  WafActiveRuleDataAttributes,
+  WafActiveRuleDataStatus,
+} from "Fastly/dist/sdk/models/components";
+import { CreateWafActiveRulesTagRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.wafActiveRules.createWafActiveRulesTag({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    versionId: 1,
-    wafActiveRule: {
-      data: {
-        attributes: {
-          revision: "string",
-        },
-        relationships: "string",
-      },
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const wafTagName: string = "test-waf-tag";
+const wafActiveRule: WafActiveRule = {
+  data: {
+    attributes: {
+      revision: "string",
     },
-    wafTagName: "test-waf-tag",
-  });
+    relationships: "string",
+  },
+};
+
+  const res = await sdk.wafActiveRules.createWafActiveRulesTag(firewallId, versionId, wafTagName, wafActiveRule);
 
 
   if (res.statusCode == 200) {
@@ -156,10 +172,13 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sd
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.CreateWafActiveRulesTagRequest](../../models/operations/createwafactiverulestagrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `firewallId`                                                     | *string*                                                         | :heavy_check_mark:                                               | Alphanumeric string identifying a WAF Firewall.                  | fW7g2uUGZzb2W9Euo4Mo0r                                           |
+| `versionId`                                                      | *number*                                                         | :heavy_check_mark:                                               | Integer identifying a service version.                           | 1                                                                |
+| `wafTagName`                                                     | *string*                                                         | :heavy_check_mark:                                               | Name of the tag.                                                 | test-waf-tag                                                     |
+| `wafActiveRule`                                                  | [components.WafActiveRule](../../models/shared/wafactiverule.md) | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |                                                                  |
 
 
 ### Response
@@ -176,18 +195,18 @@ Delete an active rule for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { DeleteWafActiveRuleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
 
-  const res = await sdk.wafActiveRules.deleteWafActiveRule({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    versionId: 1,
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
+  const res = await sdk.wafActiveRules.deleteWafActiveRule(firewallId, versionId, wafRuleId);
 
 
   if (res.statusCode == 200) {
@@ -198,10 +217,12 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteWafActiveRuleRequest](../../models/operations/deletewafactiverulerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `firewallId`                                                 | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a WAF Firewall.              | fW7g2uUGZzb2W9Euo4Mo0r                                       |
+| `versionId`                                                  | *number*                                                     | :heavy_check_mark:                                           | Integer identifying a service version.                       | 1                                                            |
+| `wafRuleId`                                                  | *string*                                                     | :heavy_check_mark:                                           | Alphanumeric string identifying a WAF rule.                  | 3krg2uUGZzb2W9Euo4moOR                                       |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
 ### Response
@@ -218,19 +239,19 @@ Get a specific active rule object. Includes details of the rule revision associa
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
+import { GetWafActiveRuleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
+const include: string = "waf_rule_revision,waf_firewall_version";
 
-  const res = await sdk.wafActiveRules.getWafActiveRule({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    include: "waf_rule_revision,waf_firewall_version",
-    versionId: 1,
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
+  const res = await sdk.wafActiveRules.getWafActiveRule(firewallId, versionId, wafRuleId, include);
 
 
   if (res.statusCode == 200) {
@@ -241,10 +262,13 @@ import { Fastly } from "FastlyTestJS";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetWafActiveRuleRequest](../../models/operations/getwafactiverulerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 | Example                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `firewallId`                                                                                                                | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | Alphanumeric string identifying a WAF Firewall.                                                                             | fW7g2uUGZzb2W9Euo4Mo0r                                                                                                      |
+| `versionId`                                                                                                                 | *number*                                                                                                                    | :heavy_check_mark:                                                                                                          | Integer identifying a service version.                                                                                      | 1                                                                                                                           |
+| `wafRuleId`                                                                                                                 | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | Alphanumeric string identifying a WAF rule.                                                                                 | 3krg2uUGZzb2W9Euo4moOR                                                                                                      |
+| `include`                                                                                                                   | *string*                                                                                                                    | :heavy_minus_sign:                                                                                                          | Include relationships. Optional, comma-separated values. Permitted values: `waf_rule_revision` and `waf_firewall_version`.<br/> | waf_rule_revision,waf_firewall_version                                                                                      |
+| `config`                                                                                                                    | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                | :heavy_minus_sign:                                                                                                          | Available config options for making requests.                                                                               |                                                                                                                             |
 
 
 ### Response
@@ -261,7 +285,7 @@ List all active rules for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -305,27 +329,33 @@ Update an active rule's status for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import {
+  TypeWafActiveRule,
+  WafActiveRule,
+  WafActiveRuleData,
+  WafActiveRuleDataAttributes,
+  WafActiveRuleDataStatus,
+} from "Fastly/dist/sdk/models/components";
+import { UpdateWafActiveRuleRequest } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
     token: "",
   });
-
-  const res = await sdk.wafActiveRules.updateWafActiveRule({
-    firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    versionId: 1,
-    wafActiveRule: {
-      data: {
-        attributes: {
-          revision: "string",
-        },
-        relationships: "string",
-      },
+const firewallId: string = "fW7g2uUGZzb2W9Euo4Mo0r";
+const versionId: number = 1;
+const wafRuleId: string = "3krg2uUGZzb2W9Euo4moOR";
+const wafActiveRule: WafActiveRule = {
+  data: {
+    attributes: {
+      revision: "string",
     },
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
+    relationships: "string",
+  },
+};
+
+  const res = await sdk.wafActiveRules.updateWafActiveRule(firewallId, versionId, wafRuleId, wafActiveRule);
 
 
   if (res.statusCode == 200) {
@@ -336,10 +366,13 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sd
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateWafActiveRuleRequest](../../models/operations/updatewafactiverulerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `firewallId`                                                     | *string*                                                         | :heavy_check_mark:                                               | Alphanumeric string identifying a WAF Firewall.                  | fW7g2uUGZzb2W9Euo4Mo0r                                           |
+| `versionId`                                                      | *number*                                                         | :heavy_check_mark:                                               | Integer identifying a service version.                           | 1                                                                |
+| `wafRuleId`                                                      | *string*                                                         | :heavy_check_mark:                                               | Alphanumeric string identifying a WAF rule.                      | 3krg2uUGZzb2W9Euo4moOR                                           |
+| `wafActiveRule`                                                  | [components.WafActiveRule](../../models/shared/wafactiverule.md) | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |                                                                  |
 
 
 ### Response

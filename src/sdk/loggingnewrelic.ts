@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class LoggingNewrelic {
      * Create a New Relic Logs logging object for a particular service and version.
      */
     async createLogNewrelic(
-        req: operations.CreateLogNewrelicRequest,
+        serviceId: string,
+        versionId: number,
+        loggingNewrelic?: components.LoggingNewrelic,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogNewrelicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateLogNewrelicRequest(req);
-        }
-
+        const req = new operations.CreateLogNewrelicRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingNewrelic: loggingNewrelic,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class LoggingNewrelic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class LoggingNewrelic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingNewrelicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingNewrelicResponse
+                        components.LoggingNewrelicResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class LoggingNewrelic {
      * Delete the New Relic Logs logging object for a particular service and version.
      */
     async deleteLogNewrelic(
-        req: operations.DeleteLogNewrelicRequest,
+        loggingNewrelicName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogNewrelicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteLogNewrelicRequest(req);
-        }
-
+        const req = new operations.DeleteLogNewrelicRequest({
+            loggingNewrelicName: loggingNewrelicName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class LoggingNewrelic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class LoggingNewrelic {
      * Get the details of a New Relic Logs logging object for a particular service and version.
      */
     async getLogNewrelic(
-        req: operations.GetLogNewrelicRequest,
+        loggingNewrelicName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogNewrelicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetLogNewrelicRequest(req);
-        }
-
+        const req = new operations.GetLogNewrelicRequest({
+            loggingNewrelicName: loggingNewrelicName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class LoggingNewrelic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class LoggingNewrelic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingNewrelicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingNewrelicResponse
+                        components.LoggingNewrelicResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class LoggingNewrelic {
      * List all of the New Relic Logs logging objects for a particular service and version.
      */
     async listLogNewrelic(
-        req: operations.ListLogNewrelicRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogNewrelicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListLogNewrelicRequest(req);
-        }
-
+        const req = new operations.ListLogNewrelicRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class LoggingNewrelic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class LoggingNewrelic {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingNewrelicResponse,
+                        components.LoggingNewrelicResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class LoggingNewrelic {
      * Update a New Relic Logs logging object for a particular service and version.
      */
     async updateLogNewrelic(
-        req: operations.UpdateLogNewrelicRequest,
+        loggingNewrelicName: string,
+        serviceId: string,
+        versionId: number,
+        loggingNewrelic?: components.LoggingNewrelic,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogNewrelicResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateLogNewrelicRequest(req);
-        }
-
+        const req = new operations.UpdateLogNewrelicRequest({
+            loggingNewrelicName: loggingNewrelicName,
+            serviceId: serviceId,
+            versionId: versionId,
+            loggingNewrelic: loggingNewrelic,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class LoggingNewrelic {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class LoggingNewrelic {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingNewrelicResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingNewrelicResponse
+                        components.LoggingNewrelicResponse
                     );
                 } else {
                     throw new errors.SDKError(

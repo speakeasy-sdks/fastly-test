@@ -6,11 +6,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DeleteStoreRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=force" })
-    force?: boolean;
-
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=store_id" })
     storeId: string;
+
+    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=force" })
+    force?: boolean;
 }
 
 export class DeleteStoreResponse extends SpeakeasyBase {

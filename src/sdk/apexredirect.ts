@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,12 @@ export class ApexRedirect {
      * Delete an apex redirect by its ID.
      */
     async deleteApexRedirect(
-        req: operations.DeleteApexRedirectRequest,
+        apexRedirectId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteApexRedirectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteApexRedirectRequest(req);
-        }
-
+        const req = new operations.DeleteApexRedirectRequest({
+            apexRedirectId: apexRedirectId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -47,7 +46,7 @@ export class ApexRedirect {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -105,13 +104,12 @@ export class ApexRedirect {
      * Get an apex redirect by its ID.
      */
     async getApexRedirect(
-        req: operations.GetApexRedirectRequest,
+        apexRedirectId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetApexRedirectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetApexRedirectRequest(req);
-        }
-
+        const req = new operations.GetApexRedirectRequest({
+            apexRedirectId: apexRedirectId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -123,7 +121,7 @@ export class ApexRedirect {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -157,7 +155,7 @@ export class ApexRedirect {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.apexRedirect = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ApexRedirect
+                        components.ApexRedirect
                     );
                 } else {
                     throw new errors.SDKError(
@@ -180,13 +178,14 @@ export class ApexRedirect {
      * List all apex redirects for a particular service and version.
      */
     async listApexRedirects(
-        req: operations.ListApexRedirectsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListApexRedirectsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListApexRedirectsRequest(req);
-        }
-
+        const req = new operations.ListApexRedirectsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -202,7 +201,7 @@ export class ApexRedirect {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -238,7 +237,7 @@ export class ApexRedirect {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ApexRedirect,
+                        components.ApexRedirect,
                         resFieldDepth
                     );
                 } else {
@@ -262,13 +261,14 @@ export class ApexRedirect {
      * Update an apex redirect by its ID.
      */
     async updateApexRedirect(
-        req: operations.UpdateApexRedirectRequest,
+        apexRedirectId: string,
+        apexRedirect?: components.ApexRedirectInput,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateApexRedirectResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateApexRedirectRequest(req);
-        }
-
+        const req = new operations.UpdateApexRedirectRequest({
+            apexRedirectId: apexRedirectId,
+            apexRedirect: apexRedirect,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -290,7 +290,7 @@ export class ApexRedirect {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -330,7 +330,7 @@ export class ApexRedirect {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.apexRedirect = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ApexRedirect
+                        components.ApexRedirect
                     );
                 } else {
                     throw new errors.SDKError(

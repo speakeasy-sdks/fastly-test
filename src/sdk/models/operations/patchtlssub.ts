@@ -3,10 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PatchTlsSubRequest extends SpeakeasyBase {
+    /**
+     * Alphanumeric string identifying a TLS subscription.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_subscription_id" })
+    tlsSubscriptionId: string;
+
     /**
      * A flag that allows you to edit and delete a subscription with active domains. Valid to use on PATCH and DELETE actions. As a warning, removing an active domain from a subscription or forcing the deletion of a subscription may result in breaking TLS termination to that domain.
      *
@@ -17,13 +23,7 @@ export class PatchTlsSubRequest extends SpeakeasyBase {
     force?: boolean;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsSubscription?: shared.TlsSubscription;
-
-    /**
-     * Alphanumeric string identifying a TLS subscription.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_subscription_id" })
-    tlsSubscriptionId: string;
+    tlsSubscription?: components.TlsSubscription;
 }
 
 export class PatchTlsSubResponse extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class PatchTlsSubResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsSubscriptionResponse?: shared.TlsSubscriptionResponse;
+    tlsSubscriptionResponse?: components.TlsSubscriptionResponse;
 }

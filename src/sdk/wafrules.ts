@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,13 +31,14 @@ export class WafRules {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getWafRule(
-        req: operations.GetWafRuleRequest,
+        wafRuleId: string,
+        include?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafRuleResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetWafRuleRequest(req);
-        }
-
+        const req = new operations.GetWafRuleRequest({
+            wafRuleId: wafRuleId,
+            include: include,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -49,7 +50,7 @@ export class WafRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -84,7 +85,7 @@ export class WafRules {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafRuleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafRuleResponse
+                        components.WafRuleResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -127,7 +128,7 @@ export class WafRules {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -162,7 +163,7 @@ export class WafRules {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafRulesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafRulesResponse
+                        components.WafRulesResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,16 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class DiffServiceVersionsRequest extends SpeakeasyBase {
-    /**
-     * Optional method to format the diff field.
-     */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=format" })
-    format?: shared.QueryFormat;
-
     /**
      * The version number of the service to which changes in the generated VCL are being compared. Can either be a positive number from 1 to your maximum version or a negative number from -1 down (-1 is latest version etc).
      */
@@ -30,6 +24,12 @@ export class DiffServiceVersionsRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=to_version_id" })
     toVersionId: number;
+
+    /**
+     * Optional method to format the diff field.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=format" })
+    format?: components.QueryFormat;
 }
 
 export class DiffServiceVersionsResponse extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class DiffServiceVersionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    diffResponse?: shared.DiffResponse;
+    diffResponse?: components.DiffResponse;
 }

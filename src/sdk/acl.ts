@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,13 +29,16 @@ export class Acl {
      * Create a new ACL attached to the specified service version. A new, empty ACL must be attached to a draft version of a service. The version associated with the ACL must be activated to be used.
      */
     async createAcl(
-        req: operations.CreateAclRequest,
+        serviceId: string,
+        versionId: number,
+        acl?: components.Acl,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateAclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateAclRequest(req);
-        }
-
+        const req = new operations.CreateAclRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+            acl: acl,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -61,7 +64,7 @@ export class Acl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -100,7 +103,7 @@ export class Acl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclResponse
+                        components.AclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,13 +126,16 @@ export class Acl {
      * Delete an ACL from the specified service version. To remove an ACL from use, the ACL must be deleted from a draft version and the version without the ACL must be activated.
      */
     async deleteAcl(
-        req: operations.DeleteAclRequest,
+        aclName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteAclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteAclRequest(req);
-        }
-
+        const req = new operations.DeleteAclRequest({
+            aclName: aclName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -145,7 +151,7 @@ export class Acl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -202,13 +208,16 @@ export class Acl {
      * Retrieve a single ACL by name for the version and service.
      */
     async getAcl(
-        req: operations.GetAclRequest,
+        aclName: string,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetAclRequest(req);
-        }
-
+        const req = new operations.GetAclRequest({
+            aclName: aclName,
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -224,7 +233,7 @@ export class Acl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -258,7 +267,7 @@ export class Acl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclResponse
+                        components.AclResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,13 +290,14 @@ export class Acl {
      * List ACLs.
      */
     async listAcls(
-        req: operations.ListAclsRequest,
+        serviceId: string,
+        versionId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListAclsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListAclsRequest(req);
-        }
-
+        const req = new operations.ListAclsRequest({
+            serviceId: serviceId,
+            versionId: versionId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -303,7 +313,7 @@ export class Acl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -339,7 +349,7 @@ export class Acl {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclResponse,
+                        components.AclResponse,
                         resFieldDepth
                     );
                 } else {
@@ -363,13 +373,18 @@ export class Acl {
      * Update an ACL for a particular service and version.
      */
     async updateAcl(
-        req: operations.UpdateAclRequest,
+        aclName: string,
+        serviceId: string,
+        versionId: number,
+        acl?: components.Acl,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateAclResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateAclRequest(req);
-        }
-
+        const req = new operations.UpdateAclRequest({
+            aclName: aclName,
+            serviceId: serviceId,
+            versionId: versionId,
+            acl: acl,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -395,7 +410,7 @@ export class Acl {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -434,7 +449,7 @@ export class Acl {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.aclResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AclResponse
+                        components.AclResponse
                     );
                 } else {
                     throw new errors.SDKError(

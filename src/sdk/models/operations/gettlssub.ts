@@ -3,10 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetTlsSubRequest extends SpeakeasyBase {
+    /**
+     * Alphanumeric string identifying a TLS subscription.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_subscription_id" })
+    tlsSubscriptionId: string;
+
     /**
      * Include related objects. Optional, comma-separated values. Permitted values: `tls_authorizations` and `tls_authorizations.globalsign_email_challenge`.
      *
@@ -15,12 +21,6 @@ export class GetTlsSubRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
     include?: string;
-
-    /**
-     * Alphanumeric string identifying a TLS subscription.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=tls_subscription_id" })
-    tlsSubscriptionId: string;
 }
 
 export class GetTlsSubResponse extends SpeakeasyBase {
@@ -46,5 +46,5 @@ export class GetTlsSubResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsSubscriptionResponse?: shared.TlsSubscriptionResponse;
+    tlsSubscriptionResponse?: components.TlsSubscriptionResponse;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class Invitations {
      * Create an invitation.
      */
     async createInvitation(
-        req: shared.Invitation,
+        req: components.Invitation,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateInvitationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.Invitation(req);
+            req = new components.Invitation(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class Invitations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class Invitations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.invitationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.InvitationResponse
+                        components.InvitationResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -119,13 +119,12 @@ export class Invitations {
      * Delete an invitation.
      */
     async deleteInvitation(
-        req: operations.DeleteInvitationRequest,
+        invitationId: string,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteInvitationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteInvitationRequest(req);
-        }
-
+        const req = new operations.DeleteInvitationRequest({
+            invitationId: invitationId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -137,7 +136,7 @@ export class Invitations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -180,13 +179,14 @@ export class Invitations {
      * List all invitations.
      */
     async listInvitations(
-        req: operations.ListInvitationsRequest,
+        pageNumber?: number,
+        pageSize?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListInvitationsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListInvitationsRequest(req);
-        }
-
+        const req = new operations.ListInvitationsRequest({
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -198,7 +198,7 @@ export class Invitations {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -233,7 +233,7 @@ export class Invitations {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.invitationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.InvitationsResponse
+                        components.InvitationsResponse
                     );
                 } else {
                     throw new errors.SDKError(

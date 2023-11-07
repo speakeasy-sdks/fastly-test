@@ -3,14 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class BulkUpdateDictionaryItemRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bulkUpdateDictionaryListRequest?: shared.BulkUpdateDictionaryListRequest;
-
     /**
      * Alphanumeric string identifying a Dictionary.
      */
@@ -22,6 +19,9 @@ export class BulkUpdateDictionaryItemRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=service_id" })
     serviceId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    bulkUpdateDictionaryListRequest?: components.BulkUpdateDictionaryListRequest;
 }
 
 /**
