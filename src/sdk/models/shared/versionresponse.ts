@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class VersionResponse extends SpeakeasyBase {
     /**
      * Whether this is the active version or not.

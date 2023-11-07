@@ -1,5 +1,4 @@
-# WafRules
-(*wafRules*)
+# wafRules
 
 ## Overview
 
@@ -15,37 +14,40 @@ Rules are universally available for every firewall. Rules can have one or multip
 
 Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetWafRuleResponse } from "FastlyTest/dist/sdk/models/operations";
+import {
+  TypeWafRule,
+  WafRuleResponseDataAttributesPublisher,
+  WafRuleResponseDataAttributesType,
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.wafRules.getWafRule({
-    include: "waf_tags,waf_rule_revisions",
-    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  });
-
+sdk.wafRules.getWafRule({
+  include: "waf_tags,waf_rule_revisions",
+  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+}, {
+  token: "",
+}).then((res: GetWafRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetWafRuleRequest](../../models/operations/getwafrulerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetWafRuleRequest](../../models/operations/getwafrulerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `security`                                                                     | [operations.GetWafRuleSecurity](../../models/operations/getwafrulesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -57,38 +59,45 @@ import { Fastly } from "FastlyTestJS";
 
 List all available WAF rules.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { ListWafRulesResponse } from "FastlyTest/dist/sdk/models/operations";
+import {
+  TypeWafRule,
+  WafRuleResponseDataAttributesPublisher,
+  WafRuleResponseDataAttributesType,
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.wafRules.listWafRules({
-    include: "waf_tags,waf_rule_revisions",
-    pageNumber: 1,
-    pageSize: 20,
-  });
-
+sdk.wafRules.listWafRules({
+  filterModsecRuleId: "porro",
+  filterWafFirewallIdNotMatch: "autem",
+  filterWafRuleRevisionsSource: "nobis",
+  filterWafTagsName: "laboriosam",
+  include: "waf_tags,waf_rule_revisions",
+  pageNumber: 1,
+  pageSize: 20,
+}, {
+  token: "",
+}).then((res: ListWafRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListWafRulesRequest](../../models/operations/listwafrulesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.ListWafRulesRequest](../../models/operations/listwafrulesrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `security`                                                                         | [operations.ListWafRulesSecurity](../../models/operations/listwafrulessecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response

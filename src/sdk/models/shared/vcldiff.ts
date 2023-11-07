@@ -14,6 +14,9 @@ export enum VclDiffFormat {
     HtmlSimple = "html_simple",
 }
 
+/**
+ * OK
+ */
 export class VclDiff extends SpeakeasyBase {
     /**
      * The differences between two specified versions.

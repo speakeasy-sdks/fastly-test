@@ -1,5 +1,7 @@
 # LoggingScalyrResponse
 
+OK
+
 
 ## Fields
 

@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class BackendResponse extends SpeakeasyBase {
     /**
      * A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend.
@@ -218,7 +221,7 @@ export class BackendResponse extends SpeakeasyBase {
     /**
      * Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.
      *
-     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
      */
     @SpeakeasyMetadata()
     @Expose({ name: "ssl_hostname" })

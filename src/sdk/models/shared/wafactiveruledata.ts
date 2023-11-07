@@ -52,3 +52,21 @@ export class WafActiveRuleData extends SpeakeasyBase {
     @Expose({ name: "type" })
     type?: TypeWafActiveRule;
 }
+
+export class WafActiveRuleDataInput extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "attributes" })
+    @Type(() => WafActiveRuleDataAttributes)
+    attributes?: WafActiveRuleDataAttributes;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "relationships" })
+    relationships?: any;
+
+    /**
+     * Resource type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: TypeWafActiveRule;
+}

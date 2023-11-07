@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ServiceAuthorizationResponseData } from "./serviceauthorizationresponsedata";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * OK
+ */
 export class ServiceAuthorizationResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

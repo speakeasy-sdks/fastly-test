@@ -13,6 +13,9 @@ export enum AclEntryResponseNegated {
     One = 1,
 }
 
+/**
+ * OK
+ */
 export class AclEntryResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "acl_id" })

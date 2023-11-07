@@ -46,6 +46,9 @@ export enum LoggingHttpsResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingHttpsResponse extends SpeakeasyBase {
     /**
      * Content type of the header sent with the request.

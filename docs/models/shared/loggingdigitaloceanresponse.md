@@ -1,5 +1,7 @@
 # LoggingDigitaloceanResponse
 
+OK
+
 
 ## Fields
 

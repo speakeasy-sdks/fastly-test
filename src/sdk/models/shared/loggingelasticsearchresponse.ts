@@ -28,6 +28,9 @@ export enum LoggingElasticsearchResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingElasticsearchResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

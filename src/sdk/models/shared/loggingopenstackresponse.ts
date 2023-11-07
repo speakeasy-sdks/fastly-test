@@ -47,6 +47,9 @@ export enum LoggingOpenstackResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingOpenstackResponse extends SpeakeasyBase {
     /**
      * Your OpenStack account access key.

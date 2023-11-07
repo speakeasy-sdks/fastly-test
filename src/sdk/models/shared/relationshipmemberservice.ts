@@ -6,11 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TypeService } from "./typeservice";
 import { Expose } from "class-transformer";
 
-export class RelationshipMemberService extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
+export class RelationshipMemberServiceInput extends SpeakeasyBase {
     /**
      * Resource type
      */
@@ -19,7 +15,11 @@ export class RelationshipMemberService extends SpeakeasyBase {
     type?: TypeService;
 }
 
-export class RelationshipMemberServiceInput extends SpeakeasyBase {
+export class RelationshipMemberService extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+
     /**
      * Resource type
      */

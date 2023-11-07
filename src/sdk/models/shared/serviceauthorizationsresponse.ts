@@ -66,6 +66,9 @@ export class ServiceAuthorizationsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class ServiceAuthorizationsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: ServiceAuthorizationResponseData })
     @Expose({ name: "data" })

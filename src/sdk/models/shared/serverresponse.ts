@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class ServerResponse extends SpeakeasyBase {
     /**
      * A hostname, IPv4, or IPv6 address for the server. Required.

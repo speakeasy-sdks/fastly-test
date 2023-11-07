@@ -7,6 +7,9 @@ import { SchemasWafFirewallVersion } from "./schemaswaffirewallversion";
 import { WafFirewallResponseData } from "./waffirewallresponsedata";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Created
+ */
 export class WafFirewallResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

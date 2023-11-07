@@ -1,5 +1,7 @@
 # GzipResponse
 
+OK
+
 
 ## Fields
 

@@ -66,6 +66,9 @@ export class MutualAuthenticationsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class MutualAuthenticationsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: MutualAuthenticationResponseData })
     @Expose({ name: "data" })

@@ -67,6 +67,9 @@ export class WafTagsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class WafTagsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: WafTagsResponseDataItem })
     @Expose({ name: "data" })

@@ -16,6 +16,9 @@ export enum ServiceDetailType {
     Wasm = "wasm",
 }
 
+/**
+ * OK
+ */
 export class ServiceDetail extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "active_version" })

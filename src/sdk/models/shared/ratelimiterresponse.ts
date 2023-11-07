@@ -95,6 +95,9 @@ export enum RateLimiterResponseWindowSize {
     Sixty = 60,
 }
 
+/**
+ * OK
+ */
 export class RateLimiterResponse extends SpeakeasyBase {
     /**
      * The action to take when a rate limiter violation is detected.

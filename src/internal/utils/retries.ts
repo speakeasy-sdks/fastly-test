@@ -24,12 +24,12 @@ export class BackoffStrategy {
 }
 
 export class RetryConfig {
-  strategy: "backoff" | "none";
+  strategy: string;
   backoff?: BackoffStrategy;
   retryConnectionErrors: boolean;
 
   constructor(
-    strategy: "backoff" | "none",
+    strategy: string,
     backoff?: BackoffStrategy,
     retryConnectionErrors = true
   ) {

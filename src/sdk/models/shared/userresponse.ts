@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { RoleUser } from "./roleuser";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class UserResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

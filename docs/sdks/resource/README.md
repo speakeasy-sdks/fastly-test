@@ -1,5 +1,4 @@
-# Resource
-(*resource*)
+# resource
 
 ## Overview
 
@@ -21,36 +20,35 @@ Create a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { CreateResourceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.resource.createResource({
-    resource: {
-      name: "test-resource",
-      resourceId: "3vjTN8v1O7nOAY7aNDGOL",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.resource.createResource({
+  resource: {
+    name: "test-resource",
+    resourceId: "3vjTN8v1O7nOAY7aNDGOL",
+  },
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: CreateResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateResourceRequest](../../models/operations/createresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateResourceRequest](../../models/operations/createresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.CreateResourceSecurity](../../models/operations/createresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -65,33 +63,31 @@ Delete a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { DeleteResourceResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.resource.deleteResource({
-    id: "7Lsb7Y76rChV9hSrv3KgFl",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.resource.deleteResource({
+  id: "7Lsb7Y76rChV9hSrv3KgFl",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: DeleteResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteResourceRequest](../../models/operations/deleteresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteResourceRequest](../../models/operations/deleteresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.DeleteResourceSecurity](../../models/operations/deleteresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -106,33 +102,32 @@ Display a resource link by its identifier.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetResourceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.resource.getResource({
-    id: "7Lsb7Y76rChV9hSrv3KgFl",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.resource.getResource({
+  id: "7Lsb7Y76rChV9hSrv3KgFl",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: GetResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetResourceRequest](../../models/operations/getresourcerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetResourceRequest](../../models/operations/getresourcerequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `security`                                                                       | [operations.GetResourceSecurity](../../models/operations/getresourcesecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -147,32 +142,31 @@ List links between resources and services
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { ListResourcesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.resource.listResources({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.resource.listResources({
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: ListResourcesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListResourcesRequest](../../models/operations/listresourcesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListResourcesRequest](../../models/operations/listresourcesrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `security`                                                                           | [operations.ListResourcesSecurity](../../models/operations/listresourcessecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -187,37 +181,36 @@ Update a link between a resource and a service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { UpdateResourceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { TypeResource } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.resource.updateResource({
-    id: "7Lsb7Y76rChV9hSrv3KgFl",
-    resource: {
-      name: "test-resource",
-      resourceId: "3vjTN8v1O7nOAY7aNDGOL",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.resource.updateResource({
+  id: "7Lsb7Y76rChV9hSrv3KgFl",
+  resource: {
+    name: "test-resource",
+    resourceId: "3vjTN8v1O7nOAY7aNDGOL",
+  },
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: UpdateResourceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateResourceRequest](../../models/operations/updateresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateResourceRequest](../../models/operations/updateresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.UpdateResourceSecurity](../../models/operations/updateresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

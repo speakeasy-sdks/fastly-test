@@ -1,5 +1,4 @@
-# Acl
-(*acl*)
+# acl
 
 ## Overview
 
@@ -21,35 +20,33 @@ Create a new ACL attached to the specified service version. A new, empty ACL mus
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { CreateAclResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.acl.createAcl({
-    acl: {
-      name: "test-acl",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.acl.createAcl({
+  acl: {
+    name: "test-acl",
+  },
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: CreateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.CreateAclRequest](../../models/operations/createaclrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.CreateAclRequest](../../models/operations/createaclrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `security`                                                                   | [operations.CreateAclSecurity](../../models/operations/createaclsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -64,33 +61,31 @@ Delete an ACL from the specified service version. To remove an ACL from use, the
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { DeleteAclResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.acl.deleteAcl({
-    aclName: "test-acl",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.acl.deleteAcl({
+  aclName: "test-acl",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: DeleteAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.DeleteAclRequest](../../models/operations/deleteaclrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.DeleteAclRequest](../../models/operations/deleteaclrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `security`                                                                   | [operations.DeleteAclSecurity](../../models/operations/deleteaclsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -105,33 +100,31 @@ Retrieve a single ACL by name for the version and service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetAclResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.acl.getAcl({
-    aclName: "test-acl",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.acl.getAcl({
+  aclName: "test-acl",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: GetAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [operations.GetAclRequest](../../models/operations/getaclrequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
-| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [operations.GetAclRequest](../../models/operations/getaclrequest.md)   | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `security`                                                             | [operations.GetAclSecurity](../../models/operations/getaclsecurity.md) | :heavy_check_mark:                                                     | The security requirements to use for the request.                      |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -146,32 +139,30 @@ List ACLs.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { ListAclsResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.acl.listAcls({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.acl.listAcls({
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: ListAclsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.ListAclsRequest](../../models/operations/listaclsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListAclsRequest](../../models/operations/listaclsrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `security`                                                                 | [operations.ListAclsSecurity](../../models/operations/listaclssecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -186,36 +177,34 @@ Update an ACL for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { UpdateAclResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.acl.updateAcl({
-    acl: {
-      name: "test-acl",
-    },
-    aclName: "test-acl",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.acl.updateAcl({
+  acl: {
+    name: "test-acl",
+  },
+  aclName: "test-acl",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: UpdateAclResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.UpdateAclRequest](../../models/operations/updateaclrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.UpdateAclRequest](../../models/operations/updateaclrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `security`                                                                   | [operations.UpdateAclSecurity](../../models/operations/updateaclsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response

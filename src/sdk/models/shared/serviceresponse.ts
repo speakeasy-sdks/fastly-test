@@ -14,6 +14,9 @@ export enum ServiceResponseType {
     Wasm = "wasm",
 }
 
+/**
+ * OK
+ */
 export class ServiceResponse extends SpeakeasyBase {
     /**
      * A freeform descriptive note.

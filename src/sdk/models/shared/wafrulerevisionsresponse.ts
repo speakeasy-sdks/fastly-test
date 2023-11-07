@@ -67,6 +67,9 @@ export class WafRuleRevisionsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class WafRuleRevisionsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: WafRuleRevisionResponseData })
     @Expose({ name: "data" })

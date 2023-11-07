@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { MutualAuthenticationData } from "./mutualauthenticationdata";
+import { MutualAuthenticationDataInput } from "./mutualauthenticationdata";
 import { Expose, Type } from "class-transformer";
 
-export class MutualAuthentication extends SpeakeasyBase {
+export class MutualAuthenticationInput extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => MutualAuthenticationData)
-    data?: MutualAuthenticationData;
+    @Type(() => MutualAuthenticationDataInput)
+    data?: MutualAuthenticationDataInput;
 }

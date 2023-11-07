@@ -25,6 +25,9 @@ export enum HeaderResponseType {
     Response = "response",
 }
 
+/**
+ * OK
+ */
 export class HeaderResponse extends SpeakeasyBase {
     /**
      * Accepts a string value.

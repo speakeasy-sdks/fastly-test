@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * Created
+ */
 export class StoreResponse extends SpeakeasyBase {
     /**
      * ID of the store.
