@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class GetARoleSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class GetARoleRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the role.
@@ -21,15 +16,24 @@ export class GetARoleRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetARole200ApplicationJSON extends SpeakeasyBase {}
+export class GetARoleResponseBody extends SpeakeasyBase {}
 
 export class GetARoleResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -37,5 +41,5 @@ export class GetARoleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getARole200ApplicationJSONObject?: GetARole200ApplicationJSON;
+    object?: GetARoleResponseBody;
 }

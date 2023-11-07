@@ -1,0 +1,9 @@
+# TlsActivationData
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `relationships`                                                                                        | [shared.RelationshipsForTlsActivationInput](../../models/shared/relationshipsfortlsactivationinput.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `type`                                                                                                 | [shared.TypeTlsActivation](../../models/shared/typetlsactivation.md)                                   | :heavy_minus_sign:                                                                                     | Resource type.                                                                                         |

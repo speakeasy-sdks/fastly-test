@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The type of contact.
  */
-export enum SchemasContactResponseContactType {
+export enum ContactType {
     Primary = "primary",
     Billing = "billing",
     Technical = "technical",
@@ -23,7 +23,7 @@ export class SchemasContactResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contact_type" })
-    contactType?: SchemasContactResponseContactType;
+    contactType?: ContactType;
 
     /**
      * Date and time in ISO 8601 format.

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillingAddressAttributes } from "./billingaddressattributes";
 import { Expose, Type } from "class-transformer";
 
-export class BillingAddressVerificationErrorResponseErrors extends SpeakeasyBase {
+export class Errors extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: BillingAddressAttributes })
     @Expose({ name: "candidates" })
     @Type(() => BillingAddressAttributes)
@@ -32,12 +32,9 @@ export class BillingAddressVerificationErrorResponseErrors extends SpeakeasyBase
     type: string;
 }
 
-/**
- * Could not validate address
- */
 export class BillingAddressVerificationErrorResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BillingAddressVerificationErrorResponseErrors })
+    @SpeakeasyMetadata({ elemType: Errors })
     @Expose({ name: "errors" })
-    @Type(() => BillingAddressVerificationErrorResponseErrors)
-    errors?: BillingAddressVerificationErrorResponseErrors[];
+    @Type(() => Errors)
+    errors?: Errors[];
 }

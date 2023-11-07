@@ -36,7 +36,7 @@ export class EventsResponseLinks extends SpeakeasyBase {
     prev?: string;
 }
 
-export class EventsResponseMeta extends SpeakeasyBase {
+export class Meta extends SpeakeasyBase {
     /**
      * Current page.
      */
@@ -66,9 +66,6 @@ export class EventsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
-/**
- * OK
- */
 export class EventsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: Event })
     @Expose({ name: "data" })
@@ -82,6 +79,6 @@ export class EventsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "meta" })
-    @Type(() => EventsResponseMeta)
-    meta?: EventsResponseMeta;
+    @Type(() => Meta)
+    meta?: Meta;
 }

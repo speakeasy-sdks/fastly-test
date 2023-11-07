@@ -1,4 +1,5 @@
-# loggingLogshuttle
+# LoggingLogshuttle
+(*.loggingLogshuttle*)
 
 ## Overview
 
@@ -20,45 +21,39 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingLogshuttle.createLogLogshuttle({
-  loggingLogshuttle2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.None,
-    responseCondition: "null",
-    token: "consequuntur",
-    url: "quasi",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.createLogLogshuttle({
+    loggingLogshuttle: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogshuttleFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogshuttlePlacement.None,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateLogLogshuttleRequest](../../models/operations/createloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogLogshuttleSecurity](../../models/operations/createloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateLogLogshuttleRequest](../../models/operations/createloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -73,31 +68,32 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingLogshuttle.deleteLogLogshuttle({
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.deleteLogLogshuttle({
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteLogLogshuttleRequest](../../models/operations/deleteloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogLogshuttleSecurity](../../models/operations/deleteloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteLogLogshuttleRequest](../../models/operations/deleteloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -112,32 +108,32 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingLogshuttle.getLogLogshuttle({
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.getLogLogshuttle({
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetLogLogshuttleRequest](../../models/operations/getloglogshuttlerequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogLogshuttleSecurity](../../models/operations/getloglogshuttlesecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetLogLogshuttleRequest](../../models/operations/getloglogshuttlerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -152,31 +148,31 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingLogshuttleResponseFormatVersion, LoggingLogshuttleResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingLogshuttle.listLogLogshuttle({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.listLogLogshuttle({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListLogLogshuttleRequest](../../models/operations/listloglogshuttlerequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogLogshuttleSecurity](../../models/operations/listloglogshuttlesecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListLogLogshuttleRequest](../../models/operations/listloglogshuttlerequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -191,46 +187,40 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogLogshuttleResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingLogshuttleFormatVersion,
-  LoggingLogshuttlePlacement,
-  LoggingLogshuttleResponseFormatVersion,
-  LoggingLogshuttleResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingLogshuttle.updateLogLogshuttle({
-  loggingLogshuttle2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingLogshuttleFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingLogshuttlePlacement.WafDebug,
-    responseCondition: "null",
-    token: "aliquid",
-    url: "tenetur",
-  },
-  loggingLogshuttleName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogLogshuttleResponse) => {
+  const res = await sdk.loggingLogshuttle.updateLogLogshuttle({
+    loggingLogshuttle: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingLogshuttleFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingLogshuttlePlacement.None,
+      responseCondition: "null",
+    },
+    loggingLogshuttleName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateLogLogshuttleRequest](../../models/operations/updateloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogLogshuttleSecurity](../../models/operations/updateloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateLogLogshuttleRequest](../../models/operations/updateloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response

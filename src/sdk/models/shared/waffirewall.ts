@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { WafFirewallDataInput } from "./waffirewalldata";
+import { WafFirewallData } from "./waffirewalldata";
 import { Expose, Type } from "class-transformer";
 
-export class WafFirewallInput extends SpeakeasyBase {
+export class WafFirewall extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => WafFirewallDataInput)
-    data?: WafFirewallDataInput;
+    @Type(() => WafFirewallData)
+    data?: WafFirewallData;
 }

@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteResourceSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteResourceRequest extends SpeakeasyBase {
     /**
      * An alphanumeric string identifying the resource link.
@@ -34,7 +29,7 @@ export class DeleteResourceRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteResource200ApplicationJSON extends SpeakeasyBase {
+export class DeleteResourceResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteResource200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteResourceResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteResourceResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteResource200ApplicationJSONObject?: DeleteResource200ApplicationJSON;
+    object?: DeleteResourceResponseBody;
 }

@@ -1,4 +1,5 @@
-# loggingHeroku
+# LoggingHeroku
+(*.loggingHeroku*)
 
 ## Overview
 
@@ -20,45 +21,39 @@ Create a Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHerokuFormatVersion,
-  LoggingHerokuPlacement,
-  LoggingHerokuResponseFormatVersion,
-  LoggingHerokuResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHeroku.createLogHeroku({
-  loggingHeroku2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingHerokuFormatVersion.Two,
-    name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.None,
-    responseCondition: "null",
-    token: "distinctio",
-    url: "quod",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.createLogHeroku({
+    loggingHeroku: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHerokuFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHerokuPlacement.LessThanNilGreaterThan,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreateLogHerokuRequest](../../models/operations/createlogherokurequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateLogHerokuSecurity](../../models/operations/createlogherokusecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateLogHerokuRequest](../../models/operations/createlogherokurequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -73,31 +68,32 @@ Delete the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHeroku.deleteLogHeroku({
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.deleteLogHeroku({
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.DeleteLogHerokuRequest](../../models/operations/deletelogherokurequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteLogHerokuSecurity](../../models/operations/deletelogherokusecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteLogHerokuRequest](../../models/operations/deletelogherokurequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -112,32 +108,32 @@ Get the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHeroku.getLogHeroku({
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.getLogHeroku({
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetLogHerokuRequest](../../models/operations/getlogherokurequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetLogHerokuSecurity](../../models/operations/getlogherokusecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetLogHerokuRequest](../../models/operations/getlogherokurequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -152,31 +148,31 @@ List all of the Herokus for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import { LoggingHerokuResponseFormatVersion, LoggingHerokuResponsePlacement } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHeroku.listLogHeroku({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.listLogHeroku({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListLogHerokuRequest](../../models/operations/listlogherokurequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListLogHerokuSecurity](../../models/operations/listlogherokusecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.ListLogHerokuRequest](../../models/operations/listlogherokurequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -191,46 +187,40 @@ Update the Heroku for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHerokuResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHerokuFormatVersion,
-  LoggingHerokuPlacement,
-  LoggingHerokuResponseFormatVersion,
-  LoggingHerokuResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHeroku.updateLogHeroku({
-  loggingHeroku2: {
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingHerokuFormatVersion.One,
-    name: "test-log-endpoint",
-    placement: LoggingHerokuPlacement.None,
-    responseCondition: "null",
-    token: "nihil",
-    url: "totam",
-  },
-  loggingHerokuName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHerokuResponse) => {
+  const res = await sdk.loggingHeroku.updateLogHeroku({
+    loggingHeroku: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHerokuFormatVersion.Two,
+      name: "test-log-endpoint",
+      placement: LoggingHerokuPlacement.None,
+      responseCondition: "null",
+    },
+    loggingHerokuName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdateLogHerokuRequest](../../models/operations/updatelogherokurequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateLogHerokuSecurity](../../models/operations/updatelogherokusecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateLogHerokuRequest](../../models/operations/updatelogherokurequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

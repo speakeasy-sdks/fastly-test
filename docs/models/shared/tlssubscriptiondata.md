@@ -1,0 +1,10 @@
+# TlsSubscriptionData
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `attributes`                                                                                 | [shared.TlsSubscriptionDataAttributes](../../models/shared/tlssubscriptiondataattributes.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `relationships`                                                                              | *any*                                                                                        | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `type`                                                                                       | [shared.TypeTlsSubscription](../../models/shared/typetlssubscription.md)                     | :heavy_minus_sign:                                                                           | Resource type                                                                                |

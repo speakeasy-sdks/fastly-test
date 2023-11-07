@@ -3,16 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Fastly will upload log messages to the Log Shuttle bucket in the format specified in the logshuttle object.
  *
  * @see {@link https://developer.fastly.com/reference/api/logging/logshuttle}
  */
+
 export class LoggingLogshuttle {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,7 +30,6 @@ export class LoggingLogshuttle {
      */
     async createLogLogshuttle(
         req: operations.CreateLogLogshuttleRequest,
-        security: operations.CreateLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,12 +46,12 @@ export class LoggingLogshuttle {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "loggingLogshuttle2",
+                "loggingLogshuttle",
                 "form"
             );
         } catch (e: unknown) {
@@ -58,20 +59,23 @@ export class LoggingLogshuttle {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.CreateLogLogshuttleSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -103,6 +107,13 @@ export class LoggingLogshuttle {
                         JSON.parse(decodedRes),
                         shared.LoggingLogshuttleResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -118,7 +129,6 @@ export class LoggingLogshuttle {
      */
     async deleteLogLogshuttle(
         req: operations.DeleteLogLogshuttleRequest,
-        security: operations.DeleteLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -134,20 +144,19 @@ export class LoggingLogshuttle {
             "/service/{service_id}/version/{version_id}/logging/logshuttle/{logging_logshuttle_name}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.DeleteLogLogshuttleSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -174,9 +183,16 @@ export class LoggingLogshuttle {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteLogLogshuttle200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteLogLogshuttle200ApplicationJSON
+                        operations.DeleteLogLogshuttleResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -193,7 +209,6 @@ export class LoggingLogshuttle {
      */
     async getLogLogshuttle(
         req: operations.GetLogLogshuttleRequest,
-        security: operations.GetLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -209,20 +224,19 @@ export class LoggingLogshuttle {
             "/service/{service_id}/version/{version_id}/logging/logshuttle/{logging_logshuttle_name}",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.GetLogLogshuttleSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -252,6 +266,13 @@ export class LoggingLogshuttle {
                         JSON.parse(decodedRes),
                         shared.LoggingLogshuttleResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -267,7 +288,6 @@ export class LoggingLogshuttle {
      */
     async listLogLogshuttle(
         req: operations.ListLogLogshuttleRequest,
-        security: operations.ListLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -283,20 +303,19 @@ export class LoggingLogshuttle {
             "/service/{service_id}/version/{version_id}/logging/logshuttle",
             req
         );
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListLogLogshuttleSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -322,12 +341,19 @@ export class LoggingLogshuttle {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.loggingLogshuttleResponses = [];
+                    res.classes = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.loggingLogshuttleResponses = utils.objectToClass(
+                    res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingLogshuttleResponse,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -344,7 +370,6 @@ export class LoggingLogshuttle {
      */
     async updateLogLogshuttle(
         req: operations.UpdateLogLogshuttleRequest,
-        security: operations.UpdateLogLogshuttleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogshuttleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -361,12 +386,12 @@ export class LoggingLogshuttle {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "loggingLogshuttle2",
+                "loggingLogshuttle",
                 "form"
             );
         } catch (e: unknown) {
@@ -374,20 +399,23 @@ export class LoggingLogshuttle {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.UpdateLogLogshuttleSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -418,6 +446,13 @@ export class LoggingLogshuttle {
                     res.loggingLogshuttleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingLogshuttleResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

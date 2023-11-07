@@ -3,17 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class CreateHttp3Security extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class CreateHttp3Request extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    http3Input?: shared.Http3Input;
+    http3?: shared.Http3Input;
 
     /**
      * Alphanumeric string identifying the service.
@@ -29,12 +24,21 @@ export class CreateHttp3Request extends SpeakeasyBase {
 }
 
 export class CreateHttp3Response extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

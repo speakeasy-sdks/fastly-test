@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class DeployActivateWafFirewallVersionSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeployActivateWafFirewallVersionRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying a WAF Firewall.
@@ -29,15 +24,24 @@ export class DeployActivateWafFirewallVersionRequest extends SpeakeasyBase {
 /**
  * Accepted
  */
-export class DeployActivateWafFirewallVersion202ApplicationVndApiPlusJson extends SpeakeasyBase {}
+export class DeployActivateWafFirewallVersionResponseBody extends SpeakeasyBase {}
 
 export class DeployActivateWafFirewallVersionResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -45,5 +49,5 @@ export class DeployActivateWafFirewallVersionResponse extends SpeakeasyBase {
      * Accepted
      */
     @SpeakeasyMetadata()
-    deployActivateWafFirewallVersion202ApplicationVndApiPlusJsonObject?: DeployActivateWafFirewallVersion202ApplicationVndApiPlusJson;
+    object?: DeployActivateWafFirewallVersionResponseBody;
 }

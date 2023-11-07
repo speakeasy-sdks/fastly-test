@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class ListServiceGroupsSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class ListServiceGroupsRequest extends SpeakeasyBase {
     /**
      * Current page.
@@ -27,15 +22,24 @@ export class ListServiceGroupsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListServiceGroups200ApplicationJSON extends SpeakeasyBase {}
+export class ListServiceGroupsResponseBody extends SpeakeasyBase {}
 
 export class ListServiceGroupsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -43,5 +47,5 @@ export class ListServiceGroupsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listServiceGroups200ApplicationJSONObject?: ListServiceGroups200ApplicationJSON;
+    object?: ListServiceGroupsResponseBody;
 }

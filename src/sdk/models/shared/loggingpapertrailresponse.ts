@@ -28,9 +28,6 @@ export enum LoggingPapertrailResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingPapertrailResponse extends SpeakeasyBase {
     /**
      * A hostname or IPv4 address.

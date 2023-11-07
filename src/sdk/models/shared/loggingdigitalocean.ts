@@ -46,7 +46,7 @@ export enum LoggingDigitaloceanPlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class LoggingDigitaloceanInput extends SpeakeasyBase {
+export class LoggingDigitalocean extends SpeakeasyBase {
     /**
      * Your DigitalOcean Spaces account access key.
      */

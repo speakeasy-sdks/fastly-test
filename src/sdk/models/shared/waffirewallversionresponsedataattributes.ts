@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The status of the last deployment of this firewall version.
  */
-export enum WafFirewallVersionResponseDataAttributesLastDeploymentStatus {
+export enum LastDeploymentStatus {
     LessThanNilGreaterThan = "<nil>",
     Pending = "pending",
     InProgress = "in progress",
@@ -115,7 +115,7 @@ export class WafFirewallVersionResponseDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "last_deployment_status" })
-    lastDeploymentStatus?: WafFirewallVersionResponseDataAttributesLastDeploymentStatus;
+    lastDeploymentStatus?: LastDeploymentStatus;
 
     /**
      * Date and time in ISO 8601 format.

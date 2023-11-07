@@ -1,4 +1,5 @@
-# user
+# User
+(*.user*)
 
 ## Overview
 
@@ -22,36 +23,31 @@ Create a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.createUser({
-  limitServices: false,
-  locked: false,
-  name: "Melba Stokes I",
-  requireNewPassword: false,
-  role: RoleUser.User,
-  twoFactorAuthEnabled: false,
-  twoFactorSetupRequired: false,
-}, {
-  token: "",
-}).then((res: CreateUserResponse) => {
+  const res = await sdk.user.createUser({
+    role: RoleUser.User,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.UserInput](../../models/shared/userinput.md)                           | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.CreateUserSecurity](../../models/operations/createusersecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.User](../../models/shared/user.md)                   | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -66,29 +62,30 @@ Delete a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteUserResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.deleteUser({
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: DeleteUserResponse) => {
+  const res = await sdk.user.deleteUser({
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.DeleteUserRequest](../../models/operations/deleteuserrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.DeleteUserSecurity](../../models/operations/deleteusersecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.DeleteUserRequest](../../models/operations/deleteuserrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -103,27 +100,27 @@ Get the logged in user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetCurrentUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.getCurrentUser({
-  token: "",
-}).then((res: GetCurrentUserResponse) => {
+  const res = await sdk.user.getCurrentUser();
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `security`                                                                             | [operations.GetCurrentUserSecurity](../../models/operations/getcurrentusersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -138,30 +135,30 @@ Get a specific user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.getUser({
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: GetUserResponse) => {
+  const res = await sdk.user.getUser({
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetUserRequest](../../models/operations/getuserrequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `security`                                                               | [operations.GetUserSecurity](../../models/operations/getusersecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [operations.GetUserRequest](../../models/operations/getuserrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -176,29 +173,30 @@ Requests a password reset for the specified user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { RequestPasswordResetResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.requestPasswordReset({
-  userLogin: "krisowner@example.com",
-}, {
-  token: "",
-}).then((res: RequestPasswordResetResponse) => {
+  const res = await sdk.user.requestPasswordReset({
+    userLogin: "krisowner@example.com",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.RequestPasswordResetRequest](../../models/operations/requestpasswordresetrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.RequestPasswordResetSecurity](../../models/operations/requestpasswordresetsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.RequestPasswordResetRequest](../../models/operations/requestpasswordresetrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -213,39 +211,34 @@ Update a user. Only users with the role of `superuser` can make changes to other
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateUserResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.user.updateUser({
-  userInput: {
-    limitServices: false,
-    locked: false,
-    name: "Tanya Buckridge",
-    requireNewPassword: false,
-    role: RoleUser.User,
-    twoFactorAuthEnabled: false,
-    twoFactorSetupRequired: false,
-  },
-  userId: "x9KzsrACXZv8tPwlEDsKb6",
-}, {
-  token: "",
-}).then((res: UpdateUserResponse) => {
+  const res = await sdk.user.updateUser({
+    user: {
+      role: RoleUser.User,
+    },
+    userId: "x9KzsrACXZv8tPwlEDsKb6",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.UpdateUserRequest](../../models/operations/updateuserrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.UpdateUserSecurity](../../models/operations/updateusersecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.UpdateUserRequest](../../models/operations/updateuserrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -260,23 +253,23 @@ Update the user's password to a new one.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateUserPasswordResponse } from "FastlyTest/dist/sdk/models/operations";
-import { RoleUser } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
 
-const sdk = new Fastly();
-
-sdk.user.updateUserPassword({
-  newPassword: "praesentium",
-  oldPassword: "maiores",
-}, {
+(async() => {
+  const sdk = new Fastly();
+const operationSecurity: UpdateUserPasswordSecurity = {
   password: "",
   username: "",
-}).then((res: UpdateUserPasswordResponse) => {
+};
+
+  const res = await sdk.user.updateUserPassword({}, operationSecurity);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

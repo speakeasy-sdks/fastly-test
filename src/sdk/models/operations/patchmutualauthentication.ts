@@ -3,17 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class PatchMutualAuthenticationSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class PatchMutualAuthenticationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    mutualAuthenticationInput?: shared.MutualAuthenticationInput;
+    mutualAuthentication?: shared.MutualAuthentication;
 
     /**
      * Alphanumeric string identifying a mutual authentication.
@@ -25,12 +20,21 @@ export class PatchMutualAuthenticationRequest extends SpeakeasyBase {
 }
 
 export class PatchMutualAuthenticationResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

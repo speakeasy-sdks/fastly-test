@@ -1,4 +1,5 @@
-# realtime
+# Realtime
+(*.realtime*)
 
 ## Overview
 
@@ -18,29 +19,30 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetStatsLast120SecondsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.realtime.getStatsLast120Seconds({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetStatsLast120SecondsResponse) => {
+  const res = await sdk.realtime.getStatsLast120Seconds({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.GetStatsLast120SecondsRequest](../../models/operations/getstatslast120secondsrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.GetStatsLast120SecondsSecurity](../../models/operations/getstatslast120secondssecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.GetStatsLast120SecondsRequest](../../models/operations/getstatslast120secondsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
@@ -55,30 +57,31 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetStatsLast120SecondsLimitEntriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.realtime.getStatsLast120SecondsLimitEntries({
-  maxEntries: 1,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: GetStatsLast120SecondsLimitEntriesResponse) => {
+  const res = await sdk.realtime.getStatsLast120SecondsLimitEntries({
+    maxEntries: 1,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                      | [operations.GetStatsLast120SecondsLimitEntriesRequest](../../models/operations/getstatslast120secondslimitentriesrequest.md)   | :heavy_check_mark:                                                                                                             | The request object to use for the request.                                                                                     |
-| `security`                                                                                                                     | [operations.GetStatsLast120SecondsLimitEntriesSecurity](../../models/operations/getstatslast120secondslimitentriessecurity.md) | :heavy_check_mark:                                                                                                             | The security requirements to use for the request.                                                                              |
-| `config`                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                   | :heavy_minus_sign:                                                                                                             | Available config options for making requests.                                                                                  |
+| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                    | [operations.GetStatsLast120SecondsLimitEntriesRequest](../../models/operations/getstatslast120secondslimitentriesrequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
+| `config`                                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                 | :heavy_minus_sign:                                                                                                           | Available config options for making requests.                                                                                |
 
 
 ### Response
@@ -93,30 +96,31 @@ Get real-time data for the specified reporting period. Specify `0` to get a sing
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetStatsLastSecondResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.realtime.getStatsLastSecond({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  timestampInSeconds: 1608560817,
-}, {
-  token: "",
-}).then((res: GetStatsLastSecondResponse) => {
+  const res = await sdk.realtime.getStatsLastSecond({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    timestampInSeconds: 1608560817,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetStatsLastSecondRequest](../../models/operations/getstatslastsecondrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetStatsLastSecondSecurity](../../models/operations/getstatslastsecondsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetStatsLastSecondRequest](../../models/operations/getstatslastsecondrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

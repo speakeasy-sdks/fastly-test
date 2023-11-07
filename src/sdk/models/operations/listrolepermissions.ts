@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class ListRolePermissionsSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class ListRolePermissionsRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the role.
@@ -21,15 +16,24 @@ export class ListRolePermissionsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListRolePermissions200ApplicationJSON extends SpeakeasyBase {}
+export class ListRolePermissionsResponseBody extends SpeakeasyBase {}
 
 export class ListRolePermissionsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -37,5 +41,5 @@ export class ListRolePermissionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listRolePermissions200ApplicationJSONObject?: ListRolePermissions200ApplicationJSON;
+    object?: ListRolePermissionsResponseBody;
 }

@@ -9,7 +9,7 @@ import { TypeServiceAuthorization } from "./typeserviceauthorization";
 import { TypeUser } from "./typeuser";
 import { Expose, Type } from "class-transformer";
 
-export class ServiceAuthorizationResponseDataRelationshipsUserData extends SpeakeasyBase {
+export class ServiceAuthorizationResponseDataData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
@@ -25,14 +25,14 @@ export class ServiceAuthorizationResponseDataRelationshipsUserData extends Speak
 /**
  * The ID of the user being given access to the service.
  */
-export class ServiceAuthorizationResponseDataRelationshipsUser extends SpeakeasyBase {
+export class ServiceAuthorizationResponseDataUser extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ServiceAuthorizationResponseDataRelationshipsUserData)
-    data?: ServiceAuthorizationResponseDataRelationshipsUserData;
+    @Type(() => ServiceAuthorizationResponseDataData)
+    data?: ServiceAuthorizationResponseDataData;
 }
 
-export class ServiceAuthorizationResponseDataRelationships extends SpeakeasyBase {
+export class Relationships extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "service" })
     @Type(() => RelationshipMemberService)
@@ -43,8 +43,8 @@ export class ServiceAuthorizationResponseDataRelationships extends SpeakeasyBase
      */
     @SpeakeasyMetadata()
     @Expose({ name: "user" })
-    @Type(() => ServiceAuthorizationResponseDataRelationshipsUser)
-    user?: ServiceAuthorizationResponseDataRelationshipsUser;
+    @Type(() => ServiceAuthorizationResponseDataUser)
+    user?: ServiceAuthorizationResponseDataUser;
 }
 
 export class ServiceAuthorizationResponseData extends SpeakeasyBase {
@@ -59,8 +59,8 @@ export class ServiceAuthorizationResponseData extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => ServiceAuthorizationResponseDataRelationships)
-    relationships?: ServiceAuthorizationResponseDataRelationships;
+    @Type(() => Relationships)
+    relationships?: Relationships;
 
     /**
      * Resource type

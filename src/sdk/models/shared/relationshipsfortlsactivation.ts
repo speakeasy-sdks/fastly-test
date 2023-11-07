@@ -20,7 +20,7 @@ export class RelationshipsForTlsActivationTlsCertificateInput extends SpeakeasyB
     data?: RelationshipMemberTlsCertificateInput;
 }
 
-export class RelationshipsForTlsActivationTlsDomainInput extends SpeakeasyBase {
+export class RelationshipsForTlsActivationTlsDomain extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
     @Type(() => RelationshipMemberTlsDomainInput)
@@ -38,8 +38,8 @@ export class RelationshipsForTlsActivationInput extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "tls_domain" })
-    @Type(() => RelationshipsForTlsActivationTlsDomainInput)
-    tlsDomain?: RelationshipsForTlsActivationTlsDomainInput;
+    @Type(() => RelationshipsForTlsActivationTlsDomain)
+    tlsDomain?: RelationshipsForTlsActivationTlsDomain;
 }
 
 export class RelationshipsForTlsActivationTlsCertificate extends SpeakeasyBase {
@@ -49,7 +49,7 @@ export class RelationshipsForTlsActivationTlsCertificate extends SpeakeasyBase {
     data?: RelationshipMemberTlsCertificate;
 }
 
-export class RelationshipsForTlsActivationTlsDomain extends SpeakeasyBase {
+export class TlsDomain extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
     @Type(() => RelationshipMemberTlsDomain)
@@ -67,6 +67,6 @@ export class RelationshipsForTlsActivation extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "tls_domain" })
-    @Type(() => RelationshipsForTlsActivationTlsDomain)
-    tlsDomain?: RelationshipsForTlsActivationTlsDomain;
+    @Type(() => TlsDomain)
+    tlsDomain?: TlsDomain;
 }

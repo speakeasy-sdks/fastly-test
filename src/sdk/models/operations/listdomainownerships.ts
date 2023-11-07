@@ -6,15 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class ListDomainOwnershipsSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 /**
  * OK
  */
-export class ListDomainOwnerships200ApplicationVndApiPlusJson extends SpeakeasyBase {
+export class ListDomainOwnershipsResponseBody extends SpeakeasyBase {
     /**
      * Time-stamp (GMT) when the domain_ownership validation will expire.
      */
@@ -24,12 +19,21 @@ export class ListDomainOwnerships200ApplicationVndApiPlusJson extends SpeakeasyB
 }
 
 export class ListDomainOwnershipsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -37,5 +41,5 @@ export class ListDomainOwnershipsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listDomainOwnerships200ApplicationVndApiPlusJsonObject?: ListDomainOwnerships200ApplicationVndApiPlusJson;
+    object?: ListDomainOwnershipsResponseBody;
 }

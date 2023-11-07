@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * the region used for billing
  */
-export enum PopBillingRegion {
+export enum BillingRegion {
     Africa = "Africa",
     Australia = "Australia",
     Asia = "Asia",
@@ -22,7 +22,7 @@ export enum PopBillingRegion {
 /**
  * the geographic location of the POP
  */
-export class PopCoordinates extends SpeakeasyBase {
+export class Coordinates extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "latitude" })
     latitude: number;
@@ -56,7 +56,7 @@ export enum PopRegion {
 /**
  * the region used for stats reporting
  */
-export enum PopStatsRegion {
+export enum StatsRegion {
     SouthamericaStd = "southamerica_std",
     AfricaStd = "africa_std",
     Anzac = "anzac",
@@ -73,7 +73,7 @@ export class Pop extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "billing_region" })
-    billingRegion: PopBillingRegion;
+    billingRegion: BillingRegion;
 
     /**
      * the three-letter code for the [POP](https://developer.fastly.com/learning/concepts/pop/)
@@ -87,8 +87,8 @@ export class Pop extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "coordinates" })
-    @Type(() => PopCoordinates)
-    coordinates?: PopCoordinates;
+    @Type(() => Coordinates)
+    coordinates?: Coordinates;
 
     @SpeakeasyMetadata()
     @Expose({ name: "group" })
@@ -117,5 +117,5 @@ export class Pop extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "stats_region" })
-    statsRegion: PopStatsRegion;
+    statsRegion: StatsRegion;
 }

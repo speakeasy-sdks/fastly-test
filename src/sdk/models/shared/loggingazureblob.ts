@@ -7,7 +7,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
  */
-export enum LoggingAzureblobCompressionCodec {
+export enum CompressionCodec {
     Zstd = "zstd",
     Snappy = "snappy",
     Gzip = "gzip",
@@ -19,7 +19,7 @@ export enum LoggingAzureblobCompressionCodec {
  * @remarks
  *
  */
-export enum LoggingAzureblobFormatVersion {
+export enum FormatVersion {
     One = 1,
     Two = 2,
 }
@@ -27,7 +27,7 @@ export enum LoggingAzureblobFormatVersion {
 /**
  * How the message should be formatted.
  */
-export enum LoggingAzureblobMessageType {
+export enum MessageType {
     Classic = "classic",
     Loggly = "loggly",
     Logplex = "logplex",
@@ -40,13 +40,13 @@ export enum LoggingAzureblobMessageType {
  * @remarks
  *
  */
-export enum LoggingAzureblobPlacement {
+export enum Placement {
     None = "none",
     WafDebug = "waf_debug",
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class LoggingAzureblobInput extends SpeakeasyBase {
+export class LoggingAzureblob extends SpeakeasyBase {
     /**
      * The unique Azure Blob Storage namespace in which your data objects are stored. Required.
      */
@@ -57,7 +57,7 @@ export class LoggingAzureblobInput extends SpeakeasyBase {
      * The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
      */
     @SpeakeasyMetadata({ data: "form, name=compression_codec" })
-    compressionCodec?: LoggingAzureblobCompressionCodec;
+    compressionCodec?: CompressionCodec;
 
     /**
      * The name of the Azure Blob Storage container in which to store logs. Required.
@@ -84,7 +84,7 @@ export class LoggingAzureblobInput extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "form, name=format_version" })
-    formatVersion?: LoggingAzureblobFormatVersion;
+    formatVersion?: FormatVersion;
 
     /**
      * The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
@@ -96,7 +96,7 @@ export class LoggingAzureblobInput extends SpeakeasyBase {
      * How the message should be formatted.
      */
     @SpeakeasyMetadata({ data: "form, name=message_type" })
-    messageType?: LoggingAzureblobMessageType;
+    messageType?: MessageType;
 
     /**
      * The name for the real-time logging configuration.
@@ -123,7 +123,7 @@ export class LoggingAzureblobInput extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "form, name=placement" })
-    placement?: LoggingAzureblobPlacement;
+    placement?: Placement;
 
     /**
      * A PGP public key that Fastly will use to encrypt your log files before writing them to disk.

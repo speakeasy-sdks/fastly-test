@@ -1,4 +1,5 @@
-# iamServiceGroups
+# IamServiceGroups
+(*.iamServiceGroups*)
 
 ## Overview
 
@@ -19,29 +20,30 @@ Delete a service group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteAServiceGroupResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.iamServiceGroups.deleteAServiceGroup({
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: DeleteAServiceGroupResponse) => {
+  const res = await sdk.iamServiceGroups.deleteAServiceGroup({
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteAServiceGroupRequest](../../models/operations/deleteaservicegrouprequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteAServiceGroupSecurity](../../models/operations/deleteaservicegroupsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteAServiceGroupRequest](../../models/operations/deleteaservicegrouprequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -56,29 +58,30 @@ Get a service group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetAServiceGroupResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.iamServiceGroups.getAServiceGroup({
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: GetAServiceGroupResponse) => {
+  const res = await sdk.iamServiceGroups.getAServiceGroup({
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetAServiceGroupRequest](../../models/operations/getaservicegrouprequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetAServiceGroupSecurity](../../models/operations/getaservicegroupsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetAServiceGroupRequest](../../models/operations/getaservicegrouprequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -93,31 +96,32 @@ List services to a service group.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceGroupServicesResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.iamServiceGroups.listServiceGroupServices({
-  page: 1,
-  perPage: 20,
-  serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
-}, {
-  token: "",
-}).then((res: ListServiceGroupServicesResponse) => {
+  const res = await sdk.iamServiceGroups.listServiceGroupServices({
+    page: 1,
+    perPage: 20,
+    serviceGroupId: "t4Gg2uUGZzb2W9Euo4mo0R",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.ListServiceGroupServicesRequest](../../models/operations/listservicegroupservicesrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.ListServiceGroupServicesSecurity](../../models/operations/listservicegroupservicessecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.ListServiceGroupServicesRequest](../../models/operations/listservicegroupservicesrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
@@ -132,30 +136,31 @@ List all service groups.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListServiceGroupsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.iamServiceGroups.listServiceGroups({
-  page: 1,
-  perPage: 20,
-}, {
-  token: "",
-}).then((res: ListServiceGroupsResponse) => {
+  const res = await sdk.iamServiceGroups.listServiceGroups({
+    page: 1,
+    perPage: 20,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListServiceGroupsRequest](../../models/operations/listservicegroupsrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListServiceGroupsSecurity](../../models/operations/listservicegroupssecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListServiceGroupsRequest](../../models/operations/listservicegroupsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response

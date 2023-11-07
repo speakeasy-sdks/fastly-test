@@ -1,12 +1,10 @@
 # InvitationsResponse
 
-OK
-
 
 ## Fields
 
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `data`                                                                      | [InvitationResponseData](../../models/shared/invitationresponsedata.md)[]   | :heavy_minus_sign:                                                          | N/A                                                                         |
-| `links`                                                                     | [InvitationsResponseLinks](../../models/shared/invitationsresponselinks.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
-| `meta`                                                                      | [InvitationsResponseMeta](../../models/shared/invitationsresponsemeta.md)   | :heavy_minus_sign:                                                          | N/A                                                                         |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `data`                                                                             | [shared.InvitationResponseData](../../models/shared/invitationresponsedata.md)[]   | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `links`                                                                            | [shared.InvitationsResponseLinks](../../models/shared/invitationsresponselinks.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `meta`                                                                             | [shared.InvitationsResponseMeta](../../models/shared/invitationsresponsemeta.md)   | :heavy_minus_sign:                                                                 | N/A                                                                                |

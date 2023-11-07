@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * A histogram. Each key represents the upper bound of a span of 10 milliseconds and the values represent the number of requests to origin during that 10ms period. Any origin request that takes more than 60 seconds to return will be in the 60000 bucket.
  */
-export class RealtimeMeasurementsMissHistogram extends SpeakeasyBase {}
+export class MissHistogram extends SpeakeasyBase {}
 
 /**
  * Statistics that have occurred since the last request.
@@ -719,8 +719,8 @@ export class RealtimeMeasurements extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "miss_histogram" })
-    @Type(() => RealtimeMeasurementsMissHistogram)
-    missHistogram?: RealtimeMeasurementsMissHistogram;
+    @Type(() => MissHistogram)
+    missHistogram?: MissHistogram;
 
     /**
      * Total body bytes delivered for cache misses.
@@ -823,7 +823,7 @@ export class RealtimeMeasurements extends SpeakeasyBase {
     /**
      * Use object_store_class_b_operations.
      *
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object_store_read_requests" })
@@ -832,7 +832,7 @@ export class RealtimeMeasurements extends SpeakeasyBase {
     /**
      * Use object_store_class_a_operations.
      *
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object_store_write_requests" })

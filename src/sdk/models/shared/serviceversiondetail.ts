@@ -50,7 +50,7 @@ export class ServiceVersionDetailSettings extends SpeakeasyBase {
     generalStaleIfErrorTtl?: number;
 }
 
-export class ServiceVersionDetailWordpress extends SpeakeasyBase {}
+export class Wordpress extends SpeakeasyBase {}
 
 export class ServiceVersionDetail extends SpeakeasyBase {
     /**
@@ -237,8 +237,8 @@ export class ServiceVersionDetail extends SpeakeasyBase {
     /**
      * A list of Wordpress rules with this service.
      */
-    @SpeakeasyMetadata({ elemType: ServiceVersionDetailWordpress })
+    @SpeakeasyMetadata({ elemType: Wordpress })
     @Expose({ name: "wordpress" })
-    @Type(() => ServiceVersionDetailWordpress)
-    wordpress?: ServiceVersionDetailWordpress[];
+    @Type(() => Wordpress)
+    wordpress?: Wordpress[];
 }

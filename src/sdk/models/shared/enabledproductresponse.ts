@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class EnabledProductResponseLinks extends SpeakeasyBase {
+export class Links extends SpeakeasyBase {
     /**
      * Location of resource
      */
@@ -21,7 +21,7 @@ export class EnabledProductResponseLinks extends SpeakeasyBase {
     service?: string;
 }
 
-export class EnabledProductResponseProduct extends SpeakeasyBase {
+export class Product extends SpeakeasyBase {
     /**
      * Product identifier
      */
@@ -53,19 +53,16 @@ export class EnabledProductResponseService extends SpeakeasyBase {
     object?: string;
 }
 
-/**
- * OK
- */
 export class EnabledProductResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
-    @Type(() => EnabledProductResponseLinks)
-    links?: EnabledProductResponseLinks;
+    @Type(() => Links)
+    links?: Links;
 
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    @Type(() => EnabledProductResponseProduct)
-    product?: EnabledProductResponseProduct;
+    @Type(() => Product)
+    product?: Product;
 
     @SpeakeasyMetadata()
     @Expose({ name: "service" })

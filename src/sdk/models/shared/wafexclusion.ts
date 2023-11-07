@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { WafExclusionDataInput } from "./wafexclusiondata";
+import { WafExclusionData } from "./wafexclusiondata";
 import { Expose, Type } from "class-transformer";
 
-export class WafExclusionInput extends SpeakeasyBase {
+export class WafExclusion extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => WafExclusionDataInput)
-    data?: WafExclusionDataInput;
+    @Type(() => WafExclusionData)
+    data?: WafExclusionData;
 }

@@ -59,7 +59,7 @@ export enum LoggingCloudfilesRegion {
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class LoggingCloudfilesInput extends SpeakeasyBase {
+export class LoggingCloudfiles extends SpeakeasyBase {
     /**
      * Your Cloud Files account access key.
      */

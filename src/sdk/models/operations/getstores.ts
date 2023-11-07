@@ -3,14 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
-
-export class GetStoresSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class GetStoresRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=cursor" })
@@ -23,7 +18,7 @@ export class GetStoresRequest extends SpeakeasyBase {
 /**
  * Meta for the pagination.
  */
-export class GetStores200ApplicationJSONMeta extends SpeakeasyBase {
+export class Meta extends SpeakeasyBase {
     /**
      * Entries returned.
      */
@@ -42,7 +37,7 @@ export class GetStores200ApplicationJSONMeta extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetStores200ApplicationJSON extends SpeakeasyBase {
+export class GetStoresResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.StoreResponse })
     @Expose({ name: "data" })
     @Type(() => shared.StoreResponse)
@@ -53,17 +48,26 @@ export class GetStores200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "meta" })
-    @Type(() => GetStores200ApplicationJSONMeta)
-    meta?: GetStores200ApplicationJSONMeta;
+    @Type(() => Meta)
+    meta?: Meta;
 }
 
 export class GetStoresResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -71,5 +75,5 @@ export class GetStoresResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getStores200ApplicationJSONObject?: GetStores200ApplicationJSON;
+    object?: GetStoresResponseBody;
 }

@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipMemberTlsDomainInput } from "./relationshipmembertlsdomain";
 import { TypeTlsPrivateKey } from "./typetlsprivatekey";
 import { Expose, Type } from "class-transformer";
 
@@ -23,24 +22,7 @@ export class TlsPrivateKeyDataAttributes extends SpeakeasyBase {
     name?: string;
 }
 
-export class TlsPrivateKeyDataRelationships2TlsDomainsInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsDomainInput })
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsDomainInput)
-    data?: RelationshipMemberTlsDomainInput[];
-}
-
-/**
- * All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
- */
-export class TlsPrivateKeyDataRelationships2Input extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_domains" })
-    @Type(() => TlsPrivateKeyDataRelationships2TlsDomainsInput)
-    tlsDomains?: TlsPrivateKeyDataRelationships2TlsDomainsInput;
-}
-
-export class TlsPrivateKeyDataInput extends SpeakeasyBase {
+export class TlsPrivateKeyData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => TlsPrivateKeyDataAttributes)

@@ -5,11 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class GetCustomVclRawSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class GetCustomVclRawRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the service.
@@ -31,12 +26,21 @@ export class GetCustomVclRawRequest extends SpeakeasyBase {
 }
 
 export class GetCustomVclRawResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -44,5 +48,5 @@ export class GetCustomVclRawResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getCustomVclRaw200TextPlainString?: string;
+    res?: string;
 }

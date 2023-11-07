@@ -8,15 +8,12 @@ import { Expose } from "class-transformer";
 /**
  * The format in which compared VCL changes are being returned in.
  */
-export enum VclDiffFormat {
+export enum Format {
     Text = "text",
     Html = "html",
     HtmlSimple = "html_simple",
 }
 
-/**
- * OK
- */
 export class VclDiff extends SpeakeasyBase {
     /**
      * The differences between two specified versions.
@@ -30,7 +27,7 @@ export class VclDiff extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "format" })
-    format?: VclDiffFormat;
+    format?: Format;
 
     /**
      * The version number of the service to which changes in the generated VCL are being compared.

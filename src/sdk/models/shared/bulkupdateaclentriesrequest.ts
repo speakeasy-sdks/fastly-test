@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BulkUpdateAclEntryInput } from "./bulkupdateaclentry";
+import { BulkUpdateAclEntry } from "./bulkupdateaclentry";
 import { Expose, Type } from "class-transformer";
 
-export class BulkUpdateAclEntriesRequestInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BulkUpdateAclEntryInput })
+export class BulkUpdateAclEntriesRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: BulkUpdateAclEntry })
     @Expose({ name: "entries" })
-    @Type(() => BulkUpdateAclEntryInput)
-    entries?: BulkUpdateAclEntryInput[];
+    @Type(() => BulkUpdateAclEntry)
+    entries?: BulkUpdateAclEntry[];
 }

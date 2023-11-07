@@ -3,13 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class GetInvoiceByIdSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class GetInvoiceByIdRequest extends SpeakeasyBase {
     /**
@@ -26,12 +21,21 @@ export class GetInvoiceByIdRequest extends SpeakeasyBase {
 }
 
 export class GetInvoiceByIdResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -45,11 +49,11 @@ export class GetInvoiceByIdResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getInvoiceById200ApplicationPdfBinaryString?: Uint8Array;
+    bytes?: Uint8Array;
 
     /**
      * OK
      */
     @SpeakeasyMetadata()
-    getInvoiceById200TextCsvCsvString?: string;
+    res?: string;
 }

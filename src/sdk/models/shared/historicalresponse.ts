@@ -27,9 +27,6 @@ export class HistoricalResponseMeta extends SpeakeasyBase {
     to?: string;
 }
 
-/**
- * OK
- */
 export class HistoricalResponse extends SpeakeasyBase {
     /**
      * Contains the results of the query, organized by *service ID*, into arrays where each element describes one service over a *time span*.

@@ -18,7 +18,7 @@ export class ServiceAuthorizationDataAttributes extends SpeakeasyBase {
     permission?: Permission;
 }
 
-export class ServiceAuthorizationDataRelationshipsUserDataInput extends SpeakeasyBase {
+export class ServiceAuthorizationDataData extends SpeakeasyBase {
     /**
      * Resource type
      */
@@ -30,14 +30,14 @@ export class ServiceAuthorizationDataRelationshipsUserDataInput extends Speakeas
 /**
  * The ID of the user being given access to the service.
  */
-export class ServiceAuthorizationDataRelationshipsUserInput extends SpeakeasyBase {
+export class ServiceAuthorizationDataUser extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ServiceAuthorizationDataRelationshipsUserDataInput)
-    data?: ServiceAuthorizationDataRelationshipsUserDataInput;
+    @Type(() => ServiceAuthorizationDataData)
+    data?: ServiceAuthorizationDataData;
 }
 
-export class ServiceAuthorizationDataRelationshipsInput extends SpeakeasyBase {
+export class ServiceAuthorizationDataRelationships extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "service" })
     @Type(() => RelationshipMemberServiceInput)
@@ -48,11 +48,11 @@ export class ServiceAuthorizationDataRelationshipsInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "user" })
-    @Type(() => ServiceAuthorizationDataRelationshipsUserInput)
-    user?: ServiceAuthorizationDataRelationshipsUserInput;
+    @Type(() => ServiceAuthorizationDataUser)
+    user?: ServiceAuthorizationDataUser;
 }
 
-export class ServiceAuthorizationDataInput extends SpeakeasyBase {
+export class ServiceAuthorizationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => ServiceAuthorizationDataAttributes)
@@ -60,8 +60,8 @@ export class ServiceAuthorizationDataInput extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => ServiceAuthorizationDataRelationshipsInput)
-    relationships?: ServiceAuthorizationDataRelationshipsInput;
+    @Type(() => ServiceAuthorizationDataRelationships)
+    relationships?: ServiceAuthorizationDataRelationships;
 
     /**
      * Resource type

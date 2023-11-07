@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * HTTP status code used to redirect the client.
  */
-export enum ApexRedirectStatusCode {
+export enum StatusCode {
     ThreeHundredAndOne = 301,
     ThreeHundredAndTwo = 302,
     ThreeHundredAndSeven = 307,
@@ -32,12 +32,9 @@ export class ApexRedirectInput extends SpeakeasyBase {
      * HTTP status code used to redirect the client.
      */
     @SpeakeasyMetadata({ data: "form, name=status_code" })
-    statusCode?: ApexRedirectStatusCode;
+    statusCode?: StatusCode;
 }
 
-/**
- * OK
- */
 export class ApexRedirect extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.
@@ -78,7 +75,7 @@ export class ApexRedirect extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status_code" })
-    statusCode?: ApexRedirectStatusCode;
+    statusCode?: StatusCode;
 
     /**
      * Date and time in ISO 8601 format.

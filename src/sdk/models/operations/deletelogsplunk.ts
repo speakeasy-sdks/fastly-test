@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteLogSplunkSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteLogSplunkRequest extends SpeakeasyBase {
     /**
      * The name for the real-time logging configuration.
@@ -34,7 +29,7 @@ export class DeleteLogSplunkRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogSplunk200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogSplunkResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteLogSplunk200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteLogSplunkResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteLogSplunkResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogSplunk200ApplicationJSONObject?: DeleteLogSplunk200ApplicationJSON;
+    object?: DeleteLogSplunkResponseBody;
 }

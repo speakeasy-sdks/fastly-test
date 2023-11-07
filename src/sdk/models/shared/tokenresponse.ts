@@ -8,16 +8,13 @@ import { Expose, Transform } from "class-transformer";
 /**
  * Space-delimited list of authorization scope.
  */
-export enum TokenResponseScope {
+export enum Scope {
     Global = "global",
     PurgeSelect = "purge_select",
     PurgeAll = "purge_all",
     GlobalRead = "global:read",
 }
 
-/**
- * OK
- */
 export class TokenResponse extends SpeakeasyBase {
     /**
      * Time-stamp (UTC) of when the token was created.
@@ -71,7 +68,7 @@ export class TokenResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "scope" })
-    scope?: TokenResponseScope;
+    scope?: Scope;
 
     /**
      * List of alphanumeric strings identifying services (optional). If no services are specified, the token will have access to all services on the account.

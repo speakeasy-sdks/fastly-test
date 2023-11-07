@@ -3,44 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipMemberTlsActivation } from "./relationshipmembertlsactivation";
-import { RelationshipMemberTlsCertificate } from "./relationshipmembertlscertificate";
 import { TypeTlsDomain } from "./typetlsdomain";
-import { Expose, Type } from "class-transformer";
-
-export class TlsDomainDataRelationships2TlsCertificates extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsCertificate })
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsCertificate)
-    data?: RelationshipMemberTlsCertificate[];
-}
-
-/**
- * The list of all the [TLS certificates](#tls_certificates) that include this domain in their SAN list.
- */
-export class TlsDomainDataRelationships2 extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_certificates" })
-    @Type(() => TlsDomainDataRelationships2TlsCertificates)
-    tlsCertificates?: TlsDomainDataRelationships2TlsCertificates;
-}
-
-export class TlsDomainDataRelationships1TlsActivations extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsActivation })
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsActivation)
-    data?: RelationshipMemberTlsActivation[];
-}
-
-/**
- * The list of [TLS activations](#tls_activations) that exist for the domain. If empty, then this domain is not enabled to serve TLS traffic.
- */
-export class TlsDomainDataRelationships1 extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_activations" })
-    @Type(() => TlsDomainDataRelationships1TlsActivations)
-    tlsActivations?: TlsDomainDataRelationships1TlsActivations;
-}
+import { Expose } from "class-transformer";
 
 export class TlsDomainData extends SpeakeasyBase {
     /**

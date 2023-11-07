@@ -3,17 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class CreateLogAwsS3Security extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class CreateLogAwsS3Request extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingS3Input?: shared.LoggingS3Input;
+    loggingS3?: shared.LoggingS3;
 
     /**
      * Alphanumeric string identifying the service.
@@ -29,12 +24,21 @@ export class CreateLogAwsS3Request extends SpeakeasyBase {
 }
 
 export class CreateLogAwsS3Response extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

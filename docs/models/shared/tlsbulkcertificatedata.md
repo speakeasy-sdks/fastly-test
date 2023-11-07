@@ -1,0 +1,10 @@
+# TlsBulkCertificateData
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `attributes`                                                                                       | [shared.TlsBulkCertificateDataAttributes](../../models/shared/tlsbulkcertificatedataattributes.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `relationships`                                                                                    | *any*                                                                                              | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `type`                                                                                             | [shared.TypeTlsBulkCertificate](../../models/shared/typetlsbulkcertificate.md)                     | :heavy_minus_sign:                                                                                 | Resource type                                                                                      |

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { RelationshipMemberWafFirewallVersion } from "./relationshipmemberwaffirewallversion";
 import { Expose, Type } from "class-transformer";
 
-export class RelationshipWafFirewallVersionsWafFirewallVersions extends SpeakeasyBase {
+export class WafFirewallVersions extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: RelationshipMemberWafFirewallVersion })
     @Expose({ name: "data" })
     @Type(() => RelationshipMemberWafFirewallVersion)
@@ -16,6 +16,6 @@ export class RelationshipWafFirewallVersionsWafFirewallVersions extends Speakeas
 export class RelationshipWafFirewallVersions extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "waf_firewall_versions" })
-    @Type(() => RelationshipWafFirewallVersionsWafFirewallVersions)
-    wafFirewallVersions?: RelationshipWafFirewallVersionsWafFirewallVersions;
+    @Type(() => WafFirewallVersions)
+    wafFirewallVersions?: WafFirewallVersions;
 }

@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteSnippetSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteSnippetRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the service.
@@ -34,7 +29,7 @@ export class DeleteSnippetRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteSnippet200ApplicationJSON extends SpeakeasyBase {
+export class DeleteSnippetResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteSnippet200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteSnippetResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteSnippetResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteSnippet200ApplicationJSONObject?: DeleteSnippet200ApplicationJSON;
+    object?: DeleteSnippetResponseBody;
 }

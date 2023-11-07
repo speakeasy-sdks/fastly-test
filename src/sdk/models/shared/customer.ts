@@ -7,12 +7,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * Customer's current network revenue type.
  */
-export enum CustomerBillingNetworkType {
+export enum BillingNetworkType {
     Public = "public",
     Private = "private",
 }
 
-export class CustomerInput extends SpeakeasyBase {
+export class Customer extends SpeakeasyBase {
     /**
      * The alphanumeric string representing the primary billing contact.
      */
@@ -23,7 +23,7 @@ export class CustomerInput extends SpeakeasyBase {
      * Customer's current network revenue type.
      */
     @SpeakeasyMetadata({ data: "form, name=billing_network_type" })
-    billingNetworkType?: CustomerBillingNetworkType;
+    billingNetworkType?: BillingNetworkType;
 
     /**
      * Used for adding purchased orders to customer's account.

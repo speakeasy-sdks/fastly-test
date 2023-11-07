@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteAclSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteAclRequest extends SpeakeasyBase {
     /**
      * Name for the ACL. Must start with an alphanumeric character and contain only alphanumeric characters, underscores, and whitespace.
@@ -34,7 +29,7 @@ export class DeleteAclRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteAcl200ApplicationJSON extends SpeakeasyBase {
+export class DeleteAclResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteAcl200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteAclResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteAclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteAcl200ApplicationJSONObject?: DeleteAcl200ApplicationJSON;
+    object?: DeleteAclResponseBody;
 }

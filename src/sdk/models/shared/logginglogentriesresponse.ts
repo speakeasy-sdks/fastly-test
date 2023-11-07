@@ -42,9 +42,6 @@ export enum LoggingLogentriesResponseRegion {
     Ap = "AP",
 }
 
-/**
- * OK
- */
 export class LoggingLogentriesResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

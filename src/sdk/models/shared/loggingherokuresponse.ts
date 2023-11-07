@@ -28,9 +28,6 @@ export enum LoggingHerokuResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingHerokuResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteLogSumologicSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteLogSumologicRequest extends SpeakeasyBase {
     /**
      * The name for the real-time logging configuration.
@@ -36,7 +31,7 @@ export class DeleteLogSumologicRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogSumologic200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogSumologicResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -46,12 +41,21 @@ export class DeleteLogSumologic200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteLogSumologicResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -59,5 +63,5 @@ export class DeleteLogSumologicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogSumologic200ApplicationJSONObject?: DeleteLogSumologic200ApplicationJSON;
+    object?: DeleteLogSumologicResponseBody;
 }

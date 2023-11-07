@@ -1,4 +1,5 @@
-# loggingHttps
+# LoggingHttps
+(*.loggingHttps*)
 
 ## Overview
 
@@ -20,61 +21,46 @@ Create an HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
+  JsonFormat,
   LoggingHttpsFormatVersion,
-  LoggingHttpsJsonFormat,
-  LoggingHttpsMethod,
   LoggingHttpsPlacement,
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+  Method,
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHttps.createLogHttps({
-  loggingHttps4: {
-    contentType: "porro",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingHttpsFormatVersion.One,
-    headerName: "quas",
-    headerValue: "praesentium",
-    jsonFormat: LoggingHttpsJsonFormat.Zero,
-    messageType: LoggingMessageType.Classic,
-    method: LoggingHttpsMethod.Put,
-    name: "test-log-endpoint",
-    placement: LoggingHttpsPlacement.None,
-    requestMaxBytes: 681393,
-    requestMaxEntries: 649463,
-    responseCondition: "null",
-    tlsCaCert: "incidunt",
-    tlsClientCert: "atque",
-    tlsClientKey: "explicabo",
-    tlsHostname: "minima",
-    url: "nisi",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.createLogHttps({
+    loggingHttps: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHttpsFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingHttpsPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateLogHttpsRequest](../../models/operations/createloghttpsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateLogHttpsSecurity](../../models/operations/createloghttpssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.CreateLogHttpsRequest](../../models/operations/createloghttpsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -89,31 +75,32 @@ Delete the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHttps.deleteLogHttps({
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.deleteLogHttps({
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteLogHttpsRequest](../../models/operations/deleteloghttpsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteLogHttpsSecurity](../../models/operations/deleteloghttpssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.DeleteLogHttpsRequest](../../models/operations/deleteloghttpsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -128,38 +115,32 @@ Get the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
-  LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHttps.getLogHttps({
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.getLogHttps({
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetLogHttpsRequest](../../models/operations/getloghttpsrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetLogHttpsSecurity](../../models/operations/getloghttpssecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetLogHttpsRequest](../../models/operations/getloghttpsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -174,37 +155,31 @@ List all of the HTTPS objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
-  LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHttps.listLogHttps({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.listLogHttps({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListLogHttpsRequest](../../models/operations/listloghttpsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListLogHttpsSecurity](../../models/operations/listloghttpssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListLogHttpsRequest](../../models/operations/listloghttpsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -219,62 +194,47 @@ Update the HTTPS object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogHttpsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
+  JsonFormat,
   LoggingHttpsFormatVersion,
-  LoggingHttpsJsonFormat,
-  LoggingHttpsMethod,
   LoggingHttpsPlacement,
-  LoggingHttpsResponseFormatVersion,
-  LoggingHttpsResponseJsonFormat,
-  LoggingHttpsResponseMethod,
-  LoggingHttpsResponsePlacement,
   LoggingMessageType,
-} from "FastlyTest/dist/sdk/models/shared";
+  Method,
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingHttps.updateLogHttps({
-  loggingHttps4: {
-    contentType: "fugit",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingHttpsFormatVersion.Two,
-    headerName: "consequuntur",
-    headerValue: "ratione",
-    jsonFormat: LoggingHttpsJsonFormat.Zero,
-    messageType: LoggingMessageType.Classic,
-    method: LoggingHttpsMethod.Put,
-    name: "test-log-endpoint",
-    placement: LoggingHttpsPlacement.WafDebug,
-    requestMaxBytes: 543806,
-    requestMaxEntries: 92260,
-    responseCondition: "null",
-    tlsCaCert: "esse",
-    tlsClientCert: "eveniet",
-    tlsClientKey: "accusamus",
-    tlsHostname: "veritatis",
-    url: "esse",
-  },
-  loggingHttpsName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogHttpsResponse) => {
+  const res = await sdk.loggingHttps.updateLogHttps({
+    loggingHttps: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingHttpsFormatVersion.Two,
+      messageType: LoggingMessageType.Classic,
+      name: "test-log-endpoint",
+      placement: LoggingHttpsPlacement.WafDebug,
+      responseCondition: "null",
+    },
+    loggingHttpsName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateLogHttpsRequest](../../models/operations/updateloghttpsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateLogHttpsSecurity](../../models/operations/updateloghttpssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.UpdateLogHttpsRequest](../../models/operations/updateloghttpsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

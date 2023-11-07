@@ -3,20 +3,15 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class AddBillingAddrSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class AddBillingAddrRequest extends SpeakeasyBase {
     /**
      * Billing address
      */
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    billingAddressRequestInput?: shared.BillingAddressRequestInput;
+    billingAddressRequest?: shared.BillingAddressRequest;
 
     /**
      * Alphanumeric string identifying the customer.
@@ -26,12 +21,21 @@ export class AddBillingAddrRequest extends SpeakeasyBase {
 }
 
 export class AddBillingAddrResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

@@ -5,7 +5,7 @@
 import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class BillingEstimateResponseLinesLine extends SpeakeasyBase {
+export class Line extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount?: number;
@@ -43,14 +43,14 @@ export class BillingEstimateResponseLinesLine extends SpeakeasyBase {
     units?: number;
 }
 
-export class BillingEstimateResponseLines extends SpeakeasyBase {
+export class Lines extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "line" })
-    @Type(() => BillingEstimateResponseLinesLine)
-    line?: BillingEstimateResponseLinesLine;
+    @Type(() => Line)
+    line?: Line;
 }
 
-export class BillingEstimateResponseRegionsTiers extends SpeakeasyBase {
+export class Tiers extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
@@ -68,11 +68,11 @@ export class BillingEstimateResponseRegionsTiers extends SpeakeasyBase {
     units?: number;
 }
 
-export class BillingEstimateResponseRegions extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BillingEstimateResponseRegionsTiers })
+export class Regions extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Tiers })
     @Expose({ name: "tiers" })
-    @Type(() => BillingEstimateResponseRegionsTiers)
-    tiers?: BillingEstimateResponseRegionsTiers[];
+    @Type(() => Tiers)
+    tiers?: Tiers[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "total" })
@@ -82,16 +82,16 @@ export class BillingEstimateResponseRegions extends SpeakeasyBase {
 /**
  * What the current status of this invoice can be.
  */
-export enum BillingEstimateResponseStatusStatus {
+export enum BillingEstimateResponseStatus {
     Pending = "Pending",
     Outstanding = "Outstanding",
     Paid = "Paid",
     Mtd = "MTD",
 }
 
-export class BillingEstimateResponseStatus extends SpeakeasyBase {
+export class Status extends SpeakeasyBase {
     /**
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sent_at" })
@@ -103,10 +103,10 @@ export class BillingEstimateResponseStatus extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: BillingEstimateResponseStatusStatus;
+    status?: BillingEstimateResponseStatus;
 }
 
-export class BillingEstimateResponseTotalExtras extends SpeakeasyBase {
+export class Extras extends SpeakeasyBase {
     /**
      * The name of this extra cost.
      */
@@ -132,7 +132,7 @@ export class BillingEstimateResponseTotalExtras extends SpeakeasyBase {
 /**
  * Complete summary of the billing information.
  */
-export class BillingEstimateResponseTotal extends SpeakeasyBase {
+export class Total extends SpeakeasyBase {
     /**
      * The total amount of bandwidth used this month (See bandwidth_units for measurement).
      */
@@ -178,10 +178,10 @@ export class BillingEstimateResponseTotal extends SpeakeasyBase {
     /**
      * A list of any extras for this invoice.
      */
-    @SpeakeasyMetadata({ elemType: BillingEstimateResponseTotalExtras })
+    @SpeakeasyMetadata({ elemType: Extras })
     @Expose({ name: "extras" })
-    @Type(() => BillingEstimateResponseTotalExtras)
-    extras?: BillingEstimateResponseTotalExtras[];
+    @Type(() => Extras)
+    extras?: Extras[];
 
     /**
      * Total cost of all extras.
@@ -247,9 +247,6 @@ export class BillingEstimateResponseTotal extends SpeakeasyBase {
     terms?: string;
 }
 
-/**
- * OK
- */
 export class BillingEstimateResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "customer_id" })
@@ -267,27 +264,27 @@ export class BillingEstimateResponse extends SpeakeasyBase {
     @Expose({ name: "invoice_id" })
     invoiceId?: string;
 
-    @SpeakeasyMetadata({ elemType: BillingEstimateResponseLines })
+    @SpeakeasyMetadata({ elemType: Lines })
     @Expose({ name: "lines" })
-    @Type(() => BillingEstimateResponseLines)
-    lines?: BillingEstimateResponseLines[];
+    @Type(() => Lines)
+    lines?: Lines[];
 
     /**
      * Breakdown of regional data for products that are region based.
      */
-    @SpeakeasyMetadata({ elemType: BillingEstimateResponseRegions, elemDepth: 2 })
+    @SpeakeasyMetadata({ elemType: Regions, elemDepth: 2 })
     @Expose({ name: "regions" })
     @Transform(
         ({ value }) => {
-            const obj: Record<string, Record<string, BillingEstimateResponseRegions>> = {};
+            const obj: Record<string, Record<string, Regions>> = {};
             for (const key in value) {
-                obj[key] = objectToClass(value[key], BillingEstimateResponseRegions);
+                obj[key] = objectToClass(value[key], Regions);
             }
             return obj;
         },
         { toClassOnly: true }
     )
-    regions?: Record<string, Record<string, BillingEstimateResponseRegions>>;
+    regions?: Record<string, Record<string, Regions>>;
 
     /**
      * Date and time in ISO 8601 format.
@@ -299,16 +296,16 @@ export class BillingEstimateResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    @Type(() => BillingEstimateResponseStatus)
-    status?: BillingEstimateResponseStatus;
+    @Type(() => Status)
+    status?: Status;
 
     /**
      * Complete summary of the billing information.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total" })
-    @Type(() => BillingEstimateResponseTotal)
-    total?: BillingEstimateResponseTotal;
+    @Type(() => Total)
+    total?: Total;
 
     /**
      * The current state of our third-party billing vendor. One of `up` or `down`.

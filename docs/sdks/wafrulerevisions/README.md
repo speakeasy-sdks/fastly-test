@@ -1,4 +1,5 @@
-# wafRuleRevisions
+# WafRuleRevisions
+(*.wafRuleRevisions*)
 
 ## Overview
 
@@ -14,43 +15,37 @@ Rule revisions track new variations of [rules](/reference/api/waf/rules/) as the
 
 Get a specific rule revision.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetWafRuleRevisionResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  TypeWafRule,
-  TypeWafRuleRevision,
-  WafRuleAttributesPublisher,
-  WafRuleAttributesType,
-  WafRuleRevisionResponseDataAttributesState,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.wafRuleRevisions.getWafRuleRevision({
-  include: "source,vcl,waf_rule",
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-  wafRuleRevisionNumber: 2,
-}, {
-  token: "",
-}).then((res: GetWafRuleRevisionResponse) => {
+  const res = await sdk.wafRuleRevisions.getWafRuleRevision({
+    include: "source,vcl,waf_rule",
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+    wafRuleRevisionNumber: 2,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetWafRuleRevisionRequest](../../models/operations/getwafrulerevisionrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetWafRuleRevisionSecurity](../../models/operations/getwafrulerevisionsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetWafRuleRevisionRequest](../../models/operations/getwafrulerevisionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -62,45 +57,39 @@ sdk.wafRuleRevisions.getWafRuleRevision({
 
 List all revisions for a specific rule. The `rule_id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListWafRuleRevisionsResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  TypeWafRule,
-  TypeWafRuleRevision,
-  WafRuleAttributesPublisher,
-  WafRuleAttributesType,
-  WafRuleRevisionInclude,
-  WafRuleRevisionResponseDataAttributesState,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.wafRuleRevisions.listWafRuleRevisions({
-  include: WafRuleRevisionInclude.WafRule,
-  pageNumber: 1,
-  pageSize: 20,
-  wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
-}, {
-  token: "",
-}).then((res: ListWafRuleRevisionsResponse) => {
+  const res = await sdk.wafRuleRevisions.listWafRuleRevisions({
+    include: WafRuleRevisionInclude.WafRule,
+    pageNumber: 1,
+    pageSize: 20,
+    wafRuleId: "3krg2uUGZzb2W9Euo4moOR",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.ListWafRuleRevisionsRequest](../../models/operations/listwafrulerevisionsrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ListWafRuleRevisionsSecurity](../../models/operations/listwafrulerevisionssecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListWafRuleRevisionsRequest](../../models/operations/listwafrulerevisionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response

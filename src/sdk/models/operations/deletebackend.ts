@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteBackendSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteBackendRequest extends SpeakeasyBase {
     /**
      * The name of the backend.
@@ -34,7 +29,7 @@ export class DeleteBackendRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteBackend200ApplicationJSON extends SpeakeasyBase {
+export class DeleteBackendResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteBackend200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteBackendResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteBackendResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteBackend200ApplicationJSONObject?: DeleteBackend200ApplicationJSON;
+    object?: DeleteBackendResponseBody;
 }

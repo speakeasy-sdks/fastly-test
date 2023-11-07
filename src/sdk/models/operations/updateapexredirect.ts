@@ -3,29 +3,33 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class UpdateApexRedirectSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class UpdateApexRedirectRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    apexRedirectInput?: shared.ApexRedirectInput;
+    apexRedirect?: shared.ApexRedirectInput;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=apex_redirect_id" })
     apexRedirectId: string;
 }
 
 export class UpdateApexRedirectResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

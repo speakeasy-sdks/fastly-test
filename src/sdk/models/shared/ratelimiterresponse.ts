@@ -14,7 +14,7 @@ export enum RateLimiterResponseAction {
     LogOnly = "log_only",
 }
 
-export enum RateLimiterResponseHttpMethods {
+export enum HttpMethods {
     Head = "HEAD",
     Options = "OPTIONS",
     Get = "GET",
@@ -28,7 +28,7 @@ export enum RateLimiterResponseHttpMethods {
 /**
  * Name of the type of logging endpoint to be used when action is `log_only`. The logging endpoint type is used to determine the appropriate log format to use when emitting log entries.
  */
-export enum RateLimiterResponseLoggerType {
+export enum LoggerType {
     Azureblob = "azureblob",
     Bigquery = "bigquery",
     Cloudfiles = "cloudfiles",
@@ -89,15 +89,12 @@ export class RateLimiterResponseResponse extends SpeakeasyBase {
 /**
  * Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.
  */
-export enum RateLimiterResponseWindowSize {
+export enum WindowSize {
     One = 1,
     Ten = 10,
     Sixty = 60,
 }
 
-/**
- * OK
- */
 export class RateLimiterResponse extends SpeakeasyBase {
     /**
      * The action to take when a rate limiter violation is detected.
@@ -141,7 +138,7 @@ export class RateLimiterResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "http_methods" })
-    httpMethods?: RateLimiterResponseHttpMethods[];
+    httpMethods?: HttpMethods[];
 
     /**
      * Alphanumeric string identifying the rate limiter.
@@ -155,7 +152,7 @@ export class RateLimiterResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "logger_type" })
-    loggerType?: RateLimiterResponseLoggerType;
+    loggerType?: LoggerType;
 
     /**
      * A human readable name for the rate limiting rule.
@@ -221,5 +218,5 @@ export class RateLimiterResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_size" })
-    windowSize?: RateLimiterResponseWindowSize;
+    windowSize?: WindowSize;
 }

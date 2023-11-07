@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteLogKinesisSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteLogKinesisRequest extends SpeakeasyBase {
     /**
      * The name for the real-time logging configuration.
@@ -34,7 +29,7 @@ export class DeleteLogKinesisRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogKinesis200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogKinesisResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteLogKinesis200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteLogKinesisResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteLogKinesisResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogKinesis200ApplicationJSONObject?: DeleteLogKinesis200ApplicationJSON;
+    object?: DeleteLogKinesisResponseBody;
 }

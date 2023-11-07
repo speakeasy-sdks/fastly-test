@@ -9,13 +9,13 @@ import { Expose, Type } from "class-transformer";
 /**
  * Describes the behavior for the particular rule revision within this firewall version.
  */
-export enum BulkWafActiveRuleAttributesStatus {
+export enum BulkWafActiveRuleStatus {
     Log = "log",
     Block = "block",
     Score = "score",
 }
 
-export class BulkWafActiveRuleAttributes extends SpeakeasyBase {
+export class Attributes extends SpeakeasyBase {
     /**
      * The ModSecurity rule ID of the associated rule revision.
      */
@@ -32,14 +32,14 @@ export class BulkWafActiveRuleAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: BulkWafActiveRuleAttributesStatus;
+    status?: BulkWafActiveRuleStatus;
 }
 
-export class BulkWafActiveRuleInput extends SpeakeasyBase {
+export class BulkWafActiveRule extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
-    @Type(() => BulkWafActiveRuleAttributes)
-    attributes?: BulkWafActiveRuleAttributes;
+    @Type(() => Attributes)
+    attributes?: Attributes;
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })

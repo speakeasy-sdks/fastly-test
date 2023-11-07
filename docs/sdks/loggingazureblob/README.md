@@ -1,4 +1,5 @@
-# loggingAzureblob
+# LoggingAzureblob
+(*.loggingAzureblob*)
 
 ## Overview
 
@@ -20,60 +21,46 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogAzureResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingAzureblobCompressionCodec,
-  LoggingAzureblobFormatVersion,
-  LoggingAzureblobMessageType,
-  LoggingAzureblobPlacement,
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingAzureblob.createLogAzure({
-  loggingAzureblobInput: {
-    accountName: "aut",
-    compressionCodec: LoggingAzureblobCompressionCodec.Snappy,
-    container: "itaque",
-    fileMaxBytes: 9240,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingAzureblobFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingAzureblobMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "repellendus",
-    period: 3600,
-    placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    sasToken: "doloribus",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.createLogAzure({
+    loggingAzureblob: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: Placement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateLogAzureRequest](../../models/operations/createlogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateLogAzureSecurity](../../models/operations/createlogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.CreateLogAzureRequest](../../models/operations/createlogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -88,31 +75,32 @@ Delete the Azure Blob Storage logging endpoint for a particular service and vers
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogAzureResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingAzureblob.deleteLogAzure({
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.deleteLogAzure({
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteLogAzureRequest](../../models/operations/deletelogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteLogAzureSecurity](../../models/operations/deletelogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.DeleteLogAzureRequest](../../models/operations/deletelogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -127,37 +115,32 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogAzureResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingAzureblob.getLogAzure({
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.getLogAzure({
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetLogAzureRequest](../../models/operations/getlogazurerequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetLogAzureSecurity](../../models/operations/getlogazuresecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetLogAzureRequest](../../models/operations/getlogazurerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -172,36 +155,31 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogAzureResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingAzureblob.listLogAzure({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.listLogAzure({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListLogAzureRequest](../../models/operations/listlogazurerequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListLogAzureSecurity](../../models/operations/listlogazuresecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListLogAzureRequest](../../models/operations/listlogazurerequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -216,61 +194,47 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogAzureResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingAzureblobCompressionCodec,
-  LoggingAzureblobFormatVersion,
-  LoggingAzureblobMessageType,
-  LoggingAzureblobPlacement,
-  LoggingAzureblobResponseCompressionCodec,
-  LoggingAzureblobResponseFormatVersion,
-  LoggingAzureblobResponseMessageType,
-  LoggingAzureblobResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
 
-sdk.loggingAzureblob.updateLogAzure({
-  loggingAzureblobInput: {
-    accountName: "ut",
-    compressionCodec: LoggingAzureblobCompressionCodec.Gzip,
-    container: "cupiditate",
-    fileMaxBytes: 181631,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingAzureblobFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingAzureblobMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "laudantium",
-    period: 3600,
-    placement: LoggingAzureblobPlacement.WafDebug,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    sasToken: "occaecati",
-  },
-  loggingAzureblobName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogAzureResponse) => {
+  const res = await sdk.loggingAzureblob.updateLogAzure({
+    loggingAzureblob: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: Placement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingAzureblobName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateLogAzureRequest](../../models/operations/updatelogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateLogAzureSecurity](../../models/operations/updatelogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.UpdateLogAzureRequest](../../models/operations/updatelogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

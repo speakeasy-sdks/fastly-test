@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class DeleteCustomVclSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class DeleteCustomVclRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the service.
@@ -34,7 +29,7 @@ export class DeleteCustomVclRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteCustomVcl200ApplicationJSON extends SpeakeasyBase {
+export class DeleteCustomVclResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -44,12 +39,21 @@ export class DeleteCustomVcl200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteCustomVclResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -57,5 +61,5 @@ export class DeleteCustomVclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteCustomVcl200ApplicationJSONObject?: DeleteCustomVcl200ApplicationJSON;
+    object?: DeleteCustomVclResponseBody;
 }

@@ -29,9 +29,6 @@ export enum LoggingSplunkResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingSplunkResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

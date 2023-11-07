@@ -5,23 +5,27 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export class CreateTlsCertSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 /**
  * Created
  */
-export class CreateTlsCert201ApplicationVndApiPlusJson extends SpeakeasyBase {}
+export class CreateTlsCertResponseBody extends SpeakeasyBase {}
 
 export class CreateTlsCertResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -29,5 +33,5 @@ export class CreateTlsCertResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    createTlsCert201ApplicationVndApiPlusJsonObject?: CreateTlsCert201ApplicationVndApiPlusJson;
+    object?: CreateTlsCertResponseBody;
 }

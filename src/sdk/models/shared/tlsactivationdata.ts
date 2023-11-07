@@ -7,7 +7,7 @@ import { RelationshipsForTlsActivationInput } from "./relationshipsfortlsactivat
 import { TypeTlsActivation } from "./typetlsactivation";
 import { Expose, Type } from "class-transformer";
 
-export class TlsActivationDataInput extends SpeakeasyBase {
+export class TlsActivationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
     @Type(() => RelationshipsForTlsActivationInput)

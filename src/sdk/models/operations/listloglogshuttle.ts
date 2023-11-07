@@ -3,13 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
-
-export class ListLogLogshuttleSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
 
 export class ListLogLogshuttleRequest extends SpeakeasyBase {
     /**
@@ -26,12 +21,21 @@ export class ListLogLogshuttleRequest extends SpeakeasyBase {
 }
 
 export class ListLogLogshuttleResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -39,5 +43,5 @@ export class ListLogLogshuttleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingLogshuttleResponse })
-    loggingLogshuttleResponses?: shared.LoggingLogshuttleResponse[];
+    classes?: shared.LoggingLogshuttleResponse[];
 }

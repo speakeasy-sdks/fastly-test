@@ -23,7 +23,7 @@ export class TlsCertificateDataAttributes extends SpeakeasyBase {
     name?: string;
 }
 
-export class TlsCertificateDataInput extends SpeakeasyBase {
+export class TlsCertificateData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => TlsCertificateDataAttributes)

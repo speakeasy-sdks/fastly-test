@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ServiceAuthorizationDataInput } from "./serviceauthorizationdata";
+import { ServiceAuthorizationData } from "./serviceauthorizationdata";
 import { Expose, Type } from "class-transformer";
 
-export class ServiceAuthorizationInput extends SpeakeasyBase {
+export class ServiceAuthorization extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ServiceAuthorizationDataInput)
-    data?: ServiceAuthorizationDataInput;
+    @Type(() => ServiceAuthorizationData)
+    data?: ServiceAuthorizationData;
 }
