@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * A user of the Fastly API and web interface. A user is always associated with a customer. Some information may be limited depending on access level.
  *
  * @see {@link https://developer.fastly.com/reference/api/account/user}
  */
-
 export class User {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +28,7 @@ export class User {
      */
     async createUser(
         req: shared.UserInput,
+        security: operations.CreateUserSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -42,7 +41,7 @@ export class User {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/user";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "form");
@@ -51,23 +50,20 @@ export class User {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateUserSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -98,13 +94,6 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -120,6 +109,7 @@ export class User {
      */
     async deleteUser(
         req: operations.DeleteUserRequest,
+        security: operations.DeleteUserSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -131,19 +121,20 @@ export class User {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user/{user_id}", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteUserSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -173,13 +164,6 @@ export class User {
                         JSON.parse(decodedRes),
                         operations.DeleteUser200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -193,25 +177,29 @@ export class User {
      * @remarks
      * Get the logged in user.
      */
-    async getCurrentUser(config?: AxiosRequestConfig): Promise<operations.GetCurrentUserResponse> {
+    async getCurrentUser(
+        security: operations.GetCurrentUserSecurity,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCurrentUserResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/current_user";
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetCurrentUserSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -241,13 +229,6 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -263,6 +244,7 @@ export class User {
      */
     async getUser(
         req: operations.GetUserRequest,
+        security: operations.GetUserSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -274,19 +256,20 @@ export class User {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user/{user_id}", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetUserSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -316,13 +299,6 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -338,6 +314,7 @@ export class User {
      */
     async requestPasswordReset(
         req: operations.RequestPasswordResetRequest,
+        security: operations.RequestPasswordResetSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.RequestPasswordResetResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -353,19 +330,20 @@ export class User {
             "/user/{user_login}/password/request_reset",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.RequestPasswordResetSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -396,13 +374,6 @@ export class User {
                         JSON.parse(decodedRes),
                         operations.RequestPasswordReset200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -418,6 +389,7 @@ export class User {
      */
     async updateUser(
         req: operations.UpdateUserRequest,
+        security: operations.UpdateUserSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -430,7 +402,7 @@ export class User {
         );
         const url: string = utils.generateURL(baseURL, "/user/{user_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "userInput", "form");
@@ -439,23 +411,20 @@ export class User {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateUserSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -486,13 +455,6 @@ export class User {
                         JSON.parse(decodedRes),
                         shared.UserResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -521,7 +483,7 @@ export class User {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/current_user/password";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "form");
@@ -530,19 +492,20 @@ export class User {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.UpdateUserPasswordSecurity(security);
         }
-        const properties = utils.parseSecurityProperties(security);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -573,13 +536,6 @@ export class User {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.UserResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

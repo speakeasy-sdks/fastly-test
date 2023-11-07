@@ -47,6 +47,9 @@ export enum LoggingGcsResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingGcsResponse extends SpeakeasyBase {
     /**
      * The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.

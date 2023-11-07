@@ -17,6 +17,9 @@ export enum CacheSettingResponseAction {
     Restart = "restart",
 }
 
+/**
+ * OK
+ */
 export class CacheSettingResponse extends SpeakeasyBase {
     /**
      * If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.

@@ -1,5 +1,4 @@
-# Historical
-(*historical*)
+# historical
 
 ## Overview
 
@@ -25,33 +24,33 @@ Fetches historical stats for each of your Fastly services and groups the results
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "FastlyTest";
+import { GetHistStatsResponse } from "FastlyTest/dist/sdk/models/operations";
+import { By, Region } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getHistStats({
-    by: By.Day,
-    region: Region.Usa,
-  });
-
+sdk.historical.getHistStats({
+  by: By.Day,
+  from: "incidunt",
+  region: Region.Usa,
+  to: "qui",
+}, {
+  token: "",
+}).then((res: GetHistStatsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetHistStatsRequest](../../models/operations/gethiststatsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetHistStatsRequest](../../models/operations/gethiststatsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `security`                                                                         | [operations.GetHistStatsSecurity](../../models/operations/gethiststatssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -66,33 +65,33 @@ Fetches historical stats information aggregated across all of your Fastly servic
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "FastlyTest";
+import { GetHistStatsAggregatedResponse } from "FastlyTest/dist/sdk/models/operations";
+import { By, Region } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getHistStatsAggregated({
-    by: By.Day,
-    region: Region.Usa,
-  });
-
+sdk.historical.getHistStatsAggregated({
+  by: By.Day,
+  from: "cupiditate",
+  region: Region.Usa,
+  to: "maxime",
+}, {
+  token: "",
+}).then((res: GetHistStatsAggregatedResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetHistStatsAggregatedRequest](../../models/operations/gethiststatsaggregatedrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.GetHistStatsAggregatedRequest](../../models/operations/gethiststatsaggregatedrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `security`                                                                                             | [operations.GetHistStatsAggregatedSecurity](../../models/operations/gethiststatsaggregatedsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
@@ -107,34 +106,34 @@ Fetches the specified field from the historical stats for each of your services 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "FastlyTest";
+import { GetHistStatsFieldResponse } from "FastlyTest/dist/sdk/models/operations";
+import { By, Region } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getHistStatsField({
-    by: By.Day,
-    field: "hit_ratio",
-    region: Region.Usa,
-  });
-
+sdk.historical.getHistStatsField({
+  by: By.Day,
+  field: "hit_ratio",
+  from: "pariatur",
+  region: Region.Usa,
+  to: "soluta",
+}, {
+  token: "",
+}).then((res: GetHistStatsFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetHistStatsFieldRequest](../../models/operations/gethiststatsfieldrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetHistStatsFieldRequest](../../models/operations/gethiststatsfieldrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.GetHistStatsFieldSecurity](../../models/operations/gethiststatsfieldsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -149,34 +148,34 @@ Fetches historical stats for a given service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "FastlyTest";
+import { GetHistStatsServiceResponse } from "FastlyTest/dist/sdk/models/operations";
+import { By, Region } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getHistStatsService({
-    by: By.Day,
-    region: Region.Usa,
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
-
+sdk.historical.getHistStatsService({
+  by: By.Day,
+  from: "dicta",
+  region: Region.Usa,
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  to: "laborum",
+}, {
+  token: "",
+}).then((res: GetHistStatsServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetHistStatsServiceRequest](../../models/operations/gethiststatsservicerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.GetHistStatsServiceRequest](../../models/operations/gethiststatsservicerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.GetHistStatsServiceSecurity](../../models/operations/gethiststatsservicesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -191,35 +190,35 @@ Fetches the specified field from the historical stats for a given service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { By, Region } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "FastlyTest";
+import { GetHistStatsServiceFieldResponse } from "FastlyTest/dist/sdk/models/operations";
+import { By, Region } from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getHistStatsServiceField({
-    by: By.Day,
-    field: "hit_ratio",
-    region: Region.Usa,
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  });
-
+sdk.historical.getHistStatsServiceField({
+  by: By.Day,
+  field: "hit_ratio",
+  from: "totam",
+  region: Region.Usa,
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  to: "incidunt",
+}, {
+  token: "",
+}).then((res: GetHistStatsServiceFieldResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetHistStatsServiceFieldRequest](../../models/operations/gethiststatsservicefieldrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.GetHistStatsServiceFieldRequest](../../models/operations/gethiststatsservicefieldrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `security`                                                                                                 | [operations.GetHistStatsServiceFieldSecurity](../../models/operations/gethiststatsservicefieldsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
@@ -234,28 +233,26 @@ Fetches the list of codes for regions that are covered by the Fastly CDN service
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetRegionsResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getRegions();
-
+sdk.historical.getRegions({
+  token: "",
+}).then((res: GetRegionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `security`                                                                     | [operations.GetRegionsSecurity](../../models/operations/getregionssecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -270,29 +267,30 @@ Returns usage information aggregated across all Fastly services and grouped by r
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetUsageResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getUsage({});
-
+sdk.historical.getUsage({
+  from: "aspernatur",
+  to: "dolores",
+}, {
+  token: "",
+}).then((res: GetUsageResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetUsageRequest](../../models/operations/getusagerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetUsageRequest](../../models/operations/getusagerequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `security`                                                                 | [operations.GetUsageSecurity](../../models/operations/getusagesecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -307,33 +305,31 @@ Returns month-to-date usage details for a given month and year. Usage details ar
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetUsageMonthResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getUsageMonth({
-    billableUnits: true,
-    month: "05",
-    year: "2020",
-  });
-
+sdk.historical.getUsageMonth({
+  billableUnits: true,
+  month: "05",
+  year: "2020",
+}, {
+  token: "",
+}).then((res: GetUsageMonthResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetUsageMonthRequest](../../models/operations/getusagemonthrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetUsageMonthRequest](../../models/operations/getusagemonthrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `security`                                                                           | [operations.GetUsageMonthSecurity](../../models/operations/getusagemonthsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -348,29 +344,30 @@ Returns usage information aggregated by service and grouped by service and regio
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetUsageServiceResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.historical.getUsageService({});
-
+sdk.historical.getUsageService({
+  from: "distinctio",
+  to: "facilis",
+}, {
+  token: "",
+}).then((res: GetUsageServiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetUsageServiceRequest](../../models/operations/getusageservicerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetUsageServiceRequest](../../models/operations/getusageservicerequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `security`                                                                               | [operations.GetUsageServiceSecurity](../../models/operations/getusageservicesecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response

@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class HealthcheckResponse extends SpeakeasyBase {
     /**
      * How often to run the health check in milliseconds.

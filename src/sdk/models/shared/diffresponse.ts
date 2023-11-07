@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * OK
+ */
 export class DiffResponse extends SpeakeasyBase {
     /**
      * The differences between two specified service versions. Returns the full config if the version configurations are identical.

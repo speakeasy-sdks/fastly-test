@@ -28,6 +28,9 @@ export enum LoggingHoneycombResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingHoneycombResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

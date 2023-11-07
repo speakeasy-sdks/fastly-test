@@ -3,18 +3,15 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Publishing sends messages to [Fanout](https://developer.fastly.com/learning/concepts/real-time-messaging/fanout) subscribers. Fanout is designed to be [GRIP-compatible](https://pushpin.org/docs/protocols/grip/), such that `https://api.fastly.com/service/{service_id}` can be used as a GRIP URL in application configurations.
  *
  * @see {@link https://developer.fastly.com/reference/api/services/service}
  */
-
 export class Publish {
     private sdkConfiguration: SDKConfiguration;
 
@@ -32,6 +29,7 @@ export class Publish {
      */
     async publish(
         req: operations.PublishRequest,
+        security: operations.PublishSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.PublishResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -44,7 +42,7 @@ export class Publish {
         );
         const url: string = utils.generateURL(baseURL, "/service/{service_id}/publish/", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "publishRequest", "json");
@@ -53,23 +51,20 @@ export class Publish {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "text/plain";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.PublishSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "text/plain";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -97,13 +92,6 @@ export class Publish {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `text/plain`)) {
                     res.publish200TextPlainString = decodedRes;
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }

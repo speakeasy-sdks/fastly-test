@@ -21,3 +21,12 @@ export class RelationshipMemberWafFirewallVersion extends SpeakeasyBase {
     @Expose({ name: "type" })
     type?: TypeWafFirewallVersion;
 }
+
+export class RelationshipMemberWafFirewallVersionInput extends SpeakeasyBase {
+    /**
+     * Resource type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: TypeWafFirewallVersion;
+}

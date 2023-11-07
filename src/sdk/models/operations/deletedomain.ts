@@ -6,6 +6,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
+export class DeleteDomainSecurity extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
+    token: string;
+}
+
 export class DeleteDomainRequest extends SpeakeasyBase {
     /**
      * The name of the domain or domains associated with this service.
@@ -39,21 +44,12 @@ export class DeleteDomain200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class DeleteDomainResponse extends SpeakeasyBase {
-    /**
-     * HTTP response content type for this operation
-     */
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * HTTP response status code for this operation
-     */
     @SpeakeasyMetadata()
     statusCode: number;
 
-    /**
-     * Raw HTTP response; suitable for custom response parsing
-     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

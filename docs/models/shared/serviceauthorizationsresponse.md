@@ -1,5 +1,7 @@
 # ServiceAuthorizationsResponse
 
+OK
+
 
 ## Fields
 

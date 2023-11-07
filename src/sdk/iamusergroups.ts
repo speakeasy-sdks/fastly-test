@@ -3,18 +3,15 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * A user group is a collection of users with service groups and roles.
  *
  * @see {@link https://developer.fastly.com/reference/api/account/user-groups}
  */
-
 export class IamUserGroups {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +27,7 @@ export class IamUserGroups {
      */
     async deleteAUserGroup(
         req: operations.DeleteAUserGroupRequest,
+        security: operations.DeleteAUserGroupSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteAUserGroupResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -41,19 +39,20 @@ export class IamUserGroups {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "*/*";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteAUserGroupSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -91,6 +90,7 @@ export class IamUserGroups {
      */
     async getAUserGroup(
         req: operations.GetAUserGroupRequest,
+        security: operations.GetAUserGroupSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAUserGroupResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -102,19 +102,20 @@ export class IamUserGroups {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetAUserGroupSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -144,13 +145,6 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.GetAUserGroup200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -166,6 +160,7 @@ export class IamUserGroups {
      */
     async listUserGroupMembers(
         req: operations.ListUserGroupMembersRequest,
+        security: operations.ListUserGroupMembersSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupMembersResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -177,20 +172,21 @@ export class IamUserGroups {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}/members", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListUserGroupMembersSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -221,13 +217,6 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.ListUserGroupMembers200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -243,6 +232,7 @@ export class IamUserGroups {
      */
     async listUserGroupRoles(
         req: operations.ListUserGroupRolesRequest,
+        security: operations.ListUserGroupRolesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupRolesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -254,20 +244,21 @@ export class IamUserGroups {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/user-groups/{user_group_id}/roles", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListUserGroupRolesSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -298,13 +289,6 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.ListUserGroupRoles200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -320,6 +304,7 @@ export class IamUserGroups {
      */
     async listUserGroupServiceGroups(
         req: operations.ListUserGroupServiceGroupsRequest,
+        security: operations.ListUserGroupServiceGroupsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupServiceGroupsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -335,20 +320,21 @@ export class IamUserGroups {
             "/user-groups/{user_group_id}/service-groups",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListUserGroupServiceGroupsSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -379,13 +365,6 @@ export class IamUserGroups {
                         JSON.parse(decodedRes),
                         operations.ListUserGroupServiceGroups200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -401,6 +380,7 @@ export class IamUserGroups {
      */
     async listUserGroups(
         req: operations.ListUserGroupsRequest,
+        security: operations.ListUserGroupsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListUserGroupsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -412,20 +392,21 @@ export class IamUserGroups {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/user-groups";
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListUserGroupsSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -454,13 +435,6 @@ export class IamUserGroups {
                     res.listUserGroups200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListUserGroups200ApplicationJSON
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

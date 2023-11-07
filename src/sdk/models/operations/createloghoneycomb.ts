@@ -6,9 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
+export class CreateLogHoneycombSecurity extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
+    token: string;
+}
+
 export class CreateLogHoneycombRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHoneycomb?: shared.LoggingHoneycomb;
+    loggingHoneycomb2?: shared.LoggingHoneycomb2;
 
     /**
      * Alphanumeric string identifying the service.
@@ -24,21 +29,12 @@ export class CreateLogHoneycombRequest extends SpeakeasyBase {
 }
 
 export class CreateLogHoneycombResponse extends SpeakeasyBase {
-    /**
-     * HTTP response content type for this operation
-     */
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * HTTP response status code for this operation
-     */
     @SpeakeasyMetadata()
     statusCode: number;
 
-    /**
-     * Raw HTTP response; suitable for custom response parsing
-     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -46,5 +42,5 @@ export class CreateLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHoneycomb?: shared.LoggingHoneycomb;
+    loggingHoneycomb?: shared.LoggingHoneycomb2;
 }

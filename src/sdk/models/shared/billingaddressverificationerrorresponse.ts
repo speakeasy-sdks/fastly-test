@@ -32,6 +32,9 @@ export class BillingAddressVerificationErrorResponseErrors extends SpeakeasyBase
     type: string;
 }
 
+/**
+ * Could not validate address
+ */
 export class BillingAddressVerificationErrorResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: BillingAddressVerificationErrorResponseErrors })
     @Expose({ name: "errors" })

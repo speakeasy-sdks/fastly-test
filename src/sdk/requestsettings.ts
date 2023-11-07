@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Settings used to customize Fastly's request handling. When used with [Conditions](#condition) the Request Settings object allows you to fine tune how specific types of requests are handled.
  *
  * @see {@link https://developer.fastly.com/reference/api/vcl-services/request-settings}
  */
-
 export class RequestSettings {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +28,7 @@ export class RequestSettings {
      */
     async deleteRequestSettings(
         req: operations.DeleteRequestSettingsRequest,
+        security: operations.DeleteRequestSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteRequestSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,19 +44,20 @@ export class RequestSettings {
             "/service/{service_id}/version/{version_id}/request_settings/{request_settings_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteRequestSettingsSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -88,13 +88,6 @@ export class RequestSettings {
                         JSON.parse(decodedRes),
                         operations.DeleteRequestSettings200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -110,6 +103,7 @@ export class RequestSettings {
      */
     async getRequestSettings(
         req: operations.GetRequestSettingsRequest,
+        security: operations.GetRequestSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetRequestSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -125,19 +119,20 @@ export class RequestSettings {
             "/service/{service_id}/version/{version_id}/request_settings/{request_settings_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetRequestSettingsSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -168,13 +163,6 @@ export class RequestSettings {
                         JSON.parse(decodedRes),
                         shared.RequestSettingsResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -190,6 +178,7 @@ export class RequestSettings {
      */
     async listRequestSettings(
         req: operations.ListRequestSettingsRequest,
+        security: operations.ListRequestSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListRequestSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -205,19 +194,20 @@ export class RequestSettings {
             "/service/{service_id}/version/{version_id}/request_settings",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListRequestSettingsSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -251,13 +241,6 @@ export class RequestSettings {
                         shared.RequestSettingsResponse,
                         resFieldDepth
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -273,6 +256,7 @@ export class RequestSettings {
      */
     async updateRequestSettings(
         req: operations.UpdateRequestSettingsRequest,
+        security: operations.UpdateRequestSettingsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateRequestSettingsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -289,32 +273,29 @@ export class RequestSettings {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestSettings", "form");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestSettings2", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateRequestSettingsSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -345,13 +326,6 @@ export class RequestSettings {
                     res.requestSettingsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.RequestSettingsResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

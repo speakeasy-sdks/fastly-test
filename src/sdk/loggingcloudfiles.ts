@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Fastly will upload log messages to your Rackspace Cloud Files account.
  *
  * @see {@link https://developer.fastly.com/reference/api/logging/cloudfiles}
  */
-
 export class LoggingCloudfiles {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +28,7 @@ export class LoggingCloudfiles {
      */
     async createLogCloudfiles(
         req: operations.CreateLogCloudfilesRequest,
+        security: operations.CreateLogCloudfilesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogCloudfilesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -46,7 +45,7 @@ export class LoggingCloudfiles {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -59,23 +58,20 @@ export class LoggingCloudfiles {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateLogCloudfilesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -107,13 +103,6 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -129,6 +118,7 @@ export class LoggingCloudfiles {
      */
     async deleteLogCloudfiles(
         req: operations.DeleteLogCloudfilesRequest,
+        security: operations.DeleteLogCloudfilesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogCloudfilesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -144,19 +134,20 @@ export class LoggingCloudfiles {
             "/service/{service_id}/version/{version_id}/logging/cloudfiles/{logging_cloudfiles_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteLogCloudfilesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -187,13 +178,6 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         operations.DeleteLogCloudfiles200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -209,6 +193,7 @@ export class LoggingCloudfiles {
      */
     async getLogCloudfiles(
         req: operations.GetLogCloudfilesRequest,
+        security: operations.GetLogCloudfilesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogCloudfilesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,19 +209,20 @@ export class LoggingCloudfiles {
             "/service/{service_id}/version/{version_id}/logging/cloudfiles/{logging_cloudfiles_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetLogCloudfilesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -266,13 +252,6 @@ export class LoggingCloudfiles {
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -288,6 +267,7 @@ export class LoggingCloudfiles {
      */
     async listLogCloudfiles(
         req: operations.ListLogCloudfilesRequest,
+        security: operations.ListLogCloudfilesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogCloudfilesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -303,19 +283,20 @@ export class LoggingCloudfiles {
             "/service/{service_id}/version/{version_id}/logging/cloudfiles",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListLogCloudfilesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -348,13 +329,6 @@ export class LoggingCloudfiles {
                         shared.LoggingCloudfilesResponse,
                         resFieldDepth
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -370,6 +344,7 @@ export class LoggingCloudfiles {
      */
     async updateLogCloudfiles(
         req: operations.UpdateLogCloudfilesRequest,
+        security: operations.UpdateLogCloudfilesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogCloudfilesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -386,7 +361,7 @@ export class LoggingCloudfiles {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -399,23 +374,20 @@ export class LoggingCloudfiles {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateLogCloudfilesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -446,13 +418,6 @@ export class LoggingCloudfiles {
                     res.loggingCloudfilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingCloudfilesResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

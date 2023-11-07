@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TlsActivationResponseData } from "./tlsactivationresponsedata";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Created
+ */
 export class TlsActivationResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

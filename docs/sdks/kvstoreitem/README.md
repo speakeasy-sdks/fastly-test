@@ -1,5 +1,4 @@
-# KvStoreItem
-(*kvStoreItem*)
+# kvStoreItem
 
 ## Overview
 
@@ -20,32 +19,31 @@ Delete an item from an kv store
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { DeleteKeyFromStoreResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.kvStoreItem.deleteKeyFromStore({
-    keyName: "string",
-    storeId: "string",
-  });
-
+sdk.kvStoreItem.deleteKeyFromStore({
+  force: false,
+  keyName: "veritatis",
+  storeId: "nobis",
+}, {
+  token: "",
+}).then((res: DeleteKeyFromStoreResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteKeyFromStoreRequest](../../models/operations/deletekeyfromstorerequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteKeyFromStoreRequest](../../models/operations/deletekeyfromstorerequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `security`                                                                                     | [operations.DeleteKeyFromStoreSecurity](../../models/operations/deletekeyfromstoresecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
@@ -60,31 +58,32 @@ List the keys of all items within an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetKeysResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.kvStoreItem.getKeys({
-    storeId: "string",
-  });
-
+sdk.kvStoreItem.getKeys({
+  cursor: "quos",
+  limit: 731694,
+  prefix: "cupiditate",
+  storeId: "aperiam",
+}, {
+  token: "",
+}).then((res: GetKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.GetKeysRequest](../../models/operations/getkeysrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.GetKeysRequest](../../models/operations/getkeysrequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `security`                                                               | [operations.GetKeysSecurity](../../models/operations/getkeyssecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
@@ -99,32 +98,30 @@ Get the value associated with a key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetValueForKeyResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.kvStoreItem.getValueForKey({
-    keyName: "string",
-    storeId: "string",
-  });
-
+sdk.kvStoreItem.getValueForKey({
+  keyName: "delectus",
+  storeId: "dolorem",
+}, {
+  token: "",
+}).then((res: GetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetValueForKeyRequest](../../models/operations/getvalueforkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetValueForKeyRequest](../../models/operations/getvalueforkeyrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.GetValueForKeySecurity](../../models/operations/getvalueforkeysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -139,32 +136,38 @@ Set a new value for a new or existing key in an kv store.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { SetValueForKeyResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.kvStoreItem.setValueForKey({
-    keyName: "string",
-    storeId: "string",
-  });
-
+sdk.kvStoreItem.setValueForKey({
+  requestBody: "dolore",
+  add: false,
+  append: false,
+  backgroundFetch: false,
+  ifGenerationMatch: 286915,
+  keyName: "adipisci",
+  metadata: "dolorum",
+  prepend: false,
+  storeId: "architecto",
+  timeToLiveSec: 63038,
+}, {
+  token: "",
+}).then((res: SetValueForKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.SetValueForKeyRequest](../../models/operations/setvalueforkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.SetValueForKeyRequest](../../models/operations/setvalueforkeyrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `security`                                                                             | [operations.SetValueForKeySecurity](../../models/operations/setvalueforkeysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response

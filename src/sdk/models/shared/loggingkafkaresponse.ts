@@ -57,6 +57,9 @@ export enum LoggingKafkaResponseRequiredAcks {
     Minus1 = -1,
 }
 
+/**
+ * OK
+ */
 export class LoggingKafkaResponse extends SpeakeasyBase {
     /**
      * SASL authentication method.

@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Fastly will upload log messages to the Google BigQuery dataset and table in the format specified in the BigQuery logging object.
  *
  * @see {@link https://developer.fastly.com/reference/api/logging/bigquery}
  */
-
 export class LoggingBigquery {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +28,7 @@ export class LoggingBigquery {
      */
     async createLogBigquery(
         req: operations.CreateLogBigqueryRequest,
+        security: operations.CreateLogBigquerySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogBigqueryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -46,32 +45,29 @@ export class LoggingBigquery {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingBigquery", "form");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingBigquery2", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateLogBigquerySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -102,13 +98,6 @@ export class LoggingBigquery {
                         JSON.parse(decodedRes),
                         shared.LoggingBigqueryResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -124,6 +113,7 @@ export class LoggingBigquery {
      */
     async deleteLogBigquery(
         req: operations.DeleteLogBigqueryRequest,
+        security: operations.DeleteLogBigquerySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogBigqueryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -139,19 +129,20 @@ export class LoggingBigquery {
             "/service/{service_id}/version/{version_id}/logging/bigquery/{logging_bigquery_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteLogBigquerySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -181,13 +172,6 @@ export class LoggingBigquery {
                         JSON.parse(decodedRes),
                         operations.DeleteLogBigquery200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -203,6 +187,7 @@ export class LoggingBigquery {
      */
     async getLogBigquery(
         req: operations.GetLogBigqueryRequest,
+        security: operations.GetLogBigquerySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogBigqueryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -218,19 +203,20 @@ export class LoggingBigquery {
             "/service/{service_id}/version/{version_id}/logging/bigquery/{logging_bigquery_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetLogBigquerySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -260,13 +246,6 @@ export class LoggingBigquery {
                         JSON.parse(decodedRes),
                         shared.LoggingBigqueryResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -282,6 +261,7 @@ export class LoggingBigquery {
      */
     async listLogBigquery(
         req: operations.ListLogBigqueryRequest,
+        security: operations.ListLogBigquerySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogBigqueryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -297,19 +277,20 @@ export class LoggingBigquery {
             "/service/{service_id}/version/{version_id}/logging/bigquery",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListLogBigquerySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -342,13 +323,6 @@ export class LoggingBigquery {
                         shared.LoggingBigqueryResponse,
                         resFieldDepth
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -364,6 +338,7 @@ export class LoggingBigquery {
      */
     async updateLogBigquery(
         req: operations.UpdateLogBigqueryRequest,
+        security: operations.UpdateLogBigquerySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogBigqueryResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -380,32 +355,29 @@ export class LoggingBigquery {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingBigquery", "form");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "loggingBigquery2", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateLogBigquerySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -435,13 +407,6 @@ export class LoggingBigquery {
                     res.loggingBigqueryResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingBigqueryResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

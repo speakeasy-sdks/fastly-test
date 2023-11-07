@@ -66,6 +66,9 @@ export class TlsBulkCertificatesResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class TlsBulkCertificatesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: TlsBulkCertificateResponseData })
     @Expose({ name: "data" })

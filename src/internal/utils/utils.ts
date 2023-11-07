@@ -81,7 +81,7 @@ export class SpeakeasyBase {
       for (const prop of props) {
         if (payload && payload.hasOwnProperty(prop.key)) {
           const value = payload[prop.key];
-          if (isSpeakeasyBase(prop.type) && value != null) {
+          if (isSpeakeasyBase(prop.type)) {
             (this as any)[prop.key] = new prop.type(value);
           } else if (
             prop.type.name == "Array" &&

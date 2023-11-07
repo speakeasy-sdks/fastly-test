@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class ResponseObjectResponse extends SpeakeasyBase {
     /**
      * Name of the cache condition controlling when this configuration applies.

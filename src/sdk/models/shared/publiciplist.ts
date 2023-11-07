@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * OK
+ */
 export class PublicIpList extends SpeakeasyBase {
     /**
      * Fastly's IPv4 ranges.

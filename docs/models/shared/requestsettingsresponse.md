@@ -1,5 +1,7 @@
 # RequestSettingsResponse
 
+OK
+
 
 ## Fields
 

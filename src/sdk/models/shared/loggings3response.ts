@@ -47,6 +47,9 @@ export enum LoggingS3ResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
+/**
+ * OK
+ */
 export class LoggingS3Response extends SpeakeasyBase {
     /**
      * The access key for your S3 account. Not required if `iam_role` is provided.

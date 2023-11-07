@@ -1,5 +1,7 @@
 # ConditionResponse
 
+OK
+
 
 ## Fields
 

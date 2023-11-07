@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * The Logentries integration has been discontinued.  No new Logentries endpoints can be created.
  *
  * @see {@link https://developer.fastly.com/reference/api/logging/logentries}
  */
-
 export class LoggingLogentries {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,10 +26,11 @@ export class LoggingLogentries {
      * @remarks
      * Create a Logentry for a particular service and version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async createLogLogentries(
         req: operations.CreateLogLogentriesRequest,
+        security: operations.CreateLogLogentriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateLogLogentriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -48,12 +47,12 @@ export class LoggingLogentries {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "loggingLogentries",
+                "loggingLogentries3",
                 "form"
             );
         } catch (e: unknown) {
@@ -61,23 +60,20 @@ export class LoggingLogentries {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateLogLogentriesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -109,13 +105,6 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -129,10 +118,11 @@ export class LoggingLogentries {
      * @remarks
      * Delete the Logentry for a particular service and version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async deleteLogLogentries(
         req: operations.DeleteLogLogentriesRequest,
+        security: operations.DeleteLogLogentriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteLogLogentriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -148,19 +138,20 @@ export class LoggingLogentries {
             "/service/{service_id}/version/{version_id}/logging/logentries/{logging_logentries_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteLogLogentriesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -191,13 +182,6 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         operations.DeleteLogLogentries200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -211,10 +195,11 @@ export class LoggingLogentries {
      * @remarks
      * Get the Logentry for a particular service and version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async getLogLogentries(
         req: operations.GetLogLogentriesRequest,
+        security: operations.GetLogLogentriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetLogLogentriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -230,19 +215,20 @@ export class LoggingLogentries {
             "/service/{service_id}/version/{version_id}/logging/logentries/{logging_logentries_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetLogLogentriesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -272,13 +258,6 @@ export class LoggingLogentries {
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -292,10 +271,11 @@ export class LoggingLogentries {
      * @remarks
      * List all of the Logentries for a particular service and version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async listLogLogentries(
         req: operations.ListLogLogentriesRequest,
+        security: operations.ListLogLogentriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListLogLogentriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -311,19 +291,20 @@ export class LoggingLogentries {
             "/service/{service_id}/version/{version_id}/logging/logentries",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListLogLogentriesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -356,13 +337,6 @@ export class LoggingLogentries {
                         shared.LoggingLogentriesResponse,
                         resFieldDepth
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -376,10 +350,11 @@ export class LoggingLogentries {
      * @remarks
      * Update the Logentry for a particular service and version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async updateLogLogentries(
         req: operations.UpdateLogLogentriesRequest,
+        security: operations.UpdateLogLogentriesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateLogLogentriesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -396,12 +371,12 @@ export class LoggingLogentries {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "loggingLogentries",
+                "loggingLogentries3",
                 "form"
             );
         } catch (e: unknown) {
@@ -409,23 +384,20 @@ export class LoggingLogentries {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateLogLogentriesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -456,13 +428,6 @@ export class LoggingLogentries {
                     res.loggingLogentriesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.LoggingLogentriesResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * OK
+ */
 export class ConfigStoreInfoResponse extends SpeakeasyBase {
     /**
      * The number of items currently in the config store.

@@ -1,5 +1,7 @@
 # DictionaryItemResponse
 
+OK
+
 
 ## Fields
 

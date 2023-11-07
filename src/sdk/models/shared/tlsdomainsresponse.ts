@@ -66,6 +66,9 @@ export class TlsDomainsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class TlsDomainsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: TlsDomainData })
     @Expose({ name: "data" })

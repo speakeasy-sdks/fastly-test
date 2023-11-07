@@ -6,7 +6,6 @@ import {isBooleanRecord, isNumberRecord, isStringRecord, SerializationMethodToCo
 
 import FormData from "form-data";
 import {RFCDate} from "../../sdk/types";
-import {classToPlain} from "class-transformer";
 
 export const requestMetadataKey = "request";
 const mpFormMetadataKey = "multipart_form";
@@ -15,7 +14,7 @@ export function serializeRequestBody(
   request: any,
   requestFieldName: string,
   serializationMethod: string
-): [Record<string, any>, any] {
+): [object, any] {
   if (
     request !== Object(request) ||
     !request.hasOwnProperty(requestFieldName)
@@ -46,8 +45,8 @@ export function serializeRequestBody(
 const serializeContentType = (
   contentType: string,
   reqBody: any
-): [Record<string, any>, any] => {
-  let [requestHeaders, requestBody]: [Record<string, string>, any] = [{}, {}];
+): [object, any] => {
+  let [requestHeaders, requestBody]: [object, any] = [{}, {}];
 
   switch (contentType) {
     case "multipart/form-data":
@@ -67,11 +66,6 @@ const serializeContentType = (
       break;
 
     case "application/json":
-      [requestHeaders, requestBody] = [
-        {"Content-Type": `${contentType}`},
-        classToPlain(reqBody, {exposeUnsetFields: false}),
-      ];
-      break;
     case "text/json":
       [requestHeaders, requestBody] = [
         {"Content-Type": `${contentType}`},
@@ -315,7 +309,7 @@ function encodeMultipartFormDataFile(formData: FormData, file: any): FormData {
   if (mpFormDecoratorName === "" || fileName === "" || content == null) {
     throw new Error("invalid multipart/form-data file");
   }
-  formData.append(mpFormDecoratorName, Buffer.from(content), fileName);
+  formData.append("file", Buffer.from(content), fileName);
   return formData;
 }
 

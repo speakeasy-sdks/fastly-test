@@ -6,6 +6,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
+export class CreateSnippetSecurity extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
+    token: string;
+}
+
 export class CreateSnippetRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying the service.
@@ -14,7 +19,7 @@ export class CreateSnippetRequest extends SpeakeasyBase {
     serviceId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    snippet?: shared.Snippet;
+    snippet2?: shared.Snippet2;
 
     /**
      * Integer identifying a service version.
@@ -24,21 +29,12 @@ export class CreateSnippetRequest extends SpeakeasyBase {
 }
 
 export class CreateSnippetResponse extends SpeakeasyBase {
-    /**
-     * HTTP response content type for this operation
-     */
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * HTTP response status code for this operation
-     */
     @SpeakeasyMetadata()
     statusCode: number;
 
-    /**
-     * Raw HTTP response; suitable for custom response parsing
-     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

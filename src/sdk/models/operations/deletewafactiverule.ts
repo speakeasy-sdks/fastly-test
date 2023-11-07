@@ -5,6 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
+export class DeleteWafActiveRuleSecurity extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
+    token: string;
+}
+
 export class DeleteWafActiveRuleRequest extends SpeakeasyBase {
     /**
      * Alphanumeric string identifying a WAF Firewall.
@@ -26,21 +31,12 @@ export class DeleteWafActiveRuleRequest extends SpeakeasyBase {
 }
 
 export class DeleteWafActiveRuleResponse extends SpeakeasyBase {
-    /**
-     * HTTP response content type for this operation
-     */
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * HTTP response status code for this operation
-     */
     @SpeakeasyMetadata()
     statusCode: number;
 
-    /**
-     * Raw HTTP response; suitable for custom response parsing
-     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

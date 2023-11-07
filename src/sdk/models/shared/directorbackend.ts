@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class DirectorBackend extends SpeakeasyBase {
     /**
      * The name of the backend.

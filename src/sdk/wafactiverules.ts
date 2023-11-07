@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * An active rule represents a [rule revision](/reference/api/waf/rules/revisions/) added to a particular [firewall version](/reference/api/waf/firewall-version/).
  *
  * @see {@link https://developer.fastly.com/reference/api/waf/rules/active}
  */
-
 export class WafActiveRules {
     private sdkConfiguration: SDKConfiguration;
 
@@ -28,10 +26,11 @@ export class WafActiveRules {
      * @remarks
      * Bulk update all active rules on a [firewall version](https://developer.fastly.com/reference/api/waf/firewall-version/). This endpoint will not add new active rules, only update existing active rules.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async bulkUpdateWafActiveRules(
         req: operations.BulkUpdateWafActiveRulesRequest,
+        security: operations.BulkUpdateWafActiveRulesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.BulkUpdateWafActiveRulesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -48,12 +47,12 @@ export class WafActiveRules {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "bulkWafActiveRule",
+                "bulkWafActiveRuleInput",
                 "json"
             );
         } catch (e: unknown) {
@@ -61,23 +60,20 @@ export class WafActiveRules {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "*/*";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.BulkUpdateWafActiveRulesSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -115,10 +111,11 @@ export class WafActiveRules {
      * @remarks
      * Create an active rule for a particular firewall version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async createWafActiveRule(
         req: operations.CreateWafActiveRuleRequest,
+        security: operations.CreateWafActiveRuleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafActiveRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -135,12 +132,12 @@ export class WafActiveRules {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "bulkWafActiveRules",
+                "bulkWafActiveRulesInput",
                 "json"
             );
         } catch (e: unknown) {
@@ -148,23 +145,20 @@ export class WafActiveRules {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/vnd.api+json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateWafActiveRuleSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/vnd.api+json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -193,13 +187,6 @@ export class WafActiveRules {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafActiveRuleCreationResponse = JSON.parse(decodedRes);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -213,10 +200,11 @@ export class WafActiveRules {
      * @remarks
      * Create active rules by tag. This endpoint will create active rules using the latest revision available for each rule.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async createWafActiveRulesTag(
         req: operations.CreateWafActiveRulesTagRequest,
+        security: operations.CreateWafActiveRulesTagSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafActiveRulesTagResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -233,32 +221,33 @@ export class WafActiveRules {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafActiveRule", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "wafActiveRuleInput",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "*/*";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.CreateWafActiveRulesTagSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -296,10 +285,11 @@ export class WafActiveRules {
      * @remarks
      * Delete an active rule for a particular firewall version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async deleteWafActiveRule(
         req: operations.DeleteWafActiveRuleRequest,
+        security: operations.DeleteWafActiveRuleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteWafActiveRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -315,19 +305,20 @@ export class WafActiveRules {
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "*/*";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteWafActiveRuleSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -364,10 +355,11 @@ export class WafActiveRules {
      * @remarks
      * Get a specific active rule object. Includes details of the rule revision associated with the active rule object by default.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async getWafActiveRule(
         req: operations.GetWafActiveRuleRequest,
+        security: operations.GetWafActiveRuleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetWafActiveRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -383,20 +375,21 @@ export class WafActiveRules {
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetWafActiveRuleSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -426,13 +419,6 @@ export class WafActiveRules {
                         JSON.parse(decodedRes),
                         shared.WafActiveRuleResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -446,10 +432,11 @@ export class WafActiveRules {
      * @remarks
      * List all active rules for a particular firewall version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async listWafActiveRules(
         req: operations.ListWafActiveRulesRequest,
+        security: operations.ListWafActiveRulesSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListWafActiveRulesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -465,20 +452,21 @@ export class WafActiveRules {
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.ListWafActiveRulesSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/vnd.api+json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -509,13 +497,6 @@ export class WafActiveRules {
                         JSON.parse(decodedRes),
                         shared.WafActiveRulesResponse
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -529,10 +510,11 @@ export class WafActiveRules {
      * @remarks
      * Update an active rule's status for a particular firewall version.
      *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async updateWafActiveRule(
         req: operations.UpdateWafActiveRuleRequest,
+        security: operations.UpdateWafActiveRuleSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateWafActiveRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -549,32 +531,33 @@ export class WafActiveRules {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafActiveRule", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "wafActiveRuleInput",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
-            ...reqBodyHeaders,
-            ...config?.headers,
-            ...properties.headers,
-        };
-        headers["Accept"] = "application/vnd.api+json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.UpdateWafActiveRuleSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/vnd.api+json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -605,13 +588,6 @@ export class WafActiveRules {
                     res.wafActiveRuleResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.WafActiveRuleResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

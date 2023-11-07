@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
+/**
+ * OK
+ */
 export class VclResponse extends SpeakeasyBase {
     /**
      * The VCL code to be included.

@@ -67,6 +67,9 @@ export class WafFirewallsResponseMeta extends SpeakeasyBase {
     totalPages?: number;
 }
 
+/**
+ * OK
+ */
 export class WafFirewallsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: WafFirewallResponseData })
     @Expose({ name: "data" })

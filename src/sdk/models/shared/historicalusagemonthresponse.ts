@@ -52,6 +52,9 @@ export class HistoricalUsageMonthResponseMeta extends SpeakeasyBase {
     to?: string;
 }
 
+/**
+ * OK
+ */
 export class HistoricalUsageMonthResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

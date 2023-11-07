@@ -1,5 +1,7 @@
 # LoggingSftpResponse
 
+OK
+
 
 ## Fields
 

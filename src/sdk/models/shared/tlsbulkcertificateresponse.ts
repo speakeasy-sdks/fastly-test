@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TlsBulkCertificateResponseData } from "./tlsbulkcertificateresponsedata";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Created
+ */
 export class TlsBulkCertificateResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

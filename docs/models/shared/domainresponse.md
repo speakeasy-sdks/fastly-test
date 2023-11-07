@@ -1,5 +1,7 @@
 # DomainResponse
 
+OK
+
 
 ## Fields
 

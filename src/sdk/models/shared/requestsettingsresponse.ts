@@ -24,6 +24,9 @@ export enum RequestSettingsResponseXff {
     Overwrite = "overwrite",
 }
 
+/**
+ * OK
+ */
 export class RequestSettingsResponse extends SpeakeasyBase {
     /**
      * Allows you to terminate request handling and immediately perform an action.

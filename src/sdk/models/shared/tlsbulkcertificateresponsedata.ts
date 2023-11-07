@@ -3,9 +3,27 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RelationshipMemberTlsDomain } from "./relationshipmembertlsdomain";
 import { TlsBulkCertificateResponseAttributes } from "./tlsbulkcertificateresponseattributes";
 import { TypeTlsBulkCertificate } from "./typetlsbulkcertificate";
 import { Expose, Type } from "class-transformer";
+
+export class TlsBulkCertificateResponseDataRelationships2TlsDomains extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsDomain })
+    @Expose({ name: "data" })
+    @Type(() => RelationshipMemberTlsDomain)
+    data?: RelationshipMemberTlsDomain[];
+}
+
+/**
+ * All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
+ */
+export class TlsBulkCertificateResponseDataRelationships2 extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "tls_domains" })
+    @Type(() => TlsBulkCertificateResponseDataRelationships2TlsDomains)
+    tlsDomains?: TlsBulkCertificateResponseDataRelationships2TlsDomains;
+}
 
 export class TlsBulkCertificateResponseData extends SpeakeasyBase {
     @SpeakeasyMetadata()

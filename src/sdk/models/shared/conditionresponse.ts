@@ -15,6 +15,9 @@ export enum ConditionResponseType {
     Prefetch = "PREFETCH",
 }
 
+/**
+ * OK
+ */
 export class ConditionResponse extends SpeakeasyBase {
     /**
      * A freeform descriptive note.

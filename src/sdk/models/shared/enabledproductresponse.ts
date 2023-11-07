@@ -53,6 +53,9 @@ export class EnabledProductResponseService extends SpeakeasyBase {
     object?: string;
 }
 
+/**
+ * OK
+ */
 export class EnabledProductResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

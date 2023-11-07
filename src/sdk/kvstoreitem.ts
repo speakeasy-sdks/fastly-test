@@ -3,18 +3,15 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * An item in an kv store.
  *
  * @see {@link https://developer.fastly.com/reference/api/services/resources/kv-store-item}
  */
-
 export class KvStoreItem {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +27,7 @@ export class KvStoreItem {
      */
     async deleteKeyFromStore(
         req: operations.DeleteKeyFromStoreRequest,
+        security: operations.DeleteKeyFromStoreSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteKeyFromStoreResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,20 +43,21 @@ export class KvStoreItem {
             "/resources/stores/kv/{store_id}/keys/{key_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.DeleteKeyFromStoreSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "*/*";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -97,6 +96,7 @@ export class KvStoreItem {
      */
     async getKeys(
         req: operations.GetKeysRequest,
+        security: operations.GetKeysSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetKeysResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -108,20 +108,21 @@ export class KvStoreItem {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/resources/stores/kv/{store_id}/keys", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetKeysSecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -151,13 +152,6 @@ export class KvStoreItem {
                         JSON.parse(decodedRes),
                         operations.GetKeys200ApplicationJSON
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -173,6 +167,7 @@ export class KvStoreItem {
      */
     async getValueForKey(
         req: operations.GetValueForKeyRequest,
+        security: operations.GetValueForKeySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetValueForKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -188,19 +183,20 @@ export class KvStoreItem {
             "/resources/stores/kv/{store_id}/keys/{key_name}",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/octet-stream";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetValueForKeySecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/octet-stream";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -228,13 +224,6 @@ export class KvStoreItem {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/octet-stream`)) {
                     res.getValueForKey200ApplicationOctetStreamByteString = decodedRes;
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }
@@ -250,6 +239,7 @@ export class KvStoreItem {
      */
     async setValueForKey(
         req: operations.SetValueForKeyRequest,
+        security: operations.SetValueForKeySecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.SetValueForKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -266,7 +256,7 @@ export class KvStoreItem {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "string");
@@ -275,25 +265,25 @@ export class KvStoreItem {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
+
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.SetValueForKeySecurity(security);
         }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = {
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = {
             ...utils.getHeadersFromRequest(req),
             ...reqBodyHeaders,
             ...config?.headers,
-            ...properties.headers,
         };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/octet-stream";
-
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -322,13 +312,6 @@ export class KvStoreItem {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/octet-stream`)) {
                     res.setValueForKey200ApplicationOctetStreamByteString = decodedRes;
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
                 }
                 break;
         }

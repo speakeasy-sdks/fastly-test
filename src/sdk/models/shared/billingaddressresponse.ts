@@ -34,6 +34,9 @@ export class BillingAddressResponseData extends SpeakeasyBase {
     type?: TypeBillingAddress;
 }
 
+/**
+ * OK
+ */
 export class BillingAddressResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

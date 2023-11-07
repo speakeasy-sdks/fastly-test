@@ -1,5 +1,4 @@
-# LoggingLogentries
-(*loggingLogentries*)
+# loggingLogentries
 
 ## Overview
 
@@ -18,50 +17,55 @@ The Logentries integration has been discontinued.  No new Logentries endpoints c
 
 Create a Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { CreateLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
+  LoggingLogentriesResponseFormatVersion,
+  LoggingLogentriesResponsePlacement,
+  LoggingLogentriesResponseRegion,
   LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.loggingLogentries.createLogLogentries({
-    loggingLogentries: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingLogentriesFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
-      responseCondition: "null",
-    },
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.loggingLogentries.createLogLogentries({
+  loggingLogentries3: {
+    format: "%h %l %u %t "%r" %&gt;s %b",
+    formatVersion: LoggingLogentriesFormatVersion.Two,
+    name: "test-log-endpoint",
+    placement: LoggingLogentriesPlacement.None,
+    port: 458139,
+    region: LoggingLogentriesRegion.Eu,
+    responseCondition: "null",
+    token: "provident",
+    useTls: LoggingUseTls.One,
+  },
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: CreateLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateLogLogentriesRequest](../../models/operations/createloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.CreateLogLogentriesRequest](../../models/operations/createloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.CreateLogLogentriesSecurity](../../models/operations/createloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -73,38 +77,36 @@ import {
 
 Delete the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { DeleteLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.loggingLogentries.deleteLogLogentries({
-    loggingLogentriesName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.loggingLogentries.deleteLogLogentries({
+  loggingLogentriesName: "test-log-endpoint",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: DeleteLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteLogLogentriesRequest](../../models/operations/deleteloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.DeleteLogLogentriesRequest](../../models/operations/deleteloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.DeleteLogLogentriesSecurity](../../models/operations/deleteloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
@@ -116,38 +118,42 @@ import { Fastly } from "FastlyTestJS";
 
 Get the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { GetLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import {
+  LoggingLogentriesResponseFormatVersion,
+  LoggingLogentriesResponsePlacement,
+  LoggingLogentriesResponseRegion,
+  LoggingUseTls,
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.loggingLogentries.getLogLogentries({
-    loggingLogentriesName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.loggingLogentries.getLogLogentries({
+  loggingLogentriesName: "test-log-endpoint",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: GetLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetLogLogentriesRequest](../../models/operations/getloglogentriesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetLogLogentriesRequest](../../models/operations/getloglogentriesrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `security`                                                                                 | [operations.GetLogLogentriesSecurity](../../models/operations/getloglogentriessecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -159,37 +165,41 @@ import { Fastly } from "FastlyTestJS";
 
 List all of the Logentries for a particular service and version.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { ListLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
+import {
+  LoggingLogentriesResponseFormatVersion,
+  LoggingLogentriesResponsePlacement,
+  LoggingLogentriesResponseRegion,
+  LoggingUseTls,
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.loggingLogentries.listLogLogentries({
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.loggingLogentries.listLogLogentries({
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: ListLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListLogLogentriesRequest](../../models/operations/listloglogentriesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListLogLogentriesRequest](../../models/operations/listloglogentriesrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.ListLogLogentriesSecurity](../../models/operations/listloglogentriessecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
@@ -201,51 +211,56 @@ import { Fastly } from "FastlyTestJS";
 
 Update the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "FastlyTest";
+import { UpdateLogLogentriesResponse } from "FastlyTest/dist/sdk/models/operations";
 import {
   LoggingLogentriesFormatVersion,
   LoggingLogentriesPlacement,
   LoggingLogentriesRegion,
+  LoggingLogentriesResponseFormatVersion,
+  LoggingLogentriesResponsePlacement,
+  LoggingLogentriesResponseRegion,
   LoggingUseTls,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "FastlyTest/dist/sdk/models/shared";
 
-(async() => {
-  const sdk = new Fastly({
-    security: {
-      token: "",
-    },
-  });
+const sdk = new Fastly();
 
-  const res = await sdk.loggingLogentries.updateLogLogentries({
-    loggingLogentries: {
-      format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingLogentriesFormatVersion.Two,
-      name: "test-log-endpoint",
-      placement: LoggingLogentriesPlacement.LessThanNilGreaterThan,
-      responseCondition: "null",
-    },
-    loggingLogentriesName: "test-log-endpoint",
-    serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionId: 1,
-  });
-
+sdk.loggingLogentries.updateLogLogentries({
+  loggingLogentries3: {
+    format: "%h %l %u %t "%r" %&gt;s %b",
+    formatVersion: LoggingLogentriesFormatVersion.Two,
+    name: "test-log-endpoint",
+    placement: LoggingLogentriesPlacement.WafDebug,
+    port: 457223,
+    region: LoggingLogentriesRegion.Us,
+    responseCondition: "null",
+    token: "a",
+    useTls: LoggingUseTls.One,
+  },
+  loggingLogentriesName: "test-log-endpoint",
+  serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  versionId: 1,
+}, {
+  token: "",
+}).then((res: UpdateLogLogentriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+});
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.UpdateLogLogentriesRequest](../../models/operations/updateloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpdateLogLogentriesRequest](../../models/operations/updateloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `security`                                                                                       | [operations.UpdateLogLogentriesSecurity](../../models/operations/updateloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response

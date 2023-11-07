@@ -3,18 +3,16 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Dictionary Info is a set of metadata describing properties of a dictionary which change as items are added and removed.
  *
  * @see {@link https://developer.fastly.com/reference/api/dictionaries/dictionary-info}
  */
-
 export class DictionaryInfo {
     private sdkConfiguration: SDKConfiguration;
 
@@ -30,6 +28,7 @@ export class DictionaryInfo {
      */
     async getDictionaryInfo(
         req: operations.GetDictionaryInfoRequest,
+        security: operations.GetDictionaryInfoSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDictionaryInfoResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -45,19 +44,20 @@ export class DictionaryInfo {
             "/service/{service_id}/version/{version_id}/dictionary/{dictionary_id}/info",
             req
         );
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
 
-        headers["user-agent"] = this.sdkConfiguration.userAgent;
+        if (!(security instanceof utils.SpeakeasyBase)) {
+            security = new operations.GetDictionaryInfoSecurity(security);
+        }
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -86,13 +86,6 @@ export class DictionaryInfo {
                     res.dictionaryInfoResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DictionaryInfoResponse
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
                     );
                 }
                 break;

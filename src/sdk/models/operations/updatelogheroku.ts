@@ -6,9 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
+export class UpdateLogHerokuSecurity extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
+    token: string;
+}
+
 export class UpdateLogHerokuRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHeroku?: shared.LoggingHeroku;
+    loggingHeroku2?: shared.LoggingHeroku2;
 
     /**
      * The name for the real-time logging configuration.
@@ -30,21 +35,12 @@ export class UpdateLogHerokuRequest extends SpeakeasyBase {
 }
 
 export class UpdateLogHerokuResponse extends SpeakeasyBase {
-    /**
-     * HTTP response content type for this operation
-     */
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * HTTP response status code for this operation
-     */
     @SpeakeasyMetadata()
     statusCode: number;
 
-    /**
-     * Raw HTTP response; suitable for custom response parsing
-     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

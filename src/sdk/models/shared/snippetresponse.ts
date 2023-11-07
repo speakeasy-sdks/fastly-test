@@ -30,6 +30,9 @@ export enum SnippetResponseType {
     None = "none",
 }
 
+/**
+ * OK
+ */
 export class SnippetResponse extends SpeakeasyBase {
     /**
      * The VCL code that specifies exactly what the snippet does.
