@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -51,7 +51,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -86,7 +86,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -131,7 +131,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -164,7 +164,7 @@ export class Version {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.version = utils.objectToClass(JSON.parse(decodedRes), shared.Version);
+                    res.version = utils.objectToClass(JSON.parse(decodedRes), components.Version);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -204,7 +204,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -239,7 +239,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionCreateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionCreateResponse
+                        components.VersionCreateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -284,7 +284,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -319,7 +319,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -364,7 +364,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -398,7 +398,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -439,7 +439,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -476,7 +476,7 @@ export class Version {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse,
+                        components.VersionResponse,
                         resFieldDepth
                     );
                 } else {
@@ -522,7 +522,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -555,7 +555,7 @@ export class Version {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.version = utils.objectToClass(JSON.parse(decodedRes), shared.Version);
+                    res.version = utils.objectToClass(JSON.parse(decodedRes), components.Version);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -609,7 +609,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -649,7 +649,7 @@ export class Version {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.versionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.VersionResponse
+                        components.VersionResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -694,7 +694,7 @@ export class Version {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };

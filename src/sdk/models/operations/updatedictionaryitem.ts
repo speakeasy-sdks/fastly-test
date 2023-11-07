@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateDictionaryItemRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateDictionaryItemRequest extends SpeakeasyBase {
     dictionaryId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    dictionaryItem?: shared.DictionaryItem;
+    dictionaryItem?: components.DictionaryItem;
 
     /**
      * Item key, maximum 256 characters.
@@ -52,5 +52,5 @@ export class UpdateDictionaryItemResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    dictionaryItemResponse?: shared.DictionaryItemResponse;
+    dictionaryItemResponse?: components.DictionaryItemResponse;
 }

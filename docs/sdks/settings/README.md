@@ -18,7 +18,7 @@ Get the settings for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -58,7 +58,7 @@ Update the settings for a particular service and version. NOTE: If you override 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

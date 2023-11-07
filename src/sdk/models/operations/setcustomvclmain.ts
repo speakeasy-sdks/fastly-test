@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class SetCustomVclMainRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class SetCustomVclMainResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    vclResponse?: shared.VclResponse;
+    vclResponse?: components.VclResponse;
 }

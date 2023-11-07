@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -61,7 +61,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +101,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb
+                        components.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -146,7 +146,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -226,7 +226,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +260,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycomb = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycomb
+                        components.LoggingHoneycomb
                     );
                 } else {
                     throw new errors.SDKError(
@@ -305,7 +305,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +341,7 @@ export class LoggingHoneycomb {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycombResponse,
+                        components.LoggingHoneycombResponse,
                         resFieldDepth
                     );
                 } else {
@@ -397,7 +397,7 @@ export class LoggingHoneycomb {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +437,7 @@ export class LoggingHoneycomb {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingHoneycombResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingHoneycombResponse
+                        components.LoggingHoneycombResponse
                     );
                 } else {
                     throw new errors.SDKError(

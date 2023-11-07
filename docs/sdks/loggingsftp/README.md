@@ -21,13 +21,13 @@ Create a SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -81,7 +81,7 @@ Delete the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -121,7 +121,7 @@ Get the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -161,7 +161,7 @@ List all of the SFTPs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -200,13 +200,13 @@ Update the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

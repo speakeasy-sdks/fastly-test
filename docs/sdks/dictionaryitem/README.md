@@ -23,8 +23,8 @@ Update multiple items in the same dictionary. For faster updates to your service
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkUpdateDictionaryItemOp } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { BulkUpdateDictionaryItemOp } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -71,7 +71,7 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -114,7 +114,7 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -154,7 +154,7 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -194,8 +194,8 @@ List of DictionaryItems given service and dictionary ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Direction } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -238,7 +238,7 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -282,7 +282,7 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

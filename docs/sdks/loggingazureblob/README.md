@@ -21,8 +21,8 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -75,7 +75,7 @@ Delete the Azure Blob Storage logging endpoint for a particular service and vers
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -115,7 +115,7 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -155,7 +155,7 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -194,8 +194,8 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

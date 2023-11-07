@@ -3,7 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
-import * as shared from "../sdk/models/shared";
+import * as components from "../sdk/models/components";
 import { Acl } from "./acl";
 import { AclEntry } from "./aclentry";
 import { ApexRedirect } from "./apexredirect";
@@ -139,14 +139,14 @@ export type SDKProps = {
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
-    security?: shared.Security | (() => Promise<shared.Security>);
+    security?: components.Security | (() => Promise<components.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0.0";
-    sdkVersion = "2.0.0";
+    sdkVersion = "2.1.0";
     genVersion = "2.181.1";
-    userAgent = "speakeasy-sdk/typescript 2.0.0 2.181.1 1.0.0 FastlyTestJS";
+    userAgent = "speakeasy-sdk/typescript 2.1.0 2.181.1 1.0.0 Fastly";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -782,7 +782,7 @@ export class Fastly {
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            security: new shared.Security({ token: props?.token }),
+            security: new components.Security({ token: props?.token }),
 
             serverURL: serverURL,
             retryConfig: props?.retryConfig,

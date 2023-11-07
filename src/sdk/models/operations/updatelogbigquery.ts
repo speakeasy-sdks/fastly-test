@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogBigqueryRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingBigquery?: shared.LoggingBigquery;
+    loggingBigquery?: components.LoggingBigquery;
 
     /**
      * The name for the real-time logging configuration.
@@ -52,5 +52,5 @@ export class UpdateLogBigqueryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingBigqueryResponse?: shared.LoggingBigqueryResponse;
+    loggingBigqueryResponse?: components.LoggingBigqueryResponse;
 }

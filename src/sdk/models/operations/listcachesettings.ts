@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListCacheSettingsRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListCacheSettingsResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.CacheSettingResponse })
-    classes?: shared.CacheSettingResponse[];
+    @SpeakeasyMetadata({ elemType: components.CacheSettingResponse })
+    classes?: components.CacheSettingResponse[];
 }

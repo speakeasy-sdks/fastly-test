@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetTlsCertRequest extends SpeakeasyBase {
@@ -37,5 +37,5 @@ export class GetTlsCertResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsCertificateResponse?: shared.TlsCertificateResponse;
+    tlsCertificateResponse?: components.TlsCertificateResponse;
 }

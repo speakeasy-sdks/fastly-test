@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateHttp3Request extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    http3?: shared.Http3Input;
+    http3?: components.Http3Input;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateHttp3Response extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    http3?: shared.Http3;
+    http3?: components.Http3;
 }

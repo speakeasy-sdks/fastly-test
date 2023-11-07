@@ -21,8 +21,8 @@ Create a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -51,10 +51,10 @@ import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `request`                                                      | [shared.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
-| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `request`                                                          | [components.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
 
 
 ### Response
@@ -69,7 +69,7 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -107,7 +107,7 @@ Show a TLS certificate.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -145,8 +145,8 @@ List all TLS certificates.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Sort } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,8 +185,8 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

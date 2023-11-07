@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogHttpsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHttps?: shared.LoggingHttps;
+    loggingHttps?: components.LoggingHttps;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateLogHttpsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHttpsResponse?: shared.LoggingHttpsResponse;
+    loggingHttpsResponse?: components.LoggingHttpsResponse;
 }

@@ -24,8 +24,8 @@ Create a firewall object for a particular service and service version using a de
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -49,7 +49,7 @@ import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.WafFirewall](../../models/shared/waffirewall.md)     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [components.WafFirewall](../../models/shared/waffirewall.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
@@ -68,8 +68,8 @@ Delete the firewall object for a particular service and service version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -114,8 +114,8 @@ Get a specific firewall object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { FirewallInclude } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -155,8 +155,8 @@ List all firewall objects.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { FirewallInclude } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { FirewallInclude } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -198,8 +198,8 @@ Update a firewall object for a particular service and service version. Specifyin
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

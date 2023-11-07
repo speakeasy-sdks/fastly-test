@@ -24,8 +24,8 @@ Create a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { ServiceCreateType } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -47,10 +47,10 @@ import { ServiceCreateType } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.ServiceCreate](../../models/shared/servicecreate.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `request`                                                        | [components.ServiceCreate](../../models/shared/servicecreate.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
 
 
 ### Response
@@ -65,7 +65,7 @@ Delete a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -103,7 +103,7 @@ Get a specific service by id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -141,7 +141,7 @@ List detailed information on a specified service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -180,7 +180,7 @@ List the domains within a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -218,8 +218,8 @@ List services.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Direction } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -260,7 +260,7 @@ Get a specific service by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -298,7 +298,7 @@ Update a service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

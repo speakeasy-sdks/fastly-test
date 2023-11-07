@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetConditionRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetConditionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    conditionResponse?: shared.ConditionResponse;
+    conditionResponse?: components.ConditionResponse;
 }

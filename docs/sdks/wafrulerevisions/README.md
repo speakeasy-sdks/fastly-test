@@ -20,7 +20,7 @@ Get a specific rule revision.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -62,8 +62,8 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { WafRuleRevisionInclude } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { WafRuleRevisionInclude } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

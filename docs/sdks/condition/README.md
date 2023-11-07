@@ -21,8 +21,8 @@ Creates a new condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeT } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeT } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -66,7 +66,7 @@ Deletes the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -106,7 +106,7 @@ Gets the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -146,7 +146,7 @@ Gets all conditions for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,8 +185,8 @@ Updates the specified condition.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeT } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeT } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

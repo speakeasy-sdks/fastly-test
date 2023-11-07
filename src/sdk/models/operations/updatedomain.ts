@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateDomainRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    domain?: shared.Domain;
+    domain?: components.Domain;
 
     /**
      * The name of the domain or domains associated with this service.
@@ -52,5 +52,5 @@ export class UpdateDomainResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    domainResponse?: shared.DomainResponse;
+    domainResponse?: components.DomainResponse;
 }

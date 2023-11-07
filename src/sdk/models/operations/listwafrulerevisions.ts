@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListWafRuleRevisionsRequest extends SpeakeasyBase {
@@ -11,7 +11,7 @@ export class ListWafRuleRevisionsRequest extends SpeakeasyBase {
      * Include relationships. Optional.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: shared.WafRuleRevisionInclude;
+    include?: components.WafRuleRevisionInclude;
 
     /**
      * Current page.
@@ -55,5 +55,5 @@ export class ListWafRuleRevisionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafRuleRevisionsResponse?: shared.WafRuleRevisionsResponse;
+    wafRuleRevisionsResponse?: components.WafRuleRevisionsResponse;
 }

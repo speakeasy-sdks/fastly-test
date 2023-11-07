@@ -17,8 +17,8 @@ Get diff between two versions.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { QueryFormat } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { QueryFormat } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

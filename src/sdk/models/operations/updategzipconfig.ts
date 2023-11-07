@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateGzipConfigRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    gzip?: shared.Gzip;
+    gzip?: components.Gzip;
 
     /**
      * Name of the gzip configuration.
@@ -52,5 +52,5 @@ export class UpdateGzipConfigResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    gzipResponse?: shared.GzipResponse;
+    gzipResponse?: components.GzipResponse;
 }

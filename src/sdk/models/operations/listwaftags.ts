@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListWafTagsRequest extends SpeakeasyBase {
@@ -17,7 +17,7 @@ export class ListWafTagsRequest extends SpeakeasyBase {
      * Include relationships. Optional.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: shared.WafTagInclude;
+    include?: components.WafTagInclude;
 
     /**
      * Current page.
@@ -55,5 +55,5 @@ export class ListWafTagsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafTagsResponse?: shared.WafTagsResponse;
+    wafTagsResponse?: components.WafTagsResponse;
 }

@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateRequestSettingsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    requestSettings?: shared.RequestSettings;
+    requestSettings?: components.RequestSettings;
 
     /**
      * Name for the request settings.
@@ -52,5 +52,5 @@ export class UpdateRequestSettingsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    requestSettingsResponse?: shared.RequestSettingsResponse;
+    requestSettingsResponse?: components.RequestSettingsResponse;
 }

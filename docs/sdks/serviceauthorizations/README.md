@@ -21,8 +21,8 @@ Create service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -52,10 +52,10 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [shared.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [components.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -70,7 +70,7 @@ Delete service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -108,7 +108,7 @@ List service authorizations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -147,7 +147,7 @@ Show service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,8 +185,8 @@ Update service authorization.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

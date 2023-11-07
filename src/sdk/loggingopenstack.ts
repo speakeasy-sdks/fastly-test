@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -61,7 +61,7 @@ export class LoggingOpenstack {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -101,7 +101,7 @@ export class LoggingOpenstack {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingOpenstackResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingOpenstackResponse
+                        components.LoggingOpenstackResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -146,7 +146,7 @@ export class LoggingOpenstack {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -226,7 +226,7 @@ export class LoggingOpenstack {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -260,7 +260,7 @@ export class LoggingOpenstack {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingOpenstackResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingOpenstackResponse
+                        components.LoggingOpenstackResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -305,7 +305,7 @@ export class LoggingOpenstack {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -341,7 +341,7 @@ export class LoggingOpenstack {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingOpenstackResponse,
+                        components.LoggingOpenstackResponse,
                         resFieldDepth
                     );
                 } else {
@@ -397,7 +397,7 @@ export class LoggingOpenstack {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -437,7 +437,7 @@ export class LoggingOpenstack {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingOpenstackResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingOpenstackResponse
+                        components.LoggingOpenstackResponse
                     );
                 } else {
                     throw new errors.SDKError(

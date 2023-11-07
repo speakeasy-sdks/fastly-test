@@ -20,8 +20,8 @@ Add a billing address to a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -72,7 +72,7 @@ Delete a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -110,7 +110,7 @@ Get a customer's billing address.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -148,8 +148,8 @@ Update a customer's billing address. You may update only part of the customer's 
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

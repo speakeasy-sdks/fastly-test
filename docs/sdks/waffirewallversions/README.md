@@ -24,7 +24,7 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -65,8 +65,8 @@ Create a new, draft firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -113,7 +113,7 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -154,7 +154,7 @@ Get details about a specific firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -196,7 +196,7 @@ Get a list of firewall versions associated with a specific firewall.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -239,8 +239,8 @@ Update a specific firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

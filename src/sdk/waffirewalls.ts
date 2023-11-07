@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -32,11 +32,11 @@ export class WafFirewalls {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafFirewall(
-        req: shared.WafFirewall,
+        req: components.WafFirewall,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafFirewallResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.WafFirewall(req);
+            req = new components.WafFirewall(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -60,7 +60,7 @@ export class WafFirewalls {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -99,7 +99,7 @@ export class WafFirewalls {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallResponse
+                        components.WafFirewallResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -153,7 +153,7 @@ export class WafFirewalls {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -221,7 +221,7 @@ export class WafFirewalls {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -256,7 +256,7 @@ export class WafFirewalls {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallResponse
+                        components.WafFirewallResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -299,7 +299,7 @@ export class WafFirewalls {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -334,7 +334,7 @@ export class WafFirewalls {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallsResponse
+                        components.WafFirewallsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -388,7 +388,7 @@ export class WafFirewalls {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -427,7 +427,7 @@ export class WafFirewalls {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.wafFirewallResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.WafFirewallResponse
+                        components.WafFirewallResponse
                     );
                 } else {
                     throw new errors.SDKError(

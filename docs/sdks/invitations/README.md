@@ -19,7 +19,7 @@ Create an invitation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   InvitationDataStatusCode,
   RoleUser,
@@ -27,7 +27,7 @@ import {
   TypeInvitation,
   TypeService,
   TypeServiceInvitation,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -67,7 +67,7 @@ import {
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.Invitation](../../models/shared/invitation.md)       | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [components.Invitation](../../models/shared/invitation.md)   | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
@@ -83,7 +83,7 @@ Delete an invitation.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -121,7 +121,7 @@ List all invitations.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

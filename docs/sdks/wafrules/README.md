@@ -20,7 +20,7 @@ Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fas
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -61,7 +61,7 @@ List all available WAF rules.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

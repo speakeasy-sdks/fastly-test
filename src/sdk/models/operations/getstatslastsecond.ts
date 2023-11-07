@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetStatsLastSecondRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class GetStatsLastSecondResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    realtime?: shared.Realtime;
+    realtime?: components.Realtime;
 }

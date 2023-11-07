@@ -23,8 +23,8 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntryNegated, Op } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { BulkUpdateAclEntryNegated, Op } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -73,8 +73,8 @@ Add an ACL entry to an ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Negated } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -119,7 +119,7 @@ Delete an ACL entry from a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -159,7 +159,7 @@ Retrieve a single ACL entry.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -199,8 +199,8 @@ List ACL entries for a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Direction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Direction } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -243,8 +243,8 @@ Update an ACL entry for a specified ACL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Negated } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

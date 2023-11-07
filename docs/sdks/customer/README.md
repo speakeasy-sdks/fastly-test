@@ -21,7 +21,7 @@ Delete a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -59,7 +59,7 @@ Get a specific customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -97,7 +97,7 @@ Get the logged in customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -132,7 +132,7 @@ List all users from a specified customer id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -170,8 +170,8 @@ Update a customer.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { BillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { BillingNetworkType } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

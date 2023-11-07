@@ -19,8 +19,8 @@ List all tags.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { WafTagInclude } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { WafTagInclude } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

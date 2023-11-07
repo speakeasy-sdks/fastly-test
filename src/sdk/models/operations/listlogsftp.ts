@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListLogSftpRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListLogSftpResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.LoggingSftpResponse })
-    classes?: shared.LoggingSftpResponse[];
+    @SpeakeasyMetadata({ elemType: components.LoggingSftpResponse })
+    classes?: components.LoggingSftpResponse[];
 }

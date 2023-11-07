@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PatchMutualAuthenticationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    mutualAuthentication?: shared.MutualAuthentication;
+    mutualAuthentication?: components.MutualAuthentication;
 
     /**
      * Alphanumeric string identifying a mutual authentication.
@@ -42,5 +42,5 @@ export class PatchMutualAuthenticationResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    mutualAuthenticationResponse?: shared.MutualAuthenticationResponse;
+    mutualAuthenticationResponse?: components.MutualAuthenticationResponse;
 }

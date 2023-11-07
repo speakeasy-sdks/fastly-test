@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogElasticsearchRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingElasticsearch?: shared.LoggingElasticsearch;
+    loggingElasticsearch?: components.LoggingElasticsearch;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateLogElasticsearchResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingElasticsearchResponse?: shared.LoggingElasticsearchResponse;
+    loggingElasticsearchResponse?: components.LoggingElasticsearchResponse;
 }

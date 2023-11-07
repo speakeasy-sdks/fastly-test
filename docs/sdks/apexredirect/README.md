@@ -20,7 +20,7 @@ Delete an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -58,7 +58,7 @@ Get an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -96,7 +96,7 @@ List all apex redirects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -135,8 +135,8 @@ Update an apex redirect by its ID.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { StatusCode } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { StatusCode } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

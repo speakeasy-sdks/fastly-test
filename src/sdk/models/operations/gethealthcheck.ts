@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetHealthcheckRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetHealthcheckResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    healthcheckResponse?: shared.HealthcheckResponse;
+    healthcheckResponse?: components.HealthcheckResponse;
 }

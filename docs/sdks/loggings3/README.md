@@ -21,13 +21,13 @@ Create a S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -80,7 +80,7 @@ Delete the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -120,7 +120,7 @@ Get the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -160,7 +160,7 @@ List all of the S3s for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -199,13 +199,13 @@ Update the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

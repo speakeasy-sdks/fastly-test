@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogHoneycombRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHoneycomb?: shared.LoggingHoneycomb;
+    loggingHoneycomb?: components.LoggingHoneycomb;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHoneycomb?: shared.LoggingHoneycomb;
+    loggingHoneycomb?: components.LoggingHoneycomb;
 }

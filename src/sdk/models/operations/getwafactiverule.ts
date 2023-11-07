@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafActiveRuleRequest extends SpeakeasyBase {
@@ -58,5 +58,5 @@ export class GetWafActiveRuleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafActiveRuleResponse?: shared.WafActiveRuleResponse;
+    wafActiveRuleResponse?: components.WafActiveRuleResponse;
 }

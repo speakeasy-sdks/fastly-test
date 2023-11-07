@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -42,7 +42,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -76,7 +76,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.tokenResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse
+                        components.TokenResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -91,7 +91,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -132,7 +132,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -169,7 +169,7 @@ export class Tokens {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse,
+                        components.TokenResponse,
                         resFieldDepth
                     );
                 } else {
@@ -204,7 +204,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +240,7 @@ export class Tokens {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TokenResponse,
+                        components.TokenResponse,
                         resFieldDepth
                     );
                 } else {
@@ -256,7 +256,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -297,7 +297,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -333,7 +333,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(
@@ -369,7 +369,7 @@ export class Tokens {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -406,7 +406,7 @@ export class Tokens {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.genericTokenError = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.GenericTokenError
+                        components.GenericTokenError
                     );
                 } else {
                     throw new errors.SDKError(

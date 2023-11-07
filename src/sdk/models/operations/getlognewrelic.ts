@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetLogNewrelicRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetLogNewrelicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingNewrelicResponse?: shared.LoggingNewrelicResponse;
+    loggingNewrelicResponse?: components.LoggingNewrelicResponse;
 }

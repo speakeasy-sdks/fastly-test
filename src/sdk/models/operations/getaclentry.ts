@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetAclEntryRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetAclEntryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    aclEntryResponse?: shared.AclEntryResponse;
+    aclEntryResponse?: components.AclEntryResponse;
 }

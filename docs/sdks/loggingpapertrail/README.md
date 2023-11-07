@@ -21,8 +21,8 @@ Create a Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -69,7 +69,7 @@ Delete the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -109,7 +109,7 @@ Get the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -149,7 +149,7 @@ List all of the Papertrails for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -188,8 +188,8 @@ Update the Papertrail for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingPapertrailFormatVersion, LoggingPapertrailPlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

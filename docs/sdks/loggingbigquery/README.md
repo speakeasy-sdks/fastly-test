@@ -21,8 +21,8 @@ Create a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -73,7 +73,7 @@ Delete a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -113,7 +113,7 @@ Get the details for a BigQuery logging object for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -153,7 +153,7 @@ List all of the BigQuery logging objects for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -192,8 +192,8 @@ Update a BigQuery logging object for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class PutPackageRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class PutPackageRequest extends SpeakeasyBase {
     expect?: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=multipart/form-data" })
-    packageUpload?: shared.PackageUpload;
+    packageUpload?: components.PackageUpload;
 
     /**
      * Alphanumeric string identifying the service.
@@ -52,5 +52,5 @@ export class PutPackageResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    packageResponse?: shared.PackageResponse;
+    packageResponse?: components.PackageResponse;
 }

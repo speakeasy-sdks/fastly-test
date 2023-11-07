@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListInvitationsRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListInvitationsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    invitationsResponse?: shared.InvitationsResponse;
+    invitationsResponse?: components.InvitationsResponse;
 }

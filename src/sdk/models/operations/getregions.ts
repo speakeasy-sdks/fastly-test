@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetRegionsResponse extends SpeakeasyBase {
@@ -29,5 +29,5 @@ export class GetRegionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    historicalRegionsResponse?: shared.HistoricalRegionsResponse;
+    historicalRegionsResponse?: components.HistoricalRegionsResponse;
 }

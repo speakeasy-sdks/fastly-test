@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateLogNewrelicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingNewrelic?: shared.LoggingNewrelic;
+    loggingNewrelic?: components.LoggingNewrelic;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateLogNewrelicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingNewrelicResponse?: shared.LoggingNewrelicResponse;
+    loggingNewrelicResponse?: components.LoggingNewrelicResponse;
 }

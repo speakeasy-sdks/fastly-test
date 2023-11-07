@@ -19,7 +19,7 @@ Get a specific event.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -57,8 +57,8 @@ List all events for a particular customer. Events can be filtered by user, custo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Sort } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Sort } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

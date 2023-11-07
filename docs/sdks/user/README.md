@@ -23,8 +23,8 @@ Create a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { RoleUser } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -46,7 +46,7 @@ import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.User](../../models/shared/user.md)                   | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [components.User](../../models/shared/user.md)               | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
@@ -62,7 +62,7 @@ Delete a user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -100,7 +100,7 @@ Get the logged in user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -135,7 +135,7 @@ Get a specific user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -173,7 +173,7 @@ Requests a password reset for the specified user.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -211,8 +211,8 @@ Update a user. Only users with the role of `superuser` can make changes to other
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { RoleUser } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -253,8 +253,8 @@ Update the user's password to a new one.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { Fastly } from "Fastly";
+import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly();
@@ -276,7 +276,7 @@ const operationSecurity: UpdateUserPasswordSecurity = {
 
 | Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [shared.PasswordChange](../../models/shared/passwordchange.md)                                 | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `request`                                                                                      | [components.PasswordChange](../../models/shared/passwordchange.md)                             | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 | `security`                                                                                     | [operations.UpdateUserPasswordSecurity](../../models/operations/updateuserpasswordsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
 | `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 

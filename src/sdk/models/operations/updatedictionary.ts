@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateDictionaryRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    dictionary?: shared.Dictionary;
+    dictionary?: components.Dictionary;
 
     /**
      * Name for the Dictionary (must start with an alphabetic character and can contain only alphanumeric characters, underscores, and whitespace).
@@ -52,5 +52,5 @@ export class UpdateDictionaryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    dictionaryResponse?: shared.DictionaryResponse;
+    dictionaryResponse?: components.DictionaryResponse;
 }

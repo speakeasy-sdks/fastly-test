@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateHealthcheckRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    healthcheck?: shared.Healthcheck;
+    healthcheck?: components.Healthcheck;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateHealthcheckResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    healthcheckResponse?: shared.HealthcheckResponse;
+    healthcheckResponse?: components.HealthcheckResponse;
 }

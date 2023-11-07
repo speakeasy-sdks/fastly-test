@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogDigoceanRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingDigitalocean?: shared.LoggingDigitalocean;
+    loggingDigitalocean?: components.LoggingDigitalocean;
 
     /**
      * The name for the real-time logging configuration.
@@ -54,5 +54,5 @@ export class UpdateLogDigoceanResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingDigitaloceanResponse?: shared.LoggingDigitaloceanResponse;
+    loggingDigitaloceanResponse?: components.LoggingDigitaloceanResponse;
 }

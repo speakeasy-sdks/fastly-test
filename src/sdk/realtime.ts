@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -47,7 +47,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -80,7 +80,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -124,7 +124,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -157,7 +157,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -201,7 +201,7 @@ export class Realtime {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -234,7 +234,7 @@ export class Realtime {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), shared.Realtime);
+                    res.realtime = utils.objectToClass(JSON.parse(decodedRes), components.Realtime);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

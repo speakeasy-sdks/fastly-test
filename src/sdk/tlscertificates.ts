@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsCertificates {
      * Create a TLS certificate.
      */
     async createTlsCert(
-        req: shared.TlsCertificate,
+        req: components.TlsCertificate,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsCertificate(req);
+            req = new components.TlsCertificate(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -141,7 +141,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -206,7 +206,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +240,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificateResponse
+                        components.TlsCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,7 +281,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -316,7 +316,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificatesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificatesResponse
+                        components.TlsCertificatesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -371,7 +371,7 @@ export class TlsCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -410,7 +410,7 @@ export class TlsCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsCertificateResponse
+                        components.TlsCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(

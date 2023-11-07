@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateServiceAuthorizationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    serviceAuthorization?: shared.ServiceAuthorization;
+    serviceAuthorization?: components.ServiceAuthorization;
 
     /**
      * Alphanumeric string identifying a service authorization.
@@ -42,5 +42,5 @@ export class UpdateServiceAuthorizationResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    serviceAuthorizationResponse?: shared.ServiceAuthorizationResponse;
+    serviceAuthorizationResponse?: components.ServiceAuthorizationResponse;
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateStoreRequest extends SpeakeasyBase {
@@ -11,7 +11,7 @@ export class CreateStoreRequest extends SpeakeasyBase {
     location?: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    store?: shared.Store;
+    store?: components.Store;
 }
 
 export class CreateStoreResponse extends SpeakeasyBase {
@@ -37,5 +37,5 @@ export class CreateStoreResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    storeResponse?: shared.StoreResponse;
+    storeResponse?: components.StoreResponse;
 }

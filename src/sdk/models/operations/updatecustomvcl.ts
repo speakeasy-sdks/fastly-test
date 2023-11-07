@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateCustomVclRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateCustomVclRequest extends SpeakeasyBase {
     serviceId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    vcl?: shared.Vcl;
+    vcl?: components.Vcl;
 
     /**
      * The name of this VCL.
@@ -52,5 +52,5 @@ export class UpdateCustomVclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    vclResponse?: shared.VclResponse;
+    vclResponse?: components.VclResponse;
 }

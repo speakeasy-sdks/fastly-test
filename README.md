@@ -19,7 +19,7 @@ yarn add https://github.com/speakeasy-sdks/fastly-test
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async () => {
     const sdk = new Fastly({
@@ -801,7 +801,7 @@ You can override the default server globally by passing a server index to the `s
 For example:
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async () => {
     const sdk = new Fastly({
@@ -826,7 +826,7 @@ import { Fastly } from "FastlyTestJS";
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async () => {
     const sdk = new Fastly({
@@ -857,7 +857,7 @@ The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from FastlyTestJS import Fastly;
+from Fastly import Fastly;
 import axios;
 
 const httpClient = axios.create({
@@ -872,7 +872,6 @@ const sdk = new Fastly({defaultClient: httpClient});
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
@@ -886,7 +885,7 @@ Your SDK supports the following security scheme globally:
 To authenticate with the API the `token` parameter must be set when initializing the SDK client instance. For example:
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async () => {
     const sdk = new Fastly({
@@ -909,8 +908,8 @@ import { Fastly } from "FastlyTestJS";
 Some operations in your SDK require the security scheme to be specified at the request level. For example:
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { UpdateUserPasswordSecurity } from "FastlyTestJS/dist/sdk/models/operations";
+import { Fastly } from "Fastly";
+import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
 
 (async () => {
     const sdk = new Fastly();

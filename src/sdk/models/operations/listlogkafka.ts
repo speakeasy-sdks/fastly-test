@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListLogKafkaRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListLogKafkaResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.LoggingKafkaResponse })
-    classes?: shared.LoggingKafkaResponse[];
+    @SpeakeasyMetadata({ elemType: components.LoggingKafkaResponse })
+    classes?: components.LoggingKafkaResponse[];
 }

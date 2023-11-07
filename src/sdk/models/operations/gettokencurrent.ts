@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetTokenCurrentResponse extends SpeakeasyBase {
@@ -29,11 +29,11 @@ export class GetTokenCurrentResponse extends SpeakeasyBase {
      * Missing or expired token.
      */
     @SpeakeasyMetadata()
-    genericTokenError?: shared.GenericTokenError;
+    genericTokenError?: components.GenericTokenError;
 
     /**
      * OK
      */
     @SpeakeasyMetadata()
-    tokenResponse?: shared.TokenResponse;
+    tokenResponse?: components.TokenResponse;
 }

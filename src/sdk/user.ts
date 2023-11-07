@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class User {
      * Create a user.
      */
     async createUser(
-        req: shared.User,
+        req: components.User,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.User(req);
+            req = new components.User(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -137,7 +137,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -205,7 +205,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -239,7 +239,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -280,7 +280,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -314,7 +314,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -359,7 +359,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -445,7 +445,7 @@ export class User {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -484,7 +484,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -507,12 +507,12 @@ export class User {
      * Update the user's password to a new one.
      */
     async updateUserPassword(
-        req: shared.PasswordChange,
+        req: components.PasswordChange,
         security: operations.UpdateUserPasswordSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateUserPasswordResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.PasswordChange(req);
+            req = new components.PasswordChange(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -572,7 +572,7 @@ export class User {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.userResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UserResponse
+                        components.UserResponse
                     );
                 } else {
                     throw new errors.SDKError(
