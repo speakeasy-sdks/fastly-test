@@ -7,14 +7,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * Type of the condition. Required.
  */
-export enum ConditionType {
+export enum TypeT {
     Request = "REQUEST",
     Cache = "CACHE",
     Response = "RESPONSE",
     Prefetch = "PREFETCH",
 }
 
-export class ConditionInput extends SpeakeasyBase {
+export class Condition extends SpeakeasyBase {
     /**
      * A freeform descriptive note.
      */
@@ -43,7 +43,7 @@ export class ConditionInput extends SpeakeasyBase {
      * Type of the condition. Required.
      */
     @SpeakeasyMetadata({ data: "form, name=type" })
-    type?: ConditionType;
+    type?: TypeT;
 
     /**
      * A numeric string that represents the service version.

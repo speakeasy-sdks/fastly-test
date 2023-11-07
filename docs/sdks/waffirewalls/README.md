@@ -1,5 +1,5 @@
 # WafFirewalls
-(*wafFirewalls*)
+(*.wafFirewalls*)
 
 ## Overview
 
@@ -47,10 +47,10 @@ import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `request`                                                          | [shared.WafFirewallInput](../../models/shared/waffirewallinput.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
-| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.WafFirewall](../../models/shared/waffirewall.md)     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -78,7 +78,7 @@ import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
   const res = await sdk.wafFirewalls.deleteWafFirewall({
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    wafFirewallInput: {
+    wafFirewall: {
       data: {
         attributes: {},
       },
@@ -208,7 +208,7 @@ import { TypeWafFirewall } from "FastlyTestJS/dist/sdk/models/shared";
 
   const res = await sdk.wafFirewalls.updateWafFirewall({
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    wafFirewallInput: {
+    wafFirewall: {
       data: {
         attributes: {},
       },

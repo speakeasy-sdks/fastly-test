@@ -1,5 +1,5 @@
 # Customer
-(*customer*)
+(*.customer*)
 
 ## Overview
 
@@ -171,7 +171,7 @@ Update a customer.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
+import { BillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -179,7 +179,7 @@ import { CustomerBillingNetworkType } from "FastlyTestJS/dist/sdk/models/shared"
   });
 
   const res = await sdk.customer.updateCustomer({
-    customerInput: {},
+    customer: {},
     customerId: "x4xCwxxJxGCx123Rx5xTx",
   });
 

@@ -20,7 +20,7 @@ export class GetKeysRequest extends SpeakeasyBase {
     storeId: string;
 }
 
-export class GetKeys200ApplicationJSONMeta extends SpeakeasyBase {
+export class GetKeysMeta extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "limit" })
     limit?: number;
@@ -33,15 +33,15 @@ export class GetKeys200ApplicationJSONMeta extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetKeys200ApplicationJSON extends SpeakeasyBase {
+export class GetKeysResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
     data?: string[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "meta" })
-    @Type(() => GetKeys200ApplicationJSONMeta)
-    meta?: GetKeys200ApplicationJSONMeta;
+    @Type(() => GetKeysMeta)
+    meta?: GetKeysMeta;
 }
 
 export class GetKeysResponse extends SpeakeasyBase {
@@ -67,5 +67,5 @@ export class GetKeysResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getKeys200ApplicationJSONObject?: GetKeys200ApplicationJSON;
+    object?: GetKeysResponseBody;
 }

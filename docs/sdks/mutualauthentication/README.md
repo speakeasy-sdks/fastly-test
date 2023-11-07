@@ -1,5 +1,5 @@
 # MutualAuthentication
-(*mutualAuthentication*)
+(*.mutualAuthentication*)
 
 ## Overview
 

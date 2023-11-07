@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class User {
      * Create a user.
      */
     async createUser(
-        req: shared.UserInput,
+        req: shared.User,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateUserResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.UserInput(req);
+            req = new shared.User(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -169,9 +169,9 @@ export class User {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteUser200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteUser200ApplicationJSON
+                        operations.DeleteUserResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -392,9 +392,9 @@ export class User {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.requestPasswordReset200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.RequestPasswordReset200ApplicationJSON
+                        operations.RequestPasswordResetResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -433,7 +433,7 @@ export class User {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "userInput", "form");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "user", "form");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

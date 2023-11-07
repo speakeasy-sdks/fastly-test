@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListLogHoneycombRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingHoneycombResponse })
-    loggingHoneycombResponses?: shared.LoggingHoneycombResponse[];
+    classes?: shared.LoggingHoneycombResponse[];
 }

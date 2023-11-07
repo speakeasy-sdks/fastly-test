@@ -1,5 +1,5 @@
 # User
-(*user*)
+(*.user*)
 
 ## Overview
 
@@ -46,7 +46,7 @@ import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.UserInput](../../models/shared/userinput.md)         | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [shared.User](../../models/shared/user.md)                   | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
@@ -220,7 +220,7 @@ import { RoleUser } from "FastlyTestJS/dist/sdk/models/shared";
   });
 
   const res = await sdk.user.updateUser({
-    userInput: {
+    user: {
       role: RoleUser.User,
     },
     userId: "x9KzsrACXZv8tPwlEDsKb6",

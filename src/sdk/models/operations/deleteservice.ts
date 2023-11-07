@@ -17,7 +17,7 @@ export class DeleteServiceRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteService200ApplicationJSON extends SpeakeasyBase {
+export class DeleteServiceResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -49,5 +49,5 @@ export class DeleteServiceResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteService200ApplicationJSONObject?: DeleteService200ApplicationJSON;
+    object?: DeleteServiceResponseBody;
 }

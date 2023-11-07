@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListSnippetsRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListSnippetsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.SnippetResponse })
-    snippetResponses?: shared.SnippetResponse[];
+    classes?: shared.SnippetResponse[];
 }

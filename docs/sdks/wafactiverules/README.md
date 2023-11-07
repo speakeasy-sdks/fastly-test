@@ -1,5 +1,5 @@
 # WafActiveRules
-(*wafActiveRules*)
+(*.wafActiveRules*)
 
 ## Overview
 
@@ -26,7 +26,7 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkWafActiveRuleAttributesStatus, TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
+import { BulkWafActiveRuleStatus, TypeWafActiveRule } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -74,7 +74,7 @@ Create an active rule for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -126,7 +126,7 @@ Create active rules by tag. This endpoint will create active rules using the lat
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -306,7 +306,7 @@ Update an active rule's status for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { TypeWafActiveRule, WafActiveRuleDataAttributesStatus } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafActiveRule, WafActiveRuleDataStatus } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

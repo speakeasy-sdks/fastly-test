@@ -1,5 +1,5 @@
 # Version
-(*version*)
+(*.version*)
 
 ## Overview
 
@@ -305,7 +305,7 @@ import { Fastly } from "FastlyTestJS";
 
   const res = await sdk.version.updateServiceVersion({
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
-    versionInput: {
+    version: {
       comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     },
     versionId: 1,

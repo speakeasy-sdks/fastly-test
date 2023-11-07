@@ -17,7 +17,7 @@ export class PurgeAllRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class PurgeAll200ApplicationJSON extends SpeakeasyBase {
+export class PurgeAllResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -49,5 +49,5 @@ export class PurgeAllResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    purgeAll200ApplicationJSONObject?: PurgeAll200ApplicationJSON;
+    object?: PurgeAllResponseBody;
 }

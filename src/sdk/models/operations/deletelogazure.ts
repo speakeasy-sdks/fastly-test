@@ -31,7 +31,7 @@ export class DeleteLogAzureRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogAzure200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogAzureResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogAzureResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogAzure200ApplicationJSONObject?: DeleteLogAzure200ApplicationJSON;
+    object?: DeleteLogAzureResponseBody;
 }

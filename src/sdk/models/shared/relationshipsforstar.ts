@@ -10,7 +10,7 @@ import {
 import { TypeUser } from "./typeuser";
 import { Expose, Type } from "class-transformer";
 
-export class RelationshipsForStarUserData extends SpeakeasyBase {
+export class RelationshipsForStarData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
@@ -26,8 +26,8 @@ export class RelationshipsForStarUserData extends SpeakeasyBase {
 export class RelationshipsForStarUser extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => RelationshipsForStarUserData)
-    data?: RelationshipsForStarUserData;
+    @Type(() => RelationshipsForStarData)
+    data?: RelationshipsForStarData;
 }
 
 export class RelationshipsForStar extends SpeakeasyBase {
@@ -42,7 +42,7 @@ export class RelationshipsForStar extends SpeakeasyBase {
     user?: RelationshipsForStarUser;
 }
 
-export class RelationshipsForStarUserDataInput extends SpeakeasyBase {
+export class RelationshipsForStarDataInput extends SpeakeasyBase {
     /**
      * Resource type
      */
@@ -54,8 +54,8 @@ export class RelationshipsForStarUserDataInput extends SpeakeasyBase {
 export class RelationshipsForStarUserInput extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => RelationshipsForStarUserDataInput)
-    data?: RelationshipsForStarUserDataInput;
+    @Type(() => RelationshipsForStarDataInput)
+    data?: RelationshipsForStarDataInput;
 }
 
 export class RelationshipsForStarInput extends SpeakeasyBase {

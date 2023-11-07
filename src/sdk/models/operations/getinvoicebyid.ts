@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetInvoiceByIdRequest extends SpeakeasyBase {
@@ -49,11 +49,11 @@ export class GetInvoiceByIdResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getInvoiceById200ApplicationPdfBinaryString?: Uint8Array;
+    bytes?: Uint8Array;
 
     /**
      * OK
      */
     @SpeakeasyMetadata()
-    getInvoiceById200TextCsvCsvString?: string;
+    res?: string;
 }

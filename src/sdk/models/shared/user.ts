@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { RoleUser } from "./roleuser";
 
-export class UserInput extends SpeakeasyBase {
+export class User extends SpeakeasyBase {
     /**
      * Indicates that the user has limited access to the customer's services.
      */

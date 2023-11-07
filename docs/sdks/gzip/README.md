@@ -1,5 +1,5 @@
 # Gzip
-(*gzip*)
+(*.gzip*)
 
 ## Overview
 

@@ -1,5 +1,5 @@
 # LoggingKinesis
-(*loggingKinesis*)
+(*.loggingKinesis*)
 
 ## Overview
 

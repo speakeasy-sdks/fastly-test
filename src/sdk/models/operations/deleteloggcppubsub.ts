@@ -31,7 +31,7 @@ export class DeleteLogGcpPubsubRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogGcpPubsub200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogGcpPubsubResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogGcpPubsubResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogGcpPubsub200ApplicationJSONObject?: DeleteLogGcpPubsub200ApplicationJSON;
+    object?: DeleteLogGcpPubsubResponseBody;
 }

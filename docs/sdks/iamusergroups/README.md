@@ -1,5 +1,5 @@
 # IamUserGroups
-(*iamUserGroups*)
+(*.iamUserGroups*)
 
 ## Overview
 

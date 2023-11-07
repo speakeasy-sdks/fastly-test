@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipServiceInvitationsCreateInput } from "./relationshipserviceinvitationscreate";
+import { RelationshipServiceInvitationsCreate } from "./relationshipserviceinvitationscreate";
 import { RoleUser } from "./roleuser";
 import { TypeInvitation } from "./typeinvitation";
 import { Expose, Type } from "class-transformer";
@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Indicates whether or not the invitation is active.
  */
-export enum InvitationDataAttributesStatusCode {
+export enum InvitationDataStatusCode {
     Zero = 0,
     One = 1,
 }
@@ -43,10 +43,10 @@ export class InvitationDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status_code" })
-    statusCode?: InvitationDataAttributesStatusCode;
+    statusCode?: InvitationDataStatusCode;
 }
 
-export class InvitationDataInput extends SpeakeasyBase {
+export class InvitationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => InvitationDataAttributes)
@@ -54,8 +54,8 @@ export class InvitationDataInput extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => RelationshipServiceInvitationsCreateInput)
-    relationships?: RelationshipServiceInvitationsCreateInput;
+    @Type(() => RelationshipServiceInvitationsCreate)
+    relationships?: RelationshipServiceInvitationsCreate;
 
     /**
      * Resource type

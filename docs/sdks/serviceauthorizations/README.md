@@ -1,5 +1,5 @@
 # ServiceAuthorizations
-(*serviceAuthorizations*)
+(*.serviceAuthorizations*)
 
 ## Overview
 
@@ -52,10 +52,10 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [shared.ServiceAuthorizationInput](../../models/shared/serviceauthorizationinput.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
@@ -194,7 +194,7 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
   });
 
   const res = await sdk.serviceAuthorizations.updateServiceAuthorization({
-    serviceAuthorizationInput: {
+    serviceAuthorization: {
       data: {
         attributes: {
           permission: Permission.Full,

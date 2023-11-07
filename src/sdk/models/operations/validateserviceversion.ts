@@ -23,7 +23,7 @@ export class ValidateServiceVersionRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ValidateServiceVersion200ApplicationJSON extends SpeakeasyBase {
+export class ValidateServiceVersionResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -55,5 +55,5 @@ export class ValidateServiceVersionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    validateServiceVersion200ApplicationJSONObject?: ValidateServiceVersion200ApplicationJSON;
+    object?: ValidateServiceVersionResponseBody;
 }

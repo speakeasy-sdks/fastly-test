@@ -8,7 +8,7 @@ import { RelationshipCustomer } from "./relationshipcustomer";
 import { TypeBillingAddress } from "./typebillingaddress";
 import { Expose, Type } from "class-transformer";
 
-export class BillingAddressResponseData extends SpeakeasyBase {
+export class Data extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => BillingAddressAttributes)
@@ -37,6 +37,6 @@ export class BillingAddressResponseData extends SpeakeasyBase {
 export class BillingAddressResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => BillingAddressResponseData)
-    data?: BillingAddressResponseData;
+    @Type(() => Data)
+    data?: Data;
 }

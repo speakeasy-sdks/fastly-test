@@ -1,5 +1,5 @@
 # ApexRedirect
-(*apexRedirect*)
+(*.apexRedirect*)
 
 ## Overview
 
@@ -136,7 +136,7 @@ Update an apex redirect by its ID.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
+import { StatusCode } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -144,7 +144,7 @@ import { ApexRedirectStatusCode } from "FastlyTestJS/dist/sdk/models/shared";
   });
 
   const res = await sdk.apexRedirect.updateApexRedirect({
-    apexRedirectInput: {
+    apexRedirect: {
       domains: [
         "string",
       ],

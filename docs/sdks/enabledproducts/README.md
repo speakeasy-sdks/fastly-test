@@ -1,5 +1,5 @@
 # EnabledProducts
-(*enabledProducts*)
+(*.enabledProducts*)
 
 ## Overview
 

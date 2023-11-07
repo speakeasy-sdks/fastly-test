@@ -16,7 +16,7 @@ export class GetARoleRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetARole200ApplicationJSON extends SpeakeasyBase {}
+export class GetARoleResponseBody extends SpeakeasyBase {}
 
 export class GetARoleResponse extends SpeakeasyBase {
     /**
@@ -41,5 +41,5 @@ export class GetARoleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getARole200ApplicationJSONObject?: GetARole200ApplicationJSON;
+    object?: GetARoleResponseBody;
 }

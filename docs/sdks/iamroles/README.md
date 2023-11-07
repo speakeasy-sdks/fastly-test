@@ -1,5 +1,5 @@
 # IamRoles
-(*iamRoles*)
+(*.iamRoles*)
 
 ## Overview
 

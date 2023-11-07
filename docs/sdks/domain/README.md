@@ -1,5 +1,5 @@
 # Domain
-(*domain*)
+(*.domain*)
 
 ## Overview
 

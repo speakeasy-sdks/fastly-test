@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Transport-specific message payload representations to be used for delivery. At least one format (`http-response`, `http-stream`, and/or `ws-message`) must be specified. Messages are only delivered to subscribers interested in the provided formats. For example, the `ws-message` format will only be sent to WebSocket clients.
  */
-export class PublishItemFormats extends SpeakeasyBase {
+export class Formats extends SpeakeasyBase {
     /**
      * Payload format for delivering to subscribers of whole HTTP responses (`response` hold mode). One of `body` or `body-bin` must be specified.
      */
@@ -53,8 +53,8 @@ export class PublishItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "formats" })
-    @Type(() => PublishItemFormats)
-    formats: PublishItemFormats;
+    @Type(() => Formats)
+    formats: Formats;
 
     /**
      * The ID of the message.

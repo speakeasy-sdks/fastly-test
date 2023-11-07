@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TypeWafFirewallVersion } from "./typewaffirewallversion";
 import { Expose, Type } from "class-transformer";
 
-export class WafFirewallVersionDataAttributesInput extends SpeakeasyBase {
+export class WafFirewallVersionDataAttributes extends SpeakeasyBase {
     /**
      * Allowed HTTP versions.
      */
@@ -218,11 +218,11 @@ export class WafFirewallVersionDataAttributesInput extends SpeakeasyBase {
     xssScoreThreshold?: number;
 }
 
-export class WafFirewallVersionDataInput extends SpeakeasyBase {
+export class WafFirewallVersionData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
-    @Type(() => WafFirewallVersionDataAttributesInput)
-    attributes?: WafFirewallVersionDataAttributesInput;
+    @Type(() => WafFirewallVersionDataAttributes)
+    attributes?: WafFirewallVersionDataAttributes;
 
     /**
      * Resource type.

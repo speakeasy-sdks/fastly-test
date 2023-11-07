@@ -1,5 +1,5 @@
 # WafRuleRevisions
-(*wafRuleRevisions*)
+(*.wafRuleRevisions*)
 
 ## Overview
 

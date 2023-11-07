@@ -1,5 +1,5 @@
 # LoggingLoggly
-(*loggingLoggly*)
+(*.loggingLoggly*)
 
 ## Overview
 

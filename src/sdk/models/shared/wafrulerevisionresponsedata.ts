@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The state, indicating if the revision is the most recent version of the rule.
  */
-export enum WafRuleRevisionResponseDataAttributesState {
+export enum WafRuleRevisionResponseDataState {
     Latest = "latest",
     Outdated = "outdated",
 }
@@ -63,7 +63,7 @@ export class WafRuleRevisionResponseDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state?: WafRuleRevisionResponseDataAttributesState;
+    state?: WafRuleRevisionResponseDataState;
 
     /**
      * The VCL representation of the rule logic.

@@ -1,5 +1,5 @@
 # LoggingSumologic
-(*loggingSumologic*)
+(*.loggingSumologic*)
 
 ## Overview
 

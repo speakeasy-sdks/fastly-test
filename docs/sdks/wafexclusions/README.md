@@ -1,5 +1,5 @@
 # WafExclusions
-(*wafExclusions*)
+(*.wafExclusions*)
 
 ## Overview
 
@@ -25,11 +25,7 @@ Create a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  TypeWafExclusion,
-  WafExclusionDataAttributesExclusionType,
-  WafExclusionDataAttributesVariable,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -163,7 +159,7 @@ List all exclusions for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ListWafRuleExclusionsFilterExclusionType } from "FastlyTestJS/dist/sdk/models/operations";
+import { FilterExclusionType } from "FastlyTestJS/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
@@ -208,11 +204,7 @@ Update a WAF exclusion for a particular firewall version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  TypeWafExclusion,
-  WafExclusionDataAttributesExclusionType,
-  WafExclusionDataAttributesVariable,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

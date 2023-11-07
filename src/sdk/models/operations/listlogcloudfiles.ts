@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListLogCloudfilesRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListLogCloudfilesResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingCloudfilesResponse })
-    loggingCloudfilesResponses?: shared.LoggingCloudfilesResponse[];
+    classes?: shared.LoggingCloudfilesResponse[];
 }

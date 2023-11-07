@@ -16,7 +16,7 @@ export class GetAUserGroupRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetAUserGroup200ApplicationJSON extends SpeakeasyBase {}
+export class GetAUserGroupResponseBody extends SpeakeasyBase {}
 
 export class GetAUserGroupResponse extends SpeakeasyBase {
     /**
@@ -41,5 +41,5 @@ export class GetAUserGroupResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getAUserGroup200ApplicationJSONObject?: GetAUserGroup200ApplicationJSON;
+    object?: GetAUserGroupResponseBody;
 }

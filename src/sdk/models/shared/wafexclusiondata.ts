@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The type of exclusion.
  */
-export enum WafExclusionDataAttributesExclusionType {
+export enum WafExclusionDataExclusionType {
     Rule = "rule",
     Variable = "variable",
     Waf = "waf",
@@ -18,7 +18,7 @@ export enum WafExclusionDataAttributesExclusionType {
 /**
  * The variable to exclude. An optional selector can be specified after the variable separated by a colon (`:`) to restrict the variable to a particular parameter. Required for `exclusion_type=variable`.
  */
-export enum WafExclusionDataAttributesVariable {
+export enum WafExclusionDataVariable {
     ReqCookies = "req.cookies",
     ReqHeaders = "req.headers",
     ReqPost = "req.post",
@@ -40,7 +40,7 @@ export class WafExclusionDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "exclusion_type" })
-    exclusionType?: WafExclusionDataAttributesExclusionType;
+    exclusionType?: WafExclusionDataExclusionType;
 
     /**
      * Whether to generate a log upon matching.
@@ -68,7 +68,7 @@ export class WafExclusionDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "variable" })
-    variable?: WafExclusionDataAttributesVariable;
+    variable?: WafExclusionDataVariable;
 }
 
 export class WafExclusionData extends SpeakeasyBase {

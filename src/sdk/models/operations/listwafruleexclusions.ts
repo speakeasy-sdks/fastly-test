@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 /**
  * Filters the results based on this exclusion type.
  */
-export enum ListWafRuleExclusionsFilterExclusionType {
+export enum FilterExclusionType {
     Rule = "rule",
     Variable = "variable",
     Waf = "waf",
@@ -20,7 +20,7 @@ export class ListWafRuleExclusionsRequest extends SpeakeasyBase {
      * Filters the results based on this exclusion type.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=filter[exclusion_type]" })
-    filterExclusionType?: ListWafRuleExclusionsFilterExclusionType;
+    filterExclusionType?: FilterExclusionType;
 
     /**
      * Filters the results based on name.

@@ -1,5 +1,5 @@
 # TlsDomains
-(*tlsDomains*)
+(*.tlsDomains*)
 
 ## Overview
 

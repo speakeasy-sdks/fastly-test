@@ -10,7 +10,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
  * @remarks
  *
  */
-export enum CacheSettingAction {
+export enum Action {
     Pass = "pass",
     Cache = "cache",
     Restart = "restart",
@@ -24,7 +24,7 @@ export class CacheSetting extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "form, name=action" })
-    action?: CacheSettingAction;
+    action?: Action;
 
     /**
      * Name of the cache condition controlling when this configuration applies.

@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of event. Can be used with `filter[event_type]`
  */
-export enum EventAttributesEventType {
+export enum EventType {
     ApiKeyCreate = "api_key.create",
     AclCreate = "acl.create",
     AclDelete = "acl.delete",
@@ -142,7 +142,7 @@ export enum EventAttributesEventType {
 /**
  * Hash of key value pairs of additional information.
  */
-export class EventAttributesMetadata extends SpeakeasyBase {}
+export class Metadata extends SpeakeasyBase {}
 
 export class EventAttributes extends SpeakeasyBase {
     /**
@@ -176,7 +176,7 @@ export class EventAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "event_type" })
-    eventType?: EventAttributesEventType;
+    eventType?: EventType;
 
     /**
      * IP addresses that the event was requested from.
@@ -190,8 +190,8 @@ export class EventAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    @Type(() => EventAttributesMetadata)
-    metadata?: EventAttributesMetadata;
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
     @SpeakeasyMetadata()
     @Expose({ name: "service_id" })

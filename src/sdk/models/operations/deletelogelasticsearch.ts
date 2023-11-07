@@ -31,7 +31,7 @@ export class DeleteLogElasticsearchRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogElasticsearch200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogElasticsearchResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogElasticsearchResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogElasticsearch200ApplicationJSONObject?: DeleteLogElasticsearch200ApplicationJSON;
+    object?: DeleteLogElasticsearchResponseBody;
 }

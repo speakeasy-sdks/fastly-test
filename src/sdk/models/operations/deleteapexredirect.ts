@@ -14,7 +14,7 @@ export class DeleteApexRedirectRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteApexRedirect200ApplicationJSON extends SpeakeasyBase {
+export class DeleteApexRedirectResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -46,5 +46,5 @@ export class DeleteApexRedirectResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteApexRedirect200ApplicationJSONObject?: DeleteApexRedirect200ApplicationJSON;
+    object?: DeleteApexRedirectResponseBody;
 }

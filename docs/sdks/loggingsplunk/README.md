@@ -1,5 +1,5 @@
 # LoggingSplunk
-(*loggingSplunk*)
+(*.loggingSplunk*)
 
 ## Overview
 

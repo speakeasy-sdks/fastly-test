@@ -1,5 +1,5 @@
 # PublicIpList
-(*publicIpList*)
+(*.publicIpList*)
 
 ## Overview
 

@@ -17,7 +17,7 @@ export class RequestPasswordResetRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class RequestPasswordReset200ApplicationJSON extends SpeakeasyBase {
+export class RequestPasswordResetResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -49,5 +49,5 @@ export class RequestPasswordResetResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    requestPasswordReset200ApplicationJSONObject?: RequestPasswordReset200ApplicationJSON;
+    object?: RequestPasswordResetResponseBody;
 }

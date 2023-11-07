@@ -7,7 +7,7 @@ import { BillingAddressAttributesInput } from "./billingaddressattributes";
 import { TypeBillingAddress } from "./typebillingaddress";
 import { Expose, Type } from "class-transformer";
 
-export class UpdateBillingAddressRequestDataInput extends SpeakeasyBase {
+export class UpdateBillingAddressRequestData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => BillingAddressAttributesInput)
@@ -21,11 +21,11 @@ export class UpdateBillingAddressRequestDataInput extends SpeakeasyBase {
     type?: TypeBillingAddress;
 }
 
-export class UpdateBillingAddressRequestInput extends SpeakeasyBase {
+export class UpdateBillingAddressRequest extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => UpdateBillingAddressRequestDataInput)
-    data?: UpdateBillingAddressRequestDataInput;
+    @Type(() => UpdateBillingAddressRequestData)
+    data?: UpdateBillingAddressRequestData;
 
     /**
      * When set to true, the address will be saved without verification

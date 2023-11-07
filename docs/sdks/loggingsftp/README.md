@@ -1,5 +1,5 @@
 # LoggingSftp
-(*loggingSftp*)
+(*.loggingSftp*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingSftp.createLogSftp({
-    loggingSftpInput: {
+    loggingSftp: {
       address: "example.com",
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingSftpFormatVersion.Two,
@@ -214,7 +214,7 @@ import {
   });
 
   const res = await sdk.loggingSftp.updateLogSftp({
-    loggingSftpInput: {
+    loggingSftp: {
       address: "example.com",
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingSftpFormatVersion.Two,

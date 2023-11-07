@@ -1,5 +1,5 @@
 # Condition
-(*condition*)
+(*.condition*)
 
 ## Overview
 
@@ -22,7 +22,7 @@ Creates a new condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeT } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -30,7 +30,7 @@ import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
   });
 
   const res = await sdk.condition.createCondition({
-    conditionInput: {
+    condition: {
       comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
       name: "test-condition",
       priority: "10",
@@ -186,7 +186,7 @@ Updates the specified condition.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
+import { TypeT } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -194,7 +194,7 @@ import { ConditionType } from "FastlyTestJS/dist/sdk/models/shared";
   });
 
   const res = await sdk.condition.updateCondition({
-    conditionInput: {
+    condition: {
       comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
       name: "test-condition",
       priority: "10",

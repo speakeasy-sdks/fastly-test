@@ -1,5 +1,5 @@
 # LoggingGcs
-(*loggingGcs*)
+(*.loggingGcs*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingGcs.createLogGcs({
-    loggingGcsInput: {
+    loggingGcs: {
       accountName: "test-user@test-project-id.iam.gserviceaccount.com",
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingGcsFormatVersion.Two,
@@ -220,7 +220,7 @@ import {
   });
 
   const res = await sdk.loggingGcs.updateLogGcs({
-    loggingGcsInput: {
+    loggingGcs: {
       accountName: "test-user@test-project-id.iam.gserviceaccount.com",
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingGcsFormatVersion.Two,

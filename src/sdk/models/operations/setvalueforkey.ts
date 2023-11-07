@@ -63,5 +63,5 @@ export class SetValueForKeyResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    setValueForKey200ApplicationOctetStreamByteString?: string;
+    res?: string;
 }

@@ -1,5 +1,5 @@
 # AclEntry
-(*aclEntry*)
+(*.aclEntry*)
 
 ## Overview
 
@@ -24,7 +24,7 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { BulkUpdateAclEntryNegated, BulkUpdateAclEntryOp } from "FastlyTestJS/dist/sdk/models/shared";
+import { BulkUpdateAclEntryNegated, Op } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -33,7 +33,7 @@ import { BulkUpdateAclEntryNegated, BulkUpdateAclEntryOp } from "FastlyTestJS/di
 
   const res = await sdk.aclEntry.bulkUpdateAclEntries({
     aclId: "6tUXdegLTf5BCig0zGFrU3",
-    bulkUpdateAclEntriesRequestInput: {
+    bulkUpdateAclEntriesRequest: {
       entries: [
         {
           comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
@@ -74,7 +74,7 @@ Add an ACL entry to an ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -85,7 +85,7 @@ import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
     aclEntry: {
       comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       ip: "127.0.0.1",
-      negated: AclEntryNegated.One,
+      negated: Negated.One,
       subnet: 8,
     },
     aclId: "6tUXdegLTf5BCig0zGFrU3",
@@ -244,7 +244,7 @@ Update an ACL entry for a specified ACL.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
+import { Negated } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -255,7 +255,7 @@ import { AclEntryNegated } from "FastlyTestJS/dist/sdk/models/shared";
     aclEntry: {
       comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       ip: "127.0.0.1",
-      negated: AclEntryNegated.Zero,
+      negated: Negated.Zero,
       subnet: 8,
     },
     aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",

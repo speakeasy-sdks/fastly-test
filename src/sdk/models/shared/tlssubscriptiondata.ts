@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The entity that issues and certifies the TLS certificates for your subscription.
  */
-export enum TlsSubscriptionDataAttributesCertificateAuthority {
+export enum CertificateAuthority {
     LetsEncrypt = "lets-encrypt",
     Globalsign = "globalsign",
 }
@@ -20,7 +20,7 @@ export class TlsSubscriptionDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "certificate_authority" })
-    certificateAuthority?: TlsSubscriptionDataAttributesCertificateAuthority;
+    certificateAuthority?: CertificateAuthority;
 }
 
 export class TlsSubscriptionData extends SpeakeasyBase {

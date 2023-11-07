@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -103,9 +103,9 @@ export class DictionaryItem {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bulkUpdateDictionaryItem200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.BulkUpdateDictionaryItem200ApplicationJSON
+                        operations.BulkUpdateDictionaryItemResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -278,9 +278,9 @@ export class DictionaryItem {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteDictionaryItem200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteDictionaryItem200ApplicationJSON
+                        operations.DeleteDictionaryItemResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -439,9 +439,9 @@ export class DictionaryItem {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.dictionaryItemResponses = [];
+                    res.classes = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.dictionaryItemResponses = utils.objectToClass(
+                    res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DictionaryItemResponse,
                         resFieldDepth

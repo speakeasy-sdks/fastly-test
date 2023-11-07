@@ -1,5 +1,5 @@
 # Service
-(*service*)
+(*.service*)
 
 ## Overview
 

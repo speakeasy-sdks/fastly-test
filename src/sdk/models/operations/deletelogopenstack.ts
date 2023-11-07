@@ -31,7 +31,7 @@ export class DeleteLogOpenstackRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogOpenstack200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogOpenstackResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogOpenstackResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogOpenstack200ApplicationJSONObject?: DeleteLogOpenstack200ApplicationJSON;
+    object?: DeleteLogOpenstackResponseBody;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsActivations {
      * Enable TLS for a particular TLS domain and certificate combination. These relationships must be specified to create the TLS activation.
      */
     async createTlsActivation(
-        req: shared.TlsActivationInput,
+        req: shared.TlsActivation,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsActivationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsActivationInput(req);
+            req = new shared.TlsActivation(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -351,11 +351,7 @@ export class TlsActivations {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "tlsActivationInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "tlsActivation", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

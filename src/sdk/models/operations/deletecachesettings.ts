@@ -29,7 +29,7 @@ export class DeleteCacheSettingsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteCacheSettings200ApplicationJSON extends SpeakeasyBase {
+export class DeleteCacheSettingsResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteCacheSettingsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteCacheSettings200ApplicationJSONObject?: DeleteCacheSettings200ApplicationJSON;
+    object?: DeleteCacheSettingsResponseBody;
 }

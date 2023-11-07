@@ -19,7 +19,7 @@ export enum LoggingHttpsFormatVersion {
 /**
  * Enforces valid JSON formatting for log entries.
  */
-export enum LoggingHttpsJsonFormat {
+export enum JsonFormat {
     Zero = "0",
     One = "1",
     Two = "2",
@@ -28,7 +28,7 @@ export enum LoggingHttpsJsonFormat {
 /**
  * HTTP method used for request.
  */
-export enum LoggingHttpsMethod {
+export enum Method {
     Post = "POST",
     Put = "PUT",
 }
@@ -83,7 +83,7 @@ export class LoggingHttps extends SpeakeasyBase {
      * Enforces valid JSON formatting for log entries.
      */
     @SpeakeasyMetadata({ data: "form, name=json_format" })
-    jsonFormat?: LoggingHttpsJsonFormat;
+    jsonFormat?: JsonFormat;
 
     /**
      * How the message should be formatted.
@@ -95,7 +95,7 @@ export class LoggingHttps extends SpeakeasyBase {
      * HTTP method used for request.
      */
     @SpeakeasyMetadata({ data: "form, name=method" })
-    method?: LoggingHttpsMethod;
+    method?: Method;
 
     /**
      * The name for the real-time logging configuration.

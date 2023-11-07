@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { InvitationDataInput } from "./invitationdata";
+import { InvitationData } from "./invitationdata";
 import { Expose, Type } from "class-transformer";
 
-export class InvitationInput extends SpeakeasyBase {
+export class Invitation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => InvitationDataInput)
-    data?: InvitationDataInput;
+    @Type(() => InvitationData)
+    data?: InvitationData;
 }

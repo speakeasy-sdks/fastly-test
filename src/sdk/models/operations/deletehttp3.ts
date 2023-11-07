@@ -23,7 +23,7 @@ export class DeleteHttp3Request extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteHttp3200ApplicationJSON extends SpeakeasyBase {
+export class DeleteHttp3ResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -55,5 +55,5 @@ export class DeleteHttp3Response extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteHttp3200ApplicationJSONObject?: DeleteHttp3200ApplicationJSON;
+    object?: DeleteHttp3ResponseBody;
 }

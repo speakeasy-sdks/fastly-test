@@ -3,11 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class ListServiceStars200ApplicationVndApiPlusJsonDataData extends SpeakeasyBase {
+export class ListServiceStarsData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
     @Type(() => shared.RelationshipsForStar)
@@ -21,7 +21,7 @@ export class ListServiceStars200ApplicationVndApiPlusJsonDataData extends Speake
     type?: shared.TypeStar;
 }
 
-export class ListServiceStars200ApplicationVndApiPlusJsonData extends SpeakeasyBase {
+export class Data extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => shared.Timestamps)
@@ -29,15 +29,15 @@ export class ListServiceStars200ApplicationVndApiPlusJsonData extends SpeakeasyB
 
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ListServiceStars200ApplicationVndApiPlusJsonDataData)
-    data?: ListServiceStars200ApplicationVndApiPlusJsonDataData;
+    @Type(() => ListServiceStarsData)
+    data?: ListServiceStarsData;
 
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 }
 
-export class ListServiceStars200ApplicationVndApiPlusJsonLinks extends SpeakeasyBase {
+export class Links extends SpeakeasyBase {
     /**
      * The first page of data.
      */
@@ -67,7 +67,7 @@ export class ListServiceStars200ApplicationVndApiPlusJsonLinks extends Speakeasy
     prev?: string;
 }
 
-export class ListServiceStars200ApplicationVndApiPlusJsonMeta extends SpeakeasyBase {
+export class ListServiceStarsMeta extends SpeakeasyBase {
     /**
      * Current page.
      */
@@ -100,21 +100,21 @@ export class ListServiceStars200ApplicationVndApiPlusJsonMeta extends SpeakeasyB
 /**
  * OK
  */
-export class ListServiceStars200ApplicationVndApiPlusJson extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListServiceStars200ApplicationVndApiPlusJsonData })
+export class ListServiceStarsResponseBody extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Data })
     @Expose({ name: "data" })
-    @Type(() => ListServiceStars200ApplicationVndApiPlusJsonData)
-    data?: ListServiceStars200ApplicationVndApiPlusJsonData[];
+    @Type(() => Data)
+    data?: Data[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "links" })
-    @Type(() => ListServiceStars200ApplicationVndApiPlusJsonLinks)
-    links?: ListServiceStars200ApplicationVndApiPlusJsonLinks;
+    @Type(() => Links)
+    links?: Links;
 
     @SpeakeasyMetadata()
     @Expose({ name: "meta" })
-    @Type(() => ListServiceStars200ApplicationVndApiPlusJsonMeta)
-    meta?: ListServiceStars200ApplicationVndApiPlusJsonMeta;
+    @Type(() => ListServiceStarsMeta)
+    meta?: ListServiceStarsMeta;
 }
 
 export class ListServiceStarsResponse extends SpeakeasyBase {
@@ -140,5 +140,5 @@ export class ListServiceStarsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listServiceStars200ApplicationVndApiPlusJsonObject?: ListServiceStars200ApplicationVndApiPlusJson;
+    object?: ListServiceStarsResponseBody;
 }

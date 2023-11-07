@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateServiceAuthorizationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    serviceAuthorizationInput?: shared.ServiceAuthorizationInput;
+    serviceAuthorization?: shared.ServiceAuthorization;
 
     /**
      * Alphanumeric string identifying a service authorization.

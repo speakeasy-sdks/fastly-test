@@ -1,5 +1,5 @@
 # TlsSubscriptions
-(*tlsSubscriptions*)
+(*.tlsSubscriptions*)
 
 ## Overview
 
@@ -67,7 +67,7 @@ Create a new TLS subscription. This response includes a list of possible challen
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
+import { CertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -270,7 +270,7 @@ Change the TLS domains or common name associated with this subscription, update 
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { TlsSubscriptionDataAttributesCertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
+import { CertificateAuthority, TypeTlsSubscription } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

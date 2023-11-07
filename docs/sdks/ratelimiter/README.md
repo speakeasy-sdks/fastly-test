@@ -1,5 +1,5 @@
 # RateLimiter
-(*rateLimiter*)
+(*.rateLimiter*)
 
 ## Overview
 

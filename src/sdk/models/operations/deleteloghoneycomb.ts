@@ -31,7 +31,7 @@ export class DeleteLogHoneycombRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogHoneycomb200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogHoneycombResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogHoneycomb200ApplicationJSONObject?: DeleteLogHoneycomb200ApplicationJSON;
+    object?: DeleteLogHoneycombResponseBody;
 }

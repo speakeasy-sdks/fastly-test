@@ -29,7 +29,7 @@ export class DeleteCustomVclRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteCustomVcl200ApplicationJSON extends SpeakeasyBase {
+export class DeleteCustomVclResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteCustomVclResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteCustomVcl200ApplicationJSONObject?: DeleteCustomVcl200ApplicationJSON;
+    object?: DeleteCustomVclResponseBody;
 }

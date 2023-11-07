@@ -29,7 +29,7 @@ export class DeleteResourceRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteResource200ApplicationJSON extends SpeakeasyBase {
+export class DeleteResourceResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteResourceResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteResource200ApplicationJSONObject?: DeleteResource200ApplicationJSON;
+    object?: DeleteResourceResponseBody;
 }

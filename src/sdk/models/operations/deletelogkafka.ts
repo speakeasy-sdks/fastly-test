@@ -29,7 +29,7 @@ export class DeleteLogKafkaRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogKafka200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogKafkaResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogKafkaResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogKafka200ApplicationJSONObject?: DeleteLogKafka200ApplicationJSON;
+    object?: DeleteLogKafkaResponseBody;
 }

@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * Sets the snippet version.
  */
-export enum SchemasSnippetResponseDynamic {
+export enum Dynamic {
     Zero = 0,
     One = 1,
 }
@@ -59,7 +59,7 @@ export class SchemasSnippetResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dynamic" })
-    dynamic?: SchemasSnippetResponseDynamic;
+    dynamic?: Dynamic;
 
     @SpeakeasyMetadata()
     @Expose({ name: "id" })

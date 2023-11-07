@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateBillingAddrRequest extends SpeakeasyBase {
@@ -17,7 +17,7 @@ export class UpdateBillingAddrRequest extends SpeakeasyBase {
      * One or more billing address attributes
      */
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    updateBillingAddressRequestInput?: shared.UpdateBillingAddressRequestInput;
+    updateBillingAddressRequest?: shared.UpdateBillingAddressRequest;
 }
 
 export class UpdateBillingAddrResponse extends SpeakeasyBase {

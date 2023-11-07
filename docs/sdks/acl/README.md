@@ -1,5 +1,5 @@
 # Acl
-(*acl*)
+(*.acl*)
 
 ## Overview
 

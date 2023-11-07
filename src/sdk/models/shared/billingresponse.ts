@@ -6,7 +6,7 @@ import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../intern
 import { BillingResponseLineItem } from "./billingresponselineitem";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class BillingResponseRegionsTiers extends SpeakeasyBase {
+export class BillingResponseTiers extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
@@ -25,10 +25,10 @@ export class BillingResponseRegionsTiers extends SpeakeasyBase {
 }
 
 export class BillingResponseRegions extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BillingResponseRegionsTiers })
+    @SpeakeasyMetadata({ elemType: BillingResponseTiers })
     @Expose({ name: "tiers" })
-    @Type(() => BillingResponseRegionsTiers)
-    tiers?: BillingResponseRegionsTiers[];
+    @Type(() => BillingResponseTiers)
+    tiers?: BillingResponseTiers[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "total" })
@@ -38,7 +38,7 @@ export class BillingResponseRegions extends SpeakeasyBase {
 /**
  * What the current status of this invoice can be.
  */
-export enum BillingResponseStatusStatus {
+export enum BillingResponseSchemasStatus {
     Pending = "Pending",
     Outstanding = "Outstanding",
     Paid = "Paid",
@@ -59,10 +59,10 @@ export class BillingResponseStatus extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: BillingResponseStatusStatus;
+    status?: BillingResponseSchemasStatus;
 }
 
-export class BillingResponseTotalExtras extends SpeakeasyBase {
+export class BillingResponseExtras extends SpeakeasyBase {
     /**
      * The name of this extra cost.
      */
@@ -134,10 +134,10 @@ export class BillingResponseTotal extends SpeakeasyBase {
     /**
      * A list of any extras for this invoice.
      */
-    @SpeakeasyMetadata({ elemType: BillingResponseTotalExtras })
+    @SpeakeasyMetadata({ elemType: BillingResponseExtras })
     @Expose({ name: "extras" })
-    @Type(() => BillingResponseTotalExtras)
-    extras?: BillingResponseTotalExtras[];
+    @Type(() => BillingResponseExtras)
+    extras?: BillingResponseExtras[];
 
     /**
      * Total cost of all extras.

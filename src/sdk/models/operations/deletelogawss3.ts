@@ -29,7 +29,7 @@ export class DeleteLogAwsS3Request extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogAwsS3200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogAwsS3ResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogAwsS3Response extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogAwsS3200ApplicationJSONObject?: DeleteLogAwsS3200ApplicationJSON;
+    object?: DeleteLogAwsS3ResponseBody;
 }

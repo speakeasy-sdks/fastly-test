@@ -1,5 +1,5 @@
 # LoggingSyslog
-(*loggingSyslog*)
+(*.loggingSyslog*)
 
 ## Overview
 

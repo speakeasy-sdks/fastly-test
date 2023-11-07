@@ -1,5 +1,5 @@
 # TlsCertificates
-(*tlsCertificates*)
+(*.tlsCertificates*)
 
 ## Overview
 
@@ -51,10 +51,10 @@ import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.TlsCertificateInput](../../models/shared/tlscertificateinput.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `request`                                                      | [shared.TlsCertificate](../../models/shared/tlscertificate.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
+| `config`                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)   | :heavy_minus_sign:                                             | Available config options for making requests.                  |
 
 
 ### Response
@@ -194,7 +194,7 @@ import { TypeTlsCertificate, TypeTlsDomain } from "FastlyTestJS/dist/sdk/models/
   });
 
   const res = await sdk.tlsCertificates.updateTlsCert({
-    tlsCertificateInput: {
+    tlsCertificate: {
       data: {
         attributes: {},
         relationships: {

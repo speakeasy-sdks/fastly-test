@@ -16,7 +16,7 @@ export enum PoolType {
 /**
  * Whether to use TLS.
  */
-export enum PoolUseTls {
+export enum UseTls {
     Zero = 0,
     One = 1,
 }
@@ -146,5 +146,5 @@ export class Pool extends SpeakeasyBase {
      * Whether to use TLS.
      */
     @SpeakeasyMetadata({ data: "form, name=use_tls" })
-    useTls?: PoolUseTls;
+    useTls?: UseTls;
 }

@@ -9,12 +9,8 @@ import { Fastly } from "FastlyTestJS";
         token: "",
     });
 
-    const res = await sdk.acl.createAcl({
-        acl: {
-            name: "test-acl",
-        },
-        serviceId: "SU1Z0isxPaozGVKXdv0eY",
-        versionId: 1,
+    const res = await sdk.apexRedirect.deleteApexRedirect({
+        apexRedirectId: "string",
     });
 
     if (res.statusCode == 200) {

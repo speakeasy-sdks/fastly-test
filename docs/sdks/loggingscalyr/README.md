@@ -1,5 +1,5 @@
 # LoggingScalyr
-(*loggingScalyr*)
+(*.loggingScalyr*)
 
 ## Overview
 

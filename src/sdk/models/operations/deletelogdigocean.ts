@@ -31,7 +31,7 @@ export class DeleteLogDigoceanRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogDigocean200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogDigoceanResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogDigoceanResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogDigocean200ApplicationJSONObject?: DeleteLogDigocean200ApplicationJSON;
+    object?: DeleteLogDigoceanResponseBody;
 }

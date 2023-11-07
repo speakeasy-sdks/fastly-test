@@ -1,5 +1,5 @@
 # Package
-(*package*)
+(*.package*)
 
 ## Overview
 
@@ -68,8 +68,8 @@ import { Fastly } from "FastlyTestJS";
   const res = await sdk.package.putPackage({
     packageUpload: {
       package: {
-        content: "PP--<\xXmX" as bytes <<<>>>,
-        package: "string",
+        content: new TextEncoder().encode("0xbb336eEdCd"),
+        fileName: "industrial.pdf",
       },
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

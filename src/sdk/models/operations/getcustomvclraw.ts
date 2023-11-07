@@ -48,5 +48,5 @@ export class GetCustomVclRawResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getCustomVclRaw200TextPlainString?: string;
+    res?: string;
 }

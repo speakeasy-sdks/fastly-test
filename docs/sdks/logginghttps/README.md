@@ -1,5 +1,5 @@
 # LoggingHttps
-(*loggingHttps*)
+(*.loggingHttps*)
 
 ## Overview
 
@@ -23,11 +23,11 @@ Create an HTTPS object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import {
+  JsonFormat,
   LoggingHttpsFormatVersion,
-  LoggingHttpsJsonFormat,
-  LoggingHttpsMethod,
   LoggingHttpsPlacement,
   LoggingMessageType,
+  Method,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
@@ -196,11 +196,11 @@ Update the HTTPS object for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import {
+  JsonFormat,
   LoggingHttpsFormatVersion,
-  LoggingHttpsJsonFormat,
-  LoggingHttpsMethod,
   LoggingHttpsPlacement,
   LoggingMessageType,
+  Method,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {

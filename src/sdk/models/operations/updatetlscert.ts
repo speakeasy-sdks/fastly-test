@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateTlsCertRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsCertificateInput?: shared.TlsCertificateInput;
+    tlsCertificate?: shared.TlsCertificate;
 
     /**
      * Alphanumeric string identifying a TLS certificate.

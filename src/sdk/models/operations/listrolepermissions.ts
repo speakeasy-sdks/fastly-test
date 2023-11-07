@@ -16,7 +16,7 @@ export class ListRolePermissionsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListRolePermissions200ApplicationJSON extends SpeakeasyBase {}
+export class ListRolePermissionsResponseBody extends SpeakeasyBase {}
 
 export class ListRolePermissionsResponse extends SpeakeasyBase {
     /**
@@ -41,5 +41,5 @@ export class ListRolePermissionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listRolePermissions200ApplicationJSONObject?: ListRolePermissions200ApplicationJSON;
+    object?: ListRolePermissionsResponseBody;
 }

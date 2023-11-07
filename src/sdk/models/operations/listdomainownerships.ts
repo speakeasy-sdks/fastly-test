@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * OK
  */
-export class ListDomainOwnerships200ApplicationVndApiPlusJson extends SpeakeasyBase {
+export class ListDomainOwnershipsResponseBody extends SpeakeasyBase {
     /**
      * Time-stamp (GMT) when the domain_ownership validation will expire.
      */
@@ -41,5 +41,5 @@ export class ListDomainOwnershipsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listDomainOwnerships200ApplicationVndApiPlusJsonObject?: ListDomainOwnerships200ApplicationVndApiPlusJson;
+    object?: ListDomainOwnershipsResponseBody;
 }

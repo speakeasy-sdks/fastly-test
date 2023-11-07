@@ -1,5 +1,5 @@
 # Historical
-(*historical*)
+(*.historical*)
 
 ## Overview
 

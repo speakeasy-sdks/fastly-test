@@ -29,7 +29,7 @@ export class DeleteGzipConfigRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteGzipConfig200ApplicationJSON extends SpeakeasyBase {
+export class DeleteGzipConfigResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteGzipConfigResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteGzipConfig200ApplicationJSONObject?: DeleteGzipConfig200ApplicationJSON;
+    object?: DeleteGzipConfigResponseBody;
 }

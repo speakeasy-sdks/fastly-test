@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListConfigStoreItemsRequest extends SpeakeasyBase {
@@ -37,5 +37,5 @@ export class ListConfigStoreItemsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.ConfigStoreItemResponse })
-    configStoreItemResponses?: shared.ConfigStoreItemResponse[];
+    classes?: shared.ConfigStoreItemResponse[];
 }

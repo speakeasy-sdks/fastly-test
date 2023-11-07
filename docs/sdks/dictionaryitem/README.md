@@ -1,5 +1,5 @@
 # DictionaryItem
-(*dictionaryItem*)
+(*.dictionaryItem*)
 
 ## Overview
 

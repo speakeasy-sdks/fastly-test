@@ -1,5 +1,5 @@
 # DirectorBackend
-(*directorBackend*)
+(*.directorBackend*)
 
 ## Overview
 

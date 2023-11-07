@@ -8,7 +8,7 @@ import { LoggingUseTls } from "./loggingusetls";
 /**
  * SASL authentication method.
  */
-export enum LoggingKafkaAuthMethod {
+export enum AuthMethod {
     Plain = "plain",
     ScramSha256 = "scram-sha-256",
     ScramSha512 = "scram-sha-512",
@@ -50,7 +50,7 @@ export enum LoggingKafkaPlacement {
 /**
  * The number of acknowledgements a leader must receive before a write is considered successful.
  */
-export enum LoggingKafkaRequiredAcks {
+export enum RequiredAcks {
     One = 1,
     Zero = 0,
     Minus1 = -1,
@@ -61,7 +61,7 @@ export class LoggingKafka extends SpeakeasyBase {
      * SASL authentication method.
      */
     @SpeakeasyMetadata({ data: "form, name=auth_method" })
-    authMethod?: LoggingKafkaAuthMethod;
+    authMethod?: AuthMethod;
 
     /**
      * A comma-separated list of IP addresses or hostnames of Kafka brokers. Required.
@@ -127,7 +127,7 @@ export class LoggingKafka extends SpeakeasyBase {
      * The number of acknowledgements a leader must receive before a write is considered successful.
      */
     @SpeakeasyMetadata({ data: "form, name=required_acks" })
-    requiredAcks?: LoggingKafkaRequiredAcks;
+    requiredAcks?: RequiredAcks;
 
     /**
      * The name of an existing condition in the configured endpoint, or leave blank to always execute.

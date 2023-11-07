@@ -1,5 +1,5 @@
 # LoggingLogentries
-(*loggingLogentries*)
+(*.loggingLogentries*)
 
 ## Overview
 

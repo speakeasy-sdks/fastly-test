@@ -29,7 +29,7 @@ export class DeleteConditionRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteCondition200ApplicationJSON extends SpeakeasyBase {
+export class DeleteConditionResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteConditionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteCondition200ApplicationJSONObject?: DeleteCondition200ApplicationJSON;
+    object?: DeleteConditionResponseBody;
 }

@@ -1,5 +1,5 @@
 # VclDiff
-(*vclDiff*)
+(*.vclDiff*)
 
 ## Overview
 

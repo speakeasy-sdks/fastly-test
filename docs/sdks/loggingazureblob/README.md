@@ -1,5 +1,5 @@
 # LoggingAzureblob
-(*loggingAzureblob*)
+(*.loggingAzureblob*)
 
 ## Overview
 
@@ -22,12 +22,7 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  LoggingAzureblobCompressionCodec,
-  LoggingAzureblobFormatVersion,
-  LoggingAzureblobMessageType,
-  LoggingAzureblobPlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -35,14 +30,14 @@ import {
   });
 
   const res = await sdk.loggingAzureblob.createLogAzure({
-    loggingAzureblobInput: {
+    loggingAzureblob: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingAzureblobFormatVersion.Two,
+      formatVersion: FormatVersion.Two,
       gzipLevel: 0,
-      messageType: LoggingAzureblobMessageType.Classic,
+      messageType: MessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingAzureblobPlacement.WafDebug,
+      placement: Placement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -200,12 +195,7 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import {
-  LoggingAzureblobCompressionCodec,
-  LoggingAzureblobFormatVersion,
-  LoggingAzureblobMessageType,
-  LoggingAzureblobPlacement,
-} from "FastlyTestJS/dist/sdk/models/shared";
+import { CompressionCodec, FormatVersion, MessageType, Placement } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -213,14 +203,14 @@ import {
   });
 
   const res = await sdk.loggingAzureblob.updateLogAzure({
-    loggingAzureblobInput: {
+    loggingAzureblob: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
-      formatVersion: LoggingAzureblobFormatVersion.Two,
+      formatVersion: FormatVersion.Two,
       gzipLevel: 0,
-      messageType: LoggingAzureblobMessageType.Classic,
+      messageType: MessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingAzureblobPlacement.LessThanNilGreaterThan,
+      placement: Placement.LessThanNilGreaterThan,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

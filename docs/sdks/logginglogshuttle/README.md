@@ -1,5 +1,5 @@
 # LoggingLogshuttle
-(*loggingLogshuttle*)
+(*.loggingLogshuttle*)
 
 ## Overview
 

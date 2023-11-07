@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 /**
  * OK
  */
-export class ListPermissions200ApplicationJSON extends SpeakeasyBase {}
+export class ListPermissionsResponseBody extends SpeakeasyBase {}
 
 export class ListPermissionsResponse extends SpeakeasyBase {
     /**
@@ -33,5 +33,5 @@ export class ListPermissionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listPermissions200ApplicationJSONObject?: ListPermissions200ApplicationJSON;
+    object?: ListPermissionsResponseBody;
 }

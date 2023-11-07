@@ -25,7 +25,7 @@ export class CreateGlobalsignEmailChallengeRequest extends SpeakeasyBase {
 /**
  * Created
  */
-export class CreateGlobalsignEmailChallenge201ApplicationJSON extends SpeakeasyBase {}
+export class CreateGlobalsignEmailChallengeResponseBody extends SpeakeasyBase {}
 
 export class CreateGlobalsignEmailChallengeResponse extends SpeakeasyBase {
     /**
@@ -50,5 +50,5 @@ export class CreateGlobalsignEmailChallengeResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    createGlobalsignEmailChallenge201ApplicationJSONObject?: CreateGlobalsignEmailChallenge201ApplicationJSON;
+    object?: CreateGlobalsignEmailChallengeResponseBody;
 }

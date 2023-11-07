@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Describes the behavior for the particular rule revision within this firewall version.
  */
-export enum WafActiveRuleDataAttributesStatus {
+export enum WafActiveRuleDataStatus {
     Log = "log",
     Block = "block",
     Score = "score",
@@ -32,7 +32,7 @@ export class WafActiveRuleDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: WafActiveRuleDataAttributesStatus;
+    status?: WafActiveRuleDataStatus;
 }
 
 export class WafActiveRuleData extends SpeakeasyBase {

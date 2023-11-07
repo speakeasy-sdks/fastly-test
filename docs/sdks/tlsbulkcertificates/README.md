@@ -1,5 +1,5 @@
 # TlsBulkCertificates
-(*tlsBulkCertificates*)
+(*.tlsBulkCertificates*)
 
 ## Overview
 

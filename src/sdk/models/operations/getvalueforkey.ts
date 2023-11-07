@@ -39,5 +39,5 @@ export class GetValueForKeyResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getValueForKey200ApplicationOctetStreamByteString?: string;
+    res?: string;
 }

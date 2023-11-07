@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Whether to negate the match. Useful primarily when creating individual exceptions to larger subnets.
  */
-export enum AclEntryNegated {
+export enum Negated {
     Zero = 0,
     One = 1,
 }
@@ -33,7 +33,7 @@ export class AclEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "negated" })
-    negated?: AclEntryNegated;
+    negated?: Negated;
 
     /**
      * Number of bits for the subnet mask applied to the IP address. For IPv4 addresses, a value of 32 represents the smallest subnet mask (1 address), 24 represents a class C subnet mask (256 addresses), 16 represents a class B subnet mask (65k addresses), and 8 is class A subnet mask (16m addresses). If not provided, no mask is applied.

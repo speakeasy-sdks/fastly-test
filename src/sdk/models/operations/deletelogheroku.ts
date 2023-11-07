@@ -29,7 +29,7 @@ export class DeleteLogHerokuRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogHeroku200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogHerokuResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogHerokuResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogHeroku200ApplicationJSONObject?: DeleteLogHeroku200ApplicationJSON;
+    object?: DeleteLogHerokuResponseBody;
 }

@@ -29,7 +29,7 @@ export class DeleteDirectorRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteDirector200ApplicationJSON extends SpeakeasyBase {
+export class DeleteDirectorResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteDirectorResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteDirector200ApplicationJSONObject?: DeleteDirector200ApplicationJSON;
+    object?: DeleteDirectorResponseBody;
 }

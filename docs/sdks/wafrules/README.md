@@ -1,5 +1,5 @@
 # WafRules
-(*wafRules*)
+(*.wafRules*)
 
 ## Overview
 

@@ -31,7 +31,7 @@ export class DeleteLogCloudfilesRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogCloudfiles200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogCloudfilesResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogCloudfilesResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogCloudfiles200ApplicationJSONObject?: DeleteLogCloudfiles200ApplicationJSON;
+    object?: DeleteLogCloudfilesResponseBody;
 }

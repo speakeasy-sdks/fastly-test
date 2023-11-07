@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The permission the accepting user will have in relation to the service.
  */
-export enum ServiceInvitationDataAttributesPermission {
+export enum ServiceInvitationDataPermission {
     Full = "full",
     ReadOnly = "read_only",
     PurgeSelect = "purge_select",
@@ -23,20 +23,20 @@ export class ServiceInvitationDataAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "permission" })
-    permission?: ServiceInvitationDataAttributesPermission;
+    permission?: ServiceInvitationDataPermission;
 }
 
 /**
  * Service the accepting user will have access to.
  */
-export class ServiceInvitationDataRelationshipsInput extends SpeakeasyBase {
+export class ServiceInvitationDataRelationships extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "service" })
     @Type(() => RelationshipMemberServiceInput)
     service?: RelationshipMemberServiceInput;
 }
 
-export class ServiceInvitationDataInput extends SpeakeasyBase {
+export class ServiceInvitationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => ServiceInvitationDataAttributes)
@@ -47,8 +47,8 @@ export class ServiceInvitationDataInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => ServiceInvitationDataRelationshipsInput)
-    relationships?: ServiceInvitationDataRelationshipsInput;
+    @Type(() => ServiceInvitationDataRelationships)
+    relationships?: ServiceInvitationDataRelationships;
 
     /**
      * Resource type

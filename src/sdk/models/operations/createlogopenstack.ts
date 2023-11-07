@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class CreateLogOpenstackRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingOpenstackInput?: shared.LoggingOpenstackInput;
+    loggingOpenstack?: shared.LoggingOpenstack;
 
     /**
      * Alphanumeric string identifying the service.

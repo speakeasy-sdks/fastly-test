@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class PublishRequest extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class PublishResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    publish200TextPlainString?: string;
+    res?: string;
 }

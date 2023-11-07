@@ -1,5 +1,5 @@
 # BillingAddress
-(*billingAddress*)
+(*.billingAddress*)
 
 ## Overview
 
@@ -29,7 +29,7 @@ import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
   });
 
   const res = await sdk.billingAddress.addBillingAddr({
-    billingAddressRequestInput: {
+    billingAddressRequest: {
       data: {
         attributes: {
           address1: "80719 Dorothea Mountain",
@@ -158,7 +158,7 @@ import { TypeBillingAddress } from "FastlyTestJS/dist/sdk/models/shared";
 
   const res = await sdk.billingAddress.updateBillingAddr({
     customerId: "x4xCwxxJxGCx123Rx5xTx",
-    updateBillingAddressRequestInput: {
+    updateBillingAddressRequest: {
       data: {
         attributes: {
           address1: "80719 Dorothea Mountain",

@@ -1,5 +1,5 @@
 # LoggingHeroku
-(*loggingHeroku*)
+(*.loggingHeroku*)
 
 ## Overview
 

@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Rule publisher.
  */
-export enum WafRuleAttributesPublisher {
+export enum Publisher {
     Fastly = "fastly",
     Trustwave = "trustwave",
     Owasp = "owasp",
@@ -18,7 +18,7 @@ export enum WafRuleAttributesPublisher {
 /**
  * The rule's [type](https://docs.fastly.com/en/guides/managing-rules-on-the-fastly-waf#understanding-the-types-of-rules).
  */
-export enum WafRuleAttributesType {
+export enum WafRuleType {
     Strict = "strict",
     Score = "score",
     Threshold = "threshold",
@@ -37,14 +37,14 @@ export class WafRuleAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "publisher" })
-    publisher?: WafRuleAttributesPublisher;
+    publisher?: Publisher;
 
     /**
      * The rule's [type](https://docs.fastly.com/en/guides/managing-rules-on-the-fastly-waf#understanding-the-types-of-rules).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: WafRuleAttributesType;
+    type?: WafRuleType;
 }
 
 export class WafRule extends SpeakeasyBase {

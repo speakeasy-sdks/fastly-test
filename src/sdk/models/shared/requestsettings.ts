@@ -15,7 +15,7 @@ export enum RequestSettingsAction {
 /**
  * Short for X-Forwarded-For.
  */
-export enum RequestSettingsXff {
+export enum Xff {
     Clear = "clear",
     Leave = "leave",
     Append = "append",
@@ -94,5 +94,5 @@ export class RequestSettings extends SpeakeasyBase {
      * Short for X-Forwarded-For.
      */
     @SpeakeasyMetadata({ data: "form, name=xff" })
-    xff?: RequestSettingsXff;
+    xff?: Xff;
 }

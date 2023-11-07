@@ -1,5 +1,5 @@
 # Diff
-(*diff*)
+(*.diff*)
 
 ## Overview
 

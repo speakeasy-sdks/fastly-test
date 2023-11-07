@@ -1,5 +1,5 @@
 # LoggingDatadog
-(*loggingDatadog*)
+(*.loggingDatadog*)
 
 ## Overview
 

@@ -1,5 +1,5 @@
 # KvStore
-(*kvStore*)
+(*.kvStore*)
 
 ## Overview
 

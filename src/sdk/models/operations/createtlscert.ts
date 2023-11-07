@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 /**
  * Created
  */
-export class CreateTlsCert201ApplicationVndApiPlusJson extends SpeakeasyBase {}
+export class CreateTlsCertResponseBody extends SpeakeasyBase {}
 
 export class CreateTlsCertResponse extends SpeakeasyBase {
     /**
@@ -33,5 +33,5 @@ export class CreateTlsCertResponse extends SpeakeasyBase {
      * Created
      */
     @SpeakeasyMetadata()
-    createTlsCert201ApplicationVndApiPlusJsonObject?: CreateTlsCert201ApplicationVndApiPlusJson;
+    object?: CreateTlsCertResponseBody;
 }

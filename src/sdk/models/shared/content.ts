@@ -5,9 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class ContentRequest extends SpeakeasyBase {}
+export class Request extends SpeakeasyBase {}
 
-export class ContentResponse extends SpeakeasyBase {}
+export class Response extends SpeakeasyBase {}
 
 export class Content extends SpeakeasyBase {
     @SpeakeasyMetadata()
@@ -20,13 +20,13 @@ export class Content extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "request" })
-    @Type(() => ContentRequest)
-    request?: ContentRequest;
+    @Type(() => Request)
+    request?: Request;
 
     @SpeakeasyMetadata()
     @Expose({ name: "response" })
-    @Type(() => ContentResponse)
-    response?: ContentResponse;
+    @Type(() => Response)
+    response?: Response;
 
     @SpeakeasyMetadata()
     @Expose({ name: "response_time" })

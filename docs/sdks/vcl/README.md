@@ -1,5 +1,5 @@
 # Vcl
-(*vcl*)
+(*.vcl*)
 
 ## Overview
 

@@ -9,4 +9,4 @@
 | `headers`                                               | Record<string, *string*[]>                              | :heavy_minus_sign:                                      | N/A                                                     |
 | `statusCode`                                            | *number*                                                | :heavy_check_mark:                                      | HTTP response status code for this operation            |
 | `rawResponse`                                           | [AxiosResponse](https://axios-http.com/docs/res_schema) | :heavy_minus_sign:                                      | Raw HTTP response; suitable for custom response parsing |
-| `setValueForKey200ApplicationOctetStreamByteString`     | *string*                                                | :heavy_minus_sign:                                      | OK                                                      |
+| `res`                                                   | *string*                                                | :heavy_minus_sign:                                      | OK                                                      |

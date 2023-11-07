@@ -1,5 +1,5 @@
 # Dictionary
-(*dictionary*)
+(*.dictionary*)
 
 ## Overview
 

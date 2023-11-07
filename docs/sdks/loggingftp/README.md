@@ -1,5 +1,5 @@
 # LoggingFtp
-(*loggingFtp*)
+(*.loggingFtp*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingFtp.createLogFtp({
-    loggingFtpInput: {
+    loggingFtp: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingFtpFormatVersion.Two,
       gzipLevel: 0,
@@ -213,7 +213,7 @@ import {
   });
 
   const res = await sdk.loggingFtp.updateLogFtp({
-    loggingFtpInput: {
+    loggingFtp: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingFtpFormatVersion.Two,
       gzipLevel: 0,

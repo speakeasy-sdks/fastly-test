@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListLogHerokuRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListLogHerokuResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingHerokuResponse })
-    loggingHerokuResponses?: shared.LoggingHerokuResponse[];
+    classes?: shared.LoggingHerokuResponse[];
 }

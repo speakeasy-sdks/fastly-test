@@ -24,7 +24,7 @@ export class DeployActivateWafFirewallVersionRequest extends SpeakeasyBase {
 /**
  * Accepted
  */
-export class DeployActivateWafFirewallVersion202ApplicationVndApiPlusJson extends SpeakeasyBase {}
+export class DeployActivateWafFirewallVersionResponseBody extends SpeakeasyBase {}
 
 export class DeployActivateWafFirewallVersionResponse extends SpeakeasyBase {
     /**
@@ -49,5 +49,5 @@ export class DeployActivateWafFirewallVersionResponse extends SpeakeasyBase {
      * Accepted
      */
     @SpeakeasyMetadata()
-    deployActivateWafFirewallVersion202ApplicationVndApiPlusJsonObject?: DeployActivateWafFirewallVersion202ApplicationVndApiPlusJson;
+    object?: DeployActivateWafFirewallVersionResponseBody;
 }

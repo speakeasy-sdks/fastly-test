@@ -29,7 +29,7 @@ export class DeleteLogBigqueryRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogBigquery200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogBigqueryResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogBigqueryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogBigquery200ApplicationJSONObject?: DeleteLogBigquery200ApplicationJSON;
+    object?: DeleteLogBigqueryResponseBody;
 }

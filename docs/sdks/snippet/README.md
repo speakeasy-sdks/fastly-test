@@ -1,5 +1,5 @@
 # Snippet
-(*snippet*)
+(*.snippet*)
 
 ## Overview
 

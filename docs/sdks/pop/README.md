@@ -1,5 +1,5 @@
 # Pop
-(*pop*)
+(*.pop*)
 
 ## Overview
 

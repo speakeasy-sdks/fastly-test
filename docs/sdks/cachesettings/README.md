@@ -1,5 +1,5 @@
 # CacheSettings
-(*cacheSettings*)
+(*.cacheSettings*)
 
 ## Overview
 
@@ -22,7 +22,7 @@ Create a cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Action } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,7 +185,7 @@ Update a specific cache settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { CacheSettingAction } from "FastlyTestJS/dist/sdk/models/shared";
+import { Action } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

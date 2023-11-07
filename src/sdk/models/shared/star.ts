@@ -7,7 +7,7 @@ import { RelationshipsForStarInput } from "./relationshipsforstar";
 import { TypeStar } from "./typestar";
 import { Expose, Type } from "class-transformer";
 
-export class StarDataInput extends SpeakeasyBase {
+export class StarData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
     @Type(() => RelationshipsForStarInput)
@@ -21,9 +21,9 @@ export class StarDataInput extends SpeakeasyBase {
     type?: TypeStar;
 }
 
-export class StarInput extends SpeakeasyBase {
+export class Star extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => StarDataInput)
-    data?: StarDataInput;
+    @Type(() => StarData)
+    data?: StarData;
 }

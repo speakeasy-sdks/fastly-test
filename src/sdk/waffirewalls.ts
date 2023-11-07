@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -32,11 +32,11 @@ export class WafFirewalls {
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createWafFirewall(
-        req: shared.WafFirewallInput,
+        req: shared.WafFirewall,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateWafFirewallResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.WafFirewallInput(req);
+            req = new shared.WafFirewall(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -141,7 +141,7 @@ export class WafFirewalls {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewallInput", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewall", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -376,7 +376,7 @@ export class WafFirewalls {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewallInput", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "wafFirewall", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

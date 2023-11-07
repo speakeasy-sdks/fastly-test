@@ -1,5 +1,5 @@
 # ConfigStore
-(*configStore*)
+(*.configStore*)
 
 ## Overview
 

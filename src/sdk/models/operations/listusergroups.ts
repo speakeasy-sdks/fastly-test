@@ -22,7 +22,7 @@ export class ListUserGroupsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListUserGroups200ApplicationJSON extends SpeakeasyBase {}
+export class ListUserGroupsResponseBody extends SpeakeasyBase {}
 
 export class ListUserGroupsResponse extends SpeakeasyBase {
     /**
@@ -47,5 +47,5 @@ export class ListUserGroupsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listUserGroups200ApplicationJSONObject?: ListUserGroups200ApplicationJSON;
+    object?: ListUserGroupsResponseBody;
 }

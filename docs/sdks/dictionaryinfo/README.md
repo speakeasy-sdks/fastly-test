@@ -1,5 +1,5 @@
 # DictionaryInfo
-(*dictionaryInfo*)
+(*.dictionaryInfo*)
 
 ## Overview
 

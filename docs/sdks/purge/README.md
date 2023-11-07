@@ -1,5 +1,5 @@
 # Purge
-(*purge*)
+(*.purge*)
 
 ## Overview
 

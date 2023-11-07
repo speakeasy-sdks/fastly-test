@@ -1,5 +1,5 @@
 # LoggingDigitalocean
-(*loggingDigitalocean*)
+(*.loggingDigitalocean*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingDigitalocean.createLogDigocean({
-    loggingDigitaloceanInput: {
+    loggingDigitalocean: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingDigitaloceanFormatVersion.Two,
       gzipLevel: 0,
@@ -213,7 +213,7 @@ import {
   });
 
   const res = await sdk.loggingDigitalocean.updateLogDigocean({
-    loggingDigitaloceanInput: {
+    loggingDigitalocean: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingDigitaloceanFormatVersion.Two,
       gzipLevel: 0,

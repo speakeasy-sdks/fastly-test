@@ -1,5 +1,5 @@
 # Http3
-(*http3*)
+(*.http3*)
 
 ## Overview
 
@@ -27,7 +27,7 @@ import { Fastly } from "FastlyTestJS";
   });
 
   const res = await sdk.http3.createHttp3({
-    http3Input: {},
+    http3: {},
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
   });

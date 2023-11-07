@@ -1,5 +1,5 @@
 # KvStoreItem
-(*kvStoreItem*)
+(*.kvStoreItem*)
 
 ## Overview
 

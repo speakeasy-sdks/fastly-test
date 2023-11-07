@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListRateLimitersRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListRateLimitersResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.RateLimiterResponse })
-    rateLimiterResponses?: shared.RateLimiterResponse[];
+    classes?: shared.RateLimiterResponse[];
 }

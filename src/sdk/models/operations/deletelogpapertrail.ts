@@ -31,7 +31,7 @@ export class DeleteLogPapertrailRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogPapertrail200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogPapertrailResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -63,5 +63,5 @@ export class DeleteLogPapertrailResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogPapertrail200ApplicationJSONObject?: DeleteLogPapertrail200ApplicationJSON;
+    object?: DeleteLogPapertrailResponseBody;
 }

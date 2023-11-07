@@ -1,5 +1,5 @@
 # LoggingOpenstack
-(*loggingOpenstack*)
+(*.loggingOpenstack*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingOpenstack.createLogOpenstack({
-    loggingOpenstackInput: {
+    loggingOpenstack: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingOpenstackFormatVersion.Two,
       gzipLevel: 0,
@@ -213,7 +213,7 @@ import {
   });
 
   const res = await sdk.loggingOpenstack.updateLogOpenstack({
-    loggingOpenstackInput: {
+    loggingOpenstack: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingOpenstackFormatVersion.Two,
       gzipLevel: 0,

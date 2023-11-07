@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class ServiceAuthorizations {
      * Create service authorization.
      */
     async createServiceAuthorization(
-        req: shared.ServiceAuthorizationInput,
+        req: shared.ServiceAuthorization,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateServiceAuthorizationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.ServiceAuthorizationInput(req);
+            req = new shared.ServiceAuthorization(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -365,7 +365,7 @@ export class ServiceAuthorizations {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "serviceAuthorizationInput",
+                "serviceAuthorization",
                 "json"
             );
         } catch (e: unknown) {

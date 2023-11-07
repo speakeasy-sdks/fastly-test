@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListLogSplunkRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListLogSplunkResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingSplunkResponse })
-    loggingSplunkResponses?: shared.LoggingSplunkResponse[];
+    classes?: shared.LoggingSplunkResponse[];
 }

@@ -23,7 +23,7 @@ export class DeleteConfigStoreItemRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteConfigStoreItem200ApplicationJSON extends SpeakeasyBase {
+export class DeleteConfigStoreItemResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -55,5 +55,5 @@ export class DeleteConfigStoreItemResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteConfigStoreItem200ApplicationJSONObject?: DeleteConfigStoreItem200ApplicationJSON;
+    object?: DeleteConfigStoreItemResponseBody;
 }

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -140,9 +140,9 @@ export class IamUserGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAUserGroup200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAUserGroup200ApplicationJSON
+                        operations.GetAUserGroupResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -217,9 +217,9 @@ export class IamUserGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listUserGroupMembers200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListUserGroupMembers200ApplicationJSON
+                        operations.ListUserGroupMembersResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -294,9 +294,9 @@ export class IamUserGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listUserGroupRoles200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListUserGroupRoles200ApplicationJSON
+                        operations.ListUserGroupRolesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -375,9 +375,9 @@ export class IamUserGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listUserGroupServiceGroups200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListUserGroupServiceGroups200ApplicationJSON
+                        operations.ListUserGroupServiceGroupsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -451,9 +451,9 @@ export class IamUserGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listUserGroups200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListUserGroups200ApplicationJSON
+                        operations.ListUserGroupsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

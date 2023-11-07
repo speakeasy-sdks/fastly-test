@@ -1,5 +1,5 @@
 # LoggingBigquery
-(*loggingBigquery*)
+(*.loggingBigquery*)
 
 ## Overview
 

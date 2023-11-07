@@ -1,5 +1,5 @@
 # LoggingElasticsearch
-(*loggingElasticsearch*)
+(*.loggingElasticsearch*)
 
 ## Overview
 

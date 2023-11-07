@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsCertificates {
      * Create a TLS certificate.
      */
     async createTlsCert(
-        req: shared.TlsCertificateInput,
+        req: shared.TlsCertificate,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsCertificateInput(req);
+            req = new shared.TlsCertificate(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -94,9 +94,9 @@ export class TlsCertificates {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
-                    res.createTlsCert201ApplicationVndApiPlusJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateTlsCert201ApplicationVndApiPlusJson
+                        operations.CreateTlsCertResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -359,11 +359,7 @@ export class TlsCertificates {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "tlsCertificateInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "tlsCertificate", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

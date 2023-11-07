@@ -1,5 +1,5 @@
 # Tokens
-(*tokens*)
+(*.tokens*)
 
 ## Overview
 

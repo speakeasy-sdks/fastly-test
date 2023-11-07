@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -104,9 +104,9 @@ export class Billing {
                         shared.BillingResponse
                     );
                 } else if (utils.matchContentType(contentType, `application/pdf`)) {
-                    res.getInvoice200ApplicationPdfBinaryString = httpRes?.data;
+                    res.bytes = httpRes?.data;
                 } else if (utils.matchContentType(contentType, `text/csv`)) {
-                    res.getInvoice200TextCsvCsvString = decodedRes;
+                    res.res = decodedRes;
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -192,9 +192,9 @@ export class Billing {
                         shared.BillingResponse
                     );
                 } else if (utils.matchContentType(contentType, `application/pdf`)) {
-                    res.getInvoiceById200ApplicationPdfBinaryString = httpRes?.data;
+                    res.bytes = httpRes?.data;
                 } else if (utils.matchContentType(contentType, `text/csv`)) {
-                    res.getInvoiceById200TextCsvCsvString = decodedRes;
+                    res.res = decodedRes;
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

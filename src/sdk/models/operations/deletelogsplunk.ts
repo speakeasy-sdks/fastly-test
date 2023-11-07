@@ -29,7 +29,7 @@ export class DeleteLogSplunkRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogSplunk200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogSplunkResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogSplunkResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogSplunk200ApplicationJSONObject?: DeleteLogSplunk200ApplicationJSON;
+    object?: DeleteLogSplunkResponseBody;
 }

@@ -1,5 +1,5 @@
 # Director
-(*director*)
+(*.director*)
 
 ## Overview
 

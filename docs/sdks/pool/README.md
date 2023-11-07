@@ -1,5 +1,5 @@
 # Pool
-(*pool*)
+(*.pool*)
 
 ## Overview
 
@@ -22,7 +22,7 @@ Creates a pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
+import { PoolType, UseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({
@@ -186,7 +186,7 @@ Updates a specific pool for a particular service and version.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { PoolType, PoolUseTls } from "FastlyTestJS/dist/sdk/models/shared";
+import { PoolType, UseTls } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

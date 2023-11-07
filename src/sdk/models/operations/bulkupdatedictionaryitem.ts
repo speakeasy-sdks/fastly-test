@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -27,7 +27,7 @@ export class BulkUpdateDictionaryItemRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class BulkUpdateDictionaryItem200ApplicationJSON extends SpeakeasyBase {
+export class BulkUpdateDictionaryItemResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -59,5 +59,5 @@ export class BulkUpdateDictionaryItemResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    bulkUpdateDictionaryItem200ApplicationJSONObject?: BulkUpdateDictionaryItem200ApplicationJSON;
+    object?: BulkUpdateDictionaryItemResponseBody;
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class GetStoresRequest extends SpeakeasyBase {
 /**
  * Meta for the pagination.
  */
-export class GetStores200ApplicationJSONMeta extends SpeakeasyBase {
+export class Meta extends SpeakeasyBase {
     /**
      * Entries returned.
      */
@@ -37,7 +37,7 @@ export class GetStores200ApplicationJSONMeta extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetStores200ApplicationJSON extends SpeakeasyBase {
+export class GetStoresResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.StoreResponse })
     @Expose({ name: "data" })
     @Type(() => shared.StoreResponse)
@@ -48,8 +48,8 @@ export class GetStores200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "meta" })
-    @Type(() => GetStores200ApplicationJSONMeta)
-    meta?: GetStores200ApplicationJSONMeta;
+    @Type(() => Meta)
+    meta?: Meta;
 }
 
 export class GetStoresResponse extends SpeakeasyBase {
@@ -75,5 +75,5 @@ export class GetStoresResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    getStores200ApplicationJSONObject?: GetStores200ApplicationJSON;
+    object?: GetStoresResponseBody;
 }

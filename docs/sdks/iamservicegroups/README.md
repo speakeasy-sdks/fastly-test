@@ -1,5 +1,5 @@
 # IamServiceGroups
-(*iamServiceGroups*)
+(*.iamServiceGroups*)
 
 ## Overview
 

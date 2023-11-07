@@ -29,7 +29,7 @@ export class DeleteLogDatadogRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogDatadog200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogDatadogResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogDatadogResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogDatadog200ApplicationJSONObject?: DeleteLogDatadog200ApplicationJSON;
+    object?: DeleteLogDatadogResponseBody;
 }

@@ -1,5 +1,5 @@
 # DomainOwnerships
-(*domainOwnerships*)
+(*.domainOwnerships*)
 
 ## Overview
 

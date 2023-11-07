@@ -1,5 +1,5 @@
 # IamPermissions
-(*iamPermissions*)
+(*.iamPermissions*)
 
 ## Overview
 

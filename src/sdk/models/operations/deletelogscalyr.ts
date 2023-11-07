@@ -29,7 +29,7 @@ export class DeleteLogScalyrRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteLogScalyr200ApplicationJSON extends SpeakeasyBase {
+export class DeleteLogScalyrResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteLogScalyrResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteLogScalyr200ApplicationJSONObject?: DeleteLogScalyr200ApplicationJSON;
+    object?: DeleteLogScalyrResponseBody;
 }

@@ -1,5 +1,5 @@
 # WafFirewallVersions
-(*wafFirewallVersions*)
+(*.wafFirewallVersions*)
 
 ## Overview
 
@@ -75,7 +75,7 @@ import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
 
   const res = await sdk.wafFirewallVersions.createWafFirewallVersion({
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
-    wafFirewallVersionInput: {
+    wafFirewallVersion: {
       data: {
         attributes: {
           comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
@@ -250,7 +250,7 @@ import { TypeWafFirewallVersion } from "FastlyTestJS/dist/sdk/models/shared";
   const res = await sdk.wafFirewallVersions.updateWafFirewallVersion({
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
     firewallVersionNumber: 1,
-    wafFirewallVersionInput: {
+    wafFirewallVersion: {
       data: {
         attributes: {
           comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",

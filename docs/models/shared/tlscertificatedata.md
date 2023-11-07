@@ -1,0 +1,10 @@
+# TlsCertificateData
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `attributes`                                                                               | [shared.TlsCertificateDataAttributes](../../models/shared/tlscertificatedataattributes.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `relationships`                                                                            | [shared.RelationshipTlsDomainsInput](../../models/shared/relationshiptlsdomainsinput.md)   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `type`                                                                                     | [shared.TypeTlsCertificate](../../models/shared/typetlscertificate.md)                     | :heavy_minus_sign:                                                                         | Resource type                                                                              |

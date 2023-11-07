@@ -4,12 +4,12 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export class PackageUploadPackage extends SpeakeasyBase {
+export class Package extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, content=true" })
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=package" })
-    package: string;
+    fileName: string;
 }
 
 export class PackageUpload extends SpeakeasyBase {
@@ -17,5 +17,5 @@ export class PackageUpload extends SpeakeasyBase {
      * The content of the Wasm binary package.
      */
     @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-    package?: PackageUploadPackage;
+    package?: Package;
 }

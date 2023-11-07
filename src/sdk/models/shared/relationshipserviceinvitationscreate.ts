@@ -3,19 +3,19 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ServiceInvitationInput } from "./serviceinvitation";
+import { ServiceInvitation } from "./serviceinvitation";
 import { Expose, Type } from "class-transformer";
 
-export class RelationshipServiceInvitationsCreateServiceInvitationsInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ServiceInvitationInput })
+export class ServiceInvitations extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: ServiceInvitation })
     @Expose({ name: "data" })
-    @Type(() => ServiceInvitationInput)
-    data?: ServiceInvitationInput[];
+    @Type(() => ServiceInvitation)
+    data?: ServiceInvitation[];
 }
 
-export class RelationshipServiceInvitationsCreateInput extends SpeakeasyBase {
+export class RelationshipServiceInvitationsCreate extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "service_invitations" })
-    @Type(() => RelationshipServiceInvitationsCreateServiceInvitationsInput)
-    serviceInvitations?: RelationshipServiceInvitationsCreateServiceInvitationsInput;
+    @Type(() => ServiceInvitations)
+    serviceInvitations?: ServiceInvitations;
 }

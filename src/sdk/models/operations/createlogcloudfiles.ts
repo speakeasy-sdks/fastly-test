@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class CreateLogCloudfilesRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingCloudfilesInput?: shared.LoggingCloudfilesInput;
+    loggingCloudfiles?: shared.LoggingCloudfiles;
 
     /**
      * Alphanumeric string identifying the service.

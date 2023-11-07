@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListLogGcsRequest extends SpeakeasyBase {
@@ -43,5 +43,5 @@ export class ListLogGcsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.LoggingGcsResponse })
-    loggingGcsResponses?: shared.LoggingGcsResponse[];
+    classes?: shared.LoggingGcsResponse[];
 }

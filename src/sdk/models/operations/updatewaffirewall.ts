@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateWafFirewallRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateWafFirewallRequest extends SpeakeasyBase {
     firewallId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafFirewallInput?: shared.WafFirewallInput;
+    wafFirewall?: shared.WafFirewall;
 }
 
 export class UpdateWafFirewallResponse extends SpeakeasyBase {

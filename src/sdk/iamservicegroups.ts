@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -141,9 +141,9 @@ export class IamServiceGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAServiceGroup200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAServiceGroup200ApplicationJSON
+                        operations.GetAServiceGroupResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -222,9 +222,9 @@ export class IamServiceGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listServiceGroupServices200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListServiceGroupServices200ApplicationJSON
+                        operations.ListServiceGroupServicesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -298,9 +298,9 @@ export class IamServiceGroups {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listServiceGroups200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListServiceGroups200ApplicationJSON
+                        operations.ListServiceGroupsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

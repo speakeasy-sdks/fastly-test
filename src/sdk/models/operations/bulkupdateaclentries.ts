@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -15,7 +15,7 @@ export class BulkUpdateAclEntriesRequest extends SpeakeasyBase {
     aclId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bulkUpdateAclEntriesRequestInput?: shared.BulkUpdateAclEntriesRequestInput;
+    bulkUpdateAclEntriesRequest?: shared.BulkUpdateAclEntriesRequest;
 
     /**
      * Alphanumeric string identifying the service.
@@ -27,7 +27,7 @@ export class BulkUpdateAclEntriesRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class BulkUpdateAclEntries200ApplicationJSON extends SpeakeasyBase {
+export class BulkUpdateAclEntriesResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -59,5 +59,5 @@ export class BulkUpdateAclEntriesResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    bulkUpdateAclEntries200ApplicationJSONObject?: BulkUpdateAclEntries200ApplicationJSON;
+    object?: BulkUpdateAclEntriesResponseBody;
 }

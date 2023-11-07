@@ -1,5 +1,5 @@
 # LoggingNewrelic
-(*loggingNewrelic*)
+(*.loggingNewrelic*)
 
 ## Overview
 

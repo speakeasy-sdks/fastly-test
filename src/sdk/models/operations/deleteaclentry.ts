@@ -29,7 +29,7 @@ export class DeleteAclEntryRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteAclEntry200ApplicationJSON extends SpeakeasyBase {
+export class DeleteAclEntryResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteAclEntryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteAclEntry200ApplicationJSONObject?: DeleteAclEntry200ApplicationJSON;
+    object?: DeleteAclEntryResponseBody;
 }

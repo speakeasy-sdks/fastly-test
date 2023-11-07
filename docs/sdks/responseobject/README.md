@@ -1,5 +1,5 @@
 # ResponseObject
-(*responseObject*)
+(*.responseObject*)
 
 ## Overview
 

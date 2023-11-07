@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TypeWafFirewall } from "./typewaffirewall";
 import { Expose, Type } from "class-transformer";
 
-export class WafFirewallDataAttributesInput extends SpeakeasyBase {
+export class WafFirewallDataAttributes extends SpeakeasyBase {
     /**
      * The status of the firewall.
      */
@@ -29,11 +29,11 @@ export class WafFirewallDataAttributesInput extends SpeakeasyBase {
     response?: string;
 }
 
-export class WafFirewallDataInput extends SpeakeasyBase {
+export class WafFirewallData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
-    @Type(() => WafFirewallDataAttributesInput)
-    attributes?: WafFirewallDataAttributesInput;
+    @Type(() => WafFirewallDataAttributes)
+    attributes?: WafFirewallDataAttributes;
 
     /**
      * Resource type.

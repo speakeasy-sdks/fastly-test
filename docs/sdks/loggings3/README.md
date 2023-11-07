@@ -1,5 +1,5 @@
 # LoggingS3
-(*loggingS3*)
+(*.loggingS3*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ import {
   });
 
   const res = await sdk.loggingS3.createLogAwsS3({
-    loggingS3Input: {
+    loggingS3: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingS3FormatVersion.Two,
       gzipLevel: 0,
@@ -213,7 +213,7 @@ import {
   });
 
   const res = await sdk.loggingS3.updateLogAwsS3({
-    loggingS3Input: {
+    loggingS3: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingS3FormatVersion.Two,
       gzipLevel: 0,

@@ -29,7 +29,7 @@ export class DeleteHealthcheckRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteHealthcheck200ApplicationJSON extends SpeakeasyBase {
+export class DeleteHealthcheckResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -61,5 +61,5 @@ export class DeleteHealthcheckResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteHealthcheck200ApplicationJSONObject?: DeleteHealthcheck200ApplicationJSON;
+    object?: DeleteHealthcheckResponseBody;
 }

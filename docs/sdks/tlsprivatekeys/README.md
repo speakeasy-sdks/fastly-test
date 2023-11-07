@@ -1,5 +1,5 @@
 # TlsPrivateKeys
-(*tlsPrivateKeys*)
+(*.tlsPrivateKeys*)
 
 ## Overview
 

@@ -17,7 +17,7 @@ export class DeleteRateLimiterRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class DeleteRateLimiter200ApplicationJSON extends SpeakeasyBase {
+export class DeleteRateLimiterResponseBody extends SpeakeasyBase {
     /**
      * ok
      */
@@ -49,5 +49,5 @@ export class DeleteRateLimiterResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    deleteRateLimiter200ApplicationJSONObject?: DeleteRateLimiter200ApplicationJSON;
+    object?: DeleteRateLimiterResponseBody;
 }

@@ -1,5 +1,5 @@
 # Healthcheck
-(*healthcheck*)
+(*.healthcheck*)
 
 ## Overview
 

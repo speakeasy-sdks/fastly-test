@@ -1,5 +1,5 @@
 # TlsConfigurations
-(*tlsConfigurations*)
+(*.tlsConfigurations*)
 
 ## Overview
 

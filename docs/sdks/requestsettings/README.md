@@ -1,5 +1,5 @@
 # RequestSettings
-(*requestSettings*)
+(*.requestSettings*)
 
 ## Overview
 
@@ -140,7 +140,7 @@ Updates the specified Request Settings object.
 
 ```typescript
 import { Fastly } from "FastlyTestJS";
-import { RequestSettingsAction, RequestSettingsXff } from "FastlyTestJS/dist/sdk/models/shared";
+import { RequestSettingsAction, Xff } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Fastly({

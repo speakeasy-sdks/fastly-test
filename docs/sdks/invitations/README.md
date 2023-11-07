@@ -1,5 +1,5 @@
 # Invitations
-(*invitations*)
+(*.invitations*)
 
 ## Overview
 
@@ -21,9 +21,9 @@ Create an invitation.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import {
-  InvitationDataAttributesStatusCode,
+  InvitationDataStatusCode,
   RoleUser,
-  ServiceInvitationDataAttributesPermission,
+  ServiceInvitationDataPermission,
   TypeInvitation,
   TypeService,
   TypeServiceInvitation,
@@ -65,10 +65,10 @@ import {
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `request`                                                        | [shared.InvitationInput](../../models/shared/invitationinput.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.Invitation](../../models/shared/invitation.md)       | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

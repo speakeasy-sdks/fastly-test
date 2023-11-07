@@ -1,5 +1,5 @@
 # LoggingPapertrail
-(*loggingPapertrail*)
+(*.loggingPapertrail*)
 
 ## Overview
 

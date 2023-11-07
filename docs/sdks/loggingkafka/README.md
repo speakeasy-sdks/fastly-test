@@ -1,5 +1,5 @@
 # LoggingKafka
-(*loggingKafka*)
+(*.loggingKafka*)
 
 ## Overview
 
@@ -22,12 +22,12 @@ Create a Kafka logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "FastlyTestJS";
 import {
-  LoggingKafkaAuthMethod,
+  AuthMethod,
   LoggingKafkaCompressionCodec,
   LoggingKafkaFormatVersion,
   LoggingKafkaPlacement,
-  LoggingKafkaRequiredAcks,
   LoggingUseTls,
+  RequiredAcks,
 } from "FastlyTestJS/dist/sdk/models/shared";
 
 (async() => {

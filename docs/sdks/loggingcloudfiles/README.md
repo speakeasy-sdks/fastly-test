@@ -1,5 +1,5 @@
 # LoggingCloudfiles
-(*loggingCloudfiles*)
+(*.loggingCloudfiles*)
 
 ## Overview
 
@@ -36,7 +36,7 @@ import {
   });
 
   const res = await sdk.loggingCloudfiles.createLogCloudfiles({
-    loggingCloudfilesInput: {
+    loggingCloudfiles: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingCloudfilesFormatVersion.Two,
       gzipLevel: 0,
@@ -215,7 +215,7 @@ import {
   });
 
   const res = await sdk.loggingCloudfiles.updateLogCloudfiles({
-    loggingCloudfilesInput: {
+    loggingCloudfiles: {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingCloudfilesFormatVersion.Two,
       gzipLevel: 0,

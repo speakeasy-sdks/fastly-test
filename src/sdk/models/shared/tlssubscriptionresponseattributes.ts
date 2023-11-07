@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The current state of your subscription.
  */
-export enum TlsSubscriptionResponseAttributesState {
+export enum State {
     Pending = "pending",
     Processing = "processing",
     Issued = "issued",
@@ -38,7 +38,7 @@ export class TlsSubscriptionResponseAttributes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state?: TlsSubscriptionResponseAttributesState;
+    state?: State;
 
     /**
      * Date and time in ISO 8601 format.
