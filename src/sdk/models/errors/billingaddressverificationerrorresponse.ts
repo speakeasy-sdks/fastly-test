@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillingAddressAttributes } from "./billingaddressattributes";
-import { Expose, Type } from "class-transformer";
+import { classToPlain, Expose, Type } from "class-transformer";
 
 export class Errors extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: BillingAddressAttributes })
@@ -32,9 +32,22 @@ export class Errors extends SpeakeasyBase {
     type: string;
 }
 
-export class BillingAddressVerificationErrorResponse extends SpeakeasyBase {
+export class BillingAddressVerificationErrorResponse extends Error {
     @SpeakeasyMetadata({ elemType: Errors })
     @Expose({ name: "errors" })
     @Type(() => Errors)
     errors?: Errors[];
+
+    constructor(err?: BillingAddressVerificationErrorResponse) {
+        super();
+        if (err) {
+            Object.assign(this, err);
+            this.message = JSON.stringify(
+                classToPlain(err, { exposeUnsetFields: false, excludeExtraneousValues: true })
+            );
+        }
+
+        this.name = "BillingAddressVerificationErrorResponse";
+        Object.setPrototypeOf(this, BillingAddressVerificationErrorResponse.prototype);
+    }
 }

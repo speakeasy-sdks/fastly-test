@@ -89,10 +89,12 @@ export class Tokens {
                 break;
             case [401, 403].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.genericTokenError = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.GenericTokenError
+                        errors.GenericTokenError
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.GenericTokenError(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -102,6 +104,14 @@ export class Tokens {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -181,6 +191,14 @@ export class Tokens {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -254,10 +272,12 @@ export class Tokens {
                 break;
             case [401, 403].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.genericTokenError = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.GenericTokenError
+                        errors.GenericTokenError
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.GenericTokenError(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -267,6 +287,14 @@ export class Tokens {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -331,10 +359,12 @@ export class Tokens {
                 break;
             case [400, 401, 403, 404].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.genericTokenError = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.GenericTokenError
+                        errors.GenericTokenError
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.GenericTokenError(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -344,6 +374,14 @@ export class Tokens {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -404,10 +442,12 @@ export class Tokens {
                 break;
             case [400, 401, 403].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.genericTokenError = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.GenericTokenError
+                        errors.GenericTokenError
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.GenericTokenError(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -417,6 +457,14 @@ export class Tokens {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

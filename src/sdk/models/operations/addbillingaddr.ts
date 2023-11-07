@@ -44,10 +44,4 @@ export class AddBillingAddrResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     billingAddressResponse?: components.BillingAddressResponse;
-
-    /**
-     * Could not validate address
-     */
-    @SpeakeasyMetadata()
-    billingAddressVerificationErrorResponse?: components.BillingAddressVerificationErrorResponse;
 }

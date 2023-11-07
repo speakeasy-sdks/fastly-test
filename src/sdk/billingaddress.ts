@@ -117,10 +117,12 @@ export class BillingAddress {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
-                    res.billingAddressVerificationErrorResponse = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.BillingAddressVerificationErrorResponse
+                        errors.BillingAddressVerificationErrorResponse
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.BillingAddressVerificationErrorResponse(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -130,6 +132,14 @@ export class BillingAddress {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -195,6 +205,14 @@ export class BillingAddress {
         switch (true) {
             case httpRes?.status == 204:
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    httpRes?.data,
+                    httpRes
+                );
         }
 
         return res;
@@ -274,6 +292,14 @@ export class BillingAddress {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -374,10 +400,12 @@ export class BillingAddress {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
-                    res.billingAddressVerificationErrorResponse = utils.objectToClass(
+                    const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        components.BillingAddressVerificationErrorResponse
+                        errors.BillingAddressVerificationErrorResponse
                     );
+                    err.rawResponse = httpRes;
+                    throw new errors.BillingAddressVerificationErrorResponse(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -387,6 +415,14 @@ export class BillingAddress {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

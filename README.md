@@ -48,6 +48,50 @@ import { Fastly } from "Fastly";
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+## Example
+
+```typescript
+import { Fastly } from "Fastly";
+import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
+
+(async() => {
+  const sdk = new Fastly({
+    token: "",
+  });
+
+  
+  let res;
+  try {
+    res = await sdk.billingAddress.addBillingAddr({
+    billingAddressRequest: {
+      data: {
+        attributes: {
+          address1: "80719 Dorothea Mountain",
+          address2: "Apt. 652",
+          city: "New Rasheedville",
+          country: "US",
+          locality: "New Castle",
+          postalCode: "53538-5902",
+          state: "DE",
+        },
+      },
+    },
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+  });
+  } catch (e) { 
+    if (e instanceof billing_address_verification_error_response) {
+      console.error(e) // handle exception 
+    
+  }
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
 <!-- End Error Handling -->
 
 

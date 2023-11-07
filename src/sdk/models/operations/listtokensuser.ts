@@ -30,10 +30,4 @@ export class ListTokensUserResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ elemType: components.TokenResponse })
     classes?: components.TokenResponse[];
-
-    /**
-     * Missing or expired token.
-     */
-    @SpeakeasyMetadata()
-    genericTokenError?: components.GenericTokenError;
 }

@@ -26,12 +26,6 @@ export class GetTokenCurrentResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * Missing or expired token.
-     */
-    @SpeakeasyMetadata()
-    genericTokenError?: components.GenericTokenError;
-
-    /**
      * OK
      */
     @SpeakeasyMetadata()
