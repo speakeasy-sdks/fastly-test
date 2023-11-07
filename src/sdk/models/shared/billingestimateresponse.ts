@@ -91,7 +91,7 @@ export enum BillingEstimateResponseStatusStatus {
 
 export class BillingEstimateResponseStatus extends SpeakeasyBase {
     /**
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sent_at" })
@@ -247,9 +247,6 @@ export class BillingEstimateResponseTotal extends SpeakeasyBase {
     terms?: string;
 }
 
-/**
- * OK
- */
 export class BillingEstimateResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "customer_id" })

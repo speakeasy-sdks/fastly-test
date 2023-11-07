@@ -13,9 +13,6 @@ export enum CustomerResponseBillingNetworkType {
     Private = "private",
 }
 
-/**
- * OK
- */
 export class CustomerResponse extends SpeakeasyBase {
     /**
      * The alphanumeric string representing the primary billing contact.

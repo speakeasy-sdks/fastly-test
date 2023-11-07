@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class DictionaryInfoResponse extends SpeakeasyBase {
     /**
      * A hash of all the dictionary content.

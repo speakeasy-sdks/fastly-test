@@ -15,9 +15,6 @@ export enum TokenResponseScope {
     GlobalRead = "global:read",
 }
 
-/**
- * OK
- */
 export class TokenResponse extends SpeakeasyBase {
     /**
      * Time-stamp (UTC) of when the token was created.

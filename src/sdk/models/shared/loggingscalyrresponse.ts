@@ -36,9 +36,6 @@ export enum LoggingScalyrResponseRegion {
     Eu = "EU",
 }
 
-/**
- * OK
- */
 export class LoggingScalyrResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

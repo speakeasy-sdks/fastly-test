@@ -1,4 +1,5 @@
-# loggingSftp
+# LoggingSftp
+(*loggingSftp*)
 
 ## Overview
 
@@ -20,62 +21,53 @@ Create a SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.createLogSftp({
-  loggingSftpInput: {
-    address: "example.com",
-    compressionCodec: LoggingSftpCompressionCodec.Zstd,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingSftpFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingSftpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "porro",
-    path: "quod",
-    period: 3600,
-    placement: LoggingSftpPlacement.None,
-    port: 70447,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "adipisci",
-    sshKnownHosts: "fuga",
-    user: "id",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogSftpResponse) => {
+  const res = await sdk.loggingSftp.createLogSftp({
+    loggingSftpInput: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSftpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingSftpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingSftpPlacement.None,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateLogSftpRequest](../../models/operations/createlogsftprequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.CreateLogSftpSecurity](../../models/operations/createlogsftpsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.CreateLogSftpRequest](../../models/operations/createlogsftprequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -90,31 +82,33 @@ Delete the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.deleteLogSftp({
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogSftpResponse) => {
+  const res = await sdk.loggingSftp.deleteLogSftp({
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.DeleteLogSftpRequest](../../models/operations/deletelogsftprequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.DeleteLogSftpSecurity](../../models/operations/deletelogsftpsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.DeleteLogSftpRequest](../../models/operations/deletelogsftprequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -129,37 +123,33 @@ Get the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.getLogSftp({
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogSftpResponse) => {
+  const res = await sdk.loggingSftp.getLogSftp({
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetLogSftpRequest](../../models/operations/getlogsftprequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetLogSftpSecurity](../../models/operations/getlogsftpsecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetLogSftpRequest](../../models/operations/getlogsftprequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -174,36 +164,32 @@ List all of the SFTPs for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.listLogSftp({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogSftpResponse) => {
+  const res = await sdk.loggingSftp.listLogSftp({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListLogSftpRequest](../../models/operations/listlogsftprequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.ListLogSftpSecurity](../../models/operations/listlogsftpsecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListLogSftpRequest](../../models/operations/listlogsftprequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -218,63 +204,54 @@ Update the SFTP for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogSftpResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingSftpCompressionCodec,
   LoggingSftpFormatVersion,
   LoggingSftpMessageType,
   LoggingSftpPlacement,
-  LoggingSftpResponseCompressionCodec,
-  LoggingSftpResponseFormatVersion,
-  LoggingSftpResponseMessageType,
-  LoggingSftpResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingSftp.updateLogSftp({
-  loggingSftpInput: {
-    address: "example.com",
-    compressionCodec: LoggingSftpCompressionCodec.Snappy,
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingSftpFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingSftpMessageType.Classic,
-    name: "test-log-endpoint",
-    password: "culpa",
-    path: "est",
-    period: 3600,
-    placement: LoggingSftpPlacement.LessThanNilGreaterThan,
-    port: 517309,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "fugiat",
-    sshKnownHosts: "vel",
-    user: "ducimus",
-  },
-  loggingSftpName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogSftpResponse) => {
+  const res = await sdk.loggingSftp.updateLogSftp({
+    loggingSftpInput: {
+      address: "example.com",
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingSftpFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingSftpMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingSftpPlacement.LessThanNilGreaterThan,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingSftpName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateLogSftpRequest](../../models/operations/updatelogsftprequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.UpdateLogSftpSecurity](../../models/operations/updatelogsftpsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.UpdateLogSftpRequest](../../models/operations/updatelogsftprequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response

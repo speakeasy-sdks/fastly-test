@@ -17,9 +17,6 @@ export class TlsSubscriptionResponseData extends SpeakeasyBase {
     id?: string;
 }
 
-/**
- * Created
- */
 export class TlsSubscriptionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

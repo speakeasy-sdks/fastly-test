@@ -1,7 +1,5 @@
 # LoggingHttpsResponse
 
-OK
-
 
 ## Fields
 

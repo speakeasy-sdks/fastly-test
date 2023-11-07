@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class UpdateWafRuleExclusionSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class UpdateWafRuleExclusionRequest extends SpeakeasyBase {
     /**
      * A numeric ID identifying a WAF exclusion.
@@ -33,16 +28,25 @@ export class UpdateWafRuleExclusionRequest extends SpeakeasyBase {
     firewallVersionNumber: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafExclusionInput?: shared.WafExclusionInput;
+    wafExclusion?: shared.WafExclusion;
 }
 
 export class UpdateWafRuleExclusionResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

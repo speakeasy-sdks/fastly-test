@@ -28,9 +28,6 @@ export enum LoggingLogglyResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingLogglyResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

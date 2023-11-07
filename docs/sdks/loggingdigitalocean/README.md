@@ -1,4 +1,5 @@
-# loggingDigitalocean
+# LoggingDigitalocean
+(*loggingDigitalocean*)
 
 ## Overview
 
@@ -20,60 +21,52 @@ Create a DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
   LoggingDigitaloceanMessageType,
   LoggingDigitaloceanPlacement,
-  LoggingDigitaloceanResponseCompressionCodec,
-  LoggingDigitaloceanResponseFormatVersion,
-  LoggingDigitaloceanResponseMessageType,
-  LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.createLogDigocean({
-  loggingDigitaloceanInput: {
-    accessKey: "laudantium",
-    bucketName: "dicta",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Zstd,
-    domain: "maiores",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.One,
-    gzipLevel: 0,
-    messageType: LoggingDigitaloceanMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "ex",
-    period: 3600,
-    placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "excepturi",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.createLogDigocean({
+    loggingDigitaloceanInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingDigitaloceanFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingDigitaloceanMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingDigitaloceanPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.CreateLogDigoceanRequest](../../models/operations/createlogdigoceanrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateLogDigoceanSecurity](../../models/operations/createlogdigoceansecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.CreateLogDigoceanRequest](../../models/operations/createlogdigoceanrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -88,31 +81,33 @@ Delete the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.deleteLogDigocean({
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.deleteLogDigocean({
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteLogDigoceanRequest](../../models/operations/deletelogdigoceanrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteLogDigoceanSecurity](../../models/operations/deletelogdigoceansecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteLogDigoceanRequest](../../models/operations/deletelogdigoceanrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -127,37 +122,33 @@ Get the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDigitaloceanResponseCompressionCodec,
-  LoggingDigitaloceanResponseFormatVersion,
-  LoggingDigitaloceanResponseMessageType,
-  LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.getLogDigocean({
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.getLogDigocean({
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetLogDigoceanRequest](../../models/operations/getlogdigoceanrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetLogDigoceanSecurity](../../models/operations/getlogdigoceansecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetLogDigoceanRequest](../../models/operations/getlogdigoceanrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -172,36 +163,32 @@ List all of the DigitalOcean Spaces for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingDigitaloceanResponseCompressionCodec,
-  LoggingDigitaloceanResponseFormatVersion,
-  LoggingDigitaloceanResponseMessageType,
-  LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.listLogDigocean({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.listLogDigocean({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListLogDigoceanRequest](../../models/operations/listlogdigoceanrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListLogDigoceanSecurity](../../models/operations/listlogdigoceansecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListLogDigoceanRequest](../../models/operations/listlogdigoceanrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -216,61 +203,53 @@ Update the DigitalOcean Space for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogDigoceanResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingDigitaloceanCompressionCodec,
   LoggingDigitaloceanFormatVersion,
   LoggingDigitaloceanMessageType,
   LoggingDigitaloceanPlacement,
-  LoggingDigitaloceanResponseCompressionCodec,
-  LoggingDigitaloceanResponseFormatVersion,
-  LoggingDigitaloceanResponseMessageType,
-  LoggingDigitaloceanResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingDigitalocean.updateLogDigocean({
-  loggingDigitaloceanInput: {
-    accessKey: "voluptatibus",
-    bucketName: "nostrum",
-    compressionCodec: LoggingDigitaloceanCompressionCodec.Gzip,
-    domain: "quisquam",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingDigitaloceanFormatVersion.Two,
-    gzipLevel: 0,
-    messageType: LoggingDigitaloceanMessageType.Classic,
-    name: "test-log-endpoint",
-    path: "ea",
-    period: 3600,
-    placement: LoggingDigitaloceanPlacement.LessThanNilGreaterThan,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    responseCondition: "null",
-    secretKey: "corporis",
-  },
-  loggingDigitaloceanName: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogDigoceanResponse) => {
+  const res = await sdk.loggingDigitalocean.updateLogDigocean({
+    loggingDigitaloceanInput: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingDigitaloceanFormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingDigitaloceanMessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingDigitaloceanPlacement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingDigitaloceanName: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateLogDigoceanRequest](../../models/operations/updatelogdigoceanrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateLogDigoceanSecurity](../../models/operations/updatelogdigoceansecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.UpdateLogDigoceanRequest](../../models/operations/updatelogdigoceanrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response

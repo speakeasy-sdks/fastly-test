@@ -30,9 +30,6 @@ export enum LoggingSyslogResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingSyslogResponse extends SpeakeasyBase {
     /**
      * A hostname or IPv4 address.

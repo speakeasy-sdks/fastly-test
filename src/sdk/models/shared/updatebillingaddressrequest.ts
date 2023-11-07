@@ -21,9 +21,6 @@ export class UpdateBillingAddressRequestDataInput extends SpeakeasyBase {
     type?: TypeBillingAddress;
 }
 
-/**
- * One or more billing address attributes
- */
 export class UpdateBillingAddressRequestInput extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

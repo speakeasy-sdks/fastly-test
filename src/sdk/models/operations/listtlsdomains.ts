@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ListTlsDomainsSecurity extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Fastly-Key" })
-    token: string;
-}
-
 export class ListTlsDomainsRequest extends SpeakeasyBase {
     /**
      * Optional. Limit the returned domains to those currently using Fastly to terminate TLS with SNI (that is, domains considered "in use") Permitted values: true, false.
@@ -63,12 +58,21 @@ export class ListTlsDomainsRequest extends SpeakeasyBase {
 }
 
 export class ListTlsDomainsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

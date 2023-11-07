@@ -35,7 +35,7 @@ export class BulkWafActiveRuleAttributes extends SpeakeasyBase {
     status?: BulkWafActiveRuleAttributesStatus;
 }
 
-export class BulkWafActiveRuleInput extends SpeakeasyBase {
+export class BulkWafActiveRule extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => BulkWafActiveRuleAttributes)

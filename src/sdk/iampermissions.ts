@@ -3,15 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * A list of available permissions that can be assigned to a custom role.
  *
  * @see {@link https://developer.fastly.com/reference/api/account/permissions}
  */
+
 export class IamPermissions {
     private sdkConfiguration: SDKConfiguration;
 
@@ -26,7 +29,6 @@ export class IamPermissions {
      * List all permissions.
      */
     async listPermissions(
-        security: operations.ListPermissionsSecurity,
         config?: AxiosRequestConfig
     ): Promise<operations.ListPermissionsResponse> {
         const baseURL: string = utils.templateUrl(
@@ -34,20 +36,19 @@ export class IamPermissions {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/permissions";
-
-        if (!(security instanceof utils.SpeakeasyBase)) {
-            security = new operations.ListPermissionsSecurity(security);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
         }
-        const client: AxiosInstance = utils.createSecurityClient(
-            this.sdkConfiguration.defaultClient,
-            security
-        );
-
-        const headers = { ...config?.headers };
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -76,6 +77,13 @@ export class IamPermissions {
                     res.listPermissions200ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListPermissions200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

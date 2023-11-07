@@ -1,7 +1,5 @@
 # TlsDomainsResponse
 
-OK
-
 
 ## Fields
 

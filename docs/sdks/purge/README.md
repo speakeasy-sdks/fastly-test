@@ -1,4 +1,5 @@
-# purge
+# Purge
+(*purge*)
 
 ## Overview
 
@@ -21,29 +22,31 @@ Purge-all requests cannot be done in soft mode and will always immediately inval
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeAllResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeAll({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-}, {
-  token: "",
-}).then((res: PurgeAllResponse) => {
+  const res = await sdk.purge.purgeAll({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.PurgeAllRequest](../../models/operations/purgeallrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.PurgeAllSecurity](../../models/operations/purgeallsecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.PurgeAllRequest](../../models/operations/purgeallrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
@@ -58,30 +61,32 @@ Instant Purge an individual URL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeSingleUrlResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeSingleUrl({
-  cachedUrl: "www.example.com/path/to/object-to-purge",
-  fastlySoftPurge: 1,
-}, {
-  token: "",
-}).then((res: PurgeSingleUrlResponse) => {
+  const res = await sdk.purge.purgeSingleUrl({
+    cachedUrl: "www.example.com/path/to/object-to-purge",
+    fastlySoftPurge: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.PurgeSingleUrlRequest](../../models/operations/purgesingleurlrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.PurgeSingleUrlSecurity](../../models/operations/purgesingleurlsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.PurgeSingleUrlRequest](../../models/operations/purgesingleurlrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -96,31 +101,33 @@ Instant Purge a particular service of items tagged with a Surrogate Key. Only on
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { PurgeTagResponse } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.purge.purgeTag({
-  fastlySoftPurge: 1,
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  surrogateKey: "key_1",
-}, {
-  token: "",
-}).then((res: PurgeTagResponse) => {
+  const res = await sdk.purge.purgeTag({
+    fastlySoftPurge: 1,
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    surrogateKey: "key_1",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.PurgeTagRequest](../../models/operations/purgetagrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.PurgeTagSecurity](../../models/operations/purgetagsecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.PurgeTagRequest](../../models/operations/purgetagrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response

@@ -1,7 +1,5 @@
 # AclEntryResponse
 
-OK
-
 
 ## Fields
 

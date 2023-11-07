@@ -1,4 +1,5 @@
-# loggingS3
+# LoggingS3
+(*loggingS3*)
 
 ## Overview
 
@@ -20,65 +21,52 @@ Create a S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { CreateLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.createLogAwsS3({
-  loggingS3Input: {
-    accessKey: "accusantium",
-    acl: "rem",
-    bucketName: "aut",
-    compressionCodec: LoggingS3CompressionCodec.Snappy,
-    domain: "eum",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingS3FormatVersion.Two,
-    gzipLevel: 0,
-    iamRole: "ab",
-    messageType: LoggingS3MessageType.Classic,
-    name: "test-log-endpoint",
-    path: "corrupti",
-    period: 3600,
-    placement: LoggingS3Placement.None,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    redundancy: "voluptatem",
-    responseCondition: "null",
-    secretKey: "dolor",
-    serverSideEncryption: "occaecati",
-    serverSideEncryptionKmsKeyId: "numquam",
-  },
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: CreateLogAwsS3Response) => {
+  const res = await sdk.loggingS3.createLogAwsS3({
+    loggingS3Input: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingS3FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingS3MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingS3Placement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateLogAwsS3Request](../../models/operations/createlogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateLogAwsS3Security](../../models/operations/createlogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.CreateLogAwsS3Request](../../models/operations/createlogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -93,31 +81,33 @@ Delete the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { DeleteLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.deleteLogAwsS3({
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: DeleteLogAwsS3Response) => {
+  const res = await sdk.loggingS3.deleteLogAwsS3({
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteLogAwsS3Request](../../models/operations/deletelogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteLogAwsS3Security](../../models/operations/deletelogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.DeleteLogAwsS3Request](../../models/operations/deletelogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -132,37 +122,33 @@ Get the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.getLogAwsS3({
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: GetLogAwsS3Response) => {
+  const res = await sdk.loggingS3.getLogAwsS3({
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetLogAwsS3Request](../../models/operations/getlogawss3request.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetLogAwsS3Security](../../models/operations/getlogawss3security.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetLogAwsS3Request](../../models/operations/getlogawss3request.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -177,36 +163,32 @@ List all of the S3s for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { ListLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
-import {
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.listLogAwsS3({
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: ListLogAwsS3Response) => {
+  const res = await sdk.loggingS3.listLogAwsS3({
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListLogAwsS3Request](../../models/operations/listlogawss3request.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListLogAwsS3Security](../../models/operations/listlogawss3security.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.ListLogAwsS3Request](../../models/operations/listlogawss3request.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -221,66 +203,53 @@ Update the S3 for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { UpdateLogAwsS3Response } from "FastlyTest/dist/sdk/models/operations";
+import { Fastly } from "FastlyTestJS";
 import {
   LoggingS3CompressionCodec,
   LoggingS3FormatVersion,
   LoggingS3MessageType,
   LoggingS3Placement,
-  LoggingS3ResponseCompressionCodec,
-  LoggingS3ResponseFormatVersion,
-  LoggingS3ResponseMessageType,
-  LoggingS3ResponsePlacement,
-} from "FastlyTest/dist/sdk/models/shared";
+} from "FastlyTestJS/dist/sdk/models/shared";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.loggingS3.updateLogAwsS3({
-  loggingS3Input: {
-    accessKey: "impedit",
-    acl: "explicabo",
-    bucketName: "voluptas",
-    compressionCodec: LoggingS3CompressionCodec.Zstd,
-    domain: "dignissimos",
-    format: "%h %l %u %t "%r" %&gt;s %b",
-    formatVersion: LoggingS3FormatVersion.One,
-    gzipLevel: 0,
-    iamRole: "maiores",
-    messageType: LoggingS3MessageType.Classic,
-    name: "test-log-endpoint",
-    path: "natus",
-    period: 3600,
-    placement: LoggingS3Placement.None,
-    publicKey: "-----BEGIN PRIVATE KEY-----
-  ...
-  -----END PRIVATE KEY-----
-  ",
-    redundancy: "voluptatibus",
-    responseCondition: "null",
-    secretKey: "voluptas",
-    serverSideEncryption: "asperiores",
-    serverSideEncryptionKmsKeyId: "aperiam",
-  },
-  loggingS3Name: "test-log-endpoint",
-  serviceId: "SU1Z0isxPaozGVKXdv0eY",
-  versionId: 1,
-}, {
-  token: "",
-}).then((res: UpdateLogAwsS3Response) => {
+  const res = await sdk.loggingS3.updateLogAwsS3({
+    loggingS3Input: {
+      format: "%h %l %u %t \"%r\" %&gt;s %b",
+      formatVersion: LoggingS3FormatVersion.Two,
+      gzipLevel: 0,
+      messageType: LoggingS3MessageType.Classic,
+      name: "test-log-endpoint",
+      period: 3600,
+      placement: LoggingS3Placement.WafDebug,
+      publicKey: "-----BEGIN PRIVATE KEY-----
+    ...
+    -----END PRIVATE KEY-----
+    ",
+      responseCondition: "null",
+    },
+    loggingS3Name: "test-log-endpoint",
+    serviceId: "SU1Z0isxPaozGVKXdv0eY",
+    versionId: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateLogAwsS3Request](../../models/operations/updatelogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateLogAwsS3Security](../../models/operations/updatelogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.UpdateLogAwsS3Request](../../models/operations/updatelogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response

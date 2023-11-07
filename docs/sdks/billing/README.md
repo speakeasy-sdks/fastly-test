@@ -1,4 +1,5 @@
-# billing
+# Billing
+(*billing*)
 
 ## Overview
 
@@ -18,31 +19,32 @@ Get the invoice for a given year and month. Can be any month from when the Custo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoice({
-  month: "05",
-  year: "2020",
-}, {
-  token: "",
-}).then((res: GetInvoiceResponse) => {
+  const res = await sdk.billing.getInvoice({
+    month: "05",
+    year: "2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetInvoiceRequest](../../models/operations/getinvoicerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetInvoiceSecurity](../../models/operations/getinvoicesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetInvoiceRequest](../../models/operations/getinvoicerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -57,31 +59,32 @@ Get the invoice for the given invoice_id.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceByIdResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoiceById({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  invoiceId: "7SlAESxcJ2zxHOV4gQ9y9X",
-}, {
-  token: "",
-}).then((res: GetInvoiceByIdResponse) => {
+  const res = await sdk.billing.getInvoiceById({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    invoiceId: "7SlAESxcJ2zxHOV4gQ9y9X",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetInvoiceByIdRequest](../../models/operations/getinvoicebyidrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetInvoiceByIdSecurity](../../models/operations/getinvoicebyidsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetInvoiceByIdRequest](../../models/operations/getinvoicebyidrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -96,32 +99,33 @@ Get the current month-to-date estimate. This endpoint has two different response
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTest";
-import { GetInvoiceMtdResponse } from "FastlyTest/dist/sdk/models/operations";
-import { BillingEstimateResponseStatusStatus } from "FastlyTest/dist/sdk/models/shared";
+import { Fastly } from "FastlyTestJS";
 
-const sdk = new Fastly();
+(async() => {
+  const sdk = new Fastly({
+    security: {
+      token: "",
+    },
+  });
 
-sdk.billing.getInvoiceMtd({
-  customerId: "x4xCwxxJxGCx123Rx5xTx",
-  month: "05",
-  year: "2020",
-}, {
-  token: "",
-}).then((res: GetInvoiceMtdResponse) => {
+  const res = await sdk.billing.getInvoiceMtd({
+    customerId: "x4xCwxxJxGCx123Rx5xTx",
+    month: "05",
+    year: "2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetInvoiceMtdRequest](../../models/operations/getinvoicemtdrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetInvoiceMtdSecurity](../../models/operations/getinvoicemtdsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetInvoiceMtdRequest](../../models/operations/getinvoicemtdrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response

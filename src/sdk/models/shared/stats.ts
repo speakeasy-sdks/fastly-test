@@ -6,9 +6,6 @@ import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../intern
 import { Results } from "./results";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * OK
- */
 export class Stats extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: Results })
     @Expose({ name: "stats" })

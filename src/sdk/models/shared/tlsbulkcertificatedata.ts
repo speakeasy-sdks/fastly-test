@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipMemberTlsDomainInput } from "./relationshipmembertlsdomain";
 import { TypeTlsBulkCertificate } from "./typetlsbulkcertificate";
 import { Expose, Type } from "class-transformer";
 
@@ -30,24 +29,7 @@ export class TlsBulkCertificateDataAttributes extends SpeakeasyBase {
     intermediatesBlob?: string;
 }
 
-export class TlsBulkCertificateDataRelationships2TlsDomainsInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: RelationshipMemberTlsDomainInput })
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsDomainInput)
-    data?: RelationshipMemberTlsDomainInput[];
-}
-
-/**
- * All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
- */
-export class TlsBulkCertificateDataRelationships2Input extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_domains" })
-    @Type(() => TlsBulkCertificateDataRelationships2TlsDomainsInput)
-    tlsDomains?: TlsBulkCertificateDataRelationships2TlsDomainsInput;
-}
-
-export class TlsBulkCertificateDataInput extends SpeakeasyBase {
+export class TlsBulkCertificateData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
     @Type(() => TlsBulkCertificateDataAttributes)

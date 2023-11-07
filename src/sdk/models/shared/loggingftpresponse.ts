@@ -47,9 +47,6 @@ export enum LoggingFtpResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingFtpResponse extends SpeakeasyBase {
     /**
      * An hostname or IPv4 address.

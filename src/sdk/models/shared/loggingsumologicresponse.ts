@@ -29,9 +29,6 @@ export enum LoggingSumologicResponsePlacement {
     LessThanNilGreaterThan = "<nil>",
 }
 
-/**
- * OK
- */
 export class LoggingSumologicResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

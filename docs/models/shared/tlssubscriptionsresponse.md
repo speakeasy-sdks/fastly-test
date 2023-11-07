@@ -1,7 +1,5 @@
 # TlsSubscriptionsResponse
 
-OK
-
 
 ## Fields
 

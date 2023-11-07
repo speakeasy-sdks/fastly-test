@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PackageMetadata } from "./packagemetadata";
 import { Expose, Transform, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class PackageResponse extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.

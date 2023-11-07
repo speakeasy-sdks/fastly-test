@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { WafActiveRuleDataInput } from "./wafactiveruledata";
+import { WafActiveRuleData } from "./wafactiveruledata";
 import { Expose, Type } from "class-transformer";
 
-export class BulkWafActiveRulesInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: WafActiveRuleDataInput })
+export class BulkWafActiveRules extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: WafActiveRuleData })
     @Expose({ name: "data" })
-    @Type(() => WafActiveRuleDataInput)
-    data?: WafActiveRuleDataInput[];
+    @Type(() => WafActiveRuleData)
+    data?: WafActiveRuleData[];
 }
