@@ -38,6 +38,164 @@ import { Fastly } from "Fastly";
 ```
 <!-- End SDK Example Usage -->
 
+<!-- Start Dev Containers -->
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.fastly.com` | None |
+| 1 | `https://rt.fastly.com` | None |
+
+For example:
+
+```typescript
+import { Fastly } from "Fastly";
+
+(async () => {
+    const sdk = new Fastly({
+        serverIdx: 1,
+        token: "",
+    });
+
+    const res = await sdk.apexRedirect.deleteApexRedirect({
+        apexRedirectId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+```typescript
+import { Fastly } from "Fastly";
+
+(async () => {
+    const sdk = new Fastly({
+        serverURL: "https://api.fastly.com",
+        token: "",
+    });
+
+    const res = await sdk.apexRedirect.deleteApexRedirect({
+        apexRedirectId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from Fastly import Fastly;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new Fastly({defaultClient: httpClient});
+```
+<!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name    | Type    | Scheme  |
+| ------- | ------- | ------- |
+| `token` | apiKey  | API key |
+
+To authenticate with the API the `token` parameter must be set when initializing the SDK client instance. For example:
+
+```typescript
+import { Fastly } from "Fastly";
+
+(async () => {
+    const sdk = new Fastly({
+        token: "",
+    });
+
+    const res = await sdk.apexRedirect.deleteApexRedirect({
+        apexRedirectId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+## Per-Operation Security Schemes
+
+Some operations in your SDK require the security scheme to be specified at the request level. For example:
+
+```typescript
+import { Fastly } from "Fastly";
+import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
+
+(async () => {
+    const sdk = new Fastly();
+    const operationSecurity: UpdateUserPasswordSecurity = {
+        password: "",
+        username: "",
+    };
+
+    const res = await sdk.user.updateUserPassword({}, operationSecurity);
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Authentication -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
@@ -769,166 +927,6 @@ import { Fastly } from "Fastly";
 
 * [~~listWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
 <!-- End SDK Available Operations -->
-
-
-
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
-
-
-
-<!-- Start Error Handling -->
-# Error Handling
-
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
-<!-- End Error Handling -->
-
-
-
-<!-- Start Server Selection -->
-# Server Selection
-
-## Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.fastly.com` | None |
-| 1 | `https://rt.fastly.com` | None |
-
-For example:
-
-```typescript
-import { Fastly } from "Fastly";
-
-(async () => {
-    const sdk = new Fastly({
-        serverIdx: 1,
-        token: "",
-    });
-
-    const res = await sdk.apexRedirect.deleteApexRedirect({
-        apexRedirectId: "string",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-
-
-## Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-
-```typescript
-import { Fastly } from "Fastly";
-
-(async () => {
-    const sdk = new Fastly({
-        serverURL: "https://api.fastly.com",
-        token: "",
-    });
-
-    const res = await sdk.apexRedirect.deleteApexRedirect({
-        apexRedirectId: "string",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-<!-- End Server Selection -->
-
-
-
-<!-- Start Custom HTTP Client -->
-# Custom HTTP Client
-
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
-
-
-For example, you could specify a header for every request that your sdk makes as follows:
-
-```typescript
-from Fastly import Fastly;
-import axios;
-
-const httpClient = axios.create({
-    headers: {'x-custom-header': 'someValue'}
-})
-
-
-const sdk = new Fastly({defaultClient: httpClient});
-```
-<!-- End Custom HTTP Client -->
-
-
-
-<!-- Start Authentication -->
-# Authentication
-
-## Per-Client Security Schemes
-
-Your SDK supports the following security scheme globally:
-
-| Name    | Type    | Scheme  |
-| ------- | ------- | ------- |
-| `token` | apiKey  | API key |
-
-To authenticate with the API the `token` parameter must be set when initializing the SDK client instance. For example:
-
-```typescript
-import { Fastly } from "Fastly";
-
-(async () => {
-    const sdk = new Fastly({
-        token: "",
-    });
-
-    const res = await sdk.apexRedirect.deleteApexRedirect({
-        apexRedirectId: "string",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-
-## Per-Operation Security Schemes
-
-Some operations in your SDK require the security scheme to be specified at the request level. For example:
-
-```typescript
-import { Fastly } from "Fastly";
-import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
-
-(async () => {
-    const sdk = new Fastly();
-    const operationSecurity: UpdateUserPasswordSecurity = {
-        password: "",
-        username: "",
-    };
-
-    const res = await sdk.user.updateUserPassword({}, operationSecurity);
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-<!-- End Authentication -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->
 
 
 
