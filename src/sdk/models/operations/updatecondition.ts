@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateConditionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    condition?: shared.Condition;
+    condition?: components.Condition;
 
     /**
      * Name of the condition. Required.
@@ -52,5 +52,5 @@ export class UpdateConditionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    conditionResponse?: shared.ConditionResponse;
+    conditionResponse?: components.ConditionResponse;
 }

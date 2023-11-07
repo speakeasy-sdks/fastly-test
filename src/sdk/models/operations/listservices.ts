@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListServicesRequest extends SpeakeasyBase {
@@ -11,7 +11,7 @@ export class ListServicesRequest extends SpeakeasyBase {
      * Direction in which to sort results.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=direction" })
-    direction?: shared.Direction;
+    direction?: components.Direction;
 
     /**
      * Current page.
@@ -57,6 +57,6 @@ export class ListServicesResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.ServiceListResponse })
-    classes?: shared.ServiceListResponse[];
+    @SpeakeasyMetadata({ elemType: components.ServiceListResponse })
+    classes?: components.ServiceListResponse[];
 }

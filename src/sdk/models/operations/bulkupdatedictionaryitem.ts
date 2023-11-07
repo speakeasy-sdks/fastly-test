@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class BulkUpdateDictionaryItemRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bulkUpdateDictionaryListRequest?: shared.BulkUpdateDictionaryListRequest;
+    bulkUpdateDictionaryListRequest?: components.BulkUpdateDictionaryListRequest;
 
     /**
      * Alphanumeric string identifying a Dictionary.

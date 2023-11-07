@@ -3,29 +3,29 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class ListServiceStarsData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => shared.RelationshipsForStar)
-    relationships?: shared.RelationshipsForStar;
+    @Type(() => components.RelationshipsForStar)
+    relationships?: components.RelationshipsForStar;
 
     /**
      * Resource type
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: shared.TypeStar;
+    type?: components.TypeStar;
 }
 
 export class Data extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "attributes" })
-    @Type(() => shared.Timestamps)
-    attributes?: shared.Timestamps;
+    @Type(() => components.Timestamps)
+    attributes?: components.Timestamps;
 
     @SpeakeasyMetadata()
     @Expose({ name: "data" })

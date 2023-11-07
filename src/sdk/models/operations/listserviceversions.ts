@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListServiceVersionsRequest extends SpeakeasyBase {
@@ -36,6 +36,6 @@ export class ListServiceVersionsResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.VersionResponse })
-    classes?: shared.VersionResponse[];
+    @SpeakeasyMetadata({ elemType: components.VersionResponse })
+    classes?: components.VersionResponse[];
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetHistStatsAggregatedRequest extends SpeakeasyBase {
@@ -17,7 +17,7 @@ export class GetHistStatsAggregatedRequest extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=by" })
-    by?: shared.By;
+    by?: components.By;
 
     /**
      * Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`.
@@ -43,7 +43,7 @@ export class GetHistStatsAggregatedRequest extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=region" })
-    region?: shared.Region;
+    region?: components.Region;
 
     /**
      * Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.
@@ -78,5 +78,5 @@ export class GetHistStatsAggregatedResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    historicalAggregateResponse?: shared.HistoricalAggregateResponse;
+    historicalAggregateResponse?: components.HistoricalAggregateResponse;
 }

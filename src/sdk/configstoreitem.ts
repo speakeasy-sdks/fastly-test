@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -65,7 +65,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -160,7 +160,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -200,7 +200,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -245,7 +245,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -325,7 +325,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -360,7 +360,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -405,7 +405,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -442,7 +442,7 @@ export class ConfigStoreItem {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse,
+                        components.ConfigStoreItemResponse,
                         resFieldDepth
                     );
                 } else {
@@ -498,7 +498,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -538,7 +538,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -593,7 +593,7 @@ export class ConfigStoreItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -633,7 +633,7 @@ export class ConfigStoreItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.configStoreItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ConfigStoreItemResponse
+                        components.ConfigStoreItemResponse
                     );
                 } else {
                     throw new errors.SDKError(

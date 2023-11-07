@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -29,11 +29,11 @@ export class TlsPrivateKeys {
      * Create a TLS private key.
      */
     async createTlsKey(
-        req: shared.TlsPrivateKey,
+        req: components.TlsPrivateKey,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTlsKeyResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsPrivateKey(req);
+            req = new components.TlsPrivateKey(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -57,7 +57,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -96,7 +96,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeyResponse
+                        components.TlsPrivateKeyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -141,7 +141,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -206,7 +206,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -240,7 +240,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeyResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeyResponse
+                        components.TlsPrivateKeyResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,7 +281,7 @@ export class TlsPrivateKeys {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -316,7 +316,7 @@ export class TlsPrivateKeys {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsPrivateKeysResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsPrivateKeysResponse
+                        components.TlsPrivateKeysResponse
                     );
                 } else {
                     throw new errors.SDKError(

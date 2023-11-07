@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogAzureRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingAzureblob?: shared.LoggingAzureblob;
+    loggingAzureblob?: components.LoggingAzureblob;
 
     /**
      * The name for the real-time logging configuration.
@@ -54,5 +54,5 @@ export class UpdateLogAzureResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingAzureblobResponse?: shared.LoggingAzureblobResponse;
+    loggingAzureblobResponse?: components.LoggingAzureblobResponse;
 }

@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogHoneycombRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingHoneycomb?: shared.LoggingHoneycomb;
+    loggingHoneycomb?: components.LoggingHoneycomb;
 
     /**
      * The name for the real-time logging configuration.
@@ -54,5 +54,5 @@ export class UpdateLogHoneycombResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingHoneycombResponse?: shared.LoggingHoneycombResponse;
+    loggingHoneycombResponse?: components.LoggingHoneycombResponse;
 }

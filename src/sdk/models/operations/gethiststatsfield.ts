@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetHistStatsFieldRequest extends SpeakeasyBase {
@@ -17,7 +17,7 @@ export class GetHistStatsFieldRequest extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=by" })
-    by?: shared.By;
+    by?: components.By;
 
     /**
      * Name of the stats field.
@@ -49,7 +49,7 @@ export class GetHistStatsFieldRequest extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=region" })
-    region?: shared.Region;
+    region?: components.Region;
 
     /**
      * Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.
@@ -84,5 +84,5 @@ export class GetHistStatsFieldResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    historicalFieldResponse?: shared.HistoricalFieldResponse;
+    historicalFieldResponse?: components.HistoricalFieldResponse;
 }

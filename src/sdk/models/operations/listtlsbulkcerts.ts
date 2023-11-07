@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListTlsBulkCertsRequest extends SpeakeasyBase {
@@ -29,7 +29,7 @@ export class ListTlsBulkCertsRequest extends SpeakeasyBase {
      * The order in which to list the results by creation date.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sort" })
-    sort?: shared.Sort;
+    sort?: components.Sort;
 }
 
 export class ListTlsBulkCertsResponse extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class ListTlsBulkCertsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsBulkCertificatesResponse?: shared.TlsBulkCertificatesResponse;
+    tlsBulkCertificatesResponse?: components.TlsBulkCertificatesResponse;
 }

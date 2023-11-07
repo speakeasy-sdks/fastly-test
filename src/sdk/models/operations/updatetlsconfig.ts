@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateTlsConfigRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsConfiguration?: shared.TlsConfiguration;
+    tlsConfiguration?: components.TlsConfiguration;
 
     /**
      * Alphanumeric string identifying a TLS configuration.
@@ -40,5 +40,5 @@ export class UpdateTlsConfigResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsConfigurationResponse?: shared.TlsConfigurationResponse;
+    tlsConfigurationResponse?: components.TlsConfigurationResponse;
 }

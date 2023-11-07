@@ -24,8 +24,8 @@ Create a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -74,7 +74,7 @@ Delete a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -116,7 +116,7 @@ Get a specific WAF exclusion object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -158,8 +158,8 @@ List all exclusions for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { FilterExclusionType } from "FastlyTestJS/dist/sdk/models/operations";
+import { Fastly } from "Fastly";
+import { FilterExclusionType } from "Fastly/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Fastly({
@@ -203,8 +203,8 @@ Update a WAF exclusion for a particular firewall version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

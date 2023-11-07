@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -65,7 +65,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -160,7 +160,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -200,7 +200,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -245,7 +245,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -325,7 +325,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -359,7 +359,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -404,7 +404,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -443,7 +443,7 @@ export class DictionaryItem {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse,
+                        components.DictionaryItemResponse,
                         resFieldDepth
                     );
                 } else {
@@ -499,7 +499,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -539,7 +539,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -594,7 +594,7 @@ export class DictionaryItem {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -634,7 +634,7 @@ export class DictionaryItem {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.dictionaryItemResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DictionaryItemResponse
+                        components.DictionaryItemResponse
                     );
                 } else {
                     throw new errors.SDKError(

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -47,7 +47,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -82,7 +82,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalResponse
+                        components.HistoricalResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,7 +123,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -159,7 +159,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalAggregateResponse
+                        components.HistoricalAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -200,7 +200,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -235,7 +235,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalFieldResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalFieldResponse
+                        components.HistoricalFieldResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -276,7 +276,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -312,7 +312,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalAggregateResponse
+                        components.HistoricalAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -357,7 +357,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -393,7 +393,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalFieldAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalFieldAggregateResponse
+                        components.HistoricalFieldAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -427,7 +427,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -461,7 +461,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalRegionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalRegionsResponse
+                        components.HistoricalRegionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -502,7 +502,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -537,7 +537,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageAggregateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageAggregateResponse
+                        components.HistoricalUsageAggregateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -578,7 +578,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -613,7 +613,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageMonthResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageMonthResponse
+                        components.HistoricalUsageMonthResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -654,7 +654,7 @@ export class Historical {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -689,7 +689,7 @@ export class Historical {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.historicalUsageServiceResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.HistoricalUsageServiceResponse
+                        components.HistoricalUsageServiceResponse
                     );
                 } else {
                     throw new errors.SDKError(

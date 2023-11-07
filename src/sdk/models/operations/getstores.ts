@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -38,10 +38,10 @@ export class Meta extends SpeakeasyBase {
  * OK
  */
 export class GetStoresResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: shared.StoreResponse })
+    @SpeakeasyMetadata({ elemType: components.StoreResponse })
     @Expose({ name: "data" })
-    @Type(() => shared.StoreResponse)
-    data?: shared.StoreResponse[];
+    @Type(() => components.StoreResponse)
+    data?: components.StoreResponse[];
 
     /**
      * Meta for the pagination.

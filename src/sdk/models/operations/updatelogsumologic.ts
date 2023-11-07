@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogSumologicRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSumologic?: shared.LoggingSumologic;
+    loggingSumologic?: components.LoggingSumologic;
 
     /**
      * The name for the real-time logging configuration.
@@ -54,5 +54,5 @@ export class UpdateLogSumologicResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSumologicResponse?: shared.LoggingSumologicResponse;
+    loggingSumologicResponse?: components.LoggingSumologicResponse;
 }

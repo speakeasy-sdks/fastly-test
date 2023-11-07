@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateServiceSettingsRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateServiceSettingsRequest extends SpeakeasyBase {
     serviceId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    settings?: shared.Settings;
+    settings?: components.Settings;
 
     /**
      * Integer identifying a service version.
@@ -46,5 +46,5 @@ export class UpdateServiceSettingsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    settingsResponse?: shared.SettingsResponse;
+    settingsResponse?: components.SettingsResponse;
 }

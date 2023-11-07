@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateConfigStoreItemRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateConfigStoreItemRequest extends SpeakeasyBase {
     configStoreId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    configStoreItem?: shared.ConfigStoreItem;
+    configStoreItem?: components.ConfigStoreItem;
 
     /**
      * Item key, maximum 256 characters.
@@ -46,5 +46,5 @@ export class UpdateConfigStoreItemResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    configStoreItemResponse?: shared.ConfigStoreItemResponse;
+    configStoreItemResponse?: components.ConfigStoreItemResponse;
 }

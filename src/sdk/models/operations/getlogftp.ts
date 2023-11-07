@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetLogFtpRequest extends SpeakeasyBase {
@@ -49,5 +49,5 @@ export class GetLogFtpResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingFtpResponse?: shared.LoggingFtpResponse;
+    loggingFtpResponse?: components.LoggingFtpResponse;
 }

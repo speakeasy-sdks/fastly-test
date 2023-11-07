@@ -21,8 +21,8 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -68,7 +68,7 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -108,7 +108,7 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -148,7 +148,7 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -187,8 +187,8 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

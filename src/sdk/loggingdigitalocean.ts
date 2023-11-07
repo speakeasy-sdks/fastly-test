@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -65,7 +65,7 @@ export class LoggingDigitalocean {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -104,7 +104,7 @@ export class LoggingDigitalocean {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDigitaloceanResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDigitaloceanResponse
+                        components.LoggingDigitaloceanResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -149,7 +149,7 @@ export class LoggingDigitalocean {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -228,7 +228,7 @@ export class LoggingDigitalocean {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -262,7 +262,7 @@ export class LoggingDigitalocean {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDigitaloceanResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDigitaloceanResponse
+                        components.LoggingDigitaloceanResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -307,7 +307,7 @@ export class LoggingDigitalocean {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -343,7 +343,7 @@ export class LoggingDigitalocean {
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDigitaloceanResponse,
+                        components.LoggingDigitaloceanResponse,
                         resFieldDepth
                     );
                 } else {
@@ -403,7 +403,7 @@ export class LoggingDigitalocean {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -442,7 +442,7 @@ export class LoggingDigitalocean {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.loggingDigitaloceanResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.LoggingDigitaloceanResponse
+                        components.LoggingDigitaloceanResponse
                     );
                 } else {
                     throw new errors.SDKError(

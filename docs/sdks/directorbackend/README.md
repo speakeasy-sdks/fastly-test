@@ -19,7 +19,7 @@ Establishes a relationship between a Backend and a Director. The Backend is then
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -60,7 +60,7 @@ Deletes the relationship between a Backend and a Director. The Backend is no lon
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -101,7 +101,7 @@ Returns the relationship between a Backend and a Director. If the Backend has be
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

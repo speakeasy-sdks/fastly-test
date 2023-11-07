@@ -19,7 +19,7 @@ Disable a product on a service. Supported product IDs: `brotli_compression`,`dom
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -58,7 +58,7 @@ Enable a product on a service. Supported product IDs: `brotli_compression`,`doma
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -97,7 +97,7 @@ Get enabled product on a service. Supported product IDs: `brotli_compression`,`d
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

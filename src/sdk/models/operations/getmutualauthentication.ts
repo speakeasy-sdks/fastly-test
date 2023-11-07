@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetMutualAuthenticationRequest extends SpeakeasyBase {
@@ -48,5 +48,5 @@ export class GetMutualAuthenticationResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    mutualAuthenticationResponse?: shared.MutualAuthenticationResponse;
+    mutualAuthenticationResponse?: components.MutualAuthenticationResponse;
 }

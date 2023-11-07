@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogSyslogRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSyslog?: shared.LoggingSyslog;
+    loggingSyslog?: components.LoggingSyslog;
 
     /**
      * The name for the real-time logging configuration.
@@ -52,5 +52,5 @@ export class UpdateLogSyslogResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSyslogResponse?: shared.LoggingSyslogResponse;
+    loggingSyslogResponse?: components.LoggingSyslogResponse;
 }

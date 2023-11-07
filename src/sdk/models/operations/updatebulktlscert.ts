@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateBulkTlsCertRequest extends SpeakeasyBase {
@@ -14,7 +14,7 @@ export class UpdateBulkTlsCertRequest extends SpeakeasyBase {
     certificateId: string;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    tlsBulkCertificate?: shared.TlsBulkCertificate;
+    tlsBulkCertificate?: components.TlsBulkCertificate;
 }
 
 export class UpdateBulkTlsCertResponse extends SpeakeasyBase {
@@ -40,5 +40,5 @@ export class UpdateBulkTlsCertResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsBulkCertificateResponse?: shared.TlsBulkCertificateResponse;
+    tlsBulkCertificateResponse?: components.TlsBulkCertificateResponse;
 }

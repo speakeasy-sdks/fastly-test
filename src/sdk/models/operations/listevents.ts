@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListEventsRequest extends SpeakeasyBase {
@@ -62,7 +62,7 @@ export class ListEventsRequest extends SpeakeasyBase {
      * The order in which to list the results by creation date.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sort" })
-    sort?: shared.Sort;
+    sort?: components.Sort;
 }
 
 export class ListEventsResponse extends SpeakeasyBase {
@@ -88,5 +88,5 @@ export class ListEventsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    eventsResponse?: shared.EventsResponse;
+    eventsResponse?: components.EventsResponse;
 }

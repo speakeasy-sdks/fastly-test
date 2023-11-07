@@ -20,7 +20,7 @@ Create a Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 import {
   AuthMethod,
   LoggingKafkaCompressionCodec,
@@ -28,7 +28,7 @@ import {
   LoggingKafkaPlacement,
   LoggingUseTls,
   RequiredAcks,
-} from "FastlyTestJS/dist/sdk/models/shared";
+} from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -74,7 +74,7 @@ Delete the Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -114,7 +114,7 @@ Get the Kafka logging endpoint for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -154,7 +154,7 @@ List all of the Kafka logging endpoints for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

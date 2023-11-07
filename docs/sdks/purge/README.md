@@ -22,7 +22,7 @@ Purge-all requests cannot be done in soft mode and will always immediately inval
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -60,7 +60,7 @@ Instant Purge an individual URL.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -99,7 +99,7 @@ Instant Purge a particular service of items tagged with a Surrogate Key. Only on
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

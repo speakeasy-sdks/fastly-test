@@ -21,8 +21,8 @@ Creates a pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { PoolType, UseTls } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -66,7 +66,7 @@ Deletes a specific pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -106,7 +106,7 @@ Gets a single pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -146,7 +146,7 @@ Lists all pools for a particular service and pool.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -185,8 +185,8 @@ Updates a specific pool for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { PoolType, UseTls } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

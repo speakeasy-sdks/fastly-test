@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListApexRedirectsRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListApexRedirectsResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.ApexRedirect })
-    classes?: shared.ApexRedirect[];
+    @SpeakeasyMetadata({ elemType: components.ApexRedirect })
+    classes?: components.ApexRedirect[];
 }

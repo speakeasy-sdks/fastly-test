@@ -21,8 +21,8 @@ Creates a new Header object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -67,7 +67,7 @@ Deletes a Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -107,7 +107,7 @@ Retrieves a Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -147,7 +147,7 @@ Retrieves all Header objects for a particular Version of a Service.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -186,8 +186,8 @@ Modifies an existing Header object by name.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { HeaderAction, HeaderType } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

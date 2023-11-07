@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class GetWafFirewallRequest extends SpeakeasyBase {
@@ -25,7 +25,7 @@ export class GetWafFirewallRequest extends SpeakeasyBase {
      * Include related objects. Optional.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=include" })
-    include?: shared.FirewallInclude;
+    include?: components.FirewallInclude;
 }
 
 export class GetWafFirewallResponse extends SpeakeasyBase {
@@ -51,5 +51,5 @@ export class GetWafFirewallResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafFirewallResponse?: shared.WafFirewallResponse;
+    wafFirewallResponse?: components.WafFirewallResponse;
 }

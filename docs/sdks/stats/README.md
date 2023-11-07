@@ -17,7 +17,7 @@ Get the stats from a service for a block of time. This lists all stats by PoP lo
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

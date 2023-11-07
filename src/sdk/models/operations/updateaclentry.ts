@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateAclEntryRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    aclEntry?: shared.AclEntry;
+    aclEntry?: components.AclEntry;
 
     /**
      * Alphanumeric string identifying an ACL Entry.
@@ -52,5 +52,5 @@ export class UpdateAclEntryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    aclEntryResponse?: shared.AclEntryResponse;
+    aclEntryResponse?: components.AclEntryResponse;
 }

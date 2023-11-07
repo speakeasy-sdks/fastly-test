@@ -19,7 +19,7 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -57,7 +57,7 @@ Get data for the 120 seconds preceding the latest timestamp available for a serv
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -96,7 +96,7 @@ Get real-time data for the specified reporting period. Specify `0` to get a sing
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

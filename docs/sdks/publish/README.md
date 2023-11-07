@@ -19,7 +19,7 @@ Send one or more messages to [Fanout](https://developer.fastly.com/learning/conc
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

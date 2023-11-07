@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateWafActiveRuleRequest extends SpeakeasyBase {
@@ -20,7 +20,7 @@ export class UpdateWafActiveRuleRequest extends SpeakeasyBase {
     versionId: number;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/vnd.api+json" })
-    wafActiveRule?: shared.WafActiveRule;
+    wafActiveRule?: components.WafActiveRule;
 
     /**
      * Alphanumeric string identifying a WAF rule.
@@ -52,5 +52,5 @@ export class UpdateWafActiveRuleResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    wafActiveRuleResponse?: shared.WafActiveRuleResponse;
+    wafActiveRuleResponse?: components.WafActiveRuleResponse;
 }

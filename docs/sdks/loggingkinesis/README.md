@@ -20,8 +20,8 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -65,7 +65,7 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -105,7 +105,7 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -145,7 +145,7 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({

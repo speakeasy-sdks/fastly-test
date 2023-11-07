@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class UpdateLogSplunkRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    loggingSplunk?: shared.LoggingSplunk;
+    loggingSplunk?: components.LoggingSplunk;
 
     /**
      * The name for the real-time logging configuration.
@@ -52,5 +52,5 @@ export class UpdateLogSplunkResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    loggingSplunkResponse?: shared.LoggingSplunkResponse;
+    loggingSplunkResponse?: components.LoggingSplunkResponse;
 }

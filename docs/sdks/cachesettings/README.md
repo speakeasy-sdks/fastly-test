@@ -21,8 +21,8 @@ Create a cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Action } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Action } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({
@@ -65,7 +65,7 @@ Delete a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -105,7 +105,7 @@ Get a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -145,7 +145,7 @@ Get a list of all cache settings for a particular service and version.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -184,8 +184,8 @@ Update a specific cache settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { Action } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { Action } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

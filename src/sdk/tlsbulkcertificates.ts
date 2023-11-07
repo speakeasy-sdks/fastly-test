@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as components from "../sdk/models/components";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
-import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -51,7 +51,7 @@ export class TlsBulkCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -116,7 +116,7 @@ export class TlsBulkCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -150,7 +150,7 @@ export class TlsBulkCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsBulkCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsBulkCertificateResponse
+                        components.TlsBulkCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -191,7 +191,7 @@ export class TlsBulkCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
@@ -226,7 +226,7 @@ export class TlsBulkCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsBulkCertificatesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsBulkCertificatesResponse
+                        components.TlsBulkCertificatesResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -285,7 +285,7 @@ export class TlsBulkCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -324,7 +324,7 @@ export class TlsBulkCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsBulkCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsBulkCertificateResponse
+                        components.TlsBulkCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -347,11 +347,11 @@ export class TlsBulkCertificates {
      * Upload a new certificate. TLS domains are automatically enabled upon certificate creation. If a domain is already enabled on a previously uploaded certificate, that domain will be updated to use the new certificate for all future TLS handshake requests.
      */
     async uploadTlsBulkCert(
-        req: shared.TlsBulkCertificateData,
+        req: components.TlsBulkCertificateData,
         config?: AxiosRequestConfig
     ): Promise<operations.UploadTlsBulkCertResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.TlsBulkCertificateData(req);
+            req = new components.TlsBulkCertificateData(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -375,7 +375,7 @@ export class TlsBulkCertificates {
             globalSecurity = await globalSecurity();
         }
         if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
+            globalSecurity = new components.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = {
@@ -414,7 +414,7 @@ export class TlsBulkCertificates {
                 if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
                     res.tlsBulkCertificateResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TlsBulkCertificateResponse
+                        components.TlsBulkCertificateResponse
                     );
                 } else {
                     throw new errors.SDKError(

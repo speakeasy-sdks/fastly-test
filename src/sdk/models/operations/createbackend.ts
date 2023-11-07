@@ -3,12 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class CreateBackendRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/x-www-form-urlencoded" })
-    backend?: shared.Backend;
+    backend?: components.Backend;
 
     /**
      * Alphanumeric string identifying the service.
@@ -46,5 +46,5 @@ export class CreateBackendResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    backendResponse?: shared.BackendResponse;
+    backendResponse?: components.BackendResponse;
 }

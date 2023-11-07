@@ -20,7 +20,7 @@ Removes the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -60,7 +60,7 @@ Gets the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -100,7 +100,7 @@ Returns a list of all Request Settings objects for the given service and version
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
+import { Fastly } from "Fastly";
 
 (async() => {
   const sdk = new Fastly({
@@ -139,8 +139,8 @@ Updates the specified Request Settings object.
 ### Example Usage
 
 ```typescript
-import { Fastly } from "FastlyTestJS";
-import { RequestSettingsAction, Xff } from "FastlyTestJS/dist/sdk/models/shared";
+import { Fastly } from "Fastly";
+import { RequestSettingsAction, Xff } from "Fastly/dist/sdk/models/components";
 
 (async() => {
   const sdk = new Fastly({

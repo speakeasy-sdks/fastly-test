@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class BulkUpdateConfigStoreItemRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bulkUpdateConfigStoreListRequest?: shared.BulkUpdateConfigStoreListRequest;
+    bulkUpdateConfigStoreListRequest?: components.BulkUpdateConfigStoreListRequest;
 
     /**
      * An alphanumeric string identifying the config store.

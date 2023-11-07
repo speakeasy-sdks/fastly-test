@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListHeaderObjectsRequest extends SpeakeasyBase {
@@ -42,6 +42,6 @@ export class ListHeaderObjectsResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.HeaderResponse })
-    classes?: shared.HeaderResponse[];
+    @SpeakeasyMetadata({ elemType: components.HeaderResponse })
+    classes?: components.HeaderResponse[];
 }

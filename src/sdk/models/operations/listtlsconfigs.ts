@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
+import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class ListTlsConfigsRequest extends SpeakeasyBase {
@@ -58,5 +58,5 @@ export class ListTlsConfigsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    tlsConfigurationsResponse?: shared.TlsConfigurationsResponse;
+    tlsConfigurationsResponse?: components.TlsConfigurationsResponse;
 }
