@@ -6,15 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TypeTlsCertificate } from "./typetlscertificate";
 import { Expose } from "class-transformer";
 
-export class RelationshipMemberTlsCertificateInput extends SpeakeasyBase {
-    /**
-     * Resource type
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: TypeTlsCertificate;
-}
-
 export class RelationshipMemberTlsCertificate extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })

@@ -40,7 +40,7 @@ export class TlsPrivateKeys {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -71,7 +71,7 @@ export class TlsPrivateKeys {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -138,7 +138,7 @@ export class TlsPrivateKeys {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/tls/private_keys/{tls_private_key_id}",
             req
@@ -159,7 +159,7 @@ export class TlsPrivateKeys {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -211,7 +211,7 @@ export class TlsPrivateKeys {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/tls/private_keys/{tls_private_key_id}",
             req
@@ -232,7 +232,7 @@ export class TlsPrivateKeys {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -298,7 +298,7 @@ export class TlsPrivateKeys {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/tls/private_keys";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -316,7 +316,7 @@ export class TlsPrivateKeys {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

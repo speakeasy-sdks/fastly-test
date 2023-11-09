@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 751bdf7393ba568b37b599aaf063bcf1
   docVersion: 1.0.0
-  speakeasyVersion: 1.114.1
-  generationVersion: 2.181.1
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   sdkClassName: Fastly
@@ -11,14 +11,14 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.1.0
+    core: 3.1.2
     deprecations: 2.81.1
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
-    inputOutputModels: 2.81.1
+    inputOutputModels: 2.82.0
     methodSecurity: 2.82.0
 typescript:
-  version: 2.2.0
+  version: 2.3.0
   author: doramatadora
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
@@ -30,7 +30,9 @@ typescript:
       operations: sdk/models/operations
       shared: sdk/models/components
       webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://github.com/speakeasy-sdks/fastly-test
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: Fastly
   repoSubDirectory: .

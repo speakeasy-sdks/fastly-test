@@ -1,5 +1,5 @@
 # TlsDomains
-(*.tlsDomains*)
+(*tlsDomains*)
 
 ## Overview
 
@@ -30,7 +30,6 @@ import { Sort } from "Fastly/dist/sdk/models/components";
     pageSize: 20,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -39,13 +38,17 @@ import { Sort } from "Fastly/dist/sdk/models/components";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListTlsDomainsRequest](../../models/operations/listtlsdomainsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.ListTlsDomainsRequest](../../sdk/models/operations/listtlsdomainsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.ListTlsDomainsResponse](../../models/operations/listtlsdomainsresponse.md)>**
+**Promise<[operations.ListTlsDomainsResponse](../../sdk/models/operations/listtlsdomainsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

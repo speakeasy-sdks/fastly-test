@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipsForTlsActivationInput } from "./relationshipsfortlsactivation";
+import { RelationshipsForTlsActivationInput } from "./relationshipsfortlsactivationinput";
 import { TypeTlsActivation } from "./typetlsactivation";
 import { Expose, Type } from "class-transformer";
 

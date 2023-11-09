@@ -40,7 +40,7 @@ export class ServiceAuthorizations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/service-authorizations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/service-authorizations";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -71,7 +71,7 @@ export class ServiceAuthorizations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -139,7 +139,7 @@ export class ServiceAuthorizations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service-authorizations/{service_authorization_id}",
             req
@@ -160,7 +160,7 @@ export class ServiceAuthorizations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -213,7 +213,7 @@ export class ServiceAuthorizations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/service-authorizations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/service-authorizations";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -231,7 +231,7 @@ export class ServiceAuthorizations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -298,7 +298,7 @@ export class ServiceAuthorizations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service-authorizations/{service_authorization_id}",
             req
@@ -319,7 +319,7 @@ export class ServiceAuthorizations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -386,7 +386,7 @@ export class ServiceAuthorizations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service-authorizations/{service_authorization_id}",
             req
@@ -425,7 +425,7 @@ export class ServiceAuthorizations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",

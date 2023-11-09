@@ -1,5 +1,5 @@
 # Star
-(*.star*)
+(*star*)
 
 ## Overview
 
@@ -39,7 +39,6 @@ import { TypeService, TypeStar, TypeUser } from "Fastly/dist/sdk/models/componen
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -50,14 +49,18 @@ import { TypeService, TypeStar, TypeUser } from "Fastly/dist/sdk/models/componen
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [components.Star](../../models/shared/star.md)               | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [components.Star](../../sdk/models/components/star.md)       | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.CreateServiceStarResponse](../../models/operations/createservicestarresponse.md)>**
+**Promise<[operations.CreateServiceStarResponse](../../sdk/models/operations/createservicestarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteServiceStar
 
@@ -77,7 +80,6 @@ import { Fastly } from "Fastly";
     starId: "3krg2uUGZzb2W9Euo4moOY",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,16 +88,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteServiceStarRequest](../../models/operations/deleteservicestarrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteServiceStarRequest](../../sdk/models/operations/deleteservicestarrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.DeleteServiceStarResponse](../../models/operations/deleteservicestarresponse.md)>**
+**Promise<[operations.DeleteServiceStarResponse](../../sdk/models/operations/deleteservicestarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getServiceStar
 
@@ -115,7 +121,6 @@ import { Fastly } from "Fastly";
     starId: "3krg2uUGZzb2W9Euo4moOY",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,16 +129,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetServiceStarRequest](../../models/operations/getservicestarrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetServiceStarRequest](../../sdk/models/operations/getservicestarrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetServiceStarResponse](../../models/operations/getservicestarresponse.md)>**
+**Promise<[operations.GetServiceStarResponse](../../sdk/models/operations/getservicestarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listServiceStars
 
@@ -151,7 +160,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.star.listServiceStars();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -167,5 +175,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListServiceStarsResponse](../../models/operations/listservicestarsresponse.md)>**
+**Promise<[operations.ListServiceStarsResponse](../../sdk/models/operations/listservicestarsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

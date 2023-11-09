@@ -42,7 +42,11 @@ export class Publish {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/service/{service_id}/publish/", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/service/{service_id}/publish/",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -73,7 +77,7 @@ export class Publish {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

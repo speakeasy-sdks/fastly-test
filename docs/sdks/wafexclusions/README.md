@@ -1,5 +1,5 @@
 # WafExclusions
-(*.wafExclusions*)
+(*wafExclusions*)
 
 ## Overview
 
@@ -45,7 +45,6 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,16 +53,20 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.CreateWafRuleExclusionRequest](../../models/operations/createwafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.CreateWafRuleExclusionRequest](../../sdk/models/operations/createwafruleexclusionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.CreateWafRuleExclusionResponse](../../models/operations/createwafruleexclusionresponse.md)>**
+**Promise<[operations.CreateWafRuleExclusionResponse](../../sdk/models/operations/createwafruleexclusionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~deleteWafRuleExclusion~~
 
@@ -87,7 +90,6 @@ import { Fastly } from "Fastly";
     firewallVersionNumber: 1,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -96,16 +98,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.DeleteWafRuleExclusionRequest](../../models/operations/deletewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.DeleteWafRuleExclusionRequest](../../sdk/models/operations/deletewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.DeleteWafRuleExclusionResponse](../../models/operations/deletewafruleexclusionresponse.md)>**
+**Promise<[operations.DeleteWafRuleExclusionResponse](../../sdk/models/operations/deletewafruleexclusionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~getWafRuleExclusion~~
 
@@ -129,7 +135,6 @@ import { Fastly } from "Fastly";
     firewallVersionNumber: 1,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -138,16 +143,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetWafRuleExclusionRequest](../../models/operations/getwafruleexclusionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetWafRuleExclusionRequest](../../sdk/models/operations/getwafruleexclusionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.GetWafRuleExclusionResponse](../../models/operations/getwafruleexclusionresponse.md)>**
+**Promise<[operations.GetWafRuleExclusionResponse](../../sdk/models/operations/getwafruleexclusionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~listWafRuleExclusions~~
 
@@ -174,7 +183,6 @@ import { FilterExclusionType } from "Fastly/dist/sdk/models/operations";
     pageSize: 20,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -183,16 +191,20 @@ import { FilterExclusionType } from "Fastly/dist/sdk/models/operations";
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.ListWafRuleExclusionsRequest](../../models/operations/listwafruleexclusionsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.ListWafRuleExclusionsRequest](../../sdk/models/operations/listwafruleexclusionsrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
 
-**Promise<[operations.ListWafRuleExclusionsResponse](../../models/operations/listwafruleexclusionsresponse.md)>**
+**Promise<[operations.ListWafRuleExclusionsResponse](../../sdk/models/operations/listwafruleexclusionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~updateWafRuleExclusion~~
 
@@ -225,7 +237,6 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -234,13 +245,17 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.UpdateWafRuleExclusionRequest](../../models/operations/updatewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.UpdateWafRuleExclusionRequest](../../sdk/models/operations/updatewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.UpdateWafRuleExclusionResponse](../../models/operations/updatewafruleexclusionresponse.md)>**
+**Promise<[operations.UpdateWafRuleExclusionResponse](../../sdk/models/operations/updatewafruleexclusionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

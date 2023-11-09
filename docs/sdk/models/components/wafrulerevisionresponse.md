@@ -1,0 +1,9 @@
+# WafRuleRevisionResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                  | [components.WafRuleRevisionResponseData](../../../sdk/models/components/wafrulerevisionresponsedata.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `included`                                                                                              | [components.WafRule](../../../sdk/models/components/wafrule.md)[]                                       | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |

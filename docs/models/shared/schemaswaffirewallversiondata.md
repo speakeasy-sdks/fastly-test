@@ -1,9 +1,0 @@
-# SchemasWafFirewallVersionData
-
-
-## Fields
-
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `attributes`                                                                                                         | [components.SchemasWafFirewallVersionDataAttributes](../../models/shared/schemaswaffirewallversiondataattributes.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
-| `type`                                                                                                               | [components.TypeWafFirewallVersion](../../models/shared/typewaffirewallversion.md)                                   | :heavy_minus_sign:                                                                                                   | Resource type.                                                                                                       |

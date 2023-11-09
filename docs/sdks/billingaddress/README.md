@@ -1,5 +1,5 @@
 # BillingAddress
-(*.billingAddress*)
+(*billingAddress*)
 
 ## Overview
 
@@ -45,7 +45,6 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
     customerId: "x4xCwxxJxGCx123Rx5xTx",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -54,16 +53,21 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.AddBillingAddrRequest](../../models/operations/addbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.AddBillingAddrRequest](../../sdk/models/operations/addbillingaddrrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.AddBillingAddrResponse](../../models/operations/addbillingaddrresponse.md)>**
+**Promise<[operations.AddBillingAddrResponse](../../sdk/models/operations/addbillingaddrresponse.md)>**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| errors.BillingAddressVerificationErrorResponse | 400                                            | application/vnd.api+json                       |
+| errors.SDKError                                | 400-600                                        | */*                                            |
 
 ## deleteBillingAddr
 
@@ -83,7 +87,6 @@ import { Fastly } from "Fastly";
     customerId: "x4xCwxxJxGCx123Rx5xTx",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,16 +95,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteBillingAddrRequest](../../models/operations/deletebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteBillingAddrRequest](../../sdk/models/operations/deletebillingaddrrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.DeleteBillingAddrResponse](../../models/operations/deletebillingaddrresponse.md)>**
+**Promise<[operations.DeleteBillingAddrResponse](../../sdk/models/operations/deletebillingaddrresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getBillingAddr
 
@@ -121,7 +128,6 @@ import { Fastly } from "Fastly";
     customerId: "x4xCwxxJxGCx123Rx5xTx",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,16 +136,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetBillingAddrRequest](../../models/operations/getbillingaddrrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetBillingAddrRequest](../../sdk/models/operations/getbillingaddrrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetBillingAddrResponse](../../models/operations/getbillingaddrresponse.md)>**
+**Promise<[operations.GetBillingAddrResponse](../../sdk/models/operations/getbillingaddrresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateBillingAddr
 
@@ -173,7 +183,6 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -182,13 +191,18 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.UpdateBillingAddrRequest](../../models/operations/updatebillingaddrrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateBillingAddrRequest](../../sdk/models/operations/updatebillingaddrrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.UpdateBillingAddrResponse](../../models/operations/updatebillingaddrresponse.md)>**
+**Promise<[operations.UpdateBillingAddrResponse](../../sdk/models/operations/updatebillingaddrresponse.md)>**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| errors.BillingAddressVerificationErrorResponse | 400                                            | application/vnd.api+json                       |
+| errors.SDKError                                | 400-600                                        | */*                                            |

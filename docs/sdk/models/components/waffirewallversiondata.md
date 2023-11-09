@@ -1,0 +1,9 @@
+# WafFirewallVersionData
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `attributes`                                                                                                      | [components.WafFirewallVersionDataAttributes](../../../sdk/models/components/waffirewallversiondataattributes.md) | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `type`                                                                                                            | [components.TypeWafFirewallVersion](../../../sdk/models/components/typewaffirewallversion.md)                     | :heavy_minus_sign:                                                                                                | Resource type.                                                                                                    |

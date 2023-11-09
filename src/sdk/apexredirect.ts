@@ -40,7 +40,11 @@ export class ApexRedirect {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/apex-redirects/{apex_redirect_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/apex-redirects/{apex_redirect_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -57,7 +61,7 @@ export class ApexRedirect {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -124,7 +128,11 @@ export class ApexRedirect {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/apex-redirects/{apex_redirect_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/apex-redirects/{apex_redirect_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -141,7 +149,7 @@ export class ApexRedirect {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -207,7 +215,7 @@ export class ApexRedirect {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/apex-redirects",
             req
@@ -228,7 +236,7 @@ export class ApexRedirect {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -297,7 +305,11 @@ export class ApexRedirect {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/apex-redirects/{apex_redirect_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/apex-redirects/{apex_redirect_id}",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -328,7 +340,7 @@ export class ApexRedirect {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "put",
             headers: headers,
             responseType: "arraybuffer",

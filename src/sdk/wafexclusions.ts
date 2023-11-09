@@ -45,7 +45,7 @@ export class WafExclusions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions",
             req
@@ -80,7 +80,7 @@ export class WafExclusions {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -150,7 +150,7 @@ export class WafExclusions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}",
             req
@@ -171,7 +171,7 @@ export class WafExclusions {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -226,7 +226,7 @@ export class WafExclusions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}",
             req
@@ -247,7 +247,7 @@ export class WafExclusions {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -316,7 +316,7 @@ export class WafExclusions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions",
             req
@@ -338,7 +338,7 @@ export class WafExclusions {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -407,7 +407,7 @@ export class WafExclusions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}",
             req
@@ -442,7 +442,7 @@ export class WafExclusions {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",

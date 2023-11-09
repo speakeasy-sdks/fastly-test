@@ -40,7 +40,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/items",
             req
@@ -79,7 +79,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -147,7 +147,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/item",
             req
@@ -182,7 +182,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -250,7 +250,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/item/{config_store_item_key}",
             req
@@ -271,7 +271,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -338,7 +338,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/item/{config_store_item_key}",
             req
@@ -359,7 +359,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -426,7 +426,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/items",
             req
@@ -447,7 +447,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -517,7 +517,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/item/{config_store_item_key}",
             req
@@ -552,7 +552,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -620,7 +620,7 @@ export class ConfigStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/config/{config_store_id}/item/{config_store_item_key}",
             req
@@ -655,7 +655,7 @@ export class ConfigStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "put",
             headers: headers,
             responseType: "arraybuffer",

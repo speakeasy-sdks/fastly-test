@@ -1,5 +1,5 @@
 # DomainOwnerships
-(*.domainOwnerships*)
+(*domainOwnerships*)
 
 ## Overview
 
@@ -26,7 +26,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.domainOwnerships.listDomainOwnerships();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,5 +41,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListDomainOwnershipsResponse](../../models/operations/listdomainownershipsresponse.md)>**
+**Promise<[operations.ListDomainOwnershipsResponse](../../sdk/models/operations/listdomainownershipsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

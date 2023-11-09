@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipMemberServiceInput } from "./relationshipmemberservice";
+import { RelationshipMemberServiceInput } from "./relationshipmemberserviceinput";
 import { TypeServiceInvitation } from "./typeserviceinvitation";
 import { Expose, Type } from "class-transformer";
 

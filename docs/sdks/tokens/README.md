@@ -1,5 +1,5 @@
 # Tokens
-(*.tokens*)
+(*tokens*)
 
 ## Overview
 
@@ -30,7 +30,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.tokens.getTokenCurrent();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,8 +45,13 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.GetTokenCurrentResponse](../../models/operations/gettokencurrentresponse.md)>**
+**Promise<[operations.GetTokenCurrentResponse](../../sdk/models/operations/gettokencurrentresponse.md)>**
+### Errors
 
+| Error Object             | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.GenericTokenError | 401,403                  | application/json         |
+| errors.SDKError          | 400-600                  | */*                      |
 
 ## listTokensCustomer
 
@@ -67,7 +71,6 @@ import { Fastly } from "Fastly";
     customerId: "x4xCwxxJxGCx123Rx5xTx",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,16 +79,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListTokensCustomerRequest](../../models/operations/listtokenscustomerrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListTokensCustomerRequest](../../sdk/models/operations/listtokenscustomerrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.ListTokensCustomerResponse](../../models/operations/listtokenscustomerresponse.md)>**
+**Promise<[operations.ListTokensCustomerResponse](../../sdk/models/operations/listtokenscustomerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listTokensUser
 
@@ -103,7 +110,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.tokens.listTokensUser();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,8 +125,13 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListTokensUserResponse](../../models/operations/listtokensuserresponse.md)>**
+**Promise<[operations.ListTokensUserResponse](../../sdk/models/operations/listtokensuserresponse.md)>**
+### Errors
 
+| Error Object             | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.GenericTokenError | 401,403                  | application/json         |
+| errors.SDKError          | 400-600                  | */*                      |
 
 ## revokeToken
 
@@ -140,7 +151,6 @@ import { Fastly } from "Fastly";
     tokenId: "5Yo3XXnrQpjc20u0ybrf2g",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -149,16 +159,21 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.RevokeTokenRequest](../../models/operations/revoketokenrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.RevokeTokenRequest](../../sdk/models/operations/revoketokenrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.RevokeTokenResponse](../../models/operations/revoketokenresponse.md)>**
+**Promise<[operations.RevokeTokenResponse](../../sdk/models/operations/revoketokenresponse.md)>**
+### Errors
 
+| Error Object             | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.GenericTokenError | 400,401,403,404          | application/json         |
+| errors.SDKError          | 400-600                  | */*                      |
 
 ## revokeTokenCurrent
 
@@ -176,7 +191,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.tokens.revokeTokenCurrent();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -192,5 +206,10 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.RevokeTokenCurrentResponse](../../models/operations/revoketokencurrentresponse.md)>**
+**Promise<[operations.RevokeTokenCurrentResponse](../../sdk/models/operations/revoketokencurrentresponse.md)>**
+### Errors
 
+| Error Object             | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.GenericTokenError | 400,401,403              | application/json         |
+| errors.SDKError          | 400-600                  | */*                      |

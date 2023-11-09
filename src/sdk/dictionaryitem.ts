@@ -40,7 +40,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/items",
             req
@@ -79,7 +79,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -147,7 +147,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/item",
             req
@@ -182,7 +182,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -250,7 +250,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
@@ -271,7 +271,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -338,7 +338,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
@@ -359,7 +359,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -425,7 +425,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/items",
             req
@@ -447,7 +447,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -518,7 +518,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
@@ -553,7 +553,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -621,7 +621,7 @@ export class DictionaryItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/dictionary/{dictionary_id}/item/{dictionary_item_key}",
             req
@@ -656,7 +656,7 @@ export class DictionaryItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "put",
             headers: headers,
             responseType: "arraybuffer",

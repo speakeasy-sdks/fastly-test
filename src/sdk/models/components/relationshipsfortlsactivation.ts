@@ -3,44 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import {
-    RelationshipMemberTlsCertificate,
-    RelationshipMemberTlsCertificateInput,
-} from "./relationshipmembertlscertificate";
-import {
-    RelationshipMemberTlsDomain,
-    RelationshipMemberTlsDomainInput,
-} from "./relationshipmembertlsdomain";
+import { RelationshipMemberTlsCertificate } from "./relationshipmembertlscertificate";
+import { RelationshipMemberTlsDomain } from "./relationshipmembertlsdomain";
 import { Expose, Type } from "class-transformer";
-
-export class RelationshipsForTlsActivationTlsCertificateInput extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsCertificateInput)
-    data?: RelationshipMemberTlsCertificateInput;
-}
-
-export class RelationshipsForTlsActivationTlsDomain extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "data" })
-    @Type(() => RelationshipMemberTlsDomainInput)
-    data?: RelationshipMemberTlsDomainInput;
-}
-
-/**
- * The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
- */
-export class RelationshipsForTlsActivationInput extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_certificate" })
-    @Type(() => RelationshipsForTlsActivationTlsCertificateInput)
-    tlsCertificate?: RelationshipsForTlsActivationTlsCertificateInput;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "tls_domain" })
-    @Type(() => RelationshipsForTlsActivationTlsDomain)
-    tlsDomain?: RelationshipsForTlsActivationTlsDomain;
-}
 
 export class RelationshipsForTlsActivationTlsCertificate extends SpeakeasyBase {
     @SpeakeasyMetadata()

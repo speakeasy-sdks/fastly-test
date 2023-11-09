@@ -1,0 +1,10 @@
+# Event
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `attributes`                                                                    | [components.EventAttributes](../../../sdk/models/components/eventattributes.md) | :heavy_minus_sign:                                                              | N/A                                                                             |                                                                                 |
+| `id`                                                                            | *string*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             | 1PTzLK8g1NRKMGu5kUb8SC                                                          |
+| `type`                                                                          | [components.TypeEvent](../../../sdk/models/components/typeevent.md)             | :heavy_minus_sign:                                                              | Resource type                                                                   |                                                                                 |

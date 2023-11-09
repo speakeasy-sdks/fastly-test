@@ -1,5 +1,5 @@
 # Pop
-(*.pop*)
+(*pop*)
 
 ## Overview
 
@@ -26,7 +26,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.pop.listPops();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,5 +41,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListPopsResponse](../../models/operations/listpopsresponse.md)>**
+**Promise<[operations.ListPopsResponse](../../sdk/models/operations/listpopsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

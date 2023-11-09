@@ -40,7 +40,11 @@ export class RateLimiter {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/rate-limiters/{rate_limiter_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/rate-limiters/{rate_limiter_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -57,7 +61,7 @@ export class RateLimiter {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -123,7 +127,11 @@ export class RateLimiter {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/rate-limiters/{rate_limiter_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/rate-limiters/{rate_limiter_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -140,7 +148,7 @@ export class RateLimiter {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -206,7 +214,7 @@ export class RateLimiter {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/rate-limiters",
             req
@@ -227,7 +235,7 @@ export class RateLimiter {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

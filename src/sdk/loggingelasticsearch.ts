@@ -40,7 +40,7 @@ export class LoggingElasticsearch {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/logging/elasticsearch",
             req
@@ -79,7 +79,7 @@ export class LoggingElasticsearch {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -147,7 +147,7 @@ export class LoggingElasticsearch {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/logging/elasticsearch/{logging_elasticsearch_name}",
             req
@@ -168,7 +168,7 @@ export class LoggingElasticsearch {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -235,7 +235,7 @@ export class LoggingElasticsearch {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/logging/elasticsearch/{logging_elasticsearch_name}",
             req
@@ -256,7 +256,7 @@ export class LoggingElasticsearch {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -323,7 +323,7 @@ export class LoggingElasticsearch {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/logging/elasticsearch",
             req
@@ -344,7 +344,7 @@ export class LoggingElasticsearch {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -414,7 +414,7 @@ export class LoggingElasticsearch {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/service/{service_id}/version/{version_id}/logging/elasticsearch/{logging_elasticsearch_name}",
             req
@@ -453,7 +453,7 @@ export class LoggingElasticsearch {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "put",
             headers: headers,
             responseType: "arraybuffer",

@@ -1,9 +1,0 @@
-# RelationshipsForStarInput
-
-
-## Fields
-
-| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `service`                                                                                          | [components.RelationshipMemberServiceInput](../../models/shared/relationshipmemberserviceinput.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
-| `user`                                                                                             | [components.RelationshipsForStarUserInput](../../models/shared/relationshipsforstaruserinput.md)   | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

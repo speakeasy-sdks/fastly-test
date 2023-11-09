@@ -1,0 +1,11 @@
+# WafRulesResponse
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `data`                                                                                      | [components.WafRuleResponseData](../../../sdk/models/components/wafruleresponsedata.md)[]   | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `included`                                                                                  | *any*[]                                                                                     | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `links`                                                                                     | [components.WafRulesResponseLinks](../../../sdk/models/components/wafrulesresponselinks.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `meta`                                                                                      | [components.WafRulesResponseMeta](../../../sdk/models/components/wafrulesresponsemeta.md)   | :heavy_minus_sign:                                                                          | N/A                                                                                         |

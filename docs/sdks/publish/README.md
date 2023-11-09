@@ -1,5 +1,5 @@
 # Publish
-(*.publish*)
+(*publish*)
 
 ## Overview
 
@@ -46,7 +46,6 @@ import { Fastly } from "Fastly";
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -55,13 +54,17 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.PublishRequest](../../models/operations/publishrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.PublishRequest](../../sdk/models/operations/publishrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
 
-**Promise<[operations.PublishResponse](../../models/operations/publishresponse.md)>**
+**Promise<[operations.PublishResponse](../../sdk/models/operations/publishresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

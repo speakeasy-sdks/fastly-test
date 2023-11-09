@@ -1,5 +1,5 @@
 # IamPermissions
-(*.iamPermissions*)
+(*iamPermissions*)
 
 ## Overview
 
@@ -26,7 +26,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.iamPermissions.listPermissions();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,5 +41,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListPermissionsResponse](../../models/operations/listpermissionsresponse.md)>**
+**Promise<[operations.ListPermissionsResponse](../../sdk/models/operations/listpermissionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

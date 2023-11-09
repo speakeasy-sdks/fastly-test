@@ -1,5 +1,5 @@
 # VclDiff
-(*.vclDiff*)
+(*vclDiff*)
 
 ## Overview
 
@@ -31,7 +31,6 @@ import { QueryFormat } from "Fastly/dist/sdk/models/components";
     toVersionId: 2,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,13 +39,17 @@ import { QueryFormat } from "Fastly/dist/sdk/models/components";
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.VclDiffServiceVersionsRequest](../../models/operations/vcldiffserviceversionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.VclDiffServiceVersionsRequest](../../sdk/models/operations/vcldiffserviceversionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.VclDiffServiceVersionsResponse](../../models/operations/vcldiffserviceversionsresponse.md)>**
+**Promise<[operations.VclDiffServiceVersionsResponse](../../sdk/models/operations/vcldiffserviceversionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

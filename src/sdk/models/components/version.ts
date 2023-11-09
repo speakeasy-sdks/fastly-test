@@ -5,44 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class VersionInput extends SpeakeasyBase {
-    /**
-     * Whether this is the active version or not.
-     */
-    @SpeakeasyMetadata({ data: "form, name=active" })
-    active?: boolean;
-
-    /**
-     * A freeform descriptive note.
-     */
-    @SpeakeasyMetadata({ data: "form, name=comment" })
-    comment?: string;
-
-    /**
-     * Unused at this time.
-     */
-    @SpeakeasyMetadata({ data: "form, name=deployed" })
-    deployed?: boolean;
-
-    /**
-     * Whether this version is locked or not. Objects can not be added or edited on locked versions.
-     */
-    @SpeakeasyMetadata({ data: "form, name=locked" })
-    locked?: boolean;
-
-    /**
-     * Unused at this time.
-     */
-    @SpeakeasyMetadata({ data: "form, name=staging" })
-    staging?: boolean;
-
-    /**
-     * Unused at this time.
-     */
-    @SpeakeasyMetadata({ data: "form, name=testing" })
-    testing?: boolean;
-}
-
 export class Version extends SpeakeasyBase {
     /**
      * Whether this is the active version or not.

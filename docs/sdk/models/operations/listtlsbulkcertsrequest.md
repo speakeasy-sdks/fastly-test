@@ -1,0 +1,11 @@
+# ListTlsBulkCertsRequest
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `filterTlsDomainId`                                                 | *string*                                                            | :heavy_minus_sign:                                                  | Filter certificates by their matching, fully-qualified domain name. |                                                                     |
+| `pageNumber`                                                        | *number*                                                            | :heavy_minus_sign:                                                  | Current page.                                                       | 1                                                                   |
+| `pageSize`                                                          | *number*                                                            | :heavy_minus_sign:                                                  | Number of records per page.                                         | 20                                                                  |
+| `sort`                                                              | [components.Sort](../../../sdk/models/components/sort.md)           | :heavy_minus_sign:                                                  | The order in which to list the results by creation date.            |                                                                     |

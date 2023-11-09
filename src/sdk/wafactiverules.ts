@@ -42,7 +42,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/bulk",
             req
@@ -81,7 +81,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -137,7 +137,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules",
             req
@@ -176,7 +176,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -243,7 +243,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/tags/{waf_tag_name}/active-rules",
             req
@@ -278,7 +278,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -334,7 +334,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}",
             req
@@ -355,7 +355,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -410,7 +410,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}",
             req
@@ -432,7 +432,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -500,7 +500,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules",
             req
@@ -522,7 +522,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -591,7 +591,7 @@ export class WafActiveRules {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}",
             req
@@ -626,7 +626,7 @@ export class WafActiveRules {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",

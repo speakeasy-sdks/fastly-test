@@ -1,0 +1,9 @@
+# RelationshipsForStarInput
+
+
+## Fields
+
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `service`                                                                                                     | [components.RelationshipMemberServiceInput](../../../sdk/models/components/relationshipmemberserviceinput.md) | :heavy_minus_sign:                                                                                            | N/A                                                                                                           |
+| `user`                                                                                                        | [components.RelationshipsForStarUserInput](../../../sdk/models/components/relationshipsforstaruserinput.md)   | :heavy_minus_sign:                                                                                            | N/A                                                                                                           |

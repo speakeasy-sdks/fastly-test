@@ -6,15 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TypeTlsDomain } from "./typetlsdomain";
 import { Expose } from "class-transformer";
 
-export class RelationshipMemberTlsDomainInput extends SpeakeasyBase {
-    /**
-     * Resource type
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: TypeTlsDomain;
-}
-
 export class RelationshipMemberTlsDomain extends SpeakeasyBase {
     /**
      * The domain name.

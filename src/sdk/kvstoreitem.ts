@@ -40,7 +40,7 @@ export class KvStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/kv/{store_id}/keys/{key_name}",
             req
@@ -62,7 +62,7 @@ export class KvStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -115,7 +115,11 @@ export class KvStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/resources/stores/kv/{store_id}/keys", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/resources/stores/kv/{store_id}/keys",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -133,7 +137,7 @@ export class KvStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -199,7 +203,7 @@ export class KvStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/kv/{store_id}/keys/{key_name}",
             req
@@ -220,7 +224,7 @@ export class KvStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -284,7 +288,7 @@ export class KvStoreItem {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/resources/stores/kv/{store_id}/keys/{key_name}",
             req
@@ -321,7 +325,7 @@ export class KvStoreItem {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "put",
             headers: headers,
             responseType: "arraybuffer",

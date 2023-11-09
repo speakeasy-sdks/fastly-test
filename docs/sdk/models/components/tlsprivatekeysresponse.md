@@ -1,0 +1,10 @@
+# TlsPrivateKeysResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                  | [components.TlsPrivateKeyResponseData](../../../sdk/models/components/tlsprivatekeyresponsedata.md)[]   | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `links`                                                                                                 | [components.TlsPrivateKeysResponseLinks](../../../sdk/models/components/tlsprivatekeysresponselinks.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `meta`                                                                                                  | [components.TlsPrivateKeysResponseMeta](../../../sdk/models/components/tlsprivatekeysresponsemeta.md)   | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |

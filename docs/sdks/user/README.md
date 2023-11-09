@@ -1,5 +1,5 @@
 # User
-(*.user*)
+(*user*)
 
 ## Overview
 
@@ -35,7 +35,6 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
     role: RoleUser.User,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,14 +45,18 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [components.User](../../models/shared/user.md)               | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [components.User](../../sdk/models/components/user.md)       | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.CreateUserResponse](../../models/operations/createuserresponse.md)>**
+**Promise<[operations.CreateUserResponse](../../sdk/models/operations/createuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteUser
 
@@ -73,7 +76,6 @@ import { Fastly } from "Fastly";
     userId: "x9KzsrACXZv8tPwlEDsKb6",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -82,16 +84,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.DeleteUserRequest](../../models/operations/deleteuserrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.DeleteUserRequest](../../sdk/models/operations/deleteuserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.DeleteUserResponse](../../models/operations/deleteuserresponse.md)>**
+**Promise<[operations.DeleteUserResponse](../../sdk/models/operations/deleteuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCurrentUser
 
@@ -109,7 +115,6 @@ import { Fastly } from "Fastly";
 
   const res = await sdk.user.getCurrentUser();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,8 +130,12 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.GetCurrentUserResponse](../../models/operations/getcurrentuserresponse.md)>**
+**Promise<[operations.GetCurrentUserResponse](../../sdk/models/operations/getcurrentuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getUser
 
@@ -146,7 +155,6 @@ import { Fastly } from "Fastly";
     userId: "x9KzsrACXZv8tPwlEDsKb6",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -155,16 +163,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.GetUserRequest](../../models/operations/getuserrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetUserRequest](../../sdk/models/operations/getuserrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
 
-**Promise<[operations.GetUserResponse](../../models/operations/getuserresponse.md)>**
+**Promise<[operations.GetUserResponse](../../sdk/models/operations/getuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestPasswordReset
 
@@ -184,7 +196,6 @@ import { Fastly } from "Fastly";
     userLogin: "krisowner@example.com",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -193,16 +204,20 @@ import { Fastly } from "Fastly";
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.RequestPasswordResetRequest](../../models/operations/requestpasswordresetrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.RequestPasswordResetRequest](../../sdk/models/operations/requestpasswordresetrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
 
-**Promise<[operations.RequestPasswordResetResponse](../../models/operations/requestpasswordresetresponse.md)>**
+**Promise<[operations.RequestPasswordResetResponse](../../sdk/models/operations/requestpasswordresetresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateUser
 
@@ -226,7 +241,6 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
     userId: "x9KzsrACXZv8tPwlEDsKb6",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -235,16 +249,20 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.UpdateUserRequest](../../models/operations/updateuserrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.UpdateUserRequest](../../sdk/models/operations/updateuserrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.UpdateUserResponse](../../models/operations/updateuserresponse.md)>**
+**Promise<[operations.UpdateUserResponse](../../sdk/models/operations/updateuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateUserPassword
 
@@ -265,7 +283,6 @@ const operationSecurity: UpdateUserPasswordSecurity = {
 
   const res = await sdk.user.updateUserPassword({}, operationSecurity);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -274,14 +291,18 @@ const operationSecurity: UpdateUserPasswordSecurity = {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [components.PasswordChange](../../models/shared/passwordchange.md)                             | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateUserPasswordSecurity](../../models/operations/updateuserpasswordsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [components.PasswordChange](../../sdk/models/components/passwordchange.md)                         | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `security`                                                                                         | [operations.UpdateUserPasswordSecurity](../../sdk/models/operations/updateuserpasswordsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.UpdateUserPasswordResponse](../../models/operations/updateuserpasswordresponse.md)>**
+**Promise<[operations.UpdateUserPasswordResponse](../../sdk/models/operations/updateuserpasswordresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
