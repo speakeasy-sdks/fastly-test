@@ -79,7 +79,7 @@ export class MutualAuthentication {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -88,20 +88,20 @@ export class MutualAuthentication {
         const res: operations.CreateMutualTlsAuthenticationResponse =
             new operations.CreateMutualTlsAuthenticationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -167,7 +167,7 @@ export class MutualAuthentication {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -175,7 +175,7 @@ export class MutualAuthentication {
 
         const res: operations.DeleteMutualTlsResponse = new operations.DeleteMutualTlsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
@@ -241,7 +241,7 @@ export class MutualAuthentication {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -250,20 +250,20 @@ export class MutualAuthentication {
         const res: operations.GetMutualAuthenticationResponse =
             new operations.GetMutualAuthenticationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -326,7 +326,7 @@ export class MutualAuthentication {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -335,20 +335,20 @@ export class MutualAuthentication {
         const res: operations.ListMutualAuthenticationsResponse =
             new operations.ListMutualAuthenticationsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.MutualAuthenticationsResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -433,7 +433,7 @@ export class MutualAuthentication {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -442,20 +442,20 @@ export class MutualAuthentication {
         const res: operations.PatchMutualAuthenticationResponse =
             new operations.PatchMutualAuthenticationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.mutualAuthenticationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.MutualAuthenticationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

@@ -67,7 +67,7 @@ export class Events {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -75,20 +75,20 @@ export class Events {
 
         const res: operations.GetEventResponse = new operations.GetEventResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.eventResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.EventResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -151,7 +151,7 @@ export class Events {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -159,20 +159,20 @@ export class Events {
 
         const res: operations.ListEventsResponse = new operations.ListEventsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.eventsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.EventsResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

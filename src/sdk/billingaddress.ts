@@ -87,7 +87,7 @@ export class BillingAddress {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -95,20 +95,20 @@ export class BillingAddress {
 
         const res: operations.AddBillingAddrResponse = new operations.AddBillingAddrResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -116,7 +116,7 @@ export class BillingAddress {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.BillingAddressVerificationErrorResponse
@@ -125,7 +125,7 @@ export class BillingAddress {
                     throw new errors.BillingAddressVerificationErrorResponse(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -191,7 +191,7 @@ export class BillingAddress {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -199,7 +199,7 @@ export class BillingAddress {
 
         const res: operations.DeleteBillingAddrResponse = new operations.DeleteBillingAddrResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
@@ -264,7 +264,7 @@ export class BillingAddress {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -272,20 +272,20 @@ export class BillingAddress {
 
         const res: operations.GetBillingAddrResponse = new operations.GetBillingAddrResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -370,7 +370,7 @@ export class BillingAddress {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -378,20 +378,20 @@ export class BillingAddress {
 
         const res: operations.UpdateBillingAddrResponse = new operations.UpdateBillingAddrResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.billingAddressResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.BillingAddressResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -399,7 +399,7 @@ export class BillingAddress {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.BillingAddressVerificationErrorResponse
@@ -408,7 +408,7 @@ export class BillingAddress {
                     throw new errors.BillingAddressVerificationErrorResponse(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

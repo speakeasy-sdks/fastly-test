@@ -88,7 +88,7 @@ export class WafExclusions {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -97,20 +97,20 @@ export class WafExclusions {
         const res: operations.CreateWafRuleExclusionResponse =
             new operations.CreateWafRuleExclusionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -178,7 +178,7 @@ export class WafExclusions {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -187,7 +187,7 @@ export class WafExclusions {
         const res: operations.DeleteWafRuleExclusionResponse =
             new operations.DeleteWafRuleExclusionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         switch (true) {
@@ -254,7 +254,7 @@ export class WafExclusions {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -263,20 +263,20 @@ export class WafExclusions {
         const res: operations.GetWafRuleExclusionResponse =
             new operations.GetWafRuleExclusionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -345,7 +345,7 @@ export class WafExclusions {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -354,20 +354,20 @@ export class WafExclusions {
         const res: operations.ListWafRuleExclusionsResponse =
             new operations.ListWafRuleExclusionsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.wafExclusionsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.WafExclusionsResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -450,7 +450,7 @@ export class WafExclusions {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -459,20 +459,20 @@ export class WafExclusions {
         const res: operations.UpdateWafRuleExclusionResponse =
             new operations.UpdateWafRuleExclusionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.wafExclusionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.WafExclusionResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

@@ -79,7 +79,7 @@ export class ServiceAuthorizations {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -88,20 +88,20 @@ export class ServiceAuthorizations {
         const res: operations.CreateServiceAuthorizationResponse =
             new operations.CreateServiceAuthorizationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.serviceAuthorizationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.ServiceAuthorizationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -167,7 +167,7 @@ export class ServiceAuthorizations {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -176,7 +176,7 @@ export class ServiceAuthorizations {
         const res: operations.DeleteServiceAuthorizationResponse =
             new operations.DeleteServiceAuthorizationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         switch (true) {
@@ -238,7 +238,7 @@ export class ServiceAuthorizations {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -247,20 +247,20 @@ export class ServiceAuthorizations {
         const res: operations.ListServiceAuthorizationResponse =
             new operations.ListServiceAuthorizationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.serviceAuthorizationsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.ServiceAuthorizationsResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -326,7 +326,7 @@ export class ServiceAuthorizations {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -335,20 +335,20 @@ export class ServiceAuthorizations {
         const res: operations.ShowServiceAuthorizationResponse =
             new operations.ShowServiceAuthorizationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.serviceAuthorizationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.ServiceAuthorizationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -433,7 +433,7 @@ export class ServiceAuthorizations {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -442,20 +442,20 @@ export class ServiceAuthorizations {
         const res: operations.UpdateServiceAuthorizationResponse =
             new operations.UpdateServiceAuthorizationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/vnd.api+json`)) {
+                if (utils.matchContentType(responseContentType, `application/vnd.api+json`)) {
                     res.serviceAuthorizationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         components.ServiceAuthorizationResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
