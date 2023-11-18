@@ -874,7 +874,6 @@ src/sdk/models/components/typewaftag.ts
 src/sdk/models/components/waftaginclude.ts
 src/sdk/models/components/security.ts
 src/sdk/models/errors/billingaddressverificationerrorresponse.ts
-src/sdk/models/errors/billingaddressattributes.ts
 src/sdk/models/errors/generictokenerror.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
@@ -2472,7 +2471,6 @@ docs/sdk/models/components/waftaginclude.md
 docs/sdk/models/components/security.md
 docs/sdk/models/errors/errors.md
 docs/sdk/models/errors/billingaddressverificationerrorresponse.md
-docs/sdk/models/errors/billingaddressattributes.md
 docs/sdk/models/errors/generictokenerror.md
 docs/sdks/fastly/README.md
 docs/sdks/apexredirect/README.md

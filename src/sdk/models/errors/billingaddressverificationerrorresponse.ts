@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BillingAddressAttributes } from "./billingaddressattributes";
+import * as components from "../../../sdk/models/components";
 import { classToPlain, Expose, Type } from "class-transformer";
 
 export class Errors extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BillingAddressAttributes })
+    @SpeakeasyMetadata({ elemType: components.BillingAddressAttributes })
     @Expose({ name: "candidates" })
-    @Type(() => BillingAddressAttributes)
-    candidates?: BillingAddressAttributes[];
+    @Type(() => components.BillingAddressAttributes)
+    candidates?: components.BillingAddressAttributes[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "detail" })
@@ -32,6 +32,9 @@ export class Errors extends SpeakeasyBase {
     type: string;
 }
 
+/**
+ * Could not validate address
+ */
 export class BillingAddressVerificationErrorResponse extends Error {
     @SpeakeasyMetadata({ elemType: Errors })
     @Expose({ name: "errors" })
