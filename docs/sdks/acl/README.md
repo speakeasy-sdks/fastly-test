@@ -23,9 +23,9 @@ Create a new ACL attached to the specified service version. A new, empty ACL mus
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.acl.createAcl({
@@ -39,7 +39,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -68,9 +70,9 @@ Delete an ACL from the specified service version. To remove an ACL from use, the
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.acl.deleteAcl({
@@ -82,7 +84,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -111,9 +115,9 @@ Retrieve a single ACL by name for the version and service.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.acl.getAcl({
@@ -125,7 +129,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -154,9 +160,9 @@ List ACLs.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.acl.listAcls({
@@ -167,7 +173,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -196,9 +204,9 @@ Update an ACL for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.acl.updateAcl({
@@ -213,7 +221,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

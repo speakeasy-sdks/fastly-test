@@ -23,9 +23,9 @@ Delete a customer.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.customer.deleteCustomer({
@@ -35,7 +35,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,9 +66,9 @@ Get a specific customer.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.customer.getCustomer({
@@ -76,7 +78,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -105,9 +109,9 @@ Get the logged in customer.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.customer.getLoggedInCustomer();
@@ -115,7 +119,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -143,9 +149,9 @@ List all users from a specified customer id.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.customer.listUsers({
@@ -155,7 +161,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -185,9 +193,9 @@ Update a customer.
 import { Fastly } from "Fastly";
 import { BillingNetworkType } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.customer.updateCustomer({
@@ -198,7 +206,9 @@ import { BillingNetworkType } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

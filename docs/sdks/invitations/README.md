@@ -29,9 +29,9 @@ import {
   TypeServiceInvitation,
 } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.invitations.createInvitation({
@@ -59,7 +59,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -88,9 +90,9 @@ Delete an invitation.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.invitations.deleteInvitation({
@@ -100,7 +102,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,9 +133,9 @@ List all invitations.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.invitations.listInvitations({
@@ -142,7 +146,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

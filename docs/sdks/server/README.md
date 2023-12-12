@@ -23,9 +23,9 @@ Creates a single server for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.server.createPoolServer({
@@ -39,7 +39,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -68,9 +70,9 @@ Deletes a single server for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.server.deletePoolServer({
@@ -82,7 +84,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -111,9 +115,9 @@ Gets a single server for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.server.getPoolServer({
@@ -125,7 +129,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -154,9 +160,9 @@ Lists all servers for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.server.listPoolServers({
@@ -167,7 +173,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -196,9 +204,9 @@ Updates a single server for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.server.updatePoolServer({
@@ -213,7 +221,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

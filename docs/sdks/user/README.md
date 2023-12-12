@@ -26,9 +26,9 @@ Create a user.
 import { Fastly } from "Fastly";
 import { RoleUser } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.createUser({
@@ -38,7 +38,9 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -67,9 +69,9 @@ Delete a user.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.deleteUser({
@@ -79,7 +81,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,9 +112,9 @@ Get the logged in user.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.getCurrentUser();
@@ -118,7 +122,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -146,9 +152,9 @@ Get a specific user.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.getUser({
@@ -158,7 +164,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -187,9 +195,9 @@ Requests a password reset for the specified user.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.requestPasswordReset({
@@ -199,7 +207,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -229,9 +239,9 @@ Update a user. Only users with the role of `superuser` can make changes to other
 import { Fastly } from "Fastly";
 import { RoleUser } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.user.updateUser({
@@ -244,7 +254,9 @@ import { RoleUser } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -274,11 +286,11 @@ Update the user's password to a new one.
 import { Fastly } from "Fastly";
 import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Fastly();
 const operationSecurity: UpdateUserPasswordSecurity = {
-  password: "",
-  username: "",
+  password: "<YOUR_PASSWORD_HERE>",
+  username: "<YOUR_USERNAME_HERE>",
 };
 
   const res = await sdk.user.updateUserPassword({}, operationSecurity);
@@ -286,7 +298,9 @@ const operationSecurity: UpdateUserPasswordSecurity = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

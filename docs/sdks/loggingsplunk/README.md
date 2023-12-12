@@ -24,9 +24,9 @@ Create a Splunk logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSplunk.createLogSplunk({
@@ -35,7 +35,7 @@ import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } fro
       formatVersion: LoggingSplunkFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingSplunkPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -44,7 +44,9 @@ import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } fro
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Delete the Splunk logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSplunk.deleteLogSplunk({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Get the details for a Splunk logging object for a particular service and version
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSplunk.getLogSplunk({
@@ -130,7 +134,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,9 +165,9 @@ List all of the Splunk logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSplunk.listLogSplunk({
@@ -172,7 +178,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Update the Splunk logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSplunk.updateLogSplunk({
@@ -213,7 +221,7 @@ import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } fro
       formatVersion: LoggingSplunkFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingSplunkPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingSplunkName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -223,7 +231,9 @@ import { LoggingSplunkFormatVersion, LoggingSplunkPlacement, LoggingUseTls } fro
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -24,9 +24,9 @@ Create service authorization.
 import { Fastly } from "Fastly";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.serviceAuthorizations.createServiceAuthorization({
@@ -46,7 +46,9 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -75,9 +77,9 @@ Delete service authorization.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.serviceAuthorizations.deleteServiceAuthorization({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ List service authorizations.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.serviceAuthorizations.listServiceAuthorization({
@@ -129,7 +133,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -158,9 +164,9 @@ Show service authorization.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.serviceAuthorizations.showServiceAuthorization({
@@ -170,7 +176,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -200,9 +208,9 @@ Update service authorization.
 import { Fastly } from "Fastly";
 import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.serviceAuthorizations.updateServiceAuthorization({
@@ -225,7 +233,9 @@ import { Permission, TypeService, TypeServiceAuthorization, TypeUser } from "Fas
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

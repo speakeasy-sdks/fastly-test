@@ -30,9 +30,9 @@ import {
   LoggingCloudfilesRegion,
 } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingCloudfiles.createLogCloudfiles({
@@ -48,7 +48,7 @@ import {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -57,7 +57,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -86,9 +88,9 @@ Delete the Cloud Files log endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingCloudfiles.deleteLogCloudfiles({
@@ -100,7 +102,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,9 +133,9 @@ Get the Cloud Files log endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingCloudfiles.getLogCloudfiles({
@@ -143,7 +147,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -172,9 +178,9 @@ List all of the Cloud Files log endpoints for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingCloudfiles.listLogCloudfiles({
@@ -185,7 +191,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -221,9 +229,9 @@ import {
   LoggingCloudfilesRegion,
 } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingCloudfiles.updateLogCloudfiles({
@@ -239,7 +247,7 @@ import {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingCloudfilesName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -249,7 +257,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

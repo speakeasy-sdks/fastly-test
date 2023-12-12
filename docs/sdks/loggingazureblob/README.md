@@ -24,9 +24,9 @@ Create an Azure Blob Storage logging endpoint for a particular service and versi
 import { Fastly } from "Fastly";
 import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingAzureblob.createLogAzure({
@@ -42,7 +42,7 @@ import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -51,7 +51,9 @@ import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -80,9 +82,9 @@ Delete the Azure Blob Storage logging endpoint for a particular service and vers
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingAzureblob.deleteLogAzure({
@@ -94,7 +96,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -123,9 +127,9 @@ Get the Azure Blob Storage logging endpoint for a particular service and version
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingAzureblob.getLogAzure({
@@ -137,7 +141,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -166,9 +172,9 @@ List all of the Azure Blob Storage logging endpoints for a particular service an
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingAzureblob.listLogAzure({
@@ -179,7 +185,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,9 +217,9 @@ Update the Azure Blob Storage logging endpoint for a particular service and vers
 import { Fastly } from "Fastly";
 import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingAzureblob.updateLogAzure({
@@ -227,7 +235,7 @@ import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingAzureblobName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -237,7 +245,9 @@ import { CompressionCodec, FormatVersion, MessageType, Placement } from "Fastly/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

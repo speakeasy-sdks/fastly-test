@@ -22,9 +22,9 @@ Removes the specified Request Settings object.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.requestSettings.deleteRequestSettings({
@@ -36,7 +36,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -65,9 +67,9 @@ Gets the specified Request Settings object.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.requestSettings.getRequestSettings({
@@ -79,7 +81,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,9 +112,9 @@ Returns a list of all Request Settings objects for the given service and version
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.requestSettings.listRequestSettings({
@@ -121,7 +125,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -151,15 +157,15 @@ Updates the specified Request Settings object.
 import { Fastly } from "Fastly";
 import { RequestSettingsAction, Xff } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.requestSettings.updateRequestSettings({
     requestSettings: {
       name: "test-request-setting",
-      requestCondition: "null",
+      requestCondition: "string",
     },
     requestSettingsName: "test-request-setting",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -169,7 +175,9 @@ import { RequestSettingsAction, Xff } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

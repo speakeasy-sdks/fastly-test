@@ -24,9 +24,9 @@ Create a BigQuery logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingBigquery.createLogBigquery({
@@ -35,7 +35,7 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/d
       formatVersion: LoggingBigqueryFormatVersion.Two,
       placement: LoggingBigqueryPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "null",
+      responseCondition: "string",
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -49,7 +49,9 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/d
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -78,9 +80,9 @@ Delete a BigQuery logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingBigquery.deleteLogBigquery({
@@ -92,7 +94,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -121,9 +125,9 @@ Get the details for a BigQuery logging object for a particular service and versi
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingBigquery.getLogBigquery({
@@ -135,7 +139,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -164,9 +170,9 @@ List all of the BigQuery logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingBigquery.listLogBigquery({
@@ -177,7 +183,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -207,9 +215,9 @@ Update a BigQuery logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingBigquery.updateLogBigquery({
@@ -218,7 +226,7 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/d
       formatVersion: LoggingBigqueryFormatVersion.Two,
       placement: LoggingBigqueryPlacement.WafDebug,
       projectId: "test-project-id",
-      responseCondition: "null",
+      responseCondition: "string",
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -233,7 +241,9 @@ import { LoggingBigqueryFormatVersion, LoggingBigqueryPlacement } from "Fastly/d
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

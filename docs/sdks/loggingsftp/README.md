@@ -29,9 +29,9 @@ import {
   LoggingSftpPlacement,
 } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSftp.createLogSftp({
@@ -48,7 +48,7 @@ import {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -57,7 +57,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -86,9 +88,9 @@ Delete the SFTP for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSftp.deleteLogSftp({
@@ -100,7 +102,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,9 +133,9 @@ Get the SFTP for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSftp.getLogSftp({
@@ -143,7 +147,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -172,9 +178,9 @@ List all of the SFTPs for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSftp.listLogSftp({
@@ -185,7 +191,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -220,9 +228,9 @@ import {
   LoggingSftpPlacement,
 } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSftp.updateLogSftp({
@@ -239,7 +247,7 @@ import {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingSftpName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -249,7 +257,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

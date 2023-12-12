@@ -20,9 +20,9 @@ Get diff between two versions.
 import { Fastly } from "Fastly";
 import { QueryFormat } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.diff.diffServiceVersions({
@@ -34,7 +34,9 @@ import { QueryFormat } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

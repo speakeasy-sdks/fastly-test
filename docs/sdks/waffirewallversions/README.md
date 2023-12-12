@@ -26,9 +26,9 @@ Clone a specific, existing firewall version into a new, draft firewall version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.cloneWafFirewallVersion({
@@ -39,7 +39,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -71,9 +73,9 @@ Create a new, draft firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.createWafFirewallVersion({
@@ -90,7 +92,9 @@ import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -121,9 +125,9 @@ Deploy or activate a specific firewall version. If a firewall has been disabled,
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.deployActivateWafFirewallVersion({
@@ -134,7 +138,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -165,9 +171,9 @@ Get details about a specific firewall version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.getWafFirewallVersion({
@@ -179,7 +185,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -210,9 +218,9 @@ Get a list of firewall versions associated with a specific firewall.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.listWafFirewallVersions({
@@ -225,7 +233,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -257,9 +267,9 @@ Update a specific firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewallVersions.updateWafFirewallVersion({
@@ -277,7 +287,9 @@ import { TypeWafFirewallVersion } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

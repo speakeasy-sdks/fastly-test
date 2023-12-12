@@ -24,9 +24,9 @@ Create a Loggly logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLoggly.createLogLoggly({
@@ -35,7 +35,7 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/
       formatVersion: LoggingLogglyFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingLogglyPlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -44,7 +44,9 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Delete the Loggly logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLoggly.deleteLogLoggly({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Get the Loggly logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLoggly.getLogLoggly({
@@ -130,7 +134,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,9 +165,9 @@ List all Loggly logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLoggly.listLogLoggly({
@@ -172,7 +178,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Update the Loggly logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLoggly.updateLogLoggly({
@@ -213,7 +221,7 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/
       formatVersion: LoggingLogglyFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingLogglyPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingLogglyName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -223,7 +231,9 @@ import { LoggingLogglyFormatVersion, LoggingLogglyPlacement } from "Fastly/dist/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -1,6 +1,6 @@
 # FastlyTest
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -14,18 +14,19 @@ npm add https://github.com/speakeasy-sdks/fastly-test
 ```bash
 yarn add https://github.com/speakeasy-sdks/fastly-test
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```typescript
 import { Fastly } from "Fastly";
 
-(async () => {
+async function run() {
     const sdk = new Fastly({
-        token: "",
+        token: "<YOUR_API_KEY_HERE>",
     });
 
     const res = await sdk.apexRedirect.deleteApexRedirect({
@@ -35,18 +36,16 @@ import { Fastly } from "Fastly";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
-
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
+<!-- End SDK Example Usage [usage] -->
 
 
 
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
@@ -62,46 +61,52 @@ Example
 import { Fastly } from "Fastly";
 import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
-(async() => {
-  const sdk = new Fastly({
-    token: "",
-  });
+async function run() {
+    const sdk = new Fastly({
+        token: "<YOUR_API_KEY_HERE>",
+    });
 
-  
-  let res;
-  try {
-    res = await sdk.billingAddress.addBillingAddr({
-    billingAddressRequest: {
-      data: {
-        attributes: {
-          address1: "80719 Dorothea Mountain",
-          address2: "Apt. 652",
-          city: "New Rasheedville",
-          country: "US",
-          locality: "New Castle",
-          postalCode: "53538-5902",
-          state: "DE",
-        },
-      },
-    },
-    customerId: "x4xCwxxJxGCx123Rx5xTx",
-  });
-  } catch (e) { 
-    if (e instanceof errors.BillingAddressVerificationErrorResponse) {
-      console.error(e) // handle exception 
-    
-  }
+    let res;
+    try {
+        res = await sdk.billingAddress.addBillingAddr({
+            billingAddressRequest: {
+                data: {
+                    attributes: {
+                        address1: "80719 Dorothea Mountain",
+                        address2: "Apt. 652",
+                        city: "New Rasheedville",
+                        country: "US",
+                        locality: "New Castle",
+                        postalCode: "53538-5902",
+                        state: "DE",
+                    },
+                },
+            },
+            customerId: "x4xCwxxJxGCx123Rx5xTx",
+        });
+    } catch (err) {
+        if (err instanceof errors.BillingAddressVerificationErrorResponse) {
+            console.error(err); // handle exception
+            throw err;
+        } else if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
-})();
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -118,10 +123,10 @@ You can override the default server globally by passing a server index to the `s
 ```typescript
 import { Fastly } from "Fastly";
 
-(async () => {
+async function run() {
     const sdk = new Fastly({
         serverIdx: 1,
-        token: "",
+        token: "<YOUR_API_KEY_HERE>",
     });
 
     const res = await sdk.apexRedirect.deleteApexRedirect({
@@ -131,7 +136,9 @@ import { Fastly } from "Fastly";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -142,10 +149,10 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```typescript
 import { Fastly } from "Fastly";
 
-(async () => {
+async function run() {
     const sdk = new Fastly({
         serverURL: "https://api.fastly.com",
-        token: "",
+        token: "<YOUR_API_KEY_HERE>",
     });
 
     const res = await sdk.apexRedirect.deleteApexRedirect({
@@ -155,23 +162,25 @@ import { Fastly } from "Fastly";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
 
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from Fastly import Fastly;
-import axios;
+import { Fastly } from "Fastly";
+import axios from "axios";
 
 const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
@@ -179,11 +188,11 @@ const httpClient = axios.create({
 
 const sdk = new Fastly({defaultClient: httpClient});
 ```
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -198,9 +207,9 @@ To authenticate with the API the `token` parameter must be set when initializing
 ```typescript
 import { Fastly } from "Fastly";
 
-(async () => {
+async function run() {
     const sdk = new Fastly({
-        token: "",
+        token: "<YOUR_API_KEY_HERE>",
     });
 
     const res = await sdk.apexRedirect.deleteApexRedirect({
@@ -210,7 +219,9 @@ import { Fastly } from "Fastly";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -221,11 +232,11 @@ Some operations in this SDK require the security scheme to be specified at the r
 import { Fastly } from "Fastly";
 import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Fastly();
     const operationSecurity: UpdateUserPasswordSecurity = {
-        password: "",
-        username: "",
+        password: "<YOUR_PASSWORD_HERE>",
+        username: "<YOUR_USERNAME_HERE>",
     };
 
     const res = await sdk.user.updateUserPassword({}, operationSecurity);
@@ -233,16 +244,17 @@ import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [apexRedirect](docs/sdks/apexredirect/README.md)
 
@@ -970,7 +982,7 @@ import { UpdateUserPasswordSecurity } from "Fastly/dist/sdk/models/operations";
 ### [wafTags](docs/sdks/waftags/README.md)
 
 * [~~listWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 

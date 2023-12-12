@@ -24,9 +24,9 @@ Create a Heroku for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingHeroku.createLogHeroku({
@@ -35,7 +35,7 @@ import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/
       formatVersion: LoggingHerokuFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingHerokuPlacement.LessThanNilGreaterThan,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -44,7 +44,9 @@ import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Delete the Heroku for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingHeroku.deleteLogHeroku({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Get the Heroku for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingHeroku.getLogHeroku({
@@ -130,7 +134,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,9 +165,9 @@ List all of the Herokus for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingHeroku.listLogHeroku({
@@ -172,7 +178,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Update the Heroku for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingHeroku.updateLogHeroku({
@@ -213,7 +221,7 @@ import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/
       formatVersion: LoggingHerokuFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingHerokuPlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingHerokuName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -223,7 +231,9 @@ import { LoggingHerokuFormatVersion, LoggingHerokuPlacement } from "Fastly/dist/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -23,9 +23,9 @@ Destroy a certificate. This disables TLS for all domains listed as SAN entries.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsBulkCertificates.deleteBulkTlsCert({
@@ -35,7 +35,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,9 +66,9 @@ Retrieve a single certificate.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsBulkCertificates.getTlsBulkCert({
@@ -76,7 +78,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -106,9 +110,9 @@ List all certificates.
 import { Fastly } from "Fastly";
 import { Sort } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsBulkCertificates.listTlsBulkCerts({
@@ -119,7 +123,9 @@ import { Sort } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -149,9 +155,9 @@ Replace a certificate with a newly reissued certificate. By using this endpoint,
 import { Fastly } from "Fastly";
 import { TypeTlsBulkCertificate } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsBulkCertificates.updateBulkTlsCert({
@@ -167,7 +173,9 @@ import { TypeTlsBulkCertificate } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -197,9 +205,9 @@ Upload a new certificate. TLS domains are automatically enabled upon certificate
 import { Fastly } from "Fastly";
 import { TypeTlsBulkCertificate } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsBulkCertificates.uploadTlsBulkCert({
@@ -210,7 +218,9 @@ import { TypeTlsBulkCertificate } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

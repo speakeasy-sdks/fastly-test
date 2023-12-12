@@ -24,9 +24,9 @@ Create a Pub/Sub logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingPubsub.createLogGcpPubsub({
@@ -37,7 +37,7 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
       name: "test-log-endpoint",
       placement: LoggingGooglePubsubPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "null",
+      responseCondition: "string",
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -51,7 +51,9 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -80,9 +82,9 @@ Delete a Pub/Sub logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingPubsub.deleteLogGcpPubsub({
@@ -94,7 +96,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -123,9 +127,9 @@ Get the details for a Pub/Sub logging object for a particular service and versio
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingPubsub.getLogGcpPubsub({
@@ -137,7 +141,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -166,9 +172,9 @@ List all of the Pub/Sub logging objects for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingPubsub.listLogGcpPubsub({
@@ -179,7 +185,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,9 +217,9 @@ Update a Pub/Sub logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingPubsub.updateLogGcpPubsub({
@@ -222,7 +230,7 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
       name: "test-log-endpoint",
       placement: LoggingGooglePubsubPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "null",
+      responseCondition: "string",
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -237,7 +245,9 @@ import { LoggingGooglePubsubFormatVersion, LoggingGooglePubsubPlacement } from "
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

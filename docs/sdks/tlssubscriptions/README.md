@@ -26,9 +26,9 @@ Creates an email challenge for a domain on a GlobalSign subscription. An email c
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
@@ -42,7 +42,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,9 +74,9 @@ Create a new TLS subscription. This response includes a list of possible challen
 import { Fastly } from "Fastly";
 import { CertificateAuthority, TypeTlsSubscription } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.createTlsSub({
@@ -90,7 +92,9 @@ import { CertificateAuthority, TypeTlsSubscription } from "Fastly/dist/sdk/model
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -119,9 +123,9 @@ Deletes a GlobalSign email challenge. After a GlobalSign email challenge is dele
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
@@ -133,7 +137,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,9 +168,9 @@ Destroy a TLS subscription. A subscription cannot be destroyed if there are doma
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.deleteTlsSub({
@@ -174,7 +180,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -203,9 +211,9 @@ Show a TLS subscription.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.getTlsSub({
@@ -216,7 +224,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -246,9 +256,9 @@ List all TLS subscriptions.
 import { Fastly } from "Fastly";
 import { Sort } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.listTlsSubs({
@@ -260,7 +270,9 @@ import { Sort } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -290,9 +302,9 @@ Change the TLS domains or common name associated with this subscription, update 
 import { Fastly } from "Fastly";
 import { CertificateAuthority, TypeTlsSubscription } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsSubscriptions.patchTlsSub({
@@ -309,7 +321,9 @@ import { CertificateAuthority, TypeTlsSubscription } from "Fastly/dist/sdk/model
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

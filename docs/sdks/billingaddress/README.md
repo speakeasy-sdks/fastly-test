@@ -23,9 +23,9 @@ Add a billing address to a customer.
 import { Fastly } from "Fastly";
 import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.billingAddress.addBillingAddr({
@@ -48,7 +48,9 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -78,9 +80,9 @@ Delete a customer's billing address.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.billingAddress.deleteBillingAddr({
@@ -90,7 +92,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -119,9 +123,9 @@ Get a customer's billing address.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.billingAddress.getBillingAddr({
@@ -131,7 +135,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -161,9 +167,9 @@ Update a customer's billing address. You may update only part of the customer's 
 import { Fastly } from "Fastly";
 import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.billingAddress.updateBillingAddr({
@@ -186,7 +192,9 @@ import { TypeBillingAddress } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

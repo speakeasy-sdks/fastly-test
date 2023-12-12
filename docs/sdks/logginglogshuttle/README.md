@@ -24,9 +24,9 @@ Create a Log Shuttle logging endpoint for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLogshuttle.createLogLogshuttle({
@@ -35,7 +35,7 @@ import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fast
       formatVersion: LoggingLogshuttleFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingLogshuttlePlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -44,7 +44,9 @@ import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fast
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Delete the Log Shuttle logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLogshuttle.deleteLogLogshuttle({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Get the Log Shuttle logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLogshuttle.getLogLogshuttle({
@@ -130,7 +134,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,9 +165,9 @@ List all of the Log Shuttle logging endpoints for a particular service and versi
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLogshuttle.listLogLogshuttle({
@@ -172,7 +178,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Update the Log Shuttle logging endpoint for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingLogshuttle.updateLogLogshuttle({
@@ -213,7 +221,7 @@ import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fast
       formatVersion: LoggingLogshuttleFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingLogshuttlePlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingLogshuttleName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -223,7 +231,9 @@ import { LoggingLogshuttleFormatVersion, LoggingLogshuttlePlacement } from "Fast
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

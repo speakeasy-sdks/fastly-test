@@ -24,9 +24,9 @@ Create a New Relic Logs logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingNewrelic.createLogNewrelic({
@@ -34,7 +34,7 @@ import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelic
       formatVersion: LoggingNewrelicFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingNewrelicPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -43,7 +43,9 @@ import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelic
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,9 +74,9 @@ Delete the New Relic Logs logging object for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingNewrelic.deleteLogNewrelic({
@@ -86,7 +88,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,9 +119,9 @@ Get the details of a New Relic Logs logging object for a particular service and 
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingNewrelic.getLogNewrelic({
@@ -129,7 +133,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -158,9 +164,9 @@ List all of the New Relic Logs logging objects for a particular service and vers
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingNewrelic.listLogNewrelic({
@@ -171,7 +177,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,9 +209,9 @@ Update a New Relic Logs logging object for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelicRegion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingNewrelic.updateLogNewrelic({
@@ -211,7 +219,7 @@ import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelic
       formatVersion: LoggingNewrelicFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingNewrelicName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -221,7 +229,9 @@ import { LoggingNewrelicFormatVersion, LoggingNewrelicPlacement, LoggingNewrelic
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

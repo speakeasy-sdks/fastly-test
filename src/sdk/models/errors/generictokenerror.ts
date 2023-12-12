@@ -6,7 +6,7 @@ import { SpeakeasyMetadata } from "../../../internal/utils";
 import { classToPlain, Expose } from "class-transformer";
 
 /**
- * Missing or expired token.
+ * Token revocation error.
  */
 export class GenericTokenError extends Error {
     @SpeakeasyMetadata()

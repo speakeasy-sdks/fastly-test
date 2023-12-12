@@ -878,7 +878,6 @@ src/sdk/models/errors/generictokenerror.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/components/index.ts
-USAGE.md
 docs/sdk/models/operations/deleteapexredirectrequest.md
 docs/sdk/models/operations/deleteapexredirectresponsebody.md
 docs/sdk/models/operations/deleteapexredirectresponse.md
@@ -2572,4 +2571,5 @@ docs/sdks/wafactiverules/README.md
 docs/sdks/wafrules/README.md
 docs/sdks/wafrulerevisions/README.md
 docs/sdks/waftags/README.md
+USAGE.md
 .gitattributes

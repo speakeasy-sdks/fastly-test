@@ -24,17 +24,17 @@ Creates a new Header object.
 import { Fastly } from "Fastly";
 import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.header.createHeaderObject({
     header: {
-      cacheCondition: "null",
+      cacheCondition: "string",
       name: "test-header",
-      requestCondition: "null",
-      responseCondition: "null",
+      requestCondition: "string",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -43,7 +43,9 @@ import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,9 +74,9 @@ Deletes a Header object by name.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.header.deleteHeaderObject({
@@ -86,7 +88,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,9 +119,9 @@ Retrieves a Header object by name.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.header.getHeaderObject({
@@ -129,7 +133,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -158,9 +164,9 @@ Retrieves all Header objects for a particular Version of a Service.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.header.listHeaderObjects({
@@ -171,7 +177,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,17 +209,17 @@ Modifies an existing Header object by name.
 import { Fastly } from "Fastly";
 import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.header.updateHeaderObject({
     header: {
-      cacheCondition: "null",
+      cacheCondition: "string",
       name: "test-header",
-      requestCondition: "null",
-      responseCondition: "null",
+      requestCondition: "string",
+      responseCondition: "string",
     },
     headerName: "test-header",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -221,7 +229,9 @@ import { HeaderAction, HeaderType } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

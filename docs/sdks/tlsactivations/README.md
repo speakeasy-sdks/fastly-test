@@ -24,9 +24,9 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 import { Fastly } from "Fastly";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsActivations.createTlsActivation({
@@ -45,7 +45,9 @@ import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dis
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -74,9 +76,9 @@ Disable TLS on the domain associated with this TLS activation.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsActivations.deleteTlsActivation({
@@ -86,7 +88,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,9 +119,9 @@ Show a TLS activation.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsActivations.getTlsActivation({
@@ -128,7 +132,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,9 +163,9 @@ List all TLS activations.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsActivations.listTlsActivations({
@@ -171,7 +177,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,9 +209,9 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 import { Fastly } from "Fastly";
 import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsActivations.updateTlsActivation({
@@ -225,7 +233,9 @@ import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dis
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

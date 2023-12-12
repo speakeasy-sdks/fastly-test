@@ -22,9 +22,9 @@ List all tags.
 import { Fastly } from "Fastly";
 import { WafTagInclude } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafTags.listWafTags({
@@ -36,7 +36,9 @@ import { WafTagInclude } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

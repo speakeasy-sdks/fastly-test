@@ -24,9 +24,9 @@ Create a Scalyr for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingScalyr.createLogScalyr({
@@ -35,7 +35,7 @@ import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion
       formatVersion: LoggingScalyrFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingScalyrPlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -44,7 +44,9 @@ import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Delete the Scalyr for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingScalyr.deleteLogScalyr({
@@ -87,7 +89,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Get the Scalyr for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingScalyr.getLogScalyr({
@@ -130,7 +134,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,9 +165,9 @@ List all of the Scalyrs for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingScalyr.listLogScalyr({
@@ -172,7 +178,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Update the Scalyr for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingScalyr.updateLogScalyr({
@@ -213,7 +221,7 @@ import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion
       formatVersion: LoggingScalyrFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingScalyrPlacement.LessThanNilGreaterThan,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingScalyrName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -223,7 +231,9 @@ import { LoggingScalyrFormatVersion, LoggingScalyrPlacement, LoggingScalyrRegion
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

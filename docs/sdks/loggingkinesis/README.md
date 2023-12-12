@@ -23,9 +23,9 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 import { Fastly } from "Fastly";
 import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingKinesis.createLogKinesis({
@@ -41,7 +41,9 @@ import { AwsRegion, LoggingFormatVersion, LoggingPlacement } from "Fastly/dist/s
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -70,9 +72,9 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingKinesis.deleteLogKinesis({
@@ -84,7 +86,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -113,9 +117,9 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingKinesis.getLogKinesis({
@@ -127,7 +131,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -156,9 +162,9 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingKinesis.listLogKinesis({
@@ -169,7 +175,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

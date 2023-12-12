@@ -26,9 +26,9 @@ Update multiple items in the same dictionary. For faster updates to your service
 import { Fastly } from "Fastly";
 import { BulkUpdateDictionaryItemOp } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.bulkUpdateDictionaryItem({
@@ -47,7 +47,9 @@ import { BulkUpdateDictionaryItemOp } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -76,9 +78,9 @@ Create DictionaryItem given service, dictionary ID, item key, and item value.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.createDictionaryItem({
@@ -93,7 +95,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -122,9 +126,9 @@ Delete DictionaryItem given service, dictionary ID, and item key.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.deleteDictionaryItem({
@@ -136,7 +140,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -165,9 +171,9 @@ Retrieve a single DictionaryItem given service, dictionary ID and item key.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.getDictionaryItem({
@@ -179,7 +185,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,9 +217,9 @@ List of DictionaryItems given service and dictionary ID.
 import { Fastly } from "Fastly";
 import { Direction } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.listDictionaryItems({
@@ -226,7 +234,9 @@ import { Direction } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -255,9 +265,9 @@ Update DictionaryItem given service, dictionary ID, item key, and item value.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.updateDictionaryItem({
@@ -273,7 +283,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -302,9 +314,9 @@ Upsert DictionaryItem given service, dictionary ID, item key, and item value.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.dictionaryItem.upsertDictionaryItem({
@@ -320,7 +332,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

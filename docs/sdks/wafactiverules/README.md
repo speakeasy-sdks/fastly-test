@@ -28,9 +28,9 @@ Bulk update all active rules on a [firewall version](https://developer.fastly.co
 import { Fastly } from "Fastly";
 import { BulkWafActiveRuleStatus, TypeWafActiveRule } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules({
@@ -47,7 +47,9 @@ import { BulkWafActiveRuleStatus, TypeWafActiveRule } from "Fastly/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,9 +81,9 @@ Create an active rule for a particular firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.createWafActiveRule({
@@ -102,7 +104,9 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -134,9 +138,9 @@ Create active rules by tag. This endpoint will create active rules using the lat
 import { Fastly } from "Fastly";
 import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.createWafActiveRulesTag({
@@ -156,7 +160,9 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -187,9 +193,9 @@ Delete an active rule for a particular firewall version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.deleteWafActiveRule({
@@ -201,7 +207,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -232,9 +240,9 @@ Get a specific active rule object. Includes details of the rule revision associa
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.getWafActiveRule({
@@ -247,7 +255,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -278,9 +288,9 @@ List all active rules for a particular firewall version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.listWafActiveRules({
@@ -294,7 +304,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -326,9 +338,9 @@ Update an active rule's status for a particular firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafActiveRules.updateWafActiveRule({
@@ -348,7 +360,9 @@ import { TypeWafActiveRule, WafActiveRuleDataStatus } from "Fastly/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

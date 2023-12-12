@@ -24,14 +24,14 @@ Create a cache settings object.
 import { Fastly } from "Fastly";
 import { Action } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.cacheSettings.createCacheSettings({
     cacheSetting: {
-      cacheCondition: "null",
+      cacheCondition: "string",
       name: "test-cache-setting",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -41,7 +41,9 @@ import { Action } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -70,9 +72,9 @@ Delete a specific cache settings object.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.cacheSettings.deleteCacheSettings({
@@ -84,7 +86,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -113,9 +117,9 @@ Get a specific cache settings object.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.cacheSettings.getCacheSettings({
@@ -127,7 +131,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -156,9 +162,9 @@ Get a list of all cache settings for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.cacheSettings.listCacheSettings({
@@ -169,7 +175,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -199,14 +207,14 @@ Update a specific cache settings object.
 import { Fastly } from "Fastly";
 import { Action } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.cacheSettings.updateCacheSettings({
     cacheSetting: {
-      cacheCondition: "null",
+      cacheCondition: "string",
       name: "test-cache-setting",
     },
     cacheSettingsName: "test-cache-setting",
@@ -217,7 +225,9 @@ import { Action } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

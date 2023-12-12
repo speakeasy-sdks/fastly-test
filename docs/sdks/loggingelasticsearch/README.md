@@ -24,9 +24,9 @@ Create a Elasticsearch logging endpoint for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingElasticsearch.createLogElasticsearch({
@@ -34,7 +34,7 @@ import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from
       formatVersion: LoggingElasticsearchFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingElasticsearchPlacement.None,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -43,7 +43,9 @@ import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,9 +74,9 @@ Delete the Elasticsearch logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingElasticsearch.deleteLogElasticsearch({
@@ -86,7 +88,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,9 +119,9 @@ Get the Elasticsearch logging endpoint for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingElasticsearch.getLogElasticsearch({
@@ -129,7 +133,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -158,9 +164,9 @@ List all of the Elasticsearch logging endpoints for a particular service and ver
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingElasticsearch.listLogElasticsearch({
@@ -171,7 +177,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,9 +209,9 @@ Update the Elasticsearch logging endpoint for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingElasticsearch.updateLogElasticsearch({
@@ -211,7 +219,7 @@ import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from
       formatVersion: LoggingElasticsearchFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingElasticsearchPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingElasticsearchName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -221,7 +229,9 @@ import { LoggingElasticsearchFormatVersion, LoggingElasticsearchPlacement } from
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

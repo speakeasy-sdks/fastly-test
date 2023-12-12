@@ -24,16 +24,16 @@ Creates a pool for a particular service and version.
 import { Fastly } from "Fastly";
 import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pool.createServerPool({
     pool: {
       comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
       name: "my-pool",
-      requestCondition: "null",
+      requestCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -42,7 +42,9 @@ import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -71,9 +73,9 @@ Deletes a specific pool for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pool.deleteServerPool({
@@ -85,7 +87,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -114,9 +118,9 @@ Gets a single pool for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pool.getServerPool({
@@ -128,7 +132,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,9 +163,9 @@ Lists all pools for a particular service and pool.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pool.listServerPools({
@@ -170,7 +176,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -200,16 +208,16 @@ Updates a specific pool for a particular service and version.
 import { Fastly } from "Fastly";
 import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pool.updateServerPool({
     pool: {
       comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
       name: "my-pool",
-      requestCondition: "null",
+      requestCondition: "string",
     },
     poolName: "my-pool",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -219,7 +227,9 @@ import { PoolType, UseTls } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

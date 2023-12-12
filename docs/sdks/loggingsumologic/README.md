@@ -24,9 +24,9 @@ Create a Sumologic for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSumologic.createLogSumologic({
@@ -36,7 +36,7 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
       messageType: LoggingMessageType.Classic,
       name: "test-log-endpoint",
       placement: LoggingSumologicPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -45,7 +45,9 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -74,9 +76,9 @@ Delete the Sumologic for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSumologic.deleteLogSumologic({
@@ -88,7 +90,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -117,9 +121,9 @@ Get the Sumologic for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSumologic.getLogSumologic({
@@ -131,7 +135,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -160,9 +166,9 @@ List all of the Sumologics for a particular service and version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSumologic.listLogSumologic({
@@ -173,7 +179,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -203,9 +211,9 @@ Update the Sumologic for a particular service and version.
 import { Fastly } from "Fastly";
 import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlacement } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.loggingSumologic.updateLogSumologic({
@@ -215,7 +223,7 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
       messageType: LoggingMessageType.Classic,
       name: "test-log-endpoint",
       placement: LoggingSumologicPlacement.WafDebug,
-      responseCondition: "null",
+      responseCondition: "string",
     },
     loggingSumologicName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -225,7 +233,9 @@ import { LoggingMessageType, LoggingSumologicFormatVersion, LoggingSumologicPlac
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

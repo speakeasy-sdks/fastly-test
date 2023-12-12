@@ -27,9 +27,9 @@ Create a firewall object for a particular service and service version using a de
 import { Fastly } from "Fastly";
 import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewalls.createWafFirewall({
@@ -41,7 +41,9 @@ import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -74,9 +76,9 @@ Delete the firewall object for a particular service and service version.
 import { Fastly } from "Fastly";
 import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewalls.deleteWafFirewall({
@@ -91,7 +93,9 @@ import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -123,9 +127,9 @@ Get a specific firewall object.
 import { Fastly } from "Fastly";
 import { FirewallInclude } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewalls.getWafFirewall({
@@ -135,7 +139,9 @@ import { FirewallInclude } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -167,9 +173,9 @@ List all firewall objects.
 import { Fastly } from "Fastly";
 import { FirewallInclude } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewalls.listWafFirewalls({
@@ -180,7 +186,9 @@ import { FirewallInclude } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -213,9 +221,9 @@ Update a firewall object for a particular service and service version. Specifyin
 import { Fastly } from "Fastly";
 import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafFirewalls.updateWafFirewall({
@@ -230,7 +238,9 @@ import { TypeWafFirewall } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

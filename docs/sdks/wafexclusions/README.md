@@ -27,9 +27,9 @@ Create a WAF exclusion for a particular firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafExclusions.createWafRuleExclusion({
@@ -48,7 +48,9 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,9 +81,9 @@ Delete a WAF exclusion for a particular firewall version.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafExclusions.deleteWafRuleExclusion({
@@ -93,7 +95,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -124,9 +128,9 @@ Get a specific WAF exclusion object.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafExclusions.getWafRuleExclusion({
@@ -138,7 +142,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -170,9 +176,9 @@ List all exclusions for a particular firewall version.
 import { Fastly } from "Fastly";
 import { FilterExclusionType } from "Fastly/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafExclusions.listWafRuleExclusions({
@@ -186,7 +192,9 @@ import { FilterExclusionType } from "Fastly/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -218,9 +226,9 @@ Update a WAF exclusion for a particular firewall version.
 import { Fastly } from "Fastly";
 import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariable } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafExclusions.updateWafRuleExclusion({
@@ -240,7 +248,9 @@ import { TypeWafExclusion, WafExclusionDataExclusionType, WafExclusionDataVariab
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

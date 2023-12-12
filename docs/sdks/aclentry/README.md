@@ -26,9 +26,9 @@ Update multiple ACL entries on the same ACL. For faster updates to your service,
 import { Fastly } from "Fastly";
 import { BulkUpdateAclEntryNegated, Op } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.bulkUpdateAclEntries({
@@ -49,7 +49,9 @@ import { BulkUpdateAclEntryNegated, Op } from "Fastly/dist/sdk/models/components
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,9 +81,9 @@ Add an ACL entry to an ACL.
 import { Fastly } from "Fastly";
 import { Negated } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.createAclEntry({
@@ -98,7 +100,9 @@ import { Negated } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -127,9 +131,9 @@ Delete an ACL entry from a specified ACL.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.deleteAclEntry({
@@ -141,7 +145,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -170,9 +176,9 @@ Retrieve a single ACL entry.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.getAclEntry({
@@ -184,7 +190,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -214,9 +222,9 @@ List ACL entries for a specified ACL.
 import { Fastly } from "Fastly";
 import { Direction } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.listAclEntries({
@@ -231,7 +239,9 @@ import { Direction } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -261,9 +271,9 @@ Update an ACL entry for a specified ACL.
 import { Fastly } from "Fastly";
 import { Negated } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.aclEntry.updateAclEntry({
@@ -281,7 +291,9 @@ import { Negated } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

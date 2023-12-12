@@ -24,9 +24,9 @@ Create a TLS certificate.
 import { Fastly } from "Fastly";
 import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsCertificates.createTlsCert({
@@ -45,7 +45,9 @@ import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/compon
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -74,9 +76,9 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsCertificates.deleteTlsCert({
@@ -86,7 +88,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,9 +119,9 @@ Show a TLS certificate.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsCertificates.getTlsCert({
@@ -127,7 +131,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,9 +163,9 @@ List all TLS certificates.
 import { Fastly } from "Fastly";
 import { Sort } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsCertificates.listTlsCerts({
@@ -170,7 +176,9 @@ import { Sort } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -200,9 +208,9 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 import { Fastly } from "Fastly";
 import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsCertificates.updateTlsCert({
@@ -224,7 +232,9 @@ import { TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/compon
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

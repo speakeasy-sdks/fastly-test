@@ -20,9 +20,9 @@ List all TLS domains.
 import { Fastly } from "Fastly";
 import { Sort } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.tlsDomains.listTlsDomains({
@@ -33,7 +33,9 @@ import { Sort } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

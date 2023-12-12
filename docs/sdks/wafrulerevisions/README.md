@@ -22,9 +22,9 @@ Get a specific rule revision.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafRuleRevisions.getWafRuleRevision({
@@ -36,7 +36,9 @@ import { Fastly } from "Fastly";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -68,9 +70,9 @@ List all revisions for a specific rule. The `rule_id` provided can be the ModSec
 import { Fastly } from "Fastly";
 import { WafRuleRevisionInclude } from "Fastly/dist/sdk/models/components";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.wafRuleRevisions.listWafRuleRevisions({
@@ -83,7 +85,9 @@ import { WafRuleRevisionInclude } from "Fastly/dist/sdk/models/components";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
