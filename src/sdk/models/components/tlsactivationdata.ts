@@ -3,15 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipsForTlsActivationInput } from "./relationshipsfortlsactivationinput";
 import { TypeTlsActivation } from "./typetlsactivation";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class TlsActivationData extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "relationships" })
-    @Type(() => RelationshipsForTlsActivationInput)
-    relationships?: RelationshipsForTlsActivationInput;
+    relationships?: any;
 
     /**
      * Resource type.

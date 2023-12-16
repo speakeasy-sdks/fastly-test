@@ -22,7 +22,7 @@ Enable TLS for a particular TLS domain and certificate combination. These relati
 
 ```typescript
 import { Fastly } from "Fastly";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
+import { TypeTlsActivation } from "Fastly/dist/sdk/models/components";
 
 async function run() {
   const sdk = new Fastly({
@@ -31,14 +31,7 @@ async function run() {
 
   const res = await sdk.tlsActivations.createTlsActivation({
     data: {
-      relationships: {
-        tlsCertificate: {
-          data: {},
-        },
-        tlsDomain: {
-          data: {},
-        },
-      },
+      relationships: "string",
     },
   });
 
@@ -207,7 +200,7 @@ Update the certificate used to terminate TLS traffic for the domain associated w
 
 ```typescript
 import { Fastly } from "Fastly";
-import { TypeTlsActivation, TypeTlsCertificate, TypeTlsDomain } from "Fastly/dist/sdk/models/components";
+import { TypeTlsActivation } from "Fastly/dist/sdk/models/components";
 
 async function run() {
   const sdk = new Fastly({
@@ -217,14 +210,7 @@ async function run() {
   const res = await sdk.tlsActivations.updateTlsActivation({
     tlsActivation: {
       data: {
-        relationships: {
-          tlsCertificate: {
-            data: {},
-          },
-          tlsDomain: {
-            data: {},
-          },
-        },
+        relationships: "string",
       },
     },
     tlsActivationId: "aCtguUGZzb2W9Euo4moOR",
