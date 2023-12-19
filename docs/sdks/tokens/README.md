@@ -53,7 +53,7 @@ run();
 | Error Object             | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.GenericTokenError | 401,403                  | application/json         |
-| errors.SDKError          | 400-600                  | */*                      |
+| errors.SDKError          | 4xx-5xx                  | */*                      |
 
 ## listTokensCustomer
 
@@ -96,7 +96,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listTokensUser
 
@@ -137,7 +137,7 @@ run();
 | Error Object             | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.GenericTokenError | 401,403                  | application/json         |
-| errors.SDKError          | 400-600                  | */*                      |
+| errors.SDKError          | 4xx-5xx                  | */*                      |
 
 ## revokeToken
 
@@ -181,7 +181,7 @@ run();
 | Error Object             | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.GenericTokenError | 400,401,403,404          | application/json         |
-| errors.SDKError          | 400-600                  | */*                      |
+| errors.SDKError          | 4xx-5xx                  | */*                      |
 
 ## revokeTokenCurrent
 
@@ -222,4 +222,4 @@ run();
 | Error Object             | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.GenericTokenError | 400,401,403              | application/json         |
-| errors.SDKError          | 400-600                  | */*                      |
+| errors.SDKError          | 4xx-5xx                  | */*                      |

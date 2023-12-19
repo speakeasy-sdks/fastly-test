@@ -69,7 +69,7 @@ run();
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | errors.BillingAddressVerificationErrorResponse | 400                                            | application/vnd.api+json                       |
-| errors.SDKError                                | 400-600                                        | */*                                            |
+| errors.SDKError                                | 4xx-5xx                                        | */*                                            |
 
 ## deleteBillingAddr
 
@@ -112,7 +112,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getBillingAddr
 
@@ -155,7 +155,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## updateBillingAddr
 
@@ -213,4 +213,4 @@ run();
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | errors.BillingAddressVerificationErrorResponse | 400                                            | application/vnd.api+json                       |
-| errors.SDKError                                | 400-600                                        | */*                                            |
+| errors.SDKError                                | 4xx-5xx                                        | */*                                            |
