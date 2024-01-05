@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Permission } from "./permission";
-import { RelationshipMemberServiceInput } from "./relationshipmemberservice";
+import { RelationshipMemberServiceInput } from "./relationshipmemberserviceinput";
 import { TypeServiceAuthorization } from "./typeserviceauthorization";
 import { TypeUser } from "./typeuser";
 import { Expose, Type } from "class-transformer";

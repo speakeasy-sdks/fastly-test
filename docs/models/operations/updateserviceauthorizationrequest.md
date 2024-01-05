@@ -1,9 +1,0 @@
-# UpdateServiceAuthorizationRequest
-
-
-## Fields
-
-| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `serviceAuthorization`                                                         | [components.ServiceAuthorization](../../models/shared/serviceauthorization.md) | :heavy_minus_sign:                                                             | N/A                                                                            |                                                                                |
-| `serviceAuthorizationId`                                                       | *string*                                                                       | :heavy_check_mark:                                                             | Alphanumeric string identifying a service authorization.                       | 3krg2uUGZzb2W9Euo4moOY                                                         |

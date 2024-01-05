@@ -1,0 +1,10 @@
+# EventsResponse
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `data`                                                                                  | [components.Event](../../../sdk/models/components/event.md)[]                           | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `links`                                                                                 | [components.EventsResponseLinks](../../../sdk/models/components/eventsresponselinks.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `meta`                                                                                  | [components.Meta](../../../sdk/models/components/meta.md)                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |

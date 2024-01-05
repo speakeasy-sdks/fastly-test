@@ -1,9 +1,0 @@
-# PatchMutualAuthenticationRequest
-
-
-## Fields
-
-| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `mutualAuthentication`                                                         | [components.MutualAuthentication](../../models/shared/mutualauthentication.md) | :heavy_minus_sign:                                                             | N/A                                                                            |                                                                                |
-| `mutualAuthenticationId`                                                       | *string*                                                                       | :heavy_check_mark:                                                             | Alphanumeric string identifying a mutual authentication.                       | SEAwSOsP7dEpTgGZdP7ZFw                                                         |

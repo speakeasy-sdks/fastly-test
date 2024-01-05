@@ -1,5 +1,5 @@
 # IamPermissions
-(*.iamPermissions*)
+(*iamPermissions*)
 
 ## Overview
 
@@ -19,18 +19,19 @@ List all permissions.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.iamPermissions.listPermissions();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -42,5 +43,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListPermissionsResponse](../../models/operations/listpermissionsresponse.md)>**
+**Promise<[operations.ListPermissionsResponse](../../sdk/models/operations/listpermissionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

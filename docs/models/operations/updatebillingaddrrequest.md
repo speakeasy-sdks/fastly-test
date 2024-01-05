@@ -1,9 +1,0 @@
-# UpdateBillingAddrRequest
-
-
-## Fields
-
-| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `customerId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | Alphanumeric string identifying the customer.                                                | x4xCwxxJxGCx123Rx5xTx                                                                        |
-| `updateBillingAddressRequest`                                                                | [components.UpdateBillingAddressRequest](../../models/shared/updatebillingaddressrequest.md) | :heavy_minus_sign:                                                                           | One or more billing address attributes                                                       |                                                                                              |

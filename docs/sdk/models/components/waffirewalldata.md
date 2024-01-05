@@ -1,0 +1,9 @@
+# WafFirewallData
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `attributes`                                                                                        | [components.WafFirewallDataAttributes](../../../sdk/models/components/waffirewalldataattributes.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `type`                                                                                              | [components.TypeWafFirewall](../../../sdk/models/components/typewaffirewall.md)                     | :heavy_minus_sign:                                                                                  | Resource type.                                                                                      |

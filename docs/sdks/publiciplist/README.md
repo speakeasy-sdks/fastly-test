@@ -1,5 +1,5 @@
 # PublicIpList
-(*.publicIpList*)
+(*publicIpList*)
 
 ## Overview
 
@@ -19,18 +19,19 @@ List the public IP addresses for the Fastly network.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.publicIpList.listFastlyIps();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -42,5 +43,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListFastlyIpsResponse](../../models/operations/listfastlyipsresponse.md)>**
+**Promise<[operations.ListFastlyIpsResponse](../../sdk/models/operations/listfastlyipsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

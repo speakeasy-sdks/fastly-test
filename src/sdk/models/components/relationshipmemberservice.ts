@@ -18,12 +18,3 @@ export class RelationshipMemberService extends SpeakeasyBase {
     @Expose({ name: "type" })
     type?: TypeService;
 }
-
-export class RelationshipMemberServiceInput extends SpeakeasyBase {
-    /**
-     * Resource type
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: TypeService;
-}

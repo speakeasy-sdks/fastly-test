@@ -15,26 +15,6 @@ export enum StatusCode {
     ThreeHundredAndEight = 308,
 }
 
-export class ApexRedirectInput extends SpeakeasyBase {
-    /**
-     * Array of apex domains that should redirect to their WWW subdomain.
-     */
-    @SpeakeasyMetadata({ data: "form, name=domains" })
-    domains?: string[];
-
-    /**
-     * Revision number of the apex redirect feature implementation. Defaults to the most recent revision.
-     */
-    @SpeakeasyMetadata({ data: "form, name=feature_revision" })
-    featureRevision?: number;
-
-    /**
-     * HTTP status code used to redirect the client.
-     */
-    @SpeakeasyMetadata({ data: "form, name=status_code" })
-    statusCode?: StatusCode;
-}
-
 export class ApexRedirect extends SpeakeasyBase {
     /**
      * Date and time in ISO 8601 format.
@@ -88,4 +68,24 @@ export class ApexRedirect extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "version" })
     version?: number;
+}
+
+export class ApexRedirectInput extends SpeakeasyBase {
+    /**
+     * Array of apex domains that should redirect to their WWW subdomain.
+     */
+    @SpeakeasyMetadata({ data: "form, name=domains" })
+    domains?: string[];
+
+    /**
+     * Revision number of the apex redirect feature implementation. Defaults to the most recent revision.
+     */
+    @SpeakeasyMetadata({ data: "form, name=feature_revision" })
+    featureRevision?: number;
+
+    /**
+     * HTTP status code used to redirect the client.
+     */
+    @SpeakeasyMetadata({ data: "form, name=status_code" })
+    statusCode?: StatusCode;
 }

@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as components from "../../../sdk/models/components";
 import { AxiosResponse } from "axios";
 
 export class RevokeTokenRequest extends SpeakeasyBase {
@@ -31,11 +30,5 @@ export class RevokeTokenResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * Token revocation error.
-     */
-    @SpeakeasyMetadata()
-    genericTokenError?: components.GenericTokenError;
+    rawResponse: AxiosResponse;
 }

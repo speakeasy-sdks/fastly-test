@@ -1,0 +1,9 @@
+# StarData
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `relationships`                                                                                     | [components.RelationshipsForStarInput](../../../sdk/models/components/relationshipsforstarinput.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `type`                                                                                              | [components.TypeStar](../../../sdk/models/components/typestar.md)                                   | :heavy_minus_sign:                                                                                  | Resource type                                                                                       |

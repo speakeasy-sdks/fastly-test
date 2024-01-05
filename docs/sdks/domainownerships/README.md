@@ -1,5 +1,5 @@
 # DomainOwnerships
-(*.domainOwnerships*)
+(*domainOwnerships*)
 
 ## Overview
 
@@ -19,18 +19,19 @@ List all domain-ownerships.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.domainOwnerships.listDomainOwnerships();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -42,5 +43,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListDomainOwnershipsResponse](../../models/operations/listdomainownershipsresponse.md)>**
+**Promise<[operations.ListDomainOwnershipsResponse](../../sdk/models/operations/listdomainownershipsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

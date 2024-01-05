@@ -12,7 +12,7 @@ import { Expose, Transform, Type } from "class-transformer";
 export class RealtimeEntryMissHistogram extends SpeakeasyBase {}
 
 /**
- * Statistics that have occurred since the last request.
+ * Aggregates [measurements](#measurements-data-model) across all Fastly POPs.
  */
 export class MeasurementsDataModel extends SpeakeasyBase {
     /**

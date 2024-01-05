@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipsForStarInput } from "./relationshipsforstar";
+import { RelationshipsForStarInput } from "./relationshipsforstarinput";
 import { TypeStar } from "./typestar";
 import { Expose, Type } from "class-transformer";
 

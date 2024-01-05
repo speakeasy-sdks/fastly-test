@@ -1,0 +1,10 @@
+# WafExclusionData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `attributes`                                                                                          | [components.WafExclusionDataAttributes](../../../sdk/models/components/wafexclusiondataattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `relationships`                                                                                       | *any*                                                                                                 | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `type`                                                                                                | [components.TypeWafExclusion](../../../sdk/models/components/typewafexclusion.md)                     | :heavy_minus_sign:                                                                                    | Resource type.                                                                                        |

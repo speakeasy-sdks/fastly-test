@@ -1,9 +1,0 @@
-# RelationshipMemberWafFirewallVersion
-
-
-## Fields
-
-| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `id`                                                                               | *string*                                                                           | :heavy_minus_sign:                                                                 | Alphanumeric string identifying a Firewall version.                                | Fv1guUGZzb2W9Euo4mo0r                                                              |
-| `type`                                                                             | [components.TypeWafFirewallVersion](../../models/shared/typewaffirewallversion.md) | :heavy_minus_sign:                                                                 | Resource type.                                                                     |                                                                                    |

@@ -23,17 +23,11 @@ export class ListTokensUserResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * OK
      */
     @SpeakeasyMetadata({ elemType: components.TokenResponse })
     classes?: components.TokenResponse[];
-
-    /**
-     * Missing or expired token.
-     */
-    @SpeakeasyMetadata()
-    genericTokenError?: components.GenericTokenError;
 }

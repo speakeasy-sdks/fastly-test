@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RelationshipTlsDomainsInput } from "./relationshiptlsdomains";
+import { RelationshipTlsDomainsInput } from "./relationshiptlsdomainsinput";
 import { TypeTlsCertificate } from "./typetlscertificate";
 import { Expose, Type } from "class-transformer";
 

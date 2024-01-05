@@ -37,17 +37,11 @@ export class UpdateBillingAddrResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * OK
      */
     @SpeakeasyMetadata()
     billingAddressResponse?: components.BillingAddressResponse;
-
-    /**
-     * Could not validate address
-     */
-    @SpeakeasyMetadata()
-    billingAddressVerificationErrorResponse?: components.BillingAddressVerificationErrorResponse;
 }

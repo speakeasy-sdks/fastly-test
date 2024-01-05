@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BillingAddressAttributesInput } from "./billingaddressattributes";
+import { BillingAddressAttributesInput } from "./billingaddressattributesinput";
 import { TypeBillingAddress } from "./typebillingaddress";
 import { Expose, Type } from "class-transformer";
 

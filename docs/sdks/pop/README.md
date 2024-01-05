@@ -1,5 +1,5 @@
 # Pop
-(*.pop*)
+(*pop*)
 
 ## Overview
 
@@ -19,18 +19,19 @@ Get a list of all Fastly POPs.
 ```typescript
 import { Fastly } from "Fastly";
 
-(async() => {
+async function run() {
   const sdk = new Fastly({
-    token: "",
+    token: "<YOUR_API_KEY_HERE>",
   });
 
   const res = await sdk.pop.listPops();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -42,5 +43,9 @@ import { Fastly } from "Fastly";
 
 ### Response
 
-**Promise<[operations.ListPopsResponse](../../models/operations/listpopsresponse.md)>**
+**Promise<[operations.ListPopsResponse](../../sdk/models/operations/listpopsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

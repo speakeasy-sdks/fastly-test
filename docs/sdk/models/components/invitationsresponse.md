@@ -1,0 +1,10 @@
+# InvitationsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `data`                                                                                            | [components.InvitationResponseData](../../../sdk/models/components/invitationresponsedata.md)[]   | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `links`                                                                                           | [components.InvitationsResponseLinks](../../../sdk/models/components/invitationsresponselinks.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `meta`                                                                                            | [components.InvitationsResponseMeta](../../../sdk/models/components/invitationsresponsemeta.md)   | :heavy_minus_sign:                                                                                | N/A                                                                                               |

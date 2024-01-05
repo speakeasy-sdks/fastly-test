@@ -1,0 +1,10 @@
+# TlsDomainsResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `data`                                                                                          | [components.TlsDomainData](../../../sdk/models/components/tlsdomaindata.md)[]                   | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `links`                                                                                         | [components.TlsDomainsResponseLinks](../../../sdk/models/components/tlsdomainsresponselinks.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `meta`                                                                                          | [components.TlsDomainsResponseMeta](../../../sdk/models/components/tlsdomainsresponsemeta.md)   | :heavy_minus_sign:                                                                              | N/A                                                                                             |

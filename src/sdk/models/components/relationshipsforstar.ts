@@ -3,10 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import {
-    RelationshipMemberService,
-    RelationshipMemberServiceInput,
-} from "./relationshipmemberservice";
+import { RelationshipMemberService } from "./relationshipmemberservice";
 import { TypeUser } from "./typeuser";
 import { Expose, Type } from "class-transformer";
 
@@ -40,32 +37,4 @@ export class RelationshipsForStar extends SpeakeasyBase {
     @Expose({ name: "user" })
     @Type(() => RelationshipsForStarUser)
     user?: RelationshipsForStarUser;
-}
-
-export class RelationshipsForStarDataInput extends SpeakeasyBase {
-    /**
-     * Resource type
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: TypeUser;
-}
-
-export class RelationshipsForStarUserInput extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "data" })
-    @Type(() => RelationshipsForStarDataInput)
-    data?: RelationshipsForStarDataInput;
-}
-
-export class RelationshipsForStarInput extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    @Type(() => RelationshipMemberServiceInput)
-    service?: RelationshipMemberServiceInput;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "user" })
-    @Type(() => RelationshipsForStarUserInput)
-    user?: RelationshipsForStarUserInput;
 }
