@@ -83,7 +83,7 @@ async function run() {
     wafFirewallVersion: {
       data: {
         attributes: {
-          comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+          comment: "",
         },
       },
     },
@@ -278,7 +278,7 @@ async function run() {
     wafFirewallVersion: {
       data: {
         attributes: {
-          comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+          comment: "",
         },
       },
     },

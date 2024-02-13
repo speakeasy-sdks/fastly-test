@@ -31,7 +31,7 @@ async function run() {
 
   const res = await sdk.condition.createCondition({
     condition: {
-      comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      comment: "",
       name: "test-condition",
       priority: "10",
     },
@@ -215,7 +215,7 @@ async function run() {
 
   const res = await sdk.condition.updateCondition({
     condition: {
-      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      comment: "",
       name: "test-condition",
       priority: "10",
     },

@@ -165,7 +165,7 @@ async function run() {
   const res = await sdk.requestSettings.updateRequestSettings({
     requestSettings: {
       name: "test-request-setting",
-      requestCondition: "string",
+      requestCondition: null,
     },
     requestSettingsName: "test-request-setting",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

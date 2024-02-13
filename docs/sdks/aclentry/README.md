@@ -36,9 +36,9 @@ async function run() {
     bulkUpdateAclEntriesRequest: {
       entries: [
         {
-          comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+          comment: "",
           ip: "127.0.0.1",
-          negated: BulkUpdateAclEntryNegated.One,
+          negated: BulkUpdateAclEntryNegated.Zero,
           subnet: 8,
         },
       ],
@@ -88,7 +88,7 @@ async function run() {
 
   const res = await sdk.aclEntry.createAclEntry({
     aclEntry: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      comment: "",
       ip: "127.0.0.1",
       negated: Negated.One,
       subnet: 8,
@@ -278,9 +278,9 @@ async function run() {
 
   const res = await sdk.aclEntry.updateAclEntry({
     aclEntry: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      comment: "",
       ip: "127.0.0.1",
-      negated: Negated.Zero,
+      negated: Negated.One,
       subnet: 8,
     },
     aclEntryId: "6yxNzlOpW1V7JfSwvLGtOc",

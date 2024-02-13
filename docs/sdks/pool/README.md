@@ -31,9 +31,9 @@ async function run() {
 
   const res = await sdk.pool.createServerPool({
     pool: {
-      comment: "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      comment: "",
       name: "my-pool",
-      requestCondition: "string",
+      requestCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -215,9 +215,9 @@ async function run() {
 
   const res = await sdk.pool.updateServerPool({
     pool: {
-      comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      comment: "",
       name: "my-pool",
-      requestCondition: "string",
+      requestCondition: null,
     },
     poolName: "my-pool",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

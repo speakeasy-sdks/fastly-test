@@ -341,7 +341,7 @@ async function run() {
   const res = await sdk.version.updateServiceVersion({
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     version: {
-      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      comment: "",
     },
     versionId: 1,
   });

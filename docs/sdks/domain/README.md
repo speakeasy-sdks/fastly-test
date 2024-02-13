@@ -121,7 +121,7 @@ async function run() {
 
   const res = await sdk.domain.createDomain({
     domain: {
-      comment: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      comment: "",
       name: "www.example.com",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -303,7 +303,7 @@ async function run() {
 
   const res = await sdk.domain.updateDomain({
     domain: {
-      comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      comment: "",
       name: "www.example.com",
     },
     domainName: "www.example.com",

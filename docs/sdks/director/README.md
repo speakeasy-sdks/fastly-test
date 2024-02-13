@@ -32,11 +32,11 @@ async function run() {
     director: {
       backends: [
         {
-          comment: "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+          comment: "",
           name: "test-backend",
         },
       ],
-      comment: "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      comment: "",
       name: "test-director",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

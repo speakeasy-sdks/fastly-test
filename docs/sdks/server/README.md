@@ -31,7 +31,7 @@ async function run() {
   const res = await sdk.server.createPoolServer({
     poolId: "2Yd1WfiCBPENLloXfXmlO",
     server: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      comment: "",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
   });
@@ -212,7 +212,7 @@ async function run() {
   const res = await sdk.server.updatePoolServer({
     poolId: "2Yd1WfiCBPENLloXfXmlO",
     server: {
-      comment: "The Football Is Good For Training And Recreational Purposes",
+      comment: "",
     },
     serverId: "6kEuoknxiaDBCLiAjKqyXq",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

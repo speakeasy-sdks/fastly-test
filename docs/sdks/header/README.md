@@ -31,10 +31,10 @@ async function run() {
 
   const res = await sdk.header.createHeaderObject({
     header: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-header",
-      requestCondition: "string",
-      responseCondition: "string",
+      requestCondition: null,
+      responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -216,10 +216,10 @@ async function run() {
 
   const res = await sdk.header.updateHeaderObject({
     header: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-header",
-      requestCondition: "string",
-      responseCondition: "string",
+      requestCondition: null,
+      responseCondition: null,
     },
     headerName: "test-header",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

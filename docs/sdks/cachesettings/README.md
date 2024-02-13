@@ -31,7 +31,7 @@ async function run() {
 
   const res = await sdk.cacheSettings.createCacheSettings({
     cacheSetting: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-cache-setting",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -214,7 +214,7 @@ async function run() {
 
   const res = await sdk.cacheSettings.updateCacheSettings({
     cacheSetting: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-cache-setting",
     },
     cacheSettingsName: "test-cache-setting",

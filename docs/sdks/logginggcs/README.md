@@ -49,7 +49,7 @@ async function run() {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -254,7 +254,7 @@ async function run() {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

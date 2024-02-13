@@ -4,16 +4,16 @@ management:
   docChecksum: 751bdf7393ba568b37b599aaf063bcf1
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 2.5.1
-  configChecksum: 5dad487425999e5158b910ec473c24d7
+  generationVersion: 2.253.0
+  releaseVersion: 2.5.2
+  configChecksum: a5b4b484e81d958d7b21ac2b6c286290
   repoURL: https://github.com/speakeasy-sdks/fastly-test.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fastly-test
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.4.1
+    core: 3.4.6
     deprecations: 2.81.1
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1

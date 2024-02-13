@@ -48,7 +48,7 @@ async function run() {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "string",
+      responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,
@@ -247,7 +247,7 @@ async function run() {
     ...
     -----END PRIVATE KEY-----
     ",
-      responseCondition: "string",
+      responseCondition: null,
     },
     loggingCloudfilesName: "test-log-endpoint",
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

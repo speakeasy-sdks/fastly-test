@@ -37,7 +37,7 @@ async function run() {
       name: "test-log-endpoint",
       placement: LoggingGooglePubsubPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -230,7 +230,7 @@ async function run() {
       name: "test-log-endpoint",
       placement: LoggingGooglePubsubPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

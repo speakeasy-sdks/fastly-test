@@ -30,7 +30,7 @@ async function run() {
 
   const res = await sdk.healthcheck.createHealthcheck({
     healthcheck: {
-      comment: "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      comment: "",
       headers: [
         "string",
       ],
@@ -215,7 +215,7 @@ async function run() {
 
   const res = await sdk.healthcheck.updateHealthcheck({
     healthcheck: {
-      comment: "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      comment: "",
       headers: [
         "string",
       ],

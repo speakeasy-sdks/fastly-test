@@ -41,7 +41,7 @@ async function run() {
       formatVersion: LoggingKafkaFormatVersion.Two,
       name: "test-log-endpoint",
       placement: LoggingKafkaPlacement.None,
-      responseCondition: "string",
+      responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,

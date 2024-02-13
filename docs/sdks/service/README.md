@@ -33,7 +33,7 @@ async function run() {
   });
 
   const res = await sdk.service.createService({
-    comment: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    comment: "",
     customerId: "x4xCwxxJxGCx123Rx5xTx",
     name: "test-service",
   });
@@ -342,7 +342,7 @@ async function run() {
 
   const res = await sdk.service.updateService({
     service: {
-      comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      comment: "",
       customerId: "x4xCwxxJxGCx123Rx5xTx",
       name: "test-service",
     },

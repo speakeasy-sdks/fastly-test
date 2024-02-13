@@ -30,7 +30,7 @@ async function run() {
 
   const res = await sdk.gzip.createGzipConfig({
     gzip: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-gzip",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -212,7 +212,7 @@ async function run() {
 
   const res = await sdk.gzip.updateGzipConfig({
     gzip: {
-      cacheCondition: "string",
+      cacheCondition: null,
       name: "test-gzip",
     },
     gzipName: "test-gzip",

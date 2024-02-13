@@ -30,7 +30,7 @@ async function run() {
 
   const res = await sdk.backend.createBackend({
     backend: {
-      comment: "The Football Is Good For Training And Recreational Purposes",
+      comment: "",
       name: "test-backend",
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -212,7 +212,7 @@ async function run() {
 
   const res = await sdk.backend.updateBackend({
     backend: {
-      comment: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      comment: "",
       name: "test-backend",
     },
     backendName: "test-backend",

@@ -35,7 +35,7 @@ async function run() {
       formatVersion: LoggingBigqueryFormatVersion.Two,
       placement: LoggingBigqueryPlacement.None,
       projectId: "test-project-id",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -226,7 +226,7 @@ async function run() {
       formatVersion: LoggingBigqueryFormatVersion.Two,
       placement: LoggingBigqueryPlacement.WafDebug,
       projectId: "test-project-id",
-      responseCondition: "string",
+      responseCondition: null,
       secretKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
