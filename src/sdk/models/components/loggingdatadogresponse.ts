@@ -25,7 +25,6 @@ export enum LoggingDatadogResponseFormatVersion {
 export enum LoggingDatadogResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

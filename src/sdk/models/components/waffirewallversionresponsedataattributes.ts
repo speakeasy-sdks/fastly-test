@@ -9,7 +9,6 @@ import { Expose, Transform } from "class-transformer";
  * The status of the last deployment of this firewall version.
  */
 export enum LastDeploymentStatus {
-    LessThanNilGreaterThan = "<nil>",
     Pending = "pending",
     InProgress = "in progress",
     Completed = "completed",

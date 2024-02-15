@@ -222,7 +222,7 @@ async function run() {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingPapertrailFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingPapertrailPlacement.LessThanNilGreaterThan,
+      placement: LoggingPapertrailPlacement.WafDebug,
       responseCondition: null,
     },
     loggingPapertrailName: "test-log-endpoint",

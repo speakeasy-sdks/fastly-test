@@ -32,7 +32,7 @@ async function run() {
     healthcheck: {
       comment: "",
       headers: [
-        "string",
+        "<value>",
       ],
       name: "test-healthcheck",
     },
@@ -217,7 +217,7 @@ async function run() {
     healthcheck: {
       comment: "",
       headers: [
-        "string",
+        "<value>",
       ],
       name: "test-healthcheck",
     },

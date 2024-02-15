@@ -71,7 +71,7 @@ async function run() {
   });
 
   const res = await sdk.kvStore.deleteStore({
-    storeId: "string",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -114,7 +114,7 @@ async function run() {
   });
 
   const res = await sdk.kvStore.getStore({
-    storeId: "string",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {

@@ -25,7 +25,6 @@ export enum LoggingSplunkFormatVersion {
 export enum LoggingSplunkPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingSplunk extends SpeakeasyBase {

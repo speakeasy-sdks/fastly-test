@@ -220,7 +220,7 @@ async function run() {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingSplunkFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingSplunkPlacement.WafDebug,
+      placement: LoggingSplunkPlacement.None,
       responseCondition: null,
     },
     loggingSplunkName: "test-log-endpoint",

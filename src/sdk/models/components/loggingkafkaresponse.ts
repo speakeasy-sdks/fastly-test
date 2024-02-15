@@ -22,7 +22,6 @@ export enum LoggingKafkaResponseCompressionCodec {
     Gzip = "gzip",
     Snappy = "snappy",
     Lz4 = "lz4",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -45,7 +44,6 @@ export enum LoggingKafkaResponseFormatVersion {
 export enum LoggingKafkaResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

@@ -42,7 +42,7 @@ async function run() {
       messageType: LoggingS3MessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingS3Placement.WafDebug,
+      placement: LoggingS3Placement.None,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

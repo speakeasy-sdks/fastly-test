@@ -25,7 +25,6 @@ export enum LoggingLogentriesFormatVersion {
 export enum LoggingLogentriesPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

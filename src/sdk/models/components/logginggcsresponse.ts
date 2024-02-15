@@ -44,7 +44,6 @@ export enum LoggingGcsResponseMessageType {
 export enum LoggingGcsResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingGcsResponse extends SpeakeasyBase {

@@ -165,7 +165,7 @@ async function run() {
     tlsBulkCertificate: {
       data: {
         attributes: {},
-        relationships: "string",
+        relationships: "<value>",
       },
     },
   });
@@ -212,7 +212,7 @@ async function run() {
 
   const res = await sdk.tlsBulkCertificates.uploadTlsBulkCert({
     attributes: {},
-    relationships: "string",
+    relationships: "<value>",
   });
 
   if (res.statusCode == 200) {

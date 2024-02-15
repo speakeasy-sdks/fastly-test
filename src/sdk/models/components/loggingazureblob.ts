@@ -43,7 +43,6 @@ export enum MessageType {
 export enum Placement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingAzureblob extends SpeakeasyBase {

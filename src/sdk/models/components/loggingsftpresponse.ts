@@ -44,7 +44,6 @@ export enum LoggingSftpResponseMessageType {
 export enum LoggingSftpResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingSftpResponse extends SpeakeasyBase {

@@ -30,11 +30,11 @@ async function run() {
     publishRequest: {
       items: [
         {
-          channel: "string",
+          channel: "<value>",
           formats: {
             httpResponse: {
               headers: {
-                "key": "string",
+                "key": "<value>",
               },
             },
             httpStream: {},

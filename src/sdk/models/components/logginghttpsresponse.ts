@@ -43,7 +43,6 @@ export enum LoggingHttpsResponseMethod {
 export enum LoggingHttpsResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingHttpsResponse extends SpeakeasyBase {

@@ -32,7 +32,7 @@ async function run() {
   const res = await sdk.mutualAuthentication.createMutualTlsAuthentication({
     data: {
       attributes: {},
-      relationships: "string",
+      relationships: "<value>",
     },
   });
 
@@ -210,7 +210,7 @@ async function run() {
     mutualAuthentication: {
       data: {
         attributes: {},
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     mutualAuthenticationId: "SEAwSOsP7dEpTgGZdP7ZFw",

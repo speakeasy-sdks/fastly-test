@@ -218,7 +218,7 @@ async function run() {
     loggingDatadog: {
       formatVersion: LoggingDatadogFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingDatadogPlacement.LessThanNilGreaterThan,
+      placement: LoggingDatadogPlacement.WafDebug,
       responseCondition: null,
     },
     loggingDatadogName: "test-log-endpoint",

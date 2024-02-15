@@ -40,7 +40,7 @@ async function run() {
         attributes: {
           number: 1,
         },
-        relationships: "string",
+        relationships: "<value>",
       },
     },
   });
@@ -240,7 +240,7 @@ async function run() {
         attributes: {
           number: 1,
         },
-        relationships: "string",
+        relationships: "<value>",
       },
     },
   });

@@ -43,7 +43,7 @@ async function run() {
       messageType: LoggingCloudfilesMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
+      placement: LoggingCloudfilesPlacement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----
@@ -242,7 +242,7 @@ async function run() {
       messageType: LoggingCloudfilesMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingCloudfilesPlacement.LessThanNilGreaterThan,
+      placement: LoggingCloudfilesPlacement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

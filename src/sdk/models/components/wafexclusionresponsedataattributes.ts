@@ -23,7 +23,6 @@ export enum Variable {
     ReqPost = "req.post",
     ReqPostFilename = "req.post_filename",
     ReqQs = "req.qs",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class WafExclusionResponseDataAttributes extends SpeakeasyBase {

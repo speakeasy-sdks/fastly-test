@@ -31,7 +31,7 @@ async function run() {
   const res = await sdk.tlsPrivateKeys.createTlsKey({
     data: {
       attributes: {},
-      relationships: "string",
+      relationships: "<value>",
     },
   });
 

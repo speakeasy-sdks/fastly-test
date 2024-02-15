@@ -220,7 +220,7 @@ async function run() {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingScalyrFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingScalyrPlacement.LessThanNilGreaterThan,
+      placement: LoggingScalyrPlacement.WafDebug,
       responseCondition: null,
     },
     loggingScalyrName: "test-log-endpoint",

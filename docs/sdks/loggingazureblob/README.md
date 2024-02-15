@@ -230,7 +230,7 @@ async function run() {
       messageType: MessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: Placement.LessThanNilGreaterThan,
+      placement: Placement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

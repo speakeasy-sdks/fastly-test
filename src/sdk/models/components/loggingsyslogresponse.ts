@@ -27,7 +27,6 @@ export enum LoggingSyslogResponseFormatVersion {
 export enum LoggingSyslogResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingSyslogResponse extends SpeakeasyBase {

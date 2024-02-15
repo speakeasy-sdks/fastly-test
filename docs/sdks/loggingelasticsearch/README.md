@@ -218,7 +218,7 @@ async function run() {
     loggingElasticsearch: {
       formatVersion: LoggingElasticsearchFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingElasticsearchPlacement.WafDebug,
+      placement: LoggingElasticsearchPlacement.None,
       responseCondition: null,
     },
     loggingElasticsearchName: "test-log-endpoint",

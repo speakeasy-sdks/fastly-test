@@ -32,7 +32,7 @@ async function run() {
     loggingKinesis: {
       formatVersion: LoggingFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingPlacement.LessThanNilGreaterThan,
+      placement: LoggingPlacement.WafDebug,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
     versionId: 1,

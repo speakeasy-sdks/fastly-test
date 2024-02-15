@@ -43,7 +43,6 @@ export enum LoggingDigitaloceanMessageType {
 export enum LoggingDigitaloceanPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingDigitalocean extends SpeakeasyBase {

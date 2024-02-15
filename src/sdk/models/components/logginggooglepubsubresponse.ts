@@ -25,7 +25,6 @@ export enum LoggingGooglePubsubResponseFormatVersion {
 export enum LoggingGooglePubsubResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingGooglePubsubResponse extends SpeakeasyBase {

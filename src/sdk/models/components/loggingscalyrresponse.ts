@@ -25,7 +25,6 @@ export enum LoggingScalyrResponseFormatVersion {
 export enum LoggingScalyrResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

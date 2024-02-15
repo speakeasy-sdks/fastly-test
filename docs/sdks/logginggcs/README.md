@@ -43,7 +43,7 @@ async function run() {
       messageType: LoggingGcsMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingGcsPlacement.LessThanNilGreaterThan,
+      placement: LoggingGcsPlacement.WafDebug,
       projectId: "test-project-id",
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
@@ -248,7 +248,7 @@ async function run() {
       messageType: LoggingGcsMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingGcsPlacement.WafDebug,
+      placement: LoggingGcsPlacement.None,
       projectId: "test-project-id",
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...

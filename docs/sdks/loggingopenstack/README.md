@@ -240,7 +240,7 @@ async function run() {
       messageType: LoggingOpenstackMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingOpenstackPlacement.LessThanNilGreaterThan,
+      placement: LoggingOpenstackPlacement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

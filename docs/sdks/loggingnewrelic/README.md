@@ -33,7 +33,7 @@ async function run() {
     loggingNewrelic: {
       formatVersion: LoggingNewrelicFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingNewrelicPlacement.WafDebug,
+      placement: LoggingNewrelicPlacement.None,
       responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
@@ -218,7 +218,7 @@ async function run() {
     loggingNewrelic: {
       formatVersion: LoggingNewrelicFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingNewrelicPlacement.LessThanNilGreaterThan,
+      placement: LoggingNewrelicPlacement.WafDebug,
       responseCondition: null,
     },
     loggingNewrelicName: "test-log-endpoint",

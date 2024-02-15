@@ -33,7 +33,7 @@ async function run() {
 
   const res = await sdk.tlsSubscriptions.createGlobalsignEmailChallenge({
     requestBody: {
-      "key": "string",
+      "key": "<value>",
     },
     tlsAuthorizationId: "aU3guUGZzb2W9Euo4Mo0r",
     tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",
@@ -84,7 +84,7 @@ async function run() {
     tlsSubscription: {
       data: {
         attributes: {},
-        relationships: "string",
+        relationships: "<value>",
       },
     },
   });
@@ -129,9 +129,9 @@ async function run() {
   });
 
   const res = await sdk.tlsSubscriptions.deleteGlobalsignEmailChallenge({
-    globalsignEmailChallengeId: "string",
-    tlsAuthorizationId: "string",
-    tlsSubscriptionId: "string",
+    globalsignEmailChallengeId: "<value>",
+    tlsAuthorizationId: "<value>",
+    tlsSubscriptionId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -312,7 +312,7 @@ async function run() {
     tlsSubscription: {
       data: {
         attributes: {},
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     tlsSubscriptionId: "sU3guUGZzb2W9Euo4Mo0r",

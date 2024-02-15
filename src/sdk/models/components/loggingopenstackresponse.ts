@@ -44,7 +44,6 @@ export enum LoggingOpenstackResponseMessageType {
 export enum LoggingOpenstackResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingOpenstackResponse extends SpeakeasyBase {

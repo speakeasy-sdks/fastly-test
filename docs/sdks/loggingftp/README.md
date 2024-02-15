@@ -42,7 +42,7 @@ async function run() {
       messageType: LoggingFtpMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingFtpPlacement.LessThanNilGreaterThan,
+      placement: LoggingFtpPlacement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

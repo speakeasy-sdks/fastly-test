@@ -25,7 +25,6 @@ export enum LoggingHoneycombFormatVersion {
 export enum LoggingHoneycombPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingHoneycomb extends SpeakeasyBase {

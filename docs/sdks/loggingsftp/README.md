@@ -242,7 +242,7 @@ async function run() {
       messageType: LoggingSftpMessageType.Classic,
       name: "test-log-endpoint",
       period: 3600,
-      placement: LoggingSftpPlacement.LessThanNilGreaterThan,
+      placement: LoggingSftpPlacement.WafDebug,
       publicKey: "-----BEGIN PRIVATE KEY-----
     ...
     -----END PRIVATE KEY-----

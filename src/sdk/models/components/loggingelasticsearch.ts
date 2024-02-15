@@ -24,7 +24,6 @@ export enum LoggingElasticsearchFormatVersion {
 export enum LoggingElasticsearchPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingElasticsearch extends SpeakeasyBase {

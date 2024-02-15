@@ -234,7 +234,7 @@ async function run() {
       formatVersion: LoggingSyslogFormatVersion.Two,
       messageType: LoggingMessageType.Classic,
       name: "test-log-endpoint",
-      placement: LoggingSyslogPlacement.WafDebug,
+      placement: LoggingSyslogPlacement.None,
       responseCondition: null,
     },
     loggingSyslogName: "test-log-endpoint",

@@ -24,7 +24,6 @@ export enum LoggingLogshuttleFormatVersion {
 export enum LoggingLogshuttlePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingLogshuttle extends SpeakeasyBase {

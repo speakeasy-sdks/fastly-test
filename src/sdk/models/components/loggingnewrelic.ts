@@ -24,7 +24,6 @@ export enum LoggingNewrelicFormatVersion {
 export enum LoggingNewrelicPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

@@ -44,7 +44,6 @@ export enum LoggingCloudfilesResponseMessageType {
 export enum LoggingCloudfilesResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -57,7 +56,6 @@ export enum LoggingCloudfilesResponseRegion {
     Lon = "LON",
     Syd = "SYD",
     Hkg = "HKG",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingCloudfilesResponse extends SpeakeasyBase {

@@ -25,7 +25,6 @@ export enum LoggingSumologicFormatVersion {
 export enum LoggingSumologicPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingSumologic extends SpeakeasyBase {

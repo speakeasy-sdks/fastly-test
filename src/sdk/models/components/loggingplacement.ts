@@ -11,5 +11,4 @@
 export enum LoggingPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }

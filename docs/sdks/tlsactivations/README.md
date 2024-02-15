@@ -31,7 +31,7 @@ async function run() {
 
   const res = await sdk.tlsActivations.createTlsActivation({
     data: {
-      relationships: "string",
+      relationships: "<value>",
     },
   });
 
@@ -210,7 +210,7 @@ async function run() {
   const res = await sdk.tlsActivations.updateTlsActivation({
     tlsActivation: {
       data: {
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     tlsActivationId: "aCtguUGZzb2W9Euo4moOR",

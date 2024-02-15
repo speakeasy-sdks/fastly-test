@@ -28,8 +28,8 @@ async function run() {
   });
 
   const res = await sdk.kvStoreItem.deleteKeyFromStore({
-    keyName: "string",
-    storeId: "string",
+    keyName: "<value>",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -72,7 +72,7 @@ async function run() {
   });
 
   const res = await sdk.kvStoreItem.getKeys({
-    storeId: "string",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -115,8 +115,8 @@ async function run() {
   });
 
   const res = await sdk.kvStoreItem.getValueForKey({
-    keyName: "string",
-    storeId: "string",
+    keyName: "<value>",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -159,8 +159,8 @@ async function run() {
   });
 
   const res = await sdk.kvStoreItem.setValueForKey({
-    keyName: "string",
-    storeId: "string",
+    keyName: "<value>",
+    storeId: "<value>",
   });
 
   if (res.statusCode == 200) {

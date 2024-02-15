@@ -28,7 +28,7 @@ async function run() {
   });
 
   const res = await sdk.apexRedirect.deleteApexRedirect({
-    apexRedirectId: "string",
+    apexRedirectId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -71,7 +71,7 @@ async function run() {
   });
 
   const res = await sdk.apexRedirect.getApexRedirect({
-    apexRedirectId: "string",
+    apexRedirectId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -161,10 +161,10 @@ async function run() {
   const res = await sdk.apexRedirect.updateApexRedirect({
     apexRedirect: {
       domains: [
-        "string",
+        "<value>",
       ],
     },
-    apexRedirectId: "string",
+    apexRedirectId: "<value>",
   });
 
   if (res.statusCode == 200) {

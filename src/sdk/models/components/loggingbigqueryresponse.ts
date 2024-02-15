@@ -25,7 +25,6 @@ export enum LoggingBigqueryResponseFormatVersion {
 export enum LoggingBigqueryResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingBigqueryResponse extends SpeakeasyBase {

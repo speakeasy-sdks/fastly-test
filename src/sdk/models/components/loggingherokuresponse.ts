@@ -25,7 +25,6 @@ export enum LoggingHerokuResponseFormatVersion {
 export enum LoggingHerokuResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingHerokuResponse extends SpeakeasyBase {

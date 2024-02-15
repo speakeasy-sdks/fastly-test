@@ -36,9 +36,9 @@ async function run() {
   const res = await sdk.wafActiveRules.bulkUpdateWafActiveRules({
     bulkWafActiveRule: {
       attributes: {
-        revision: "string",
+        revision: "<value>",
       },
-      relationships: "string",
+      relationships: "<value>",
     },
     firewallId: "fW7g2uUGZzb2W9Euo4Mo0r",
     versionId: 1,
@@ -91,9 +91,9 @@ async function run() {
       data: [
         {
           attributes: {
-            revision: "string",
+            revision: "<value>",
           },
-          relationships: "string",
+          relationships: "<value>",
         },
       ],
     },
@@ -149,9 +149,9 @@ async function run() {
     wafActiveRule: {
       data: {
         attributes: {
-          revision: "string",
+          revision: "<value>",
         },
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     wafTagName: "test-waf-tag",
@@ -349,9 +349,9 @@ async function run() {
     wafActiveRule: {
       data: {
         attributes: {
-          revision: "string",
+          revision: "<value>",
         },
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     wafRuleId: "3krg2uUGZzb2W9Euo4moOR",

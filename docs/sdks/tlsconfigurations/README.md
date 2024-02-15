@@ -120,7 +120,7 @@ async function run() {
     tlsConfiguration: {
       data: {
         attributes: {},
-        relationships: "string",
+        relationships: "<value>",
       },
     },
     tlsConfigurationId: "t7CguUGZzb2W9Euo5FoKa",

@@ -44,7 +44,6 @@ export enum LoggingAzureblobResponseMessageType {
 export enum LoggingAzureblobResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingAzureblobResponse extends SpeakeasyBase {

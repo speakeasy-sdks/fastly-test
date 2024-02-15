@@ -25,7 +25,6 @@ export enum LoggingPapertrailResponseFormatVersion {
 export enum LoggingPapertrailResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingPapertrailResponse extends SpeakeasyBase {

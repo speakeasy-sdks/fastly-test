@@ -42,7 +42,6 @@ export enum Method {
 export enum LoggingHttpsPlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingHttps extends SpeakeasyBase {

@@ -5,11 +5,10 @@ The variable to exclude. An optional selector can be specified after the variabl
 
 ## Values
 
-| Name                     | Value                    |
-| ------------------------ | ------------------------ |
-| `ReqCookies`             | req.cookies              |
-| `ReqHeaders`             | req.headers              |
-| `ReqPost`                | req.post                 |
-| `ReqPostFilename`        | req.post_filename        |
-| `ReqQs`                  | req.qs                   |
-| `LessThanNilGreaterThan` | <nil>                    |
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `ReqCookies`      | req.cookies       |
+| `ReqHeaders`      | req.headers       |
+| `ReqPost`         | req.post          |
+| `ReqPostFilename` | req.post_filename |
+| `ReqQs`           | req.qs            |

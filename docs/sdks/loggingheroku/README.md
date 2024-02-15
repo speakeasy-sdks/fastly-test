@@ -34,7 +34,7 @@ async function run() {
       format: "%h %l %u %t \"%r\" %&gt;s %b",
       formatVersion: LoggingHerokuFormatVersion.Two,
       name: "test-log-endpoint",
-      placement: LoggingHerokuPlacement.LessThanNilGreaterThan,
+      placement: LoggingHerokuPlacement.WafDebug,
       responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",

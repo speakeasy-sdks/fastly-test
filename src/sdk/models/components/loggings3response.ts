@@ -44,7 +44,6 @@ export enum LoggingS3ResponseMessageType {
 export enum LoggingS3ResponsePlacement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingS3Response extends SpeakeasyBase {

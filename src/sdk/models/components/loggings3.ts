@@ -43,7 +43,6 @@ export enum LoggingS3MessageType {
 export enum LoggingS3Placement {
     None = "none",
     WafDebug = "waf_debug",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class LoggingS3 extends SpeakeasyBase {

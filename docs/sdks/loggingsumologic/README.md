@@ -35,7 +35,7 @@ async function run() {
       formatVersion: LoggingSumologicFormatVersion.Two,
       messageType: LoggingMessageType.Classic,
       name: "test-log-endpoint",
-      placement: LoggingSumologicPlacement.WafDebug,
+      placement: LoggingSumologicPlacement.None,
       responseCondition: null,
     },
     serviceId: "SU1Z0isxPaozGVKXdv0eY",
