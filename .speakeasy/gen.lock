@@ -3,20 +3,20 @@ id: 9f954079-e510-4d7e-894c-e4c42b705708
 management:
   docChecksum: 751bdf7393ba568b37b599aaf063bcf1
   docVersion: 1.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.258.2
-  releaseVersion: 2.5.3
-  configChecksum: d01c2a705814a9f5591c032d38077503
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 2.5.4
+  configChecksum: ff8f317cf5113eb2c113d8209924b3c9
   repoURL: https://github.com/speakeasy-sdks/fastly-test.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fastly-test
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.4.7
+    core: 3.4.8
     deprecations: 2.81.1
-    globalSecurity: 2.82.2
-    globalServerURLs: 2.82.1
+    globalSecurity: 2.82.4
+    globalServerURLs: 2.82.2
     inputOutputModels: 2.83.0
     methodSecurity: 2.82.0
 generatedFiles:
